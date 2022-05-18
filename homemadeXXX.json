@@ -1,0 +1,15 @@
+{
+  "id": "homemadeXXX",
+  "name": "homemadeXXX",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://homemade.xxx/static/images/logo.dark.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

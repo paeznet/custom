@@ -1,0 +1,15 @@
+{
+  "id": "fullxcinema",
+  "name": "fullxcinema",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/6pzHP8WP/fullxcinema.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

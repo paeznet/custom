@@ -1,0 +1,15 @@
+{
+  "id": "ixiporn",
+  "name": "ixiporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://ixiporn.com/wp-content/uploads/2020/12/logo2.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

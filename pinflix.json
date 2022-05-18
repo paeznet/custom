@@ -1,0 +1,15 @@
+{
+  "id": "pinflix",
+  "name": "pinflix",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://cdn-static.pinflix.com/pinflix/image/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

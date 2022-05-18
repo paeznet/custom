@@ -1,0 +1,15 @@
+{
+  "id": "0asistant",
+  "name": "0asistant",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "",
+  "banner": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
+

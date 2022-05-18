@@ -1,0 +1,15 @@
+{
+  "id": "katestube",
+  "name": "katestube",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/4ydXmxZT/katestube.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

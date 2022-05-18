@@ -1,0 +1,15 @@
+{
+  "id": "videosection",
+  "name": "01videosection",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/dVtg3NCT/videosection.png",
+  "banner": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
+

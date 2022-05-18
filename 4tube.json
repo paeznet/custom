@@ -1,0 +1,15 @@
+{
+  "id": "4tube",
+  "name": "4tube",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.4tube.com/assets/img/layout/4tube-logo-1f503fd81c.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

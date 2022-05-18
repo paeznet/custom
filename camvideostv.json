@@ -1,0 +1,15 @@
+{
+  "id": "camvideostv",
+  "name": "camvideostv",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/W4B8gmnz/camvideostv.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

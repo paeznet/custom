@@ -1,0 +1,15 @@
+{
+  "id": "pornhat",
+  "name": "pornhat",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/QMbYCSSk/pornhat.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

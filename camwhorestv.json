@@ -1,0 +1,15 @@
+{
+  "id": "camwhorestv",
+  "name": "camwhorestv",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://cdn.camwhores.tv/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

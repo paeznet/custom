@@ -1,0 +1,15 @@
+{
+  "id": "shooshtime",
+  "name": "shooshtime",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.shoosh.co/static/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

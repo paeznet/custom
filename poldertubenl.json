@@ -1,0 +1,15 @@
+{
+  "id": "poldertubenl",
+  "name": "poldertubenl",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.poldertube.nl/wp-content/uploads/img/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

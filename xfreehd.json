@@ -1,0 +1,15 @@
+{
+  "id": "xfreehd",
+  "name": "xfreehd",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.xfreehd.com/templates/frontend/xfreehd/img/logo.png",
+  "banner": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
+

@@ -1,0 +1,15 @@
+{
+  "id": "porner",
+  "name": "porner",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://porner.tv/api/photo/logo/1/white_logo_b4b75c2a3870604037985b3de5fd10d4.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

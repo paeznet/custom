@@ -1,0 +1,15 @@
+{
+  "id": "vintagetube",
+  "name": "vintagetube",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

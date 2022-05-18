@@ -1,0 +1,15 @@
+{
+  "id": "bitporno",
+  "name": "bitporno",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.bitporno.com/images/logobt.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

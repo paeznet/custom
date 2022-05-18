@@ -1,0 +1,15 @@
+{
+  "id": "tukif",
+  "name": "tukif",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://assets.tukif.com/assets/tukif/img/logo_disclaimer.png?ver=1605191883",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

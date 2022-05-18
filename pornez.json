@@ -1,0 +1,15 @@
+{
+  "id": "pornez",
+  "name": "pornez",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/sXLQ6M7F/pornez.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

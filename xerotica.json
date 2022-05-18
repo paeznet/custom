@@ -1,0 +1,15 @@
+{
+  "id": "xerotica",
+  "name": "xerotica",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/fTrCN0R7/xerotica.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

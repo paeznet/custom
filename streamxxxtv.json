@@ -1,0 +1,15 @@
+{
+  "id": "streamxxxtv",
+  "name": "streamxxxtv",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/Zq82JMhx/streamxxxtv.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

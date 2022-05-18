@@ -1,0 +1,15 @@
+{
+  "id": "dailyxmovies",
+  "name": "dailyxmovies",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "http://dailyxmovies.com/wp-content/uploads/2019/01/logo2-1.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

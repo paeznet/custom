@@ -1,0 +1,15 @@
+{
+  "id": "mat6tube",
+  "name": "mat6tube",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/TwPrp1bN/mat6tube.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

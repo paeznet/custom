@@ -1,0 +1,15 @@
+{
+  "id": "vaginaNL",
+  "name": "vaginaNL",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://en.vagina.nl/img/logo-xmas.png",
+  "banner": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
+

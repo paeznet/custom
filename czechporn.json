@@ -1,0 +1,15 @@
+{
+  "id": "czechporn",
+  "name": "czechporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://czechporn.me/wp-content/uploads/2021/02/logo_png.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

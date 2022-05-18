@@ -1,0 +1,15 @@
+{
+  "id": "cambro",
+  "name": "cambro",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/RF5MhH6H/cambro.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

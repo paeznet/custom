@@ -1,0 +1,15 @@
+{
+  "id": "camseek",
+  "name": "camseek",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "http://camseek.tv/images/logo.png?v=3",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "xxxclub",
+  "name": "01xxxclub",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://xxxclub.club/public/img/logov1.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

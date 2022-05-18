@@ -1,0 +1,49 @@
+{
+  "id": "0pelis",
+  "name": "0pelis",
+  "active": true,
+  "adult": false,
+  "language": ["vos"],
+  "thumbnail": "",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "movie",
+    "vos"
+  ],
+  "settings": [
+    {
+      "id": "modo_grafico",
+      "type": "bool",
+      "label": "Buscar información extra",
+      "default": true,
+      "enabled": true,
+      "visible": true
+    },
+    {
+      "id": "include_in_global_search",
+      "type": "bool",
+      "label": "Incluir en busqueda global",
+      "default": true,
+      "enabled": true,
+      "visible": true
+    },
+    {
+      "id": "comprueba_enlaces",
+      "type": "bool",
+      "label": "Verificar si los enlaces existen",
+      "default": false,
+      "enabled": true,
+      "visible": true
+    },
+    {
+      "id": "comprueba_enlaces_num",
+      "type": "list",
+      "label": "Número de enlaces a verificar",
+      "default": 1,
+      "enabled": true,
+      "visible": "eq(-1,true)",
+      "lvalues": [ "5", "10", "15", "20" ]
+    } 
+  ]
+}

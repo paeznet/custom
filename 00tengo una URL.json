@@ -1,0 +1,11 @@
+{
+  "id": "url",
+  "name": "00Tengo una URL",
+  "active": true,
+  "adult": true,
+  "thumbnail": "https://i.postimg.cc/Cdtd6X6y/tengourl.png",
+  "banner": "tengourl.png", 
+  "categories": [
+    "adult"
+  ]
+}

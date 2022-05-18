@@ -1,0 +1,15 @@
+{
+  "id": "fpo",
+  "name": "fpo",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.fpo.xxx/images/logo2.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

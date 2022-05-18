@@ -1,0 +1,92 @@
+{
+    "id": "documaniatv",
+    "name": "DocumaniaTV",
+    "active": true,
+    "adult": false,
+    "language": ["cast"],
+    "banner": "",
+    "thumbnail": "https://www.documaniatv.com/uploads/custom-logo.png",
+    "version": 1,
+    "categories": [
+      "documentary",
+      "vos",
+      "direct",
+      "torrent"
+    ],
+    "settings": [
+    {
+      "default": true, 
+      "enabled": true, 
+      "id": "include_in_global_search", 
+      "label": "Incluir en busqueda global", 
+      "type": "bool", 
+      "visible": true
+    }, 
+    {
+      "default": true, 
+      "enabled": true, 
+      "id": "modo_grafico", 
+      "label": "Buscar información extra (TMDB)", 
+      "type": "bool", 
+      "visible": true
+    },
+    {
+      "id": "pseudo_titulos",
+      "type": "bool",
+      "label": "Desea ver Pseudo títulos de ayuda?",
+      "default": true,
+      "enabled": true,
+      "visible": true
+    },
+    {
+      "id": "filter_languages",
+      "type": "list",
+      "label": "Mostrar enlaces en idioma...",
+      "default": 0,
+      "enabled": true,
+      "visible": true,
+      "lvalues": [
+        "No filtrar",
+        "CAST",
+        "LAT",
+        "VO",
+        "VOS",
+        "VOSE"
+      ]
+    },
+    {
+      "id": "timeout_downloadpage",
+      "type": "list",
+      "label": "Timeout (segs.) en descarga de páginas o verificación de servidores",
+      "default": 5,
+      "enabled": true,
+      "visible": true,
+      "lvalues": [
+        "None",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    {
+      "id": "include_in_newest_documentales",
+      "type": "bool",
+      "label": "Incluir en Novedades - Documentales",
+      "default": true,
+      "enabled": true,
+      "visible": false
+    }
+  ]
+}

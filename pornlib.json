@@ -1,0 +1,15 @@
+{
+  "id": "pornlib",
+  "name": "pornlib",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://p3.plibcdn.com/templates/frontend/pornlib/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

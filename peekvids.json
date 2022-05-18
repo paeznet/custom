@@ -1,0 +1,15 @@
+{
+  "id": "peekvids",
+  "name": "peekvids",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/QMHMY1fc/peekvids.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

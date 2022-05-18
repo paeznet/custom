@@ -1,0 +1,15 @@
+{
+  "id": "oncam",
+  "name": "oncam",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://oncam.me/templates/bootadult4/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "vidoz8",
+  "name": "vidoz8",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/qqmtsVND/vidoz8.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

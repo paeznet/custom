@@ -1,0 +1,15 @@
+{
+  "id": "morritastube",
+  "name": "morritastube",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://img2.morritastube.xxx/2018/04/morritas_logo-min.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

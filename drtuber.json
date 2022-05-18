@@ -1,0 +1,16 @@
+{
+  "id": "drtuber",
+  "name": "drtuber",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/Wzp606NB/drtuber-logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
+

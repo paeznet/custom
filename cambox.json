@@ -1,0 +1,15 @@
+{
+  "id": "cambox",
+  "name": "cambox",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://cambox.to/contents/ajpdejvriila/theme/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

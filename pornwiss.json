@@ -1,0 +1,15 @@
+{
+  "id": "pornwiss",
+  "name": "pornwiss",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://pornwiss.com/wp-content/uploads/2021/09/logocom.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
