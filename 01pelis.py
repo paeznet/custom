@@ -21,7 +21,7 @@ from bs4 import BeautifulSoup
 from channelselector import get_thumb
 
 canonical = {
-             'channel': 'beemtube', 
+             'channel': 'peliseries', 
              'host': config.get_setting("current_host", 'peliseries', default=''), 
              'host_alt': ["https://peliseries.live"], 
              'host_black_list': [], 
@@ -69,15 +69,15 @@ def mainlist(item):
     itemlist = []
     autoplay.init(item.channel, list_servers, list_quality)
     
-    itemlist.append(item.clone(title="Peliculas" , action="lista", url= host + "/Peliculas.html?page=1", thumbnail=get_thumb("movies", auto=True)))
-    itemlist.append(item.clone(title="      Mas Vistas" , action="lista", url= host + "/Seccion.html?ver=PelisMasVistos", thumbnail=get_thumb("movies", auto=True)))
-    itemlist.append(item.clone(title="Series", action="lista", url= host + "/Series.html?page=1", thumbnail=get_thumb("tvshows", auto=True)))
-    itemlist.append(item.clone(title="      Mas Vistas" , action="lista", url= host + "/Seccion.html?ver=MasVistos", thumbnail=get_thumb("movies", auto=True)))
-    itemlist.append(item.clone(title="Anime", action="lista", url= host + "/Anime.html?page=1", thumbnail=get_thumb("anime", auto=True)))
-    itemlist.append(item.clone(title="Novela", action="lista", url= host + "/Novelas.html?page=1", thumbnail=get_thumb("tvshows", auto=True)))
-    itemlist.append(item.clone(title="Genero" , action="categorias", url= host, thumbnail=get_thumb('genres', auto=True)))
-    itemlist.append(item.clone(title="Buscar...", action="search", thumbnail=get_thumb("search", auto=True)))
-    itemlist.append(item.clone(title="Configurar canal...", action="configuracion", text_color="gold", folder=False, thumbnail=get_thumb("setting_0.png")))
+    itemlist.append(Item(channel=item.channel, title="Peliculas" , action="lista", url= host + "/Peliculas.html?page=1", thumbnail=get_thumb("movies", auto=True)))
+    itemlist.append(Item(channel=item.channel, title="      Mas Vistas" , action="lista", url= host + "/Seccion.html?ver=PelisMasVistos", thumbnail=get_thumb("movies", auto=True)))
+    itemlist.append(Item(channel=item.channel, title="Series", action="lista", url= host + "/Series.html?page=1", thumbnail=get_thumb("tvshows", auto=True)))
+    itemlist.append(Item(channel=item.channel, title="      Mas Vistas" , action="lista", url= host + "/Seccion.html?ver=MasVistos", thumbnail=get_thumb("movies", auto=True)))
+    itemlist.append(Item(channel=item.channel, title="Anime", action="lista", url= host + "/Anime.html?page=1", thumbnail=get_thumb("anime", auto=True)))
+    itemlist.append(Item(channel=item.channel, title="Novela", action="lista", url= host + "/Novelas.html?page=1", thumbnail=get_thumb("tvshows", auto=True)))
+    itemlist.append(Item(channel=item.channel, title="Genero" , action="categorias", url= host, thumbnail=get_thumb('genres', auto=True)))
+    itemlist.append(Item(channel=item.channel, title="Buscar...", action="search", thumbnail=get_thumb("search", auto=True)))
+    itemlist.append(Item(channel=item.channel, title="Configurar canal...", action="configuracion", text_color="gold", folder=False, thumbnail=get_thumb("setting_0.png")))
     
     autoplay.show_option(item.channel, itemlist)
     return itemlist
@@ -116,7 +116,7 @@ def categorias(item):
         title = elem.text
         url = urlparse.urljoin(item.url,url)
         if "Buscar" in url:
-            itemlist.append(item.clone(channel=item.channel, action="lista", title=title , url=url, 
+            itemlist.append(Item(channel=item.channel, channel=item.channel, action="lista", title=title , url=url, 
                               section=item.section) )
     return itemlist
 
@@ -191,7 +191,7 @@ def lista(item):
     if next_page:
         next_page = next_page.find_next_sibling("li").a['href']
         next_page = urlparse.urljoin(item.url,next_page)
-        itemlist.append(item.clone(action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+        itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
@@ -209,11 +209,11 @@ def seasons(item):
         title = "Temporada %s" % season
         infoLabels["season"] = season
         url= "pid=%s&tipo=Serie&temp=%s&cap=-1" %(item.pid,season)
-        itemlist.append(item.clone(title=title, url=url, action="episodesxseasons",
+        itemlist.append(Item(channel=item.channel, title=title, url=url, action="episodesxseasons",
                              infoLabels=infoLabels))
     tmdb.set_infoLabels_itemlist(itemlist, True)
     if config.get_videolibrary_support() and len(itemlist) > 0:
-        itemlist.append(item.clone(title="[COLOR yellow]Añadir esta serie a la videoteca[/COLOR]", url=item.url,
+        itemlist.append(Item(channel=item.channel, title="[COLOR yellow]Añadir esta serie a la videoteca[/COLOR]", url=item.url,
                  action="add_serie_to_library", extra="episodios", contentSerieName=item.contentSerieName))
     return itemlist
 
@@ -233,7 +233,7 @@ def episodesxseasons(item):
         title = "%sx%s" % (season, cap)
         infoLabels["episode"] = cap
         url= "pid=%s&tipo=Serie&temp=%s&cap=%s" %(item.pid,season,cap)
-        itemlist.append(item.clone(title=title, url=url, action="findvideos",
+        itemlist.append(Item(channel=item.channel, title=title, url=url, action="findvideos",
                                  infoLabels=infoLabels))
     tmdb.set_infoLabels_itemlist(itemlist, True)
     
@@ -312,7 +312,7 @@ def findvideos(item):
                 title = "%s: [%s] [COLOR greenyellow]%s[/COLOR] [COLOR darkgrey][%s][/COLOR]" %(option,server,quality,lang)
             else:
                 title = hst
-            itemlist.append(item.clone(action="play", title=title, url=url, server=server, language=lang, quality=quality, tipo=option, tipo1=option1 ))
+            itemlist.append(Item(channel=item.channel, action="play", title=title, url=url, server=server, language=lang, quality=quality, tipo=option, tipo1=option1 ))
 
     # itemlist.sort(key=lambda it: (it.tipo1, it.language))  # Ordenar 1 Ver y 2 Descargar por lenguage
 
@@ -325,7 +325,7 @@ def findvideos(item):
     autoplay.start(itemlist, item)
 
     if config.get_videolibrary_support() and len(itemlist) > 0 and item.extra !='findvideos' and not "/episodios/" in item.url :
-        itemlist.append(item.clone(action="add_pelicula_to_library", 
+        itemlist.append(Item(channel=item.channel, action="add_pelicula_to_library", 
                              title='[COLOR yellow]Añadir esta pelicula a la videoteca[/COLOR]', url=item.url,
                              extra="findvideos", contentTitle=item.contentTitle)) 
     return itemlist
@@ -390,6 +390,6 @@ def play(item):
     if "Ver" in  item.tipo and not "Fembed" in item.server:
         url = player(item.url, item.pid)
     item.server=""
-    itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

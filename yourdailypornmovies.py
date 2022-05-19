@@ -17,18 +17,34 @@ from core.item import Item
 from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
+from channels import autoplay
 
-host = 'https://yourdailypornmovies.ws'
+list_quality = []
+list_servers = ['mangovideo']
 
+canonical = {
+             'channel': 'yourdailypornmovies', 
+             'host': config.get_setting("current_host", 'yourdailypornmovies', default=''), 
+             'host_alt': ["https://yourdailypornmovies.ws"], 
+             'host_black_list': [], 
+             'CF': False, 'CF_test': False, 'alfa_s': True
+            }
+host = canonical['host'] or canonical['host_alt'][0]
 
                                 # NETU
 
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(item.clone(title="Nuevos" , action="lista", url=host))
-    itemlist.append(item.clone(title="Categorias" , action="categorias", url=host))
-    itemlist.append(item.clone(title="Buscar", action="search"))
+
+    autoplay.init(item.channel, list_servers, list_quality)
+
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host))
+    itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
+
+    autoplay.show_option(item.channel, itemlist)
+
     return itemlist
 
 
@@ -55,7 +71,7 @@ def categorias(item):
         title = elem.a.text.strip()
         thumbnail = ""
         plot = ""
-        itemlist.append(item.clone(action="lista", title=title, url=url,
+        itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                               thumbnail=thumbnail , plot=plot) )
     return itemlist
 
@@ -84,24 +100,39 @@ def lista(item):
         action = "play"
         if logger.info() == False:
             action = "findvideos"
-        itemlist.append(item.clone(action="findvideos", title=title, url=url, thumbnail=thumbnail,
+        itemlist.append(Item(channel=item.channel, action="findvideos", title=title, url=url, thumbnail=thumbnail,
                                plot=plot, fanart=thumbnail, contentTitle=title ))
     next_page = soup.find('span', class_='current')
     if next_page:
         next_page = soup.find('span', class_='current').find_next_sibling('a')['href']
-        itemlist.append(item.clone(action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+        itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
+# https://yourdailypornmovies.ws/africa-bombassa/
+# <div id="play-1" class="player-content">
+# <iframe width="640" height="480" src="about:blank" data-rocket-lazyload="fitvidscompatible" data-lazy-src="//xpornium.net/embed/7r16jzrkh0m1n9" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+# https://xpornium.net/embed/7r16jzrkh0m1n9
 
 def findvideos(item):
     logger.info(item)
     itemlist = []
-    soup = create_soup(item.url).find('div', class_='player-content')
-    logger.debug(soup)
-    matches = soup.find_all('iframe')
+    soup = create_soup(item.url)
+    pornstars = soup.find('b', class_='icon-star').parent.find_all('a')
+    for x , value in enumerate(pornstars):
+        pornstars[x] = value.text.strip()
+    pornstar = ' & '.join(pornstars)
+    pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+    # if not "/xxxmovies/" in item.url:
+        # lista = item.contentTitle.split()
+        # lista.insert (0, pornstar)
+        # item.contentTitle = ' '.join(lista)
+    plot = pornstar
+    matches = soup.find('div', class_='player-content').find_all('iframe')
     for elem in matches:
         url = elem['data-lazy-src']
         if not "yandexcdn" in url and not "upvideo" in url:
-            itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.title, url=url))
+            itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, plot=plot, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    # Requerido para AutoPlay
+    autoplay.start(itemlist, item)
     return itemlist
