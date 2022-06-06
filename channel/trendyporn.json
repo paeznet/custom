@@ -1,0 +1,15 @@
+{
+  "id": "trendyporn",
+  "name": "trendyporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.trendyporn.com/fav32x32.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

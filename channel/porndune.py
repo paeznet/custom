@@ -163,6 +163,10 @@ def lista(item):
     for elem in matches:
         # logger.debug(soup)
         url = elem.a['href']
+        url = url.replace("watch/[A-z0-9-]+", "watch/")
+        url = url.split('?')
+        url = "%s/en/watch/?%s" %(host,url[-1])
+        logger.debug(url)
         title = elem.img['alt']
         thumbnail = elem.img['data-src']
         # time = elem.find('span', class_='label time').text.strip()
@@ -197,6 +201,12 @@ def findvideos(item):
 
 
 # https://porndune.com/data/embed
+# <iframe id="tubeplayer" class="resizeFrame" src="https://trafficdepot.xyz/v/y0z02fed4340mmn" width="100%" height="auto" frameborder="0" allowfullscreen></iframe>
+
+# https://trafficdepot.xyz/v/y0z02fed4340mmn
+# https://trafficdepot.xyz/api/source/y0z02fed4340mmn  #?r=&d=trafficdepot.xyz
+# post = {'r':, 'd': 'trafficdepot.xyz'}
+
 
 def play(item):
     logger.info()
@@ -212,7 +222,7 @@ def play(item):
     vid = scrapertools.find_single_match(data, "var vid = (\d+);")
     hid = scrapertools.find_single_match(data, "var hid = (\d+);")    
 
-    posturl = "https://porndune.com/data/videoviewed"
+    posturl = "https://porndune.com/data/embed"
     post= {"vid": vid, "hid": hid, "type": "video"}
     headers = {"X-Requested-With": "XMLHttpRequest", "Referer": item.url}
     data = httptools.downloadpage(posturl, headers = headers, post=post).data

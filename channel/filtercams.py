@@ -19,11 +19,10 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 canonical = {
-             'channel': 'xtits', 
-             'host': config.get_setting("current_host", 'xtits', default=''), 
-             'host_alt': ["https://www.xtits.com"], 
+             'channel': 'filtercams', 
+             'host': config.get_setting("current_host", 'filtercams', default=''), 
+             'host_alt': ["https://filtercams.com"], 
              'host_black_list': [], 
-             'pattern': ['href="?([^"|\s*]+)["|\s*]\s*rel="?stylesheet"?'], 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -35,10 +34,10 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/latest-updates/?sort_by=post_date&from=01"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/most-popular/?sort_by=video_viewed_month&from=01"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/top-rated/1/?sort_by=rating_month&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "/most-commented/1/?sort_by=most_commented_month&from=01"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "/models/?sort_by=avg_videos_popularity&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "/sites/?sort_by=avg_videos_popularity&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/categories/?sort_by=avg_videos_popularity&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "/search/?sort_by=most_commented&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "/search/?sort_by=duration&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Mas favorito" , action="lista", url=host + "/search/?sort_by=most_favourited&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/categories/?sort_by=title"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 

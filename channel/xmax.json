@@ -1,0 +1,15 @@
+{
+  "id": "xmax",
+  "name": "xmax",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://xmax.to/wp-content/uploads/2020/04/cropped-android-chrome-512x512-1-180x180.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

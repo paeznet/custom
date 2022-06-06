@@ -1,0 +1,15 @@
+{
+  "id": "pornmeka",
+  "name": "pornmeka",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://pornmeka.com/favicon.ico",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

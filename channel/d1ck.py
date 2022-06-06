@@ -107,6 +107,7 @@ def lista(item):
             title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
+        url = urlparse.urljoin(item.url,url)
         plot = ""
         action = "play"
         if logger.info() == False:

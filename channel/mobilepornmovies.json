@@ -1,0 +1,15 @@
+{
+  "id": "mobilepornmovies",
+  "name": "mobilepornmovies",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://cdn1.images.mobilepornmovies.com/dart/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

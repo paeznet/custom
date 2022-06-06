@@ -1,0 +1,15 @@
+{
+  "id": "movieshark",
+  "name": "movieshark",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://cdn1.images.movieshark.com/dart/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
