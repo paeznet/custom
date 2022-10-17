@@ -125,7 +125,6 @@ def findvideos(item):
     soup = create_soup(item.url)
     matches = soup.find_all('div', id=re.compile(r"^tab\d+"))
     for elem in matches:
-        # logger.debug(elem)
         text = elem.text.strip()
         ser = scrapertools.find_single_match(text, '(\w+)\(')
         id = scrapertools.find_single_match(text, '\w+\("([^"]+)"')

@@ -147,7 +147,8 @@ def play(item):
     matches = create_soup(url).find_all('source', type='video/mp4')
     for elem in matches:
         url = elem['src']
-        url += "|Referer=%s" % item.url
-        itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+        url += "|ignore_response_code=True"
+        itemlist.append(Item(channel=item.channel, action="play", title= "Directo", url=url))
+        # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

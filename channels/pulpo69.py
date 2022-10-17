@@ -31,19 +31,19 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
-
-    itemlist.append(Item(channel=item.channel, title="", action="", folder=False))
-
     soup = create_soup(host)
-    matches = soup.find_all('a', class_='link_video')
+    matches = soup.find_all('div', class_='gallery-item-category')
     for elem in matches:
-        url = elem['href']
-        title = elem['title']
-        thumbnail = elem.img['data-real-src']
+        url = elem.a['href']
+        title = elem.a['title'].capitalize()
+        thumbnail = elem.a.img['data-real-src']
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                               thumbnail=thumbnail , plot=plot) )
+    itemlist.sort(key=lambda x: x.title)
+
+    itemlist.append(Item(channel=item.channel, title="", action="", folder=False))
+    itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
 

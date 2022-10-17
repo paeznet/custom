@@ -19,24 +19,35 @@ from core import httptools
 from core import jsontools
 from bs4 import BeautifulSoup
 
-host = 'https://www.cartoonpornvideos.com'      # https://www.asianpornmovies.com https://www.asspoint.com https://www.cartoonpornvideos.com https://www.ghettotube.com 
-                                                # https://www.lesbianpornvideos.com https://www.porntitan.com https://www.porntv.com https://www.teenieporn.com 
-                                                # https://www.sexoasis.com https://www.youngpornvideos.com
+# CAM    https://www.asianpornmovies.com https://www.asspoint.com https://www.mobilepornmovies.com https://movieshark.com https://www.sexoasis.com    https://www.porngash.com 
+# https://www.cartoonpornvideos.com https://www.ghettotube.com 
+# https://www.lesbianpornvideos.com  https://www.porntv.com https://www.teenieporn.com https://www.youngpornvideos.com
+# https://www.porntitan.com 
+
+canonical = {
+             'channel': 'cartoonpornvideos', 
+             'host': config.get_setting("current_host", 'cartoonpornvideos', default=''), 
+             'host_alt': ["https://www.cartoonpornvideos.com"], 
+             'host_black_list': [], 
+             'CF': False, 'CF_test': False, 'alfa_s': True
+            }
+host = canonical['host'] or canonical['host_alt'][0]
+
 
 def mainlist(item):
     logger.info()
     itemlist = []
 
-    itemlist.append(item.clone(title="Nuevos" , action="lista", url=host + "/videos/straight/all-recent.html"))
-    itemlist.append(item.clone(title="Mas vistos" , action="lista", url=host + "/videos/straight/all-view.html"))
-    itemlist.append(item.clone(title="Mas popular" , action="lista", url=host + "/videos/straight/all-popular.html"))
-    itemlist.append(item.clone(title="Mejor valorado" , action="lista", url=host + "/videos/straight/all-rate.html"))
-    itemlist.append(item.clone(title="Mas metraje" , action="lista", url=host + "/videos/straight/all-length.html"))
-    itemlist.append(item.clone(title="Parodia" , action="categorias", url=host + "/characters/"))
-    itemlist.append(item.clone(title="Canal" , action="categorias", url=host + "/channels/"))
+    itemlist.append(Item(channel = item.channel,title="Nuevos" , action="lista", url=host + "/videos/straight/all-recent.html"))
+    itemlist.append(Item(channel = item.channel,title="Mas vistos" , action="lista", url=host + "/videos/straight/all-view.html"))
+    itemlist.append(Item(channel = item.channel,title="Mas popular" , action="lista", url=host + "/videos/straight/all-popular.html"))
+    itemlist.append(Item(channel = item.channel,title="Mejor valorado" , action="lista", url=host + "/videos/straight/all-rate.html"))
+    itemlist.append(Item(channel = item.channel,title="Mas metraje" , action="lista", url=host + "/videos/straight/all-length.html"))
+    itemlist.append(Item(channel = item.channel,title="Parodia" , action="categorias", url=host + "/characters/"))
+    itemlist.append(Item(channel = item.channel,title="Canal" , action="categorias", url=host + "/channels/"))
 
-    itemlist.append(item.clone(title="Categorias" , action="categorias", url=host + "/categories/"))
-    itemlist.append(item.clone(title="Buscar", action="search"))
+    itemlist.append(Item(channel = item.channel,title="Categorias" , action="categorias", url=host + "/categories/"))
+    itemlist.append(Item(channel = item.channel,title="Buscar", action="search"))
     return itemlist
 
 
@@ -75,7 +86,7 @@ def categorias(item):
         thumbnail = urlparse.urljoin(item.url,thumbnail)
         plot = ""
         if not "/galleries/" in url:
-            itemlist.append(item.clone(action="lista", title=title, url=url, fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
+            itemlist.append(Item(channel = item.channel,action="lista", title=title, url=url, fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     return itemlist
 
 
@@ -111,13 +122,13 @@ def lista(item):
         action = "play"
         if logger.info() == False:
             action = "findvideos"
-        itemlist.append(item.clone(action=action, title=title, url=url, thumbnail=thumbnail,
+        itemlist.append(Item(channel = item.channel,action=action, title=title, url=url, thumbnail=thumbnail,
                                    plot=plot, fanart=thumbnail, contentTitle=title ))
     next_page = soup.find('div', class_='pagination _767p').find('a', class_='next')
     if next_page:
         next_page = next_page['href']
         next_page = urlparse.urljoin(item.url,next_page)
-        itemlist.append(item.clone(action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+        itemlist.append(Item(channel = item.channel,action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
@@ -127,14 +138,13 @@ def findvideos(item):
     data = httptools.downloadpage(item.url).data
     m3u = scrapertools.find_single_match(data, 'file: "([^"]+)"')
     data = httptools.downloadpage(m3u).data
-    # logger.debug(data)
     data = data.decode("utf8")
     patron = 'RESOLUTION=\d+x(\d+),.*?'
     patron += '(index-.*?).m3u8'
     matches = re.compile(patron,re.DOTALL).findall(data)
     for quality,url in matches:
         url = m3u.replace("master", url)
-        itemlist.append(item.clone(action="play", title=quality, url=url) )
+        itemlist.append(Item(channel = item.channel,action="play", title=quality, url=url) )
     return itemlist
 
 
@@ -144,7 +154,6 @@ def play(item):
     data = httptools.downloadpage(item.url).data
     m3u = scrapertools.find_single_match(data, 'file: "([^"]+)"')
     data = httptools.downloadpage(m3u).data
-    # logger.debug(data)
     data = data.decode("utf8")
     patron = 'RESOLUTION=\d+x(\d+),.*?'
     patron += '(index-.*?).m3u8'

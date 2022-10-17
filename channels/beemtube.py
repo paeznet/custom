@@ -125,7 +125,6 @@ def lista(item):
         thumbnail = elem.img['src']
         if "base64" in thumbnail:
             thumbnail = elem.img['data-src']
-
         time = elem.find('div', class_='duration').text.strip()
         quality = elem.find('span', class_='hd_video')
         if quality:
@@ -150,11 +149,8 @@ def findvideos(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    url = soup.find('div', id='player').noscript.text
-    url = scrapertools.find_single_match(url, '<source src="([^"]+)"')
-    url += "|Referer=%s" % host
-    itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    url = soup.find('div', id='player').source['src']
+    itemlist.append(item.clone(action="play", title= "Directo", contentTitle = item.title, url=url))
     return itemlist
 
 
@@ -162,9 +158,6 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    url = soup.find('div', id='player').noscript.text
-    url = scrapertools.find_single_match(url, '<source src="([^"]+)"')
-    url += "|Referer=%s" % host
-    itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    url = soup.find('div', id='player').source['src']
+    itemlist.append(item.clone(action="play", title= "Directo", contentTitle = item.title, url=url))
     return itemlist

@@ -162,22 +162,15 @@ def findvideos(item):
     itemlist = []
     if "index.php" in item.url:
         url = item.url.replace("index.php?", "load_m3u8_xtremestream.php?")
-        logger.debug(url)
-        headers = {'Referer': item.url}
-        data = httptools.downloadpage(url, headers=headers).data
-        # logger.debug(data)
     else:
         soup = create_soup(item.url)
         url = soup.iframe['src']
         item.url = url
         url = item.url.replace("index.php?", "load_m3u8_xtremestream.php?")
-        headers = {'Referer': item.url}
-        data = httptools.downloadpage(url, headers=headers).data
-        # logger.debug(data)
-    patron = r'#EXT-X-STREAM-INF.*?RESOLUTION=\d+x(\d+).*?\s(http.*?)\n'
+    data = httptools.downloadpage(url).data
+    patron = r'RESOLUTION=\d+x(\d+).*?\s(http.*?&q=\d+)'
     matches = scrapertools.find_multiple_matches(data, patron)
     for quality, url in matches:
-        # url += "|Referer=%s" % item.url
         itemlist.append(Item(channel=item.channel, action="play", title= quality, contentTitle = item.title, url=url))
     return itemlist
 
@@ -192,7 +185,10 @@ def play(item):
         url = soup.iframe['src']
         item.url = url
         url = item.url.replace("index.php?", "load_m3u8_xtremestream.php?")
-    url += "|Referer=%s" % item.url
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    data = httptools.downloadpage(url).data
+    patron = r'RESOLUTION=\d+x(\d+).*?\s(http.*?&q=\d+)'
+    matches = scrapertools.find_multiple_matches(data, patron)
+    for quality, url in matches:
+        # url += '|ignore_response_code="True"'
+        itemlist.append(['%sp' %quality, url])
     return itemlist

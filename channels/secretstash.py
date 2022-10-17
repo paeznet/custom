@@ -24,9 +24,9 @@ from channels import autoplay
 list_quality = ['default']
 list_servers = []
 
-host = 'https://secretstash.in'
-url_api = host + "/api/v1/releases?Limit=20&Offset=0"
-
+host = "https://pornstash.in" #https://secretstash.in
+# url_api = host + "/api/v1/releases?Limit=20&Offset=0"
+# https://pornstash.in/api/v1/releases?Limit=20&Offset=0
 
 def mainlist(item):
     logger.info()
@@ -34,7 +34,7 @@ def mainlist(item):
 
     autoplay.init(item.channel, list_servers, list_quality)
 
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=url_api))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="submenu"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
 
@@ -46,67 +46,67 @@ def mainlist(item):
 def submenu(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="OnlyFans" , action="lista", url=url_api + "&Studio=OnlyFans"))
-    itemlist.append(Item(channel=item.channel, title="X-Angels" , action="lista", url=url_api + "&Studio=X-Angels"))
-    itemlist.append(Item(channel=item.channel, title="Tiny4K" , action="lista", url=url_api + "&Studio=Tiny4K"))
-    itemlist.append(Item(channel=item.channel, title="Nubiles" , action="lista", url=url_api + "&Studio=Nubiles"))
-    itemlist.append(Item(channel=item.channel, title="FTVGirls" , action="lista", url=url_api + "&Studio=FTVGirls"))
-    itemlist.append(Item(channel=item.channel, title="MetArtX" , action="lista", url=url_api + "&Studio=MetArtX"))
-    itemlist.append(Item(channel=item.channel, title="VivThomas" , action="lista", url=url_api + "&Studio=VivThomas"))
-    itemlist.append(Item(channel=item.channel, title="NaughtyOffice" , action="lista", url=url_api + "&Studio=NaughtyOffice"))
-    itemlist.append(Item(channel=item.channel, title="EvilAngel" , action="lista", url=url_api + "&Studio=EvilAngel"))
-    itemlist.append(Item(channel=item.channel, title="FamilyStrokes" , action="lista", url=url_api + "&Studio=FamilyStrokes"))
-    itemlist.append(Item(channel=item.channel, title="SexMex" , action="lista", url=url_api + "&Studio=SexMex"))
-    itemlist.append(Item(channel=item.channel, title="ATK" , action="lista", url=url_api + "&Studio=ATK"))
-    itemlist.append(Item(channel=item.channel, title="BrazzersExxtra" , action="lista", url=url_api + "&Studio=BrazzersExxtra"))
-    itemlist.append(Item(channel=item.channel, title="RKPrime" , action="lista", url=url_api + "&Studio=RKPrime"))
-    itemlist.append(Item(channel=item.channel, title="Private" , action="lista", url=url_api + "&Studio=Private"))
-    itemlist.append(Item(channel=item.channel, title="Bang" , action="lista", url=url_api + "&Studio=Bang"))
-    itemlist.append(Item(channel=item.channel, title="ClubSweethearts" , action="lista", url=url_api + "&Studio=ClubSweethearts"))
-    itemlist.append(Item(channel=item.channel, title="SexArt" , action="lista", url=url_api + "&Studio=SexArt"))
-    itemlist.append(Item(channel=item.channel, title="SisLovesMe" , action="lista", url=url_api + "&Studio=SisLovesMe"))
-    itemlist.append(Item(channel=item.channel, title="BangBus" , action="lista", url=url_api + "&Studio=BangBus"))
-    itemlist.append(Item(channel=item.channel, title="PlayboyPlus" , action="lista", url=url_api + "&Studio=PlayboyPlus"))
-    itemlist.append(Item(channel=item.channel, title="MyPervyFamily " , action="lista", url=url_api + "&Studio=MyPervyFamily"))
-    itemlist.append(Item(channel=item.channel, title="PutaLocura " , action="lista", url=url_api + "&Studio=PutaLocura"))
-    itemlist.append(Item(channel=item.channel, title="JacquieEtMichelTV" , action="lista", url=url_api + "&Studio=JacquieEtMichelTV"))
-    itemlist.append(Item(channel=item.channel, title="MySistersHotFriend " , action="lista", url=url_api + "&Studio=MySistersHotFriend"))
-    itemlist.append(Item(channel=item.channel, title="PublicAgent  " , action="lista", url=url_api + "&Studio=PublicAgent"))
-    itemlist.append(Item(channel=item.channel, title="CzechCasting  " , action="lista", url=url_api + "&Studio=CzechCasting"))
-    itemlist.append(Item(channel=item.channel, title="MyDirtyMaid  " , action="lista", url=url_api + "&Studio=MyDirtyMaid"))
-    itemlist.append(Item(channel=item.channel, title="CherryPimps " , action="lista", url=url_api + "&Studio=CherryPimps"))
-    itemlist.append(Item(channel=item.channel, title="TeamSkeetSelects " , action="lista", url=url_api + "&Studio=TeamSkeetSelects"))
-    itemlist.append(Item(channel=item.channel, title="NubileFilms  " , action="lista", url=url_api + "&Studio=NubileFilms"))
-    itemlist.append(Item(channel=item.channel, title="Hegre " , action="lista", url=url_api + "&Studio=Hegre"))
-    itemlist.append(Item(channel=item.channel, title="BlacksOnBlondes " , action="lista", url=url_api + "&Studio=BlacksOnBlondes"))
-    itemlist.append(Item(channel=item.channel, title="MassageRooms" , action="lista", url=url_api + "&Studio=MassageRooms"))
-    itemlist.append(Item(channel=item.channel, title="BlackedRaw " , action="lista", url=url_api + "&Studio=BlackedRaw "))
-    itemlist.append(Item(channel=item.channel, title="MonstersOfCock " , action="lista", url=url_api + "&Studio=MonstersOfCock"))
-    itemlist.append(Item(channel=item.channel, title="Blacked" , action="lista", url=url_api + "&Studio=Blacked"))
-    itemlist.append(Item(channel=item.channel, title="SpyFam " , action="lista", url=url_api + "&Studio=SpyFam"))
-    itemlist.append(Item(channel=item.channel, title="FamilySwap " , action="lista", url=url_api + "&Studio=FamilySwap"))
-    itemlist.append(Item(channel=item.channel, title="BigTitsRoundAsses " , action="lista", url=url_api + "&Studio=BigTitsRoundAsses"))
-    itemlist.append(Item(channel=item.channel, title="JapanHDV " , action="lista", url=url_api + "&Studio=JapanHDV"))
-    itemlist.append(Item(channel=item.channel, title="GloryHoleSecrets " , action="lista", url=url_api + "&Studio=GloryHoleSecrets"))
-    itemlist.append(Item(channel=item.channel, title="Joymii" , action="lista", url=url_api + "&Studio=Joymii"))
-    itemlist.append(Item(channel=item.channel, title="PervsOnPatrol " , action="lista", url=url_api + "&Studio=PervsOnPatrol"))
-    itemlist.append(Item(channel=item.channel, title="EdgeQueens " , action="lista", url=url_api + "&Studio=EdgeQueens"))
-    itemlist.append(Item(channel=item.channel, title="Vixen " , action="lista", url=url_api + "&Studio=Vixen"))
-    itemlist.append(Item(channel=item.channel, title="CastingCouch" , action="lista", url=url_api + "&Studio=CastingCouch"))
-    itemlist.append(Item(channel=item.channel, title="FamilyHookups" , action="lista", url=url_api + "&Studio=FamilyHookups"))
-    itemlist.append(Item(channel=item.channel, title="BangBros" , action="lista", url=url_api + "&Studio=BangBros"))
-    itemlist.append(Item(channel=item.channel, title="ATKHairy " , action="lista", url=url_api + "&Studio=ATKHairy"))
-    itemlist.append(Item(channel=item.channel, title="Anilos " , action="lista", url=url_api + "&Studio=Anilos"))
-    itemlist.append(Item(channel=item.channel, title="BrattySis " , action="lista", url=url_api + "&Studio=BrattySis"))
-    itemlist.append(Item(channel=item.channel, title="PervTherapy " , action="lista", url=url_api + "&Studio=PervTherapy"))
-    itemlist.append(Item(channel=item.channel, title="GangbangCreampie " , action="lista", url=url_api + "&Studio=GangbangCreampie"))
-    itemlist.append(Item(channel=item.channel, title="StepSiblings " , action="lista", url=url_api + "&Studio=StepSiblings"))
-    itemlist.append(Item(channel=item.channel, title="FamilyXXX " , action="lista", url=url_api + "&Studio=FamilyXXX"))
-    itemlist.append(Item(channel=item.channel, title="ExploitedCollegeGirls" , action="lista", url=url_api + "&Studio=ExploitedCollegeGirls"))
-    itemlist.append(Item(channel=item.channel, title="PrivateCasting-X" , action="lista", url=url_api + "&Studio=PrivateCasting-X"))
-    itemlist.append(Item(channel=item.channel, title="FakeTaxi" , action="lista", url=url_api + "&Studio=FakeTaxi"))
-    itemlist.append(Item(channel=item.channel, title="TushyRaw" , action="lista", url=url_api + "&Studio=TushyRaw"))
-    itemlist.append(Item(channel=item.channel, title="MyFamilyPies" , action="lista", url=url_api + "&Studio=MyFamilyPies"))
+    # itemlist.append(Item(channel=item.channel, title="OnlyFans" , action="lista", url=host + "/category/OnlyFans"))
+    itemlist.append(Item(channel=item.channel, title="X-Angels" , action="lista", url=host + "/category/X-Angels"))
+    itemlist.append(Item(channel=item.channel, title="Tiny4K" , action="lista", url=host + "/category/Tiny4K"))
+    itemlist.append(Item(channel=item.channel, title="Nubiles" , action="lista", url=host + "/category/Nubiles"))
+    itemlist.append(Item(channel=item.channel, title="FTVGirls" , action="lista", url=host + "/category/FTVGirls"))
+    # itemlist.append(Item(channel=item.channel, title="MetArtX" , action="lista", url=host + "/category/MetArtX"))
+    itemlist.append(Item(channel=item.channel, title="VivThomas" , action="lista", url=host + "/category/VivThomas"))
+    itemlist.append(Item(channel=item.channel, title="NaughtyOffice" , action="lista", url=host + "/category/NaughtyOffice"))
+    itemlist.append(Item(channel=item.channel, title="EvilAngel" , action="lista", url=host + "/category/EvilAngel"))
+    itemlist.append(Item(channel=item.channel, title="FamilyStrokes" , action="lista", url=host + "/category/FamilyStrokes"))
+    itemlist.append(Item(channel=item.channel, title="SexMex" , action="lista", url=host + "/category/SexMex"))
+    itemlist.append(Item(channel=item.channel, title="ATK" , action="lista", url=host + "/category/ATK"))
+    itemlist.append(Item(channel=item.channel, title="BrazzersExxtra" , action="lista", url=host + "/category/BrazzersExxtra"))
+    itemlist.append(Item(channel=item.channel, title="RKPrime" , action="lista", url=host + "/category/RKPrime"))
+    itemlist.append(Item(channel=item.channel, title="Private" , action="lista", url=host + "/category/Private"))
+    itemlist.append(Item(channel=item.channel, title="Bang" , action="lista", url=host + "/category/Bang"))
+    itemlist.append(Item(channel=item.channel, title="ClubSweethearts" , action="lista", url=host + "/category/ClubSweethearts"))
+    itemlist.append(Item(channel=item.channel, title="SexArt" , action="lista", url=host + "/category/SexArt"))
+    itemlist.append(Item(channel=item.channel, title="SisLovesMe" , action="lista", url=host + "/category/SisLovesMe"))
+    itemlist.append(Item(channel=item.channel, title="BangBus" , action="lista", url=host + "/category/BangBus"))
+    itemlist.append(Item(channel=item.channel, title="PlayboyPlus" , action="lista", url=host + "/category/PlayboyPlus"))
+    itemlist.append(Item(channel=item.channel, title="MyPervyFamily " , action="lista", url=host + "/category/MyPervyFamily"))
+    itemlist.append(Item(channel=item.channel, title="PutaLocura " , action="lista", url=host + "/category/PutaLocura"))
+    itemlist.append(Item(channel=item.channel, title="JacquieEtMichelTV" , action="lista", url=host + "/category/JacquieEtMichelTV"))
+    itemlist.append(Item(channel=item.channel, title="MySistersHotFriend " , action="lista", url=host + "/category/MySistersHotFriend"))
+    itemlist.append(Item(channel=item.channel, title="PublicAgent  " , action="lista", url=host + "/category/PublicAgent"))
+    itemlist.append(Item(channel=item.channel, title="CzechCasting  " , action="lista", url=host + "/category/CzechCasting"))
+    itemlist.append(Item(channel=item.channel, title="MyDirtyMaid  " , action="lista", url=host + "/category/MyDirtyMaid"))
+    itemlist.append(Item(channel=item.channel, title="CherryPimps " , action="lista", url=host + "/category/CherryPimps"))
+    itemlist.append(Item(channel=item.channel, title="TeamSkeetSelects " , action="lista", url=host + "/category/TeamSkeetSelects"))
+    itemlist.append(Item(channel=item.channel, title="NubileFilms  " , action="lista", url=host + "/category/NubileFilms"))
+    itemlist.append(Item(channel=item.channel, title="Hegre " , action="lista", url=host + "/category/Hegre"))
+    itemlist.append(Item(channel=item.channel, title="BlacksOnBlondes " , action="lista", url=host + "/category/BlacksOnBlondes"))
+    itemlist.append(Item(channel=item.channel, title="MassageRooms" , action="lista", url=host + "/category/MassageRooms"))
+    itemlist.append(Item(channel=item.channel, title="BlackedRaw " , action="lista", url=host + "/category/BlackedRaw "))
+    itemlist.append(Item(channel=item.channel, title="MonstersOfCock " , action="lista", url=host + "/category/MonstersOfCock"))
+    itemlist.append(Item(channel=item.channel, title="Blacked" , action="lista", url=host + "/category/Blacked"))
+    itemlist.append(Item(channel=item.channel, title="SpyFam " , action="lista", url=host + "/category/SpyFam"))
+    itemlist.append(Item(channel=item.channel, title="FamilySwap " , action="lista", url=host + "/category/FamilySwap"))
+    itemlist.append(Item(channel=item.channel, title="BigTitsRoundAsses " , action="lista", url=host + "/category/BigTitsRoundAsses"))
+    itemlist.append(Item(channel=item.channel, title="JapanHDV " , action="lista", url=host + "/category/JapanHDV"))
+    itemlist.append(Item(channel=item.channel, title="GloryHoleSecrets " , action="lista", url=host + "/category/GloryHoleSecrets"))
+    itemlist.append(Item(channel=item.channel, title="Joymii" , action="lista", url=host + "/category/Joymii"))
+    itemlist.append(Item(channel=item.channel, title="PervsOnPatrol " , action="lista", url=host + "/category/PervsOnPatrol"))
+    itemlist.append(Item(channel=item.channel, title="EdgeQueens " , action="lista", url=host + "/category/EdgeQueens"))
+    itemlist.append(Item(channel=item.channel, title="Vixen " , action="lista", url=host + "/category/Vixen"))
+    itemlist.append(Item(channel=item.channel, title="CastingCouch" , action="lista", url=host + "/category/CastingCouch"))
+    itemlist.append(Item(channel=item.channel, title="FamilyHookups" , action="lista", url=host + "/category/FamilyHookups"))
+    itemlist.append(Item(channel=item.channel, title="BangBros" , action="lista", url=host + "/category/BangBros"))
+    itemlist.append(Item(channel=item.channel, title="ATKHairy " , action="lista", url=host + "/category/ATKHairy"))
+    itemlist.append(Item(channel=item.channel, title="Anilos " , action="lista", url=host + "/category/Anilos"))
+    itemlist.append(Item(channel=item.channel, title="BrattySis " , action="lista", url=host + "/category/BrattySis"))
+    itemlist.append(Item(channel=item.channel, title="PervTherapy " , action="lista", url=host + "/category/PervTherapy"))
+    itemlist.append(Item(channel=item.channel, title="GangbangCreampie " , action="lista", url=host + "/category/GangbangCreampie"))
+    itemlist.append(Item(channel=item.channel, title="StepSiblings " , action="lista", url=host + "/category/StepSiblings"))
+    itemlist.append(Item(channel=item.channel, title="FamilyXXX " , action="lista", url=host + "/category/FamilyXXX"))
+    itemlist.append(Item(channel=item.channel, title="ExploitedCollegeGirls" , action="lista", url=host + "/category/ExploitedCollegeGirls"))
+    itemlist.append(Item(channel=item.channel, title="PrivateCasting-X" , action="lista", url=host + "/category/PrivateCasting-X"))
+    itemlist.append(Item(channel=item.channel, title="FakeTaxi" , action="lista", url=host + "/category/FakeTaxi"))
+    itemlist.append(Item(channel=item.channel, title="TushyRaw" , action="lista", url=host + "/category/TushyRaw"))
+    itemlist.append(Item(channel=item.channel, title="MyFamilyPies" , action="lista", url=host + "/category/MyFamilyPies"))
     return itemlist
 
 
@@ -114,7 +114,7 @@ def submenu(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s&Search=%s" % (url_api,texto)
+    item.url = "%s/?s=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -151,6 +151,7 @@ def categorias(item):
         itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
+
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
@@ -166,37 +167,40 @@ def create_soup(url, referer=None, unescape=False):
 def lista(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url).json
-    for Video in  data["Releases"]:
-        title = Video["Name"]
-        thumbnail =  Video["Covers"][0]["Img"]
-        streams = Video["Streams"]
-        canal = Video["Studio"]
-        urls= []
-        for elem in streams:
-            urls.append(elem['URL'])
-        url = ", ".join(urls)
+    soup = create_soup(item.url)
+    matches = soup.find_all("article", id=re.compile(r"^post-\d+"))
+    for elem in matches:
+        # parte = elem.find('h1', class_='entry-title')
+        url = elem.a['href']
+        title = elem.find('h2', class_='entry-title').text.strip()
+        if "Siterip" in title or "manyvids" in title:
+            title = "[COLOR red]%s[/COLOR]" %title
+        thumbnail = elem.img['src']
+        if "data:image" in thumbnail:
+            thumbnail = elem.img['data-lazy-src']
         plot = ""
-        itemlist.append(Item(channel=item.channel, action="findvideos", title=title , url= url, thumbnail=thumbnail, 
-                        fanart=thumbnail, plot=plot, contentTitle=title) )
-    total= int(data["Count"])
-    page = int(scrapertools.find_single_match(item.url,'&Offset=(\d+)'))
-    next_page = (page+ 20)
-    if next_page < total:
-        next_page = re.sub(r"&Offset=\d+", "&Offset={0}".format(next_page), item.url)
-        itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+        itemlist.append(Item(channel = item.channel,action="findvideos", title=title, url=url, 
+                                  thumbnail=thumbnail, fanart=thumbnail, plot=plot) )
+    next_page = soup.find('a', class_='nextp')
+    if next_page:
+        next_page = next_page['href']
+        next_page = urlparse.urljoin(item.url,next_page)
+        itemlist.append(Item(channel = item.channel,action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
 def findvideos(item):
     logger.info()
     itemlist = []
-    urls = item.url.split(",")
-    for url in urls:
-        if not "ddl."in url:
-            itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    soup = create_soup(item.url).find('div', class_='entry-content')
+    matches = soup.find_all('a')
+    for elem in matches:
+        url = elem['href']
+        if not ".jpg" in url and not "ddl." in url and not "ddownload." in url:
+            itemlist.append(Item(channel = item.channel,action='play',title="%s ", contentTitle=item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     # Requerido para AutoPlay
     autoplay.start(itemlist, item)
     return itemlist
+
 

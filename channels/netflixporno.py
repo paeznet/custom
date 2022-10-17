@@ -118,6 +118,8 @@ def lista(item):
         url = elem.a['href']
         title = elem.find(class_='Title').text.strip()
         thumbnail = elem.img['src']
+        if "/svg" in thumbnail:
+            thumbnail = elem.img['data-lazy-src']
         plot = ""
         itemlist.append(Item(channel=item.channel, action="findvideos", title=title, url=url, thumbnail=thumbnail,
                                plot=plot, fanart=thumbnail, contentTitle=title ))

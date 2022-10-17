@@ -154,7 +154,6 @@ def play(item):
     
     pornstar = ' & '.join(pornstars)
     pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
-    logger.debug(pornstars)
     lista = item.contentTitle.split()
     lista.insert (2, pornstar)
     item.contentTitle = ' '.join(lista)
@@ -169,4 +168,5 @@ def play(item):
             response = httptools.downloadpage(url, ignore_response_code=True).code
         if response != 404:
             itemlist.append(['.mp4 %s' %quality, url])
+    itemlist.sort(key=lambda item: int( re.sub("\D", "", item[0])))
     return itemlist
