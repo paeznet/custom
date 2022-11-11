@@ -247,7 +247,10 @@ soup = get_source(item.url, soup=True)
           datas = httptools.downloadpage(scrapedurl, post=post, headers={'Referer':item.url}).data
                 EROTICAGE   cine-matik.com
 
-        #######  thepornfull     
+        #######  thepornfull  yespornplease   
+        import xbmc
+        import xbmcgui
+
                                 def play(item):
                                     logger.info()
                                     itemlist = []
@@ -333,7 +336,10 @@ def play(item):
             continue
 
 
-
+                    matches = soup.find_all(attrs={"data-vid": re.compile(r"^\d+")})
+ 
+ 
+ 
             ####################################
             if title.get("sf_name", ""):   # comprueba que titulo tiene sf_name lo de abajo da error
             
@@ -365,6 +371,9 @@ def play(item):
         itemlist.reverse()                      #INVERTIR EL ORDEN DE LA LISTA
         itemlist.sort(key=lambda x: x.title)    #ORDENAR ALFABETICAMENTE POR TITULO
         return sorted(itemlist, key=lambda i: i.title)
+        
+        itemlist.sort(key=lambda item: int( re.sub("\D", "", item[0])))  #ordena por quality
+
         
         
         url = urlparse.unquote(url)  #QUITA %21 %3C DE LA URL Y PONE ://
@@ -526,7 +535,7 @@ def play(item):
         next_page = "%s/%s" %(page,current_page)
 
 
-###############    next_page = soup.find(attrs={"aria-label": "Next"})
+###############              next_page = soup.find(attrs={"aria-label": "Next"})
 
 
     page = int(scrapertools.find_single_match(item.url, '&offset=([0-9]+)'))

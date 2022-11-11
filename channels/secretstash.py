@@ -168,13 +168,16 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all("article", id=re.compile(r"^post-\d+"))
+    matches = soup.find('main', id='content').find_all("article", id=re.compile(r"^post-\d+"))
     for elem in matches:
         # parte = elem.find('h1', class_='entry-title')
+        if not elem.find("img"):
+            continue
         url = elem.a['href']
         title = elem.find('h2', class_='entry-title').text.strip()
         if "Siterip" in title or "manyvids" in title:
             title = "[COLOR red]%s[/COLOR]" %title
+            
         thumbnail = elem.img['src']
         if "data:image" in thumbnail:
             thumbnail = elem.img['data-lazy-src']
@@ -196,7 +199,7 @@ def findvideos(item):
     matches = soup.find_all('a')
     for elem in matches:
         url = elem['href']
-        if not ".jpg" in url and not "ddl." in url and not "ddownload." in url:
+        if not ".jpg" in url and not "ddl." in url and not "ddownload." in url and not "growngame." in url:
             itemlist.append(Item(channel = item.channel,action='play',title="%s ", contentTitle=item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     # Requerido para AutoPlay

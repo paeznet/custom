@@ -10,6 +10,8 @@ else:
     import urlparse                                             # Usamos el nativo de PY2 que es más rápido
 
 import re
+import xbmc
+import xbmcgui
 
 from platformcode import config, logger
 from core import scrapertools
@@ -139,6 +141,18 @@ def findvideos(item):
     return itemlist
 
 
+# def play(item):
+    # logger.info()
+    # itemlist = []
+    # soup = create_soup(item.url).find('div', class_='wp-video')
+    # url = soup.iframe['src']
+    # matches = create_soup(url).find_all('source', type='video/mp4')
+    # for elem in matches:
+        # url = elem['src']
+        # url += "|ignore_response_code=True"
+        # itemlist.append(Item(channel=item.channel, action="play", title= "Directo", url=url))
+    # return itemlist
+
 def play(item):
     logger.info()
     itemlist = []
@@ -147,8 +161,10 @@ def play(item):
     matches = create_soup(url).find_all('source', type='video/mp4')
     for elem in matches:
         url = elem['src']
-        url += "|ignore_response_code=True"
-        itemlist.append(Item(channel=item.channel, action="play", title= "Directo", url=url))
-        # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
-    return itemlist
+    url += "|Referer=%s" % item.url
+    listitem = xbmcgui.ListItem(item.title)
+    listitem.setArt({'thumb': item.thumbnail, 'icon': "DefaultVideo.png", 'poster': item.thumbnail})
+    listitem.setInfo('video', {'Title': item.title, 'Genre': 'Porn', 'plot': '', 'plotoutline': ''})
+    listitem.setMimeType('application/vnd.apple.mpegurl')
+    listitem.setContentLookup(False)
+    return xbmc.Player().play(url, listitem)

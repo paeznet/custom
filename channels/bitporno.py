@@ -108,13 +108,16 @@ def findvideos(item):
     data = httptools.downloadpage(item.url).data
     data = re.sub(r"\n|\r|\t|&nbsp;|<br>|<br/>", "", data)
     url = scrapertools.find_single_match(data, 'file: "([^"]+)"')
-    url= urlparse.urljoin(host,url)
-    m3u_data = httptools.downloadpage(url).data
-    filename = scrapertools.get_filename_from_url(url)[-4:]
-    matches = scrapertools.find_multiple_matches(m3u_data, 'TION=\d+x(\d+).*?\s(.*?)\s')
-    if matches:
-        for quality, url in matches:
-            itemlist.append(["%s  %sp [bitporno]" % (filename, quality), url])
+    if ".m3u" in url:
+        url= urlparse.urljoin(host,url)
+        m3u_data = httptools.downloadpage(url).data
+        matches = scrapertools.find_multiple_matches(m3u_data, 'TION=\d+x(\d+).*?\s(.*?)\s')
+        filename = scrapertools.get_filename_from_url(url)[-4:]
+        if matches:
+            for quality, url in matches:
+                itemlist.append(["%s  %sp [bitporno]" % (filename, quality), url])
+    else:
+        itemlist.append(["[bitporno] .mp4", url])
     return itemlist
 
 
@@ -124,12 +127,15 @@ def play(item):
     data = httptools.downloadpage(item.url).data
     data = re.sub(r"\n|\r|\t|&nbsp;|<br>|<br/>", "", data)
     url = scrapertools.find_single_match(data, 'file: "([^"]+)"')
-    url= urlparse.urljoin(host,url)
-    m3u_data = httptools.downloadpage(url).data
-    matches = scrapertools.find_multiple_matches(m3u_data, 'TION=\d+x(\d+).*?\s(.*?)\s')
-    filename = scrapertools.get_filename_from_url(url)[-4:]
-    if matches:
-        for quality, url in matches:
-            itemlist.append(["%s  %sp [bitporno]" % (filename, quality), url])
+    if ".m3u" in url:
+        url= urlparse.urljoin(host,url)
+        m3u_data = httptools.downloadpage(url).data
+        matches = scrapertools.find_multiple_matches(m3u_data, 'TION=\d+x(\d+).*?\s(.*?)\s')
+        filename = scrapertools.get_filename_from_url(url)[-4:]
+        if matches:
+            for quality, url in matches:
+                itemlist.append(["%s  %sp [bitporno]" % (filename, quality), url])
+    else:
+        itemlist.append(["[bitporno] .mp4", url])
     return itemlist
 

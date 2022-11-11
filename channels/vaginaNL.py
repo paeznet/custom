@@ -81,7 +81,7 @@ def categorias(item):
     if "categories" in item.url:
         itemlist.sort(key=lambda x: x.title)
     next_page = soup.find('span', class_='next')
-    if next_page and next_page.find_next_sibling("a"):
+    if next_page:
         next_page = next_page.a['href']
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
@@ -125,7 +125,7 @@ def lista(item):
             itemlist.append(Item(channel=item.channel, action=action, title=title, url=url, thumbnail=thumbnail,
                                    plot=plot, fanart=thumbnail, contentTitle=title ))
     next_page = soup.find('span', class_='next')
-    if next_page and next_page.find_next_sibling("a"):
+    if next_page:
         next_page = next_page.a['href']
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )

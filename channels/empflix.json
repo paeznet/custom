@@ -1,10 +1,10 @@
 {
-  "id": "camseek",
-  "name": "camseek",
+  "id": "empflix",
+  "name": "empflix",
   "active": true,
   "adult": true,
   "language": ["*"],
-  "thumbnail": "https://camseek.tv/cs.png",
+  "thumbnail": "https://i.postimg.cc/NFqqCtSY/emp-logo.png",
   "banner": "",
   "fanart": "",
   "categories": [

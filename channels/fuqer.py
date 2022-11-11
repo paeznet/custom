@@ -11,6 +11,9 @@ else:
 
 import re
 
+import xbmc
+import xbmcgui
+
 from platformcode import config, logger
 from core import scrapertools
 from core.item import Item
@@ -137,13 +140,27 @@ def findvideos(item):
     return itemlist
 
 
+# def play(item):
+    # logger.info()
+    # itemlist = []
+    # soup = create_soup(item.url)
+    # url = soup.find('source', type='video/mp4')['src']
+    # url += "|Referer=%s" % item.url
+    # url += "|verifypeer=false"
+    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    # return itemlist
+
+
 def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
     url = soup.find('source', type='video/mp4')['src']
     url += "|Referer=%s" % item.url
-    # url += "|verifypeer=false"
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
-    return itemlist
+    listitem = xbmcgui.ListItem(item.title)
+    listitem.setArt({'thumb': item.thumbnail, 'icon': "DefaultVideo.png", 'poster': item.thumbnail})
+    listitem.setInfo('video', {'Title': item.title, 'Genre': 'Porn', 'plot': '', 'plotoutline': ''})
+    listitem.setMimeType('application/vnd.apple.mpegurl')
+    listitem.setContentLookup(False)
+    return xbmc.Player().play(url, listitem)

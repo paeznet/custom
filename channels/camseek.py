@@ -31,11 +31,11 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-
     itemlist.append(Item(channel = item.channel, title="Nuevos" , action="lista", url=host + "/latest-updates/?sort_by=post_date&from=01"))
     itemlist.append(Item(channel = item.channel, title="Mas vistos" , action="lista", url=host + "/most-popular/?sort_by=video_viewed_month&from=01"))
     itemlist.append(Item(channel = item.channel, title="Mejor valorado" , action="lista", url=host + "/top-rated/1/?sort_by=rating_month&from=01"))
-    itemlist.append(Item(channel = item.channel, title="Mas comentado" , action="lista", url=host + "/latest-updates/1/?sort_by=most_commented_month&from=01"))
+    itemlist.append(Item(channel = item.channel, title="Mas comentado" , action="lista", url=host + "/?block_id=list_videos_most_recent_videos&sort_by=most_commented&from=01"))
+    itemlist.append(Item(channel = item.channel, title="Mas largo" , action="lista", url=host + "/?block_id=list_videos_most_recent_videos&sort_by=duration&from=01"))
     itemlist.append(Item(channel = item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -74,8 +74,12 @@ def lista(item):
         url = elem.a['href']
         title = elem.a['title']
         thumbnail = elem.img['data-original']
-        time = elem.find('div', class_='duration').text.strip()
-        title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
+        quality= ""
+        quality = elem.find('span', class_='is-hd')
+        # time = elem.find('div', class_='duration').text.strip()
+        # title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
+        if quality:
+            title = "[COLOR red]HD[/COLOR] %s" %title
         plot = ""
         action = "play"
         if logger.info() == False:
