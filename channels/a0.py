@@ -536,6 +536,7 @@ def play(item):
 
 
 ###############              next_page = soup.find(attrs={"aria-label": "Next"})
+#################             next_page = soup.find("a", string="Next")
 
 
     page = int(scrapertools.find_single_match(item.url, '&offset=([0-9]+)'))

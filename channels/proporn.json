@@ -1,0 +1,15 @@
+{
+  "id": "proporn",
+  "name": "proporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://static2.proporn.com/templates/proporn/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

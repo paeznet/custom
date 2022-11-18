@@ -19,7 +19,6 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 
-
 canonical = {
              'channel': 'beemtube', 
              'host': config.get_setting("current_host", 'beemtube', default=''), 
@@ -157,7 +156,27 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
-    url = soup.find('div', id='player').source['src']
-    itemlist.append(item.clone(action="play", title= "Directo", contentTitle = item.title, url=url))
+    data = httptools.downloadpage(item.url).data
+    url = scrapertools.find_single_match(data, '"playlist": "([^"]+)"')
+    data = httptools.downloadpage(url).data
+    patron = '"file":"([^"]+)","label":"(\d+p)"'
+    matches = re.compile(patron,re.DOTALL).findall(data)
+    if matches:
+        for url,quality in matches:
+            url = url.replace("\\/", "/")
+            itemlist.append(['%s' %quality, url])
+        itemlist.sort(key=lambda item: int( re.sub("\D", "", item[0])))
+    else:
+        url = scrapertools.find_single_match(data, '"file":"([^"]+)"')
+        url = url.replace("\\/", "/")
+        itemlist.append(['mp4', url])
+    # data = data['playlist'][0]['sources']
+    # data.pop(0)
+    # logger.debug(data)
+    # for elem in data:
+        # url = elem['file']
+        # logger.debug(url)
+        # quality = elem['label']
+        # itemlist.append(['%s' %quality, url])
+    # itemlist.sort(key=lambda item: int( re.sub("\D", "", item[0])))
     return itemlist
