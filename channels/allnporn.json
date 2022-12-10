@@ -1,0 +1,15 @@
+{
+  "id": "allnporn",
+  "name": "allnporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://cdm4.allnporn.com/wp-content/uploads/2020/02/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

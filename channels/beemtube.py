@@ -22,7 +22,7 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'beemtube', 
              'host': config.get_setting("current_host", 'beemtube', default=''), 
-             'host_alt': ["https://beemtube.com"], 
+             'host_alt': ["https://beemtube.com/"], 
              'host_black_list': [], 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -33,15 +33,15 @@ def mainlist(item):
     logger.info()
     itemlist = []
 
-    itemlist.append(item.clone(title="Nuevos" , action="lista", url=host + "/most-recent/page1.html"))
-    itemlist.append(item.clone(title="Mas vistos" , action="lista", url=host + "/most-viewed/month/page1.html"))
-    itemlist.append(item.clone(title="Mejor valorado" , action="lista", url=host + "/top-rated/month/page1.html"))
-    itemlist.append(item.clone(title="Mas comentado" , action="lista", url=host + "/most-discussed/page1.html"))
-    itemlist.append(item.clone(title="Mas largo" , action="lista", url=host + "/duration/page1.html"))
-    itemlist.append(item.clone(title="PornStar" , action="categorias", url=host + "/pornstars/most-popular/page1.html"))
-    itemlist.append(item.clone(title="Canal" , action="catalogo", url=host + "/channels/"))
+    itemlist.append(item.clone(title="Nuevos" , action="lista", url=host + "most-recent/page1.html"))
+    itemlist.append(item.clone(title="Mas vistos" , action="lista", url=host + "most-viewed/month/page1.html"))
+    itemlist.append(item.clone(title="Mejor valorado" , action="lista", url=host + "top-rated/month/page1.html"))
+    itemlist.append(item.clone(title="Mas comentado" , action="lista", url=host + "most-discussed/page1.html"))
+    itemlist.append(item.clone(title="Mas largo" , action="lista", url=host + "duration/page1.html"))
+    itemlist.append(item.clone(title="PornStar" , action="categorias", url=host + "pornstars/most-popular/page1.html"))
+    itemlist.append(item.clone(title="Canal" , action="catalogo", url=host + "channels/"))
 
-    itemlist.append(item.clone(title="Categorias" , action="categorias", url=host + "/categories/?sort_by=avg_videos_popularity&from=01"))
+    itemlist.append(item.clone(title="Categorias" , action="categorias", url=host + "categories/?sort_by=avg_videos_popularity&from=01"))
     itemlist.append(item.clone(title="Buscar", action="search"))
     return itemlist
 
@@ -49,7 +49,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/search?q=%s&sortby=newest" % (host,texto)
+    item.url = "%ssearch?q=%s&sortby=newest" % (host,texto)
     try:
         return lista(item)
     except:
@@ -104,9 +104,9 @@ def catalogo(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -147,16 +147,7 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
-    url = soup.find('div', id='player').source['src']
-    itemlist.append(item.clone(action="play", title= "Directo", contentTitle = item.title, url=url))
-    return itemlist
-
-
-def play(item):
-    logger.info()
-    itemlist = []
-    data = httptools.downloadpage(item.url).data
+    data = httptools.downloadpage(item.url, canonical=canonical).data
     url = scrapertools.find_single_match(data, '"playlist": "([^"]+)"')
     data = httptools.downloadpage(url).data
     patron = '"file":"([^"]+)","label":"(\d+p)"'
@@ -170,13 +161,24 @@ def play(item):
         url = scrapertools.find_single_match(data, '"file":"([^"]+)"')
         url = url.replace("\\/", "/")
         itemlist.append(['mp4', url])
-    # data = data['playlist'][0]['sources']
-    # data.pop(0)
-    # logger.debug(data)
-    # for elem in data:
-        # url = elem['file']
-        # logger.debug(url)
-        # quality = elem['label']
-        # itemlist.append(['%s' %quality, url])
-    # itemlist.sort(key=lambda item: int( re.sub("\D", "", item[0])))
+    return itemlist
+
+
+def play(item):
+    logger.info()
+    itemlist = []
+    data = httptools.downloadpage(item.url, canonical=canonical).data
+    url = scrapertools.find_single_match(data, '"playlist": "([^"]+)"')
+    data = httptools.downloadpage(url).data
+    patron = '"file":"([^"]+)","label":"(\d+p)"'
+    matches = re.compile(patron,re.DOTALL).findall(data)
+    if matches:
+        for url,quality in matches:
+            url = url.replace("\\/", "/")
+            itemlist.append(['%s' %quality, url])
+        itemlist.sort(key=lambda item: int( re.sub("\D", "", item[0])))
+    else:
+        url = scrapertools.find_single_match(data, '"file":"([^"]+)"')
+        url = url.replace("\\/", "/")
+        itemlist.append(['mp4', url])
     return itemlist

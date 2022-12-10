@@ -23,8 +23,9 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'deviants', 
              'host': config.get_setting("current_host", 'deviants', default=''), 
-             'host_alt': ["https://www.deviants.com"], 
+             'host_alt': ["https://www.deviants.com/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -33,12 +34,12 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/latest-updates/?is_hd=&sort_by=post_date&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/most-popular/?is_hd=&sort_by=video_viewed_month&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/top-rated/?is_hd=&sort_by=rating_month&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Mas metraje" , action="lista", url=host + "/longest/?is_hd=&sort_by=duration&from=01"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "/models/?is_hd=&sort_by=model_viewed&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/categories/"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "latest-updates/?is_hd=&sort_by=post_date&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "most-popular/?is_hd=&sort_by=video_viewed_month&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "top-rated/?is_hd=&sort_by=rating_month&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Mas metraje" , action="lista", url=host + "longest/?is_hd=&sort_by=duration&from=01"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "models/?is_hd=&sort_by=model_viewed&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -46,7 +47,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "-")
-    item.url = "%s/search/%s/?is_hd=&sort_by=post_date&from=01" % (host,texto)
+    item.url = "%ssearch/%s/?is_hd=&sort_by=post_date&from=01" % (host,texto)
     try:
         return lista(item)
     except:
@@ -80,7 +81,7 @@ def categorias(item):
         thumbnail = urlparse.urljoin(item.url,thumbnail)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
-                              thumbnail=thumbnail , plot=plot) )
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('li', class_='item active')
     if next_page and next_page.find_next_sibling("li"):
         next_page = next_page.find_next_sibling("li").a['data-parameters'].replace(":", "=").replace(";", "&").replace("+from_albums", "")
@@ -93,9 +94,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")

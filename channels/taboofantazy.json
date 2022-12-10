@@ -1,0 +1,15 @@
+{
+  "id": "taboofantazy",
+  "name": "taboofantazy",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.taboofantazy.com/wp-content/uploads/2021/09/Taboofantazy.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

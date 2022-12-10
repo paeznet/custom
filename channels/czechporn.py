@@ -22,7 +22,7 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'czechporn', 
              'host': config.get_setting("current_host", 'czechporn', default=''), 
-             'host_alt': ["https://czechporn.me"], 
+             'host_alt': ["https://czechporn.me/"], 
              'host_black_list': [], 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -33,13 +33,13 @@ def mainlist(item):
     logger.info()
     itemlist = []
 
-    itemlist.append(item.clone(title="Nuevos" , action="lista", url=host + "/page/1/?filter=latest"))
-    itemlist.append(item.clone(title="Mas vistos" , action="lista", url=host + "/page/1/?filter=most-viewed"))
-    itemlist.append(item.clone(title="Mejor valorado" , action="lista", url=host + "/page/1/?filter=popular"))
-    itemlist.append(item.clone(title="Mas largo" , action="lista", url=host + "/page/1/?filter=longest"))
-    itemlist.append(item.clone(title="PornStar" , action="categorias", url=host + "/actors/"))
+    itemlist.append(item.clone(title="Nuevos" , action="lista", url=host + "page/1/?filter=latest"))
+    itemlist.append(item.clone(title="Mas vistos" , action="lista", url=host + "page/1/?filter=most-viewed"))
+    itemlist.append(item.clone(title="Mejor valorado" , action="lista", url=host + "page/1/?filter=popular"))
+    itemlist.append(item.clone(title="Mas largo" , action="lista", url=host + "page/1/?filter=longest"))
+    itemlist.append(item.clone(title="PornStar" , action="categorias", url=host + "actors/"))
 
-    itemlist.append(item.clone(title="Categorias" , action="categorias", url=host + "/categories/"))
+    itemlist.append(item.clone(title="Categorias" , action="categorias", url=host + "categories/"))
     itemlist.append(item.clone(title="Buscar", action="search"))
     return itemlist
 
@@ -47,7 +47,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/page/1/?s=%s" % (host,texto)
+    item.url = "%spage/1/?s=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -71,7 +71,7 @@ def categorias(item):
             thumbnail = elem.img['data-src']
         plot = ""
         itemlist.append(item.clone(action="lista", title=title, url=url,
-                              thumbnail=thumbnail , plot=plot) )
+                                   fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('a', class_='current')
     if next_page and next_page.parent.find_next_sibling("li"):
         next_page = next_page.parent.find_next_sibling("li").a['href']
@@ -83,9 +83,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -103,6 +103,8 @@ def lista(item):
         thumbnail = elem.video
         if thumbnail:
             thumbnail = thumbnail['poster']
+        elif elem.img.get("data-lazy-src", ""):
+            thumbnail = elem.img['data-lazy-src']
         else:
             thumbnail = elem.img['data-src']
         time = elem.find('span', class_='duration').text.strip()
@@ -130,11 +132,14 @@ def findvideos(item):
     itemlist = []
     soup = create_soup(item.url)
     embedurl = soup.find('meta', itemprop='embedURL')['content']
-    post= scrapertools.find_single_match(embedurl, '.php\\?([^"]+)')
-    post_url = "https://czechporn.me/zVideoProtect/rd.php"
-    data = httptools.downloadpage(post_url, post=post).data
-    id = scrapertools.find_single_match(data, "new HTML5Player\('html5video', '(\d+)'")
-    url = "https://www.xvideos.com/video%s/a/" % id
+    if "/embed.php" in embedurl:
+        post= scrapertools.find_single_match(embedurl, '.php\\?([^"]+)')
+        post_url = "https://czechporn.me/zVideoProtect/rd.php"
+        data = httptools.downloadpage(post_url, post=post).data
+        id = scrapertools.find_single_match(data, "new HTML5Player\('html5video', '(\d+)'")
+        url = "https://www.xvideos.com/video%s/a/" % id
+    else:
+        url = embedurl
     itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
@@ -145,11 +150,14 @@ def play(item):
     itemlist = []
     soup = create_soup(item.url)
     embedurl = soup.find('meta', itemprop='embedURL')['content']
-    post= scrapertools.find_single_match(embedurl, '.php\\?([^"]+)')
-    post_url = "https://czechporn.me/zVideoProtect/rd.php"
-    data = httptools.downloadpage(post_url, post=post).data
-    id = scrapertools.find_single_match(data, "new HTML5Player\('html5video', '(\d+)'")
-    url = "https://www.xvideos.com/video%s/a/" % id
+    if "/embed.php" in embedurl:
+        post= scrapertools.find_single_match(embedurl, '.php\\?([^"]+)')
+        post_url = "https://czechporn.me/zVideoProtect/rd.php"
+        data = httptools.downloadpage(post_url, post=post).data
+        id = scrapertools.find_single_match(data, "new HTML5Player\('html5video', '(\d+)'")
+        url = "https://www.xvideos.com/video%s/a/" % id
+    else:
+        url = embedurl
     itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

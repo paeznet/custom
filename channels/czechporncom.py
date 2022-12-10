@@ -18,20 +18,29 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-host = 'https://czechporn.com.es'         #    https://czechporn.me
+       #    https://czechporn.me
+canonical = {
+             'channel': 'czechporncom', 
+             'host': config.get_setting("current_host", 'czechporncom', default=''), 
+             'host_alt': ["https://czechporn.com.es/"], 
+             'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             'CF': False, 'CF_test': False, 'alfa_s': True
+            }
+host = canonical['host'] or canonical['host_alt'][0]
 
 
 def mainlist(item):
     logger.info()
     itemlist = []
 
-    itemlist.append(item.clone(title="Nuevos" , action="lista", url=host + "/page/1/?filter=latest"))
-    itemlist.append(item.clone(title="Mas vistos" , action="lista", url=host + "/page/1/?filter=most-viewed"))
-    itemlist.append(item.clone(title="Mejor valorado" , action="lista", url=host + "/page/1/?filter=popular"))
-    itemlist.append(item.clone(title="Mas largo" , action="lista", url=host + "/page/1/?filter=longest"))
-    itemlist.append(item.clone(title="PornStar" , action="categorias", url=host + "/actors/"))
+    itemlist.append(item.clone(title="Nuevos" , action="lista", url=host + "page/1/?filter=latest"))
+    itemlist.append(item.clone(title="Mas vistos" , action="lista", url=host + "page/1/?filter=most-viewed"))
+    itemlist.append(item.clone(title="Mejor valorado" , action="lista", url=host + "page/1/?filter=popular"))
+    itemlist.append(item.clone(title="Mas largo" , action="lista", url=host + "page/1/?filter=longest"))
+    itemlist.append(item.clone(title="PornStar" , action="categorias", url=host + "actors/"))
 
-    itemlist.append(item.clone(title="Categorias" , action="categorias", url=host + "/categories/"))
+    itemlist.append(item.clone(title="Categorias" , action="categorias", url=host + "categories/"))
     itemlist.append(item.clone(title="Buscar", action="search"))
     return itemlist
 
@@ -39,7 +48,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/page/1/?s=%s" % (host,texto)
+    item.url = "%spage/1/?s=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -61,9 +70,10 @@ def categorias(item):
         thumbnail = elem.img['src']
         if ".gif" in  thumbnail:
             thumbnail = elem.img['data-src']
+        # url += "?filter=latest"
         plot = ""
         itemlist.append(item.clone(action="lista", title=title, url=url,
-                              thumbnail=thumbnail , plot=plot) )
+                                   fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('a', class_='current')
     if next_page and next_page.parent.find_next_sibling("li"):
         next_page = next_page.parent.find_next_sibling("li").a['href']
@@ -75,9 +85,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")

@@ -22,8 +22,9 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'camcaps', 
              'host': config.get_setting("current_host", 'camcaps', default=''), 
-             'host_alt': ["https://camcaps.to"], 
+             'host_alt': ["https://camcaps.to/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'pattern': ['var base_url = "([^"]+)"'], 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -34,14 +35,14 @@ def mainlist(item):
     logger.info()
     itemlist = []
 
-    itemlist.append(Item(channel = item.channel, title="Nuevos" , action="lista", url=host + "/videos?o=mr"))
-    itemlist.append(Item(channel = item.channel, title="Mas vistos" , action="lista", url=host + "/videos?o=mv&t=m"))
-    itemlist.append(Item(channel = item.channel, title="Mejor valorado" , action="lista", url=host + "/videos?o=bw&t=m"))
-    itemlist.append(Item(channel = item.channel, title="Mas comentado" , action="lista", url=host + "/videos?o=md&t=m"))
-    itemlist.append(Item(channel = item.channel, title="Mas largo" , action="lista", url=host + "/videos?o=lg&t=m"))
+    itemlist.append(Item(channel = item.channel, title="Nuevos" , action="lista", url=host + "videos?o=mr"))
+    itemlist.append(Item(channel = item.channel, title="Mas vistos" , action="lista", url=host + "videos?o=mv&t=m"))
+    itemlist.append(Item(channel = item.channel, title="Mejor valorado" , action="lista", url=host + "videos?o=bw&t=m"))
+    itemlist.append(Item(channel = item.channel, title="Mas comentado" , action="lista", url=host + "videos?o=md&t=m"))
+    itemlist.append(Item(channel = item.channel, title="Mas largo" , action="lista", url=host + "videos?o=lg&t=m"))
     # itemlist.append(Item(channel = item.channel, title="PornStar" , action="categorias", url=host + "/models/?sort_by=avg_videos_popularity&from=01"))
-    itemlist.append(Item(channel = item.channel, title="Canal" , action="catalogo", url=host + "/categories"))
-    itemlist.append(Item(channel = item.channel, title="Categorias" , action="categorias", url=host + "/categories"))
+    itemlist.append(Item(channel = item.channel, title="Canal" , action="catalogo", url=host + "categories"))
+    itemlist.append(Item(channel = item.channel, title="Categorias" , action="categorias", url=host + "categories"))
     itemlist.append(Item(channel = item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -49,7 +50,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/search/videos?search_query=%s" % (host,texto)
+    item.url = "%ssearch/videos?search_query=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -98,14 +99,13 @@ def catalogo(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
     return soup
-
 
 def lista(item):
     logger.info()

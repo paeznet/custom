@@ -1,0 +1,15 @@
+{
+  "id": "blendporn",
+  "name": "blendporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/mgVYQ6YN/blendporn.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

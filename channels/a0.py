@@ -150,6 +150,26 @@ http://192.168.0.101:48884/getSourceByPageFinished?debug=true&cache=false&time=2
 
 
 
+####################   animefenix   comamosramen
+
+def get_source(url, headers={}, post={}, soup=False, unescape=False):
+    logger.info()
+
+    if post:
+        if soup:
+            data = httptools.downloadpage(url, post=post, headers=headers, soup=True, canonical=canonical).soup
+        else:
+            data = httptools.downloadpage(url, post=post, headers=headers, canonical=canonical).data
+    else:
+        if soup:
+            data = httptools.downloadpage(url, soup=True, headers=headers, canonical=canonical).soup
+        else:
+            data = httptools.downloadpage(url, headers=headers, canonical=canonical).data
+
+        if unescape:
+            data = scrapertools.unescape(data)
+
+    return data
 
 
 def get_source(url, json=False, soup=False, multipart_post=None, timeout=30, add_host=True, **opt):
@@ -247,7 +267,7 @@ soup = get_source(item.url, soup=True)
           datas = httptools.downloadpage(scrapedurl, post=post, headers={'Referer':item.url}).data
                 EROTICAGE   cine-matik.com
 
-        #######  thepornfull  yespornplease   
+        #######  thepornfull  yespornplease   babestube fuqer
         import xbmc
         import xbmcgui
 
@@ -389,7 +409,8 @@ def play(item):
     for url, lang in zip(video_urls, idioma):  Coge elemento de la lista video_urls y de la lista idioma
 
 
-    logger.debug("ITEM: %s" % item)
+    logger.debug("ITEM: %s" % item)            logger.info("Intel11 %s" %item)
+
 
 
     id=re.compile(r"^list_videos_[A-z_]+")
@@ -444,8 +465,8 @@ def play(item):
         if not url.startswith("https"):
             url = "https:%s" % url
 
-        if not scrapedthumbnail.startswith("https"):
-            thumbnail = "https:%s" % scrapedthumbnail
+        if not thumbnail.startswith("https"):
+            thumbnail = "https:%s" % thumbnail
 
     scrapedtitle = scrapedtitle.replace("(%s)" %scrapedyear, "")  #QUITAR AÑO DEL TITULO
 
@@ -505,6 +526,16 @@ def play(item):
         matches = scrapertools.find_multiple_matches(data, patron)
         
 
+
+    ####     Formato hora 1h 1m 1s  >>>>>>>  1:01:01    hqporner
+
+        hora = scrapedtime.split()
+        if len(hora) == 3 and len(hora[1]) < 3:
+            hora[1] = "0%s" %hora[1]
+        if len(hora[-1]) <3: hora[-1] = "0%s" %hora[-1]
+        scrapedtime = ' '.join(hora)
+
+
         # pasar duracion en segundos a horas   BEEG
         
         segundos = Video["duration"]
@@ -536,7 +567,7 @@ def play(item):
 
 
 ###############              next_page = soup.find(attrs={"aria-label": "Next"})
-#################             next_page = soup.find("a", string="Next")
+#################             next_page = soup.find("a", string=re.compile(r"^Next"))
 
 
     page = int(scrapertools.find_single_match(item.url, '&offset=([0-9]+)'))

@@ -1,0 +1,15 @@
+{
+  "id": "fulltaboo",
+  "name": "fulltaboo",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://fulltaboo.tv/wp-content/uploads/2021/09/favicon-fulltaboo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

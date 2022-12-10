@@ -1,0 +1,15 @@
+{
+  "id": "bellesa",
+  "name": "bellesa",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/WzbSjwdy/bellesa.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

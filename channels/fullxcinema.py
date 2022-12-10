@@ -21,8 +21,9 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'fullxcinema', 
              'host': config.get_setting("current_host", 'fullxcinema', default=''), 
-             'host_alt': ["https://fullxcinema.com"], 
+             'host_alt': ["https://fullxcinema.com/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -31,11 +32,11 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/page/1/?filter=latest"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/page/1/?filter=most-viewed"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "page/1/?filter=latest"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "page/1/?filter=most-viewed"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/page/1/?filter=popular"))
-    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "/page/1/?filter=longest"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/categories/"))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "page/1/?filter=longest"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -43,7 +44,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/?s=%s&filter=latest" % (host,texto)
+    item.url = "%s?s=%s&filter=latest" % (host,texto)
     try:
         return lista(item)
     except:
@@ -73,9 +74,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -124,7 +125,7 @@ def findvideos(item):
         url = base64.b64decode(url).decode('utf-8')
         url = urlparse.unquote(url)
         url = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
@@ -133,6 +134,16 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
+    matches = soup.find('div', id='video-actors')
+    if matches:
+        pornstars = matches.find_all('a')
+        for x , value in enumerate(pornstars):
+            pornstars[x] = value.text.strip()
+        pornstar = ' & '.join(pornstars)
+        pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+        lista = item.contentTitle.split()
+        lista.insert (2, pornstar)
+        item.contentTitle = ' '.join(lista)    
     url = soup.find('iframe')['src']
     if "/player-x.php?q=" in url:
         import base64
@@ -140,6 +151,6 @@ def play(item):
         url = base64.b64decode(url).decode('utf-8')
         url = urlparse.unquote(url)
         url = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

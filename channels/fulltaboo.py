@@ -19,9 +19,9 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 canonical = {
-             'channel': 'helloporn', 
-             'host': config.get_setting("current_host", 'helloporn', default=''), 
-             'host_alt': ["https://hello.porn/"], 
+             'channel': 'fulltaboo', 
+             'host': config.get_setting("current_host", 'fulltaboo', default=''), 
+             'host_alt': ["https://fulltaboo.tv/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -33,11 +33,12 @@ def mainlist(item):
     logger.info()
     itemlist = []
 
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "new/"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "trending/"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "best/"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="catalogo", url=host + "pornstars/videos/"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="catalogo", url=host + "channels/"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "?filter=latest"))
+    itemlist.append(Item(channel=item.channel, title="Mas popular" , action="lista", url=host + "?filter=popular"))
+    itemlist.append(Item(channel=item.channel, title="Mas visto" , action="lista", url=host + "?filter=most-viewed"))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "?filter=longest"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "pornstars/"))
+    # itemlist.append(Item(channel=item.channel, title="Canal" , action="canal", url=host + "channels/"))
 
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
@@ -46,8 +47,8 @@ def mainlist(item):
 
 def search(item, texto):
     logger.info()
-    texto = texto.replace(" ", "-")
-    item.url = "%ssearch/%s/" % (host,texto)
+    texto = texto.replace(" ", "+")
+    item.url = "%s?s=%s&filter=latest" % (host,texto)
     try:
         return lista(item)
     except:
@@ -61,46 +62,38 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('a', class_='item')
+    matches = soup.find('div', class_='videos-list').find_all('article')
     for elem in matches:
-        url = elem['href']
-        title = elem.text.strip()
-        thumbnail =""
-        plot = ""
-        itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
-                              thumbnail=thumbnail , plot=plot) )
-    return itemlist
-
-
-def catalogo(item):
-    logger.info()
-    itemlist = []
-    soup = create_soup(item.url)
-    matches = soup.find('div', class_='items').find_all('div', class_='item')
-    for elem in matches:
-        thumbnail = ""
         url = elem.a['href']
         title = elem.a['title']
-        if not elem.find('span', class_='no-thumb'):
-            thumbnail = elem.img['src']
-        if "pornstar" in url:
-            cantidad = elem.find('span')
-            if cantidad:
-                title = "%s %s" % (title,cantidad.text.strip())
-        else:
-            cantidad = elem.find('div', class_='title')
-            title = "%s (%s)" % (title,cantidad.text.strip())
-        url = urlparse.urljoin(item.url,url)
-        thumbnail = urlparse.urljoin(item.url,thumbnail)
+        thumbnail = elem.img['src']
+        if ".gif" in thumbnail and elem.img.get("data-src", ""):
+            thumbnail = elem.img['data-src']
+        if ".gif" in thumbnail and elem.img.get("data-wpfc-original-src", ""):
+            thumbnail = elem.img['data-wpfc-original-src']
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('div', class_='next')
-    if next_page:
-        next_page = next_page.a['data-parameters'].replace(":", "=").replace("+from_albums", "").split(";")
-        next_page = "?%s&%s" % (next_page[0], next_page[1])
+    next_page = soup.find('a', class_='current')
+    if next_page and next_page.parent.find_next_sibling("li"):
+        next_page = next_page.parent.find_next_sibling("li").a['href']
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+    return itemlist
+
+
+def canal(item):
+    logger.info()
+    itemlist = []
+    soup = create_soup(item.url)
+    matches = soup.find_all('div', class_='sow-image-grid-image')
+    for elem in matches:
+        url = elem.a['href']
+        title = elem.img['alt']
+        thumbnail = elem.img['data-src']
+        plot = ""
+        itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     return itemlist
 
 
@@ -120,21 +113,26 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find('div', class_='items-videos').find_all('div', class_='item')
+    matches = soup.find(id='primary').find_all('article')
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
         thumbnail = elem.img['data-src']
+        time = elem.find('span', class_='duration').text.strip()
+        quality = elem.find('span', class_='hd-video')
+        if quality:
+            title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
+        else:
+            title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         plot = ""
         action = "play"
         if logger.info() == False:
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, url=url, thumbnail=thumbnail,
                                plot=plot, fanart=thumbnail, contentTitle=title ))
-    next_page = soup.find('div', class_='next')
-    if next_page:
-        next_page = next_page.a['data-parameters'].replace(":", "=").replace("+from_albums", "").split(";")
-        next_page = "?%s&%s" % (next_page[0], next_page[1])
+    next_page = soup.find('a', class_='current')
+    if next_page and next_page.parent.find_next_sibling("li"):
+        next_page = next_page.parent.find_next_sibling("li").a['href']
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
@@ -143,13 +141,30 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
+    soup = create_soup(item.url)
+    matches = soup.find('div', class_='responsive-player')
+    if matches.find('video'):
+        url = matches.video['src']
+    else:
+        url = matches.iframe['src']
+        if "base64" in url:
+            url = matches.iframe['data-src']
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
+
 
 def play(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
+    soup = create_soup(item.url)
+    matches = soup.find('div', class_='responsive-player')
+    if matches.find('video'):
+        url = matches.video['src']
+    else:
+        url = matches.iframe['src']
+        if "base64" in url:
+            url = matches.iframe['data-src']
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

@@ -21,8 +21,9 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'empflix', 
              'host': config.get_setting("current_host", 'empflix', default=''), 
-             'host_alt': ["https://www.empflix.com"], 
+             'host_alt': ["https://www.empflix.com/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -31,10 +32,10 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/new/"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/toprated"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "/pornstars?page=1"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/categories/"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "new/"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "toprated"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "pornstars?page=1"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -42,7 +43,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/search?what=%s" % (host,texto)
+    item.url = "%ssearch?what=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -78,9 +79,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -105,7 +106,7 @@ def lista(item):
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]%s[/COLOR] %s" % (time,quality.text.strip(),title)
         else:
             title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
-        url =  "%s/ajax/video-player/%s"  % (host,vid)
+        url =  "%sajax/video-player/%s"  % (host,vid)
         plot = ""
         action = "play"
         if logger.info() == False:
@@ -122,7 +123,7 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url).json
+    data = httptools.downloadpage(item.url, canonical=canonical).json
     soup = BeautifulSoup(data['html'], "html5lib", from_encoding="utf-8")
     matches  = soup.video.find_all('source', type='video/mp4')
     for elem in matches:
@@ -135,7 +136,7 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url).json
+    data = httptools.downloadpage(item.url, canonical=canonical).json
     soup = BeautifulSoup(data['html'], "html5lib", from_encoding="utf-8")
     matches  = soup.video.find_all('source', type='video/mp4')
     for elem in matches:

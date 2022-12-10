@@ -21,8 +21,9 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'drtuber', 
              'host': config.get_setting("current_host", 'drtuber', default=''), 
-             'host_alt': ["https://www.drtuber.com"], 
+             'host_alt': ["https://www.drtuber.com/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -34,7 +35,6 @@ def mainlist(item):
 
     itemlist.append(Item(channel = item.channel, title="Nuevos" , action="lista", url=host, ctype="addtime"))
     itemlist.append(Item(channel = item.channel, title="Mejor valorado" , action="lista", url=host, ctype="rating_month"))
-    itemlist.append(Item(channel = item.channel, title="Mas comentado" , action="lista", url=host, ctype="most_commented_month"))
     itemlist.append(Item(channel = item.channel, title="Mas largo" , action="lista", url=host, ctype="longest"))
     itemlist.append(Item(channel = item.channel, title="PornStar" , action="catalogo", url=host + "/pornstars"))
     itemlist.append(Item(channel = item.channel, title="Canal" , action="catalogo", url=host + "/channels", cattype="straight"))
@@ -50,15 +50,14 @@ def mainlist(item):
 def submenu(item):
     logger.info()
     itemlist = []
-    url = "%s/%s" %(host,item.cattype)
+    url = "%s%s" %(host,item.cattype)
     if "shemale" in item.cattype:
         item.cattype = "trans"
 
     itemlist.append(Item(channel = item.channel, title="Nuevos" , action="lista", url=url, ctype=""))
     itemlist.append(Item(channel = item.channel, title="Mejor valorado" , action="lista", url=url, ctype="rating_month"))
-    itemlist.append(Item(channel = item.channel, title="Mas comentado" , action="lista", url=url, ctype="most_commented_month"))
     itemlist.append(Item(channel = item.channel, title="Mas largo" , action="lista", url=url, ctype="longest"))
-    itemlist.append(Item(channel = item.channel, title="Canal" , action="catalogo", url=host + "/channels"))
+    itemlist.append(Item(channel = item.channel, title="Canal" , action="catalogo", url=host + "channels"))
     itemlist.append(Item(channel = item.channel, title="Categorias" , action="categorias", url=url))
     # itemlist.append(Item(channel = item.channel, title="Buscar", action="search"))
     return itemlist
@@ -67,7 +66,7 @@ def submenu(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/search/videos/%s/" % (host,texto)
+    item.url = "%ssearch/videos/%s/" % (host,texto)
     try:
         return lista(item)
     except:
@@ -94,7 +93,7 @@ def categorias(item):
         plot = ""
         url = urlparse.urljoin(item.url,url)
         itemlist.append(Item(channel = item.channel, action="lista", title=title, url=url,
-                              thumbnail=thumbnail , plot=plot) )
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     return itemlist
 
 
@@ -114,7 +113,7 @@ def catalogo(item):
         thumbnail = urlparse.urljoin(item.url,thumbnail)
         plot = ""
         itemlist.append(Item(channel = item.channel, action="lista", title=title, url=url,
-                              thumbnail=thumbnail , plot=plot) )
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('li', class_='next')
     if next_page:
         next_page = next_page.a['href']
@@ -127,12 +126,12 @@ def create_soup(url, ctype=None, cattype=None):
     logger.info()
     if ctype:
         headers = {"Cookie": "index_filter_sort=%s" % ctype}
-        data = httptools.downloadpage(url, headers=headers).data
+        data = httptools.downloadpage(url, headers=headers, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if cattype:
         headers = {"Cookie": "cattype=%s" % cattype}
-        data = httptools.downloadpage(url, headers=headers).data
+        data = httptools.downloadpage(url, headers=headers, canonical=canonical).data
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
     return soup
 
