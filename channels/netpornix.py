@@ -29,6 +29,7 @@ canonical = {
              'host': config.get_setting("current_host", 'netpornix', default=''), 
              'host_alt': ["https://netpornix.club"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -96,6 +97,7 @@ def lista(item):
     soup = create_soup(item.url).find('div', class_='page-body')
     matches = soup.find_all('article')
     for elem in matches:
+        logger.debug(elem)
         id = elem['class'][2]
         id = scrapertools.find_single_match(id, 'post-(\d+)')
         url = elem.a['href']
@@ -111,6 +113,13 @@ def lista(item):
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
+
+# https://netpornix.club/full-frontal-caitlin-bell-scarlett-alexis-teamskeet/
+# https://netpornix.club/wp-json/wp/v2/posts/57424
+# "api_url":"https:\/\/netpornix.club\/wp-json\/wordpress-popular-posts","ID":57424,"token":"174a97503a","lang":0,"debug":0}
+# https://netpornix.club/ajax.php?id=57424
+# https://netxwatch.xyz/e/qzszcp5fpmou.html
+ # https://netxwatch.xyz/sources49/796e456137726f35446e7a487c7c717a737a63703566706d6f757c7c696658776c7169446a4232787c7c73747265616d7362
 
 def findvideos(item):
     logger.info()

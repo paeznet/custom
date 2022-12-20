@@ -22,8 +22,9 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'morritastube', 
              'host': config.get_setting("current_host", 'morritastube', default=''), 
-             'host_alt': ["https://www.morritastube.xxx"], 
+             'host_alt': ["https://www.morritastube.xxx/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -33,9 +34,9 @@ def mainlist(item):
     logger.info()
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/lo-mas-visto/"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="catalogo", url=host + "/actrices-porno/"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/categorias-porno/"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "lo-mas-visto/"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="catalogo", url=host + "actrices-porno/"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categorias-porno/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -43,7 +44,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/?s=%s" % (host,texto)
+    item.url = "%s?s=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -99,9 +100,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")

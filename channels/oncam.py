@@ -22,8 +22,9 @@ host = 'https://oncam.me'
 canonical = {
              'channel': 'oncam', 
              'host': config.get_setting("current_host", 'oncam', default=''), 
-             'host_alt': ["https://oncam.me"], 
+             'host_alt': ["https://oncam.me/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -32,11 +33,11 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/recent/"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/viewed/month/"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/rated/month/"))
-    itemlist.append(Item(channel=item.channel, title="Mas metraje" , action="lista", url=host + "/longest/"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/recent/"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "recent/"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "viewed/month/"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "rated/month/"))
+    itemlist.append(Item(channel=item.channel, title="Mas metraje" , action="lista", url=host + "longest/"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "recent/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -44,7 +45,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "-")
-    item.url = "%s/search/video/?s=%s&o=recent" % (host,texto)
+    item.url = "%ssearch/video/?s=%s&o=recent" % (host,texto)
     try:
         return lista(item)
     except:
@@ -73,9 +74,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")

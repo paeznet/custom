@@ -28,9 +28,9 @@ list_servers = []
 canonical = {
              'channel': 'netflixporno', 
              'host': config.get_setting("current_host", 'netflixporno', default=''), 
-             'host_alt': ["https://www.netflixporno.net"], 
+             'host_alt': ["https://www.netflixporno.net/"], 
              'host_black_list': [], 
-             'pattern': ['href="?([^"|\s*]+)["|\s*]\s*hreflang="?en"?'], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -42,12 +42,14 @@ def mainlist(item):
 
     autoplay.init(item.channel, list_servers, list_quality)
 
-    itemlist.append(Item(channel=item.channel, title="Peliculas" , action="lista", url=host + "/adult/"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "/adult/"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/adult/"))
-    itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=host + "/adult/"))
+    itemlist.append(Item(channel=item.channel, title="Peliculas" , action="lista", url=host + "adult/"))
+    # itemlist.append(Item(channel=item.channel, title="Mas vistas" , action="lista", url=host + "adult/?v_sortby=views"))
+    # itemlist.append(Item(channel=item.channel, title="Mas valoradas" , action="lista", url=host + "adult/?v_sortby=highest_rated"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "adult/"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "adult/"))
+    itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=host + "adult/"))
 
-    itemlist.append(Item(channel=item.channel, title="Videos" , action="submenu", url=host + "/scenes/"))
+    itemlist.append(Item(channel=item.channel, title="Videos" , action="submenu", url=host + "scenes/"))
 
     autoplay.show_option(item.channel, itemlist)
 
@@ -57,8 +59,10 @@ def mainlist(item):
 def submenu(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Videos" , action="lista", url=item.url))
-    itemlist.append(Item(channel=item.channel, title="Destacados" , action="lista", url=host + "/scenes/category/featured-scenes/"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=item.url))
+    # itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=item.url + "?v_sortby=views"))
+    # itemlist.append(Item(channel=item.channel, title="Mas valorados" , action="lista", url=item.url + "?v_sortby=highest_rated"))
+    itemlist.append(Item(channel=item.channel, title="Destacados" , action="lista", url=item.url + "/category/featured-scenes/"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=item.url))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host, vid = "vid"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=item.url))
@@ -68,7 +72,7 @@ def submenu(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/search/%s" % (item.url,texto)
+    item.url = "%ssearch/%s" % (item.url,texto)
     try:
         return lista(item)
     except:
@@ -100,9 +104,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -118,7 +122,7 @@ def lista(item):
         url = elem.a['href']
         title = elem.find(class_='Title').text.strip()
         thumbnail = elem.img['src']
-        if "/svg" in thumbnail:
+        if "svg" in thumbnail:
             thumbnail = elem.img['data-lazy-src']
         plot = ""
         itemlist.append(Item(channel=item.channel, action="findvideos", title=title, url=url, thumbnail=thumbnail,
@@ -131,12 +135,27 @@ def lista(item):
     return itemlist
 
 
+
 def findvideos(item):
     logger.info()
     itemlist = []
     video_urls = []
-    soup = create_soup(item.url).find('div', id='pettabs')
-    matches = soup.find_all('a')
+    soup = create_soup(item.url)
+    matches = soup.find('ul', class_='CastList')
+    if matches:
+        pornstars = matches.find_all('a')
+        for x , value in enumerate(pornstars):
+            pornstars[x] = value.text.strip()
+        pornstar = ' & '.join(pornstars)
+        pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+        if len(pornstars) <= 2:
+            lista = item.contentTitle.split()
+            lista.insert (0, pornstar)
+            item.contentTitle = ' '.join(lista)
+            item.plot=pornstar
+        else:
+            item.plot=pornstar
+    matches = soup.find('div', id='pettabs').find_all('a')
     for elem in matches:
         url = elem['href']
         url = url.split("?link=")[-1]

@@ -21,8 +21,9 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'perverzija', 
              'host': config.get_setting("current_host", 'perverzija', default=''), 
-             'host_alt': ["https://tube.perverzija.com"], 
+             'host_alt': ["https://tube.perverzija.com/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -31,14 +32,15 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/studio/page/1/?orderby=date"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/studio/page/1/?orderby=view"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/studio/page/1/?orderby=like"))
-    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "/studio/page/1/?orderby=comment"))
-    itemlist.append(Item(channel=item.channel, title="4k" , action="lista", url=host + "/tag/4k-quality/page/1/?orderby=date"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "studio/page/1/?orderby=date"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "studio/page/1/?orderby=view"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "studio/page/1/?orderby=like"))
+    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "studio/page/1/?orderby=comment"))
+    itemlist.append(Item(channel=item.channel, title="4k" , action="lista", url=host + "tag/4k-quality/page/1/?orderby=date"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
+    itemlist.append(Item(channel=item.channel, title="-------------------"))
     itemlist.append(Item(channel=item.channel, title="Peliculas", action="movie"))
 
     return itemlist
@@ -47,17 +49,17 @@ def mainlist(item):
 def movie(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/full-movie/page/1/?orderby=date"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/full-movie/page/1/?orderby=view"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/full-movie/page/1/?orderby=like"))
-    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "/full-movie/page/1/?orderby=comment"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "full-movie/page/1/?orderby=date"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "full-movie/page/1/?orderby=view"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "full-movie/page/1/?orderby=like"))
+    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "full-movie/page/1/?orderby=comment"))
     return itemlist
 
 
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/page/1/?orderby=date&s=%s" % (host,texto)
+    item.url = "%spage/1/?orderby=date&s=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -108,9 +110,9 @@ def subcat(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -123,12 +125,10 @@ def lista(item):
     soup = create_soup(item.url).find('section', class_='video-listing')
     matches = soup.find_all('div', class_='video-item')
     for elem in matches:
+        url = elem.a['href']
         if "&s=" in item.url:
-            url = elem.a['href']
             plot = elem.find('span', class_='excerpt_part').text.strip()
         else:
-            url = elem.find('div', class_='qv_tooltip')['title']
-            url = scrapertools.find_single_match(url, 'src="([^"]+)"')
             plot = elem.find('div', class_='item-content').text.strip()
         title = elem.find('div', class_='item-head').a['title']
         thumbnail = elem.img['src']
@@ -160,13 +160,9 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    if "index.php" in item.url:
-        url = item.url.replace("index.php?", "load_m3u8_xtremestream.php?")
-    else:
-        soup = create_soup(item.url)
-        url = soup.iframe['src']
-        item.url = url
-        url = item.url.replace("index.php?", "load_m3u8_xtremestream.php?")
+    soup = create_soup(item.url)
+    url = soup.iframe['src']
+    url = url.replace("index.php?", "load_m3u8_xtremestream.php?")
     data = httptools.downloadpage(url).data
     patron = r'RESOLUTION=\d+x(\d+).*?\s(http.*?&q=\d+)'
     matches = scrapertools.find_multiple_matches(data, patron)
@@ -178,13 +174,20 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    if "index.php" in item.url:
-        url = item.url.replace("index.php?", "load_m3u8_xtremestream.php?")
-    else:
-        soup = create_soup(item.url)
-        url = soup.iframe['src']
-        item.url = url
-        url = item.url.replace("index.php?", "load_m3u8_xtremestream.php?")
+    soup = create_soup(item.url)
+    pornstars = soup.find('div', class_='item-tax-list').find_all('a', href=re.compile("/stars/"))
+    for x , value in enumerate(pornstars):
+        pornstars[x] = value.text.strip()
+    pornstar = ' & '.join(pornstars)
+    pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+    logger.debug(pornstar)
+    lista = []
+    lista.insert (0,pornstar)
+    lista.insert (1,item.plot)
+    item.plot = '\n'.join(lista)
+
+    url = soup.iframe['src']
+    url = url.replace("index.php?", "load_m3u8_xtremestream.php?")
     data = httptools.downloadpage(url).data
     patron = r'RESOLUTION=\d+x(\d+).*?\s(http.*?&q=\d+)'
     matches = scrapertools.find_multiple_matches(data, patron)

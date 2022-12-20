@@ -21,9 +21,10 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'maxporn', 
              'host': config.get_setting("current_host", 'maxporn', default=''), 
-             'host_alt': ["https://max.porn"], 
+             'host_alt': ["https://max.porn/"], 
              'host_black_list': [], 
              'pattern': ['href="?([^"|\s*]+)["|\s*]\s*rel="?stylesheet"?'], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -41,7 +42,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "-")
-    item.url = "%s/search/%s/" % (host,texto)
+    item.url = "%ssearch/%s/" % (host,texto)
     try:
         return lista(item)
     except:
@@ -59,10 +60,12 @@ def categorias(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.a.text.strip()
+        logger.debug(title)
         thumbnail = "" 
         plot = ""
-        itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
-                              thumbnail=thumbnail , plot=plot) )
+        if not "View All" in title and not "Alphabetically" in title and not "Updated" in title:
+            itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
+                                  thumbnail=thumbnail , plot=plot) )
     return itemlist
 
 
@@ -70,7 +73,7 @@ def catalogo(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find('div', class_='list-models-list thumbs').find_all('div', class_='item')
+    matches = soup.find('div', class_='list-models-list').find_all('div', class_='item')
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
@@ -88,16 +91,16 @@ def catalogo(item):
         next_page = next_page.a['data-parameters'].replace(":", "=").replace("+from_albums", "").split(";")
         next_page = "?%s&%s" % (next_page[0], next_page[1])
         next_page = urlparse.urljoin(item.url,next_page)
-        itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+        itemlist.append(Item(channel=item.channel, action="catalogo", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")

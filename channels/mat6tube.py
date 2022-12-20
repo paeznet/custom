@@ -18,12 +18,14 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-host = ''
+# https://mat6tube.com/   https://noodlemagazine.com/
+
 canonical = {
              'channel': 'mat6tube', 
              'host': config.get_setting("current_host", 'mat6tube', default=''), 
-             'host_alt': ["https://adult.mat6tube.com"], 
+             'host_alt': ["https://mat6tube.com/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -33,7 +35,7 @@ def mainlist(item):
     logger.info()
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="Buscar Nuevos" , action="search", ver=0))
-    itemlist.append(Item(channel=item.channel, title="Buscar Mas vistos" , action="search", ver=3))
+    # itemlist.append(Item(channel=item.channel, title="Buscar Mas vistos" , action="search", ver=3))
     itemlist.append(Item(channel=item.channel, title="Buscar Mejor valorados" , action="search", ver=2))
     itemlist.append(Item(channel=item.channel, title="Buscar Mas largos" , action="search", ver=1))
     return itemlist
@@ -42,7 +44,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/video/%s?sort=%s&p=0" % (host, texto, item.ver)
+    item.url = "%svideo/%s?sort=%s&p=0" % (host, texto, item.ver)
     try:
         return lista(item)
     except:
@@ -55,9 +57,9 @@ def search(item, texto):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")

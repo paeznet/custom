@@ -21,21 +21,22 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'peekvids', 
              'host': config.get_setting("current_host", 'peekvids', default=''), 
-             'host_alt': ["https://www.peekvids.com"], 
+             'host_alt': ["https://www.peekvids.com/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
-
+# forced_proxy_opt = 'ProxyCF|FORCE'
 # Error: 429  Rate Limit Exceeded
 
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/?page=1"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/Trending-Porn"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="catalogo", url=host + "/channels"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/categories"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "?page=1"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "Trending-Porn"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="catalogo", url=host + "channels"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -43,7 +44,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/videos?q=%s" % (host,texto)
+    item.url = "%svideos?q=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -102,9 +103,9 @@ def catalogo(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -150,7 +151,7 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url).data
+    data = httptools.downloadpage(item.url, canonical=canonical).data
     patron = 'data-hls-src(\d+)="([^"]+)"'
     matches = re.compile(patron,re.DOTALL).findall(data)
     for quality, url in matches:
@@ -162,7 +163,7 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url).data
+    data = httptools.downloadpage(item.url, canonical=canonical).data
     patron = 'data-hls-src(\d+)="([^"]+)"'
     matches = re.compile(patron,re.DOTALL).findall(data)
     for quality, url in matches:

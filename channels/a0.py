@@ -289,10 +289,11 @@ soup = get_source(item.url, soup=True)
                                     return xbmc.Player().play(url, listitem)
 
 # ERROR: CCurlFile::Stat - Failed: Peer certificate cannot be authenticated with given CA certificates(60)
-        url += "|verifypeer=false"
+    url += "|verifypeer=false"
 
-        url += "|ignore_response_code=True"     No hacer test_video_exists en server directo
+    url += "|ignore_response_code=True"     No hacer test_video_exists en server directo
 
+    url += "|Referer=%s" % host
 
         # REDIRECCION de URL
             # https://strdef.world/vplayer.php?id=351ec419-8f56-4f93-8f5e-8e945c6ad399 = verystream 
@@ -524,6 +525,7 @@ def play(item):
         patron = '(?:video_url|video_alt_url[0-9]*):\s*\'([^\']+)\'.*?'
         patron += '(?:video_url_text|video_alt_url[0-9]*_text):\s*\'([^\']+)\''
         matches = scrapertools.find_multiple_matches(data, patron)
+        # scrapertools.printMatches(matches)
         
 
 
@@ -700,13 +702,13 @@ def play(item):
     data = httptools.downloadpage(item.url).data
     data = scrapertools.find_single_match(data,'<div class="sbi-header">Películas por género</div>(.*?)</ul>')
     data = re.sub(r"\n|\r|\t|&nbsp;|<br>", "", data)
-    scrapertools.printMatches(matches)
 
     thumbnail = urlparse.urljoin(item.url,scrapedthumbnail)
     
 
     patron  = '<li class="border-radius-5 box-shadow">(.*?)</li>'
     matches = re.compile(patron,re.DOTALL).findall(data)
+    # scrapertools.printMatches(matches)
     for match in matches:
         url = scrapertools.find_single_match(match,'<a href="([^"]+)"')
         title = scrapertools.find_single_match(match,'title="([^"]+)"')
