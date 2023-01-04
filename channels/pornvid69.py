@@ -18,20 +18,27 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-host = 'https://pornvid69.com'
+canonical = {
+             'channel': 'pornvid69', 
+             'host': config.get_setting("current_host", 'pornvid69', default=''), 
+             'host_alt': ["https://pornvid69.com/"], 
+             'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             'CF': False, 'CF_test': False, 'alfa_s': True
+            }
+host = canonical['host'] or canonical['host_alt'][0]
 
+# No existen videos mp4 en categorias si recientes
 
 def mainlist(item):
     logger.info()
     itemlist = []
-
-    itemlist.append(item.clone(title="Nuevos" , action="lista", url=host + "/page/1/?filter=latest"))
-    itemlist.append(item.clone(title="Mas vistos" , action="lista", url=host + "/page/1/?filter=most-viewed"))
-    itemlist.append(item.clone(title="Mejor valorado" , action="lista", url=host + "/page/1/?filter=popular"))
-    itemlist.append(item.clone(title="Mas largo" , action="lista", url=host + "/page/1/?filter=longest"))
-    itemlist.append(item.clone(title="PornStar" , action="categorias", url=host + "/pornstars/"))
-
-    itemlist.append(item.clone(title="Categorias" , action="categorias", url=host + "/categories/"))
+    itemlist.append(item.clone(title="Nuevos" , action="lista", url=host + "page/1/?filter=latest"))
+    itemlist.append(item.clone(title="Mas vistos" , action="lista", url=host + "page/1/?filter=most-viewed"))
+    itemlist.append(item.clone(title="Mejor valorado" , action="lista", url=host + "page/1/?filter=popular"))
+    itemlist.append(item.clone(title="Mas largo" , action="lista", url=host + "page/1/?filter=longest"))
+    itemlist.append(item.clone(title="PornStar" , action="categorias", url=host + "pornstars/"))
+    itemlist.append(item.clone(title="Categorias" , action="categorias", url=host + "categories/"))
     itemlist.append(item.clone(title="Buscar", action="search"))
     return itemlist
 
@@ -39,7 +46,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/page/1/?filter=latest&s=%s" % (host,texto)
+    item.url = "%spage/1/?filter=latest&s=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -62,8 +69,8 @@ def categorias(item):
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
         plot = ""
-        itemlist.append(item.clone(action="lista", title=title, url=url,
-                              thumbnail=thumbnail , plot=plot) )
+        itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('a', class_='next')
     if next_page:
         next_page = next_page['href']
@@ -75,9 +82,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -103,8 +110,8 @@ def lista(item):
         action = "play"
         if logger.info() == False:
             action = "findvideos"
-        itemlist.append(item.clone(action=action, title=title, url=url, thumbnail=thumbnail,
-                               plot=plot, fanart=thumbnail, contentTitle=title ))
+        itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('a', class_='next')
     if next_page:
         next_page = next_page['href']
@@ -116,9 +123,7 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url).find("meta", itemprop=re.compile(r"[content|embed]URL"))
-    url = soup['content']
-    itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.title, url=url))
+    itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
@@ -126,8 +131,6 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url).find("meta", itemprop=re.compile(r"[content|embed]URL"))
-    url = soup['content']
-    itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.title, url=url))
+    itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

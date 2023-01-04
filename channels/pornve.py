@@ -21,30 +21,21 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'pornve', 
              'host': config.get_setting("current_host", 'pornve', default=''), 
-             'host_alt': ["https://pornve.com"], 
+             'host_alt': ["https://pornve.com/"], 
              'host_black_list': [], 
              'pattern': ['id="sitelogo" href="?([^"|\s*]+)'], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
 
-# https://pornve.com/?cat_id=6&cat_name=Big%20tits&op=search&sort_field=file_created&sort_order=down&page=1
-# https://pornve.com/?cat_name=Big%20tits&sort_field=file_created&sort_order=down&page=1
-# file_created    file_rating     file_view         file_length
-# https://pornve.com/search/big%20tits/page2
-# https://pornve.com/?data_name=&k=big%20natural%20tits&op=search&sort_field=file_rating&sort_order=down&page=2
-
 def mainlist(item):
     logger.info()
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host))
-    # itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/most-popular/?sort_by=video_viewed_month&from=01"))
-    # itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/top-rated/1/?sort_by=rating_month&from=01"))
-    # itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "/most-commented/1/?sort_by=most_commented_month&from=01"))
-    # itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "/models/?sort_by=avg_videos_popularity&from=01"))
-    # itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "/sites/?sort_by=avg_videos_popularity&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/categories"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "popular"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -52,7 +43,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/?op=search&k=%s" % (host,texto)
+    item.url = "%s?op=search&k=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -84,9 +75,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -115,9 +106,12 @@ def lista(item):
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, url=url, thumbnail=thumbnail,
                                plot=plot, fanart=thumbnail, contentTitle=title ))
-    next_page = soup.find('div', class_='paging').b
+    next_page = soup.find('div', class_='paging')
+    if next_page:
+        next_page = next_page.find('b')
     if next_page and next_page.find_next_sibling("a"):
         next_page = next_page.find_next_sibling("a")['href']
+        next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 

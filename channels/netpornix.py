@@ -27,9 +27,9 @@ list_servers = ['gounlimited']
 canonical = {
              'channel': 'netpornix', 
              'host': config.get_setting("current_host", 'netpornix', default=''), 
-             'host_alt': ["https://netpornix.club"], 
+             'host_alt': ["http://netpornix.club/"], 
              'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': True, 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 3, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -42,8 +42,8 @@ def mainlist(item):
     autoplay.init(item.channel, list_servers, list_quality)
     
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host))
-    # itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/upcoming-videos/?order=most_views"))
-    # itemlist.append(Item(channel=item.channel, title="Proximo" , action="lista", url=host + "/upcoming-videos/?order=newest"))
+    # itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "upcoming-videos/?order=most_views"))
+    # itemlist.append(Item(channel=item.channel, title="Proximo" , action="lista", url=host + "upcoming-videos/?order=newest"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host ))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     
@@ -79,12 +79,14 @@ def categorias(item):
                               thumbnail=thumbnail , plot=plot) )
     return itemlist
 
+
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        headers = {'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'}
+        data = httptools.downloadpage(url, headers=headers, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -97,7 +99,6 @@ def lista(item):
     soup = create_soup(item.url).find('div', class_='page-body')
     matches = soup.find_all('article')
     for elem in matches:
-        logger.debug(elem)
         id = elem['class'][2]
         id = scrapertools.find_single_match(id, 'post-(\d+)')
         url = elem.a['href']
@@ -113,13 +114,6 @@ def lista(item):
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
-
-# https://netpornix.club/full-frontal-caitlin-bell-scarlett-alexis-teamskeet/
-# https://netpornix.club/wp-json/wp/v2/posts/57424
-# "api_url":"https:\/\/netpornix.club\/wp-json\/wordpress-popular-posts","ID":57424,"token":"174a97503a","lang":0,"debug":0}
-# https://netpornix.club/ajax.php?id=57424
-# https://netxwatch.xyz/e/qzszcp5fpmou.html
- # https://netxwatch.xyz/sources49/796e456137726f35446e7a487c7c717a737a63703566706d6f757c7c696658776c7169446a4232787c7c73747265616d7362
 
 def findvideos(item):
     logger.info()

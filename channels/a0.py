@@ -231,6 +231,11 @@ soup = get_source(item.url, soup=True)
 
 
                          ##################################################################################################                              
+
+
+url = httptools.downloadpage(url, headers=headers , follow_redirects=False, only_headers=True).headers.get("location", "")
+
+
             # PORNOXO  coger SCRIPT con soup y json
                     def prueba(item):
                         from core import jsontools as json
@@ -329,6 +334,10 @@ soup = get_source(item.url, soup=True)
     url = scrapertools.find_single_match(data, '<div class="embed-wrap".*?<iframe src="([^"]+)\?ref=')
 
 
+            ################    PORNLIB
+        headers = {"Cookie": "cattype=%s; index_filter_sort=%s" % (cattype, ctype)}
+
+
 
     from channels import pornhub
     if "pornhub" in url : 
@@ -411,6 +420,7 @@ def play(item):
 
 
     logger.debug("ITEM: %s" % item)            logger.info("Intel11 %s" %item)
+               scrapertools.printMatches(matches)
 
 
 
@@ -491,6 +501,12 @@ def play(item):
         pornstar = ' & '.join(pornstars)
         pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
 
+    data = httptools.downloadpage(item.url, canonical=canonical).data
+    patron = 'href="/models/[^"]+" title="([^"]+)"'
+    pornstars = re.compile(patron,re.DOTALL).findall(data)
+
+
+
         ### fpo
     soup = create_soup(item.url).find('div', class_='info')
     matches = soup.find_all('div', class_='item')
@@ -504,10 +520,11 @@ def play(item):
         lista.insert (4, pornstar)
     else:
         lista.insert (2, pornstar)
-    item.title = ' '.join(lista)
+    item.contentTitle = ' '.join(lista)
 
 
     #### joporn
+    soup = create_soup(item.url)
     pornstars = soup.find_all('a', href=re.compile("/teg/"))
     for x , value in enumerate(pornstars):
         pornstars[x] = value.text.strip()

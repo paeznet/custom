@@ -128,8 +128,8 @@ def lista(item):
         action = "play"
         if logger.info() == False:
             action = "findvideos"
-        itemlist.append(Item(channel=item.channel, action=action, title=title, url=url, thumbnail=thumbnail,
-                               plot=plot, fanart=thumbnail, contentTitle=title ))
+        itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('a', class_='current')
     if next_page and next_page.parent.find_next_sibling("li"):
         next_page = next_page.parent.find_next_sibling("li").a['href']

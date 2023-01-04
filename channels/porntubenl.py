@@ -33,11 +33,11 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "?filter=latest"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "?filter=most-viewed"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "?filter=popular"))
-    itemlist.append(Item(channel=item.channel, title="Mas metraje" , action="lista", url=host + "?filter=longest"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categorieen/"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "us/?filter=latest"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "us/?filter=most-viewed"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "us/?filter=popular"))
+    itemlist.append(Item(channel=item.channel, title="Mas metraje" , action="lista", url=host + "us/?filter=longest"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "us/categories/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -45,7 +45,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s?s=%s" % (host,texto)
+    item.url = "%sus/?filter=latest&s=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -67,11 +67,13 @@ def categorias(item):
         thumbnail = elem.img['src']
         title = title.replace(" pornvideos", "").replace(" porn videos", "").replace(" xxxvideos", "").replace(" xxx videos", "").replace(" xxx porn", "")
         url = urlparse.urljoin(item.url,url)
+        url += "?filter=latest"
         thumbnail = urlparse.urljoin(item.url,thumbnail)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
-                              thumbnail=thumbnail , plot=plot) )
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     return itemlist
+
 
 def create_soup(url, referer=None, unescape=False):
     logger.info()
@@ -104,8 +106,8 @@ def lista(item):
         action = "play"
         if logger.info() == False:
             action = "findvideos"
-        itemlist.append(Item(channel=item.channel, action=action, title=title, url=url, thumbnail=thumbnail,
-                               plot=plot, fanart=thumbnail, contentTitle=title ))
+        itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('a', class_='current')
     if next_page:
         next_page = next_page.find_next('a')['href']

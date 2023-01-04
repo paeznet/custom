@@ -20,13 +20,17 @@ from bs4 import BeautifulSoup
 from core import jsontools as json
 
 canonical = {
-             'channel': 'fantasticc', 
-             'host': config.get_setting("current_host", 'fantasticc', default=''), 
-             'host_alt': ["https://pornxs.com"], 
+             'channel': 'pornxs', 
+             'host': config.get_setting("current_host", 'pornxs', default=''), 
+             'host_alt': ["https://pornxs.com/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
+
+# https://pornxs.com/big-natural-tits
+# https://pornxs.com/api/videos/big-natural-tits/0
 
 
 def mainlist(item):
@@ -143,9 +147,7 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    soup = get_source(item.url, soup=True)
-    url = soup.find('iframe')['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
@@ -153,10 +155,6 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    soup = get_source(item.url, soup=True)
-    url = soup.find('source')['src']
-    if not url.startswith("https"):
-        url = "https:%s" % url
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

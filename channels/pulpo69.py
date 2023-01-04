@@ -21,8 +21,9 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'pulpo69', 
              'host': config.get_setting("current_host", 'pulpo69', default=''), 
-             'host_alt': ["https://pulpo69.com"], 
+             'host_alt': ["https://pulpo69.com/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -31,18 +32,7 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    soup = create_soup(host)
-    matches = soup.find_all('div', class_='gallery-item-category')
-    for elem in matches:
-        url = elem.a['href']
-        title = elem.a['title'].capitalize()
-        thumbnail = elem.a.img['data-real-src']
-        plot = ""
-        itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
-                              thumbnail=thumbnail , plot=plot) )
-    itemlist.sort(key=lambda x: x.title)
-
-    itemlist.append(Item(channel=item.channel, title="", action="", folder=False))
+    itemlist.append(Item(channel=item.channel, title="Categorias", action="categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -60,12 +50,28 @@ def search(item, texto):
         return []
 
 
+def categorias(item):
+    logger.info()
+    itemlist = []
+    soup = create_soup(host)
+    matches = soup.find_all('div', class_='gallery-item-category')
+    for elem in matches:
+        url = elem.a['href']
+        title = elem.a['title'].capitalize()
+        thumbnail = elem.a.img['data-real-src']
+        plot = ""
+        itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
+                              thumbnail=thumbnail , plot=plot) )
+    itemlist.sort(key=lambda x: x.title)
+    return itemlist
+
+
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -102,12 +108,7 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    if "tnaflix.com" in item.url:
-        url = item.url
-    else:
-        soup = create_soup(item.url)
-        url = soup.find('div', class_='video_container').source['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
@@ -115,11 +116,6 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    if "tnaflix.com" in item.url:
-        url = item.url
-    else:
-        soup = create_soup(item.url)
-        url = soup.find('div', class_='video_container').source['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

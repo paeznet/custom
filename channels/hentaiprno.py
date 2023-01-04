@@ -18,7 +18,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-#  https://www.youcrazyx.com   https://www.yrprno.com   https://www.yespornplease.sexy sexyporn  https://www.hentaiprno.com
+# https://www.youcrazyx.com   https://www.yrprno.com   https://www.yespornplease.sexy 
+# https://www.trendyporn.com    https://www.hentaiprno.com  sexyporn
 canonical = {
              'channel': 'hentaiprno', 
              'host': config.get_setting("current_host", 'hentaiprno', default=''), 
@@ -67,7 +68,7 @@ def categorias(item):
         url += "newest/"
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
-                              thumbnail=thumbnail , plot=plot) )
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     return itemlist
 
 
@@ -104,8 +105,8 @@ def lista(item):
         action = "play"
         if logger.info() == False:
             action = "findvideos"
-        itemlist.append(Item(channel=item.channel, action=action, title=title, url=url, thumbnail=thumbnail,
-                               plot=plot, fanart=thumbnail, contentTitle=title ))
+        itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('ul', class_='pagination').find('li', class_='active')
     if next_page and next_page.find_next_sibling("li"):
         next_page = next_page.find_next_sibling("li").a['href']
@@ -117,18 +118,14 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
-    url = soup.find('a', class_='btn-default')['href']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s" , contentTitle=item.contentTitle, url=item.url)) 
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize()) 
     return itemlist
 
 
 def play(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
-    url = soup.find('a', class_='btn-default')['href']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s" , contentTitle=item.contentTitle, url=item.url)) 
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize()) 
     return itemlist

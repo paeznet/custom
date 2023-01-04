@@ -24,9 +24,21 @@ from channels import autoplay
 list_quality = ['default']
 list_servers = []
 
-host = "https://pornstash.in" #https://secretstash.in
+#https://secretstash.in
 # url_api = host + "/api/v1/releases?Limit=20&Offset=0"
 # https://pornstash.in/api/v1/releases?Limit=20&Offset=0
+
+canonical = {
+             'channel': 'pornstash', 
+             'host': config.get_setting("current_host", 'pornstash', default=''), 
+             'host_alt': ["https://pornstash.in/"], 
+             'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             'CF': False, 'CF_test': False, 'alfa_s': True
+            }
+host = canonical['host'] or canonical['host_alt'][0]
+
+
 
 def mainlist(item):
     logger.info()
@@ -46,7 +58,7 @@ def mainlist(item):
 def submenu(item):
     logger.info()
     itemlist = []
-    # itemlist.append(Item(channel=item.channel, title="OnlyFans" , action="lista", url=host + "/category/OnlyFans"))
+    itemlist.append(Item(channel=item.channel, title="OnlyFans" , action="lista", url=host + "/category/OnlyFans"))
     itemlist.append(Item(channel=item.channel, title="X-Angels" , action="lista", url=host + "/category/X-Angels"))
     itemlist.append(Item(channel=item.channel, title="Tiny4K" , action="lista", url=host + "/category/Tiny4K"))
     itemlist.append(Item(channel=item.channel, title="Nubiles" , action="lista", url=host + "/category/Nubiles"))
@@ -114,7 +126,7 @@ def submenu(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/?s=%s" % (host,texto)
+    item.url = "%s?s=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -155,9 +167,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -195,7 +207,8 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url).find('div', class_='entry-content')
+    soup = create_soup(item.url)
+    soup = soup.find("strong", string=re.compile(r"^Download/stream:")).parent
     matches = soup.find_all('a')
     for elem in matches:
         url = elem['href']
