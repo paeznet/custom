@@ -18,15 +18,25 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-host = 'https://xxxclub.club'
 
+canonical = {
+             'channel': 'xxxclub', 
+             'host': config.get_setting("current_host", 'xxxclub', default=''), 
+             'host_alt': ["https://xxxclub.club/"], 
+             'host_black_list': [], 
+             'pattern': ['property="og:url" content="([^"]+)"'], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             'CF': False, 'CF_test': False, 'alfa_s': True
+            }
+host = canonical['host'] or canonical['host_alt'][0]
 
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/videos?age=All&duration=All&sort=New"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/videos?age=1+month+ago&duration=All&sort=View"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/videos?age=1+month+ago&duration=All&sort=Rating"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "videos?age=All&duration=All&sort=New"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "videos?age=1+month+ago&duration=All&sort=View"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "videos?age=1+month+ago&duration=All&sort=Rating"))
+    itemlist.append(Item(channel=item.channel, title="Antiguos" , action="lista", url=host + "videos?age=All&duration=All&sort=Old"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
@@ -35,7 +45,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/videos?age=All&duration=All&sort=New&search=%s" % (host,texto)
+    item.url = "%svideos?age=All&duration=All&sort=New&search=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -50,7 +60,7 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find('div', class_='col-md-12').find_all('a')
+    matches = soup.find('div', id='categories-box').find_all('a')
     for elem in matches:
         url = elem['href']
         title = elem.text.strip()
@@ -59,15 +69,16 @@ def categorias(item):
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                               thumbnail=thumbnail , plot=plot) )
+    itemlist.sort(key=lambda x: x.title)
     return itemlist
 
 
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -78,12 +89,12 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('a', class_='linkimgholder')
+    matches = soup.find_all('div', class_='item')
     for elem in matches:
-        url = elem['href']
-        title = elem['title']
+        url = elem.a['href']
+        title = elem.a['title']
         thumbnail = elem.img['src']
-        canal = elem.i['data-source']
+        canal = elem.find('div', class_='favorites')['data-source']
         time = elem.find('span', class_='durationformat').text.strip()
         quality = elem.find('span', class_='label hd')
         if quality:
@@ -109,11 +120,11 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
-    if soup.find('iframe', class_='videofw'):
-        url = soup.find('iframe', class_='videofw')['src']
-    else:
-        url = soup.find('div', class_='col-md-8').a['href']
+    url = ""
+    data = httptools.downloadpage(item.url).data
+    url = scrapertools.find_single_match(data, '"videofw" src="([^"]+)"')
+    if not url:
+        url = scrapertools.find_single_match(data, ' video_player =.*?href="([^"]+)"')
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
@@ -125,16 +136,16 @@ def findvideos(item):
 # https://sexu.site/20657541   post https://sexu.site/api/video-info   videoId: 20657541
 # https://desiporn.tube/video/50549/iranian-girl-big-ass-2021/    TXX
 # https://www.gotporn.com/stepmom-lauren-wants-stepson-chads-creamy-load/video-16628501     source src=
-
+# iframe id="videofw" class="videofw" src="https://cdn5-videos.motherlessmedia.com/videos/4C95366.mp4" frameborder="0"
 
 def play(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
-    if soup.find('iframe', class_='videofw'):
-        url = soup.find('iframe', class_='videofw')['src']
-    else:
-        url = soup.find('div', class_='col-md-8').a['href']
+    url = ""
+    data = httptools.downloadpage(item.url).data
+    url = scrapertools.find_single_match(data, '"videofw" src="([^"]+)"')
+    if not url:
+        url = scrapertools.find_single_match(data, ' video_player =.*?href="([^"]+)"')
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

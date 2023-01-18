@@ -436,6 +436,14 @@ def play(item):
                     itemlist = cumlouder.play(item1)
                     return itemlist
 
+###############   xnostars
+    if url:
+        itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    else:
+        platformtools.dialog_ok("xvideospanish: Error", "El archivo no existe o ha sido borrado")
+        return
+
+        data = re.sub(r"\n|\r|\t|&nbsp;|<br>|<br/>", "", data)
 
 
     ([A-z0-9]+)

@@ -193,5 +193,5 @@ def play(item):
     matches = scrapertools.find_multiple_matches(data, patron)
     for quality, url in matches:
         # url += '|ignore_response_code="True"'
-        itemlist.append(['%sp' %quality, url])
+        itemlist.append(['[perverzija] %sp' %quality, url])
     return itemlist

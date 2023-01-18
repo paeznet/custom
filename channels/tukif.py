@@ -22,14 +22,15 @@ from core import jsontools as json
 canonical = {
              'channel': 'tukif', 
              'host': config.get_setting("current_host", 'tukif', default=''), 
-             'host_alt': ["https://tukif.com"], 
+             'host_alt': ["https://tukif.com/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
-hosta = '%s/posts/load_more_posts/' %host
-post = "main_category_id=%s&type=%s&name=%s&filters[filter_type]=%s&filters[filter_period]=%s&filters[filter_quality][]=270&adblock_enabled=1&offset=0"
-
+hosta = '%sposts/load_more_posts/' %host
+post = "main_category_id=%s&type=%s&name=%s&filters[filter_type]=%s&filters[filter_period]=%s&filters[filter_quality][]=270&filters[filter_duration][]=14&adblock_enabled=1&current_page_offset=0&offset=0"
+                                                                                                                                                                        # current_page_offset	"0"                
 def mainlist(item):
     logger.info()
     itemlist = []
@@ -43,12 +44,12 @@ def mainlist(item):
 def submenu(item):
     logger.info()
     itemlist = []
-    if item.id == "1": url= "%s/videos/" % host
-    if item.id == "2": url= "%s/gay/videos/" % host
-    if item.id == "3": url= "%s/transexuel/videos/" % host
-    if item.id == "4": url= "%s/amateur/videos/" % host
+    if item.id == "1": url= "%svideos/" % host
+    if item.id == "2": url= "%sgay/videos/" % host
+    if item.id == "3": url= "%stransexuel/videos/" % host
+    if item.id == "4": url= "%samateur/videos/" % host
 
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=hosta, post= post % (item.id, "post", "multifilter_videos","date", "")))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=hosta, post= post % (item.id, "post", "multifilter_videos","date", "month")))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=hosta, post= post % (item.id, "post", "multifilter_videos","views","month")))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=hosta, post= post % (item.id, "post", "multifilter_videos","rating","month")))
     itemlist.append(Item(channel=item.channel, title="Mas metraje" , action="lista", url=hosta, post= post % (item.id, "post", "multifilter_videos","duration","month")))
@@ -56,11 +57,11 @@ def submenu(item):
     if item.id == "1":
         stud= 'main_category_id=1&type=studio&name=top_studios&filters[filter_type]=popularity&adblock_enabled=1&starting_letter=&offset=0&current_page_offset=0'
         star= 'main_category_id=1&type=pornstar&name=top_pornstars&filters[filter_type]=popularity&adblock_enabled=1&starting_letter=&offset=0'
-        itemlist.append(Item(channel=item.channel, title="PornStar" , action="catalogo", url=host + "/pornstars/load_more_pornstars", post= star))
-        itemlist.append(Item(channel=item.channel, title="Canal" , action="catalogo", url=host + "/studios/load_more_studios", post= stud))
+        itemlist.append(Item(channel=item.channel, title="PornStar" , action="catalogo", url=host + "pornstars/load_more_pornstars", post= star))
+        itemlist.append(Item(channel=item.channel, title="Canal" , action="catalogo", url=host + "studios/load_more_studios", post= stud))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=url, post= post % (item.id, "post", "multifilter_videos","date", "")))
 
-    itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=host + "/posts/load_more_search_posts" ))
+    itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=host + "posts/load_more_search_posts", id=item.id))
     return itemlist
 
 
@@ -136,9 +137,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -149,7 +150,7 @@ def lista(item):
     logger.info()
     itemlist = []
     headers={'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-    data = httptools.downloadpage(item.url, headers=headers, post=item.post).json
+    data = httptools.downloadpage(item.url, headers=headers, post=item.post, canonical=canonical).json
     data = data['data']
     soup = BeautifulSoup(data['content'], "html5lib", from_encoding="utf-8")
     matches = soup.find_all('section')
@@ -168,19 +169,20 @@ def lista(item):
                                plot=plot, fanart=thumbnail, contentTitle=title ))
     count= data['total']
     quantity = data['quantity']
+    pages = data['total_pages']
     current_page = scrapertools.find_single_match(item.post, ".*?&offset=(\d+)")
     current_page = int(current_page)
     if current_page <= int(count) and (int(count) - current_page) > int(quantity):
         current_page += int(quantity)
         next_page = re.sub(r"&offset=\d+", "&offset={0}".format(current_page), item.post)
-        itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", post=next_page) )
+        itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", post=next_page, url= item.url) )
     return itemlist
 
 
 def findvideos(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url).data
+    data = httptools.downloadpage(item.url, canonical=canonical).data
     url = scrapertools.find_single_match(data, '<iframe src="([^"]+)"')
     data = httptools.downloadpage(url).data
     source= scrapertools.find_single_match(data, '("sources":.*?])')
@@ -197,7 +199,7 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url).data
+    data = httptools.downloadpage(item.url, canonical=canonical).data
     url = scrapertools.find_single_match(data, '<iframe src="([^"]+)"')
     data = httptools.downloadpage(url).data
     source= scrapertools.find_single_match(data, '("sources":.*?])')
@@ -207,5 +209,5 @@ def play(item):
         if "video/mp4" in elem['type']:
             url = elem['src']
             quality = elem['label']
-            itemlist.append(['%s [.mp4]' %quality, url])
+            itemlist.append(['[tukif] %s .mp4' %quality, url])
     return itemlist[::-1]

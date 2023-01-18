@@ -25,8 +25,9 @@ list_servers = ['mangovideo']
 canonical = {
              'channel': 'yourdailypornmovies', 
              'host': config.get_setting("current_host", 'yourdailypornmovies', default=''), 
-             'host_alt': ["https://yourdailypornmovies.ws"], 
+             'host_alt': ["https://yourdailypornmovies.ws/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -51,7 +52,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/?s=%s" % (host,texto)
+    item.url = "%s?s=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -72,15 +73,16 @@ def categorias(item):
         thumbnail = ""
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
-                              thumbnail=thumbnail , plot=plot) )
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     return itemlist
+
 
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -97,11 +99,11 @@ def lista(item):
         title = elem.img['alt']
         thumbnail = elem.img['src']
         plot = ""
-        action = "play"
-        if logger.info() == False:
-            action = "findvideos"
-        itemlist.append(Item(channel=item.channel, action="findvideos", title=title, url=url, thumbnail=thumbnail,
-                               plot=plot, fanart=thumbnail, contentTitle=title ))
+        # action = "play"
+        # if logger.info() == False:
+            # action = "findvideos"
+        itemlist.append(Item(channel=item.channel, action="findvideos", title=title, contentTitle=title, url=url,
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('span', class_='current')
     if next_page:
         next_page = soup.find('span', class_='current').find_next_sibling('a')['href']
@@ -113,9 +115,11 @@ def lista(item):
 # <iframe width="640" height="480" src="about:blank" data-rocket-lazyload="fitvidscompatible" data-lazy-src="//xpornium.net/embed/7r16jzrkh0m1n9" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
 # https://xpornium.net/embed/7r16jzrkh0m1n9
 
+
 def findvideos(item):
     logger.info(item)
     itemlist = []
+    videos = []
     soup = create_soup(item.url)
     pornstars = soup.find('b', class_='icon-star').parent.find_all('a')
     for x , value in enumerate(pornstars):
@@ -129,12 +133,12 @@ def findvideos(item):
     plot = pornstar
     matches = soup.find('div', class_='player-content').find_all('iframe')
     for elem in matches:
-        logger.debug(elem)
         if elem.get("data-lazy-src", ""):
             url = elem['data-lazy-src']
         else:
             url = elem['src']
-        if not "yandexcdn" in url and not "upvideo" in url:
+        if not "yandexcdn" in url and not "upvideo" in url and not url in videos:
+            videos.insert(0, url)
             itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, plot=plot, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     # Requerido para AutoPlay
