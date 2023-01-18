@@ -1,0 +1,15 @@
+{
+  "id": "hitprn",
+  "name": "hitprn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.hitprn.com/wp-content/uploads/2021/03/hitprn-logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
