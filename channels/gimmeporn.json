@@ -1,0 +1,15 @@
+{
+  "id": "gimmeporn",
+  "name": "gimmeporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www2.gimmeporn.xyz/wp-content/uploads/2022/03/g8228.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

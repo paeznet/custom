@@ -32,11 +32,12 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "videos/newest/1"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "videos/most-popular/today/1"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "videos/top-rated/1"))
-    itemlist.append(Item(channel=item.channel, title="Mas metraje" , action="lista", url=host + "videos/longest/1"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "videos/newest/1"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "videos/newest/"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "videos/most-popular/daily/"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "videos/top-rated/daily/"))
+    itemlist.append(Item(channel=item.channel, title="Trendig" , action="lista", url=host + "videos/best-recent/"))
+    itemlist.append(Item(channel=item.channel, title="Mas metraje" , action="lista", url=host + "videos/longest/1/"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "tags/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -57,17 +58,18 @@ def search(item, texto):
 def categorias(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url).find('ul', class_='left-menu-box')
-    matches = soup.find_all('a')
+    soup = create_soup(item.url)
+    matches = soup.find_all('div', class_='channel-item')
     for elem in matches:
-        url = elem['href']
-        title = elem.text.strip()
-        url = urlparse.urljoin(item.url,url)
+        url = elem.a['href']
+        title = elem.a['title']
         thumbnail = ""
+        title = title.replace("Porn Tube - ", "(").replace(" Videos", ")")
+        url = url.replace("best-recent", "newest")
+        url = urlparse.urljoin(item.url,url)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('li', class_='pagination-next')
     return itemlist
 
 
@@ -87,20 +89,21 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('li', class_='videospot')
+    matches = soup.find_all('div', class_='video-item-wrapper')
     for elem in matches:
         url = elem.a['href']
         title = elem.img['alt']
         thumbnail = elem.img['src']
-        viddata = elem.find('div', class_='viddata')
-        time = scrapertools.find_single_match(str(viddata),'<span>([^<]+)</span>').strip()
+        viddata = elem.find('span', class_='content-length')
         quality = viddata.find('span', class_='text-active')
         if viddata.find('span', class_='member-only'):
             title = "[COLOR red]%s[/COLOR]" % title
         if quality:
+            time = scrapertools.find_single_match(str(viddata),'</span>([^<]+)</span>').strip()
             quality = quality.text.strip()
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]%s[/COLOR] %s" % (time.strip(),quality,title)
         else:
+            time = viddata.text.strip()
             title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail

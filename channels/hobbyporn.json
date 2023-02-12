@@ -1,0 +1,15 @@
+{
+  "id": "hobbyporn",
+  "name": "hobbyporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/qv7TFJjb/hobbyporn.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

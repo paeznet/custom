@@ -163,10 +163,13 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
+    soup = create_soup(item.url)
+    logger.debug(soup.video)
     data = httptools.downloadpage(item.url, canonical=canonical).data
+    logger.debug(data)
     patron = 'data-hls-src(\d+)="([^"]+)"'
     matches = re.compile(patron,re.DOTALL).findall(data)
     for quality, url in matches:
         url = url.replace("amp;", "")
-        itemlist.append(['%sp' %quality, url])
+        itemlist.append(['[peekvids] %sp' %quality, url])
     return itemlist

@@ -19,9 +19,9 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 canonical = {
-             'channel': 'ennovelas', 
-             'host': config.get_setting("current_host", 'ennovelas', default=''), 
-             'host_alt': ["http://pornhd8k.net"], 
+             'channel': 'pornhd8k', 
+             'host': config.get_setting("current_host", 'pornhd8k', default=''), 
+             'host_alt': ["https://pornhd8k.net/"], 
              'host_black_list': [], 
              'pattern': ['this.base_url\s*=\s*"?([^"|\s*]+)["|\s*]'], 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -33,14 +33,14 @@ def mainlist(item):
     logger.info()
     itemlist = []
 
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/porn-hd-videos"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/most-popular/?sort_by=video_viewed_month&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/top-rated/1/?sort_by=rating_month&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "/most-commented/1/?sort_by=most_commented_month&from=01"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "/models/?sort_by=avg_videos_popularity&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "/sites/?sort_by=avg_videos_popularity&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "porn-hd-videos"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "most-popular/?sort_by=video_viewed_month&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "top-rated/1/?sort_by=rating_month&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "most-commented/1/?sort_by=most_commented_month&from=01"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "models/?sort_by=avg_videos_popularity&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "sites/?sort_by=avg_videos_popularity&from=01"))
 
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/categories/?sort_by=avg_videos_popularity&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories/?sort_by=avg_videos_popularity&from=01"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -48,7 +48,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "-")
-    item.url = "%s/search/%s/" % (host,texto)
+    item.url = "%ssearch/%s/" % (host,texto)
     try:
         return lista(item)
     except:
@@ -88,9 +88,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -102,7 +102,6 @@ def lista(item):
     itemlist = []
     soup = create_soup(item.url)
     matches = soup.find_all('div', class_='ml-item')
-    logger.debug(matches)
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
@@ -113,6 +112,7 @@ def lista(item):
         # logger.debug(thumbnail)
         # thumbnail = scrapertools.find_single_match(thumbnail, '".*?url=([^"]+)"')
         thumbnail=  urlparse.urljoin(item.url,thumbnail)
+        url=  urlparse.urljoin(item.url,url)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="play", title=title, url=url, thumbnail=thumbnail,
                                plot=plot, fanart=thumbnail, contentTitle=title ))

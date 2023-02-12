@@ -129,7 +129,7 @@ def findvideos(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    url = soup.find('div', class_='player-holder').pagespeed_iframe['src']
+    url = soup.find('div', class_='player-holder').iframe['src']
     itemlist.append(Item(channel = item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
@@ -139,7 +139,7 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    url = soup.find('div', class_='player-holder').pagespeed_iframe['src']
+    url = soup.find('div', class_='player-holder').iframe['src']
     itemlist.append(Item(channel = item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

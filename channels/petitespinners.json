@@ -1,0 +1,15 @@
+{
+  "id": "petitespinners",
+  "name": "petitespinners",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://petitespinners.com/wp-content/uploads/2021/11/PetiteSpinners_logo_pre-removebg-preview.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
