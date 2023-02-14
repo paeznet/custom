@@ -19,7 +19,8 @@ from channels import filtertools
 from lib import alfa_assistant
 
 
-host = 'https://waaw.to/watch_video.php?v=dGxvei9KMTMzaFpOUlBUUkZxRTJ2WjFYNmhEOGdzQ1l6RWU3dHY3cm05bzlaekR2cnltVGllNTh1am1XN2pGTg%3D%3D#iss=MTU5LjE0Ny45LjExNQ=='
+host = "https://www.pornhits.com/video/219595/lesbian-couple-wants-roommate-dick-11-1-2022-with-codi-vore-michael-vegas-and-victoria-cakes/"
+# https://waaw.to/watch_video.php?v=dGxvei9KMTMzaFpOUlBUUkZxRTJ2WjFYNmhEOGdzQ1l6RWU3dHY3cm05bzlaekR2cnltVGllNTh1am1XN2pGTg%3D%3D#iss=MTU5LjE0Ny45LjExNQ==
 
 # https://czechvideo.org/22000-6603-publicpickups-molly-pills-tenting-his-pants-leads-to-pantsing-in-tent.html
 url1 = "https://evoload.io/SecurePlayer"

@@ -1,0 +1,15 @@
+{
+  "id": "nudede",
+  "name": "nudede",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.nudede.com/wp-content/uploads/2018/12/logonudede-1.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

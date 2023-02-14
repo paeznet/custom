@@ -18,6 +18,7 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+# https://www.pornhits.com/  https://www.onlyporn.tube/
 canonical = {
              'channel': 'pornhits', 
              'host': config.get_setting("current_host", 'pornhits', default=''), 
@@ -136,12 +137,14 @@ def lista(item):
     for elem in matches:
         logger.debug(elem)
         url = elem.a['href']
+        id = scrapertools.find_single_match(url, '/video/(\d+)/')
         title = elem.find('strong', class_='title').text.strip()
         title = " ".join(title.split())
         thumbnail = elem.img['data-original']
         time = elem.find('span', class_='duration').text.strip()
         title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         url = urlparse.urljoin(item.url,url)
+        url = "%sembed.php?id=%s" %(host,id)
         plot = ""
         action = "play"
         if logger.info() == False:
@@ -166,9 +169,22 @@ def findvideos(item):
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
+
+    # txt = txt.decode('unicode-escape').encode('utf8')
+# 'W3siZm9ybWF0IjoiX2xxLm1wNСIsInRpbWVsaW5lc19jb3VudСI6IjЕ0МyIsInRpbWVsaW5lc19pbnRlcnZhbСI6IjМwIiwidmlkZW9fdXJsIjoiTDJkbGRGOW1hV3hsTHpcdTА0МTV2WWpaalx1МDQxY3psa05qXHUwNDЕ1NVlUbGtZV0l4TjJGbU56WmlZVFx1МDQxМmpcdTА0МWN6VXlPR1kwT0RnNFpЕaGpZbVx1МDQxNTNPR1ZrTHpJМЕ9ЕXHUwNDЕwd1x1МDQxY1x1МDQyМTh5TkRnNVx1МDQxY2pVdlx1МDQxY2pRNЕ9USTFYМnh4TG0xd05cdTА0МjЕ4LFpЕМDВcdTА0МWNqY3pKbUp5UFRJek5pWjВhVDВ4TmpjМFx1МDQxY1RRМFx1МDQxY3pVМSIsImlzX2RlZmF1bHQiOiIxIn0seyJmb3JtYXQiOiJfaHЕubXА0IiwidGltZWxpbmVzX2NvdW50IjoiМСIsInRpbWVsaW5lc19pbnRlcnZhbСI6IjАiLСJ2aWRlb191cmwiOiJММmRsZЕY5bWFXeGxМelx1МDQxNXZaV1x1МDQxNTFaR0l3WkdOaFl6XHUwNDЕybFl6WTВZVFx1МDQxNTВcdTА0МWNXWTROamМzTkRcdTА0МTАyXHUwNDFjbUl4T1RcdTА0МWN3WmpOaU9ЕXHUwNDFjNЕ9XRm1МekkwT0RcdTА0МTВ3XHUwNDFjXHUwNDIxOHlORGc1XHUwNDFjalV2XHUwNDFjalЕ0T1RJМVgyaHhМbTF3Tlx1МDQyМTgsWkQwМFx1МDQxY2pjekptSnlQVFF5T1x1МDQyМVowYVQweЕ5qYzВcdTА0МWNUUTВcdTА0МWN6VTЕifV0~', null)
+
 def play(item):
     logger.info()
     itemlist = []
+    # url = "https://www.pornhits.com/controller/"
+    headers= {'Referer': item.url}
+    # post = "object_id=248925&act=view&section=video"
+    # data = httptools.downloadpage(url,post=post, headers=headers, canonical=canonical).data
+    data = httptools.downloadpage(item.url, headers=headers, canonical=canonical).data
+    txt = scrapertools.find_single_match(data, "'([^']+)', null\);")
+    txt = txt.encode('utf8')
+    # txt = txt.decode('unicode-escape').encode('utf8')
+    logger.debug(txt)
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
