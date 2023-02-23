@@ -1,0 +1,15 @@
+{
+  "id": "leakslove",
+  "name": "leakslove",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://leakslove.com/wp-content/uploads/Logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

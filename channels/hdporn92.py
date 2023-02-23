@@ -26,9 +26,9 @@ list_servers = []
 # https://latestpornvideo.com/    https://mynewpornvideo.com/    https://hdporn92.com/
 
 canonical = {
-             'channel': 'latestpornvideo', 
-             'host': config.get_setting("current_host", 'latestpornvideo', default=''), 
-             'host_alt': ["https://latestpornvideo.com/"], 
+             'channel': 'hdporn92', 
+             'host': config.get_setting("current_host", 'hdporn92', default=''), 
+             'host_alt': ["https://hdporn92.com/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -45,9 +45,8 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/?filter=latest"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/?filter=most-viewed"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "/?filter=longest"))
-    itemlist.append(Item(channel=item.channel, title="Peliculas" , action="lista", url=host + "category/movieporn/"))
-    itemlist.append(Item(channel=item.channel, title="WebCam" , action="lista", url=host + "archives/category/0day-porn/webcam"))
-    itemlist.append(Item(channel=item.channel, title="JAV" , action="lista", url=host + "archives/category/0day-porn/jav"))
+    itemlist.append(Item(channel=item.channel, title="Jacquie et Michel" , action="lista", url=host + "category/jacquieetmicheltv-videos/"))
+    itemlist.append(Item(channel=item.channel, title="JAV" , action="lista", url=host + "category/japanhdv/"))
     itemlist.append(Item(channel=item.channel, title="Pornstars" , action="categorias", url=host + "actors"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
@@ -61,7 +60,6 @@ def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
     item.url = "%s?s=%s&filter=latest" % (host,texto)
-    # item.url = "%ssearch/%s/?sort_by=post_date&from_videos=01" % (host,texto)
     try:
         return lista(item)
     except:
@@ -83,7 +81,7 @@ def categorias(item):
             thumbnail = ""
         else:
             thumbnail = elem.img['src']
-        if "gif" in thumbnail:
+        if ".gif" in thumbnail:
             thumbnail = elem.img['data-src']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
@@ -102,9 +100,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}).data
     else:
-        data = httptools.downloadpage(url, canonical=canonical).data
+        data = httptools.downloadpage(url).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -120,7 +118,7 @@ def lista(item):
         url = elem.a['href']
         title = elem.a['title']
         thumbnail = elem.img['data-src']
-        if "gif" in thumbnail:
+        if ".gif" in thumbnail:
             thumbnail = elem.img['src']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
@@ -145,12 +143,27 @@ def findvideos(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
+    pornstars = soup.find_all('a', href=re.compile("/actor/"))
+    for x , value in enumerate(pornstars):
+        pornstars[x] = value.text.strip()
+    pornstar = ' & '.join(pornstars)
+    pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+    plot = pornstar
+    if len(pornstars) <= 3:
+        lista = item.contentTitle.split()
+        lista.insert (0, pornstar)
+        item.contentTitle = ' '.join(lista)    
+    
     url = soup.find('div', class_='responsive-player').iframe['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    mirror = soup.find("a", string=re.compile(r"^Click HERE to Watch this Video"))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url, plot = plot))
+    mirror = soup.find('a', id='tracking-url')#string=re.compile("Server 2"))
     if mirror:
         url = mirror['href']
-        itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+        itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url, plot = plot))
+    matches = soup.find('div', class_='video-description').find_all('a')
+    for elem in matches:
+        url = elem['href']
+        itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url, plot = plot))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     # Requerido para AutoPlay
     autoplay.start(itemlist, item)
