@@ -104,7 +104,8 @@ def findvideos(item):
     if soup.find('video'):
         url = soup.source['src']
     else:
-        url = soup.iframe['src']    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+        url = soup.iframe['src']
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
