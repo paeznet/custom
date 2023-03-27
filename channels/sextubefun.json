@@ -1,0 +1,15 @@
+{
+  "id": "sextubefun",
+  "name": "sextubefun",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://sextubefun.com/templates/default_tube2019/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

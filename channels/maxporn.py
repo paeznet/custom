@@ -23,7 +23,7 @@ canonical = {
              'host': config.get_setting("current_host", 'maxporn', default=''), 
              'host_alt': ["https://max.porn/"], 
              'host_black_list': [], 
-             'pattern': ['href="?([^"|\s*]+)["|\s*]\s*rel="?stylesheet"?'], 
+             'pattern': ['icon" href="([^"]+)"'], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }

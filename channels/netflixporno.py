@@ -28,7 +28,7 @@ list_servers = []
 canonical = {
              'channel': 'netflixporno', 
              'host': config.get_setting("current_host", 'netflixporno', default=''), 
-             'host_alt': ["https://www.netflixporno.net/"], 
+             'host_alt': ["https://netflixporno.net/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True

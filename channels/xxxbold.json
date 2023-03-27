@@ -1,0 +1,15 @@
+{
+  "id": "xxxbold",
+  "name": "xxxbold",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/TY70VsxF/xxxbold.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

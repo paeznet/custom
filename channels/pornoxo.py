@@ -34,10 +34,10 @@ def mainlist(item):
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "videos/newest/"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "videos/most-popular/daily/"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "videos/top-rated/daily/"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "videos/top-rated/"))
     itemlist.append(Item(channel=item.channel, title="Trendig" , action="lista", url=host + "videos/best-recent/"))
-    itemlist.append(Item(channel=item.channel, title="Mas metraje" , action="lista", url=host + "videos/longest/1/"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "tags/"))
+    itemlist.append(Item(channel=item.channel, title="Mas metraje" , action="lista", url=host + "videos/longest/"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "tags/json/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -45,7 +45,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "-")
-    item.url = "%ssearch/%s/?ad_sub=339" % (host,texto)
+    item.url = "%ssearch/%s/?sort=mr" % (host,texto)
     try:
         return lista(item)
     except:
@@ -58,13 +58,13 @@ def search(item, texto):
 def categorias(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='channel-item')
+    matches = httptools.downloadpage(item.url, canonical=canonical).json
     for elem in matches:
-        url = elem.a['href']
-        title = elem.a['title']
-        thumbnail = ""
-        title = title.replace("Porn Tube - ", "(").replace(" Videos", ")")
+        url = elem['link']
+        title = elem['name']
+        thumbnail = elem['image']
+        cantidad = elem['videos']
+        title = "%s (%s)" %(title, cantidad)
         url = url.replace("best-recent", "newest")
         url = urlparse.urljoin(item.url,url)
         plot = ""
@@ -89,17 +89,17 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='video-item-wrapper')
+    matches = soup.find_all('div', class_='vidItem')
     for elem in matches:
         url = elem.a['href']
         title = elem.img['alt']
         thumbnail = elem.img['src']
-        viddata = elem.find('span', class_='content-length')
+        viddata = elem.find('div', class_='viddata')
         quality = viddata.find('span', class_='text-active')
         if viddata.find('span', class_='member-only'):
             title = "[COLOR red]%s[/COLOR]" % title
         if quality:
-            time = scrapertools.find_single_match(str(viddata),'</span>([^<]+)</span>').strip()
+            time = scrapertools.find_single_match(str(viddata),'<span>([^<]+)</span>')
             quality = quality.text.strip()
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]%s[/COLOR] %s" % (time.strip(),quality,title)
         else:
@@ -125,22 +125,13 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url, canonical=canonical).data
-    patron = '"src":"([^"]+)","desc":"([^"]+)"'
-    matches = scrapertools.find_multiple_matches(data, patron)
-    for url,quality in matches:
-        url = url.replace("\/", "/")
-        itemlist.append(Item(channel=item.channel, action="play", title=quality, url=url) )
-    return itemlist[::-1]
-
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    return itemlist
 
 def play(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url, canonical=canonical).data
-    patron = '"src":"([^"]+)","desc":"([^"]+)"'
-    matches = scrapertools.find_multiple_matches(data, patron)
-    for url,quality in matches:
-        url = url.replace("\/", "/")
-        itemlist.append(['[pornoxo] %s' %quality, url])
-    return itemlist[::-1]
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    return itemlist

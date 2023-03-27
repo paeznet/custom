@@ -1,0 +1,15 @@
+{
+  "id": "randyrooster",
+  "name": "randyrooster",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://randyrooster.com/api/photo/logo/10/logo_1adc0754df4863ac47d1e4b33befae38.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

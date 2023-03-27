@@ -1,0 +1,15 @@
+{
+  "id": "xcafe",
+  "name": "xcafe",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://xcafe.com/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

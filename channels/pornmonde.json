@@ -1,0 +1,15 @@
+{
+  "id": "pornmonde",
+  "name": "pornmonde",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://pornmonde.com/api/photo/logo/4/white_logo_6c4ac74bf44a7a11e5c468f5a5f7c92e.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

@@ -18,6 +18,7 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+#https://d1ck.co/    https://pornrz.com/
 canonical = {
              'channel': 'd1ck', 
              'host': config.get_setting("current_host", 'd1ck', default=''), 
@@ -67,6 +68,7 @@ def categorias(item):
         cantidad = elem.find('div', class_='dur')
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
+        thumbnail = urlparse.urljoin(item.url,thumbnail)
         url = urlparse.urljoin(item.url,url)
         url += "?sort_by=post_date&from=01"
         if not thumbnail.startswith("https"):
@@ -105,8 +107,7 @@ def lista(item):
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
         else:
             title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
-        if not thumbnail.startswith("https"):
-            thumbnail = "https:%s" % thumbnail
+        thumbnail = urlparse.urljoin(item.url,thumbnail)
         url = urlparse.urljoin(item.url,url)
         plot = ""
         action = "play"

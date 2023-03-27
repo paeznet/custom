@@ -1,0 +1,15 @@
+{
+  "id": "xxxbule",
+  "name": "xxxbule",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://ph-static.com/xxxbule/css/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

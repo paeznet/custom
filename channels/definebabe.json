@@ -1,0 +1,15 @@
+{
+  "id": "definebabe",
+  "name": "definebabe",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/fT6b5MD8/definebabe.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "analtime",
+  "name": "01analtime",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://analtime.org/contents/nsahbeemkevp/theme/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

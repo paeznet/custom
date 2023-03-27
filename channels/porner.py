@@ -23,7 +23,7 @@ canonical = {
              'host': config.get_setting("current_host", 'porner', default=''), 
              'host_alt': ["https://porner.tv/"], 
              'host_black_list': [], 
-             'pattern': ['property="og:url" content="?([^"|\s*]+)["|\s*]'], 
+             'pattern': ['property="og:image" content="?([^"|\s*]+)["|\s*]'], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }

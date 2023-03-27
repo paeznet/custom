@@ -1,0 +1,15 @@
+{
+  "id": "xxxiporn",
+  "name": "xxxiporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://xxxi.porn/static/images/xxxi.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

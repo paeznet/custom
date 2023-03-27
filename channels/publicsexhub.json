@@ -1,0 +1,15 @@
+{
+  "id": "publicsexhub",
+  "name": "publicsexhub",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://publicsexhub.com/wp-content/uploads/2021/10/PublicSexHubLogo-inverse600.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

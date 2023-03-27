@@ -35,16 +35,16 @@ def mainlist(item):
     itemlist = []
     
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host, ctype="addtime", cattype = "straight"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host, ctype="rating_month", cattype = "straight"))
-    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host, ctype="comments_month", cattype = "straight"))
-    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host, ctype="longest", cattype = "straight"))
+    # itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host, ctype="rating_month", cattype = "straight"))
+    # itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host, ctype="comments_month", cattype = "straight"))
+    # itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host, ctype="longest", cattype = "straight"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search", ctype="addtime", cattype = "straight"))
 
-    itemlist.append(Item(channel=item.channel, title="", action="", folder=False))
+    # itemlist.append(Item(channel=item.channel, title="", action="", folder=False))
 
-    itemlist.append(Item(channel=item.channel, title="Trans", action="submenu", cattype="trans"))
-    itemlist.append(Item(channel=item.channel, title="Gay", action="submenu", cattype="gay"))
+    # itemlist.append(Item(channel=item.channel, title="Trans", action="submenu", cattype="trans"))
+    # itemlist.append(Item(channel=item.channel, title="Gay", action="submenu", cattype="gay"))
     return itemlist
 
 
@@ -77,12 +77,13 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    if "gay" in item.cattype:
-        matches = soup.find('div', class_='cat_box_gay').find_all('a')
-    elif "trans" in item.cattype:
-        matches = soup.find('div', class_='cat_box_trans').find_all('a')
-    else:
-        matches = soup.find('div', class_='cat_box_straight').find_all('a')
+    matches = soup.find_all('a', class_='th-catline')
+    # if "gay" in item.cattype:
+        # matches = soup.find('div', class_='cat_box_gay').find_all('a')
+    # elif "trans" in item.cattype:
+        # matches = soup.find('div', class_='cat_box_trans').find_all('a')
+    # else:
+        # matches = soup.find('div', class_='cat_box_straight').find_all('a')
     for elem in matches:
         url = elem['href']
         title = elem.text

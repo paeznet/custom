@@ -1,0 +1,15 @@
+{
+  "id": "porndrake",
+  "name": "porndrake",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://static.porndrake.com/img/header_50.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

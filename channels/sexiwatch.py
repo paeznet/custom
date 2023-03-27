@@ -94,7 +94,7 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find(id='primary').find_all('article', class_=re.compile(r"^post-\d+"))
+    matches = soup.find('div',id='primary').find_all('article', class_=re.compile(r"^post-\d+"))
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
@@ -123,6 +123,7 @@ def findvideos(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
+    logger.debug(soup)
     url_code = soup.find('div', class_='responsive-player').iframe['src']
     if "php?q=" in url_code:
         import base64

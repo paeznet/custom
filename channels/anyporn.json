@@ -1,0 +1,15 @@
+{
+  "id": "anyporn",
+  "name": "anyporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/zGH6Qx3F/anyporn.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

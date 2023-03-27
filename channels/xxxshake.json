@@ -1,0 +1,15 @@
+{
+  "id": "xxxshake",
+  "name": "xxxshake",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/gkMbH8Zv/xxxshake.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

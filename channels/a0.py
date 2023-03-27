@@ -533,15 +533,22 @@ def play(item):
 
     #### joporn
     soup = create_soup(item.url)
-    pornstars = soup.find_all('a', href=re.compile("/teg/"))
+    pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/"))
     for x , value in enumerate(pornstars):
         pornstars[x] = value.text.strip()
     pornstar = ' & '.join(pornstars)
     pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
-    logger.debug(pornstar)
-    lista = item.contentTitle.split()
-    lista.insert (2, pornstar)
-    item.contentTitle = ' '.join(lista)    
+    plot = ""
+    if len(pornstars) <= 3:
+        lista = item.contentTitle.split()
+        if "HD" in item.title:
+            lista.insert (4, pornstar)
+        else:
+            lista.insert (2, pornstar)
+        item.contentTitle = ' '.join(lista)
+    else:
+        plot = pornstar
+
 
 
     (?:Videos|videos)<    #utiliza los dos textos en la busqueda
@@ -638,6 +645,12 @@ def play(item):
             next_page = re.sub(r"&from=\d+", "&from={0}".format(next_page), item.url)
 
 
+    next_page = soup.find('i', class_='fa-caret-right')
+    if next_page:
+        next_page = next_page.parent['href']
+        next_page = urlparse.urljoin(item.url,next_page)
+
+
 
     next_page = soup.find('li', class_='page-current')
     if next_page and next_page.find_next_sibling("li"):
@@ -653,6 +666,7 @@ def play(item):
     next_page = soup.find('a', class_='current')
     if next_page and next_page.parent.find_next_sibling("li"):
         next_page = next_page.parent.find_next_sibling("li").a['href']
+        next_page = urlparse.urljoin(item.url,next_page)
 
 
     pagination = soup.find('div', class_='navigation')

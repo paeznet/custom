@@ -18,7 +18,7 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-host = 'https://www.bitporno.com'
+host = "https://bitporno.to"
 
 # m3u8 El enlace no es un video (se encontro tipo text/html)
 

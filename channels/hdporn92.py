@@ -23,7 +23,7 @@ from channels import autoplay
 list_quality = []
 list_servers = []
 
-# https://latestpornvideo.com/    https://mynewpornvideo.com/    https://hdporn92.com/
+# https://latestpornvideo.com/    https://mynewpornvideo.com/    https://hdporn92.com/    https://whereismyporn.com/
 
 canonical = {
              'channel': 'hdporn92', 

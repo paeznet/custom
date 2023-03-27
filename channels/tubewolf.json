@@ -1,0 +1,15 @@
+{
+  "id": "tubewolf",
+  "name": "tubewolf",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.tubewolf.com/images/square.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

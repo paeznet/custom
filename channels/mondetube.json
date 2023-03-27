@@ -1,0 +1,15 @@
+{
+  "id": "mondetube",
+  "name": "mondetube",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://mondetube.com/static/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

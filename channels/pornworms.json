@@ -1,0 +1,15 @@
+{
+  "id": "pornworms",
+  "name": "pornworms",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/3Jf33WBq/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

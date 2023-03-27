@@ -22,8 +22,9 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'pornhits', 
              'host': config.get_setting("current_host", 'pornhits', default=''), 
-             'host_alt': ["https://www.pornhits.com/"], 
+             'host_alt': ["https://pornhits.com/"], 
              'host_black_list': [], 
+             'pattern': ['logo__img" src="([^"]+)"'], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -97,7 +98,6 @@ def catalogo(item):
     soup = create_soup(item.url)
     matches = soup.find_all('a', class_='more')
     for elem in matches:
-        logger.debug(elem)
         url = elem['href']
         title = elem.parent.h2.text.strip()
         thumbnail = ""
@@ -135,7 +135,6 @@ def lista(item):
     soup = create_soup(item.url)
     matches = soup.find('div', class_='list-videos').find_all('div', class_='item')
     for elem in matches:
-        logger.debug(elem)
         url = elem.a['href']
         id = scrapertools.find_single_match(url, '/video/(\d+)/')
         title = elem.find('strong', class_='title').text.strip()

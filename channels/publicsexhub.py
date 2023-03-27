@@ -19,9 +19,9 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 canonical = {
-             'channel': 'freeXXXvideo', 
-             'host': config.get_setting("current_host", 'freeXXXvideo', default=''), 
-             'host_alt': ["https://freexxx.video/"], 
+             'channel': 'publicsexhub', 
+             'host': config.get_setting("current_host", 'publicsexhub', default=''), 
+             'host_alt': ["https://publicsexhub.com/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -32,8 +32,10 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "page/1/?filter=latest"))
-    itemlist.append(Item(channel=item.channel, title="Mas popular" , action="lista", url=host + "page/1/?filter=popular"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "?filter=latest"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "?filter=most-viewed"))
+    itemlist.append(Item(channel=item.channel, title="Mas popular" , action="lista", url=host + "?filter=popular"))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "?filter=longest"))
     itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "actors/"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
@@ -43,7 +45,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%spage/1/?s=%s" % (host,texto)
+    item.url = "%s?s=%s&filter=latest" % (host,texto)
     try:
         return lista(item)
     except:
@@ -61,13 +63,21 @@ def categorias(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
-        thumbnail = elem.img['src']
+        if elem.find('span', class_='no-thumb'):
+            thumbnail = ""
+        else:
+            thumbnail = elem.img['src']
         if "gif" in thumbnail:
             thumbnail = elem.img['data-src']
+        if not thumbnail.startswith("https"):
+            thumbnail = "https:%s" % thumbnail
+        url = url.replace("?actors=", "/actor/")
+        if not "/actor/" in url:
+            url += "?filter=latest"
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find("a", class_="current")
+    next_page = soup.find('a', class_='current')
     if next_page and next_page.parent.find_next_sibling("li"):
         next_page = next_page.parent.find_next_sibling("li").a['href']
         next_page = urlparse.urljoin(item.url,next_page)
@@ -95,21 +105,24 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
-        title = title.replace("| FreeXXX.video", "").replace("|", " - ")
-        lista = title.split("-")
-        if len(lista) > 1:
-            lista[0]= "[COLOR cyan]%s[/COLOR]" %lista[0]
-        title = '-'.join(lista)
-        thumbnail = elem.img['data-src']
+        thumbnail = elem.video['poster']
         if "gif" in thumbnail:
-            thumbnail = elem.img['data-src']
+            thumbnail = elem.img['data-original']
+        if not thumbnail.startswith("https"):
+            thumbnail = "https:%s" % thumbnail
+        time = elem.find('span', class_='duration').text.strip()
+        quality = elem.find('span', class_='hd-video')
+        if quality:
+            title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
+        else:
+            title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         plot = ""
         action = "play"
         if logger.info() == False:
             action = "findvideos"
-        itemlist.append(Item(channel=item.channel, action=action, title=title, url=url,
+        itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find("a", string="Next")
+    next_page = soup.find("a", string=re.compile(r"^Next"))
     if next_page:
         next_page = next_page['href']
         next_page = urlparse.urljoin(item.url,next_page)
@@ -121,9 +134,11 @@ def findvideos(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    url = soup.find('div', class_='responsive-player').iframe['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    url1 = soup.find('div', class_='responsive-player').iframe['data-src']
+    soup = create_soup(url1, referer=host)
+    url = soup.video.source['src']
+    url += "|Referer=%s" % url1
+    itemlist.append(Item(channel=item.channel, action="play", title= "[publicsexhub] .m3u", contentTitle = item.contentTitle, url=url))
     return itemlist
 
 
@@ -131,7 +146,9 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    url = soup.find('div', class_='responsive-player').iframe['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    url1 = soup.find('div', class_='responsive-player').iframe['data-src']
+    soup = create_soup(url1, referer=host)
+    url = soup.video.source['src']
+    url += "|Referer=%s" % url1
+    itemlist.append(['[publicsexhub] .m3u' , url])
     return itemlist

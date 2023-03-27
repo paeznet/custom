@@ -1,0 +1,15 @@
+{
+  "id": "iceporn",
+  "name": "iceporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://iceporn.tv/api/photo/logo/3/white_logo_0dd12daa293adae863661599356f2b80.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

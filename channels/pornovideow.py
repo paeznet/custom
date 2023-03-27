@@ -23,7 +23,6 @@ canonical = {
              'host': config.get_setting("current_host", 'pornovideow', default=''), 
              'host_alt': ["https://pornovideow.com/"], 
              'host_black_list': [], 
-             'pattern': ['href="?([^"|\s*]+)["|\s*]\s*rel="?stylesheet"?'], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }

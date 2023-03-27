@@ -1,0 +1,15 @@
+{
+  "id": "anysex",
+  "name": "anysex",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://anysex.com/static/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

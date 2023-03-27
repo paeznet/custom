@@ -1,0 +1,15 @@
+{
+  "id": "voyeurlife",
+  "name": "voyeurlife",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.voyeur-house.life/images/logo/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

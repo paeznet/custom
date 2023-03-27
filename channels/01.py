@@ -19,9 +19,9 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 canonical = {
-             'channel': 'whoreshub', 
-             'host': config.get_setting("current_host", 'whoreshub', default=''), 
-             'host_alt': ["https://www.whoreshub.com/"], 
+             'channel': 'ballzdeep', 
+             'host': config.get_setting("current_host", 'ballzdeep', default=''), 
+             'host_alt': ["https://ballzdeep.xxx/"], 
              'host_black_list': [], 
              'pattern': ['href="?([^"|\s*]+)["|\s*]\s*rel="?stylesheet"?'], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
@@ -33,11 +33,15 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "latest-updates/?sort_by=post_date&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "most-popular/?sort_by=video_viewed_month&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "top-rated/1/?sort_by=rating_month&from=01"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "models/?sort_by=avg_videos_popularity&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories/?sort_by=title&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "?sort_by=post_date&from=1"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "?sort_by=video_viewed_month&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "?sort_by=rating_month&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Favoritos" , action="lista", url=host + "?sort_by=most_favourited&from=1"))
+    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "?sort_by=most_commented&from=1"))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "?sort_by=duration&from=1"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "models/?sort_by=total_videos&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "sites/?sort_by=total_videos&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories/?sort_by=title"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -59,10 +63,10 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='thumb')
+    matches = soup.find_all('a', class_='item')
     for elem in matches:
-        url = elem.a['href']
-        title = elem.a['title']
+        url = elem['href']
+        title = elem['title']
         if elem.find('span', class_='no-thumb'):
             thumbnail = ""
         else:
@@ -71,7 +75,7 @@ def categorias(item):
             thumbnail = elem.img['data-src']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
-        cantidad = elem.find('span', class_='text')
+        cantidad = elem.find('div', class_='videos')
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
         # url = urlparse.urljoin(item.url,url)
@@ -107,16 +111,16 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_=re.compile(r"^post-\d+"))
+    matches = soup.find_all('div', class_=re.compile(r"^item-\d+"))
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
         thumbnail = elem.img['src']
         if "gif" in thumbnail:
-            thumbnail = elem.img['data-src']
+            thumbnail = elem.img['data-original']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
-        time = elem.find('span', class_='duration').text.strip()
+        time = elem.find('div', class_='duration').text.strip()
         quality = elem.find('span', class_='is-hd')
         if quality:
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
@@ -146,9 +150,24 @@ def findvideos(item):
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
+
+
 def play(item):
     logger.info()
     itemlist = []
+    soup = create_soup(item.url)
+    pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/"))
+    for x , value in enumerate(pornstars):
+        pornstars[x] = value.text.strip()
+    pornstar = ' & '.join(pornstars)
+    pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+    lista = item.contentTitle.split()
+    if "HD" in item.title:
+        lista.insert (4, pornstar)
+    else:
+        lista.insert (2, pornstar)
+    item.contentTitle = ' '.join(lista)
+    
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
