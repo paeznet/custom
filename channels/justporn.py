@@ -22,7 +22,7 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'justporn', 
              'host': config.get_setting("current_host", 'justporn', default=''), 
-             'host_alt': ["https://justporn.com"], 
+             'host_alt': ["https://justporn.com/"], 
              'host_black_list': [], 
              'pattern': ['hreflang="?x-default"?\s*href="?([^"|\s*]+)["|\s*]'], 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -36,9 +36,9 @@ def mainlist(item):
     logger.info()
     itemlist = []
 
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/?page=1"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/?sort=most-viewed&range=30&page=1"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/?sort=top-rated&range=30&page=1"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "?page=1"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "?sort=most-viewed&range=30&page=1"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "?sort=top-rated&range=30&page=1"))
     # itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "/most-commented/1/?sort_by=most_commented_month&from=01"))
     # itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "/models/?sort_by=avg_videos_popularity&from=01"))
     # itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "/sites/?sort_by=avg_videos_popularity&from=01"))
@@ -51,7 +51,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "-")
-    item.url = "%s/search/%s/" % (host,texto)
+    item.url = "%ssearch/%s/" % (host,texto)
     try:
         return lista(item)
     except:
@@ -69,7 +69,7 @@ def categorias(item):
     for elem in matches:
         val = elem['data-val']
         title = elem.text.strip()
-        url = "/?category[]=%s&page=1"  %val
+        url = "?category[]=%s&page=1"  %val
         thumbnail = ""
         url = urlparse.urljoin(item.url,url)
         plot = ""

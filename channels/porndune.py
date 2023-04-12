@@ -21,7 +21,7 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'porndune', 
              'host': config.get_setting("current_host", 'porndune', default=''), 
-             'host_alt': ["https://porndune.com"], 
+             'host_alt': ["https://porndune.com/"], 
              'host_black_list': [], 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -31,16 +31,16 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/en"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "en"))
 
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/en/videos/page/1?sort=date&time=anytime", order="date", page="0"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/en/videos/page/1?sort=popular&time=anytime", order="popular", page="0"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/en/videos/page/1?sort=rating&time=anytime", order="rating", page="0"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "en/videos/page/1?sort=date&time=anytime", order="date", page="0"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "en/videos/page/1?sort=popular&time=anytime", order="popular", page="0"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "en/videos/page/1?sort=rating&time=anytime", order="rating", page="0"))
     # itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "/most-commented/1/?sort_by=most_commented_month&from=01"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "/models/?sort_by=avg_videos_popularity&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "/sites/?sort_by=avg_videos_popularity&from=01"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "models/?sort_by=avg_videos_popularity&from=01"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "sites/?sort_by=avg_videos_popularity&from=01"))
 
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/en/categories"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "en/categories"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -48,7 +48,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "-")
-    item.url = "%s/search/%s/" % (host,texto)
+    item.url = "%ssearch/%s/" % (host,texto)
     try:
         return lista(item)
     except:
