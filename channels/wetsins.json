@@ -1,0 +1,15 @@
+{
+  "id": "wetsins",
+  "name": "wetsins",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.wetsins.com/templates/default_tube2019/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

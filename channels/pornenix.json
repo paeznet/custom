@@ -1,0 +1,15 @@
+{
+  "id": "pornenix",
+  "name": "pornenix",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://pornenix.com/templates/pornenix/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

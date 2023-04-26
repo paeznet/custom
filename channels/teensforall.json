@@ -1,0 +1,15 @@
+{
+  "id": "teensforall",
+  "name": "teensforall",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://teensforall.com/wp-content/uploads/2022/08/teensforall.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

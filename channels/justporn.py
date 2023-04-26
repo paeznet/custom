@@ -99,7 +99,7 @@ def lista(item):
     for elem in matches:
         pornstar = ""
         quality = ""
-        url = elem['data-clip']
+        url = elem.a['href']
         title = elem.h2.text.strip()
         thumbnail = elem.img['src']
         time = elem.find('div', class_='content-img-details').text.strip()
@@ -139,6 +139,7 @@ def findvideos(item):
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
+
 
 def play(item):
     logger.info()

@@ -267,6 +267,8 @@ url = httptools.downloadpage(url, headers=headers , follow_redirects=False, only
         # tnaflix pelisxporno headers referer
             headers = {'Referer': item.url}
             data = httptools.downloadpage(url, headers=headers).data
+            data = re.sub(r"\n|\r|\t|&nbsp;|<br>", "", data)
+            
         # shameless  url headers referer diferente para sacar los links
         # LIKUOO  EROTICAGE  HDZOG HDCLIP  POST DOWNLOADPAGE GOTPORN con SOUP
           datas = httptools.downloadpage(scrapedurl, post=post, headers={'Referer':item.url}).data
@@ -473,6 +475,12 @@ def play(item):
         url = base64.b64decode(url).decode('utf-8')
         url = base64.b64encode(url.encode('utf8')).decode('utf8')
         url = urlparse.unquote(url)  #QUITA %21 %3C DE LA URL Y PONE ://
+
+
+
+    url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))
+    url = url['src']
+
 
 
 ########### ERROR bytes and str

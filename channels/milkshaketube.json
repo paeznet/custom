@@ -1,0 +1,15 @@
+{
+  "id": "milkshaketube",
+  "name": "milkshaketube",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://milkshaketube.com/wp-content/uploads/2022/10/milkshaketube-header-logo-01.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

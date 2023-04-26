@@ -1,0 +1,15 @@
+{
+  "id": "hotporn",
+  "name": "hotporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://hotporn.sex/wp-content/uploads/2020/03/hotporn.sex_.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

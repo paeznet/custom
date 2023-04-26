@@ -1,0 +1,15 @@
+{
+  "id": "okporn",
+  "name": "okporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/wxRJxNGL/okporn.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
