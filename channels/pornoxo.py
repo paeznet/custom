@@ -28,6 +28,8 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
+# CATEGORIAS DA ERROR 404
+# logger.debug(httptools.downloadpage(host + "tags/").data)
 
 def mainlist(item):
     logger.info()
@@ -37,7 +39,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "videos/top-rated/"))
     itemlist.append(Item(channel=item.channel, title="Trendig" , action="lista", url=host + "videos/best-recent/"))
     itemlist.append(Item(channel=item.channel, title="Mas metraje" , action="lista", url=host + "videos/longest/"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "tags/json"))
+    # itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "tags/json"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -58,7 +60,8 @@ def search(item, texto):
 def categorias(item):
     logger.info()
     itemlist = []
-    matches = httptools.downloadpage(item.url).json
+    referer = "https://www.pornoxo.com/tags/"
+    matches = httptools.downloadpage(item.url, headers={'Referer': referer}).json
     for elem in matches:
         url = elem['link']
         title = elem['name']

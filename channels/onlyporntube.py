@@ -60,34 +60,32 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='thumb')
+    matches = soup.find('div', class_=re.compile(r"^list-(?:videos|models)")).find_all('a')
     for elem in matches:
-        url = elem.a['href']
-        title = elem.a['title']
+        url = elem['href']
+        title = elem.find('strong', class_='title').text.strip()
         if elem.find('span', class_='no-thumb'):
             thumbnail = ""
         else:
             thumbnail = elem.img['src']
-        if "gif" in thumbnail:
-            thumbnail = elem.img['data-src']
+        if "base64" in thumbnail:
+            thumbnail = elem.img['data-original']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
-        cantidad = elem.find('span', class_='text')
+        cantidad = elem.find('div', class_='videos')
         if cantidad:
-            title = "%s (%s)" % (title,cantidad.text.strip())
-        # url = urlparse.urljoin(item.url,url)
-        # thumbnail = urlparse.urljoin(item.url,thumbnail)
-        url += "?sort_by=post_date&from=01"
+            title = "%s (%s)" % (title,cantidad.text.strip().replace(" ", ""))
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('li', class_='next')
-    if next_page and next_page.find('a'):
-        next_page = next_page.a['data-parameters'].split(":")[-1]
-        if "from_videos" in item.url:
-            next_page = re.sub(r"&from_videos=\d+", "&from_videos={0}".format(next_page), item.url)
-        else:
-            next_page = re.sub(r"&from=\d+", "&from={0}".format(next_page), item.url)
+    pagination = soup.find('span', class_=re.compile(r"^pagination\d+"))
+    pag = int(pagination['data-page'])
+    xpag = pagination['data-count']
+    total = pagination['data-total']
+    pages = int(total)/int(xpag)
+    if pag < pages:
+        next_page = pag + 1
+        next_page = re.sub(r"&p=\d+", "&p={0}".format(next_page), item.url)
         itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
@@ -108,10 +106,8 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='item')
-    # matches = soup.find_all('div', class_=re.compile(r"^pitem\d+"))
+    matches = soup.find('div', class_='list-videos').find_all('div', class_='item')
     for elem in matches:
-        # logger.debug(elem)
         url = elem.a['href']
         title = elem.img['title']
         thumbnail = elem.img['src']
@@ -120,18 +116,14 @@ def lista(item):
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
         time = elem.find('span', class_='duration').text.strip()
-        # quality = elem.find('span', class_='is-hd')
-        # if quality:
-            # title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
-        # else:
         title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
+        url = urlparse.urljoin(item.url,url)
         plot = ""
         action = "play"
         if logger.info() == False:
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-# <span class="pagination2874" data-count="36" data-jump="4" data-maxpages="1005000" data-page="1" data-total="37484"></span>
     pagination = soup.find('span', class_=re.compile(r"^pagination\d+"))
     pag = int(pagination['data-page'])
     xpag = pagination['data-count']
@@ -154,6 +146,19 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
+    soup = create_soup(item.url)
+    pornstars = soup.find_all('a', href=re.compile("&ps=[A-z0-9-]+"))
+    for x , value in enumerate(pornstars):
+        pornstars[x] = value.text.strip()
+    pornstar = ' & '.join(pornstars)
+    pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+    lista = item.contentTitle.split()
+    if "HD" in item.title:
+        lista.insert (4, pornstar)
+    else:
+        lista.insert (2, pornstar)
+    item.contentTitle = ' '.join(lista)
+    
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

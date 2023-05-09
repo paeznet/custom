@@ -421,8 +421,11 @@ def play(item):
     for url, lang in zip(video_urls, idioma):  Coge elemento de la lista video_urls y de la lista idioma
 
 
+    plot = 'Canal de pruebas de [COLOR yellow][B]AlfaChannelHelper[/B][/COLOR]'
+
     logger.debug("ITEM: %s" % item)            logger.info("Intel11 %s" %item)
                scrapertools.printMatches(matches)
+    logger.error(elem)
 
 
 
@@ -508,6 +511,18 @@ def play(item):
     img += "|Referer=https://www.porntrex.com/"     #REFERER
     url += "|Referer=%s" % host                     #referer tryboobs videos
     
+
+
+ #####        PORNHUB
+    from platformcode import unify
+    UNIFY_PRESET = config.get_setting("preset_style", default="Inicial")
+    color_setting = unify.colors_file[UNIFY_PRESET]
+    # los sustituye
+    color_setting =  AlfaChannel.color_setting
+    {'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange', 'rating_3': 'gold', 'quality': 'deepskyblue', 'cast': 'yellow', 'lat': 'limegreen', 'vose': 'firebrick', 'vos': 'firebrick', 'vo': 'firebrick', 'server': 'orange', 'library': 'yellow', 'update': 'limegreen', 'no_update': 'red'}
+    color_setting = AlfaChannel.color_setting.get('rating_3', '')  ''' =====> ''' gold
+
+
     
     
                     ##### xxxfiles
@@ -802,12 +817,14 @@ def replace_all(text, dic):
 
 
                         # TXX  UNICODE
+    #truco del mendrugo
+    # if not PY3:
+        # txt = txt.decode('unicode-escape').encode('utf8')
+    # else:
+        # txt = txt.encode('utf8').decode('unicode-escape')
     # txt = txt.replace('\u0410', 'A').replace('\u0412', 'B').replace('\u0421', 'C').replace('\u0415', 'E').replace('\u041c', 'M').replace('~', '=').replace(',','/')
     txt = txt.decode('unicode-escape').encode('utf8')
     txt = txt.replace('А', 'A').replace('В', 'B').replace('С', 'C').replace('Е', 'E').replace('М', 'M').replace('~', '=').replace(',','/')
-
-
-
 
 dic = {'A':'A',      #\u0410
        'B':'B',      #\u0411
@@ -821,6 +838,37 @@ dic = {'A':'A',      #\u0410
     txt = 'AAMMCCDDEE'
     for i, j in dic.iteritems():
         text = txt.replace(i, j)
+
+
+                                ####### porhit y onlifans TXX
+                https://www.onlyporn.tube/embed.php?id=10064693  ====>  https://www.onlyporn.tube/api/videofile.php?video_id=10064693&lifetime=8640000
+    
+    }, 'W3siZm9ybWF0IjoiX2xxLm1wNСIsInRpbWVsaW5lc19jb3VudСI6IjЕ5IiwidGltZWxpbmVzX2ludGVydmFsIjoiМjАiLСJ2aWRlb191cmwiOiJММmRsZЕY5bWFXeGxМelx1МDQxNXZcdTА0МWNUUTRZVGt4XHUwNDFjR0pqXHUwNDFjVFF5TmpKaFx1МDQxYzJVМ05qZ3pObVk0T1dSa05ЕXHUwNDЕwМЕ5UXHUwNDЕwNVx1МDQxY1RKbVpUazВaVЕZoTHpcdTА0МTV3XHUwNDFjRFkwXHUwNDFjRFx1МDQxМHdМelx1МDQxNXdcdTА0МWNЕWTВOamt6THpcdTА0МTV3XHUwNDFjRFkwTmprelgyeHhМbTF3Tlx1МDQyМTgsWkQwek5qXHUwNDЕ1bVluSTlcdTА0МWNUWTВKblJwUFRcdTА0МTUyT0RJМk9ЕXHUwNDFjeU5qY34iLСJpc19kZWZhdWx0IjoxfSx7ImZvcm1hdСI6Il9ocS5tcDQiLСJ0aW1lbGluZXNfY291bnQiOiIwIiwidGltZWxpbmVzX2ludGVydmFsIjoiМСIsInZpZGVvX3VybСI6IkwyZGxkRjltYVd4bЕx6XHUwNDЕ1dk5HUTJOR1k0XHUwNDFjbU5rWXpreFpЕSXlPRGcxT1dJeVx1МDQxY3paa056Z3lZV1x1МDQxYzVcdTА0МWNЕZzRZbVF5TldJeFlqazNМelx1МDQxNXdcdTА0МWNЕWTВcdTА0МWNЕXHUwNDЕwd0x6XHUwNDЕ1d1x1МDQxY0RZМЕ5qa3pМelx1МDQxNXdcdTА0МWNЕWTВOamt6WDJoeЕxtМXdOXHUwNDIxOСxaRDВ6TmpcdTА0МTVtWW5JOVx1МDQxY3pcdTА0МTВ4Sm5ScFВUXHUwNDЕ1Мk9ЕSTJPRFx1МDQxY3lOamN.In1d', [{"video_id":"10019787","sg_id":"1","title":"Titfuck Big Natural Tits And Fuck Big Ass - Amateur Teen","dir":"titfuck-big-natural-tits-and-fuck-big-ass-amateur-teen","duration":"07:43","start_pos":"0","video_viewed":"237","rating":"1","rating_amount":1,"post_date":"2022-05-04 05:18:44","content_source_name":"","user_id":"2119","display_name":"Sisko De Wit","scr":"https:\/\/tn.onlyporn.tube\/media\/tn\/10019787_1.jpg","props":{"hd":"1"},"dislikes":1,"likes":0,"dir_path":"10019000\/10019787","models_as_string":null,"models":[],"categories_as_string":null,"categories":[]},{"video_id":"10005091","sg_id":"1","title":"Big Natural Tits Girl Sucks Big Dick Till Cum In Mouth","dir":"big-natural-tits-girl-sucks-big-dick-till-cum-in-mouth","duration":"05:29","start_pos":"0","video_viewed":"273","rating":"5","rating_amount":1,"post_date":"2022-04-17 08:28:13","content_source_name":"","user_id":"4839","display_name":"Evangeline Dagostino","scr":"https:\/\/tn.onlyporn.tube\/media\/tn\/10005091_1.jpg","props":{"hd":"1"},"dislikes":0,"likes":1,"dir_path":"10005000\/10005091","models_as_string":null,"models":[],"categories_as_string":null,"categories":[]},{"video_id":"10026115","sg_id":"1","title":"Ig Model - Theonlyslimstephh Sucking Bbc In The Old Days","dir":"ig-model-theonlyslimstephh-sucking-bbc-in-the-old-days","duration":"00:37","start_pos":"0","video_viewed":"155","rating":"0","rating_amount":1,"post_date":"2022-05-26 12:50:02","content_source_name":"","user_id":"12325","display_name":"Millie Markoski","scr":"https:\/\/tn.onlyporn.tube\/media\/tn\/10026115_1.jpg","props":[],"dislikes":0,"likes":0,"dir_path":"10026000\/10026115","models_as_string":null,"models":[],"categories_as_string":null,"categories":[]},{"video_id":"10062807","sg_id":"1","title":"Pov Bonde Amateur Sucks And Fucks Big Cock In Hd","dir":"pov-bonde-amateur-sucks-and-fucks-big-cock-in-hd","duration":"09:27","start_pos":"0","video_viewed":"395","rating":"0","rating_amount":1,"post_date":"2022-11-08 15:14:02","content_source_name":"","user_id":"25569","display_name":"Samvel Pires","scr":"https:\/\/tn.onlyporn.tube\/media\/tn\/10062807_1.jpg","props":{"hd":"1"},"dislikes":0,"likes":0,"dir_path":"10062000\/10062807","models_as_string":null,"models":[],"categories_as_string":null,"categories":[]},{"video_id":"10063601","sg_id":"1","title":"Ig Model - It Feels So Good When Youre Sucking My Tits","dir":"ig-model-it-feels-so-good-when-youre-sucking-my-tits","duration":"06:07","start_pos":"0","video_viewed":"114","rating":"0","rating_amount":1,"post_date":"2022-11-12 12:50:02","content_source_name":"","user_id":"25849","display_name":"Miguel Popovski","scr":"https:\/\/tn.onlyporn.tube\/media\/tn\/10063601_1.jpg","props":{"hd":"1"},"dislikes":0,"likes":0,"dir_path":"10063000\/10063601","models_as_string":null,"models":[],"categories_as_string":null,"categories":[]},{"video_id":"10014787","sg_id":"1","title":"Big Natural Tits Girlfriend Handjob Big Dick Lover And Had Cowgirl Sex After Waking Up","dir":"big-natural-tits-girlfriend-handjob-big-dick-lover-and-had-cowgirl-sex-after-waking-up","duration":"08:38","start_pos":"0","video_viewed":"135","rating":"0","rating_amount":1,"post_date":"2022-04-28 05:14:02","content_source_name":"","user_id":"4947","display_name":"Kayla Schuster","scr":"https:\/\/tn.onlyporn.tube\/media\/tn\/10014787_1.jpg","props":{"hd":"1"},"dislikes":0,"likes":0,"dir_path":"10014000\/10014787","models_as_string":null,"models":[],"categories_as_string":null,"categories":[]},{"video_id":"10095281","sg_id":"1","title":"Hot Lasirena69 Savannah Savannah Bond And Savannah Bond - 2023 Lasirena69 And With New Hot Pov Threesome Rapidgator.net Streamhub.to Streamvid.net","dir":"hot-lasirena69-savannah-savannah-bond-and-savannah-bond-2023-lasirena69-and-with-new-hot-pov-threesome-rapidgator-net-streamhub-to-streamvid-net","duration":"30:37","start_pos":"0","video_viewed":"296","rating":"3","rating_amount":4,"post_date":"2023-03-21 05:50:05","content_source_name":"MrLuckyPOV","user_id":"40929","display_name":"Adrian Brown","scr":"https:\/\/tn.onlyporn.tube\/media\/tn\/10095281_1.jpg","props":{"hd":"1"},"dislikes":2,"likes":2,"dir_path":"10095000\/10095281","models_as_string":null,"models":[],"categories_as_string":null,"categories":[]},{"video_id":"10046491","sg_id":"1","title":"Big Breasts - Best Tit For My Boyfriend, Cum Between Huge Natural Tits","dir":"big-breasts-best-tit-for-my-boyfriend-cum-between-huge-natural-tits","duration":"05:12","start_pos":"0","video_viewed":"369","rating":"3","rating_amount":2,"post_date":"2022-07-19 06:50:02","content_source_name":"","user_id":"1285","display_name":"Hayden Duck","scr":"https:\/\/tn.onlyporn.tube\/media\/tn\/10046491_1.jpg","props":{"hd":"1"},"dislikes":1,"likes":1,"dir_path":"10046000\/10046491","models_as_string":null,"models":[],"categories_as_string":null,"categories":[]},{"video_id":"10059005","sg_id":"1","title":"Small Tit Granny Loves Big Cock Noisy Pussy","dir":"small-tit-granny-loves-big-cock-noisy-pussy","duration":"12:49","start_pos":"0","video_viewed":"144","rating":"0","rating_amount":1,"post_date":"2022-10-05 22:50:01","content_source_name":"","user_id":"23547","display_name":"Zayden Benedetti","scr":"https:\/\/tn.onlyporn.tube\/media\/tn\/10059005_1.jpg","props":{"hd":"1"},"dislikes":0,"likes":0,"dir_path":"10059000\/10059005","models_as_string":null,"models":[],"categories_as_string":null,"categories":[]},{"video_id":"10001175","sg_id":"1","title":"Lesian Models Blowjob Big Cock","dir":"lesian-models-blowjob-big-cock","duration":"13:25","start_pos":"0","video_viewed":"368","rating":"1","rating_amount":1,"post_date":"2022-04-15 06:17:18","content_source_name":"","user_id":"1107","display_name":"Audrey Anderson","scr":"https:\/\/tn.onlyporn.tube\/media\/tn\/10001175_1.jpg","props":{"hd":"1"},"dislikes":1,"likes":0,"dir_path":"10001000\/10001175","models_as_string":null,"models":[],"categories_as_string":null,"categories":[]},{"video_id":"10061943","sg_id":"1","title":"Crazy Xxx Scene Tattoo Hottest Watch Show - Lumi Ray","dir":"crazy-xxx-scene-tattoo-hottest-watch-show-lumi-ray","duration":"56:46","start_pos":"0","video_viewed":"228","rating":"0","rating_amount":1,"post_date":"2022-10-29 15:50:01","content_source_name":"","user_id":"25123","display_name":"Beau De Santis","scr":"https:\/\/tn.onlyporn.tube\/media\/tn\/10061943_1.jpg","props":{"hd":"1"},"dislikes":0,"likes":0,"dir_path":"10061000\/10061943","models_as_string":null,"models":[],"categories_as_string":null,"categories":[]},{"video_id":"10023607","sg_id":"1","title":"She Savage - Ig Model","dir":"she-savage-ig-model","duration":"00:28","start_pos":"0","video_viewed":"46","rating":"0","rating_amount":1,"post_date":"2022-05-22 01:12:27","content_source_name":"","user_id":"12353","display_name":"Lola Scott","scr":"https:\/\/tn.onlyporn.tube\/media\/tn\/10023607_1.jpg","props":[],"dislikes":0,"likes":0,"dir_path":"10023000\/10023607","models_as_string":null,"models":[],"categories_as_string":null,"categories":[]}]);
+====>
+
+def decode_url(txt):
+    # does not work in python 2 !!!
+    e = u'\u0410\u0412\u0421D\u0415FGHIJKL\u041cNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,~'
+    n = ''
+    r = 0
+    while r < len(t):
+        o = e.index(t[r])
+        i = e.index(t[r + 1])
+        a = e.index(t[r + 2])
+        s = e.index(t[r + 3])
+        o = o << 2 | i >> 4
+        i = (15 & i) << 4 | a >> 2
+        c = (3 & a) << 6 | s
+        n += unichr(o)
+        if a != 64:
+            n += unichr(i)
+        if s != 64:
+            n += unichr(c)
+        r += 4
+    return n
+====>
+
+    [{"format":"_lq.mp4","timelines_count":"19","timelines_interval":"20","video_url":"L2dldF9maWxlLz\u0415v\u041cTQ4YTkx\u041cGJj\u041cTQyNjJh\u041c2U3NjgzNmY4OWRkND\u04100NT\u0412i\u041czhk\u041czRlZD\u041c5Lz\u0415w\u041cDY0\u041cD\u0410wLz\u0415w\u041cDY0NjkzLz\u0415w\u041cDY0NjkzX2xxLm1wN\u04218,ZD0zNj\u0415mYnI9\u041cTY0JnRpPT\u04152ODI2OD\u041c4\u041cjg~","is_default":1,"c":"memc"},{"format":"_hq.mp4","timelines_count":"0","timelines_interval":"0","video_url":"L2dldF9maWxlLz\u0415vNGQ2NGY4\u041cmNkYzkxZDIyODg1OWIy\u041czZkNzgyYW\u041c5\u041cDhmYjk4YmYxNm\u04153Lz\u0415w\u041cDY0\u041cD\u0410wLz\u0415w\u041cDY0NjkzLz\u0415w\u041cDY0NjkzX2hxLm1wN\u04218,ZD0zNj\u0415mYnI9\u041cz\u0410xJnRpPT\u04152ODI2OD\u041c4\u041cjg~"}]
 
           ###########   PORNHUB SERVER reordenar videourl
     videourl = scrapertools.find_multiple_matches(data, 'var media_\d+=([^;]+)')

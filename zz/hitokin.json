@@ -1,0 +1,44 @@
+{
+  "id": "hitokin",
+  "name": "Hitokin!",
+  "active": false,
+  "adult": false,
+  "language": [],
+  "thumbnail": "https://i.imgur.com/Wty85LB.png",
+  "banner": "",
+  "fanart": "https://i.imgur.com/xio03FI.jpg",
+  "categories": [
+    "anime",
+    "vos"
+  ],
+  "settings": [
+    {
+      "id": "include_in_global_search",
+      "type": "bool",
+      "label": "Incluir en busqueda global",
+      "default": false,
+      "enabled": false,
+      "visible": false
+    },
+    {
+      "id": "filter_languages",
+      "type": "list",
+      "label": "Mostrar enlaces en idioma...",
+      "default": 0,
+      "enabled": true,
+      "visible": true,
+      "lvalues": [
+        "No filtrar",
+        "VOSE"
+      ]
+    },
+    {
+      "id": "include_in_newest_anime",
+      "type": "bool",
+      "label": "Incluir en Novedades - Episodios de anime",
+      "default": false,
+      "enabled": false,
+      "visible": true
+    }
+  ]
+}

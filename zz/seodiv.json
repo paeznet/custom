@@ -1,0 +1,28 @@
+{
+  "id": "seodiv",
+  "name": "Seodiv",
+  "active": false,
+  "adult": false,
+  "language": ["lat"],
+  "thumbnail": "https://seodiv.com/templates/Ariana/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "tvshow",
+    "anime"
+  ],
+  "settings": [
+    {
+      "id": "filter_languages",
+      "type": "list",
+      "label": "Mostrar enlaces en idioma...",
+      "default": 0,
+      "enabled": true,
+      "visible": true,
+      "lvalues": [
+        "No filtrar",
+        "LAT"
+      ]
+    }
+  ]
+}
