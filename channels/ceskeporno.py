@@ -22,9 +22,10 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'ceskeporno', 
              'host': config.get_setting("current_host", 'ceskeporno', default=''), 
-             'host_alt': ["https://ceskeporno.cz"], 
+             'host_alt': ["https://porno-videa-zdarma.cz/"], 
              'host_black_list': [], 
              'pattern': ["BASE_URL = '([^']+)'"], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -35,12 +36,12 @@ def mainlist(item):
     logger.info()
     itemlist = []
 
-    itemlist.append(item.clone(title="Nuevos" , action="lista", url=host + "/?serazeni=nejnovejsi&obdobi=cela-doba&strana=1"))
-    itemlist.append(item.clone(title="Mas vistos" , action="lista", url=host + "/?serazeni=nejvice-shlednuti&obdobi=mesic&strana=1"))
-    itemlist.append(item.clone(title="Mas largo" , action="lista", url=host + "/?serazeni=nejdelsi&obdobi=mesic&strana=1"))
-    itemlist.append(item.clone(title="PornStar" , action="categorias", url=host + "/pornoherecky"))
+    itemlist.append(item.clone(title="Nuevos" , action="lista", url=host + "?serazeni=nejnovejsi&obdobi=cela-doba&strana=1"))
+    itemlist.append(item.clone(title="Mas vistos" , action="lista", url=host + "?serazeni=nejvice-shlednuti&obdobi=mesic&strana=1"))
+    itemlist.append(item.clone(title="Mas largo" , action="lista", url=host + "?serazeni=nejdelsi&obdobi=mesic&strana=1"))
+    itemlist.append(item.clone(title="PornStar" , action="categorias", url=host + "pornoherecky"))
 
-    itemlist.append(item.clone(title="Categorias" , action="categorias", url=host + "/kategorie"))
+    itemlist.append(item.clone(title="Categorias" , action="categorias", url=host + "kategorie"))
     # itemlist.append(item.clone(title="Buscar", action="search"))
     return itemlist
 
@@ -48,7 +49,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "-")
-    item.url = "%s/search/%s/" % (host,texto)
+    item.url = "%ssearch/%s/" % (host,texto)
     try:
         return lista(item)
     except:

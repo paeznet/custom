@@ -23,7 +23,8 @@ from channels import autoplay
 list_quality = []
 list_servers = []
 
-# https://latestpornvideo.com/    https://mynewpornvideo.com/    https://hdporn92.com/    https://whereismyporn.com/
+# https://trashxxx.com/  https://newpornvideo.xyz/    https://whereismyporn.com/
+# https://latestpornvideo.com/    https://mynewpornvideo.com/    https://hdporn92.com/   
 
 
 canonical = {
@@ -81,13 +82,14 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', id=re.compile(r"^gridlane-grid-post-\d+"))
+    matches = soup.find_all('div', id=re.compile(r"^post-\d+"))
     for elem in matches:
         url = elem.a['href']
-        title = elem.h3.text.strip()
+        # title = elem.a['title']
+        title =  elem.h3.text.strip()
         thumbnail = elem.img['src']
         if "gif" in thumbnail:
-            thumbnail = elem.img['data-original']
+            thumbnail = elem.img['data-src']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
         plot = ""
@@ -104,12 +106,13 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
-    matches = soup.find('div', class_='entry-content').find_all('iframe')
+    soup = create_soup(item.url).find('div', class_='entry-content')
+    matches = soup.find_all('iframe')
     for elem in matches:
-        url = elem['src']
+        if elem.get("data-src", ""):
+            url = elem['data-src']
+        else:
+            url = elem['src']
         itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
-    # Requerido para AutoPlay
-    autoplay.start(itemlist, item)
     return itemlist

@@ -34,11 +34,8 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "page/1/?filter=latest"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "page/1/?filter=most-viewed"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "page/1/?filter=popular"))
-    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "page/1/?filter=longest"))
-    # itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categorias/"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "videos/"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categorias/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -94,7 +91,7 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all("article", class_=re.compile(r"^post-\d+"))
+    matches = soup.find_all("div", class_='aneTemaNe834bea_4cfc56')
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
@@ -107,9 +104,9 @@ def lista(item):
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('a', class_='current')
-    if next_page and next_page.parent.find_next_sibling("li"):
-        next_page = next_page.parent.find_next_sibling("li").a['href']
+    next_page = soup.find('li', class_='active')
+    if next_page and next_page.find_next_sibling("li"):
+        next_page = next_page.find_next_sibling("li").a['href']
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
@@ -119,7 +116,7 @@ def findvideos(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    url = soup.find('div', class_='responsive-player').iframe['src']
+    url = soup.iframe['src']
     data = httptools.downloadpage(url).data
     url = scrapertools.find_single_match(data, 'file: "([^"]+)"')
     url += "|Referer=%s" % item.url
@@ -133,7 +130,7 @@ def play(item):
     itemlist = []
     listitem = []
     soup = create_soup(item.url)
-    url = soup.find('div', class_='responsive-player').iframe['src']
+    url = soup.iframe['src']
     data = httptools.downloadpage(url).data
     url = scrapertools.find_single_match(data, 'file: "([^"]+)"')
     url += "|Referer=%s" % item.url

@@ -235,7 +235,6 @@ soup = get_source(item.url, soup=True)
 
 url = httptools.downloadpage(url, headers=headers , follow_redirects=False, only_headers=True).headers.get("location", "")
 
-
             # PORNOXO  coger SCRIPT con soup y json
                     def prueba(item):
                         from core import jsontools as json

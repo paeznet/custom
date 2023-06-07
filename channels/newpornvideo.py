@@ -18,11 +18,13 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-# https://trashxxx.com/  https://newpornvideo.xyz/   
+# https://trashxxx.com/  https://newpornvideo.xyz/    https://whereismyporn.com/
+# https://latestpornvideo.com/    https://mynewpornvideo.com/    https://hdporn92.com/   
+
 canonical = {
              'channel': 'newpornvideo', 
              'host': config.get_setting("current_host", 'newpornvideo', default=''), 
-             'host_alt': ["https://newpornvideo.xyz/"], 
+             'host_alt': ["https://trashxxx.com/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True

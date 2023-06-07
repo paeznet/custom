@@ -1,0 +1,15 @@
+{
+  "id": "pornoflix",
+  "name": "01pornoflix",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/y639588P/pornoflix.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

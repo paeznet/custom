@@ -36,7 +36,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "?filter=most-viewed"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "?filter=popular"))
     itemlist.append(Item(channel=item.channel, title="Mas largos" , action="lista", url=host + "?filter=longest"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "actors/"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "celebrities/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -58,16 +58,16 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='video-block')
+    matches = soup.find_all('article', class_=re.compile(r"^post-\d+"))
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
         if elem.find('span', class_='no-thumb'):
             thumbnail = ""
         else:
-            thumbnail = elem.img['data-src']
-        if "gif" in thumbnail:
             thumbnail = elem.img['src']
+        if "gif" in thumbnail:
+            thumbnail = elem.img['data-src']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
         cantidad = elem.find('div', class_='video-datas')
@@ -76,13 +76,10 @@ def categorias(item):
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('li', class_='next')
-    if next_page and next_page.find('a'):
-        next_page = next_page.a['data-parameters'].split(":")[-1]
-        if "from_videos" in item.url:
-            next_page = re.sub(r"&from_videos=\d+", "&from_videos={0}".format(next_page), item.url)
-        else:
-            next_page = re.sub(r"&from=\d+", "&from={0}".format(next_page), item.url)
+    next_page = soup.find('a', class_='current')
+    if next_page and next_page.parent.find_next_sibling("li"):
+        next_page = next_page.parent.find_next_sibling("li").a['href']
+        next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
@@ -103,7 +100,7 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='video-block')
+    matches = soup.find_all('article', class_=re.compile(r"^post-\d+"))
     for elem in matches:
         url = elem.a['href']
         title = elem.find('span', class_='title').text.strip()
@@ -118,9 +115,9 @@ def lista(item):
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('li', class_='active')
-    if next_page and next_page.find_next_sibling("li"):
-        next_page = next_page.find_next_sibling("li").a['href']
+    next_page = soup.find('a', class_='current')
+    if next_page and next_page.parent.find_next_sibling("li"):
+        next_page = next_page.parent.find_next_sibling("li").a['href']
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist

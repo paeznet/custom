@@ -44,8 +44,8 @@ def mainlist(item):
 
 def search(item, texto):
     logger.info()
-    texto = texto.replace(" ", "-")
-    item.url = "%ssearch/%s/?sort_by=post_date&from_videos=01" % (host,texto)
+    texto = texto.replace(" ", "+")
+    item.url = "%ssearch/?q=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -209,8 +209,8 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    pornstar = soup.find('p', string=re.compile("Models: [A-z0-9-]+")).text.strip()
-    pornstar = pornstar.replace("Models: ", "").replace(",", " &")
+    pornstar = soup.find('p', string=re.compile("Models"))
+    pornstar = str(pornstar).replace("Models: ", "").replace(",", " &")
     pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
     lista = item.contentTitle.split()
     lista.insert (2, pornstar)
