@@ -52,16 +52,17 @@ finds = {'find': {'find_all': [{'tag': ['li'], 'id': re.compile(r"^browse_\d+")}
          'get_quality': {}, 
          'get_quality_rgx': '', 
          # 'next_page': dict([('find', [{'tag': ['a'], 'class': ['current']}]),
-                            # ('find_all', [{'tag': ['a'], 'class': ['current'], '@POS': [-1], 
-                                           # '@ARG': 'href', '@TEXT': 'page/(\d+)'}])]), 
-         
-                                # ('find_parent', [{'tag': []}]), 
-                             # ('find_next_sibling', [{'tag': []}]), ('find', [{'tag': ['a'], '@ARG': 'href'}])]), 
+                            # ('find_all', [{'tag': ['a'], 'class': ['current'], 
+                                          # '@POS': [-1], '@ARG': 'href'}])]), 
+         # 'next_page': dict([('find', [{'tag': ['div'], 'class': ['pagination-page-bas']}, {'tag': ['span']}]),
+                            # ('find_next_sibling', [{'tag': ['a'], '@ARG': 'href'}])]), 
          'next_page': dict([('find', [{'tag': ['a'], 'class': 'tm_pag_nav_next', '@ARG': 'href'}])]), 
-         'next_page_rgx': [['page=\d+', 'page=%s'], ['\/page\/\d+\/', '/page/%s/'], ['&from_videos=\d+', '&from_videos=%s'], ['&from=\d+', '&from=%s']], 
+         'next_page_rgx': [['&page=\d+', '&page=%s'], ['\?page=\d+', '?page=%s'], ['\/page\/\d+\/', '/page/%s/'], ['&from_videos=\d+', '&from_videos=%s'], ['&from=\d+', '&from=%s']], 
         # 'last_page': dict([('find', [{'tag': ['div'], 'class': ['pagination']}]), 
                             # ('find_all', [{'tag': ['a'], 'string': re.compile('(?i)(?:ltima|last)'), '@POS': [-1], 
                                            # '@ARG': 'href', '@TEXT': 'page/(\d+)'}])]), 
+         # 'last_page':  dict([('find', [{'tag': ['script'], 'string': re.compile('(?i)var objectPagination')}]), 
+                             # ('get_text', [{'strip': True, '@TEXT': 'total:\s*(\d+)'}])]), 
          'last_page': {},
          'plot': {}, 
          'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
@@ -69,7 +70,13 @@ finds = {'find': {'find_all': [{'tag': ['li'], 'id': re.compile(r"^browse_\d+")}
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
-         'controls': {'url_base64': False, 'cnt_tot': 24, 'reverse': False, 'profile': 'default'}, 
+         # 'profile_labels': {'list_all_stime': dict([('find', [{'tag': ['span'], 'itemprop': ['duration']}]),
+                                                    # ('get_text', [{'strip': True}])]),
+                            # 'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['hd']}]),
+                                                      # ('get_text', [{'strip': True}])]),
+                            # 'section_cantidad': dict([('find', [{'tag': ['span'], 'class': ['vids']}]),
+                                                      # ('get_text', [{'strip': True}])])},
+         'controls': {'url_base64': False, 'cnt_tot': 24, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -164,7 +171,7 @@ def section_matches(item, matches_int, **AHkwargs):
     # x = 0
     
     #############################################   TEST ###############################################
-    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    soup = AHkwargs.get('soup', {})
     # logger.debug(soup)
     # matches = soup.find_all('li', id=re.compile(r"^browse_\d+"))
     logger.debug(soup.find_all('li', class_='category_item'))
@@ -253,7 +260,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
     # x = 0
     
     #############################################   TEST ###############################################
-    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    soup = AHkwargs.get('soup', {})
     # logger.debug(soup)
     # matches = soup.find_all('li', id=re.compile(r"^browse_\d+"))
     logger.debug(soup.find_all('li', id=re.compile(r"^browse_\d+")))
@@ -281,6 +288,8 @@ def list_all_matches(item, matches_int, **AHkwargs):
         # elem_json = matches_org[x].copy() if x+1 <= len(matches_org) else {}
         
         try:
+            # if 'livecam' in elem.get("class", []): continue   ###  Excepcion pornone para quitar los item livecams
+
             elem_json['url'] = elem.a.get('href', '')
             elem_json['title'] = elem.a.get('title', '') \
                                  or elem.find(class_='title').get_text(strip=True) if elem.find(class_='title') else ''
@@ -346,6 +355,13 @@ def list_all_matches(item, matches_int, **AHkwargs):
         # '''se suma al contador de registros procesados VÁLIDOS'''
         # x += 1
         
+        ###########  Paginado en absoluporn  donde tengo numero total de videos y consigo last_page
+    # soup = AHkwargs.get('soup', {})
+    # if AlfaChannel.last_page in [9999, 99999] and soup and soup.find('div', class_='pagination-nbpage'): 
+        # total = soup.find('div', class_='pagination-nbpage').find('span', class_='text1').get_text(strip=True)
+        # total = scrapertools.unescape(total).split(' ')[-2]
+        # AlfaChannel.last_page = int(int(total) / finds['controls'].get('cnt_tot', 30))
+        # logger.error(AlfaChannel.last_page)
         
     # logger.debug(matches)
     return matches

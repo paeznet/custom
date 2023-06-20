@@ -68,7 +68,7 @@ def categorias(item):
         elif elem.img.get("data-lazy-src", ""):
             thumbnail = elem.img['data-lazy-src']
         else:
-            thumbnail = elem.img['data-src']
+            thumbnail = elem.img['src']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
         url += "?filter=latest"
@@ -103,7 +103,7 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
-        thumbnail = elem.img['src']
+        thumbnail = elem.img['data-src']
         if "gif" in thumbnail:
             thumbnail = elem.img['data-src']
         if not thumbnail.startswith("https"):

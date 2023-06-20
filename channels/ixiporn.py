@@ -102,7 +102,7 @@ def lista(item):
     matches = soup.find_all('div', class_='video-block')
     for elem in matches:
         url = elem.a['href']
-        title = elem.img['alt']
+        title = elem.find('a', class_='infos')['title']
         thumbnail = elem.img['data-src']
         time = elem.find('span', class_='duration')
         if time:

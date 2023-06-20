@@ -126,7 +126,9 @@ def findvideos(item):
         url = scrapertools.find_single_match(str(elem), "'url': '([^']+)'")
         server = scrapertools.find_single_match(str(elem), "'server': '([^']+)'")
         title = "%s %sP" %(server,quality)
+        # itemlist.append(Item(channel=item.channel, action="play", title=title, server=server, quality=quality, contentTitle = item.contentTitle, url=url))
+        itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.title, url=url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
 
-        itemlist.append(Item(channel=item.channel, action="play", title=title, server=server, quality=quality, contentTitle = item.contentTitle, url=url))
     return itemlist
 

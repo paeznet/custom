@@ -31,7 +31,7 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "en"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="findvideos", url="https://porndune.com/movie/tiffany-an-indecent-story/"))
 
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "en/videos/page/1?sort=date&time=anytime", order="date", page="0"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "en/videos/page/1?sort=popular&time=anytime", order="popular", page="0"))
@@ -146,8 +146,6 @@ def create_soup(url, referer=None, unescape=False):
 # <li class="page-item text-center fixed-w-100"><a href="https://porndune.com/en/videos/page/2?sort=rating&amp;time=anytime" class="page-link" data-ci-pagination-page="2" rel="next">Next ›</a></li>
 
 
-
-
 def lista(item):
     logger.info()
     itemlist = []
@@ -176,10 +174,10 @@ def lista(item):
         # else:
             # title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         plot = ""
-        action = "play"
-        if logger.info() == False:
-            action = "findvideos"
-        itemlist.append(Item(channel=item.channel, action=action, title=title, url=url, thumbnail=thumbnail,
+        # action = "play"
+        # if logger.info() == False:
+            # action = "findvideos"
+        itemlist.append(Item(channel=item.channel, action="findvideos", title=title, url=url, thumbnail=thumbnail,
                                plot=plot, fanart=thumbnail, contentTitle=title ))
     next_page = sp.find('a', rel='next')
     if next_page:
@@ -194,8 +192,21 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    soup = create_soup(item.url)
+    matches = soup.find_all('div', class_='card-body source')
+    logger.debug(matches)
+    for elem in matches:
+        name = elem.button['data-name']  #.replace(" ", "+")
+        vid = elem.button['data-url'] #.replace(" ", "+")
+        
+        posturl = "https://porndune.com/collect.php"
+        post= {"name": vid, "url": vid}
+        headers = {"Accept": "*/*","Content-Type": "application/x-www-form-urlencoded; charset=UTF-8", "Referer": item.url}
+        data = httptools.downloadpage(posturl, headers = headers, post=post).data
+        logger.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")    
+        logger.debug(data)    
+    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
 
@@ -208,9 +219,23 @@ def findvideos(item):
 # post = {'r':, 'd': 'trafficdepot.xyz'}
 
 
-def play(item):
-    logger.info()
-    itemlist = []
+# https://porndune.com/collect.php?name=HD+Server+1+-+Play&url=Tiffany+An+Indecent+Story+(41825)
+# <div class="card-body source">
+# <div><strong>HD Server 1</strong></div> 
+# <button type="button" id="embed_1" data-id="41825" data-method="view" class="btn btn-primary btn-play icon-play btn-click btn-play-server track" 
+# data-name="HD Server 1 - Play" data-url="Tiffany An Indecent Story (41825)">Play</button>
+# </div>
+# </div>
+# <div class="card">
+# <div class="card-body source">
+# <div><strong>HD Server 2</strong></div>
+# <button type="button" id="embed_2" data-id="41825" data-method="view" class="btn btn-primary btn-play icon-play btn-click btn-play-server track" data-name="HD Server 2 - Play" data-url="Tiffany An Indecent Story (41825)">Play</button>
+# </div></div>
+
+
+# def play(item):
+    # logger.info()
+    # itemlist = []
     # soup = create_soup(item.url)
     # matches = soup.find('div', class_='tagged-videos')
     # offset = matches['data-offset']
@@ -218,15 +243,16 @@ def play(item):
     # tag= matches['data-tag']
     # vid = matches['data-vid']
     # css = matches['data-css']
-    data = httptools.downloadpage(item.url).data
-    vid = scrapertools.find_single_match(data, "var vid = (\d+);")
-    hid = scrapertools.find_single_match(data, "var hid = (\d+);")    
-
-    posturl = "https://porndune.com/data/embed"
-    post= {"vid": vid, "hid": hid, "type": "video"}
-    headers = {"X-Requested-With": "XMLHttpRequest", "Referer": item.url}
-    data = httptools.downloadpage(posturl, headers = headers, post=post).data
-    logger.debug(data)
+    # data = httptools.downloadpage(item.url).data
+    # vid = scrapertools.find_single_match(data, "var vid = (\d+);")
+    # hid = scrapertools.find_single_match(data, "var hid = (\d+);")
+    
+    # name = soup.find_all('div', class_='card-body source')
+    # posturl = "https://porndune.com/collect.php"
+    # post= {"name": vid, "url": vid}
+    # headers = {"X-Requested-With": "XMLHttpRequest", "Referer": item.url}
+    # data = httptools.downloadpage(posturl, headers = headers, post=post).data
+    # logger.debug(data)
 
 
     # data = httptools.downloadpage(posturl, headers=headers,  post=post).json
@@ -236,7 +262,7 @@ def play(item):
     # url = soup.video['src']
     # logger.debug(url)
     
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
-    return itemlist
+    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    # return itemlist
 
