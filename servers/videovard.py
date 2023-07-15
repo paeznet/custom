@@ -6,7 +6,8 @@ from platformcode import logger
 def test_video_exists(page_url):
     logger.info()
     global server, vid
-    server = scrapertools.find_single_match(page_url, 'www.([A-z0-9-]+).com')
+    server = scrapertools.get_domain_from_url(page_url).split(".")[-2]
+    # server = scrapertools.find_single_match(page_url, 'www.([A-z0-9-]+).com')
     vid = scrapertools.find_single_match(page_url, '/e/([A-z0-9-]+)')
 
     data = httptools.downloadpage(page_url).data
@@ -31,7 +32,6 @@ def test_video_exists(page_url):
     # "status":"200",
     # "src":"uYktGlYwxOVihp5jk8nUt3NlGhXN0Evq51z-hedR7HMa6UiLI3hDUWpv3Ft08uYj2f6W0Gq9ih2ZLqvDRIH1URKMrk8f0wbgbIheBxWYG2VINvmXpUb1wfMHjjrFkIoCpBZdX9dpP89uy2Ug4zAAhc-I4iENibCumH0eI8OGV2qBQZAQVHucurfVmA2YXou2",
     # "tracks":[]}
-
 
 # https://content-videovard-delivery-s29.videovard.to/drm/hls/ivs5x4zgurypab7wfwbyx3zffkxq5y3bfynf73uqzav2wsqyveiquf6jj6ea/index-v1-a1.m3u8
 # https://content-videovard-delivery-s29.videovard.to/drm/hls/ivs5x4zgurypab7wfwbyx3zffkxq5y3bfynf73uqzav2wsqyveiquf6jj6ea/seg-7-v1-a1.ts

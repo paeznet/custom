@@ -459,7 +459,7 @@ def play(item):
     "([^"]+)"   #todo lo que hay hasta comillas
     \'([^\']+)\'
     ([^,"]+)    #todo lo que hay hasta , o "  TUBEXPORN
-    
+        enc_data = scrapertools.find_single_match(data, "<script type=[\"']text/javascript[\"']>\s*;?(eval.*?)</script>")
     
                         ######################    LISTAS POR CCOMPRESION    ###########################
                                                            
@@ -490,7 +490,8 @@ def play(item):
 
     logger.debug(isinstance(url, bytes))
 
-    
+        if elem_json['url'].endswith('.jpg'): continue
+
         if not url.startswith("https"):
             url = "https:%s" % url
 

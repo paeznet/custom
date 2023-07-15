@@ -35,7 +35,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "videos?sort=recent&page=1"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "videos?sort=popular&page=1"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "videos?sort=longest&page=1"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "channels/bellesa-house"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host ))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "videos/categories"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
@@ -58,17 +58,18 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    if "/channels/" in item.url:
-        matches = soup.find_all('div', class_='ihiVBZ')
+    if "Canal" in item.title:
+        matches = soup.header.find_all('a', href=re.compile(r"/channels/"))
     else:
-        matches = soup.find_all('div', class_='idWYPi')
+        matches = soup.find_all('div', class_=re.compile(r"^CategoryCard__Container-sc-1xa0lug-\d+"))
     for elem in matches:
-        url = elem.a['href']
-        if not "/channels/" in url:
+        if not "Canal" in item.title:
+            url = elem.a['href']
             title = elem.span.text.strip()
-            thumbnail = elem.find('div', class_='CategoryCard__Thumbnail-sc-1xa0lug-1')['src']
+            thumbnail = elem.find('div', class_=re.compile(r"^CategoryCard__Thumbnail-sc-1xa0lug-\d+"))['src']
         else:
-            title = elem.a.text.strip()
+            url = elem['href']
+            title = elem.text.strip()
             thumbnail = ""
         url = urlparse.urljoin(item.url,url)
         plot = ""
@@ -99,8 +100,8 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.h2.text.strip()
-        thumbnail = elem.find('div', class_='VideoCard__Background-sc-54g127-1')['src']
-        time = elem.find('span', class_='VideoCard__Duration-sc-54g127-6').text.strip()
+        thumbnail = elem.find('div', class_=re.compile(r"^VideoCard__Background-sc-54g127-\d+"))['src']
+        time = elem.find('span', class_=re.compile(r"^VideoCard__Duration-sc-54g127-\d+")).text.strip()
         title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         url = urlparse.urljoin(item.url,url)
         pornstars = elem.find_all('a', href=re.compile(r"performers"))

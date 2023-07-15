@@ -18,13 +18,19 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-# https://www.xvideospanish.net  https://www.xn--xvideos-espaol-1nb.com/    https://www.xmoviesforyou.tv    https://viralxvideos.es
+IDIOMAS = {}
+list_language = list(set(IDIOMAS.values()))
+list_quality = []
+list_servers = []
+forced_proxy_opt = 'ProxySSL'
+
+# https://www.xvideospanish.net  https://www.xn--xvideos-espaol-1nb.com/
 canonical = {
              'channel': 'xvideospanish', 
              'host': config.get_setting("current_host", 'xvideospanish', default=''), 
              'host_alt': ["https://www.xn--xvideos-espaol-1nb.com/"], 
              'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
