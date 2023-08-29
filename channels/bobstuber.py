@@ -18,6 +18,9 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+
+##########################    OUT agosto 2023
+
 canonical = {
              'channel': 'bobstuber', 
              'host': config.get_setting("current_host", 'bobstuber', default=''), 

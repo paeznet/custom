@@ -17,7 +17,7 @@ from core.item import Item
 from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
-from channels import autoplay
+from modules import autoplay
 
 # IDIOMAS = {'vo': 'VO'}
 # list_language = list(IDIOMAS.values())
@@ -27,6 +27,8 @@ list_servers = []
 #https://secretstash.in
 # url_api = host + "/api/v1/releases?Limit=20&Offset=0"
 # https://pornstash.in/api/v1/releases?Limit=20&Offset=0
+
+######  fallo de su server una version minimalista
 
 canonical = {
              'channel': 'pornstash', 

@@ -17,7 +17,7 @@ from core.item import Item
 from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
-from channels import autoplay
+from modules import autoplay
 
 
 list_quality = []
@@ -98,6 +98,7 @@ def lista(item):
     soup = create_soup(item.url)
     matches = soup.find_all('div', id=re.compile(r"^post-\d+"))
     for elem in matches:
+        logger.debug(elem)
         url = elem.a['href']
         title = elem.h2.text.strip()
         thumbnail = elem.img['src']
