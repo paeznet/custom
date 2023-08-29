@@ -148,8 +148,8 @@ def play(item):
         url = base64.b64decode(url[1]).decode('utf-8')
         url = urlparse.unquote(url)
         url = scrapertools.find_single_match(url, '<(?:source|iframe) src="([^"]+)"')
-    if "prnhqcdn" in url:
-        url += "|Referer=%s" % host
+    # if "prnhqcdn" in url:
+    url += "|Referer=%s" % url
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
