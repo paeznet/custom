@@ -21,12 +21,13 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'videosection', 
              'host': config.get_setting("current_host", 'videosection', default=''), 
-             'host_alt': ["https://videosection.com"], 
+             'host_alt': ["https://es.videosection.com"], 
              'host_black_list': [], 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
+#####   Error al ver el m3u
 
 def mainlist(item):
     logger.info()

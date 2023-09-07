@@ -18,8 +18,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-# https://www.youcrazyx.com   https://www.yrprno.com   https://www.yespornplease.sexy 
-# https://www.trendyporn.com    https://www.hentaiprno.com  sexyporn
+# https://www.youcrazyx.com   https://www.yrprno.com   https://www.yespornplease.sexy  sexyporn
+# https://www.trendyporn.com    https://www.hentaiprno.com    https://www.6xtube.com/
 canonical = {
              'channel': 'hentaiprno', 
              'host': config.get_setting("current_host", 'hentaiprno', default=''), 

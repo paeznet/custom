@@ -18,6 +18,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+# https://www.playvids.com/
+
 canonical = {
              'channel': 'peekvids', 
              'host': config.get_setting("current_host", 'peekvids', default=''), 

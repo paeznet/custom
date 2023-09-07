@@ -18,6 +18,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+################            error 403
+
 canonical = {
              'channel': '4kporn', 
              'host': config.get_setting("current_host", '4kporn', default=''), 

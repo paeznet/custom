@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# -*- Channel PornGrabbz -*-
+# -*- Channel PorntubeNL -*-
 # -*- Created for Alfa-addon -*-
 # -*- By the Alfa Develop Group -*-
 
@@ -23,9 +23,9 @@ forced_proxy_opt = 'ProxySSL'
 
 
 canonical = {
-             'channel': 'porngrabbz', 
-             'host': config.get_setting("current_host", 'porngrabbz', default=''), 
-             'host_alt': ["https://porngrabbz.com/"], 
+             'channel': 'porntubenl', 
+             'host': config.get_setting("current_host", 'porntubenl', default=''), 
+             'host_alt': ["https://www.google.com/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -42,20 +42,41 @@ url_replace = []
 
 finds = {'find': dict([('find', [{'tag': ['div', 'main'], 'id': ['primary', 'main']}]),
                        ('find_all', [{'tag': ['article'], 'class': [re.compile(r"^post-\d+"), 'thumb-block']}])]), 
+                 # {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]},
          'categories':dict([('find', [{'tag': ['div'], 'class': ['videos-list']}]),
                             ('find_all', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}])]), 
+                       # {'find_all': [{'tag': ['article'], 'class': [re.compile(r"^post-\d+")]}]},
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
+         # 'next_page': dict([('find', [{'tag': ['div'], 'class': ['pagination']}]),
+                            # ('find_all', [{'tag': ['a'], '@POS': [-1], '@ARG': 'href'}])]), 
+         # 'next_page': dict([('find', [{'tag': ['div'], 'class': ['pagination-page-bas']}, {'tag': ['span']}]),
+                            # ('find_next_sibling', [{'tag': ['a'], '@ARG': 'href'}])]), 
+         # 'next_page': dict([('find', [{'tag': ['a'], 'class': 'tm_pag_nav_next', '@ARG': 'href'}])]), 
          'next_page': {},
          'next_page_rgx': [['\/page\/\d+', '/page/%s']], 
          'last_page': dict([('find', [{'tag': ['div', 'nav'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            '@ARG': 'href', '@TEXT': 'page/(\d+)'}])]), 
+         # 'last_page':  dict([('find', [{'tag': ['script'], 'string': re.compile('(?i)var objectPagination')}]), 
+                             # ('get_text', [{'tag': '', 'strip': True, '@TEXT': 'total:\s*(\d+)'}])]), 
+         # 'last_page': {},
          'plot': {}, 
+         ####   fuckingsession
+         #'findvideos': dict([('find', [{'tag': ['div'], 'itemprop': ['articleBody']}]), 
+         #                    ('find_all', [{'tag': ['a', 'iframe'], '@ARG': ['href', 'src']}])]),
+         # 'findvideos': dict([('find', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]), 
+                             # ('find_all', [{'tagOR': ['a'], 'href': True, 'rel': 'noopener'},
+                                           # {'tag': ['iframe'], 'src': True}])]),
          'findvideos': dict([('find', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]), 
                              ('find_all', [{'tagOR': ['a'], 'href': True, 'id': 'tracking-url'},
                                            {'tag': ['iframe'], 'src': True}])]),
+
+
+         # 'findvideos': {'find': [{'tag': ['div'], 'class': ['responsive-player']}, {'tag': ['iframe'], '@ARG': 'src'}]},
+                       # dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
+                             # ('find_all', [{'tag': ['a'], '@ARG': 'href'}])]),
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
@@ -82,95 +103,8 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1/?filter=latest"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=host + "page/1/?filter=most-viewed"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "page/1/?filter=popular"))
-    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "page/1/?filter=longest"))
-    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "actors/page/1/", extra="PornStar"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/page/1/", extra="Categorias")) 
-    itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
-    return itemlist
-
-
-def section(item):
-    logger.info()
     
-    findS = finds.copy()
-    findS['url_replace'] = [['(\/(?:categories|channels|models|pornstars|actor)\/[^$]+$)', r'\1?filter=latest']]
-    
-    return AlfaChannel.section(item, finds=findS, **kwargs)
-
-
-def list_all(item):
-    logger.info()
-    
-    return AlfaChannel.list_all(item, **kwargs)
-
-
-def findvideos(item):
-    logger.info()
-    
-    return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
-                                         verify_links=False, findvideos_proc=True, **kwargs)
-
-
-def play(item):
-    logger.info()
-    itemlist = []
-    
-    soup = AlfaChannel.create_soup(item.url, **kwargs)
-    if soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+")):
-        pornstars = soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+"))
-        for x, value in enumerate(pornstars):
-            pornstars[x] = value.get_text(strip=True)
-        pornstar = ' & '.join(pornstars)
-        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-        lista = item.contentTitle.split('[/COLOR]')
-        pornstar = pornstar.replace('[/COLOR]', '')
-        pornstar = ' %s' %pornstar
-        if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
-            lista.insert (2, pornstar)
-        else:
-            lista.insert (1, pornstar)
-        item.contentTitle = '[/COLOR]'.join(lista)
-    
-    if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)")):
-        url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))['src']
-        if "base64," in url:
-            url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))['data-src']
-        if "php?q=" in url:
-            import base64
-            url = url.split('php?q=')
-            url_decode = base64.b64decode(url[-1]).decode("utf8")
-            url = AlfaChannel.do_unquote(url_decode)
-            url = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
-            logger.debug(url)
-    
-    # url = soup.find('meta', itemprop='embedURL')['content']
-    
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    logger.error(AlfaChannel.domains_updated) 
     
     return itemlist
 
-
-def search(item, texto, **AHkwargs):
-    logger.info()
-    kwargs.update(AHkwargs)
-    
-    # item.url = "%sbuscar/?q=%s&sort_by=video_viewed&from_videos=1" % (host, texto.replace(" ", "+"))
-    item.url = "%s?s=%s&filter=latest" % (host, texto.replace(" ", "+"))
-    
-    try:
-        if texto:
-            item.c_type = "search"
-            item.texto = texto
-            return list_all(item)
-        else:
-            return []
-    
-    # Se captura la excepción, para no interrumpir al buscador global si un canal falla
-    except:
-        for line in sys.exc_info():
-            logger.error("%s" % line)
-        return []
