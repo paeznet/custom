@@ -64,6 +64,7 @@ def categorias(item):
     for elem in matches:
         url = elem['href']
         title = elem.find('strong', class_='title').text.strip()
+        title = title.replace("free xxx ", "").replace("HD porn ", "").replace("adult videos ", "")
         if elem.find('span', class_='no-thumb'):
             thumbnail = ""
         else:
@@ -79,14 +80,15 @@ def categorias(item):
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     pagination = soup.find('span', class_=re.compile(r"^pagination\d+"))
-    pag = int(pagination['data-page'])
-    xpag = pagination['data-count']
-    total = pagination['data-total']
-    pages = int(total)/int(xpag)
-    if pag < pages:
-        next_page = pag + 1
-        next_page = re.sub(r"&p=\d+", "&p={0}".format(next_page), item.url)
-        itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+    if pagination:
+        pag = int(pagination['data-page'])
+        xpag = pagination['data-count']
+        total = pagination['data-total']
+        pages = int(total)/int(xpag)
+        if pag < pages:
+            next_page = pag + 1
+            next_page = re.sub(r"&p=\d+", "&p={0}".format(next_page), item.url)
+            itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
@@ -106,7 +108,7 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find('div', class_='list-videos').find_all('div', class_='item')
+    matches = soup.find('div', class_='list-videos').find_all('article', class_='item')
     for elem in matches:
         url = elem.a['href']
         title = elem.img['title']

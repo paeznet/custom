@@ -84,9 +84,9 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_=re.compile(r"^post-\d+"))
+    matches = soup.find_all('a', class_='apost')
     for elem in matches:
-        url = elem.a['href']
+        url = elem['href']
         title = elem.img['alt']
         thumbnail = elem.img['data-src']
         if "gif" in thumbnail:

@@ -1,0 +1,20 @@
+Para empezar, la solución real viene tu descubrimiento  “listitem.setMimeType('application/vnd.apple.mpegurl')”.  Hasta ahora se utilizaba siempre “listitem.setMimeType('mime/x-type')”, pero se ve que alguna web lo rechaza.  He puesto código para detectar cuando la url es un vídeo y utilizar “listitem.setMimeType('application/vnd.apple.mpegurl')”.  Esto afecta a TODO Alfa, por lo que hay que estar atento por si hay algún efecto secundario en alguna web.  Por la pruebas que he hecho en HDFull y Dilo parece no afectar.
+
+Pero esto no que ahí ni mucho menos…  Hay que tener en cuenta los siguientes puntos para evitar errores 403.  Esto está ya en uso en unos cuantos canales y servidores resolviendo bastantes problemas:
+
+-	Hay que ir implementado, sin prisa pero sin pausa, la seguridad SSL en las descargas, tanto para canales como para servidores
+-	Si el error persiste, hay que verificar si la url funciona con un proxyweb rodeando el problema, como https://www.croxyproxy.com/ o https://nl.hideproxy.me/index.php
+-	Si el problema persiste hay que ver si lo resuelve Alfa Assistant
+-	Si no se arregla, mejor bar de baja el canal
+
+Cómo se implementa el SSL en las descargas de urls?: mediante lo siguientes parámetros que se pueden aplicar dentro del diccionario Canonical en los canales, o como **kwargs en las llamadas httptools.downloadpage.  Los parámetros a usar son los siguientes:
+
+-	'set_tls': True, active el SSL-TLS en las descargas
+-	'set_tls_min': True, True si queremos que se use solo en Kodi >= 19, False para todos
+-	'retries_cloudflare': n, en caso de error 403, nº de reintentos antes de devolver control
+-	'cf_assistant': False, si no se quiere que llame a Alfa Assistant, porque se haya verificado que no resuelve el problema al no encontrar un cookie con cf_clearance
+-	'forced_proxy_ifnot_assistant': 'ProxyWeb:hide.me’|’ ProxyWeb:croxyproxy.com', usar un proxy si no hay Alfa Assistant o no lo resuelve, después de verificar que el proxy SÍ lo resuelve
+
+He subido los servidores Direct y Ktp con estos cambios.  Los dos canales te los adjunto para que hagas lo que creas conveniente, debes volver a poner el Play original en Yespornplease y en Babestube.  En Yespornplease mantén la línea 153 que no estaba en el original y es clave para el buen funcionamiento.  El error que te daba con Yespornplease es porque no devolvías “itemlist” en Play y cascaba el Launcher.  También lo he arreglado.
+
+Por último, he visto en alguno de los dos canales (no me acuerdo cual) que defines Canonical y luego no lo pasas en las llamadas a httptools.downloadpage.  Eso no sirve para nada si no se añade en la llamada.

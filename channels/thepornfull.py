@@ -57,13 +57,18 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='video-conteudo')
+    matches = soup.find_all('div', class_='aneTemaNe834bea_4cfc56')
     for elem in matches:
+        logger.debug(elem)
         url = elem.a['href']
-        title = elem.h2['title']
+        title = elem.a['title']
         thumbnail = elem.img['src']
         if ".gif" in thumbnail:
             thumbnail = elem.img['data-src']
+        cantidad = elem.find('span', class_='classSeloTempo')
+        if cantidad:
+            cantidad = cantidad.text.strip().split()
+            title = "%s (%s)" %(title, cantidad[0])
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )

@@ -18,6 +18,7 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+###############    OUT 11-9-2023
 canonical = {
              'channel': 'pornvid69', 
              'host': config.get_setting("current_host", 'pornvid69', default=''), 

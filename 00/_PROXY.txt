@@ -1,0 +1,59 @@
+Kingbox, [11/05/2023 10:41]
+Hola, he puesto en funcionamiento con la ayuda de @SistemaRayoXP un nuevo sistema de validación y renovación de proxies. 
+ 
+En esencia usamos dos modelos de proxies gratuitios: ProxyWeb y Proxies “normales”.  Los proxyWeb los obtenemos de tres proveedores.   
+- Cada vez más usamos los de https://www.croxyproxy.com/, que a su vez usa internamente una lista de proxies de buena calidad, estables y con seguridad SSL.  En general estamos usando una lista de entre 4 y 7 de estos proxies con el protocolo específico de croxyproxy.com. 
+ 
+Este protocolo nos venía muy bien porque era aceptado por todas las webs que tienen bloqueos del webmaster.  Pero desde hace unas semanas han detectado esta incursión media docena de webs y ya no funciona con ellos.  Todavía hay unas 25 webs que tienen bloqueos y los aceptan, pero las más usadas no. 
+ 
+Los Proxies normales, desde servicios como https://www.sslproxies.org/: 
+- Los proxies normales eran muy poco usados por su volatilidad y corta vida.  Como en casi todos los casos valían los ProxyWeb, estos no se usaban.  Pero con el problema con los ProxyWeb que comentaba más arriba, los Proxies normales han vuelto a tener vigencia. 
+ 
+Dentro de los Proxies normales hay varias categorías en función del anonimato, y de que soporten el protocolo de seguridad SSL.  Para burlar las defensas de esas 6 webs hay que usar proxies con anonimato Elite (la web no sabe que es un proxy ni la IP del usuario) y con soporte SSL.  Es la única forma que he encontrado de entrar en las webs sin que salga el captcha de “eres humano”.   La única web que se resiste a esto es HDFull. 
+ 
+Desafortunadamente, como decía, estos proxies tienen una vida media corta (de horas) y además de los de categoría Elite SSL hay poquísimos (3 a 5).  Últimamente actualizaba manualmente la lista de proxies dos o tres veces por semana, pero seguía sin ser suficiente, a pesar de la servidumbre que me representaba. 
+ 
+La solución ha sido crear un script (“verificar_proxies.py”) que corre 24x7 y que periódicamente valida los proxies contras las webs objetivo, y guarda el resultado de los proxies válidos en la Base de Datos ESTA, en la tabla “emergencias”, campo “categoría”.  Esta tabla, con un solo registro normalmente, es accedida por los usuarios de Alfa para 30 minutos para saber si hay fixes de emergencia y así iniciar el proceso estándar de actualización.  Con el mismo esfuerzo ahora el usuario obtiene la lista de proxies actualizada centralizadamente (estos accesos tardan 0.0002 segundos). 
+ 
+El módulo “verificar_proxies.py” está preparado para correr como canal importado de Alfa, como script independiente de Kodi, o como script independiente de Python3.  En la cabecera del módulo hay unas instrucciones de cómo instalarlo y sus dependencias. 
+ 
+La idea inicial era activarlo como script independiente de Python3 en el servidor de la BD ESTA.  Ahí estuvo mirando @SistemaRayoXP y vio que era viable pero con muy poco control sobre su ejecución.  Exploraremos esta alternativa con más detalle en el futuro. 
+ 
+La idea adoptada es la correrlo como script de Kodi.  En realidad lo que hago es sustituir el módulo default del “script.alfa-update-helper” por “verificar_proxies.py” renombrado.  Así se ejecuta desde el inicio de Kodi , como servicio, hasta su fin, dejando en el log toda la información necesaria para su monitorización.  Como tengo un TV-Box en casa que está encendido 24x7, lo tengo corriendo ahí desde hace un par de días y funcionando a la perfección. 
+ 
+Se activa en estas horas [1, 7, 13, 16, 19, 22] (horario España).  Cuando se activa espera un número aleatorio de minutos, entre 0 y 20, para que no sea detectable el patrón de actualizaciones.  Normalmente obtiene de “sslproxies.org” unas 50 a 60 direcciones a probar.  Cuando funciona en modo “servicio”, ejecuta las verificaciones secuencialmente, tardando unos 8 minutos es realizar el proceso de verificaciones de los Proxies “normales” y los ProxyWeb.  Si trabaja como “import de Alfa”, hace la verificación multi-threaded, con 5 accesos simultáneos. 
+ 
+En “custom.py” lo he añadido
+
+Kingbox, [11/05/2023 10:41]
+Hola, he puesto en funcionamiento con la ayuda de @SistemaRayoXP un nuevo sistema de validación y renovación de proxies. 
+ 
+En esencia usamos dos modelos de proxies gratuitios: ProxyWeb y Proxies “normales”.  Los proxyWeb los obtenemos de tres proveedores.   
+- Cada vez más usamos los de https://www.croxyproxy.com/, que a su vez usa internamente una lista de proxies de buena calidad, estables y con seguridad SSL.  En general estamos usando una lista de entre 4 y 7 de estos proxies con el protocolo específico de croxyproxy.com. 
+ 
+Este protocolo nos venía muy bien porque era aceptado por todas las webs que tienen bloqueos del webmaster.  Pero desde hace unas semanas han detectado esta incursión media docena de webs y ya no funciona con ellos.  Todavía hay unas 25 webs que tienen bloqueos y los aceptan, pero las más usadas no. 
+ 
+Los Proxies normales, desde servicios como https://www.sslproxies.org/: 
+- Los proxies normales eran muy poco usados por su volatilidad y corta vida.  Como en casi todos los casos valían los ProxyWeb, estos no se usaban.  Pero con el problema con los ProxyWeb que comentaba más arriba, los Proxies normales han vuelto a tener vigencia. 
+ 
+Dentro de los Proxies normales hay varias categorías en función del anonimato, y de que soporten el protocolo de seguridad SSL.  Para burlar las defensas de esas 6 webs hay que usar proxies con anonimato Elite (la web no sabe que es un proxy ni la IP del usuario) y con soporte SSL.  Es la única forma que he encontrado de entrar en las webs sin que salga el captcha de “eres humano”.   La única web que se resiste a esto es HDFull. 
+ 
+Desafortunadamente, como decía, estos proxies tienen una vida media corta (de horas) y además de los de categoría Elite SSL hay poquísimos (3 a 5).  Últimamente actualizaba manualmente la lista de proxies dos o tres veces por semana, pero seguía sin ser suficiente, a pesar de la servidumbre que me representaba. 
+ 
+La solución ha sido crear un script (“verificar_proxies.py”) que corre 24x7 y que periódicamente valida los proxies contras las webs objetivo, y guarda el resultado de los proxies válidos en la Base de Datos ESTA, en la tabla “emergencias”, campo “categoría”.  Esta tabla, con un solo registro normalmente, es accedida por los usuarios de Alfa para 30 minutos para saber si hay fixes de emergencia y así iniciar el proceso estándar de actualización.  Con el mismo esfuerzo ahora el usuario obtiene la lista de proxies actualizada centralizadamente (estos accesos tardan 0.0002 segundos). 
+ 
+El módulo “verificar_proxies.py” está preparado para correr como canal importado de Alfa, como script independiente de Kodi, o como script independiente de Python3.  En la cabecera del módulo hay unas instrucciones de cómo instalarlo y sus dependencias. 
+ 
+La idea inicial era activarlo como script independiente de Python3 en el servidor de la BD ESTA.  Ahí estuvo mirando @SistemaRayoXP y vio que era viable pero con muy poco control sobre su ejecución.  Exploraremos esta alternativa con más detalle en el futuro. 
+ 
+La idea adoptada es la correrlo como script de Kodi.  En realidad lo que hago es sustituir el módulo default del “script.alfa-update-helper” por “verificar_proxies.py” renombrado.  Así se ejecuta desde el inicio de Kodi , como servicio, hasta su fin, dejando en el log toda la información necesaria para su monitorización.  Como tengo un TV-Box en casa que está encendido 24x7, lo tengo corriendo ahí desde hace un par de días y funcionando a la perfección. 
+ 
+Se activa en estas horas [1, 7, 13, 16, 19, 22] (horario España).  Cuando se activa espera un número aleatorio de minutos, entre 0 y 20, para que no sea detectable el patrón de actualizaciones.  Normalmente obtiene de “sslproxies.org” unas 50 a 60 direcciones a probar.  Cuando funciona en modo “servicio”, ejecuta las verificaciones secuencialmente, tardando unos 8 minutos es realizar el proceso de verificaciones de los Proxies “normales” y los ProxyWeb.  Si trabaja como “import de Alfa”, hace la verificación multi-threaded, con 5 accesos simultáneos. 
+ 
+En “custom.py” lo he añadido
+
+
+como “import de Alfa”, en la entrada  “Otras Utilidades”, “Actualiza los ProxyCF y los ProxySSL en la BD”.  Aunque normalmente no va a ser necesario, esto lo podemos correr cualquier desarrollador cuando sea conveniente. 
+ 
+Por último, la confidencialidad de este sistema es importante.  Si has webs descubren este patrón harán algo para bloquearnos.  Es importante que fuera de este grupo no se comente la existencia del sistema de gestión de proxies que tenemos.  Como mucho hablar de “trucos” para acceder a las webs bloqueadas.  De hecho en el log de usuario no hay ninguna referencia a este proceso, salvo en el caso de “generar Informe de Error” donde sí puede aparecer alguna actualización.
+

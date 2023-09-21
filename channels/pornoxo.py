@@ -40,9 +40,10 @@ language = []
 url_replace = []
 
 
-finds = {'find': {'find_all': [{'tag': ['div'],  'class': ['vidItem']}]},
-         'categories': dict([('find', [{'tag': ['body']}]), 
-                              ('get_text', [{'tag': '', '@STRIP': False, '@JSON': 'DEFAULT'}])]),
+finds = {'find': {'find_all': [{'tag': ['div'],  'class': ['video-item-wrapper']}]},
+         # 'categories': dict([('find', [{'tag': ['body']}]), 
+                              # ('get_text', [{'tag': '', '@STRIP': False, '@JSON': 'DEFAULT'}])]),
+         'categories': {'find_all': [{'tag': ['div'],  'class': ['channel-item']}]},
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
@@ -54,7 +55,7 @@ finds = {'find': {'find_all': [{'tag': ['div'],  'class': ['vidItem']}]},
          'plot': {}, 
          'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
                              ('find_all', [{'tag': ['a'], '@ARG': 'href'}])]),
-         'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
+         'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', ''], ['Porn Tube ', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
@@ -79,7 +80,8 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mas Popular" , action="list_all", url=host + "videos/most-popular/daily/1"))
     itemlist.append(Item(channel=item.channel, title="Lo Mejor" , action="list_all", url=host + "videos/best-recent/1"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "videos/longest/1"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "tags/json/", extra="Categorias"))
+    # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "tags/json/" %host, extra="Categorias")) #404
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "tags/", extra="Categorias")) #
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -87,7 +89,8 @@ def mainlist(item):
 def section(item):
     logger.info()
     
-    return AlfaChannel.section(item, matches_post=section_matches, **kwargs)
+    return AlfaChannel.section(item, **kwargs)
+    # return AlfaChannel.section(item, matches_post=section_matches, **kwargs)
 
 
 def section_matches(item, matches_int, **AHkwargs):
