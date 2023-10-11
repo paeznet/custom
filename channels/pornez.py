@@ -25,8 +25,8 @@ forced_proxy_opt = 'ProxySSL'
 canonical = {
              'channel': 'pornez', 
              'host': config.get_setting("current_host", 'pornez', default=''), 
-             'host_alt': ["https://pornez.cam/"], 
-             'host_black_list': ["https://pornez.net/"], 
+             'host_alt': ["https://pornez.site/"], 
+             'host_black_list': ["https://pornez.net/","https://pornez.cam/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -41,8 +41,8 @@ language = []
 url_replace = []
 
 
-finds = {'find': {'find_all': [{'tag': ['article'],  'class': re.compile(r"^post-\d+")}]},
-         'categories': {'find_all': [{'tag': ['div'], 'class': ['tag-single-wrapper']}]}, 
+finds = {'find': {'find_all': [{'tag': ['div'],  'class': ['video-block']}]},
+         'categories': {'find_all': [{'tag': ['div'], 'class': ['video-block','tag-single-wrapper']}]}, 
          # 'find':  dict([('find', [{'tag': ['div'], 'class': ['v-cards']}]),
                         # ('find_all', [{'tag': ['a'], 'href': re.compile("/video/[0-9]+/")}])]),
          # 'categories': dict([('find', [{'tag': ['section'], 'class': ['content-sec']}]),
@@ -58,7 +58,7 @@ finds = {'find': {'find_all': [{'tag': ['article'],  'class': re.compile(r"^post
                             # ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            # '@ARG': 'data-max-queries', '@TEXT': '(\d+)'}])]), 
          'last_page': dict([('find', [{'tag': ['div', 'nav', 'ul'], 'class': ['n-pagination', 'pagination']}]), 
-                            ('find_all', [{'tag': ['a'], '@POS': [-1], 
+                            ('find_all', [{'tag': ['a'], '@POS': [-2], 
                                            '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
          # 'last_page': {}, 
          'plot': {}, 
@@ -75,15 +75,15 @@ finds = {'find': {'find_all': [{'tag': ['article'],  'class': re.compile(r"^post
                             # 'list_all_stime': dict([('find', [{'tag': ['div'], 'class': ['time-label-wrapper']}]),
                                                     # ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+:\d+(?:\d+|))'}])]),
                             # 'list_all_quality': {'find': [{'tag': ['span', 'div'], 'class': ['hd'], '@ARG': 'class',  '@TEXT': '(hd)' }]},
-                            'list_all_quality': dict([('find', [{'tag': ['div', 'span'], 'class': ['hd-video']}]),
-                                                      ('get_text', [{'tag': '', 'strip': True}])]),
+                            # 'list_all_quality': dict([('find', [{'tag': ['div', 'span'], 'class': ['hd-video']}]),
+                                                      # ('get_text', [{'tag': '', 'strip': True}])]),
                             # 'list_all_premium': dict([('find', [{'tag': ['span'], 'class': ['ico-private']}]),
                                                        # ('get_text', [{'tag': '', 'strip': True}])]),
                             'section_cantidad': dict([('find', [{'tagOR': ['span'], 'class':['s-elem']},
                                                                 {'tagOR': ['span'], 'style':['color']}]),
                                                       ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])
                             },
-         'controls': {'url_base64': False, 'cnt_tot': 20, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 42, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 

@@ -31,9 +31,10 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="findvideos", url="https://porndune.com/movie/tiffany-an-indecent-story/"))
+    # itemlist.append(Item(channel=item.channel, title="Nuevos" , action="findvideos", url="https://porndune.com/movie/tiffany-an-indecent-story/"))
 
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "en/videos/page/1?sort=date&time=anytime", order="date", page="0"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "movie/"))
+    # itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "en/videos/page/1?sort=date&time=anytime", order="date", page="0"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "en/videos/page/1?sort=popular&time=anytime", order="popular", page="0"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "en/videos/page/1?sort=rating&time=anytime", order="rating", page="0"))
     # itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "/most-commented/1/?sort_by=most_commented_month&from=01"))
@@ -149,24 +150,25 @@ def create_soup(url, referer=None, unescape=False):
 def lista(item):
     logger.info()
     itemlist = []
-    sp = create_soup(item.url)
-    posturl = "https://porndune.com/data/getVideos"
-    post = "offset=%s&perpage=28&order=%s&sort=all&tag=0&keyword=" %(item.page, item.order)
-    headers = {"Content-Length": "56", "x-requested-with": "XMLHttpRequest"}
-    data = httptools.downloadpage(posturl, headers=headers,  post=post).json
-    data = data['html']
+    soup = create_soup(item.url)
+    # logger.debug(sp)
+    # posturl = "https://porndune.com/data/getVideos"
+    # post = "offset=%s&perpage=28&order=%s&sort=all&tag=0&keyword=" %(item.page, item.order)
+    # headers = {"Content-Length": "56", "x-requested-with": "XMLHttpRequest"}
+    # data = httptools.downloadpage(posturl, headers=headers,  post=post).json
+    # data = data['html']
     # logger.debug(data)
-    soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
-    matches = soup.find_all('div', class_='movie-panel')
+    # soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
+    matches = soup.find_all('article', class_='movie')
     for elem in matches:
         # logger.debug(soup)
         url = elem.a['href']
-        url = url.replace("watch/[A-z0-9-]+", "watch/")
-        url = url.split('?')
-        url = "%s/en/watch/?%s" %(host,url[-1])
-        logger.debug(url)
-        title = elem.img['alt']
-        thumbnail = elem.img['data-src']
+        # url = url.replace("watch/[A-z0-9-]+", "watch/")
+        # url = url.split('?')
+        # url = "%s/en/watch/?%s" %(host,url[-1])
+        # logger.debug(url)
+        title = elem.span.text.strip()
+        thumbnail = elem.a['data-src']
         # time = elem.find('span', class_='label time').text.strip()
         # quality = elem.find('span', class_='label hd')
         # if quality:
@@ -179,15 +181,32 @@ def lista(item):
             # action = "findvideos"
         itemlist.append(Item(channel=item.channel, action="findvideos", title=title, url=url, thumbnail=thumbnail,
                                plot=plot, fanart=thumbnail, contentTitle=title ))
-    next_page = sp.find('a', rel='next')
+    next_page = soup.find('a', attrs={"aria-label": "Next page"})
     if next_page:
         next_page = next_page['href']
-        page = int(item.page)
-        item.page = (page+ 28)
+        # page = int(item.page)
+        # item.page = (page+ 28)
         # next_page = re.sub(r"&offset=\d+", "&offset={0}".format(next_page), item.url)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
+# https://porndune.com/collect.php  
+# name=Play&url=Zusammen+Gekommen+(42649)
+# name=HD+Server+2+-+Play&url=Zusammen+Gekommen+(42649)
+
+# <div class="m-embed">
+#    <div id="watch-screen" class="m-img lazy-bg" data-src="https://static-601.trafficdepot.pm/pd/files/teasers/HRML3W21M/screenshot.webp">
+#   <a href="#play" id="btn-watch-play" data-id="42649" data-method="view" class="icon-vplay m-play btn-watch-play btn-click track" data-name="Play" data-url="Zusammen Gekommen (42649)"><span class="visually-hidden">Click to Play</span></a>
+#    </div>
+# </div>
+# <div class="card"><div class="card-body source">
+#   <div><strong>HD Server 2</strong></div> <button type="button" id="embed_1" data-id="42649" data-method="view" class="btn btn-primary btn-play icon-play btn-click btn-play-server track" data-name="HD Server 2 - Play" data-url="Zusammen Gekommen (42649)">Play</button>
+# </div></div>
+# <h1>Zusammen Gekommen</h1>
+# <div class="m-meta flex-wrap">
+# <div id="movie-watched-42649" class="v-watched rounded" style="display: block;">
+# <div class="view-icon">watched</div>
+# </div>
 
 def findvideos(item):
     logger.info()

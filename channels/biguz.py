@@ -33,7 +33,7 @@ def mainlist(item):
     logger.info()
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "video/"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="catalogo", url=host + "top100/"))
+    # itemlist.append(Item(channel=item.channel, title="PornStar" , action="catalogo", url=host + "top100/"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "subcats"))
     # itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
@@ -108,7 +108,7 @@ def lista(item):
         url = elem.a['href']
         if elem.find('img'):
             title = elem.img['title']
-            thumbnail = elem.img['data-src']
+            thumbnail = elem.img['src']
         else:
             title = elem.find('div', class_='video')['title']
             thumbnail = elem.find('div', class_='video')['data-src']

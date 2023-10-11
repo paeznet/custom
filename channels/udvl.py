@@ -67,6 +67,7 @@ def categorias(item):
         cantidad = elem.find('div', class_='dur')
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
+        url = urlparse.urljoin(item.url,url)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
@@ -93,9 +94,9 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.find('div', class_='name').text.strip()
-        thumbnail = elem.img['src']
+        thumbnail = elem.img['data-webp']
         if "gif" in thumbnail:
-            thumbnail = elem.img['data-original']
+            thumbnail = elem.img['data-webp']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
         time = elem.find('div', class_='dur').text.strip()
@@ -104,6 +105,7 @@ def lista(item):
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
         else:
             title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
+        url = urlparse.urljoin(item.url,url)
         plot = ""
         action = "play"
         if logger.info() == False:
