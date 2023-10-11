@@ -22,6 +22,7 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
 #########################       pagination host+page2.html en vez de host/most-viewed/page1.html
+                                # son 60 items por lo que la tercera pagina siempre es https://www.sexvr.com/page2.html
 
 canonical = {
              'channel': 'sexVR', 
@@ -50,7 +51,7 @@ finds = {'find': {'find_all': [{'tag': ['div'],  'class': ['video-box']}]},
          'get_quality_rgx': '', 
          'next_page': dict([('find', [{'tag': ['div'], 'class': ['prev-next-controls']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-1], '@ARG': 'href'}])]), 
-         'next_page_rgx': [['\/page\d+.html', '/page%s.html']], 
+         'next_page_rgx': [['page\d+.html', 'next_page_url']], 
          'last_page': {}, 
          'plot': {}, 
          'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
@@ -91,7 +92,7 @@ def section(item):
     logger.info()
     
     findS = finds.copy()
-    findS['url_replace'] = [['(\/(:?model|channels)\/[^$]+$)', r'\1page1.html']]
+    findS['url_replace'] = [['(\/(:?model|channels|studios)\/[^$]+$)', r'\1page1.html']]
     
     return AlfaChannel.section(item, finds=findS, **kwargs)
 
@@ -142,7 +143,7 @@ def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    item.url = "%ssearch/video/?s=%s&o=recent&page=1" % (item.url, texto.replace(" ", "+"))
+    item.url = "%ssearch/video/%s/page1.html" % (host, texto.replace(" ", "+"))
     
     try:
         if texto:
