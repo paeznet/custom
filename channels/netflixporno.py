@@ -23,17 +23,18 @@ list_quality = ['default']
 list_servers = []
 
 # https://playpornfree.org/   https://streamporn.pw/  https://mangoporn.net/   https://watchfreexxx.net/   https://losporn.org/  https://xxxstreams.me/  https://speedporn.net/
-# "https://watchfreexxx.net/"  #  pandamovie https://watchpornfree.info  #'https://xxxparodyhd.net'  'http://www.veporns.com'  'http://streamporno.eu'
+# "https://watchfreexxx.net/"  #  pandamovie https://watchpornfree.info  #'https://xxxparodyhd.net'  'http://www.veporns.com'  http://streamporno.eu https://streamporn.li
 # https://www.netflixporno.net  https://xxxscenes.net   https://mangoporn.net   https://speedporn.net
 canonical = {
              'channel': 'netflixporno', 
              'host': config.get_setting("current_host", 'netflixporno', default=''), 
              'host_alt': ["https://netflixporno.net/"], 
-             'host_black_list': [], 
+             'host_black_list': ["https://streamporn.li"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
+timeout = 10
 
 
 def mainlist(item):
@@ -43,8 +44,8 @@ def mainlist(item):
     autoplay.init(item.channel, list_servers, list_quality)
 
     itemlist.append(Item(channel=item.channel, title="Peliculas" , action="lista", url=host + "adult/"))
-    # itemlist.append(Item(channel=item.channel, title="Mas vistas" , action="lista", url=host + "adult/?v_sortby=views"))
-    # itemlist.append(Item(channel=item.channel, title="Mas valoradas" , action="lista", url=host + "adult/?v_sortby=highest_rated"))
+    itemlist.append(Item(channel=item.channel, title="      Mas vistas" , action="lista", url=host + "adult/?v_sortby=views"))
+    itemlist.append(Item(channel=item.channel, title="      Mas valoradas" , action="lista", url=host + "adult/?r_sortby=highest_rated"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "adult/"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "adult/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=host + "adult/"))
@@ -60,9 +61,9 @@ def submenu(item):
     logger.info()
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=item.url))
-    # itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=item.url + "?v_sortby=views"))
-    # itemlist.append(Item(channel=item.channel, title="Mas valorados" , action="lista", url=item.url + "?v_sortby=highest_rated"))
-    itemlist.append(Item(channel=item.channel, title="Destacados" , action="lista", url=item.url + "/category/featured-scenes/"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=item.url + "?v_sortby=views"))
+    itemlist.append(Item(channel=item.channel, title="Mas valorados" , action="lista", url=item.url + "?r_sortby=highest_rated"))
+    itemlist.append(Item(channel=item.channel, title="Destacados" , action="lista", url=item.url + "category/featured-scenes/"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=item.url))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host, vid = "vid"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=item.url))
@@ -86,7 +87,6 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    logger.debug(soup)
     if "Canal" in item.title:
         matches = soup.find_all('li', class_='menu-item-object-director')
     else:
@@ -104,9 +104,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical, timeout=timeout).data
     else:
-        data = httptools.downloadpage(url, canonical=canonical).data
+        data = httptools.downloadpage(url, canonical=canonical, timeout=timeout).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -134,7 +134,7 @@ def lista(item):
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
-
+# https://vidguard.to/e/3Q0lxB2DeZxj1Jk  >>>>   https://vembed.net/e/3Q0lxB2DeZxj1Jk
 
 def findvideos(item):
     logger.info()

@@ -119,7 +119,11 @@ def lista(item):
         url = elem.a['href']
         title = elem.a['title']
         thumbnail = elem.img['data-src']
-        time = elem.find('span', class_='duration').text.strip()
+        time = elem.find('span', class_='duration')
+        if time:
+            time = time.text.strip()
+        else:
+            time = ""
         quality = elem.find('span', class_='hd-video')
         if quality:
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)

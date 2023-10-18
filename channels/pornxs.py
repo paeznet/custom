@@ -121,6 +121,7 @@ def lista(item):
     soup = get_source(item.url, soup=True)
     matches = soup.find_all('div', class_='squares__item')
     for elem in matches:
+        if elem.find('iframe'): continue
         url = elem.a['data-embed-url']
         title = elem.a['title']
         thumbnail = elem.div['data-loader-src']

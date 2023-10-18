@@ -23,8 +23,8 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'thepornfull', 
              'host': config.get_setting("current_host", 'thepornfull', default=''), 
-             'host_alt': ["https://thepornfull.com/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://thepornfull.net/"], 
+             'host_black_list': ["https://thepornfull.com/"]], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -34,7 +34,9 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "videos/"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host))
+    itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="lista", url=host + "mais-vistos/"))
+    itemlist.append(Item(channel=item.channel, title="Mas Votados" , action="lista", url=host + "mais-votados/"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categorias/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
@@ -57,7 +59,7 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='aneTemaNe834bea_4cfc56')
+    matches = soup.find_all('div', class_='aneTemaI7f593ec_7b5e45')
     for elem in matches:
         logger.debug(elem)
         url = elem.a['href']
@@ -96,7 +98,7 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all("div", class_='aneTemaNe834bea_4cfc56')
+    matches = soup.find_all("div", class_='aneTemaI7f593ec_7b5e45')
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
