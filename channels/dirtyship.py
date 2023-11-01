@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# -*- Channel Zigtube -*-
+# -*- Channel DirtyShip -*-
 # -*- Created for Alfa-addon -*-
 # -*- By the Alfa Develop Group -*-
 
@@ -21,12 +21,11 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
-#      https://www.sexvr.com/  https://celebsnudeworld.com/      https://www.hentaikif.com/  https://www.zigtube.com/   https://www.pornworms.com/
 
 canonical = {
-             'channel': 'zigtube', 
-             'host': config.get_setting("current_host", 'zigtube', default=''), 
-             'host_alt': ["https://www.zigtube.com/"], 
+             'channel': 'dirtyship', 
+             'host': config.get_setting("current_host", 'dirtyship', default=''), 
+             'host_alt': ["https://dirtyship.com/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -41,14 +40,14 @@ tv_path = ''
 language = []
 url_replace = []
 
-finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['video']}]},     #'id': re.compile(r"^browse_\d+")}]},
-         'categories': {'find_all': [{'tag': ['li'], 'class': ['category']}]}, 
+finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['thumi']}]},     #'id': re.compile(r"^browse_\d+")}]},
+         'categories': {'find_all': [{'tag': ['li'], 'class': ['thumi']}]}, 
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
          'next_page': {},
-         'next_page_rgx': [['\/\d+', '/%s'], ['&page=\d+', '&page=%s']], 
-         'last_page': dict([('find', [{'tag': ['ul'], 'class': ['pagination']}]), 
+         'next_page_rgx': [['/page/\d+/', '/page/%s/']], 
+         'last_page': dict([('find', [{'tag': ['div'], 'class': ['pager']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-2], 
                                            '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
          'plot': {}, 
@@ -58,12 +57,12 @@ finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['video']}]},     #'id':
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['video-o-hd']}]),
-                                                      ('get_text', [{'strip': True}])]),
-                            'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['category-videos']}]),
+                            # 'list_all_quality': dict([('find', [{'tag': ['strong']}]),
+                                                      # ('get_text', [{'strip': True}])]),
+                            'section_cantidad': dict([('find', [{'tag': ['i'], 'class': ['fa']}]),
                                                       ('get_text', [{'strip': True}])])
                            },
-         'controls': {'url_base64': False, 'cnt_tot': 40, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 30, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -75,14 +74,13 @@ def mainlist(item):
     logger.info()
     itemlist = []
     
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "videos/"))
-    itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="list_all", url=host + "videos/viewed/month/"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "videos/rated/month/"))
-    itemlist.append(Item(channel=item.channel, title="Favoritos" , action="list_all", url=host + "videos/favorited/"))
-    itemlist.append(Item(channel=item.channel, title="Mas Comentado" , action="list_all", url=host + "videos/discussed/"))
-    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "videos/longest/"))
-    itemlist.append(Item(channel=item.channel, title="Mas Descargas" , action="list_all", url=host + "videos/downloaded/"))
-    itemlist.append(Item(channel=item.channel, title="Trending" , action="list_all", url=host + "videos/watched/"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1/?order=newest"))
+    itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="list_all", url=host + "page/1/?order=views"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "page/1/?order=rate"))
+    itemlist.append(Item(channel=item.channel, title="Mas Comentado" , action="list_all", url=host + "page/1/?order=discussed"))
+    # itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "videos/longest/"))
+    # itemlist.append(Item(channel=item.channel, title="Mas Descargas" , action="list_all", url=host + "videos/downloaded/"))
+    # itemlist.append(Item(channel=item.channel, title="Trending" , action="list_all", url=host + "videos/watched/"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     
@@ -91,8 +89,10 @@ def mainlist(item):
 
 def section(item):
     logger.info()
+    findS = finds.copy()
+    # findS['url_replace'] = [['(\/(?:category|channels|models|pornstars)\/[^$]+$)', r'\1page/1/?order=newest']]
     
-    return AlfaChannel.section(item, **kwargs)
+    return AlfaChannel.section(item, finds=findS, **kwargs)
 
 
 def list_all(item):
@@ -112,7 +112,7 @@ def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    item.url = "%ssearch/video/?s=%s&o=recent&page=1" % (host, texto.replace(" ", "+"))
+    item.url = "%spage/1/?s=%s&order=newest" % (host, texto.replace(" ", "+"))
     
     try:
         if texto:

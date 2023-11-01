@@ -1,0 +1,15 @@
+{
+  "id": "dirtyship",
+  "name": "dirtyship",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://dirtyship.com/wp-content/uploads/2019/09/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

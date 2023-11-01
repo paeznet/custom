@@ -1,0 +1,15 @@
+{
+  "id": "blackporn",
+  "name": "blackporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/prxC5zkT/blackporn.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

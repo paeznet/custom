@@ -415,7 +415,7 @@ def play(item):
                             .capitalize()          # poner en mayuscula primera letra
     cantidad = cantidad.strip()             #quita los espacios antes y despues        
     title = " ".join(title.split())         #Quita los espacios entre palabras de title
-
+    (?i) hace que la concordancia de contenido no distinga entre mayúsculas y minúsculas
 
     for url, lang in zip(video_urls, idioma):  Coge elemento de la lista video_urls y de la lista idioma
 

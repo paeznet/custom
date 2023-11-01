@@ -1,0 +1,15 @@
+{
+  "id": "xxk",
+  "name": "xxk",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/XqpMmMSd/xxk.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
