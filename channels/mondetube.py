@@ -109,7 +109,8 @@ def submenu(item):
     logger.info()
     itemlist = []
     
-    dict_cookie = {"tag_id": item.orientation}
+    kwargs['headers'] = {'Referer': host}
+    dict_cookie = {"kt_tcookie": 1,"tag_id": item.orientation}
     AlfaChannel.httptools.set_cookies(dict_cookie)
     
     itemlist.append(Item(channel=item.channel, title="Nuevas" , action="list_all", url=item.url + "?sort_by=post_date&from=1"))
