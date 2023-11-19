@@ -19,12 +19,16 @@ from core import httptools
 from bs4 import BeautifulSoup
 import base64
 
-# https://ixiporn.com  https://uncutmaza.com/  https://xvideosdesi.net/   https://www.pornhqxxx.com/  
+forced_proxy_opt = 'ProxySSL'
+
+# https://ixiporn.com   https://xvideosdesi.net/   https://www.pornhqxxx.com/  
+# https://uncutmaza.com/ 
 canonical = {
              'channel': 'ixiporn', 
              'host': config.get_setting("current_host", 'ixiporn', default=''), 
-             'host_alt': ["https://ixiporn.com"], 
-             'host_black_list': [], 
+             'host_alt': ["https://xvideosdesi.cc"], 
+             'host_black_list': ["https://ixiporn.com"], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -35,12 +39,12 @@ def mainlist(item):
     logger.info()
     itemlist = []
 
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/?filter=latest"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host )) #+ "/?filter=latest"
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/?filter=most-viewed"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/?filter=popular"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "/?filter=longest"))
 
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/porn-video-categories/"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/porn-category"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -64,6 +68,7 @@ def categorias(item):
     soup = create_soup(item.url)
     matches = soup.find_all('div', class_='video-block')
     for elem in matches:
+        logger.debug(elem)
         url = elem.a['href']
         title = elem.a['title']
         thumbnail = elem.img['data-src']
@@ -125,16 +130,14 @@ def findvideos(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    url = soup.find('iframe')['src']
-    if "ixiporn" in url:
+    url = soup.find('iframe')['data-lazy-src']
+    if "ixiporn" in url or "xvideosdesi" in url:
         url = url.split("?q=")
         url = base64.b64decode(url[1]).decode('utf-8')
         url = urlparse.unquote(url)
         url = scrapertools.find_single_match(url, '<(?:source|iframe) src="([^"]+)"')
-    if "prnhqcdn" in url:
-        url += "|Referer=%s" % host
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    url += "|Referer=%s" % host
+    itemlist.append(Item(channel=item.channel, action="play", title= url, contentTitle = item.title, url=url))
     return itemlist
 
 
@@ -142,14 +145,12 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    url = soup.find('iframe')['src']
-    if "ixiporn" in url:
+    url = soup.find('iframe')['data-lazy-src']
+    if "ixiporn" in url or "xvideosdesi" in url:
         url = url.split("?q=")
         url = base64.b64decode(url[1]).decode('utf-8')
         url = urlparse.unquote(url)
         url = scrapertools.find_single_match(url, '<(?:source|iframe) src="([^"]+)"')
-    # if "prnhqcdn" in url:
-    url += "|Referer=%s" % url
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    url += "|Referer=%s" % host
+    itemlist.append(Item(channel=item.channel, action="play", title= url, contentTitle = item.title, url=url))
     return itemlist

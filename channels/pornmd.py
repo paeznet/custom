@@ -111,6 +111,8 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
+    url = httptools.downloadpage(item.url, follow_redirects=False, only_headers=True).headers.get("location", "")#).url
+    url = url.replace("www.redtube", "es.redtube")
     url = httptools.downloadpage(item.url).url
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
@@ -120,7 +122,9 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    url = httptools.downloadpage(item.url).url
+    url = httptools.downloadpage(item.url, follow_redirects=False, only_headers=True).headers.get("location", "")#).url
+    url = url.replace("www.redtube", "es.redtube")
+    # logger.debug(url)
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
