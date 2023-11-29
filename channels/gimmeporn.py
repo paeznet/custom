@@ -98,10 +98,12 @@ def lista(item):
     soup = create_soup(item.url)
     matches = soup.find_all('div', id=re.compile(r"^post-\d+"))
     for elem in matches:
-        logger.debug(elem)
         url = elem.a['href']
         title = elem.h2.text.strip()
         thumbnail = elem.img['src']
+        if "gif" in thumbnail:
+            thumbnail = elem.img['data-src'].replace("-320x180", "")
+
         plot = ""
         itemlist.append(Item(channel=item.channel, action="findvideos", title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )

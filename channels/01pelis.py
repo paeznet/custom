@@ -11,7 +11,7 @@ else:
 
 import re
 
-from channels import autoplay
+from modules import autoplay
 from platformcode import config, logger, platformtools
 from core.item import Item
 from core import httptools, scrapertools, jsontools, tmdb
@@ -20,31 +20,24 @@ from channels import filtertools
 from bs4 import BeautifulSoup
 from channelselector import get_thumb
 
+forced_proxy_opt = 'ProxySSL'
+
+
 canonical = {
-             'channel': 'peliseries', 
-             'host': config.get_setting("current_host", 'peliseries', default=''), 
-             'host_alt': ["https://peliseries.live"], 
+             'channel': 'peliplayhd', 
+             'host': config.get_setting("current_host", 'peliplayhd', default=''), 
+             'host_alt': ["https://peliplayhd.com/"], 
              'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
-url1 = "%s/?v=Opciones" %host
+# url1 = "%s/?v=Opciones" %host
 
 
-SERVER = {'www.fembed.com': 'Fembed','www.myurlshort.live': 'Fembed', 'feurl.com': 'Fembed', '1fichier.com': 'onefichier', 'www.mediafire.com': 'mediafire' , 'mixdrop.co': 'Mixdrop',
-          'pandafiles.com': 'Directo', 'primeuploads.com': 'Directo', 'streamzz.to': 'Directo', 'clicknupload.co': 'Directo', 'maxiseries24.com': 'Directo',
-          'www.mp4upload.com': 'Directo', 'anonfiles.com': 'Directo', 'powvideo.net': 'Directo', 'zeus.pelisplay.tv': 'Directo', 'jkanime.net': 'Directo',
-          'dragonball.sullca.com': 'Directo', 'www.solidfiles.com':'Directo', 'treshost.com': 'player.treshost.com', 'www.youtube.com': 'Directo',
+SERVER = {"fviplions": "Tiwikiwi", 'filelions': "Tiwikiwi", "sbbrisk": "Streamsb"}
           
-          'supervideo.tv': 'Directo', 'tune.pk': 'Directo', 
-          'vev.io': 'Directo', 'nitroflare.com': 'Directo', 'flixplayer.xyz': 'Directo', 'netu.tv': 'Directo',
-          }
-          
-          # https://tune.pk/js/open/load.js?vid=8103645
-          # https://supervideo.tv/e/8ve4fsn4x5t5
-
-          
-IDIOMAS = {"esp": "CAST", "lat": "LAT", "sub": "VOSE"}
+IDIOMAS = {"castellano": "CAST", "latino": "LAT", "ingles": "VOSE", "sub-es": "VOSE"}
 
 list_language = list(IDIOMAS.values())
 list_quality = []
@@ -69,12 +62,12 @@ def mainlist(item):
     itemlist = []
     autoplay.init(item.channel, list_servers, list_quality)
     
-    itemlist.append(Item(channel=item.channel, title="Peliculas" , action="lista", url= host + "/Peliculas.html?page=1", thumbnail=get_thumb("movies", auto=True)))
-    itemlist.append(Item(channel=item.channel, title="      Mas Vistas" , action="lista", url= host + "/Seccion.html?ver=PelisMasVistos", thumbnail=get_thumb("movies", auto=True)))
-    itemlist.append(Item(channel=item.channel, title="Series", action="lista", url= host + "/Series.html?page=1", thumbnail=get_thumb("tvshows", auto=True)))
-    itemlist.append(Item(channel=item.channel, title="      Mas Vistas" , action="lista", url= host + "/Seccion.html?ver=MasVistos", thumbnail=get_thumb("movies", auto=True)))
-    itemlist.append(Item(channel=item.channel, title="Anime", action="lista", url= host + "/Anime.html?page=1", thumbnail=get_thumb("anime", auto=True)))
-    itemlist.append(Item(channel=item.channel, title="Novela", action="lista", url= host + "/Novelas.html?page=1", thumbnail=get_thumb("tvshows", auto=True)))
+    itemlist.append(Item(channel=item.channel, title="Peliculas" , action="lista_all", url= host + "peliculas/page/20/", thumbnail=get_thumb("movies", auto=True)))
+    # itemlist.append(Item(channel=item.channel, title="      Mas Vistas" , action="lista", url= host + "/Seccion.html?ver=PelisMasVistos", thumbnail=get_thumb("movies", auto=True)))
+    itemlist.append(Item(channel=item.channel, title="Series", action="lista_all", url= host + "series/", thumbnail=get_thumb("tvshows", auto=True)))
+    # itemlist.append(Item(channel=item.channel, title="      Mas Vistas" , action="lista", url= host + "/Seccion.html?ver=MasVistos", thumbnail=get_thumb("movies", auto=True)))
+    # itemlist.append(Item(channel=item.channel, title="Anime", action="lista", url= host + "/Anime.html?page=1", thumbnail=get_thumb("anime", auto=True)))
+    # itemlist.append(Item(channel=item.channel, title="Novela", action="lista", url= host + "/Novelas.html?page=1", thumbnail=get_thumb("tvshows", auto=True)))
     itemlist.append(Item(channel=item.channel, title="Genero" , action="categorias", url= host, thumbnail=get_thumb('genres', auto=True)))
     itemlist.append(Item(channel=item.channel, title="Buscar...", action="search", thumbnail=get_thumb("search", auto=True)))
     itemlist.append(Item(channel=item.channel, title="Configurar canal...", action="configuracion", text_color="gold", folder=False, thumbnail=get_thumb("setting_0.png")))
@@ -96,7 +89,7 @@ def search(item, texto):
         texto = texto.replace(" ", "%20")
         item.url = "%s/Buscar.html?s=%s" % (host, texto)
         if texto != "":
-            return lista(item)
+            return lista_all(item)
         else:
             return []
     # Se captura la excepción, para no interrumpir al buscador global si un canal falla
@@ -116,7 +109,7 @@ def categorias(item):
         title = elem.text
         url = urlparse.urljoin(item.url,url)
         if "Buscar" in url:
-            itemlist.append(Item(channel=item.channel, channel=item.channel, action="lista", title=title , url=url, 
+            itemlist.append(Item(channel=item.channel, action="lista_all", title=title , url=url, 
                               section=item.section) )
     return itemlist
 
@@ -124,62 +117,52 @@ def categorias(item):
 def create_soup(url, referer=None, post=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     if post:
-        data = httptools.downloadpage(url, post=post).data
+        data = httptools.downloadpage(url, post=post, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, canonical=canonical).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
     return soup
 
 
-def lista(item):
+
+def lista_all(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url, referer=host)
-    matches = soup.find_all("div", class_=re.compile(r"^pitem\d+"))
+    soup = create_soup(item.url)
+    matches = soup.find('ul', class_='post-lst').find_all("li", class_=re.compile(r"^post-\d+"))
     for elem in matches:
-        tipo = ""
-        ref = "%s%s" % (host, elem.find("a", class_="item lazybg")["href"])
-        lg = elem.find_all(class_="idioma-icons")
+        logger.debug(elem)
+        datos = elem['class']
+        trid = scrapertools.find_single_match(datos[0], 'post-(\d+)')
+        ctype = scrapertools.find_single_match(datos[2], 'type-(\w+)')
         language = []
-        for l in lg:
-            lang = l['class'][1]
-            language.append(IDIOMAS.get(lang, lang))
-        pid = elem['pid']
-        thumbnail = elem['data-bg-img']
-        title = elem.find('div', class_='def-title').text.strip()
-        contentTitle = title
+        if elem.find(class_="lang"):
+            flags = elem.find(class_="lang").find_all('img')
+            for flag in flags:
+                lang = scrapertools.find_single_match(flag['src'], '/([A-z-]+).(?:png|webp|jpg)').lower()
+                language.append(IDIOMAS.get(lang, lang))
+        thumbnail = elem.img['src']
+        title = elem.h2.text.strip()
         info = elem.find('div', class_='post_info')
-        ajo = info.text.strip()
-        if "Serie" in ajo: tipo="Serie"
-        if "Anime" in ajo: tipo="Anime"
-        if "Novela" in ajo: tipo="Novela"
-        year = scrapertools.find_single_match(ajo,'.*?Estreno: (\d{4})-')
+        year = elem.find('span', class_='year').text.strip()
         if year == '':
             year = '-'
             
-        if not config.get_setting('unify') and not channeltools.get_channel_parameters(__channel__)['force_unify']:
-            if tipo:
-                title = "[COLOR darkorange]%s[/COLOR]" % title
-            if year != "-":
-                title = "%s [COLOR cyan](%s)[/COLOR] [COLOR darkgrey]%s[/COLOR]" % (title,year, language)
-            else:
-                title = "%s [COLOR darkgrey]%s[/COLOR]" % (title, language)
-        else:
-            title = title
-        new_item = Item(channel=item.channel, pid=pid, title=title, thumbnail=thumbnail, language=language,
-                        infoLabels={"year": year})
-        if tipo:
-            new_item.url= "pid=%s&tipo=%s&temp=-1&cap=-1" %(pid,tipo)
+        url = elem.a['href']
+        new_item = Item(channel=item.channel, url=url, trid=trid, title=title, thumbnail=thumbnail, 
+                        language=language, infoLabels={"year": year})
+        if "series" in ctype:
+            new_item.trtype=1
             new_item.action = "seasons"
-            new_item.contentSerieName = contentTitle
+            new_item.contentSerieName = title
         else:
-            new_item.url = "pid=%s&tipo=Pelicula&temp=-1&cap=-1" %pid
+            new_item.trtype=1
             new_item.action = "findvideos"
-            new_item.contentTitle = contentTitle
+            new_item.contentTitle = title
         itemlist.append(new_item)
     tmdb.set_infoLabels(itemlist, True)
 
@@ -187,29 +170,32 @@ def lista(item):
     itemlist = filtertools.get_links(itemlist, item, list_language)
 
 
-    next_page = soup.find('li', class_='num active')
-    if next_page:
-        next_page = next_page.find_next_sibling("li").a['href']
+    next_page = soup.find('a', class_='current')
+    if next_page and next_page.find_next_sibling("a"):
+        next_page = next_page.find_next_sibling("a")['href']
         next_page = urlparse.urljoin(item.url,next_page)
-        itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+        itemlist.append(Item(channel=item.channel, action="lista_all", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
+         # 'seasons': {'find_all': [{'tag': ['div'], 'class': ['choose-season']}]}, 
+         # 'season_num': dict([('find', [{'tag': ['a']}]), 
+                             # ('get_text', [{'tag': '', '@STRIP': True, '@TEXT': '(\d+)'}])]),
 
 def seasons(item):
     logger.info()
     itemlist = list()
     infoLabels = item.infoLabels
-    soup = create_soup(url1, post=item.url)
-    matches = soup.find_all('div', class_='temp')
+    soup = create_soup(item.url, post=item.url)
+    matches = soup.find('div', class_='choose-season').find_all('a')
     for elem in matches:
-        title= elem.a.text.strip()
-        season = re.sub("\D", "", title)
+        season = elem['data-season']
+        id = elem['data-post']
+        post= "action=action_select_season&season=%s&post=%s" %(season,id)
         if int(season) < 10:
             season = "0%s" %season
         title = "Temporada %s" % season
         infoLabels["season"] = season
-        url= "pid=%s&tipo=Serie&temp=%s&cap=-1" %(item.pid,season)
-        itemlist.append(Item(channel=item.channel, title=title, url=url, action="episodesxseasons",
+        itemlist.append(Item(channel=item.channel, title=title, url=item.url, post=post, action="episodesxseasons",
                              infoLabels=infoLabels))
     tmdb.set_infoLabels_itemlist(itemlist, True)
     if config.get_videolibrary_support() and len(itemlist) > 0:
@@ -223,16 +209,17 @@ def episodesxseasons(item):
     itemlist = list()
     infoLabels = item.infoLabels
     season = infoLabels["season"]
-    soup = create_soup(url1, post=item.url)
-    matches = soup.find_all('div', class_='temp')
+    url= "%swp-admin/admin-ajax.php" %host
+    soup = create_soup(url, post=item.post)
+    matches = soup.find_all('article')
     for elem in matches:
-        title= elem.a.text.strip()
-        cap = re.sub("\D", "", title)
+        url = elem.a['href']
+        cap = elem.find('span', class_='num-epi').text.strip()
+        cap = scrapertools.find_single_match(cap, 'x(\d+)')
         if int(cap) < 10:
             cap = "0%s" % cap
         title = "%sx%s" % (season, cap)
         infoLabels["episode"] = cap
-        url= "pid=%s&tipo=Serie&temp=%s&cap=%s" %(item.pid,season,cap)
         itemlist.append(Item(channel=item.channel, title=title, url=url, action="findvideos",
                                  infoLabels=infoLabels))
     tmdb.set_infoLabels_itemlist(itemlist, True)
@@ -260,61 +247,30 @@ def episodios(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    soup = create_soup(url1, post=item.url)
-    matches = soup.find_all('div', class_='lOpcion')
-    serv=[]
-    for elem in matches:
-        if not "btNavs" in elem['class']:
-            code= elem.a['code']
-            pid= elem.a['pid']
-            lid= elem.a['lid']
-            hst= elem.a['hst']
-            code= elem.a['code']
-            pos= elem.a['pos']
-            info = elem.a.text.split('\n')
-            inf = info[-1].strip().split()
-            ply = info[-2].strip()
-            lang = inf[0]
-            # logger.debug(elem.a.text.strip())
-            if "español" in lang.lower(): lang = "esp"
-            if "latino" in lang.lower(): lang = "lat" 
-            if "sub" in lang.lower(): lang = "sub" 
-            if "ing." in lang.lower(): lang = "sub" 
-            if "nodefinido" in lang.lower() or "undefined" in lang.lower(): lang = item.language[0]
-            lang = IDIOMAS.get(lang, lang)
-            server = SERVER.get(hst, hst)
-            quality = re.sub("\D", "", inf[-1])
-            if quality:
-                quality = "%sp" %quality
-            if "play" in ply:
-                url = "%s/?v=Player3&pid=%s&lid=%s&h=%s&pos=%s&u=%s"  %  (host,pid,lid,hst,pos,code)
-                if "clicknupload" in hst:
-                    url += "&port=80"
-                if "myurlshort" in hst:
-                    url = "%s/?v=Player&pid=%s&lid=%s&h=%s&pos=%s&u=%s"  %  (host,pid,lid,hst,pos,code)
-                option = "Ver"
-                option1 = 1
-            else:
-                url = "pid=%s&lid=%s&hst=%s&code=%s"  %  (pid,lid,hst,code)
-                option = "Descargar"
-                option1 = 2
-
-
-            # log = option + ": %s [%s] (%s)(%s) " % (hst,server,quality, lang)
-            # log += url
-            # logger.debug(log)
-
-
-            if not config.get_setting('unify') and not channeltools.get_channel_parameters(__channel__)['force_unify']:
-                # title = "%s: [%s] [COLOR greenyellow]%s[/COLOR] [COLOR darkgrey][%s][/COLOR]" %(option,server,quality,lang)  # Ver/Descargar
-                if quality:
-                    quality = "(%s)" %quality
-                title = "%s: [%s] [COLOR greenyellow]%s[/COLOR] [COLOR darkgrey][%s][/COLOR]" %(option,server,quality,lang)
-            else:
-                title = hst
-            itemlist.append(Item(channel=item.channel, action="play", title=title, url=url, server=server, language=lang, quality=quality, tipo=option, tipo1=option1 ))
-
-    # itemlist.sort(key=lambda it: (it.tipo1, it.language))  # Ordenar 1 Ver y 2 Descargar por lenguage
+    
+    soup = create_soup(item.url).find('section', class_='player')
+    matches = soup.find_all('iframe')
+    servers = soup.find_all('a')
+    for indice, elem in enumerate(matches): 
+        if elem.get('data-src'):
+            url = elem['data-src']
+        else:
+            url = elem['src']
+        data = servers[indice].find(class_='server').text.strip()
+        # server, lang = scrapertools.find_single_match(data, '(\w+)\s*(?:-|)(\w+)')
+        data =scrapertools.find_multiple_matches(data, '(\w+)')  ###  a partir de pagina 30 aparece solo idioma
+        if len(data) > 1:
+            server = data[0].lower()
+            lang = data[1].lower()
+        else:
+            server = 'directo'      #Etiqueto directo por no cargar la url para 
+            lang = data[0].lower()
+        language = IDIOMAS.get(lang, lang)
+        server = SERVER.get(server,server)
+        itemlist.append(Item(channel=item.channel, url=url, action='play',
+                             language=language, infoLabels=item.infoLabels, 
+                             server=server))
+    # itemlist = servertools.get_servers_itemlist(itemlist)
 
     # Requerido para Filtrar enlaces
     if __comprueba_enlaces__:
@@ -331,65 +287,67 @@ def findvideos(item):
     return itemlist
 
 
-def descarga(page,server):
-    logger.info()
-    itemlist = []
-    url = "%s/?m=Descargas" %host
-    data = httptools.downloadpage(url, post=page).data
-    url = scrapertools.find_single_match(data, "nclick=\"dl_emergencia\('https://.*?(https[^']+)'")
-    url1 = urlparse.unquote(url)
-    if "Fembed" in server:
-        data = httptools.downloadpage(url1).data
-        url = scrapertools.find_single_match(data, "location.href='([^']+)'")
-        if "code=" in url:
-            id= scrapertools.find_single_match(url, "code=(.*?)&")
-            url = "https://femax20.com/v/%s" %id
-    else:
-        soup = create_soup(url1).find('div', class_='cont')
-        if soup:
-            url = soup.find('a')['href']
-        else:
-            platformtools.dialog_ok("Peliserieslive:  Error", "El archivo no existe o ha sido borrado")
-            return
+# def descarga(page,server):
+    # logger.info()
+    # itemlist = []
+    # url = "%s/?m=Descargas" %host
+    # data = httptools.downloadpage(url, post=page).data
+    # url = scrapertools.find_single_match(data, "nclick=\"dl_emergencia\('https://.*?(https[^']+)'")
+    # url1 = urlparse.unquote(url)
+    # if "Fembed" in server:
+        # data = httptools.downloadpage(url1).data
+        # url = scrapertools.find_single_match(data, "location.href='([^']+)'")
+        # if "code=" in url:
+            # id= scrapertools.find_single_match(url, "code=(.*?)&")
+            # url = "https://femax20.com/v/%s" %id
+    # else:
+        # soup = create_soup(url1).find('div', class_='cont')
+        # if soup:
+            # url = soup.find('a')['href']
+        # else:
+            # platformtools.dialog_ok("Peliserieslive:  Error", "El archivo no existe o ha sido borrado")
+            # return
     # logger.debug(url1 + "  ===>  " + url)
-    return url
+    # return url
 
 
-def fembe(page):
-    logger.info()
-    soup = create_soup(page)
-    url = soup.find('iframe')
-    if url.has_attr('data-src'):  url = url['data-src']
-    else:                url = url['src']
-    if "code=" in url:
-        id= scrapertools.find_single_match(url, "code=(.*?)&")
-        url = "https://femax20.com/v/%s" %id
-    return url
+# def fembe(page):
+    # logger.info()
+    # soup = create_soup(page)
+    # url = soup.find('iframe')
+    # if url.has_attr('data-src'):  url = url['data-src']
+    # else:                url = url['src']
+    # if "code=" in url:
+        # id= scrapertools.find_single_match(url, "code=(.*?)&")
+        # url = "https://femax20.com/v/%s" %id
+    # return url
 
 
-def player(page, pid):
-    logger.info()
+# def player(page, pid):
+    # logger.info()
     # pub_url = scrapertools.find_single_match(data, 'Ajax\("([^"]+)"')
-    pub_url = "%s/?m=rate_played%s" %(host,pid)
-    httptools.downloadpage(pub_url)
-    data = httptools.downloadpage(page).data
-    url = scrapertools.find_single_match(data, "var mp4_url='([^']+)'")
-    if "clipwatching" in page:
-        url = scrapertools.find_single_match(data, "var Original='([^']+)'")
-    return url
+    # pub_url = "%s/?m=rate_played%s" %(host,pid)
+    # httptools.downloadpage(pub_url)
+    # data = httptools.downloadpage(page).data
+    # url = scrapertools.find_single_match(data, "var mp4_url='([^']+)'")
+    # if "clipwatching" in page:
+        # url = scrapertools.find_single_match(data, "var Original='([^']+)'")
+    # return url
 
 
 def play(item):
     logger.info()
     itemlist = []
     logger.debug("ITEM: %s" % item)
-    if "Fembed" in item.server and not "Descargar" in item.tipo:
-        url = fembe(item.url)
-    if "Descargar" in  item.tipo:
-        url = descarga(item.url, item.server)
-    if "Ver" in  item.tipo and not "Fembed" in item.server:
-        url = player(item.url, item.pid)
-    item.server=""
+    soup = create_soup(item.url, referer=item.referer)
+    url = soup.iframe['src']
+    # if "Fembed" in item.server and not "Descargar" in item.tipo:
+        # url = fembe(item.url)
+    # if "Descargar" in  item.tipo:
+        # url = descarga(item.url, item.server)
+    # if "Ver" in  item.tipo and not "Fembed" in item.server:
+        # url = player(item.url, item.pid)
+    # item.server=""
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

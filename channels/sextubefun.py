@@ -19,7 +19,8 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 
-# https://sextubefun.com/  https://iporntoo.com/  https://wanktv.com/  https://www.sunporno.com/   https://freehdporn.xxx/
+# https://sextubefun.com/  https://iporntoo.com/  https://wanktv.com/  https://hdporn-movies.com/  https://freehdporn.xxx/
+####           AH multicanal WankTV
 
 canonical = {
              'channel': 'sextubefun', 

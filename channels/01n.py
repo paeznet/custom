@@ -417,8 +417,10 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     # itemlist = []
     
     # soup = AlfaChannel.create_soup(item.url, **kwargs)
+
     # if soup.find_all('li', class_="starw"):
         # pornstars = soup.find_all('li', class_="starw")
+        # pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/"))
         
         # for x, value in enumerate(pornstars):
             # pornstars[x] = value.get_text(strip=True)

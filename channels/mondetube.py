@@ -50,13 +50,9 @@ finds = {'find':  dict([('find', [{'tag': ['div'], 'class': ['video-list', 'list
          'get_quality_rgx': '', 
          'next_page': {},
          'next_page_rgx': [['&from_videos=\d+', '&from_videos=%s'], ['&from=\d+', '&from=%s']], 
-         # 'last_page': dict([('find', [{'tag': ['div'], 'class': ['load-more']}]), 
-                            # ('find_all', [{'tag': ['a'], '@POS': [-1], 
-                                           # '@ARG': 'data-max-queries', '@TEXT': '(\d+)'}])]), 
          'last_page': dict([('find', [{'tag': ['div', 'nav'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-2], 
                                            '@ARG': 'data-parameters', '@TEXT': '\:(\d+)'}])]), 
-         # 'last_page': {}, 
          'plot': {}, 
          'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
                              ('find_all', [{'tag': ['a'], '@ARG': 'href'}])]),
@@ -87,21 +83,21 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevas" , action="list_all", url=host + "search/?sort_by=post_date&from_videos=1"))
-    itemlist.append(Item(channel=item.channel, title="Mas Vistas" , action="list_all", url=host + "search/?sort_by=video_viewed_month&from_videos=1"))
-    itemlist.append(Item(channel=item.channel, title="Mejor Valorada" , action="list_all", url=host + "search/?sort_by=rating_month&from_videos=1"))
-    itemlist.append(Item(channel=item.channel, title="Mas Favoritas" , action="list_all", url=host + "search/?sort_by=most_favourited&from_videos=1"))
-    itemlist.append(Item(channel=item.channel, title="Mas Comentadas" , action="list_all", url=host + "search/?sort_by=most_commented&from_videos=1"))
-    itemlist.append(Item(channel=item.channel, title="Mas Largas" , action="list_all", url=host + "search/?sort_by=duration&from_videos=1"))
-    # itemlist.append(Item(channel=item.channel, title="Sitios" , action="section", url=host + "sites/?sort_by=total_videos&from=1", extra="Canal"))
-    # itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "models/?sort_by=total_videos&from=1", extra="PornStar"))
-    # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/", extra="Categorias"))
-    itemlist.append(Item(channel=item.channel, title="Buscar", url=host, action="search"))
+    itemlist.append(Item(channel=item.channel, title="Nuevas" , action="list_all", url=host + "search/?sort_by=post_date&from_videos=1", orientation=1))
+    itemlist.append(Item(channel=item.channel, title="Mas Vistas" , action="list_all", url=host + "search/?sort_by=video_viewed_month&from_videos=1", orientation=1))
+    itemlist.append(Item(channel=item.channel, title="Mejor Valorada" , action="list_all", url=host + "search/?sort_by=rating_month&from_videos=1", orientation=1))
+    itemlist.append(Item(channel=item.channel, title="Mas Favoritas" , action="list_all", url=host + "search/?sort_by=most_favourited&from_videos=1", orientation=1))
+    itemlist.append(Item(channel=item.channel, title="Mas Comentadas" , action="list_all", url=host + "search/?sort_by=most_commented&from_videos=1", orientation=1))
+    itemlist.append(Item(channel=item.channel, title="Mas Largas" , action="list_all", url=host + "search/?sort_by=duration&from_videos=1", orientation=1))
+    # itemlist.append(Item(channel=item.channel, title="Sitios" , action="section", url=host + "sites/?sort_by=total_videos&from=1", extra="Canal", orientation=1))
+    # itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "models/?sort_by=total_videos&from=1", extra="PornStar", orientation=1))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/", extra="Categorias", orientation=1))
+    itemlist.append(Item(channel=item.channel, title="Buscar", url=host, action="search", orientation=1))
     
     itemlist.append(Item(channel = item.channel, title = ""))
     
-    itemlist.append(Item(channel=item.channel, title="Trans", action="submenu", url=host + "trans/", orientation="3"))
-    itemlist.append(Item(channel=item.channel, title="Gay", action="submenu", url=host + "gay/", orientation="2"))
+    itemlist.append(Item(channel=item.channel, title="Trans", action="submenu", url=host + "trans/", orientation=3))
+    itemlist.append(Item(channel=item.channel, title="Gay", action="submenu", url=host + "gay/", orientation=2))
     return itemlist
 
 
@@ -109,20 +105,18 @@ def submenu(item):
     logger.info()
     itemlist = []
     
-    kwargs['headers'] = {'Referer': host}
-    dict_cookie = {"kt_tcookie": 1,"tag_id": item.orientation}
-    AlfaChannel.httptools.set_cookies(dict_cookie)
+    kwargs['headers'] = {'Referer': host, "Cookie": "kt_tcookie=1; tag_id=%s" % item.orientation}
     
-    itemlist.append(Item(channel=item.channel, title="Nuevas" , action="list_all", url=item.url + "?sort_by=post_date&from=1"))
-    itemlist.append(Item(channel=item.channel, title="Mas Vistas" , action="list_all", url=item.url + "?sort_by=video_viewed_month&from=1"))
-    itemlist.append(Item(channel=item.channel, title="Mejor Valorada" , action="list_all", url=item.url + "?sort_by=rating_month&from=1"))
-    itemlist.append(Item(channel=item.channel, title="Mas Favoritas" , action="list_all", url=item.url + "?sort_by=most_favourited&from=1"))
-    itemlist.append(Item(channel=item.channel, title="Mas Comentadas" , action="list_all", url=item.url + "?sort_by=most_commented&from=1"))
-    itemlist.append(Item(channel=item.channel, title="Mas Largas" , action="list_all", url=item.url + "?sort_by=duration&from=1"))
-    # itemlist.append(Item(channel=item.channel, title="Sitios" , action="section", url=item.url + "sites/?sort_by=total_videos&from=1", extra="Canal"))
-    # itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=item.url + "models/?sort_by=total_videos&from=1", extra="PornStar"))
-    # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "categories/", extra="Categorias"))
-    itemlist.append(Item(channel=item.channel, title="Buscar", url=item.url, action="search"))
+    itemlist.append(Item(channel=item.channel, title="Nuevas" , action="list_all", url=item.url + "?sort_by=post_date&from=1", orientation=item.orientation))
+    itemlist.append(Item(channel=item.channel, title="Mas Vistas" , action="list_all", url=item.url + "?sort_by=video_viewed_month&from=1", orientation=item.orientation))
+    itemlist.append(Item(channel=item.channel, title="Mejor Valorada" , action="list_all", url=item.url + "?sort_by=rating_month&from=1", orientation=item.orientation))
+    itemlist.append(Item(channel=item.channel, title="Mas Favoritas" , action="list_all", url=item.url + "?sort_by=most_favourited&from=1", orientation=item.orientation))
+    itemlist.append(Item(channel=item.channel, title="Mas Comentadas" , action="list_all", url=item.url + "?sort_by=most_commented&from=1", orientation=item.orientation))
+    itemlist.append(Item(channel=item.channel, title="Mas Largas" , action="list_all", url=item.url + "?sort_by=duration&from=1", orientation=item.orientation))
+    # itemlist.append(Item(channel=item.channel, title="Sitios" , action="section", url=item.url + "sites/?sort_by=total_videos&from=1", extra="Canal", orientation=item.orientation))
+    # itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=item.url + "models/?sort_by=total_videos&from=1", extra="PornStar", orientation=item.orientation))
+    # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "categories/", extra="Categorias", orientation=item.orientation))
+    itemlist.append(Item(channel=item.channel, title="Buscar", url=item.url, action="search", orientation=item.orientation))
     return itemlist
 
 
@@ -131,11 +125,16 @@ def section(item):
     
     findS = finds.copy()
     findS['url_replace'] = [['(\/(?:categories|category-name|category|channels|sites|models|model|pornstars)\/[^$]+$)', r'\1?sort_by=post_date&from=1']]
+    
+    kwargs['headers'] = {'Referer': host, "Cookie": "kt_tcookie=1; tag_id=%s" % item.orientation}
+    
     return AlfaChannel.section(item, finds=findS, **kwargs)
 
 
 def list_all(item):
     logger.info()
+    
+    kwargs['headers'] = {'Referer': host, "Cookie": "kt_tcookie=1; tag_id=%s" % item.orientation}
     
     return AlfaChannel.list_all(item, **kwargs)
 
@@ -147,49 +146,37 @@ def findvideos(item):
                                          verify_links=False, findvideos_proc=True, **kwargs)
 
 
-# def play(item):
-    # logger.info()
-    # itemlist = []
+def play(item):
+    logger.info()
+    itemlist = []
     
-    # soup = AlfaChannel.create_soup(item.url, **kwargs)
-    # if soup.find_all('a', href=re.compile("/(?:pornstars|models|model)/[A-z0-9-]+/")):
-        # pornstars = soup.find_all('a', href=re.compile("/(?:pornstars|models|model)/[A-z0-9-]+/"))
+    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    if soup.find_all('a', href=re.compile("/(?:pornstars|models|model)/[A-z0-9-]+/")):
+        pornstars = soup.find_all('a', href=re.compile("/(?:pornstars|models|model)/[A-z0-9-]+/"))
         
-        # for x, value in enumerate(pornstars):
-            # pornstars[x] = value.get_text(strip=True)
-        # pornstar = ' & '.join(pornstars)
-        # pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-        # lista = item.contentTitle.split('[/COLOR]')
-        # pornstar = pornstar.replace('[/COLOR]', '')
-        # pornstar = ' %s ' %pornstar
-        # if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
-            # lista.insert (2, pornstar)
-        # else:
-            # lista.insert (1, pornstar)
-        # item.contentTitle = '[/COLOR]'.join(lista)
+        for x, value in enumerate(pornstars):
+            pornstars[x] = value.get_text(strip=True)
+        pornstar = ' & '.join(pornstars)
+        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+        lista = item.contentTitle.split('[/COLOR]')
+        pornstar = pornstar.replace('[/COLOR]', '')
+        pornstar = ' %s ' %pornstar
+        if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
+            lista.insert (2, pornstar)
+        else:
+            lista.insert (1, pornstar)
+        item.contentTitle = '[/COLOR]'.join(lista)
     
-    # if soup.find('div', id='kt_player'):
-        # url = item.url
-    # else:
-        # url = soup.iframe['src']
-        # url = url.replace("embed", "videos").replace('lol', 'tv')
-        # name = item.url.split("/")[-2]
-        # url += "/%s/" %name
-    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
-    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
-    
-    # return itemlist
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    return itemlist
 
 
 def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    dict_cookie = {"tag_id": item.orientation}
-    AlfaChannel.httptools.set_cookies(dict_cookie)
-    
-    # item.url = "%ssearch/%s/?sort_by=post_date&from_videos=01" % (host,texto.replace(" ", "-"))
-    item.url = "%ssearch/?q=%s&sort_by=post_date&from_videos=1" % (item.url, texto.replace(" ", "+"))
+    item.url = "%ssearch/%s/?sort_by=post_date&from_videos=1" % (host, texto.replace(" ", "-"))
     
     try:
         if texto:
