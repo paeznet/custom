@@ -25,8 +25,6 @@ forced_proxy_opt = 'ProxySSL'
 # https://www.hentaiprno.com/   https://www.trendyporn.com/   
 # https://www.yespornplease.sexy/ = sexyporn   https://www.youcrazyx.com/   https://www.yrprno.com/   
 
-# 6xtube  thumbnail += "|verifypeer=false"   #SSL peer certificate or SSH remote key was not OK(60)
-
 canonical = {
              'channel': 'trendyporn', 
              'host': config.get_setting("current_host", 'trendyporn', default=''), 
@@ -48,6 +46,8 @@ url_replace = []
 
 finds = {'find': {'find_all': [{'tag': ['div'], 'id': re.compile(r"^vid-\d+")}]},
          'categories': {'find_all': [{'tag': ['div'], 'class': ['col-sm-6']}]},
+                       # dict([('find', [{'tag': ['main'], 'class': ['main-col']}]),
+                             # ('find_all', [{'tag': ['div'], 'class': ['col-sm-6']}])]),
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
@@ -64,6 +64,9 @@ finds = {'find': {'find_all': [{'tag': ['div'], 'id': re.compile(r"^vid-\d+")}]}
          'profile_labels': {
                             'list_all_quality': dict([('find', [{'tag': ['div'], 'class': ['hd-text-icon']}]),
                                                       ('get_text', [{'strip': True}])]),
+                            # 'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['category-videos']}]),
+                                                      # ('get_text', [{'strip': True}])])
+                           },
          'controls': {'url_base64': False, 'cnt_tot': 20, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
@@ -75,7 +78,7 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="6xtube" , action="submenu", url= "https://www.6xtube.com/", chanel="6xtube", thumbnail = "https://i.postimg.cc/9fcmnckb/6xtube.png"))
+    itemlist.append(Item(channel=item.channel, title="6xtube" , action="submenu", url= "https://www.6xtube.com/", chanel="6xtube", thumbnail = "https://i.postimg.cc/9fcmnckb/6xtube.png")) # thumbnail += "|verifypeer=false"   #SSL peer certificate or SSH remote key was not OK(60)
     itemlist.append(Item(channel=item.channel, title="blendporn" , action="submenu", url= "https://www.blendporn.com/", chanel="blendporn", thumbnail = "https://i.postimg.cc/mgVYQ6YN/blendporn.png"))
     itemlist.append(Item(channel=item.channel, title="daftsextube" , action="submenu", url= "https://www.daftsextube.com/", chanel="daftsextube", thumbnail = "https://i.postimg.cc/wjQy1vQN/daftsextube.png"))
     itemlist.append(Item(channel=item.channel, title="hentaiprno" , action="submenu", url= "https://www.hentaiprno.com/", chanel="hentaiprno", thumbnail = "https://i.postimg.cc/wMZvhk83/hentaiprno.png"))
@@ -83,6 +86,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="yespornplease" , action="submenu", url= "https://www.yespornplease.sexy/", chanel="yespornplease", thumbnail = "https://i.postimg.cc/CLsdQbgB/yespornplease.png"))
     itemlist.append(Item(channel=item.channel, title="youcrazyx" , action="submenu", url= "https://www.youcrazyx.com/", chanel="youcrazyx", thumbnail = "https://i.postimg.cc/KcgMJKjB/youcrazyx.png"))
     itemlist.append(Item(channel=item.channel, title="yrprno" , action="submenu", url= "https://www.yrprno.com/", chanel="yrprno", thumbnail = "https://i.postimg.cc/JhGN8prd/yrprno.png"))
+    # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     return itemlist
 
 
@@ -132,12 +136,10 @@ def play(item):
     
     AlfaChannel.host = config.get_setting("current_host", item.chanel, default=host)
     AlfaChannel.canonical.update({'channel': item.chanel, 'host': AlfaChannel.host, 'host_alt': [AlfaChannel.host]})
-    
     if "6xtube" in item.url or "blendporn" in item.url:
         soup = AlfaChannel.create_soup(item.url, **kwargs)
         matches = soup.find('div', id='player-container')
         item.url = matches.iframe['src']
-    
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
