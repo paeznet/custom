@@ -80,7 +80,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="daftsextube" , action="submenu", url= "https://www.daftsextube.com/", chanel="daftsextube", thumbnail = "https://i.postimg.cc/wjQy1vQN/daftsextube.png"))
     itemlist.append(Item(channel=item.channel, title="hentaiprno" , action="submenu", url= "https://www.hentaiprno.com/", chanel="hentaiprno", thumbnail = "https://i.postimg.cc/wMZvhk83/hentaiprno.png"))
     itemlist.append(Item(channel=item.channel, title="trendyporn" , action="submenu", url= "https://www.trendyporn.com/", chanel="trendyporn", thumbnail = "https://i.postimg.cc/2S3GjkTw/trendyporn.png"))
-    itemlist.append(Item(channel=item.channel, title="yespornplease" , action="submenu", url= "https://www.yespornplease.sexy/", chanel="yespornplease", thumbnail = "https://i.postimg.cc/CLsdQbgB/yespornplease.png"))
+    itemlist.append(Item(channel=item.channel, title="yespornpleasexy" , action="submenu", url= "https://www.yespornplease.sexy/", chanel="yespornpleasexy", thumbnail = "https://i.postimg.cc/CLsdQbgB/yespornplease.png"))
     itemlist.append(Item(channel=item.channel, title="youcrazyx" , action="submenu", url= "https://www.youcrazyx.com/", chanel="youcrazyx", thumbnail = "https://i.postimg.cc/KcgMJKjB/youcrazyx.png"))
     itemlist.append(Item(channel=item.channel, title="yrprno" , action="submenu", url= "https://www.yrprno.com/", chanel="yrprno", thumbnail = "https://i.postimg.cc/JhGN8prd/yrprno.png"))
     return itemlist
