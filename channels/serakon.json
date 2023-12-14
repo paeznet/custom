@@ -1,14 +1,13 @@
 {
-  "id": "00BG",
-  "name": "00BG",
+  "id": "serakon",
+  "name": "01serakon",
   "active": true,
-  "adult": false,
+  "adult": true,
   "language": ["*"],
-  "thumbnail": "",
+  "thumbnail": "https://serakon.com/templates/S2020/images/logo.webp",
   "banner": "",
   "fanart": "",
   "categories": [
-    "movie",
     "adult"
   ],
   "settings": [

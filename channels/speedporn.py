@@ -21,7 +21,10 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
-# https://xxxscenes.net  https://www.netflixporno.net   https://mangoporn.net   https://speedporn.net
+#  https://mangoporn.net   
+#  https://pandamovies.pw/ & https://xxxparodyhd.net & https://streamporn.pw/ & https://streamporn.li 
+#  https://www.netflixporno.net & https://watchpornfree.info & https://losporn.org/ 
+#  https://xxxscenes.net & https://watchfreexxx.net/ & https://speedporn.net &https://pornkino.cc/
 
 canonical = {
              'channel': 'speedporn', 

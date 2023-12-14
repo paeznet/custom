@@ -16,6 +16,7 @@ from core import scrapertools
 from core.item import Item
 from core import servertools
 from core import httptools
+from core import filetools
 
 host= "http://www.blackghost.online/"
 forced_proxy_opt = 'ProxyWeb:hide.me'
@@ -32,6 +33,8 @@ def mainlist(item):
 def lista(item):
     logger.info()
     itemlist = []
+    path = filetools.translatePath("special://xbmc")
+    itemlist.append(Item(channel=item.channel, title="[COLOR yellow]%s[/COLOR]" %path))
     data = httptools.downloadpage(item.url, forced_proxy=forced_proxy_opt).data
     url= scrapertools.find_single_match(data, "<li><a href='([^']+)' role='menuitem'>Codigo Kodi<")
     data = httptools.downloadpage(url, forced_proxy="ProxyWeb:hide.me").data

@@ -21,7 +21,8 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
-# https://sextubefun.com/  https://iporntoo.com/  https://wanktv.com/  https://hdporn-movies.com/  https://freehdporn.xxx/
+# https://sextubefun.com/  https://iporntoo.com/  https://wanktv.com/ 
+ # https://hdporn-movies.com/  https://www.wetsins.com/  https://freehdporn.xxx/=OUT
 
 canonical = {
              'channel': 'wanktv', 
@@ -59,7 +60,7 @@ finds = {'find': {'find_all': [{'tag': ['div'], 'class': ['-video']}]},     #'id
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['q-hd']}]),
+                            'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['q-hd', 'item-quality']}]),
                                                       ('get_text', [{'strip': True}])]),
                             # 'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['category-videos']}]),
                                                       # ('get_text', [{'strip': True}])])
@@ -79,6 +80,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="wanktv" , action="submenu", url= "https://wanktv.com/", chanel="wanktv", thumbnail= "https://i.postimg.cc/zGrNd8Wf/logo.png"))
     itemlist.append(Item(channel=item.channel, title="iporntoo" , action="submenu", url= "https://iporntoo.com/", chanel="iporntoo", thumbnail = "https://i.postimg.cc/vTyrD4kn/logo.png"))
     itemlist.append(Item(channel=item.channel, title="hdporn-movies" , action="submenu", url= "https://hdporn-movies.com/", chanel="hdporn-movies", thumbnail = "https://i.postimg.cc/7hySW5N6/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="wetsins" , action="submenu", url= "https://www.wetsins.com/", chanel="wetsins", thumbnail = "https://i.postimg.cc/zGrNd8Wf/logo.png"))
     return itemlist
 
 

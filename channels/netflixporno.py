@@ -22,9 +22,10 @@ from modules import autoplay
 list_quality = ['default']
 list_servers = []
 
-# https://playpornfree.org/   https://streamporn.pw/  https://mangoporn.net/   https://watchfreexxx.net/   https://losporn.org/  https://xxxstreams.me/  https://speedporn.net/
-# "https://watchfreexxx.net/"  #  pandamovie https://watchpornfree.info  #'https://xxxparodyhd.net'  'http://www.veporns.com'  http://streamporno.eu https://streamporn.li
-# https://www.netflixporno.net  https://xxxscenes.net   https://mangoporn.net   https://speedporn.net
+#  https://mangoporn.net   
+#  https://pandamovies.pw/ & https://xxxparodyhd.net & https://streamporn.pw/ & https://streamporn.li 
+#  https://www.netflixporno.net & https://watchpornfree.info & https://losporn.org/ 
+#  https://xxxscenes.net & https://watchfreexxx.net/ & https://speedporn.net &https://pornkino.cc/
 canonical = {
              'channel': 'netflixporno', 
              'host': config.get_setting("current_host", 'netflixporno', default=''), 

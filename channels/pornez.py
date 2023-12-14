@@ -135,12 +135,11 @@ def play(item):
     logger.info()
     itemlist = []
     soup = AlfaChannel.create_soup(item.url, **kwargs)
+    
     if soup.find_all('a', href=re.compile("/actor/[A-z0-9-]+/")):
         pornstars = soup.find_all('a', href=re.compile("/actor/[A-z0-9-]+/"))
-        
         for x, value in enumerate(pornstars):
             pornstars[x] = value.get_text(strip=True)
-        
         pornstar = ' & '.join(pornstars)
         pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
         lista = item.contentTitle.split('[/COLOR]')
@@ -151,6 +150,7 @@ def play(item):
         else:
             lista.insert (1, pornstar)
         item.contentTitle = '[/COLOR]'.join(lista)
+    
     if soup.video:
         url = item.url
     else:

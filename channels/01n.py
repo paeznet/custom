@@ -55,6 +55,9 @@ finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['video']}]},     #'id':
          'last_page': dict([('find', [{'tag': ['ul'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-2], 
                                            '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
+         # 'last_page': dict([('find', [{'tag': ['span'], 'class': ['navigation']}]), 
+                            # ('find_all', [{'tag': ['a'], '@POS': [-1]}]),
+                            # ('get_text', [{'strip': True}])]), 
          # 'last_page':  dict([('find', [{'tag': ['script'], 'string': re.compile('(?i)var objectPagination')}]), 
                              # ('get_text', [{'strip': True, '@TEXT': 'total:\s*(\d+)'}])]), 
          # 'last_page': {},
@@ -154,7 +157,7 @@ def section(item):
     # if item.extra == 'Categorias':
         # findS['categories'] = dict([('find', [{'tag': ['div'], 'class': 'list-categories'}]), 
                                     # ('find_all', [{'tag': ['a']}])])
-    # return AlfaChannel.section(item, finds=findS, **kwargs
+    # return AlfaChannel.section(item, finds=findS, **kwargs)
     return AlfaChannel.section(item, **kwargs)
     # return AlfaChannel.section(item, matches_post=section_matches, **kwargs)
 
