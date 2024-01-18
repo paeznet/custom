@@ -17,10 +17,11 @@ from core import scrapertools
 from core import servertools
 from core.item import Item
 from core import tmdb
-from channels import autoplay
+from modules import autoplay
 from platformcode import config, logger
 
-host = 'https://areliux.com/'
+
+host = "https://areliux.com/"
 list_idiomas = ["LAT"]
 list_servers = ['sendvid', 'okru']
 list_quality = list()
@@ -29,7 +30,7 @@ canonical = {
              'channel': 'seodiv', 
              'host': config.get_setting("current_host", 'seodiv', default=''), 
              'host_alt': ["https://areliux.com/"], 
-             'host_black_list': [], 
+             'host_black_list': ["https://seodiv.com/"], 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]

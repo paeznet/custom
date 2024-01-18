@@ -199,29 +199,32 @@ def play(item):
             url = httptools.downloadpage(url).url
         if "player.php" in url:
             url = url.replace("player.php", "getVideo.php")
-            data = httptools.downloadpage(url, referer=item.url).json
+            data = httptools.downloadpage(url, timeout= 20, referer=item.url).json
+            # logger.debug(data)
             url = data['videoUrl']
             ext= url[-4:]
-            url += "|ignore_response_code=True"
+            # url += "|ignore_response_code=True"
             # url += "|Referer=%s" % host
-            itemlist.append(["[orgasmatrix] %s" %ext, url])
+            itemlist.append(item.clone(action="play", contentTitle = item.contentTitle, url=url, server='directo'))
+            # itemlist.append(["[orgasmatrix] %s" %ext, url])
         else:
-            itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.title, url=url))
+            itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.contentTitle, url=url))
             itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     else:
         if "player.php" in item.url:
             url = item.url.replace("player.php", "getVideo.php")
-            data = httptools.downloadpage(url, referer=item.url).json
+            data = httptools.downloadpage(url, timeout= 20, referer=item.url).json
             url = data['videoUrl']
             if url:
                 ext= url[-4:]
-                url += "|ignore_response_code=True"
+                # url += "|ignore_response_code=True"
                 # url += "|Referer=%s" % host
-                itemlist.append(["[orgasmatrix] %s" %ext, url])
+                itemlist.append(item.clone(action="play", contentTitle = item.contentTitle, url=url, server='directo'))
+                # itemlist.append(["[orgasmatrix] %s" %ext, url])
             else:
                 return
         else:
-            itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.title, url=item.url))
+            itemlist.append(item.clone(action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
             itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 

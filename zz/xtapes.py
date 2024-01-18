@@ -8,7 +8,7 @@ from core.item import Item
 from core import servertools
 from core import httptools
 
-host = 'http://hd.xtapes.to'
+host = "http://hd.xtapes.to"
 
 # Links NetuTV
 

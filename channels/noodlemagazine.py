@@ -21,6 +21,8 @@ from bs4 import BeautifulSoup
 
 # https://mat6tube.com/   https://noodlemagazine.com/
 
+ ### thumbnail  CCurlFile::Stat - Failed: HTTP response code said error(22)
+
 canonical = {
              'channel': 'noodlemagazine', 
              'host': config.get_setting("current_host", 'noodlemagazine', default=''), 
@@ -55,31 +57,6 @@ def search(item, texto):
         return []
 
 
-# def mainlist(item):
-    # logger.info()
-    # itemlist = []
-    # itemlist.append(Item(channel=item.channel, title="Big tits" , action="lista", url=host + "video/big%20%20tits?p=0"))
-    # itemlist.append(Item(channel=item.channel, title="Big batural tits" , action="lista", url=host + "video/big%20natural%20%20tits?p=0"))
-    # itemlist.append(Item(channel=item.channel, title="Big boobs" , action="lista", url=host + "video/big%20boobs?p=0"))
-    # itemlist.append(Item(channel=item.channel, title="Big nipples" , action="lista", url=host + "video/big%20nipples?p=0"))
-
-    # itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
-    # return itemlist
-
-
-# def search(item, texto):
-    # logger.info()
-    # texto = texto.replace(" ", "%20")
-    # item.url = "%svideo/%s?p=0" % (host,texto)
-    # try:
-        # return lista(item)
-    # except:
-        # import sys
-        # for line in sys.exc_info():
-            # logger.error("%s" % line)
-        # return []
-
-
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
@@ -100,7 +77,10 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.img['alt']
-        thumbnail = elem.img['data-src']
+        thumbnail = elem.img['data-src']  ### CCurlFile::Stat - Failed: HTTP response code said error(22)
+        # thumbnail += "|verifypeer=false"
+        # thumbnail += "|ignore_response_code=True"
+        # thumbnail += "|Referer=%s" % host
         time = elem.find('div', class_='m_time').text.strip()
         quality = elem.find('i', class_='hd_mark')
         if quality:
@@ -131,6 +111,14 @@ def findvideos(item):
     itemlist = []
     url = create_soup(item.url).find('iframe', id='iplayer')['src']
     url = urlparse.urljoin(item.url,url)
+    data = httptools.downloadpage(url).data
+    url = scrapertools.find_single_match(data, "window.playlistUrl='([^']+)'")
+    url = urlparse.urljoin(item.url,url)
+    data = httptools.downloadpage(url).json
+    for elem in data['sources']:
+        url = elem['file']
+        url += "|Referer=%s" % host
+        quality = elem['label']
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
@@ -141,6 +129,14 @@ def play(item):
     itemlist = []
     url = create_soup(item.url).find('iframe', id='iplayer')['src']
     url = urlparse.urljoin(item.url,url)
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    data = httptools.downloadpage(url).data
+    url = scrapertools.find_single_match(data, "window.playlistUrl='([^']+)'")
+    url = urlparse.urljoin(item.url,url)
+    data = httptools.downloadpage(url).json
+    for elem in data['sources']:
+        url = elem['file']
+        url += "|Referer=%s" % host
+        quality = elem['label']
+        itemlist.append(['%sp [.mp4]' %quality, url])
+    itemlist.sort(key=lambda item: int( re.sub("\D", "", item[0])))
     return itemlist

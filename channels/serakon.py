@@ -56,16 +56,10 @@ finds = {'find': {'find_all': [{'tag': ['article'], 'class': ['movie-box']}]},  
                             ('get_text', [{'strip': True}])]), 
          'plot': {},
          'findvideos': {'find_all': [{'tag': ['h3'], 'class': ['descargas-borde']}]},
-         # 'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
-                             # ('find_all', [{'tag': ['a'], '@ARG': 'href'}])]),
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            # 'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['video-o-hd']}]),
-                                                      # ('get_text', [{'strip': True}])]),
-                            # 'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['category-videos']}]),
-                                                      # ('get_text', [{'strip': True}])])
                            },
          'controls': {'url_base64': False, 'cnt_tot': 15, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
@@ -98,6 +92,7 @@ def section(item):
                                     ('find_all', [{'tag': ['li']}])])
     
     if item.extra == 'Canal':
+        findS['controls']['cnt_tot'] = 9999
         findS['categories'] = dict([('find', [{'tag': ['div'], 'class': ['estudios']}]), 
                                     ('find_all', [{'tag': ['li']}])])
     
@@ -116,7 +111,17 @@ def list_all(item):
 def findvideos(item):
     logger.info()
     
-    return AlfaChannel.get_video_options(item, item.url, matches_post=findvideos_matches, 
+    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    matches = AlfaChannel.parse_finds_dict(soup, finds['findvideos'])
+    if not matches:
+        from platformcode import launcher
+        item.action = 'play'
+        item.language = ''
+        item.server = 'vsexin'
+        item.setMimeType = 'application/vnd.apple.mpegurl'
+        return launcher.run(item)
+    
+    return AlfaChannel.get_video_options(item, item.url, data=soup, matches_post=findvideos_matches, 
                                          verify_links=False, generictools=True, findvideos_proc=True, **kwargs)
 
 
@@ -125,25 +130,20 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     matches = []
     findS = AHkwargs.get('finds', finds)
     
-    if matches_int:
-        for elem in matches_int:
-            elem_json = {}
-            
-            try:
-                elem_json['url'] = elem.a.get("href", "")
-                elem_json['title'] = elem.a.get_text(strip=True).capitalize()
-                elem_json['language'] = ''
-            except:
-                logger.error(elem)
-                logger.error(traceback.format_exc())
+    for elem in matches_int:
+        elem_json = {}
+        
+        try:
+            elem_json['url'] = elem.a.get("href", "")
+            elem_json['title'] = elem.a.get_text(strip=True).capitalize()
+            elem_json['language'] = ''
+        except:
+            logger.error(elem)
+            logger.error(traceback.format_exc())
 
-            if not elem_json.get('url', ''): continue
-            matches.append(elem_json.copy())
-    else:
-        elem_json['url'] = item.url
-        elem_json['language'] = ''
-        elem_json['server'] = 'vsexin'
+        if not elem_json.get('url', ''): continue
         matches.append(elem_json.copy())
+
     return matches, langs
 
 

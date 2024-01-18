@@ -60,7 +60,7 @@ finds = {'find': {'find_all': [{'tag': ['div'], 'class':['b-thumb-item']}]},  # 
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            # 'list_all_quality': dict([('find', [{'tag': ['div'], 'class': ['b-thumb-item__detail']}]),
+                            # 'list_all_quality': dict([('find', [{'tag': ['div'], 'class': ['b-thumb-item__detail']}]),  ## pornstars
                                                       # ('get_text', [{'strip': True}])]),
                             # 'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['category-videos']}]),
                                                       # ('get_text', [{'strip': True}])])

@@ -51,14 +51,11 @@ finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['thumi']}]},     #'id':
                             ('find_all', [{'tag': ['a'], '@POS': [-2], 
                                            '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
          'plot': {}, 
-         'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
-                             ('find_all', [{'tag': ['a'], '@ARG': 'href'}])]),
+         'findvideos': {},
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            # 'list_all_quality': dict([('find', [{'tag': ['strong']}]),
-                                                      # ('get_text', [{'strip': True}])]),
                             'section_cantidad': dict([('find', [{'tag': ['i'], 'class': ['fa']}]),
                                                       ('get_text', [{'strip': True}])])
                            },

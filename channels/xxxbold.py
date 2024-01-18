@@ -38,7 +38,7 @@ def mainlist(item):
     # itemlist.append(Item(channel=item.channel, title="Favoritos" , action="lista", url=host + "?sort_by=most_favourited&from=1"))
     # itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "?sort_by=most_commented&from=1"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "?filter=longest"))
-    # itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "models/?sort_by=total_videos&from=01"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "actors/"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "categories/"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="catalogo", url=host + "tags/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
@@ -62,26 +62,24 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='video-block')
+    matches = soup.find('div', class_='videos-list').find_all('article', class_=re.compile(r"^post-\d+"))
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
-        thumbnail = elem.img['data-src']
+        if elem.img.get('src', ''):
+            thumbnail = elem.img['src']
+        if '.gif' in thumbnail or not thumbnail:
+            thumbnail = elem.img['data-src']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
-        cantidad = elem.find('div', class_='video-datas')
-        if cantidad:
-            title = "%s (%s)" % (title,cantidad.text.strip())
         url += "?filter=latest"
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('ul', class_='pagination')
-    if next_page:
-        next_page =  next_page.find('li', class_='active')
-        if next_page.find_next_sibling("li"):
-            next_page = next_page.find_next_sibling("li").a['href']
-            next_page = urlparse.urljoin(item.url,next_page)
+    next_page = soup.find('a', class_='current')
+    if next_page and next_page.parent.find_next_sibling("li"):
+        next_page = next_page.parent.find_next_sibling("li").a['href']
+        next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
@@ -90,17 +88,11 @@ def catalogo(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='tag-item')
+    matches = soup.find('main', id='main').find_all('a', class_='tag-cloud-link')
     for elem in matches:
-        url = elem.a['href']
-        title = elem.a.text.strip()
-        title = title.split()
-        title[-1] = "(%s)" %title[-1]
-        title = ' '.join(title)
+        url = elem['href']
+        title = elem.text.strip()
         thumbnail = ""
-        # cantidad = elem.find('span', class_='count')
-        # if cantidad:
-            # title = "%s (%s)" % (title,cantidad.text.strip())
         url += "?filter=latest"
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
@@ -123,10 +115,10 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='video-block')
+    matches = soup.find_all('article', class_=re.compile(r"^post-\d+"))
     for elem in matches:
         url = elem.a['href']
-        title = elem.find('a', class_='infos')['title']
+        title = elem.a['title']
         thumbnail = elem.img['data-src']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
@@ -139,13 +131,11 @@ def lista(item):
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('ul', class_='pagination')
+    next_page = soup.find("a", string=re.compile(r"^Next"))
     if next_page:
-        next_page =  next_page.find('li', class_='active')
-        if next_page.find_next_sibling("li"):
-            next_page = next_page.find_next_sibling("li").a['href']
-            next_page = urlparse.urljoin(item.url,next_page)
-            itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+        next_page = next_page['href']
+        next_page = urlparse.urljoin(item.url,next_page)
+        itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
@@ -165,6 +155,13 @@ def play(item):
     itemlist = []
     soup = create_soup(item.url)
     url = soup.find('div', class_='responsive-player').iframe['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    if "player-x.php?" in url:
+        soup = create_soup(url)
+        url = soup.source['src']
+        # url = urlparse.unquote(url)
+        # url += "|verifypeer=false"
+        # url += "|ignore_response_code=True"     #No hacer test_video_exists en server directo
+        # url += "|Referer=%s" % host
+        url += "|ignore_response_code=True"
+    itemlist.append(Item(channel=item.channel, action="play", ignore_response_code=True, timeout=30, url=url, contentTitle=item.contentTitle))
     return itemlist

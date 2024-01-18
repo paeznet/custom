@@ -41,12 +41,7 @@ tv_path = ''
 language = []
 url_replace = []
 
-# {'find_all': [{'tag': ['div'], 'class': 'thumb_video'}]},
 
-
-
-# finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['video_list']}]),
-                       # ('find_all', [{'tag': ['div'], 'class': 'thumb_video'}])]),
 finds = {'find': {'find_all': [{'tag': ['a'], 'class': ['cards__item']}]},     #'id': re.compile(r"^browse_\d+")}]},
          'categories': {'find_all': [{'tag': ['a'], 'class': 'thumb-link'}]}, 
          'search': {}, 
@@ -55,11 +50,7 @@ finds = {'find': {'find_all': [{'tag': ['a'], 'class': ['cards__item']}]},     #
          'next_page': dict([('find', [{'tag': ['ul'], 'class': ['pagination']}]),
                             ('find_all', [{'tag': ['a'], '@POS': [-1], '@ARG': 'href'}])]), 
          
-         # 'next_page': {},
          'next_page_rgx': [['\/page\/\d+\/', '/page/%s/']], 
-         # 'last_page': dict([('find', [{'tag': ['div'], 'class': ['pagination']}]), 
-                            # ('find_all', [{'tag': ['a'], 'string': re.compile('(?i)(?:ltima|last)'), '@POS': [-1], 
-                                           # '@ARG': 'href', '@TEXT': 'page/(\d+)'}])]), 
          'last_page': {},
          'plot': {}, 
          'findvideos': {}, 

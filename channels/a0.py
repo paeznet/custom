@@ -1059,3 +1059,47 @@ def play(item):
             continue
             
 
+#####  #entrepeliculas yseries
+def play_netu(item):
+    
+    domain = AlfaChannel.obtain_domain(item.url, scheme=True)
+    
+    itemlist = list()
+    kwargs = {'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 0, 'ignore_response_code': True, 'timeout': 5, 
+              'CF': True, 'canonical': {}, 'soup': False}
+    
+    headers = {"Referer": item.url}
+    url = '%s?=&best=t' % item.url
+    
+    resp = AlfaChannel.create_soup(url, headers=headers, follow_redirects=False, 
+                                   forced_proxy_opt=forced_proxy_opt, **kwargs)
+    if resp.code in AlfaChannel.REDIRECTION_CODES:
+        url = resp.headers.get("location", "")
+    else:
+        return []
+    
+    headers = {"Referer": url}
+    domain_e = AlfaChannel.obtain_domain(url, scheme=True)
+    url = '%s/f/%s?http_referer=%s' % (domain_e, scrapertools.find_single_match(url, "\?v=([^$]+)"), AlfaChannel.do_quote(domain+'/'))
+    resp = AlfaChannel.create_soup(url, headers=headers, follow_redirects=False, 
+                                   forced_proxy_opt=forced_proxy_opt, **kwargs)
+    
+    # url = scrapertools.find_single_match(resp.data, "self\.location\.replace\('([^']+)'").replace('#', '%23')
+    url = scrapertools.find_single_match(resp.data, "self\.location\.replace\('([^']+)'").split('&')[0]
+    url = AlfaChannel.urljoin(domain_e, url)
+    resp = AlfaChannel.create_soup(url, headers=headers, follow_redirects=False, 
+                                   forced_proxy_opt=forced_proxy_opt, **kwargs)
+                                   
+    url = scrapertools.find_single_match(resp.data, "self\.location\.replace\('([^']+)'")
+    url = AlfaChannel.urljoin(domain_e, url)
+    resp = AlfaChannel.create_soup(url, headers=headers, follow_redirects=False, 
+                                   forced_proxy_opt=forced_proxy_opt, **kwargs)
+    
+    logger.error(resp.data)
+    
+    item.server = ""
+    itemlist.append(item.clone(url=url))
+    
+    itemlist = servertools.get_servers_itemlist(itemlist)
+    
+    return itemlist

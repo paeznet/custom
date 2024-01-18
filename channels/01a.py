@@ -52,16 +52,24 @@ finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['video']}]},     #'id':
                             ('find_all', [{'tag': ['a'], '@POS': [-2], 
                                            '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
          'plot': {}, 
-         'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
-                             ('find_all', [{'tag': ['a'], '@ARG': 'href'}])]),
+         'findvideos': {},
+         # 'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
+                             # ('find_all', [{'tag': ['a'], '@ARG': 'href'}])]),
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['video-o-hd']}]),
-                                                      ('get_text', [{'strip': True}])]),
-                            'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['category-videos']}]),
-                                                      ('get_text', [{'strip': True}])])
+                            # 'list_all_stime': {'find': [{'tag': ['span'], 'class': ['is-hd'], '@TEXT': '(\d+:\d+)' }]},
+                            # 'list_all_url': {'find': [{'tag': ['a'], 'class': ['link'], '@ARG': 'href'}]},
+                            # 'list_all_stime': dict([('find', [{'tag': ['div'], 'class': ['time']}]),
+                                                    # ('get_text', [{'tag': '', 'strip': True}])]),
+                            # 'list_all_quality': {'find': [{'tag': ['span', 'div'], 'class': ['hd'], '@ARG': 'class',  '@TEXT': '(hd)' }]},
+                            # 'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['is-hd']}]),
+                                                      # ('get_text', [{'tag': '', 'strip': True}])]),
+                            # 'list_all_premium': dict([('find', [{'tag': ['span'], 'class': ['ico-private']}]),
+                                                       # ('get_text', [{'tag': '', 'strip': True}])]),
+                            # 'section_cantidad': dict([('find', [{'tag': ['span', 'div'], 'class': ['videos', 'column', 'rating', 'category-link-icon-videos']}]),
+                                                      # ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])
                            },
          'controls': {'url_base64': False, 'cnt_tot': 40, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}

@@ -20,12 +20,18 @@ from bs4 import BeautifulSoup
 
 # https://mat6tube.com/   https://noodlemagazine.com/
 
+##### cloudflare error 403
+ ### thumbnail  CCurlFile::Stat - Failed: HTTP response code said error(22)
+
+
+forced_proxy_opt = 'ProxySSL'
+
 canonical = {
              'channel': 'mat6tube', 
              'host': config.get_setting("current_host", 'mat6tube', default=''), 
              'host_alt': ["https://mat6tube.com/"], 
              'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -74,7 +80,10 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.find('div', class_='title').text.strip()
-        thumbnail = elem.img['data-src']
+        thumbnail = elem.img['data-src']  ### CCurlFile::Stat - Failed: HTTP response code said error(22)
+        # thumbnail += "|verifypeer=false"
+        # thumbnail += "|ignore_response_code=True"
+        # thumbnail += "|Referer=%s" % host
         time = elem.find('div', class_='m_time').text.strip()
         quality = elem.find('i', class_='hd_mark')
         if quality:
@@ -114,14 +123,16 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
-    url = soup.find('iframe', id='iplayer')['src']
+    url = create_soup(item.url).find('iframe', id='iplayer')['src']
     url = urlparse.urljoin(item.url,url)
-    url = url.replace("/player/", "/playlist/")
+    data = httptools.downloadpage(url).data
+    url = scrapertools.find_single_match(data, "window.playlistUrl='([^']+)'")
+    url = urlparse.urljoin(item.url,url)
     data = httptools.downloadpage(url).json
     for elem in data['sources']:
         url = elem['file']
+        url += "|Referer=%s" % host
         quality = elem['label']
-        itemlist.append(['.mp4 %s' %quality, url])
+        itemlist.append(['%sp [.mp4]' %quality, url])
     itemlist.sort(key=lambda item: int( re.sub("\D", "", item[0])))
     return itemlist

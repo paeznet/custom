@@ -1,10 +1,10 @@
 {
   "id": "seodiv",
   "name": "Seodiv",
-  "active": false,
+  "active": true,
   "adult": false,
   "language": ["lat"],
-  "thumbnail": "https://seodiv.com/templates/Ariana/images/logo.png",
+  "thumbnail": "https://i.postimg.cc/tTL5xw54/areliux.png",
   "banner": "",
   "fanart": "",
   "categories": [

@@ -53,23 +53,13 @@ finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['videos-list']}]),
                             ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            '@ARG': 'href', '@TEXT': 'page/(\d+)'}])]), 
          'plot': {}, 
-         'findvideos': dict([('find', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]), 
-                             ('find_all', [{'tagOR': ['a'], 'href': True, 'id': 'tracking-url'},
-                                           {'tag': ['iframe'], 'src': True}])]),
+         'findvideos': {},
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            # 'list_all_title': dict([('find', [{'tag': ['h2']}]),
-                                                    # ('get_text', [{'tag': '', 'strip': True}])]),
-                            # 'list_all_thumbnail': {'find': [{'tag': ['video'], '@ARG': ['poster']}]},
-
-                            # 'list_all_stime': dict([('find', [{'tag': ['span'], 'itemprop': ['duration']}]),
-                                                    # ('get_text', [{'tag': '', 'strip': True}])]),
                             'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['hd-video']}]),
                                                       ('get_text', [{'tag': '', 'strip': True}])]),
-                            # 'section_cantidad': dict([('find', [{'tag': ['span'], 'class': ['vids']}]),
-                                                      # ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])
                             },
          'controls': {'url_base64': False, 'cnt_tot': 22, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
