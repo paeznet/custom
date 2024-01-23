@@ -417,7 +417,15 @@ def play(item):
     title = " ".join(title.split())         #Quita los espacios entre palabras de title
     (?i) hace que la concordancia de contenido no distinga entre mayúsculas y minúsculas
 
-    for url, lang in zip(video_urls, idioma):  Coge elemento de la lista video_urls y de la lista idioma
+
+########## Coge elemento de la lista video_urls y de la lista idioma
+    for url, lang in zip(video_urls, idioma): 
+
+########  Lista pornstars por el nombre en vez de <a href=
+    for x , value in enumerate(pornstars):
+        pornstars[x] = value.text.strip()
+
+
 
 
     plot = 'Canal de pruebas de [COLOR yellow][B]AlfaChannelHelper[/B][/COLOR]'
