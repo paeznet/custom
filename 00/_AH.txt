@@ -1,3 +1,5 @@
+<setting id="debug_report" default="true">true</setting> en settings.xml
+
 AlfaChannel.color_setting
 {'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange', 'rating_3': 'gold',
  'quality': 'deepskyblue', 'cast': 'yellow', 'lat': 'limegreen', 'vose': 'firebrick', 'vos': 'firebrick', 
@@ -6,19 +8,45 @@ AlfaChannel.color_setting
 color = AlfaChannel.color_setting.get('quality', '')  ====> 'deepskyblue'
 
 	------------------------------------------------------------------------------------
+entrepeliculasyseries  [canonical] 'search_active': None    evitar cargar proxyes en buscar que pide CF2
+			search  condicion search_active
 
-findS['controls']['action'] = 'findvideos'
+retrotv		'last_page': dict([('find', [{'tag': ['a'], 'string': re.compile('(?i)siguiente')}]), 
+                		   ('find_previous', [{'tag': ['a'], 'class': ['page-numbers']}]), 
+                            	   ('get_text', [{'tag': '', '@STRIP': True}])]), 
+
+
+
+findS['controls']['action'] = 'findvideos'    en list_all
+ 
+findS['url_replace'] = [['($)', '1/']]			url + "1/"
+
+findS['controls']['cnt_tot'] = 9999
+    kwargs['headers'] = {'Referer': host}   					mondetube
+    dict_cookie = {"kt_tcookie": 1,"tag_id": item.orientation}
+    AlfaChannel.httptools.set_cookies(dict_cookie)
+
+'next_page_rgx': [['page\d+.html', 'next_page_url']] PAGINACION SIEMPRE https://www.sexvr.com/page2.html  HOST + page2.html   y asi item.url + page2.html
 
 url = AlfaChannel.do_unquote(url)  quita los %20 por su simbolo  EQUIVALE a urlparse.unquote(url)
 
 ###############################################################################################################################################
 
-camcaps			multicanal
-d1ck			multicanal paginacion next_page data_parameter  
+camcaps			multicanal 3dsexanime CamCaps FansTube  LeakedBay NSFWcrave RealLifeCam VoyeurHouse  VoyeurFunHouse  VoyeurLifeHouse ChaturbateVideo
+d1ck			multicanal 18yos Boombj  D1ck Faphard  F1ix  Pornrz Pornn  RolePlayers  TeenAnal  WankTank
 			paginacion next_page data_parameter       item.last_page = 9999
 		   	findS['url_replace'] = [[host, '%scategories/' % host], ['($)', '1/']]  para  "https://d1ck.co/big-tits/" ==> "https://d1ck.co/categories/big-tits/"
 SubmitYourFlicks	multicanal
-
+-WankTV			multicanal  sextubefun wanktv iporntoo hdporn-movies wetsins
+porngo			multicanal porngo xxxfiles pornpapa porncake fapguru veryfreeporn porntry titshub bigwank
+			findS['url_replace'] = [['($)', '1/']]              findS['controls']['cnt_tot'] = para diferentes secciones
+			if item.extra == 'Canal': return AlfaChannel.section(item, finds=findS, matches_post=section_matches, **kwargs)
+-trendyporn		multicanal  trendyporn  6xtube  blendporn  daftsextube  hentaiprno  yespornplease=sexyporn  youcrazyx  yrprno
+-24porn			multicanal  24porn  bestpornstars  bigfuck  redporn  zzztube
+-ezporn			multicanal  Ezporn Fullporno Pornwex  Cremz  Crazyporn Momzr 4wank  xxam  faptor hornyfap  nudes7  sloppyfans viralpornhub  mypornhere  asianviralhub
+-fullxcinema		multicanal fullxcinema  xmovies fulladultmovies
+			url = AlfaChannel.do_unquote(url_decode)
+-xnxxxvideoshd		multicanal  xnxxxvideoshd  xnxxxvideosxxx  xnxx2  nangivideos aagmaal  hentayco
 
 
 12milf		quitar paginacion categorias    findS['controls']['cnt_tot'] = 9999
@@ -40,7 +68,8 @@ ballzdeep
 beeg		json  paginacion rara 'controls': {'url_base64': False, 'cnt_tot': 24, 'reverse': False, 'custom_pagination': True},
 		AlfaChannel.next_page_url = re.sub(r"&offset=\d+", "&offset=%s" % page, item.url)
 -bestbustytube	'list_all_thumbnail': {'find': [{'tag': ['video'], '@ARG': ['poster']}]},
-bigtitslust			
+bigtitslust	
+-blackporn	TXX		
 bravoporn	last_page y next_page titulos y cantidad de section
 cambox
 cambro
@@ -54,8 +83,8 @@ canalporno	('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])  coge 
 celebsnudeworld
 cheemsporn
 -czechporn	'list_all_thumbnail': {'find': [{'tag': ['video'], '@ARG': ['poster']}]},
--czechporncom	###'responsive-player'#### 
 deviants	babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
+-dirtyship
 -ebonyporn
 eporner
 eroticage
@@ -65,41 +94,50 @@ erotika		https://phixxx.cc/player/play.php?vid=06f69a66357cfdf3b91d94c46477cdd7
 faapy
 -familyroleplayporn     findvideo de fuckingsession	
 familypornTV	  next_page con last_page          findS['next_page'] = {}     item.last_page = 9999
-fapmeifyoucan    '''carga el valor del json que ya viene procesado del “profile=default” en AH'''
+
+OUT				fapmeifyoucan    ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+ \w)'}])])  coge "49 minutes" >> 49m
+						 ('get_text', [{'tag': '', 'strip': True, '@TEXT': '([A-z ]+)\d+'}])])  categorias sin cantidad
+
 fetishshrine
--filtercams
+-flyflv		Cookie		kwargs['headers'] = {'Referer': host, "Cookie": "contentNiche=%s" % item.orientation}
+		'next_page_rgx': [['\/\d+$', '/%s'], ['\/\d+\?', '/%s?']]  
+		last_page     @ARG': 'href', '@TEXT': '(?:\/|=)(\d+)(?:\?|$)'}])]),    href="/movies/models/1915/Ava_Addams/2">
+		findS['url_replace'] = [['\?sort\=popularity', ''],['($)', '/1?sort=addDate.desc']]
+		findS['url_replace'] = [['($)', '&sort=addDate.desc'],['shemale', 'shemale/'],['gay', 'gay/'],['\?q=', '1?q=']]
+
 fpo
 freeomovie
 freeuseporn
 freshporno
 fuckingsession	findS['controls']['action'] = 'findvideos'    'findvideos find_all(a href y iframe src)  
 		elem_json['server'] = AlfaChannel.obtain_domain(elem_json['url']).split('.')[-2]
+-fucktube4k
 -fulltaboo
 -fullxcinema	url = AlfaChannel.do_unquote(url_decode)
 fux		json porntube 
+-fuxmovies
 goodporn
 hclips		TXXX 
 -hdporn92	findvideo de fuckingsession  
 hdzog		TXXX 
 heroero 
 hoestube
-homemadeXXX
 -hornybutt
 hotmovs		TXXX 
--hotporn  
 incestvidz	elem_json['action'] = 'findvideos'
+-inxxx
 javwhores
 jizzberry
 joysporn	joysporn   'next_page_rgx': [['/page/\d+', '/page/%s/']],    last_page para search
 latestpornvideo		findvideo de fuckingsession
--leakslove	findS['controls']['cnt_tot'] = 9999 en categorias sino no mostraba paginacion
+-leakslove	'findvideos' con pornstars   findS['controls']['cnt_tot'] = 9999 en categorias sino no mostraba paginacion
 -lesbian8
 LIKUOO	
-mangovideo	OUT Links	
+mangovideo	OUT Links	 'findvideos'
 manysex		TXXX2
 megatube	solucion al probema de search string "videos" de eporner
 momvids		babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
--mondetube
+-mondetube    	Cookie    kwargs['headers'] = {'Referer': host, "Cookie": "kt_tcookie=1; tag_id=%s" % item.orientation}
 -nudede		https://iframe.mediadelivery.net/ por resolver
 nubilefilm
 okporn		next_page con last_page          findS['next_page'] = {}     item.last_page = 9999
@@ -108,11 +146,15 @@ okporn		next_page con last_page          findS['next_page'] = {}     item.last_p
 porn00	
 porncaper
 pornditt
+-porndroids	if "Categorias" in item.extra:        findS['controls']['cnt_tot'] = 9999 
 pornerbross	    porntube  
 -pornez
 -porngrabbz
+-porngrey
 pornhub
-pornktube	joysporn    paginado necesita /2/  ===>  ['\/\d+', '/%s/']
+pornktube	joysporn    paginado necesita /2/  ===>  ['\/\d+', '/%s/']  
+			    findS['url_replace'] = [['($)', '1/']]  categorias formato "/c/10/#/" # pag
+
 pornky		joysporn   
 pornmeka
 -PornoBande	last_ page  	'@ARG': 'href', '@TEXT': '(?:videos|actresses|categorie/[a-z0-9-]+|actress/[a-z0-9-]+.html)/(\d+)'}])]), 
@@ -130,36 +172,55 @@ pornstreams	findvideos find_all(a href y iframe src)
 porntube      	json fux
 pornudes	
 pornvase
+-pornworms	findS['profile_labels']['section_title'] = {'find': [{'tag': ['img'], '@ARG': 'alt'}]}
 pornxp
+-qiqitv
 redtube
+-serakon	findvideos especial con PLAY  AUTOMATICO         return launcher.run(item)	ya que hay escenas en vsexin y peliculas para play 
+		- Si hay matches, se pasa el control a AH para que siga su proceso normal, cuidando de pasarle data=soup para que no tenga que descargar la página de nuevo 
+		- Si no hay matches, se ejecuta el código que habías puesto al final de findvideos_matches para preparar Item para la reproducción.  Si se hiciera un return 				          itemlist listaría el enlace y el usuario tendría que pinchar para reproducir, sin embargo, con return launcher.run(item) llamamos al launcher para que piense 		  	          que el usuario ya ha pinchado en el enlace, y empiece la reproducción inmediatamente.
 severeporn
--sexVR		'section_cantidad': dict([('find', [{'tagOR':   LA WEB muestra el video en 360º
+-sexVR		'section_cantidad': dict([('find', [{'tagOR':   LA WEB muestra el video en 360º           
+		'next_page_rgx': [['page\d+.html', 'next_page_url']] PAGINACION SIEMPRE https://www.sexvr.com/page2.html  HOST + page2.html   y asi item.url + page2.html
+
 shooshtime
+-speedporn	findvideo pandamovie
+-sxyprnXXX
 tabooporn
 tabootube
 thepornarea
 tonicporn
+-trahkino
 tubepornclassic	TXXX
 tubexporn	joysporn   
 TXXX   		json
 ultrahorny	veporns    
 upornia		TXXX
--vidzxxxhd
-viralxvideos	xfy		'findvideos find_all(a href y iframe src)  
-				 findS['profile_labels']['section_title'] = {'find': [{'tag': ['*'], '@ARG': 'aria-label'}]}
 veporns 
+-vidzxxxhd
+viralxvideos	xfy		'findvideos' find_all(a href y iframe src)  
+				 findS['profile_labels']['section_title'] = {'find': [{'tag': ['*'], '@ARG': 'aria-label'}]}
 -vidzxxxhd    	
 vjav  		TXXX
+-vlxxx
 voyeurhit	TXXX
+-vsexin		relacionado con serakon
+		'last_page': dict([('find', [{'tag': ['span'], 'class': ['navigation']}]), 
+                                   ('find_all', [{'tag': ['a'], '@POS': [-1]}]),
+                                   ('get_text', [{'strip': True}])]), 
+	
 -watch_my_gf
 watchporn
 -whereismyporn	findvideo de fuckingsession
 whoreshub
-xfy		viralxvideos    'findvideos find_all(a href y iframe src) 
-xmoviesforyou
+xfy		viralxvideos    'findvideos' find_all(a href y iframe src) 
+-xhand
+xmoviesforyou	'findvideos' 
 xozilla
 xtit		'list_all_quality': {'find': [{'tag': ['span'], 'class': ['hd'],  '@ARG': 'class',  '@TEXT': '(hd)' }]}
+-xxk	        'next_page': dict([('find', [{'tag': ['li'], 'class': ['next']}, {'tag': ['a'], '@ARG': 'href'}])]),
 xxxiporn
 xxxshake
 youporn		find seguido find 'last_page':    dict([('find', [{'tag': ['div'], 'id': ['pagination']}, {'tag': ['ul'], '@ARG': 'data-max'}])]),
+-zigtube
 	

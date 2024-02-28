@@ -26,7 +26,6 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
-# https://latestpornvideo.com/    
 # https://xnxx2.tv/   https://aagmaal.to/   MISMO CONTENIDO INDI  https://video.nangiphotos.com/
 # https://hentay.co/
 
@@ -84,17 +83,17 @@ def mainlist(item):
     logger.info()
     itemlist = []
     
-    autoplay.init(item.channel, list_servers, list_quality)
+    # autoplay.init(item.channel, list_servers, list_quality)
     
-    # itemlist.append(Item(channel=item.channel, title="hdporn92" , action="submenu", url= "https://hdporn92.com/", chanel="hdporn92", thumbnail = "https://i.postimg.cc/brThJFmw/hdporn92.png"))
-    # itemlist.append(Item(channel=item.channel, title="mynewpornvideo" , action="submenu", url= "https://mynewpornvideo.com/", chanel="mynewpornvideo", thumbnail = ""))  ### Es copia de hdporn92 sin categorias ni pornstars
     itemlist.append(Item(channel=item.channel, title="xnxxxvideoshd" , action="submenu", url= "https://www.xnxxxvideoshd.com/", chanel="xnxxxvideoshd", thumbnail = "https://i.postimg.cc/PqJ99VBk/xnxxxvideoshd.png"))
     itemlist.append(Item(channel=item.channel, title="hentayco" , action="submenu", url= "https://hentay.co/", chanel="hentayco", thumbnail = "https://i.postimg.cc/ZYscDKJ0/hentayco.png"))
     itemlist.append(Item(channel=item.channel, title="xnxx2" , action="submenu", url= "https://xnxx2.tv/", chanel="xnxx2", thumbnail = "https://i.postimg.cc/hGwCQDhX/xnxxtv.png"))
     itemlist.append(Item(channel=item.channel, title="nangivideos" , action="submenu", url= "https://video.nangiphotos.com/", chanel="nangivideos", thumbnail = "https://i.postimg.cc/SRr0F3Sy/nangivideos.png"))
+    itemlist.append(Item(channel=item.channel, title="xnxxxvideosxxx" , action="submenu", url= "https://xnxxxvideosxxx.com/", chanel="xnxxxvideosxxx", thumbnail = "https://i.postimg.cc/26vLLtSW/xnxxxvideosxxx.png"))
+    # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     
-    autoplay.show_option(item.channel, itemlist)
+    # autoplay.show_option(item.channel, itemlist)
     
     return itemlist
 
@@ -162,16 +161,17 @@ def play(item):
         lista.insert (2, pornstar)
         item.contentTitle = '[/COLOR]'.join(lista)
     
-    data = soup.find('div', class_="responsive-player")
-    if data.iframe.get('data-lazy-src', ''):
-        url = data.iframe['data-lazy-src']
+    video = soup.find('div', class_="responsive-player")
+    if video.iframe.get('data-lazy-src', ''):
+        url = video.iframe['data-lazy-src']
     else:
-        url = data.iframe['src']
+        url = video.iframe['src']
     if "php?q=" in url:
         import base64
         url = url.split('php?q=')
         url_decode = base64.b64decode(url[-1]).decode("utf8")
         url = urlparse.unquote(url_decode)
+        url += "|Referer=%s" % host
         url = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())

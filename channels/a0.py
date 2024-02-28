@@ -395,6 +395,11 @@ def play(item):
         [:-2] #QUITA LOS DOS ULTIMOS CARACTERES DE LA CADENA
         [1 : -1] # DESDE EL SEGUNDO CARACTER HASTA EL PENULTIMO
         
+        ###  voe  ####
+        rev_string = dec_string[::-1]  invierte texto decodificado base64
+        from core.jsontools import json
+        data_json = json.loads(rev_string)  convierte texto en json
+        url = data_json['file'] coge 'file': 'hppts://jgkjg.com'
         
         
         itemlist[::-1] # invierte lista
