@@ -1,0 +1,15 @@
+{
+  "id": "livesoccer",
+  "name": "SPORTS LiveSoccer",
+  "active": true,
+  "adult": false,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/T3TbPFWC/livesoccer.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "direct"
+  ],
+  "settings": [
+  ]
+}

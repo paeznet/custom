@@ -18,9 +18,20 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-host = "https://bitporno.to"
+forced_proxy_opt = 'ProxySSL'
+#  "https://bitporno.de" #"https://bitporno.to"  
 
 # m3u8 El enlace no es un video (se encontro tipo text/html)
+
+canonical = {
+             'channel': 'bitporno', 
+             'host': config.get_setting("current_host", 'bitporno', default=''), 
+             'host_alt': ["https://www.bitporno.com/"], 
+             'host_black_list': ["https://bitporno.to"], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             'CF': False, 'CF_test': False, 'alfa_s': True
+            }
+host = canonical['host'] or canonical['host_alt'][0]
 
 def mainlist(item):
     logger.info()

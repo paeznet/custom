@@ -1,0 +1,15 @@
+{
+  "id": "elbarco",
+  "name": "SPORTS El barco",
+  "active": true,
+  "adult": false,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/VL0d2Kxt/elbarco.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "direct"
+  ],
+  "settings": [
+  ]
+}

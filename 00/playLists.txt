@@ -1,0 +1,83 @@
+[
+    {
+        "name": "SirRandomss",
+        "url": "https://github.com/SirRandomss/kebabs/blob/main/mixto",
+        "image": "",
+        "logos": "",
+        "epg": "https://github.com/dracohe/INTERNACIONALES/blob/master/guide.xml?raw=true",
+        "cache": 0,
+        "uuid": "03dd6497-37be-4c9a-a4c9-3f8eb1ae840e"
+    },
+    {
+        "name": "TDT",
+        "url": "https://www.tdtchannels.com/lists/tv.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://www.tdtchannels.com/epg/TV.xml",
+        "cache": 0,
+        "uuid": "b7473ab9-08df-4593-b703-e02d8f8e08ea"
+    },
+    {
+        "name": "Fluxus",
+        "url": "https://bit.ly/FTV-ESP",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "ba666d48-60fd-49fe-9cb0-9aba34dac72b"
+    },
+    {
+        "name": "VOD PLUTO TV",
+        "url": "https://github.com/HelmerLuzo/PlutoTV_HL/raw/main/vod/m3u/PlutoTV_vod_ES.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "b29e8716-e630-41b2-a8ce-73c6785cc332"
+    },
+    {
+        "name": "PLUTO TV",
+        "url": "https://i.mjh.nz/PlutoTV/es.m3u8",
+        "image": "",
+        "logos": "",
+        "epg": "https://i.mjh.nz/PlutoTV/es.xml",
+        "cache": 0,
+        "uuid": "c602b0d4-c436-41c6-83ba-826d82cdc7f0"
+    },
+    {
+        "name": "DE PLUTO TV",
+        "url": "https://i.mjh.nz/PlutoTV/de.m3u8",
+        "image": "",
+        "logos": "",
+        "epg": "https://i.mjh.nz/PlutoTV/de.xml",
+        "cache": 0,
+        "uuid": "34b12400-8f24-43e7-af90-79c37f5ba816"
+    },
+    {
+        "name": "INTERNACIONAL",
+        "url": "https://iptv-org.github.io/iptv/index.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "d3917d9c-6356-487a-9271-de42ad49429b"
+    },
+    {
+        "name": "Free-TV",
+        "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "67d152ec-4df7-41df-b7f8-7706b108bb5b"
+    },
+    {
+        "name": "Acestream",
+        "url": "D:\\Iñaki\\Descargas\\tv.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "8f222c97-1d41-4770-943e-8bcdbc57f4bf"
+    }
+]

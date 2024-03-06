@@ -417,6 +417,7 @@ def play(item):
         # PORNVIBE capitalice title con mezcla de la url
     if "lat" in lang.lower(): lang= "Lat"   #pone lang en minusculas y si esta lat el lang es Lat
     quality = quality.strip().upper()    .lower()   #quitar espacios y mayusculas o minusculas 
+                            .isupper() .islower() #comprueba que sean MAY o min devolviendo true o false.
                             .capitalize()          # poner en mayuscula primera letra
     cantidad = cantidad.strip()             #quita los espacios antes y despues        
     title = " ".join(title.split())         #Quita los espacios entre palabras de title
@@ -467,7 +468,7 @@ def play(item):
 
         data = re.sub(r"\n|\r|\t|&nbsp;|<br>|<br/>", "", data)
 
-
+    \\w{2,4} #PARA COGER una extension de 2 a 4 caracteres en servers 
     ([A-z0-9]+)
     ([^<]+)     #para extraer el texto entre dos tags “uno o más caracteres que no sean <" ^ cualquier caracter que no sea <
     \d+         #para saltar números

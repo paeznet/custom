@@ -1,0 +1,15 @@
+{
+  "id": "sportsonline",
+  "name": "SPORTSonline",
+  "active": true,
+  "adult": false,
+  "language": ["*"],
+  "thumbnail": "",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "direct"
+  ],
+  "settings": [
+  ]
+}
