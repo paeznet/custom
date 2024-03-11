@@ -234,6 +234,8 @@ https://vavoo.to/play/4203067643/index.m3u8
 https://vavoo.to/play/215044469/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR DEPORTE 1 HD" tvg-logo="" group-title="DEPORTES",MOVISTAR DEPORTE 1
 https://vavoo.to/play/3039747729/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="VAMOS BAR 1 HD" tvg-logo="" group-title="DEPORTES",M+ Vamos
+https://vavoo.to/play/2715016106/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="VAMOS " tvg-logo="" group-title="DEPORTES",M+ Vamos
 https://vavoo.to/play/2185471044/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="VAMOS HD" tvg-logo="" group-title="DEPORTES",M+ Vamos
@@ -300,6 +302,8 @@ https://vavoo.to/play/1730534680/index.m3u8
 
 
 
+#EXTINF:-1 tvg-id="" tvg-name="LA LIGA TV BAR HD" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV
+https://vavoo.to/play/3134290264/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA (BACKUP)" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV
 https://vavoo.to/play/3720690828/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV
@@ -345,12 +349,10 @@ https://vavoo.to/play/276140469/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="BEIN SPORTS LA LIGA" tvg-logo="" group-title="FUTBOL",BEIN SPORTS LA LIGA
 https://vavoo.to/play/32485662/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="VAMOS BAR 1 HD" tvg-logo="" group-title="FUTBOL",VAMOS BAR 1
-https://vavoo.to/play/2715016106/index.m3u8
+
 #EXTINF:-1 tvg-id="" tvg-name="VAMOS BAR 2 HD" tvg-logo="" group-title="FUTBOL",VAMOS BAR 2
 https://vavoo.to/play/794614857/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="LA LIGA TV BAR HD" tvg-logo="" group-title="FUTBOL",LA LIGA TV BAR
-https://vavoo.to/play/3134290264/index.m3u8
+
 #EXTINF:-1 tvg-id="" tvg-name="LALIGA TV BAR" tvg-logo="" group-title="FUTBOL",LALIGA TV BAR
 https://vavoo.to/play/1019163502/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LIGA TV BAR 3 HD" tvg-logo="" group-title="FUTBOL",LIGA TV BAR 3
