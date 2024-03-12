@@ -13,7 +13,7 @@
         "url": "https://www.tdtchannels.com/lists/tv.m3u",
         "image": "",
         "logos": "",
-        "epg": "https://www.tdtchannels.com/epg/TV.xml",
+        "epg": "",
         "cache": 0,
         "uuid": "b7473ab9-08df-4593-b703-e02d8f8e08ea"
     },
@@ -54,15 +54,6 @@
         "uuid": "34b12400-8f24-43e7-af90-79c37f5ba816"
     },
     {
-        "name": "INTERNACIONAL",
-        "url": "https://iptv-org.github.io/iptv/index.m3u",
-        "image": "",
-        "logos": "",
-        "epg": "",
-        "cache": 0,
-        "uuid": "d3917d9c-6356-487a-9271-de42ad49429b"
-    },
-    {
         "name": "Free-TV",
         "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8",
         "image": "",
@@ -72,12 +63,75 @@
         "uuid": "67d152ec-4df7-41df-b7f8-7706b108bb5b"
     },
     {
-        "name": "Acestream",
-        "url": "D:\\Iñaki\\Descargas\\tv.m3u",
+        "name": "iptv-org",
+        "url": "https://iptv-org.github.io/iptv/index.m3u",
         "image": "",
         "logos": "",
         "epg": "",
         "cache": 0,
+        "uuid": "d3917d9c-6356-487a-9271-de42ad49429b"
+    },
+    {
+        "name": "iptv-org_SP",
+        "url": "https://iptv-org.github.io/iptv/countries/es.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "fbb51ad8-adec-46d6-be3d-1a925010bbb0"
+    },
+    {
+        "name": "Europa",
+        "url": "https://iptv-org.github.io/iptv/regions/eur.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "7778b128-02cd-4ff0-9a98-78a6d413b003"
+    },
+    {
+        "name": "Acestream",
+        "url": "D:\\OneDrive - Coronary0596\\custom\\00\\futbol.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/dracohe/CARLOS/master/guide_IPTV.xml",
+        "cache": 0,
         "uuid": "8f222c97-1d41-4770-943e-8bcdbc57f4bf"
+    },
+    {
+        "name": "VAVOO",
+        "url": "D:\\OneDrive - Coronary0596\\custom\\00\\vavoo_to-welt-2.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/dracohe/CARLOS/master/guide_IPTV.xml",
+        "cache": 0,
+        "uuid": "2f3c2a76-6e39-416f-b4c4-960757d9a8e0"
+    },
+    {
+        "name": "VAVOO_SP",
+        "url": "D:\\OneDrive - Coronary0596\\custom\\00\\vavoo_SP.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/dracohe/CARLOS/master/guide_IPTV.xml",
+        "cache": 0,
+        "uuid": "8730ac2f-91b4-4d0e-a11f-65cb2fa2b07b"
+    },
+    {
+        "name": "Futbol",
+        "url": "https://raw.githubusercontent.com/paeznet/custom/main/00/tv.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/dracohe/CARLOS/master/guide_IPTV.xml",
+        "cache": 0,
+        "uuid": "8500aee2-a3c8-4a98-a3a6-aa6a025bd8e2"
+    },
+    {
+        "name": "Vavoo_SP",
+        "url": "https://raw.githubusercontent.com/paeznet/custom/main/00/vavoo_SP.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/dracohe/CARLOS/master/guide_IPTV.xml",
+        "cache": 0,
+        "uuid": "348ee666-a64c-430d-86aa-bf4523ec00f7"
     }
 ]
