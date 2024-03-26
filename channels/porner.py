@@ -18,13 +18,17 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+forced_proxy_opt = 'ProxySSL'
+
+
 canonical = {
              'channel': 'porner', 
              'host': config.get_setting("current_host", 'porner', default=''), 
              'host_alt': ["https://porner.tv/"], 
              'host_black_list': [], 
              'pattern': ['property="og:image" content="?([^"|\s*]+)["|\s*]'], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -34,13 +38,13 @@ def mainlist(item):
     logger.info()
     itemlist = []
 
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/hottest-videos/page/1"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "/most-viewed-videos/page/1"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/most-liked-videos/page/1"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "/pornstars/page/1"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "/channels/page/1"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "hottest-videos/page/1"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "most-viewed-videos/page/1"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "most-liked-videos/page/1"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "pornstars/page/1"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "channels/page/1"))
 
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/categories?sort=name"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories?sort=name"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 

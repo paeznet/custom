@@ -193,14 +193,26 @@ def play(item):
     if "s2watch" in item.url:
         # https://s2watch.link/flash20
         # https://viwlivehdplay.ru/mono.php?id=20
-        
         id = scrapertools.find_single_match(item.url, "/flash(\d+)")
         god = "https://livehdplay.ru/mono.php?id=%s" %id
         accept= 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
         headers = {'Referer': item.url, 'Accept': accept}
         data = httptools.downloadpage(god, headers=headers).data
         url = scrapertools.find_single_match(data, "source\:'([^']+)'")
-        url += "|Referer=%s" % god
+        ref = "https://websuit.onlinehdhls.ru/" # "https://viwlivehdplay.ru/"  "https://livehdplay.ru/"
+        headers = {'Referer': ref, 'Accept': accept}
+        m3u_data = httptools.downloadpage(url, headers=headers).data
+        logger.debug("@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        logger.debug(m3u_data)
+        matches = scrapertools.find_single_match(m3u_data, 'TION=\d+x(\d+).*?\s(.*?)\s')
+        if matches:
+            for quality, url in matches:
+                itemlist.append(["%s  %sp [bitporno]" % (filename, quality), url])
+        #EXTM3U
+        #EXT-X-STREAM-INF:AVERAGE-BANDWIDTH=520000,BANDWIDTH=650000,RESOLUTION=1024x576,FRAME-RATE=30.000,CODECS="avc1.4d401f,mp4a.40.2",CLOSED-CAPTIONS=NONE
+        # tracks-v1a1/mono.m3u8
+        
+        url += "|Referer=%s" % ref
         # https://s2watch.link/flash10  
         # <iframe allowfullscreen="true" frameborder="0" height="100%" scrolling="no" src="https://livehdplay.ru/mono.php?id=10" width="100%"></iframe></div>
         # source:'https://websuit.webhd.ru/fls/cdn/mono10/playlist.m3u8'    

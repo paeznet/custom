@@ -19,6 +19,9 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 host = 'https://oncam.me'
+
+# OUT  marzo 2024
+
 canonical = {
              'channel': 'oncam', 
              'host': config.get_setting("current_host", 'oncam', default=''), 

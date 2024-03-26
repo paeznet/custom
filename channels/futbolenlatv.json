@@ -1,0 +1,15 @@
+{
+  "id": "futbolenlatv",
+  "name": "SPORTS futbolenlatv",
+  "active": true,
+  "adult": false,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/CM4bS09c/logo-futbol-en-la-tv.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "direct"
+  ],
+  "settings": [
+  ]
+}

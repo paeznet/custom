@@ -18,3 +18,6 @@ Cómo se implementa el SSL en las descargas de urls?: mediante lo siguientes par
 He subido los servidores Direct y Ktp con estos cambios.  Los dos canales te los adjunto para que hagas lo que creas conveniente, debes volver a poner el Play original en Yespornplease y en Babestube.  En Yespornplease mantén la línea 153 que no estaba en el original y es clave para el buen funcionamiento.  El error que te daba con Yespornplease es porque no devolvías “itemlist” en Play y cascaba el Launcher.  También lo he arreglado.
 
 Por último, he visto en alguno de los dos canales (no me acuerdo cual) que defines Canonical y luego no lo pasas en las llamadas a httptools.downloadpage.  Eso no sirve para nada si no se añade en la llamada.
+
+android	 SSL version: OpenSSL 1.1.1n  15 Mar 2022	Bongacamps  SSL_TLS_version: 16  
+windows  SSL version: OpenSSL 1.1.1q  5 Jul 2022		    SSL_TLS_version: _SSLMethod.PROTOCOL_TLS_CLIENT

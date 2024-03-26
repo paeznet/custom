@@ -2,9 +2,9 @@
   "id": "sportsonline",
   "name": "SPORTSonline",
   "active": true,
-  "adult": false,
+  "adult": true,
   "language": ["*"],
-  "thumbnail": "",
+  "thumbnail": "https://i.postimg.cc/VkhpsSk6/sportsonline.webp",
   "banner": "",
   "fanart": "",
   "categories": [

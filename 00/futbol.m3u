@@ -322,7 +322,7 @@ plugin://script.module.horus?action=play&id=162942adc047d0f78eac056effbe5bbec54a
 
 
 
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/NM8kNBZq/La-Liga-New.png" tvg-name="M.LaLiga" group-title="LA LIGA EA SPORT",M+ LALIGA TV
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/NM8kNBZq/La-Liga-New.png" tvg-name="M.LaLiga" group-title="LA LIGA EA SPORT",M+ LALIGA TV BAR
 plugin://script.module.horus?action=play&id=aa82e7d4f03061f2144a2f4be22f2e2210d42280
 #EXTINF:-1 tvg-id="" tvg-logo="" tvg-name="M.LaLiga" group-title="LA LIGA EA SPORT",M+ LALIGA TV
 plugin://script.module.horus?action=play&id=7d8c87e057be98f00f22e23b23fbf08999e4b02f

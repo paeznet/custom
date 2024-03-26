@@ -18,13 +18,15 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-#   https://telegra.ph/AGENDA-DEPORTIVA-2504-04-25
+#   https://telegra.ph/AGENDA-DEPORTIVA-2504-04-25    https://telegra.ph/CLONELCANO-08-09
     # acestream://9dad717d99b29a05672166258a77c25b57713dd5
 
 
 # https://porlacaraveoelfutbol.pages.dev/   https://www.futbolenlatv.es/
 # https://tvglobalrpi.blogspot.com/p/canales-acestream-actualizados.html?m=1
 
+# https://hackmd.io/@penaltis/penaltis
+# https://github.com/MoDz17/IPTV_MoDz/blob/main/code_iptv
 # https://acestreamsearch.net/en/?q=el
 
 

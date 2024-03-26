@@ -1,0 +1,15 @@
+{
+  "id": "kool",
+  "name": "kool",
+  "active": true,
+  "adult": false,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/x1wB2jbb/kool.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "direct"
+  ],
+  "settings": [
+  ]
+}
