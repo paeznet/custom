@@ -1,3 +1,15 @@
+babestube tenia el play llamando directamente a xbmc
+    import xbmc
+    import xbmcgui
+    listitem = xbmcgui.ListItem(item.title)
+    listitem.setArt({'thumb': item.thumbnail, 'icon': "DefaultVideo.png", 'poster': item.thumbnail})
+    listitem.setInfo('video', {'Title': item.title, 'Genre': 'Porn', 'plot': '', 'plotoutline': ''})
+    listitem.setMimeType('application/vnd.apple.mpegurl')
+    listitem.setContentLookup(False)
+    return xbmc.Player().play(url, listitem)
+
+
+
 <setting id="debug_report" default="true">true</setting> en settings.xml
 
 AlfaChannel.color_setting
@@ -125,7 +137,7 @@ hoestube
 -hornybutt
 hotmovs		TXXX 
 incestvidz	elem_json['action'] = 'findvideos'
-internetchicks  'findvideos' 
+internetchicks  'findvideos' fuckingsession
 -inxxx
 javwhores
 jizzberry
@@ -177,12 +189,16 @@ pornvase
 pornxp
 -qiqitv
 redtube
+
 -serakon	findvideos especial con PLAY  AUTOMATICO         return launcher.run(item)	ya que hay escenas en vsexin y peliculas para play 
-		- Si hay matches, se pasa el control a AH para que siga su proceso normal, cuidando de pasarle data=soup para que no tenga que descargar la página de nuevo 
-		- Si no hay matches, se ejecuta el código que habías puesto al final de findvideos_matches para preparar Item para la reproducción.  Si se hiciera un return 				          itemlist listaría el enlace y el usuario tendría que pinchar para reproducir, sin embargo, con return launcher.run(item) llamamos al launcher para que piense 		  	          que el usuario ya ha pinchado en el enlace, y empiece la reproducción inmediatamente.
+		- Si hay matches, se pasa el control a AH para que siga su proceso normal, cuidando de pasarle data=soup para que no tenga que descargar la                    	  página de nuevo 
+		- Si no hay matches, se ejecuta el código que habías puesto al final de findvideos_matches para preparar Item para la reproducción.  Si se                   	  hiciera un return itemlist listaría el enlace y el usuario tendría que pinchar para reproducir, sin embargo, con return launcher.run(item)                   	  llamamos al launcher para que piense que el usuario ya ha pinchado en el enlace, y empiece la reproducción inmediatamente.
+
 severeporn
+
 -sexVR		'section_cantidad': dict([('find', [{'tagOR':   LA WEB muestra el video en 360º           
-		'next_page_rgx': [['page\d+.html', 'next_page_url']] PAGINACION SIEMPRE https://www.sexvr.com/page2.html  HOST + page2.html   y asi item.url + page2.html
+		'next_page_rgx': [['page\d+.html', 'next_page_url']] PAGINACION SIEMPRE https://www.sexvr.com/page2.html  HOST + page2.html   
+		y asi item.url + page2.html
 
 shooshtime
 -speedporn	findvideo pandamovie

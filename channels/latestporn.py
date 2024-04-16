@@ -17,13 +17,19 @@ from core.item import Item
 from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
+from modules import autoplay
+
+list_quality = ['default']
+list_servers = []
 
 # https://latestporn.co   https://poenhub.stream/
+# https://latestleaks.co/
+
 canonical = {
              'channel': 'latestporn', 
              'host': config.get_setting("current_host", 'latestporn', default=''), 
-             'host_alt': ["https://latestporn.co/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://latestleaks.co/"], 
+             'host_black_list': ["https://latestporn.co/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -35,11 +41,17 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Peliculas" , action="lista", url=host + "category/movies/"))
+    
+    autoplay.init(item.channel, list_servers, list_quality)
+    
+    # itemlist.append(Item(channel=item.channel, title="Peliculas" , action="lista", url=host + "category/movies/"))
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host))
+    # itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
+    
+    autoplay.show_option(item.channel, itemlist)
+    
     return itemlist
 
 
@@ -60,13 +72,14 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    if "Canal" in item.title:
-        matches = soup.find('nav', class_='main-navigation').find_all('a', href=re.compile(r"https://latestporn.co/site/[A-z0-9-]+/"))
-    else:
-        matches = soup.find('div', class_='tagcloud').find_all('a', href=re.compile(r"https://latestporn.co/tag/[A-z0-9-]+/"))
+    # if "Canal" in item.title:
+        # matches = soup.find('nav', class_='main-navigation').find_all('a', href=re.compile(r"https://latestporn.co/site/[A-z0-9-]+/"))
+    # else:
+    matches = soup.find('p', class_='wp-block-tag-cloud').find_all('a')
     for elem in matches:
         url = elem['href']
-        title = elem.text.strip()
+        title = elem['aria-label'].replace(" items", "")
+        # title = elem.text.strip()
         thumbnail = ""
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
@@ -94,12 +107,9 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.img['alt']
-        thumbnail = elem.img['data-src']
+        thumbnail = elem.img['src']
         plot = ""
-        action = "play"
-        if logger.info() == False:
-            action = "findvideos"
-        itemlist.append(Item(channel=item.channel, action=action, title=title, url=url, thumbnail=thumbnail,
+        itemlist.append(Item(channel=item.channel, action="findvideos", title=title, url=url, thumbnail=thumbnail,
                                plot=plot, fanart=thumbnail, contentTitle=title ))
     next_page = soup.find('a', class_='next')
     if next_page:
@@ -111,22 +121,17 @@ def lista(item):
 
 def findvideos(item):
     logger.info()
-    soup = create_soup(item.url)
-    url = soup.find('iframe')['src']
-    if "video=" in url:
-        url = scrapertools.find_single_match(url, "video=([^&]+)")
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
-    return itemlist
-
-
-def play(item):
-    logger.info()
     itemlist = []
-    soup = create_soup(item.url)
+    soup = create_soup(item.url).article
     url = soup.find('iframe')['src']
     if "video=" in url:
         url = scrapertools.find_single_match(url, "video=([^&]+)")
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    if soup.find('a', class_='myButton'):
+        matches = soup.find_all('a', class_='myButton')
+        for elem in matches:
+            url = elem['href']
+            itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
+

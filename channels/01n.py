@@ -81,8 +81,8 @@ finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['video']}]},     #'id':
                                                       # ('get_text', [{'tag': '', 'strip': True}])]),
                             # 'list_all_premium': dict([('find', [{'tag': ['span'], 'class': ['ico-private']}]),
                                                        # ('get_text', [{'tag': '', 'strip': True}])]),
-                            # 'section_cantidad': dict([('find', [{'tag': ['span', 'div'], 'class': ['videos', 'column', 'rating', 'category-link-icon-videos']}]),
-                                                      # ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])
+                            'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['thumb-item']}]),
+                                                      ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])
                            },
          'controls': {'url_base64': False, 'cnt_tot': 40, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
@@ -154,6 +154,8 @@ def section(item):
     # findS['url_replace'] = [['(\/(?:categories|channels|models|pornstars)\/[^$]+$)', r'\1?sort_by=post_date&from=1']]
     
     # if item.extra == 'Pornstar':
+       # findS['controls']['cnt_tot'] = 15
+
         # findS['categories'] = dict([('find', [{'tag': ['div'], 'class': 'list-models'}]), 
                                     # ('find_all', [{'tag': ['a'], 'class': 'item'}])])
     
@@ -428,8 +430,9 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     
     # itemlist = []
     
+    # soup = AHkwargs.get('soup', {})
     # soup = AlfaChannel.create_soup(item.url, **kwargs)
-
+    
     # if soup.find_all('li', class_="starw"):
         # pornstars = soup.find_all('li', class_="starw")
         # pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/"))

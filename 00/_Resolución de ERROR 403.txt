@@ -1,3 +1,16 @@
+CANALES ERROR 403 que FUNCIONAN EN ANDROID 
+android	 SSL version: OpenSSL 1.1.1n  15 Mar 2022	Bongacams  SSL_TLS_version: 16  
+windows  SSL version: OpenSSL 1.1.1q  5 Jul 2022		    SSL_TLS_version: _SSLMethod.PROTOCOL_TLS_CLIENT
+
+babestube	deviants	momvids		pornomovies SOLUCIONADOS DAN ERROR TEST
+bongacams 	hoestube	iceporn		trahkino
+porndish 	porner
+
+4kporn	luxuretv  FALLAN en WIN y Android
+
+documaniatv
+
+
 Para empezar, la solución real viene tu descubrimiento  “listitem.setMimeType('application/vnd.apple.mpegurl')”.  Hasta ahora se utilizaba siempre “listitem.setMimeType('mime/x-type')”, pero se ve que alguna web lo rechaza.  He puesto código para detectar cuando la url es un vídeo y utilizar “listitem.setMimeType('application/vnd.apple.mpegurl')”.  Esto afecta a TODO Alfa, por lo que hay que estar atento por si hay algún efecto secundario en alguna web.  Por la pruebas que he hecho en HDFull y Dilo parece no afectar.
 
 Pero esto no que ahí ni mucho menos…  Hay que tener en cuenta los siguientes puntos para evitar errores 403.  Esto está ya en uso en unos cuantos canales y servidores resolviendo bastantes problemas:
@@ -5,7 +18,7 @@ Pero esto no que ahí ni mucho menos…  Hay que tener en cuenta los siguientes 
 -	Hay que ir implementado, sin prisa pero sin pausa, la seguridad SSL en las descargas, tanto para canales como para servidores
 -	Si el error persiste, hay que verificar si la url funciona con un proxyweb rodeando el problema, como https://www.croxyproxy.com/ o https://nl.hideproxy.me/index.php
 -	Si el problema persiste hay que ver si lo resuelve Alfa Assistant
--	Si no se arregla, mejor bar de baja el canal
+-	Si no se arregla, mejor dar de baja el canal
 
 Cómo se implementa el SSL en las descargas de urls?: mediante lo siguientes parámetros que se pueden aplicar dentro del diccionario Canonical en los canales, o como **kwargs en las llamadas httptools.downloadpage.  Los parámetros a usar son los siguientes:
 
@@ -19,5 +32,3 @@ He subido los servidores Direct y Ktp con estos cambios.  Los dos canales te los
 
 Por último, he visto en alguno de los dos canales (no me acuerdo cual) que defines Canonical y luego no lo pasas en las llamadas a httptools.downloadpage.  Eso no sirve para nada si no se añade en la llamada.
 
-android	 SSL version: OpenSSL 1.1.1n  15 Mar 2022	Bongacamps  SSL_TLS_version: 16  
-windows  SSL version: OpenSSL 1.1.1q  5 Jul 2022		    SSL_TLS_version: _SSLMethod.PROTOCOL_TLS_CLIENT

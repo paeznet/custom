@@ -103,223 +103,6 @@
 ###########################################################################################################################
 
 
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="La 1",LA 1
-plugin://script.module.horus?action=play&id=02b9307c5c97c86914cc5939d6bbeb5b4ec60b47&title=La 1
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="La 1",LA 1
-plugin://script.module.horus?action=play&id=6636a5c1055b5913ddcd0e87a5523f7d935350af
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="La 2",LA 2
-plugin://script.module.horus?action=play&id=60106275d34f995e26bb2cc4a21a42f586c6c555&title=La 2
-#4c0e50c9cc4971479feb12cc46ab1f5dbce8b132
-#EXTINF:-1 tvg-id="" tvg-logo="" tvg-name="M+"  group-title="Generalistas",Movistar plus+
-plugin://script.module.horus?action=play&id=5a236fbbe6e5bbfec03db548c244a7c858d675c0&title=M+ 1080
-
-#EXTINF:-1 tvg-id="" tvg-logo="" tvg-name="Onetoro TV"  group-title="Generalistas",Onetoro TV
-plugin://script.module.horus?action=play&id=f763ab71f6f646e6c993f37e237be97baf2143ef
-#EXTINF:-1 tvg-id="" tvg-logo="" tvg-name="Onetoro TV"  group-title="Generalistas",Wimbledon UHD
-plugin://script.module.horus?action=play&id=78aa81aedb1e2b6a9ba178398148940857155f6a
-
-#EXTINF:-1 tvg-id="" tvg-logo="https://i2.wp.com/ossom.cl/wp-content/uploads/2020/03/red_bull_tv.jpg?width=200&height=200" group-title="Generalistas" tvg-name="Red Bull TV",Red Bull TV
-plugin://script.module.horus?action=play&id=6f41a8cd339981147843f4f33e40cda9bfc7940e
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/Ntcj66Q/logo-es1.webp" group-title="Generalistas" tvg-name="EuroSport 1",Eurosport 1
-plugin://script.module.horus?action=play&id=5e4cd48c79f991fcbee2de8b9d30c4b16de3b952&title=EuroSport 1
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/HLcq8Cj/logo-es2.webp" group-title="Generalistas" tvg-name="EuroSport 2",Eurosport 2
-plugin://script.module.horus?action=play&id=c373da9e901d414b7384e671112e64d5a2310c29&title=EuroSport 2
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/4ZhrbdF/Gol-Play-logo.png" group-title="Generalistas" tvg-name="Gol TV",GOL PLAY
-plugin://script.module.horus?action=play&id=d4627f7b6b237a8556819445b3283d866caceca2&title=Gol TV
-#EXTINF:-1 tvg-id="" tvg-logo="https://graph.facebook.com/teledeporteRTVE/picture?width=200&height=200" group-title="Generalistas" tvg-name="Teledeporte",Teledeporte
-plugin://script.module.horus?action=play&id=e2395d28ad19423212fd3aa0e81f387db3e8bb9f
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/76GQpKNZ/logo-vamos.png" group-title="Generalistas" tvg-name="#Vamos",M+ Vamos
-plugin://script.module.horus?action=play&id=859bb6295b8d0f224224d3063d9db7cdeca03122&title=#Vamos 1080
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/76GQpKNZ/logo-vamos.png" group-title="Generalistas" tvg-name="#Vamos",M+ Vamos
-plugin://script.module.horus?action=play&id=3bba7c95857c2502c7e03ced1a6a9b00eb567fa0&title=#Vamos 720
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="#Ellas",M+ Ellas V
-plugin://script.module.horus?action=play&id=67654e63b5065cdaa6c8e8d41bb5428b42b32830
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="#M. Golf",M+ Golf
-plugin://script.module.horus?action=play&id=4f945b0ba4206fa2676b61e9eaa465ac3dcc8122&title=#M. Golf 1080
-#EXTINF:-1 tvg-id="" tvg-logo="https://www.mundoplus.tv/wp-content/uploads/2023/03/golf2_movistarplus.jpg" group-title="Generalistas" tvg-name="#M. Golf2",M+ Golf
-plugin://script.module.horus?action=play&id=9a4f3ae6563668b7709dac509dedc709441b3fd9&title=#M. Golf 2 1080
-
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/nBZ6NvP/DAZN-1-Logo-Sin-Fondo.webp" group-title="Generalistas" tvg-name="DAZN1",DAZN 1
-plugin://script.module.horus?action=play&id=8ca07071b39185431f8e940ec98d1add9e561639&title=DAZN 1 1080
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/nBZ6NvP/DAZN-1-Logo-Sin-Fondo.webp" group-title="Generalistas" tvg-name="DAZN1",DAZN 1
-plugin://script.module.horus?action=play&id=eaff9293c76a324c750ef5094c2a4e2c96518d1f&title=DAZN 1 720
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/NWLCj63/DAZN-Logo.png" group-title="Generalistas" tvg-name="DAZN2",DAZN 2
-plugin://script.module.horus?action=play&id=60dbeeb299ec04bf02bc7426d827547599d3d9fc&title=DAZN 2 1080
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/NWLCj63/DAZN-Logo.png" group-title="Generalistas" tvg-name="DAZN2",DAZN 2
-plugin://script.module.horus?action=play&id=7aa402bab9fff43258fbcf401881a39475f30aaf&title=DAZN 2 1080
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="DAZN 3 1080", DAZN 3
-plugin://script.module.horus?action=play&id=162942adc047d0f78eac056effbe5bbec54a5e51
-#EXTINF:-1 tvg-id="" tvg-name="DAZN 3 1080" tvg-logo="" group-title="Generalistas",DAZN 3
-plugin://script.module.horus?action=play&id=a8ffddef56f082d4bb5c0be0d3d2fdd8c16dbd97
-#EXTINF:-1 tvg-id="" tvg-name="DAZN 4 1080" tvg-logo="" group-title="Generalistas",DAZN 4
-plugin://script.module.horus?action=play&id=2fcdf7a19c0858f686efdfabd3c8c2b92bf6bcfd
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/MM0nfS1/DAZN-F1-Logo-Sin-Fondo.png" group-title="Generalistas" tvg-name="DAZN1",DAZN F1
-plugin://script.module.horus?action=play&id=5789ca155323664edd293b848606688edf803f4d&title=DAZN F1 1080
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/MM0nfS1/DAZN-F1-Logo-Sin-Fondo.png" group-title="Generalistas" tvg-name="DAZN1",DAZN F1
-plugin://script.module.horus?action=play&id=9dad717d99b29a05672166258a77c25b57713dd5&title=DAZN F1 1080
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/MM0nfS1/DAZN-F1-Logo-Sin-Fondo.png" group-title="Generalistas" tvg-name="DAZN1",DAZN F1
-plugin://script.module.horus?action=play&id=e1fcad9de0c782c157fde6377805c58297ab65c2&title=DAZN F1 7200
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/MM0nfS1/DAZN-F1-Logo-Sin-Fondo.png" group-title="Generalistas" tvg-name="DAZN1",DAZN F1
-plugin://script.module.horus?action=play&id=968627d24eec1c16b51d88e4a4a6c02211e3346e&title=DAZN F1 MultiCámara
-
-
-#EXTINF:-1 tvg-id="" tvg-name="DAZN F1 [UHD]" tvg-logo="" group-title="Generalistas",FS PREMIUM
-plugin://script.module.horus?action=play&id=6b94479c24898700089e6b87d28a3ccc72dc4041
-
-
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="Tennis",Tennis Channel
-plugin://script.module.horus?action=play&id=9292d3b32432efb56db4014933cbdec0a7cf2e36
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="SportTv1",Sport Tv 1
-plugin://script.module.horus?action=play&id=ce235921dac95e1da2dd5e54673c2fecb9e806de
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="SportTv2",Sport Tv 2
-plugin://script.module.horus?action=play&id=396d82ca6f5445abcd32e6b609d67e332ee12ace
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="SportTv3",Sport Tv 3
-plugin://script.module.horus?action=play&id=f8cb9d9e3077eb3ae417b2d95a69c5f590760eb9
-
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/RhNHN7s6/Logo-extreme-canal-2.png" group-title="Generalistas" tvg-name="Extreme Sports 3 (PL)",Extreme Sports 3 (PL)
-plugin://script.module.horus?action=play&id=73ff07648e367efebd94636047b07625f664a082
-
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/nz7j2PpQ/espn-logo.png" group-title="Generalistas" tvg-name="ESPN HD [US]",ESPN HD [US]
-plugin://script.module.horus?action=play&id=4b4907de51ec11087d4bed5876f2a0c68264f442
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/nz7j2PpQ/espn-logo.png" group-title="Generalistas" tvg-name="ESPN 2 [BE]",ESPN 2 [BE]
-plugin://script.module.horus?action=play&id=3e0ba6867173f345d482d80c771f1a5dc3b37e63
-
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/SKjPkzTN/Logo-NBA.png" group-title="Generalistas" tvg-name="Nba Tv (US)",Nba Tv (US)
-plugin://script.module.horus?action=play&id=e72d03fb9694164317260f684470be9ab781ed95
-
-
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="Esport 3 GEO CAT ",Esport 3
-plugin://script.module.horus?action=play&id=4c0e50c9cc4971479feb12cc46ab1f5dbce8b132
-
-
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="REAL MADRID TV [1080]",Real Madrid TV
-plugin://script.module.horus?action=play&id=0ec3f3786318acd8dca2588f74c3759cda76cd11
-
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="BarçaTV",Barça 720
-plugin://script.module.horus?action=play&id=e3362507e7c732b9461bd7bdc74bd054c49b3ba7
-
-
-
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/Ntcj66Q/logo-es1.webp" group-title="EUROSPORT 360" tvg-name="EuroSport 1",Eurosport 1
-plugin://script.module.horus?action=play&id=5e4cd48c79f991fcbee2de8b9d30c4b16de3b952&title=EuroSport 1
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/HLcq8Cj/logo-es2.webp" group-title="EUROSPORT 360" tvg-name="EuroSport 2",Eurosport 2
-plugin://script.module.horus?action=play&id=c373da9e901d414b7384e671112e64d5a2310c29&title=EuroSport 2
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 1 [DE]",Eurosport 360 HD 1 [DE]
-plugin://script.module.horus?action=play&id=22df9a5fae8cae52fec925c2bb44b74f96a4200c
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 2 [DE]",Eurosport 360 HD 2 [DE]
-plugin://script.module.horus?action=play&id=57f95543ac41656d473b1a27123fc413388a728c
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 3 [DE]",Eurosport 360 HD 3 [DE]
-plugin://script.module.horus?action=play&id=7adbca42657ace1fe228142d351d0896974bbe0c
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD  [DE]",Eurosport 360 HD 4 [DE]
-plugin://script.module.horus?action=play&id=1b6b6c0ddc0534236b3bae78f41d2bc27cd11f64
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 5 [DE]",Eurosport 360 HD 5 [DE]
-plugin://script.module.horus?action=play&id=148921c4dda96df445e253d6f26c4d092bf85809
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 6 [DE]",Eurosport 360 HD 6 [DE]
-plugin://script.module.horus?action=play&id=005ac522315699bd93bbf743329eb2f3c347dc3f
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 7 [DE]",Eurosport 360 HD 7 [DE]
-plugin://script.module.horus?action=play&id=b18657f64507cc859cd7edef1aef90feb053e791
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 8 [DE]",Eurosport 360 HD 8 [DE]
-plugin://script.module.horus?action=play&id=8f4f572005ca2557743474087aa622693ba9b5fe
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 9 [DE]",Eurosport 360 HD 9 [DE]
-plugin://script.module.horus?action=play&id=7993cecc31917793e2bfa2fe98faa9fe1ab62d47
-
-
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS \u00d1",beIN SPORTS ñ
-plugin://script.module.horus?action=play&id=41af6926a6010b68ba2540975761436bb077748f
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS Xtra\u00d1",beIN SPORTS Xtra\u00d1
-plugin://script.module.horus?action=play&id=92a7dcc55392efc6dd5d012c4ff3878891eb6a6e
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS 1  [BE]",beIN SPORTS 1  [BE]
-plugin://script.module.horus?action=play&id=bba1905fcd1c4975aec544047bf8e4cd23ce3fe0
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS 2  [BE]",beIN SPORTS 2  [BE]
-plugin://script.module.horus?action=play&id=edb507e38394d614c9ff55805c9d354ae13210bc
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS 3  [BE]",beIN SPORTS 3  [BE]
-plugin://script.module.horus?action=play&id=731bd3336ec0986ff9100efe40dbaf1473a22cf8
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS 1 [FR]",beIN SPORTS 1 [FR]
-plugin://script.module.horus?action=play&id=54cbfaf8ad446499aae28ae50b512d95c263f811
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS 2 [FR]",beIN SPORTS 2 [FR]
-plugin://script.module.horus?action=play&id=705e0086f2156e1d76609393666b95a5bd43bebb
-
-
-
-
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/BZpK313X/BT-Sport-1-new.png" group-title="BT Sport" tvg-name="BT Sport1 (UK) [1080]",BT Sport1 (UK)
-plugin://script.module.horus?action=play&id=ab2b69970c0629bf0fa30dd61b0072adb4ac4d9c
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/BZpK313X/BT-Sport-1-new.png" group-title="BT Sport" tvg-name="BT Sport1 (UK) [1080]",BT Sport1 (UK)
-plugin://script.module.horus?action=play&id=efc60cfe5e3a349baa02bcc49f6647c21a9c3c5b
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/sD1vR6KN/BT-Sport-2-new.png" group-title="BT Sport" tvg-name="BT Sport2 (UK) [1080]",BT Sport2 (UK)
-plugin://script.module.horus?action=play&id=d63d8a57cf471394bfa9f619bbd68b01ae27a801
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/br5YJPLF/BT-Sport-3-new.png" group-title="BT Sport" tvg-name="BT Sport3 (UK) [1080]",BT Sport3 (UK)
-plugin://script.module.horus?action=play&id=5f966c123759de46dff29c379266b7a403452033
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/YCY2pJFb/BT-Sport-4-new.png" group-title="BT Sport" tvg-name="BT Sport4 (UK) [1080]",BT Sport4 (UK)
-plugin://script.module.horus?action=play&id=fc5089d8e1519872fdf951779ccbca913acc9bce
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/VvJ12T19/BT-Sport-5-new.png" group-title="BT Sport" tvg-name="BT Sport5 (UK) [1080]",BT Sport5 (UK)
-plugin://script.module.horus?action=play&id=c300ecb07d854c1730b04ea022c3fb0a184d7801
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/6prwsCsP/BT-Sport-6-new.png" group-title="BT Sport" tvg-name="BT Sport6 (UK) [1080]",BT Sport6 (UK)
-plugin://script.module.horus?action=play&id=e1d74c79ab7b3991b3ed40b199abd0e8eb0ae511
-
-
-
-
-#ELEVEN SPORT    https://i.postimg.cc/C18XcBQC/logo-Eleven-Sport.png
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/JnytndG2/eleven-sport-1.png" group-title="ELEVEN SPORT" tvg-name="Eleven Sport 1 (BE)",Eleven Sport 1 (BE)
-plugin://script.module.horus?action=play&id=36cad67fed5a739757a9db844a551aa845a8d51b
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/QtP9JZ2D/eleven-sport-2.png" group-title="ELEVEN SPORT" tvg-name="Eleven Sport 2 (PL)",Eleven Sport 2 (PL)
-plugin://script.module.horus?action=play&id=54a4a28882d3cae1ca19de5d4b022ebea40351f9
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/pXjcwDJQ/eleven-sport-3.png" group-title="ELEVEN SPORT" tvg-name=""Eleven Sport 3 (PL)","Eleven Sport 3 (PL)
-plugin://script.module.horus?action=play&id=b146ee4b6e16c9df58e27bd02ffd6cea840ff212
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/52MKb6sh/eleven-sport-4.png" group-title="ELEVEN SPORT" tvg-name="Eleven Sport 4 (PL)",Eleven Sport 4 (PL)
-plugin://script.module.horus?action=play&id=458a0ddd7d193f6d2750cd14d03a47f47a808e09
-
-
-
-
-#EXTINF:-1 tvg-id="" tvg-logo="https://cdn.livesoccertv.com/images/channels/thumbnails/sky-sports-football.png" group-title="Sky Sport" tvg-name="Sky Sport Football (UK)",Sky Sport Football (UK)
-plugin://script.module.horus?action=play&id=8dbe2d515e9131fa311353537736f8c94be9b26d
-#EXTINF:-1 tvg-id="" tvg-logo="https://cdn.livesoccertv.com/images/channels/thumbnails/sky-sports-football.png" group-title="Sky Sport" tvg-name="Sky Sport Main Event (UK)",Sky Sport Main Event (UK)
-plugin://script.module.horus?action=play&id=eab7aeef0218ce8b0752e596e4792b69eda4df5e
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/Hx1945X3/Sky-Sport-F1.png" group-title="Sky Sport" tvg-name="Sky Sport F1 [1080]",Sky Sport F1 [1080]
-plugin://script.module.horus?action=play&id=55a762c1e48db88542771a476c65ffc309bd7262
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/Hx1945X3/Sky-Sport-F1.png" group-title="Sky Sport" tvg-name="Sky Sport F1 [1080]",Sky Sport F1
-plugin://script.module.horus?action=play&id=3251c61c831ddeae6b7feeae704a3f6c5c975e02
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/Hx1945X3/Sky-Sport-F1.png" group-title="Sky Sport" tvg-name="Sky Sport F1 [1080]",Sky Sport F1
-plugin://script.module.horus?action=play&id=28710e9057927317c869b11d669c28a4d77a6ab3
-
-
-
-
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/fThn7HgB/Redbull.png" group-title="RED BULL TV" tvg-name="Red Bull TV",Red Bull TV
-plugin://script.module.horus?action=play&id=6f41a8cd339981147843f4f33e40cda9bfc7940e
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/fThn7HgB/Redbull.png" group-title="RED BULL TV" tvg-name="Red Bull",Red Bull
-plugin://script.module.horus?action=play&id=62daab1c54565d0c5ba4e3c660f3a4a5c93adc8a
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/fThn7HgB/Redbull.png" group-title="RED BULL TV" tvg-name="Red Bull TV",Red Bull TV
-plugin://script.module.horus?action=play&id=f1e1e9cce7297a749a5bb2e75c1520f9ce73a83b
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/fThn7HgB/Redbull.png" group-title="RED BULL TV" tvg-name="Red Bull TV HD",Red Bull TV HD
-plugin://script.module.horus?action=play&id=647d19df70ee35100d0e95bc62ddebeebec1fabb
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/fThn7HgB/Redbull.png" group-title="RED BULL TV" tvg-name="Red Bull TV UHD",Red Bull TV UHD
-plugin://script.module.horus?action=play&id=fefd91766cef2af2bf4ded328633fb01051d6df9
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/fThn7HgB/Redbull.png" group-title="RED BULL TV" tvg-name="Red Bull TV HD (2+)",Red Bull TV HD (2+)
-plugin://script.module.horus?action=play&id=a0270364634d9c49279ba61ae3d8467809fb7095
-
-
-
-
-#VIAPLAY SPORTS [UK] https://i.postimg.cc/jdPL0ZGP/logo-viaplay.png
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/zDjFKyBS/premier-sport-1.png" group-title="VIAPLAY SPORTS [UK]" tvg-name="ViaPlay Sports 1",ViaPlay Sports 1
-plugin://script.module.horus?action=play&id=75a56863b6fe0407ad4305b4d7ee5643c3923565
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/nLr4Jxt8/premier-sport-2.png" group-title="VIAPLAY SPORTS [UK]" tvg-name="ViaPlay Sports 1",ViaPlay Sports 1
-plugin://script.module.horus?action=play&id=4903ca695edb64bc72ae29eb85a5333ba0139537
-
-
-
-
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="DAZN liga F" tvg-name="DAZN liga F 1",DAZN liga F 1
-plugin://script.module.horus?action=play&id=600222a4f98df80a2c0df2d60cb5ff3df9620710
-#EXTINF:-1 tvg-id="" tvg-name="DAZN liga F 2" tvg-logo="" group-title="DAZN liga F",FOX SPORTS PREMIUM
-plugin://script.module.horus?action=play&id=d6cdd724a97fcf851e7ef641c28d6beb8663496e
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="DAZN liga F" tvg-name="DAZN liga F 3",CLARO SPORTS
-plugin://script.module.horus?action=play&id=162942adc047d0f78eac056effbe5bbec54a5e51
-
-
 
 
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/NM8kNBZq/La-Liga-New.png" tvg-name="M.LaLiga" group-title="LA LIGA EA SPORT",M+ LALIGA TV BAR
@@ -458,6 +241,17 @@ plugin://script.module.horus?action=play&id=2448f1d084f440eed2fbe847e24f1c02f565
 
 
 
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="DAZN liga F" tvg-name="DAZN liga F 1",DAZN liga F 1
+plugin://script.module.horus?action=play&id=600222a4f98df80a2c0df2d60cb5ff3df9620710
+#EXTINF:-1 tvg-id="" tvg-name="DAZN liga F 2" tvg-logo="" group-title="DAZN liga F",FOX SPORTS PREMIUM
+plugin://script.module.horus?action=play&id=d6cdd724a97fcf851e7ef641c28d6beb8663496e
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="DAZN liga F" tvg-name="DAZN liga F 3",CLARO SPORTS
+plugin://script.module.horus?action=play&id=162942adc047d0f78eac056effbe5bbec54a5e51
+
+
+
+
+
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/CMsnDkDR/ETB1.png" tvg-name="ETB1" group-title="ETB",ETB 1
 https://multimedia.eitb.eus/live-content/etb1hd-hls/master.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/FR9NQdK6/ETB2.png" tvg-name="ETB2" group-title="ETB",ETB 2
@@ -474,6 +268,221 @@ https://multimedia.eitb.eus/live-content/oka1hd-hls/master.m3u8
 https://multimedia.eitb.eus/live-content/oka2hd-hls/master.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="https://graph.facebook.com/deportes.eitb.kirolak/picture?width=200&height=200" tvg-name="ETB Deportes" group-title="ETB",ETB Deportes
 https://multimedia.eitb.eus/live-content/oka3hd-hls/master.m3u8
+
+
+
+
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="La 1",LA 1
+plugin://script.module.horus?action=play&id=02b9307c5c97c86914cc5939d6bbeb5b4ec60b47&title=La 1
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="La 1",LA 1
+plugin://script.module.horus?action=play&id=6636a5c1055b5913ddcd0e87a5523f7d935350af
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="La 2",LA 2
+plugin://script.module.horus?action=play&id=60106275d34f995e26bb2cc4a21a42f586c6c555&title=La 2
+#4c0e50c9cc4971479feb12cc46ab1f5dbce8b132
+#EXTINF:-1 tvg-id="" tvg-logo="" tvg-name="M+"  group-title="Generalistas",Movistar plus+
+plugin://script.module.horus?action=play&id=5a236fbbe6e5bbfec03db548c244a7c858d675c0&title=M+ 1080
+
+#EXTINF:-1 tvg-id="" tvg-logo="" tvg-name="Onetoro TV"  group-title="Generalistas",Onetoro TV
+plugin://script.module.horus?action=play&id=f763ab71f6f646e6c993f37e237be97baf2143ef
+#EXTINF:-1 tvg-id="" tvg-logo="" tvg-name="Onetoro TV"  group-title="Generalistas",Wimbledon UHD
+plugin://script.module.horus?action=play&id=78aa81aedb1e2b6a9ba178398148940857155f6a
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://i2.wp.com/ossom.cl/wp-content/uploads/2020/03/red_bull_tv.jpg?width=200&height=200" group-title="Generalistas" tvg-name="Red Bull TV",Red Bull TV
+plugin://script.module.horus?action=play&id=6f41a8cd339981147843f4f33e40cda9bfc7940e
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/Ntcj66Q/logo-es1.webp" group-title="Generalistas" tvg-name="EuroSport 1",Eurosport 1
+plugin://script.module.horus?action=play&id=5e4cd48c79f991fcbee2de8b9d30c4b16de3b952&title=EuroSport 1
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/HLcq8Cj/logo-es2.webp" group-title="Generalistas" tvg-name="EuroSport 2",Eurosport 2
+plugin://script.module.horus?action=play&id=c373da9e901d414b7384e671112e64d5a2310c29&title=EuroSport 2
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/4ZhrbdF/Gol-Play-logo.png" group-title="Generalistas" tvg-name="Gol TV",GOL PLAY
+plugin://script.module.horus?action=play&id=d4627f7b6b237a8556819445b3283d866caceca2&title=Gol TV
+#EXTINF:-1 tvg-id="" tvg-logo="https://graph.facebook.com/teledeporteRTVE/picture?width=200&height=200" group-title="Generalistas" tvg-name="Teledeporte",Teledeporte
+plugin://script.module.horus?action=play&id=e2395d28ad19423212fd3aa0e81f387db3e8bb9f
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/76GQpKNZ/logo-vamos.png" group-title="Generalistas" tvg-name="#Vamos",M+ Vamos
+plugin://script.module.horus?action=play&id=859bb6295b8d0f224224d3063d9db7cdeca03122&title=#Vamos 1080
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/76GQpKNZ/logo-vamos.png" group-title="Generalistas" tvg-name="#Vamos",M+ Vamos
+plugin://script.module.horus?action=play&id=3bba7c95857c2502c7e03ced1a6a9b00eb567fa0&title=#Vamos 720
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="#Ellas",M+ Ellas V
+plugin://script.module.horus?action=play&id=67654e63b5065cdaa6c8e8d41bb5428b42b32830
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="#M. Golf",M+ Golf
+plugin://script.module.horus?action=play&id=4f945b0ba4206fa2676b61e9eaa465ac3dcc8122&title=#M. Golf 1080
+#EXTINF:-1 tvg-id="" tvg-logo="https://www.mundoplus.tv/wp-content/uploads/2023/03/golf2_movistarplus.jpg" group-title="Generalistas" tvg-name="#M. Golf2",M+ Golf
+plugin://script.module.horus?action=play&id=9a4f3ae6563668b7709dac509dedc709441b3fd9&title=#M. Golf 2 1080
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/nBZ6NvP/DAZN-1-Logo-Sin-Fondo.webp" group-title="Generalistas" tvg-name="DAZN1",DAZN 1
+plugin://script.module.horus?action=play&id=8ca07071b39185431f8e940ec98d1add9e561639&title=DAZN 1 1080
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/nBZ6NvP/DAZN-1-Logo-Sin-Fondo.webp" group-title="Generalistas" tvg-name="DAZN1",DAZN 1
+plugin://script.module.horus?action=play&id=eaff9293c76a324c750ef5094c2a4e2c96518d1f&title=DAZN 1 720
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/NWLCj63/DAZN-Logo.png" group-title="Generalistas" tvg-name="DAZN2",DAZN 2
+plugin://script.module.horus?action=play&id=60dbeeb299ec04bf02bc7426d827547599d3d9fc&title=DAZN 2 1080
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/NWLCj63/DAZN-Logo.png" group-title="Generalistas" tvg-name="DAZN2",DAZN 2
+plugin://script.module.horus?action=play&id=7aa402bab9fff43258fbcf401881a39475f30aaf&title=DAZN 2 1080
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="DAZN 3 1080", DAZN 3
+plugin://script.module.horus?action=play&id=162942adc047d0f78eac056effbe5bbec54a5e51
+#EXTINF:-1 tvg-id="" tvg-name="DAZN 3 1080" tvg-logo="" group-title="Generalistas",DAZN 3
+plugin://script.module.horus?action=play&id=a8ffddef56f082d4bb5c0be0d3d2fdd8c16dbd97
+#EXTINF:-1 tvg-id="" tvg-name="DAZN 4 1080" tvg-logo="" group-title="Generalistas",DAZN 4
+plugin://script.module.horus?action=play&id=2fcdf7a19c0858f686efdfabd3c8c2b92bf6bcfd
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/MM0nfS1/DAZN-F1-Logo-Sin-Fondo.png" group-title="Generalistas" tvg-name="DAZN1",DAZN F1
+plugin://script.module.horus?action=play&id=5789ca155323664edd293b848606688edf803f4d&title=DAZN F1 1080
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/MM0nfS1/DAZN-F1-Logo-Sin-Fondo.png" group-title="Generalistas" tvg-name="DAZN1",DAZN F1
+plugin://script.module.horus?action=play&id=9dad717d99b29a05672166258a77c25b57713dd5&title=DAZN F1 1080
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/MM0nfS1/DAZN-F1-Logo-Sin-Fondo.png" group-title="Generalistas" tvg-name="DAZN1",DAZN F1
+plugin://script.module.horus?action=play&id=e1fcad9de0c782c157fde6377805c58297ab65c2&title=DAZN F1 7200
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/MM0nfS1/DAZN-F1-Logo-Sin-Fondo.png" group-title="Generalistas" tvg-name="DAZN1",DAZN F1
+plugin://script.module.horus?action=play&id=968627d24eec1c16b51d88e4a4a6c02211e3346e&title=DAZN F1 MultiCámara
+
+
+#EXTINF:-1 tvg-id="" tvg-name="DAZN F1 [UHD]" tvg-logo="" group-title="Generalistas",FS PREMIUM
+plugin://script.module.horus?action=play&id=6b94479c24898700089e6b87d28a3ccc72dc4041
+
+
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="Tennis",Tennis Channel
+plugin://script.module.horus?action=play&id=9292d3b32432efb56db4014933cbdec0a7cf2e36
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="SportTv1",Sport Tv 1
+plugin://script.module.horus?action=play&id=ce235921dac95e1da2dd5e54673c2fecb9e806de
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="SportTv2",Sport Tv 2
+plugin://script.module.horus?action=play&id=396d82ca6f5445abcd32e6b609d67e332ee12ace
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="SportTv3",Sport Tv 3
+plugin://script.module.horus?action=play&id=f8cb9d9e3077eb3ae417b2d95a69c5f590760eb9
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/RhNHN7s6/Logo-extreme-canal-2.png" group-title="Generalistas" tvg-name="Extreme Sports 3 (PL)",Extreme Sports 3 (PL)
+plugin://script.module.horus?action=play&id=73ff07648e367efebd94636047b07625f664a082
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/nz7j2PpQ/espn-logo.png" group-title="Generalistas" tvg-name="ESPN HD [US]",ESPN HD [US]
+plugin://script.module.horus?action=play&id=4b4907de51ec11087d4bed5876f2a0c68264f442
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/nz7j2PpQ/espn-logo.png" group-title="Generalistas" tvg-name="ESPN 2 [BE]",ESPN 2 [BE]
+plugin://script.module.horus?action=play&id=3e0ba6867173f345d482d80c771f1a5dc3b37e63
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/SKjPkzTN/Logo-NBA.png" group-title="Generalistas" tvg-name="Nba Tv (US)",Nba Tv (US)
+plugin://script.module.horus?action=play&id=e72d03fb9694164317260f684470be9ab781ed95
+
+
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="Esport 3 GEO CAT ",Esport 3
+plugin://script.module.horus?action=play&id=4c0e50c9cc4971479feb12cc46ab1f5dbce8b132
+
+
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="REAL MADRID TV [1080]",Real Madrid TV
+plugin://script.module.horus?action=play&id=0ec3f3786318acd8dca2588f74c3759cda76cd11
+
+#EXTINF:-1 tvg-id="" tvg-logo="" group-title="Generalistas" tvg-name="BarçaTV",Barça 720
+plugin://script.module.horus?action=play&id=e3362507e7c732b9461bd7bdc74bd054c49b3ba7
+
+
+
+
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/Ntcj66Q/logo-es1.webp" group-title="EUROSPORT 360" tvg-name="EuroSport 1",Eurosport 1
+plugin://script.module.horus?action=play&id=5e4cd48c79f991fcbee2de8b9d30c4b16de3b952&title=EuroSport 1
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/HLcq8Cj/logo-es2.webp" group-title="EUROSPORT 360" tvg-name="EuroSport 2",Eurosport 2
+plugin://script.module.horus?action=play&id=c373da9e901d414b7384e671112e64d5a2310c29&title=EuroSport 2
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 1 [DE]",Eurosport 360 HD 1 [DE]
+plugin://script.module.horus?action=play&id=22df9a5fae8cae52fec925c2bb44b74f96a4200c
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 2 [DE]",Eurosport 360 HD 2 [DE]
+plugin://script.module.horus?action=play&id=57f95543ac41656d473b1a27123fc413388a728c
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 3 [DE]",Eurosport 360 HD 3 [DE]
+plugin://script.module.horus?action=play&id=7adbca42657ace1fe228142d351d0896974bbe0c
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD  [DE]",Eurosport 360 HD 4 [DE]
+plugin://script.module.horus?action=play&id=1b6b6c0ddc0534236b3bae78f41d2bc27cd11f64
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 5 [DE]",Eurosport 360 HD 5 [DE]
+plugin://script.module.horus?action=play&id=148921c4dda96df445e253d6f26c4d092bf85809
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 6 [DE]",Eurosport 360 HD 6 [DE]
+plugin://script.module.horus?action=play&id=005ac522315699bd93bbf743329eb2f3c347dc3f
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 7 [DE]",Eurosport 360 HD 7 [DE]
+plugin://script.module.horus?action=play&id=b18657f64507cc859cd7edef1aef90feb053e791
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 8 [DE]",Eurosport 360 HD 8 [DE]
+plugin://script.module.horus?action=play&id=8f4f572005ca2557743474087aa622693ba9b5fe
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 360 HD 9 [DE]",Eurosport 360 HD 9 [DE]
+plugin://script.module.horus?action=play&id=7993cecc31917793e2bfa2fe98faa9fe1ab62d47
+
+
+
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/fThn7HgB/Redbull.png" group-title="RED BULL TV" tvg-name="Red Bull TV",Red Bull TV
+plugin://script.module.horus?action=play&id=6f41a8cd339981147843f4f33e40cda9bfc7940e
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/fThn7HgB/Redbull.png" group-title="RED BULL TV" tvg-name="Red Bull",Red Bull
+plugin://script.module.horus?action=play&id=62daab1c54565d0c5ba4e3c660f3a4a5c93adc8a
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/fThn7HgB/Redbull.png" group-title="RED BULL TV" tvg-name="Red Bull TV",Red Bull TV
+plugin://script.module.horus?action=play&id=f1e1e9cce7297a749a5bb2e75c1520f9ce73a83b
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/fThn7HgB/Redbull.png" group-title="RED BULL TV" tvg-name="Red Bull TV HD",Red Bull TV HD
+plugin://script.module.horus?action=play&id=647d19df70ee35100d0e95bc62ddebeebec1fabb
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/fThn7HgB/Redbull.png" group-title="RED BULL TV" tvg-name="Red Bull TV UHD",Red Bull TV UHD
+plugin://script.module.horus?action=play&id=fefd91766cef2af2bf4ded328633fb01051d6df9
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/fThn7HgB/Redbull.png" group-title="RED BULL TV" tvg-name="Red Bull TV HD (2+)",Red Bull TV HD (2+)
+plugin://script.module.horus?action=play&id=a0270364634d9c49279ba61ae3d8467809fb7095
+
+
+
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS \u00d1",beIN SPORTS ñ
+plugin://script.module.horus?action=play&id=41af6926a6010b68ba2540975761436bb077748f
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS Xtra\u00d1",beIN SPORTS Xtra\u00d1
+plugin://script.module.horus?action=play&id=92a7dcc55392efc6dd5d012c4ff3878891eb6a6e
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS 1  [BE]",beIN SPORTS 1  [BE]
+plugin://script.module.horus?action=play&id=bba1905fcd1c4975aec544047bf8e4cd23ce3fe0
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS 2  [BE]",beIN SPORTS 2  [BE]
+plugin://script.module.horus?action=play&id=edb507e38394d614c9ff55805c9d354ae13210bc
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS 3  [BE]",beIN SPORTS 3  [BE]
+plugin://script.module.horus?action=play&id=731bd3336ec0986ff9100efe40dbaf1473a22cf8
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS 1 [FR]",beIN SPORTS 1 [FR]
+plugin://script.module.horus?action=play&id=54cbfaf8ad446499aae28ae50b512d95c263f811
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS 2 [FR]",beIN SPORTS 2 [FR]
+plugin://script.module.horus?action=play&id=705e0086f2156e1d76609393666b95a5bd43bebb
+
+
+
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/BZpK313X/BT-Sport-1-new.png" group-title="BT Sport" tvg-name="BT Sport1 (UK) [1080]",BT Sport1 (UK)
+plugin://script.module.horus?action=play&id=ab2b69970c0629bf0fa30dd61b0072adb4ac4d9c
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/BZpK313X/BT-Sport-1-new.png" group-title="BT Sport" tvg-name="BT Sport1 (UK) [1080]",BT Sport1 (UK)
+plugin://script.module.horus?action=play&id=efc60cfe5e3a349baa02bcc49f6647c21a9c3c5b
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/sD1vR6KN/BT-Sport-2-new.png" group-title="BT Sport" tvg-name="BT Sport2 (UK) [1080]",BT Sport2 (UK)
+plugin://script.module.horus?action=play&id=d63d8a57cf471394bfa9f619bbd68b01ae27a801
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/br5YJPLF/BT-Sport-3-new.png" group-title="BT Sport" tvg-name="BT Sport3 (UK) [1080]",BT Sport3 (UK)
+plugin://script.module.horus?action=play&id=5f966c123759de46dff29c379266b7a403452033
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/YCY2pJFb/BT-Sport-4-new.png" group-title="BT Sport" tvg-name="BT Sport4 (UK) [1080]",BT Sport4 (UK)
+plugin://script.module.horus?action=play&id=fc5089d8e1519872fdf951779ccbca913acc9bce
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/VvJ12T19/BT-Sport-5-new.png" group-title="BT Sport" tvg-name="BT Sport5 (UK) [1080]",BT Sport5 (UK)
+plugin://script.module.horus?action=play&id=c300ecb07d854c1730b04ea022c3fb0a184d7801
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/6prwsCsP/BT-Sport-6-new.png" group-title="BT Sport" tvg-name="BT Sport6 (UK) [1080]",BT Sport6 (UK)
+plugin://script.module.horus?action=play&id=e1d74c79ab7b3991b3ed40b199abd0e8eb0ae511
+
+
+
+
+#ELEVEN SPORT    https://i.postimg.cc/C18XcBQC/logo-Eleven-Sport.png
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/JnytndG2/eleven-sport-1.png" group-title="ELEVEN SPORT" tvg-name="Eleven Sport 1 (BE)",Eleven Sport 1 (BE)
+plugin://script.module.horus?action=play&id=36cad67fed5a739757a9db844a551aa845a8d51b
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/QtP9JZ2D/eleven-sport-2.png" group-title="ELEVEN SPORT" tvg-name="Eleven Sport 2 (PL)",Eleven Sport 2 (PL)
+plugin://script.module.horus?action=play&id=54a4a28882d3cae1ca19de5d4b022ebea40351f9
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/pXjcwDJQ/eleven-sport-3.png" group-title="ELEVEN SPORT" tvg-name=""Eleven Sport 3 (PL)","Eleven Sport 3 (PL)
+plugin://script.module.horus?action=play&id=b146ee4b6e16c9df58e27bd02ffd6cea840ff212
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/52MKb6sh/eleven-sport-4.png" group-title="ELEVEN SPORT" tvg-name="Eleven Sport 4 (PL)",Eleven Sport 4 (PL)
+plugin://script.module.horus?action=play&id=458a0ddd7d193f6d2750cd14d03a47f47a808e09
+
+
+
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://cdn.livesoccertv.com/images/channels/thumbnails/sky-sports-football.png" group-title="Sky Sport" tvg-name="Sky Sport Football (UK)",Sky Sport Football (UK)
+plugin://script.module.horus?action=play&id=8dbe2d515e9131fa311353537736f8c94be9b26d
+#EXTINF:-1 tvg-id="" tvg-logo="https://cdn.livesoccertv.com/images/channels/thumbnails/sky-sports-football.png" group-title="Sky Sport" tvg-name="Sky Sport Main Event (UK)",Sky Sport Main Event (UK)
+plugin://script.module.horus?action=play&id=eab7aeef0218ce8b0752e596e4792b69eda4df5e
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/Hx1945X3/Sky-Sport-F1.png" group-title="Sky Sport" tvg-name="Sky Sport F1 [1080]",Sky Sport F1 [1080]
+plugin://script.module.horus?action=play&id=55a762c1e48db88542771a476c65ffc309bd7262
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/Hx1945X3/Sky-Sport-F1.png" group-title="Sky Sport" tvg-name="Sky Sport F1 [1080]",Sky Sport F1
+plugin://script.module.horus?action=play&id=3251c61c831ddeae6b7feeae704a3f6c5c975e02
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/Hx1945X3/Sky-Sport-F1.png" group-title="Sky Sport" tvg-name="Sky Sport F1 [1080]",Sky Sport F1
+plugin://script.module.horus?action=play&id=28710e9057927317c869b11d669c28a4d77a6ab3
+
+
+
+
+#VIAPLAY SPORTS [UK] https://i.postimg.cc/jdPL0ZGP/logo-viaplay.png
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/zDjFKyBS/premier-sport-1.png" group-title="VIAPLAY SPORTS [UK]" tvg-name="ViaPlay Sports 1",ViaPlay Sports 1
+plugin://script.module.horus?action=play&id=75a56863b6fe0407ad4305b4d7ee5643c3923565
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/nLr4Jxt8/premier-sport-2.png" group-title="VIAPLAY SPORTS [UK]" tvg-name="ViaPlay Sports 1",ViaPlay Sports 1
+plugin://script.module.horus?action=play&id=4903ca695edb64bc72ae29eb85a5333ba0139537
+
+
 
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/ea/BT_Sport_logo_2019.svg" group-title="UK" tvg-id="BT DEPORTIVO 1", BT SPORT 1 @@
 plugin://script.module.horus?action=play&id=efc60cfe5e3a349baa02bcc49f6647c21a9c3c5b

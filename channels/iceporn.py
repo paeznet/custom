@@ -18,6 +18,9 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+forced_proxy_opt = 'ProxySSL'
+timeout = 30
+
 # https://iceporn.tv/     https://randyrooster.com/  https://pornmonde.com/
 canonical = {
              'channel': 'iceporn', 
@@ -25,8 +28,10 @@ canonical = {
              'host_alt': ["https://iceporn.tv/"], 
              'host_black_list': [], 
              'pattern': ['Logo" src="([^"]+)"'], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 3, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
@@ -92,9 +97,9 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical, timeout=timeout).data
     else:
-        data = httptools.downloadpage(url, canonical=canonical).data
+        data = httptools.downloadpage(url, canonical=canonical, timeout=timeout).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -138,7 +143,7 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url, canonical=canonical).data
+    data = httptools.downloadpage(item.url).data
     url = scrapertools.find_single_match(data, '"file":"([^"]+)"')
     url = url.replace("\/", "/")
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
@@ -149,7 +154,7 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url, canonical=canonical).data
+    data = httptools.downloadpage(item.url).data
     pornstars= scrapertools.find_single_match(data, 'class="VideoPornstars"(.*?)</ul')
     if pornstars:
         patron = '"Popover">([^<]+)<'

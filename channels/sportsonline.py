@@ -43,9 +43,12 @@ def mainlist(item):
     patron = "(?i)(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)"
     # matches =scrapertools.find_single_match(data, patron)
     matches = re.compile(patron,re.DOTALL).findall(data)
+    logger.debug(matches)
     lista1 = data.split(matches[0])
+    logger.debug(lista1)
     lista2 = lista1[-1].split(matches[1])
-    lista3 = lista2[-1].split(matches[2])
+    if len(matches) == 3:
+        lista3 = lista2[-1].split(matches[2])
     # lista = scrapertools.find_single_match(data, "(matches[0].*?)matches[1]")
     # logger.debug(lista2[0])
     # logger.debug(lista3[0])
@@ -79,7 +82,7 @@ def mainlist(item):
         
         title = ' '.join(txt)
         # time_gmt: str = '2022-10-01 00:00:00 GMT+0200'
-        logger.debug(time)
+        # logger.debug(time)
         # import datetime
         # import pytz
         # from datetime import timezone
@@ -205,6 +208,7 @@ def findvideos(item):
     itemlist = []
     soup = create_soup(item.url)
     url = soup.iframe['src']
+    logger.debug(url)
     # url += "|Referer=%s" %host
     
     # accept= 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
@@ -217,6 +221,8 @@ def findvideos(item):
     # , 'Cookie': 'hf1=1'
     if url.startswith("//"):
         url1 = "https:%s" % url
+    else:
+        url1 = url
     headers = {'Referer': host}
     data = httptools.downloadpage(url1, headers=headers, canonical=canonical).data
     enc_data = scrapertools.find_single_match(data, ">(eval.*?)</script>")

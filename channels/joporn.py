@@ -18,9 +18,20 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+forced_proxy_opt = 'ProxySSL'
+
 # https://josporn.com/ https://www.lenporno.net/ https://en.pornohd.porn/   https://www.pornohd.sex/
 
-host = "https://en.joporn.net"
+canonical = {
+             'channel': 'joporn', 
+             'host': config.get_setting("current_host", 'joporn', default=''), 
+             'host_alt': ["https://en.joporn.net"], 
+             'host_black_list': [], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             'CF': False, 'CF_test': False, 'alfa_s': True
+            }
+host = canonical['host'] or canonical['host_alt'][0]
+
 
 def mainlist(item):
     logger.info()
@@ -147,26 +158,29 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-
+    
     pornstars = soup.find_all('a', href=re.compile("/teg/"))
     for x , value in enumerate(pornstars):
         pornstars[x] = value.text.strip()
-    
     pornstar = ' & '.join(pornstars)
     pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
     lista = item.contentTitle.split()
     lista.insert (2, pornstar)
     item.contentTitle = ' '.join(lista)
-
+    
+    
     matches = soup.find('ul', id='downspisok').find_all('div')
     for elem in matches:
         c = elem['data-c'].split(";")
-        url = "https://file%s.joporn.me/s%s/upload%s/%s/JOPORN_NET_%s_%s.mp4" %(c[2],c[2],c[3],c[0],c[0],c[1])
+        # url = "https://file%s.joporn.me/s%s/upload%s/%s/JOPORN_NET_%s_%s.mp4" %(c[2],c[2],c[3],c[0],c[0],c[1])
+        url = "https://v%s.cdnde.com/x%s/upload%s/%s/JOPORN_NET_%s_%s.mp4" %(c[2],c[2],c[3],c[0],c[0],c[1])
         quality = c[1]
-        response = "480p"
-        if quality == "720p":
-            response = httptools.downloadpage(url, ignore_response_code=True).code
-        if response != 404:
-            itemlist.append(['.mp4 %s' %quality, url])
+        itemlist.append(['.mp4 %s' %quality, url])
+        # response = "480p"
+        # if quality == "720p":
+            # response = httptools.downloadpage(url, ignore_response_code=True).code
+        # if response != 404:
+            # itemlist.append(['.mp4 %s' %quality, url])
     itemlist.sort(key=lambda item: int( re.sub("\D", "", item[0])))
     return itemlist
+
