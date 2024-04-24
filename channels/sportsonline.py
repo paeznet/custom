@@ -58,6 +58,7 @@ def mainlist(item):
     langs = "(HD\d+ .*?)\n"
     idiomas =  re.compile(langs,re.DOTALL).findall(lista2[0])
     IDIOMAS = {"bra": "BRA", "pt": "PT"}
+    DIA =  {"MONDAY": "LUNES", "TUESDAY": "MARTES", "WEDNESDAY": "MIERCOLES"}
     # logger.debug(idiomas)
     for elem in idiomas:
         n= elem.split()
@@ -65,7 +66,7 @@ def mainlist(item):
         n.pop(0)
         txt = '_'.join(n)
         IDIOMAS[lang] = txt
-    itemlist.append(Item(channel=item.channel, title=matches[0]))
+    itemlist.append(Item(channel=item.channel, title= DIA.get(matches[0], "")))
     for elem in eventos:
         event = elem.split("|")
         url = event[-1].strip()

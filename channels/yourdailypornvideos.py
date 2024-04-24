@@ -42,7 +42,7 @@ def mainlist(item):
 
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host))
     # itemlist.append(Item(channel=item.channel, title="Top 100" , action="lista", url=host + "top-100-porn/"))
-    itemlist.append(Item(channel=item.channel, title="Catalogo" , action="categorias", url=host))
+    # itemlist.append(Item(channel=item.channel, title="Catalogo" , action="categorias", url=host))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
 
     autoplay.show_option(item.channel, itemlist)

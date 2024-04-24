@@ -153,7 +153,10 @@ def findvideos(item):
     if soup.find('div', class_='iframe-container'):
         matches.append(soup.find('div', class_='iframe-container'))
     for elem in matches:
-        url = elem.iframe['data-src']
+        if elem.iframe.get('data-src', ''):
+            url = elem.iframe['data-src']
+        else:
+            url = elem.iframe['data-lazy-src']
         if "player-x.php?" in url:
             url = url.split("q=")
             url = url[-1]
@@ -174,7 +177,10 @@ def play(item):
     if soup.find('div', class_='iframe-container'):
         matches.append(soup.find('div', class_='iframe-container'))
     for elem in matches:
-        url = elem.iframe['data-src']
+        if elem.iframe.get('data-src', ''):
+            url = elem.iframe['data-src']
+        else:
+            url = elem.iframe['data-lazy-src']
         if "player-x.php?" in url:
             url = url.split("q=")
             url = url[-1]

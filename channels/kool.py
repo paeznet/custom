@@ -31,6 +31,7 @@ forced_proxy_opt = 'ProxySSL'
 # Poland, Spain, Portugal, 
 # Netherlands, Romania, Bulgaria
 
+timeout =30
 
 canonical = {
              'channel': 'kool', 
@@ -38,10 +39,11 @@ canonical = {
              'host_alt': ["https://kool.to/"], 
              'host_black_list': [], 
              # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
-             'set_tls': False, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 3, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
+vavoo = "https://vavoo.to/"
 
 
 def mainlist(item):
@@ -49,10 +51,11 @@ def mainlist(item):
     itemlist = []
     
     url = "%schannels" % host
-    
+
     itemlist.append(Item(channel=item.channel, title="IPTV" , action="iptv", url=url, pais="Spain"))
     
-    data = httptools.downloadpage(url, canonical=canonical).json
+    headers = {'Referer': host}
+    data = httptools.downloadpage(url, headers=headers, canonical=canonical, timeout=timeout).json  #canonical=canonical,
     
     pais= []
     for elem in data:
@@ -86,15 +89,16 @@ def categorias(item):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical, timeout=timeout).data
     else:
-        data = httptools.downloadpage(url, canonical=canonical).data
+        data = httptools.downloadpage(url, canonical=canonical, timeout=timeout).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
     return soup
 
      # {'country': 'Balkans', 'id': 964145822, 'name': 'ARENA SPORT PREMIUM 1 .s', 'p': 0}
+
 
 def list_all(item):
     logger.info()
@@ -107,9 +111,9 @@ def list_all(item):
             title = elem['name']
             id = elem['id']
             pos = elem['p']
-            url = "%splay/%s/index.m3u8" %(host,id)
+            url = "%splay/%s/index.m3u8" %(vavoo,id)
             itemlist.append(Item(channel=item.channel, action="play", title=title, url=url))
-    logger.debug(canales)
+    # logger.debug(canales)
     # itemlist.sort(key=lambda x: x.title)
     
     return itemlist
@@ -171,7 +175,6 @@ def iptv(item):
     path = filetools.translatePath("special://xbmc")+ 'portable_data/'
     
     data = httptools.downloadpage(item.url).json
-    vavoo = "https://vavoo.to/"
     ficheros =['DAZN', 'FUTBOL', 'RAKUTEN', 'CAMBIO']
     Dazn = ""
     Futbol = ""
@@ -248,13 +251,18 @@ def play(item):
     logger.debug("ITEM: %s" % item)
     url = item.url
     headers = {'Referer': host}
-    # url = httptools.downloadpage(url, canonical=canonical, headers=headers , follow_redirects=False, only_headers=True).headers.get("location", "")
-    url = httptools.downloadpage(url, canonical=canonical, headers=headers).headers.get("location", "")
+    # url = httptools.downloadpage(url, canonical=canonical, headers=headers, timeout=timeout, follow_redirects=False, only_headers=True).headers.get("location", "")
+    # url = httptools.downloadpage(url, canonical=canonical, timeout=timeout, headers=headers).headers.get("location", "")
     
     # url += "|Referer=%s" % host
     # url += "|ignore_response_code=True"
-    
-    itemlist.append(['m3u', url])  #evita hacer comprobacion de si existe
-    # itemlist.append(Item(channel=item.channel, action="play", contentTitle = item.title, url=url))
-    # itemlist.append(Item(channel=item.channel, action="play", contentTitle = item.title, timeout=30, url=url, ignore_response_code=True))
+    itemlist.append(['m3u', url]) 
     return itemlist
+    # import xbmc
+    # import xbmcgui
+    # listitem = xbmcgui.ListItem(item.title)
+    # listitem.setArt({'thumb': item.thumbnail, 'icon': "DefaultVideo.png", 'poster': item.thumbnail})
+    # listitem.setInfo('video', {'Title': item.title, 'Genre': 'Porn', 'plot': '', 'plotoutline': ''})
+    # listitem.setMimeType('application/vnd.apple.mpegurl')
+    # listitem.setContentLookup(False)
+    # return xbmc.Player().play(url, listitem)

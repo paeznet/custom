@@ -22,9 +22,11 @@ import base64
 import binascii
 from core import jsontools
 
+
 def test_video_exists(page_url):
     logger.info("(page_url='%s')" % page_url)
-    if "<h2>WE ARE SORRY</h2>" in data or 'Not Found' in data:
+    data = httptools.downloadpage(page_url).data
+    if "<h2>WE ARE SORRY</h2>" in data or 'Not Found' in data or 'The requested video was not found.' in data:
         return False, "[4tube] El fichero no existe o ha sido borrado"
     return True, ""
 
@@ -35,19 +37,27 @@ def get_video_url(page_url, video_password):
     logger.info("(page_url='%s')" % page_url)
     video_urls = []
     data = httptools.downloadpage(page_url).data
-    url = scrapertools.find_single_match(data, '<script src="(/assets/videojs/ad/[^"]+)"')
-    url = urlparse.urljoin(page_url,url)
-    headers = {'Referer': page_url}
-    data = httptools.downloadpage(url, headers=headers).data
-    text_decode = aadecode.decode(data, alt=True)
-    json_data = jsontools.load(text_decode[11:])  #quita window.svg=
-    for elem in json_data['stream']:
-        quality = elem['Label']
-        url = elem['URL']
-        url = sig_decode(url)
-        url += "|Referer=%s" % page_url
-        video_urls.append(["[vidguard] %s" % quality, url])
-    video_urls.sort(key=lambda item: int( re.sub("\D", "", item[0])))
+    r = re.search(r'eval\("window\.ADBLOCKER\s*=\s*false;\\n(.+?);"\);</script', data)
+    if r:
+        r = r.group(1).replace('\\u002b', '+')
+        r = r.replace('\\u0027', "'")
+        r = r.replace('\\u0022', '"')
+        r = r.replace('\\/', '/')
+        r = r.replace('\\\\', '\\')
+        r = r.replace('\\"', '"')
+        text_decode = aadecode.decode(r, alt=True)
+        json_data = jsontools.load(text_decode[11:])  #quita window.svg=
+        url = json_data['stream']
+        if url:
+            if isinstance(url, list):
+                sources = [(x.get('Label'), x.get('URL')) for x in url]
+                stream_url = helpers.pick_source(helpers.sort_sources_list(sources))
+            if not url.startswith('https://'):
+                url = re.sub(':/*', '://', stream_url)
+            url = sig_decode(url)
+            url += "|Referer=%s" % page_url
+            video_urls.append(["[vidguard]", url])
+        # video_urls.sort(key=lambda item: int( re.sub("\D", "", item[0])))
     return video_urls
 
 
