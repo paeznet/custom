@@ -19,6 +19,7 @@ list_quality_movies = AlfaChannelHelper.LIST_QUALITY_MOVIES_A
 list_quality_tvshow = []
 list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
+
 forced_proxy_opt = 'ProxySSL'
 
 canonical = {
@@ -45,13 +46,13 @@ finds = {'find': {'find_all': [{'tag': ['div'], 'class': ['video-item']}]},
          'get_quality': {}, 
          'get_quality_rgx': '', 
          'next_page': {},
-         'next_page_rgx': [['.html\/\d+', '.html/%s'], ['\/actresses\/\d+', '/actresses/%s'], ['\/videos\/\d+', '/videos/%s']], 
+         'next_page_rgx': [['\/\d+', '/%s'], ['.html\/\d+', '.html/%s'], ['\/actresses\/\d+', '/actresses/%s'], ['\/videos\/\d+', '/videos/%s']], 
          'last_page': dict([('find', [{'tag': ['ul'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-2], 
-                                           '@ARG': 'href', '@TEXT': '(?:videos|actresses|categorie/[a-z0-9-]+|actress/[a-z0-9-]+.html)/(\d+)'}])]), 
+                                           '@ARG': 'href', '@TEXT': '/(\d+)'}])]), 
+                                           # '@ARG': 'href', '@TEXT': '(?:videos|actresses|categorie/[a-z0-9-]+|actress/[a-z0-9-]+)(:?.html|)/(\d+)'}])]), 
          'plot': {}, 
-         'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
-                             ('find_all', [{'tag': ['a'], '@ARG': 'href'}])]),
+         'findvideos':{},
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
@@ -85,7 +86,7 @@ def section(item):
     logger.info()
     
     findS = finds.copy()
-    findS['url_replace'] = [['(\/(?:actress)\/[^$]+$)', r'\1/1']]
+    findS['url_replace'] = [['(\/(?:actress|categorie)\/[^$]+$)', r'\1/1']]
     
     return AlfaChannel.section(item, finds=findS, **kwargs)
 
@@ -125,6 +126,8 @@ def play(item):
         else:
             lista.insert (1, pornstar)
         item.contentTitle = '[/COLOR]'.join(lista)
+        
+        
     matches = soup.find_all('source', type= re.compile(r"(?:x-mpegURL|mp4)"))
     for elem in matches:
         quality = ""
@@ -133,7 +136,7 @@ def play(item):
         if elem.get('title', ''):
             quality = elem['title']
         if "Auto" in quality:
-            continue
+            quality = ""
         if ".mp4" in url: 
             type = "mp4"
         else:

@@ -555,7 +555,19 @@ def play(item):
     patron = 'href="/models/[^"]+" title="([^"]+)"'
     pornstars = re.compile(patron,re.DOTALL).findall(data)
 
-
+        #### Shameless
+    if ">Models:<" in data:
+        data = scrapertools.find_single_match(data, '>Models:</span>.*?<ul>(.*?)</ul')
+        pornstars = scrapertools.find_multiple_matches(data, ">([^<]+)</a")
+        # logger.debug(pornstars)
+        pornstar = ' & '.join(pornstars)
+        pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+        lista = item.title.split()
+        if "HD" in item.title:
+            lista.insert (4, pornstar)
+        else:
+            lista.insert (2, pornstar)
+        item.contentTitle = ' '.join(lista)
 
         ### fpo
     soup = create_soup(item.url).find('div', class_='info')

@@ -19,6 +19,7 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 #   https://telegra.ph/AGENDA-DEPORTIVA-2504-04-25    https://telegra.ph/CLONELCANO-08-09
+# https://telegra.ph/AGENDA-DEPORTIVA-16-DE-ABRIL-04-15-2
     # acestream://9dad717d99b29a05672166258a77c25b57713dd5
 
 
@@ -47,7 +48,7 @@ def mainlist(item):
     logger.info()
     itemlist = []
     
-    url = "%sAGENDA-DEPORTIVA-2504-04-25" % host
+    url = "%sAGENDA-DEPORTIVA-16-DE-ABRIL-04-15-2" % host
     
     soup = create_soup(url).find('article')
     matches = soup.find_all('strong')[:-2]

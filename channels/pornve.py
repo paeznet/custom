@@ -18,6 +18,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+# NO MUESTRA Thumbnail
+
 canonical = {
              'channel': 'pornve', 
              'host': config.get_setting("current_host", 'pornve', default=''), 
@@ -109,9 +111,14 @@ def lista(item):
     soup = create_soup(item.url)
     matches = soup.find_all('div', class_='thumb')
     for elem in matches:
+        # logger.debug(elem)
         url = elem.a['href']
         title = elem.a['title']
         thumbnail = elem.img['data-original']
+        thumbnail = thumbnail.replace('https', 'http')
+        # thumbnail += "|Referer=%s" %host
+        # thumbnail += "|verifypeer=false"
+        # logger.debug(thumbnail)
         time =  elem.find('div', class_='time').text.strip()
         quality = elem.find('div', class_='qualtiy')
         if quality:

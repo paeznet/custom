@@ -143,6 +143,8 @@ def play(item):
     matches = soup.find_all('source')
     for elem in matches:
         url = elem['src']
+        # url = urlparse.unquote(url)
+        url += "|Referer=%s" % host
         quality = elem['label']
         itemlist.append(['[porntubenl] %s' %quality, url])
     return itemlist[::-1]

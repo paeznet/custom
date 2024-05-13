@@ -12,6 +12,12 @@ babestube tenia el play llamando directamente a xbmc
 
 <setting id="debug_report" default="true">true</setting> en settings.xml
 
+from platformcode import unify
+UNIFY_PRESET = config.get_setting("preset_style", default="Inicial")
+logger.debug(unify.colors_file[UNIFY_PRESET])
+{'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange', 'rating_3': 'gold', 'quality': 'deepskyblue', 'cast': 'yellow', 'lat': 'limegreen', 'vose': 'firebrick', 'vos': 'firebrick', 'vo': 'firebrick', 'server': 'orange', 'library': 'yellow', 'update': 'limegreen', 'no_update': 'red'}
+
+
 AlfaChannel.color_setting
 {'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange', 'rating_3': 'gold',
  'quality': 'deepskyblue', 'cast': 'yellow', 'lat': 'limegreen', 'vose': 'firebrick', 'vos': 'firebrick', 
@@ -206,6 +212,7 @@ shooshtime
 tabooporn
 tabootube
 thepornarea
+-titfap
 tonicporn
 -trahkino
 tubepornclassic	TXXX
