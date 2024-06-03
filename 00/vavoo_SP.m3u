@@ -130,6 +130,9 @@ https://vavoo.to/play/3835338116/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="UBEAT " tvg-logo="" group-title="TV",UBEAT
 https://vavoo.to/play/2930666210/index.m3u8
 
+#EXTINF:-1 tvg-id="" tvg-name="GRAN HERMANO " tvg-logo="" group-title="TV",GRAN HERMANO
+https://vavoo.to/play/897942216/index.m3u8
+
 
 
 
@@ -282,6 +285,14 @@ https://vavoo.to/play/441554993/index.m3u8
 https://vavoo.to/play/4165524123/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="GOL TV " tvg-logo="" group-title="DEPORTES",GOL TV
 https://vavoo.to/play/1447300419/index.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-name="FOX SPORTS 2 " tvg-logo="" group-title="DEPORTES",FOX SPORTS 2
+https://vavoo.to/play/4022001704/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="FOX SPORTS 3 " tvg-logo="" group-title="DEPORTES",FOX SPORTS 3
+https://vavoo.to/play/3537553816/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="MOTO ADV " tvg-logo="" group-title="DEPORTES",MOTO ADV
+https://vavoo.to/play/1498547821/index.m3u8
+
 
 #EXTINF:-1 tvg-id="" tvg-name="ESPORT 3 " tvg-logo="" group-title="DEPORTES",Esport 3
 https://vavoo.to/play/3950843408/index.m3u8
@@ -551,7 +562,7 @@ https://vavoo.to/play/521393455/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TV GALICIA" tvg-logo="" group-title="REGIONAL",TVG -TV Galicia
 https://vavoo.to/play/4080888323/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TVG 2 " tvg-logo="" group-title="REGIONAL",TVG 2
-https://vavoo.to/play/2642866194/index.m3u8
+https://vavoo.to/play/56692299/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TV3 CATALUNYA " tvg-logo="" group-title="REGIONAL",TV3
 https://vavoo.to/play/1898714632/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TV3 CATALUNIA" tvg-logo="" group-title="REGIONAL",TV3 Cat
@@ -562,162 +573,156 @@ https://vavoo.to/play/2682195445/index.m3u8
 https://vavoo.to/play/958089500/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TV CASTILLA LA MANCHA " tvg-logo="" group-title="REGIONAL",Castilla la Mancha TV
 https://vavoo.to/play/3432994000/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="LA 7 " tvg-logo="" group-title="REGIONAL",La 7
-https://vavoo.to/play/4200137680/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CANAL 33 " tvg-logo="" group-title="REGIONAL",Canal 33
-https://vavoo.to/play/2662359122/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="LEVANTE TV " tvg-logo="" group-title="REGIONAL",Levante TV
-https://vavoo.to/play/3827544343/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LA OTRA " tvg-logo="" group-title="REGIONAL",LA OTRA
 https://vavoo.to/play/3503480950/index.m3u8
 
+
+#EXTINF:-1 tvg-id="" tvg-name="TELENOVELAS " tvg-logo="" group-title="REGIONAL",TELENOVELAS
+https://vavoo.to/play/1456200012/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="5RTV SANTA FE " tvg-logo="" group-title="REGIONAL",5RTV SANTA FE
+https://vavoo.to/play/3558636721/index.m3u8
+
+
 #EXTINF:-1 tvg-id="" tvg-name="HAMAIKA TELEBISTA " tvg-logo="" group-title="REGIONAL",HAMAIKA TELEBISTA
-https://vavoo.to/play/3556494849/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="GOIENA EUS " tvg-logo="" group-title="REGIONAL",GOIENA EUS
-https://vavoo.to/play/4219435941/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="IMAS TV " tvg-logo="" group-title="REGIONAL",IMAS TV
-https://vavoo.to/play/1521142301/index.m3u8
+https://vavoo.to/play/4120875927/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="OIZMENDI TELEBISTA " tvg-logo="" group-title="REGIONAL",OIZMENDI TELEBISTA
+https://vavoo.to/play/619735660/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TELE SAFOR " tvg-logo="" group-title="REGIONAL",TELE SAFOR
-https://vavoo.to/play/3167526885/index.m3u8
+https://vavoo.to/play/977226543/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BAILEN TV " tvg-logo="" group-title="REGIONAL",BAILEN TV
-https://vavoo.to/play/1457107176/index.m3u8
+https://vavoo.to/play/1994370616/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL 25 BARBASTRO " tvg-logo="" group-title="REGIONAL",CANAL 25 BARBASTRO
-https://vavoo.to/play/3344174837/index.m3u8
+https://vavoo.to/play/3726531801/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="SOLIDARIA TV " tvg-logo="" group-title="REGIONAL",SOLIDARIA TV
-https://vavoo.to/play/3421531572/index.m3u8
+https://vavoo.to/play/3973811070/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="AFV ESPANOL " tvg-logo="" group-title="REGIONAL",AFV ESPANOL
-https://vavoo.to/play/3189194645/index.m3u8
+https://vavoo.to/play/3307268079/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ALACANTI TV " tvg-logo="" group-title="REGIONAL",ALACANTI TV
-https://vavoo.to/play/2396029652/index.m3u8
+https://vavoo.to/play/4125579950/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL TARONJA OSONA " tvg-logo="" group-title="REGIONAL",CANAL TARONJA OSONA
-https://vavoo.to/play/650446555/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="INTER ALMERIA " tvg-logo="" group-title="REGIONAL",INTER ALMERIA
-https://vavoo.to/play/1430256622/index.m3u8
+https://vavoo.to/play/645787578/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="CANAL TARONJA OSONA I MOIANÉS " tvg-logo="" group-title="REGIONAL",CANAL TARONJA OSONA I MOIANÉS
+https://vavoo.to/play/688033992/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="GALICIA TV " tvg-logo="" group-title="REGIONAL",GALICIA TV
-https://vavoo.to/play/460661976/index.m3u8
+https://vavoo.to/play/2642866194/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="324 CAT " tvg-logo="" group-title="REGIONAL",324 CAT
 https://vavoo.to/play/2640191847/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="101 TV MALAGA " tvg-logo="" group-title="REGIONAL",101 TV MALAGA
-https://vavoo.to/play/3522556814/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="DIEZ TV " tvg-logo="" group-title="REGIONAL",DIEZ TV
-https://vavoo.to/play/3665194311/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CANAL DIOCESANO " tvg-logo="" group-title="REGIONAL",CANAL DIOCESANO
-https://vavoo.to/play/732569975/index.m3u8
+https://vavoo.to/play/3042734297/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ANDORRA TV " tvg-logo="" group-title="REGIONAL",ANDORRA TV
-https://vavoo.to/play/3431411868/index.m3u8
+https://vavoo.to/play/1249174614/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ALCARRIA TV " tvg-logo="" group-title="REGIONAL",ALCARRIA TV
-https://vavoo.to/play/2254165055/index.m3u8
+https://vavoo.to/play/4251716677/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="EL PINGUINO TV " tvg-logo="" group-title="REGIONAL",EL PINGUINO TV
-https://vavoo.to/play/3452437268/index.m3u8
+https://vavoo.to/play/1710359793/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="COSTADELSOL TV " tvg-logo="" group-title="REGIONAL",COSTADELSOL TV
-https://vavoo.to/play/1963104477/index.m3u8
+https://vavoo.to/play/3711475512/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="JUNTA CASTILLA Y LEON " tvg-logo="" group-title="REGIONAL",JUNTA CASTILLA Y LEON
 https://vavoo.to/play/1957287328/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL MALAGA " tvg-logo="" group-title="REGIONAL",CANAL MALAGA
-https://vavoo.to/play/1621390019/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="LOCOMOTION TV " tvg-logo="" group-title="REGIONAL",LOCOMOTION TV
-https://vavoo.to/play/2541174883/index.m3u8
+https://vavoo.to/play/3490700601/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LANCELOT TV " tvg-logo="" group-title="REGIONAL",LANCELOT TV
-https://vavoo.to/play/2673020511/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="MELILLA TV " tvg-logo="" group-title="REGIONAL",MELILLA TV
-https://vavoo.to/play/2993130007/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CANAL 56 " tvg-logo="" group-title="REGIONAL",CANAL 56
-https://vavoo.to/play/2148076607/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CONDAVISION " tvg-logo="" group-title="REGIONAL",CONDAVISION
-https://vavoo.to/play/2868724944/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="COSTA NOROESTE TV " tvg-logo="" group-title="REGIONAL",COSTA NOROESTE TV
-https://vavoo.to/play/1322801264/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="PUNT 3 VALL UIXO " tvg-logo="" group-title="REGIONAL",PUNT 3 VALL UIXO
-https://vavoo.to/play/2893663460/index.m3u8
+https://vavoo.to/play/3831813669/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL DONANA " tvg-logo="" group-title="REGIONAL",CANAL DONANA
-https://vavoo.to/play/827970606/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="TELERIBERA " tvg-logo="" group-title="REGIONAL",TELERIBERA
-https://vavoo.to/play/1358029766/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="MAESTRAT TV " tvg-logo="" group-title="REGIONAL",MAESTRAT TV
-https://vavoo.to/play/1403319850/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="LOGOS TV " tvg-logo="" group-title="REGIONAL",LOGOS TV
-https://vavoo.to/play/1799208997/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="PEQUERADIO " tvg-logo="" group-title="REGIONAL",PEQUERADIO
-https://vavoo.to/play/1612857943/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="GIRONA TV " tvg-logo="" group-title="REGIONAL",GIRONA TV
-https://vavoo.to/play/1886323192/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="TV 4 LA VALL " tvg-logo="" group-title="REGIONAL",TV 4 LA VALL
-https://vavoo.to/play/488274125/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="TELEONUBA " tvg-logo="" group-title="REGIONAL",TELEONUBA
-https://vavoo.to/play/3763251742/index.m3u8
+https://vavoo.to/play/2180152276/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL PARLAMENTO " tvg-logo="" group-title="REGIONAL",CANAL PARLAMENTO
 https://vavoo.to/play/1111750157/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="M95 MARBELLA " tvg-logo="" group-title="REGIONAL",M95 MARBELLA
-https://vavoo.to/play/239693871/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="MIRAME TV " tvg-logo="" group-title="REGIONAL",MIRAME TV
-https://vavoo.to/play/3913180498/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="ESPERANZA TV " tvg-logo="" group-title="REGIONAL",ESPERANZA TV
-https://vavoo.to/play/3805695761/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="BON DIA TV " tvg-logo="" group-title="REGIONAL",BON DIA TV
-https://vavoo.to/play/1078881118/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="TVG MUSIGAL " tvg-logo="" group-title="REGIONAL",TVG MUSIGAL
-https://vavoo.to/play/888590259/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="SOPHIA TV " tvg-logo="" group-title="REGIONAL",SOPHIA TV
-https://vavoo.to/play/893232933/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MAR TV " tvg-logo="" group-title="REGIONAL",MAR TV
 https://vavoo.to/play/3767887105/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="MARBELLA TV " tvg-logo="" group-title="REGIONAL",MARBELLA TV
-https://vavoo.to/play/2657518963/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="NORTEVISION " tvg-logo="" group-title="REGIONAL",NORTEVISION
-https://vavoo.to/play/3297752963/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CANAL 10 EMPORDA " tvg-logo="" group-title="REGIONAL",CANAL 10 EMPORDA
-https://vavoo.to/play/4031329709/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="POPULAR TV CANTABRIA " tvg-logo="" group-title="REGIONAL",POPULAR TV CANTABRIA
-https://vavoo.to/play/2772193131/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="CANAL 45 TV " tvg-logo="" group-title="REGIONAL",CANAL 45 TV
+https://vavoo.to/play/2197204081/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="25 TV " tvg-logo="" group-title="REGIONAL",25 TV
+https://vavoo.to/play/3228351756/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="RADIO TELEVISIÓN MELILLA " tvg-logo="" group-title="REGIONAL",RADIO TELEVISIÓN MELILLA
+https://vavoo.to/play/2520649121/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="DISTRITO TV " tvg-logo="" group-title="REGIONAL",DISTRITO TV
+https://vavoo.to/play/4257164702/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="GIRONA TV " tvg-logo="" group-title="REGIONAL",GIRONA TV
+https://vavoo.to/play/1349066536/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="CGTN ESPANOL " tvg-logo="" group-title="REGIONAL",CGTN ESPANOL
+https://vavoo.to/play/2525619575/index.m3u8g
 #EXTINF:-1 tvg-id="" tvg-name="RTV VIDA " tvg-logo="" group-title="REGIONAL",RTV VIDA
-https://vavoo.to/play/3484243888/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="TV VEGA BAJA " tvg-logo="" group-title="REGIONAL",TV VEGA BAJA
-https://vavoo.to/play/912102393/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="FUENGIROLA TV " tvg-logo="" group-title="REGIONAL",FUENGIROLA TV
-https://vavoo.to/play/3630070183/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="TV FERROL " tvg-logo="" group-title="REGIONAL",TV FERROL
-https://vavoo.to/play/362966517/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="TVG CULTURAL " tvg-logo="" group-title="REGIONAL",TVG CULTURAL
-https://vavoo.to/play/911564505/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="ONDA ALGECIRAS TV " tvg-logo="" group-title="REGIONAL",ONDA ALGECIRAS TV
-https://vavoo.to/play/33679313/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CANAL SIERRA DE CADIZ " tvg-logo="" group-title="REGIONAL",CANAL SIERRA DE CADIZ
-https://vavoo.to/play/2015577815/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="101 TELE ANTEQUERA " tvg-logo="" group-title="REGIONAL",101 TELE ANTEQUERA
-https://vavoo.to/play/738616054/index.m3u8
+https://vavoo.to/play/2788570309/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SOPHIA TV ESPAÑOL " tvg-logo="" group-title="REGIONAL",SOPHIA TV ESPAÑOL
+https://vavoo.to/play/3711717935/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="MIRAME TV " tvg-logo="" group-title="REGIONAL",MIRAME TV
+https://vavoo.to/play/3375922050/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="POPULAR TV MELILLA " tvg-logo="" group-title="REGIONAL",POPULAR TV MELILLA
-https://vavoo.to/play/408305014/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="7 LA RIOJA " tvg-logo="" group-title="REGIONAL",7 LA RIOJA
-https://vavoo.to/play/3388872988/index.m3u8
+https://vavoo.to/play/18640730/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="PTV CORDOBA " tvg-logo="" group-title="REGIONAL",PTV CORDOBA
+https://vavoo.to/play/3995929237/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="NORTEVISION " tvg-logo="" group-title="REGIONAL",NORTEVISION
+https://vavoo.to/play/3216535545/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TELEVISIÓN MELILLA " tvg-logo="" group-title="REGIONAL",TELEVISIÓN MELILLA
+https://vavoo.to/play/3719112207/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="LOGOS TV " tvg-logo="" group-title="REGIONAL",LOGOS TV
+https://vavoo.to/play/44475216/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="ONDA ALGECIRAS TV " tvg-logo="" group-title="REGIONAL",ONDA ALGECIRAS TV
+https://vavoo.to/play/610646599/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="CANAL SIERRA DE CADIZ " tvg-logo="" group-title="REGIONAL",CANAL SIERRA DE CADIZ
+https://vavoo.to/play/1475374610/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="BON DIA TV " tvg-logo="" group-title="REGIONAL",BON DIA TV
+https://vavoo.to/play/3334324116/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="CANAL 10 EMPORDA " tvg-logo="" group-title="REGIONAL",CANAL 10 EMPORDA
+https://vavoo.to/play/1294208925/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="ESPERANZA TV " tvg-logo="" group-title="REGIONAL",ESPERANZA TV
+https://vavoo.to/play/1383981291/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="PEQUERADIO " tvg-logo="" group-title="REGIONAL",PEQUERADIO
+https://vavoo.to/play/3872495261/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="RTVIDA " tvg-logo="" group-title="REGIONAL",RTVIDA
+https://vavoo.to/play/2601907871/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="POPULAR TV CANTABRIA " tvg-logo="" group-title="REGIONAL",POPULAR TV CANTABRIA
+https://vavoo.to/play/426249559/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="COSTA NOROESTE TV " tvg-logo="" group-title="REGIONAL",COSTA NOROESTE TV
+https://vavoo.to/play/1757152742/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="PUNT 3 VALL UIXO " tvg-logo="" group-title="REGIONAL",PUNT 3 VALL UIXO
+https://vavoo.to/play/286586580/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="DIEZ TV " tvg-logo="" group-title="REGIONAL",DIEZ TV
+https://vavoo.to/play/1205331668/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TELEVIGO " tvg-logo="" group-title="REGIONAL",TELEVIGO
+https://vavoo.to/play/967807787/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="MARBELLA TV " tvg-logo="" group-title="REGIONAL",MARBELLA TV
+https://vavoo.to/play/3847314697/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TV FERROL " tvg-logo="" group-title="REGIONAL",TV FERROL
+https://vavoo.to/play/899969829/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="EMPORDA TV " tvg-logo="" group-title="REGIONAL",EMPORDA TV
+https://vavoo.to/play/1054272251/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="LA URBAN TV " tvg-logo="" group-title="REGIONAL",LA URBAN TV
+https://vavoo.to/play/1340694365/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="CONDAVISION " tvg-logo="" group-title="REGIONAL",CONDAVISION
+https://vavoo.to/play/3519716522/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CULTURA 24 TV " tvg-logo="" group-title="REGIONAL",CULTURA 24 TV
-https://vavoo.to/play/2365539412/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CANAL SUPER 3 " tvg-logo="" group-title="REGIONAL",CANAL SUPER 3
-https://vavoo.to/play/1100880790/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="4 TV VALL UXA " tvg-logo="" group-title="REGIONAL",4 TV VALL UXA
-https://vavoo.to/play/3014085859/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="7 NOTICIAS " tvg-logo="" group-title="REGIONAL",7 NOTICIAS
-https://vavoo.to/play/611534872/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="MAVTV EUROPE " tvg-logo="" group-title="REGIONAL",MAVTV EUROPE
-https://vavoo.to/play/1785473352/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CANAL 2000 LA SOLANA " tvg-logo="" group-title="REGIONAL",CANAL 2000 LA SOLANA
-https://vavoo.to/play/3294076885/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="VENTDELNORD TV " tvg-logo="" group-title="REGIONAL",VENTDELNORD TV
-https://vavoo.to/play/1293086193/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="SAL " tvg-logo="" group-title="REGIONAL",SAL
-https://vavoo.to/play/244627918/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="TVG INFANTIL " tvg-logo="" group-title="REGIONAL",TVG INFANTIL
-https://vavoo.to/play/244513002/index.m3u8
+https://vavoo.to/play/3509056761/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="IBIZA GLOBAL TV " tvg-logo="" group-title="REGIONAL",IBIZA GLOBAL TV
-https://vavoo.to/play/217673009/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="ESNE TV " tvg-logo="" group-title="REGIONAL",ESNE TV
-https://vavoo.to/play/213524220/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="SOFY TV " tvg-logo="" group-title="REGIONAL",SOFY TV
-https://vavoo.to/play/3886544750/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="GCM TV " tvg-logo="" group-title="REGIONAL",GCM TV
-https://vavoo.to/play/254198348/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="RTVC " tvg-logo="" group-title="REGIONAL",RTVC
-https://vavoo.to/play/2007448435/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="NTV EUROPE " tvg-logo="" group-title="REGIONAL",NTV EUROPE
-https://vavoo.to/play/2773223379/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="EL 33 " tvg-logo="" group-title="REGIONAL",EL 33
-https://vavoo.to/play/2209896691/index.m3u8
+https://vavoo.to/play/3694215617/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="STAR LIFE " tvg-logo="" group-title="REGIONAL",STAR LIFE
+https://vavoo.to/play/737189879/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="CANAL 56 " tvg-logo="" group-title="REGIONAL",CANAL 56
+https://vavoo.to/play/3918688074/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="FUENGIROLA TV " tvg-logo="" group-title="REGIONAL",FUENGIROLA TV
+https://vavoo.to/play/2240203018/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="STAR CHANNEL " tvg-logo="" group-title="REGIONAL",STAR CHANNEL
+https://vavoo.to/play/501658715/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TV5 LIMARES " tvg-logo="" group-title="REGIONAL",TV5 LIMARES
+https://vavoo.to/play/2455049178/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TVG MUSIGAL " tvg-logo="" group-title="REGIONAL",TVG MUSIGAL
+https://vavoo.to/play/1338054601/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="MARÍA VISIÓN " tvg-logo="" group-title="REGIONAL",MARÍA VISIÓN
+https://vavoo.to/play/4020820423/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="CANAL DIOCESANO " tvg-logo="" group-title="REGIONAL",CANAL DIOCESANO
+https://vavoo.to/play/4217507207/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TELEONUBA " tvg-logo="" group-title="REGIONAL",TELEONUBA
+https://vavoo.to/play/3225990350/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="13 TV " tvg-logo="" group-title="REGIONAL",13 TV
+https://vavoo.to/play/1066305614/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7 TV MURCIA " tvg-logo="" group-title="REGIONAL",7 TV MURCIA
+https://vavoo.to/play/3521839803/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="CANAL 4 " tvg-logo="" group-title="REGIONAL",CANAL 4
+https://vavoo.to/play/3790097768/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TUYA LA JANDA TV " tvg-logo="" group-title="REGIONAL",TUYA LA JANDA TV
+https://vavoo.to/play/1762459844/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="7 TELEVALENCIA " tvg-logo="" group-title="REGIONAL",7 TELEVALENCIA
+https://vavoo.to/play/2801370243/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="CANAL EXTREMADURA " tvg-logo="" group-title="REGIONAL",Canal Extremadura
+#EXTINF:-1 tvg-id="" tvg-name="M95 MARBELLA " tvg-logo="" group-title="REGIONAL",M95 MARBELLA
+https://vavoo.to/play/3202539477/index.m3u8
