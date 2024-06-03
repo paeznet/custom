@@ -27,7 +27,8 @@ canonical = {
              'host': config.get_setting("current_host", 'titfap', default=''), 
              'host_alt': ["https://titfap.com/"], 
              'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 6, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -83,10 +84,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "videos/1"))
     itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="list_all", url=host + "porn/titfap-exclusive?stype=recent"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "porn/titfap-exclusive"))
-    itemlist.append(Item(channel=item.channel, title="Brazzers" , action="list_all", url=host + "porn/brazzers/1?stype=recent"))
-    itemlist.append(Item(channel=item.channel, title="Mofos" , action="list_all", url=host + "porn/mofos/1?stype=recent"))
-    itemlist.append(Item(channel=item.channel, title="Onlyfans" , action="list_all", url=host + "porn/onlyfans/1?stype=recent"))
-    itemlist.append(Item(channel=item.channel, title="Public Agent" , action="list_all", url=host + "porn/public-agent/1?stype=recent"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "channels", extra="Canal"))
     itemlist.append(Item(channel=item.channel, title="PornStars" , action="section", url=host + "pornstars/1", extra="PornStars"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "category", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
@@ -98,9 +96,10 @@ def section(item):
     logger.info()
     
     findS = finds.copy()
-    findS['url_replace'] = [['(\/porn\/[^$]+$)', r'\1?stype=recent']]
+    if not "PornStars" in item.extra:
+        findS['url_replace'] = [['(\/porn\/[^$]+$)', r'\1?stype=recent']]
     
-    return AlfaChannel.section(item, **kwargs)
+    return AlfaChannel.section(item, finds=findS, **kwargs)
 
 
 def list_all(item):

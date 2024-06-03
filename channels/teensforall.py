@@ -23,7 +23,7 @@ canonical = {
              'channel': 'teensforall', 
              'host': config.get_setting("current_host", 'teensforall', default=''), 
              'host_alt': ["https://teensforall.com/"], 
-             'host_black_list': [], 
+             'host_black_list': ["https://xhamster.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }

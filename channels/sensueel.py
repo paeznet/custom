@@ -22,7 +22,7 @@ canonical = {
              'channel': 'sensueel', 
              'host': config.get_setting("current_host", 'sensueel', default=''), 
              'host_alt': ["https://sensueel.net/"], 
-             'host_black_list': [], 
+             'host_black_list': ["https://www.youporn.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }

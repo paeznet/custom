@@ -106,12 +106,13 @@ def play(item):
     itemlist = []
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
-    url = soup.iframe['src']
+    url = soup.iframe['data-src']
     url1 = url.replace("p.php", "s.php")
     soup = AlfaChannel.create_soup(url1,referer=url, **kwargs)
     url = soup.source['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    itemlist.append(Item(channel=item.channel, action="play", contentTitle = item.contentTitle, url=url))
+    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     
     return itemlist
 
