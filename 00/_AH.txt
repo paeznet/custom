@@ -17,6 +17,24 @@ UNIFY_PRESET = config.get_setting("preset_style", default="Inicial")
 logger.debug(unify.colors_file[UNIFY_PRESET])
 {'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange', 'rating_3': 'gold', 'quality': 'deepskyblue', 'cast': 'yellow', 'lat': 'limegreen', 'vose': 'firebrick', 'vos': 'firebrick', 'vo': 'firebrick', 'server': 'orange', 'library': 'yellow', 'update': 'limegreen', 'no_update': 'red'}
 
+pornstar	>>>>>>>>>>>>	color.get('rating_3','')
+time		>>>>>>>>>>>>	color.get('year','')
+canal		>>>>>>>>>>>>	color.get('tvshow','')
+
+            # color_setting = self.color_setting
+            # color_default = 'white'
+            # text = color_setting.get('movie', color_default)
+            # stime = color_setting.get('year', color_default)
+            # quality = color_setting.get('quality', color_default)
+            # language = color_setting.get('cast', color_default)
+            # server = color_setting.get('server', color_default)
+            # canal = color_setting.get('tvshow', color_default)
+            # views = color_setting.get('rating_3', color_default)
+            # library = color_setting.get('library', color_default)
+            # page = color_setting.get('update', color_default)
+            # star = color_setting.get('rating_3', color_default)
+            # error = 'red'
+
 
 AlfaChannel.color_setting
 {'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange', 'rating_3': 'gold',
@@ -65,6 +83,9 @@ porngo			multicanal porngo xxxfiles pornpapa porncake fapguru veryfreeporn pornt
 -fullxcinema		multicanal fullxcinema  xmovies fulladultmovies
 			url = AlfaChannel.do_unquote(url_decode)
 -xnxxxvideoshd		multicanal  xnxxxvideoshd  xnxxxvideosxxx  xnxx2  nangivideos aagmaal  hentayco
+-bingato		multicanal  bingato  sexmex  taboodude  arabporn    
+			'next_page': dict([('find', [{'tag': ['li'], 'class': ['next']}, {'tag': ['a'], '@ARG': 'href'}])])
+-josporn		multicanal  josporn   pornohd   xhdporno(diferente y play particular)    Paginacion diferente /page-1/  /page/1/  /page_1.html resuelto con next_page y last_page
 
 
 12milf		quitar paginacion categorias    findS['controls']['cnt_tot'] = 9999

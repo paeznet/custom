@@ -1,0 +1,15 @@
+{
+  "id": "cheems",
+  "name": "01cheems",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/fyP2zVfr/cheems.pngEDIT.org-1.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

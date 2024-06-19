@@ -1,0 +1,15 @@
+{
+  "id": "josporn",
+  "name": "josporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/BbcNc0xJ/josporn.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

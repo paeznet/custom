@@ -44,6 +44,7 @@ finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['video']}]},     #'id':
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
+         # 'next_page': dict([('find', [{'tag': ['li'], 'class': ['next']}, {'tag': ['a'], '@ARG': 'href'}])]),
          # 'next_page': dict([('find', [{'tag': ['a'], 'class': ['current']}]),
                             # ('find_all', [{'tag': ['a'], 'class': ['current'], 
                                           # '@POS': [-1], '@ARG': 'href'}])]), 
@@ -154,8 +155,6 @@ def section(item):
     # findS['url_replace'] = [['(\/(?:categories|channels|models|pornstars)\/[^$]+$)', r'\1?sort_by=post_date&from=1']]
     
     # if item.extra == 'Pornstar':
-       # findS['controls']['cnt_tot'] = 15
-
         # findS['categories'] = dict([('find', [{'tag': ['div'], 'class': 'list-models'}]), 
                                     # ('find_all', [{'tag': ['a'], 'class': 'item'}])])
     
