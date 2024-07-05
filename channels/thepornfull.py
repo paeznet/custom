@@ -37,9 +37,9 @@ def mainlist(item):
     logger.info()
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host))
-    itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="lista", url=host + "mais-vistos/"))
-    itemlist.append(Item(channel=item.channel, title="Mas Votados" , action="lista", url=host + "mais-votados/"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categorias/"))
+    # itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="lista", url=host + "mais-vistos/"))
+    # itemlist.append(Item(channel=item.channel, title="Mas Votados" , action="lista", url=host + "mais-votados/"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host ))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -61,26 +61,14 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='aneTemaI7f593ec_7b5e45')
+    matches = soup.find_all('li', class_=re.compile(r"^cat-item-\d+"))
     for elem in matches:
-        logger.debug(elem)
         url = elem.a['href']
-        title = elem.a['title']
-        thumbnail = elem.img['src']
-        if ".gif" in thumbnail:
-            thumbnail = elem.img['data-src']
-        cantidad = elem.find('span', class_='classSeloTempo')
-        if cantidad:
-            cantidad = cantidad.text.strip().split()
-            title = "%s (%s)" %(title, cantidad[0])
+        title = elem.a.text.strip()
+        thumbnail = ""
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('a', class_='current')
-    if next_page and next_page.parent.find_next_sibling("li"):
-        next_page = next_page.parent.find_next_sibling("li").a['href']
-        next_page = urlparse.urljoin(item.url,next_page)
-        itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
@@ -100,22 +88,25 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all("div", class_='aneTemaI7f593ec_7b5e45')
+    matches = soup.find_all("article", class_=re.compile(r"^post-\d+"))
     for elem in matches:
-        url = elem.a['href']
-        title = elem.a['title']
+        # url = elem.a['href']
+        id = scrapertools.find_single_match(elem['class'][1], 'post-(\d+)')
+        title = elem.h2.text
         thumbnail = elem.img['src']
         if ".gif" in thumbnail:
             thumbnail = elem.img['data-src']
         plot = ""
+        url = "%swp-content/plugins/x-player/player.php?v=%s" %(host,id)
         action = "play"
         if logger.info() == False:
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('li', class_='active')
-    if next_page and next_page.find_next_sibling("li"):
-        next_page = next_page.find_next_sibling("li").a['href']
+    # next_page = soup.find('li', class_='active')
+    next_page = soup.find("a", string=re.compile(r"^Next"))
+    if next_page:
+        next_page = next_page['href']
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
@@ -124,9 +115,9 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
-    url = soup.iframe['src']
-    data = httptools.downloadpage(url).data
+    # soup = create_soup(item.url)
+    # url = soup.iframe['src']
+    data = httptools.downloadpage(item.url).data
     url = scrapertools.find_single_match(data, 'file: "([^"]+)"')
     url += "|Referer=%s" % item.url
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
@@ -138,9 +129,9 @@ def play(item):
     logger.info()
     itemlist = []
     listitem = []
-    soup = create_soup(item.url)
-    url = soup.iframe['src']
-    data = httptools.downloadpage(url).data
+    # soup = create_soup(item.url)
+    # url = soup.iframe['src']
+    data = httptools.downloadpage(item.url).data
     url = scrapertools.find_single_match(data, 'file: "([^"]+)"')
     url += "|Referer=%s" % item.url
     itemlist.append(['[thepornfull] .mp4', url])

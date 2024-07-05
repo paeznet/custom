@@ -94,22 +94,22 @@ def submenu(item):
     AlfaChannel.host = item.url
     AlfaChannel.canonical.update({'channel': item.chanel, 'host': AlfaChannel.host, 'host_alt': [AlfaChannel.host]})
     
-    if "pornohd" in item.chanel:
-        itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "new-update/page-2/", chanel=item.chanel))
-        itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=item.url + "most-popular/page-1/?sort=2", chanel=item.chanel))
-        itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "the-best/page-1/?sort=2", chanel=item.chanel))
-        itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "best-models/page-1/?sort=2", extra="PornStar", chanel=item.chanel))
-        itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "categories/", extra="Categorias", chanel=item.chanel))
     if "josporn" in item.chanel:
         itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "latest-updates/page/1/", chanel=item.chanel))
         itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=item.url + "most-popular/page/1/?sort=2", chanel=item.chanel))
         itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "top-rated/page/1/?sort=2", chanel=item.chanel))
         itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "categories/", extra="Categorias", chanel=item.chanel))
+    if "pornohd" in item.chanel:
+        itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "new-update/page-2/", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=item.url + "most-popular/page-1/?sort=2", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "the-best/page-1/?sort=2", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "best-models/?sort=2", extra="PornStar", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "categories/", extra="Categorias", chanel=item.chanel))
     if "xhdporno" in item.chanel:
         itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url, chanel=item.chanel))
         itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=item.url + "pop/page-1/?sort=2", chanel=item.chanel))
         itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "reting/page-1/?sort=2", chanel=item.chanel))
-        itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "porno-models/page-1/?sort=2", extra="PornStar", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "porno-models/?sort=2", extra="PornStar", chanel=item.chanel))
         itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url, extra="Categorias", chanel=item.chanel))
     
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=item.url, chanel=item.chanel))
@@ -124,6 +124,11 @@ def section(item):
     if 'Categorias' in item.extra and 'xhdporno' in item.url:
         findS['categories'] = dict([('find', [{'tag': ['div'], 'id': ['catsp']}]), 
                                     ('find_all', [{'tag': ['a']}])])
+    if 'PornStar' in item.extra:
+        findS['last_page'] = {}
+        findS['next_page'] =  dict([('find', [{'tag': ['div'], 'class': ['navigation']}]), 
+                                    ('find_all', [{'tag': ['a'], '@POS': [-1], '@ARG': 'href'}])])
+
     return AlfaChannel.section(item, finds=findS, **kwargs)
 
 
@@ -196,7 +201,7 @@ def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    item.url = "%ssearch/%s/1/" % (item.url, texto.replace(" ", "+"))
+    item.url = "%ssearch/%s/page-1/" % (item.url, texto.replace(" ", "+"))
     
     try:
         if texto:

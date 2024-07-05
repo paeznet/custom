@@ -20,6 +20,8 @@ from bs4 import BeautifulSoup
 
 
 # https://pornenix.com/     https://playenix.com/
+# https:/daftsex.app/   https://draftsex.porn/
+
 canonical = {
              'channel': 'pornenix', 
              'host': config.get_setting("current_host", 'pornenix', default=''), 

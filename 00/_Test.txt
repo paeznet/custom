@@ -24,8 +24,8 @@ hoestube
 
 
 CAMBIO host
-
-pornoflix 	https://eporner.xxx/
+pornwiss 	https://xhamster.com/	 CANONICAL
+pornoflix 	https://eporner.xxx/	 cambio host
 sensueel 	https://es.pornhub.com/  CANONICAL
 teensforall 	https://xhamster.com/    CANONICAL
 
