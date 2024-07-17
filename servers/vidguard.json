@@ -4,8 +4,8 @@
     "ignore_urls": [],
     "patterns": [
       {
-        "pattern": "(?:vidguard|vembed|bembed).\\w{2,4}/(?:e|d|v)/([A-z0-9]+)",
-        "url": "https://bembed.net/e/\\1"
+        "pattern": "(?:vidguard|vembed|bembed|vgfplay|listeamed).\\w{2,4}/(?:e|d|v)/([A-z0-9]+)",
+        "url": "https://listeamed.net/e/\\1"
       }
     ]
   },
