@@ -26,7 +26,7 @@ forced_proxy_opt = 'ProxySSL'
 canonical = {
              'channel': 'ixiporn', 
              'host': config.get_setting("current_host", 'ixiporn', default=''), 
-             'host_alt': ["https://xvideosdesi.cc"], 
+             'host_alt': ["https://ixiporn.info/"], 
              'host_black_list': ["https://ixiporn.com"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -145,11 +145,12 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    url = soup.find('iframe')['data-lazy-src']
+    url = soup.find('iframe')['src']
     if "ixiporn" in url or "xvideosdesi" in url:
         url = url.split("?q=")
         url = base64.b64decode(url[1]).decode('utf-8')
         url = urlparse.unquote(url)
+        logger.debug(url)
         url = scrapertools.find_single_match(url, '<(?:source|iframe) src="([^"]+)"')
     url += "|Referer=%s" % host
     itemlist.append(Item(channel=item.channel, action="play", title= url, contentTitle = item.title, url=url))
