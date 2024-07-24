@@ -33,8 +33,8 @@ forced_proxy_opt = 'ProxySSL'
 canonical = {
              'channel': 'teensexmix', 
              'host': config.get_setting("current_host", 'teensexmix', default=''), 
-             'host_alt': ["https://teensexmix.com/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://teensexmix.net/"], 
+             'host_black_list': ["https://teensexmix.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
