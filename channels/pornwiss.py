@@ -22,7 +22,7 @@ canonical = {
              'channel': 'pornwiss', 
              'host': config.get_setting("current_host", 'pornwiss', default=''), 
              'host_alt': ["https://xamateur.me/"], 
-             'host_black_list': ["https://pornwiss.com/"], 
+             'host_black_list': ["https://xhamster.com/","https://pornwiss.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -111,13 +111,16 @@ def lista(item):
     soup = create_soup(item.url)
     matches = soup.find_all('article', class_=re.compile(r"^post-\d+"))
     for elem in matches:
+        # logger.debug(elem)
+        time = ""
         url = elem.a['href']
         title = elem.find('span', class_='title').text.strip()
         if elem.find('img'):
             thumbnail = elem.img['data-src']
         else:
             thumbnail = elem.video['poster']
-        time = elem.find('span', class_='duration').text.strip()
+        if elem.find('span', class_='duration'):
+            time = elem.find('span', class_='duration').text.strip()
         quality = elem.find('span', class_='label hd')
         if quality:
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)

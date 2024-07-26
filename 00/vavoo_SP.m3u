@@ -203,6 +203,10 @@ https://vavoo.to/play/2909740152/index.m3u8
 https://vavoo.to/play/2566347328/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="SUNDANCE TV " tvg-logo="" group-title="CINE",Sundance
 https://vavoo.to/play/486650129/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="STAR CHANNEL " tvg-logo="" group-title="CINE",STAR CHANNEL
+https://vavoo.to/play/501658715/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="STAR LIFE " tvg-logo="" group-title="CINE",STAR LIFE
+https://vavoo.to/play/737189879/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="HBO " tvg-logo="" group-title="CINE",HBO
 https://vavoo.to/play/4128340393/index.m3u8
 
@@ -443,10 +447,10 @@ https://vavoo.to/play/3555546026/index.m3u8
 https://vavoo.to/play/1537807715/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL 24 HORAS " tvg-logo="" group-title="NOTICIAS",CANAL 24 HORAS
 https://vavoo.to/play/2123081752/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="RTVE " tvg-logo="" group-title="NOTICIAS",CANAL 24 HORAS
+https://vavoo.to/play/3177511590/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TVE INTERNACIONAL EUROPA " tvg-logo="" group-title="NOTICIAS",TVE INTERNACIONAL EUROPA
 https://vavoo.to/play/3969343348/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="RTVE NOTICIAS " tvg-logo="" group-title="NOTICIAS",RTVE NOTICIAS
-https://vavoo.to/play/3177511590/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="EURONEWS EN ESPANOL " tvg-logo="" group-title="NOTICIAS",EURONEWS EN ESPANOL
 https://vavoo.to/play/3882151848/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CNN EN ESPANOL " tvg-logo="" group-title="NOTICIAS",CNN EN ESPANOL
@@ -701,8 +705,6 @@ https://vavoo.to/play/737189879/index.m3u8
 https://vavoo.to/play/3918688074/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="FUENGIROLA TV " tvg-logo="" group-title="REGIONAL",FUENGIROLA TV
 https://vavoo.to/play/2240203018/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="STAR CHANNEL " tvg-logo="" group-title="REGIONAL",STAR CHANNEL
-https://vavoo.to/play/501658715/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TV5 LIMARES " tvg-logo="" group-title="REGIONAL",TV5 LIMARES
 https://vavoo.to/play/2455049178/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TVG MUSIGAL " tvg-logo="" group-title="REGIONAL",TVG MUSIGAL

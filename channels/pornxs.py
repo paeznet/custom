@@ -19,6 +19,8 @@ from core import httptools
 from bs4 import BeautifulSoup
 from core import jsontools as json
 
+# OUT 20-6-2024
+
 canonical = {
              'channel': 'pornxs', 
              'host': config.get_setting("current_host", 'pornxs', default=''), 

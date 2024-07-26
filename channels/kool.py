@@ -23,13 +23,16 @@ from bs4 import BeautifulSoup
 
 forced_proxy_opt = 'ProxySSL'
 
-# https://kool.to/    https://vavoo.to/    https://huhu.to/
+# https://kool.to/    https://vavoo.to/    https://huhu.to/  https://www.oha.to/  ETB https://kool.to/play/4016507507/index.m3u8
+# https:// NEUER SERVER KOMMT /PointPython.php?coder=MaDoc&username=HYDRAvavoo&password=Germany
 # https://kooltown.000webhostapp.com/PointPython.php?coder=MaDoc&username=HYDRAvavoo&password=Spain  # Germany  
 # Arabia, Turkey, Germany,
 # France, Italy, United Kingdom, 
 # Albania, Russia, Balkans, 
 # Poland, Spain, Portugal, 
 # Netherlands, Romania, Bulgaria
+# https://chasmic-curls.000webhostapp.com/Vavoo.php?GroupeHYDRA4=kool_to&username=MaDoc68&password=Spain
+
 
 timeout =30
 

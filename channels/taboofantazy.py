@@ -23,7 +23,7 @@ canonical = {
              'channel': 'taboofantazy', 
              'host': config.get_setting("current_host", 'taboofantazy', default=''), 
              'host_alt': ["https://www.taboofantazy.com/"], 
-             'host_black_list': [], 
+             'host_black_list': ["https://bitporno.to/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -167,7 +167,8 @@ def play(item):
     if matches.find('video'):
         url = matches.video['src']
     else:
-        url = matches.iframe['data-wpfc-original-src']
+        # url = matches.iframe['data-wpfc-original-src']
+        url = matches.iframe['src']
         if "base64" in url:
             url = matches.iframe['data-src']
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))

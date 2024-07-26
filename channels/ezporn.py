@@ -32,8 +32,8 @@ forced_proxy_opt = 'ProxySSL'
 canonical = {
              'channel': 'ezporn', 
              'host': config.get_setting("current_host", 'ezporn', default=''), 
-             'host_alt': ["https://www.ezporn.tv/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://ezporn.tv/"], 
+             'host_black_list': ["https://www.ezporn.tv/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
