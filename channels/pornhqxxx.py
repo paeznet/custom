@@ -20,6 +20,7 @@ from bs4 import BeautifulSoup
 import base64
 
 # https://ixiporn.com  https://uncutmaza.com/  https://xvideosdesi.net/   https://www.pornhqxxx.com/  
+# casi todos los links caidos
 canonical = {
              'channel': 'pornhqxxx', 
              'host': config.get_setting("current_host", 'pornhqxxx', default=''), 
@@ -115,7 +116,7 @@ def lista(item):
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('a', class_='next page-link')
     if next_page:
-        next_page = next_page['href']
+        next_page = next_page['href'].replace(".compage", ".com/page")
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist

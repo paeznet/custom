@@ -41,6 +41,8 @@ url_replace = []
 
 finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['video']}]},     #'id': re.compile(r"^browse_\d+")}]},
          'categories': {'find_all': [{'tag': ['li'], 'class': ['category']}]}, 
+         # 'categories': dict([('find', [{'tag': ['div'], 'class': ['videos-list']}]),
+                             # ('find_all', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}])]),
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 

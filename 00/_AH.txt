@@ -12,14 +12,25 @@ babestube tenia el play llamando directamente a xbmc
 
 <setting id="debug_report" default="true">true</setting> en settings.xml
 
+
+	------------------------------------------------------------------------------------
+		###  bellesa  XXXSeed
+
 from platformcode import unify
 UNIFY_PRESET = config.get_setting("preset_style", default="Inicial")
-logger.debug(unify.colors_file[UNIFY_PRESET])
-{'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange', 'rating_3': 'gold', 'quality': 'deepskyblue', 'cast': 'yellow', 'lat': 'limegreen', 'vose': 'firebrick', 'vos': 'firebrick', 'vo': 'firebrick', 'server': 'orange', 'library': 'yellow', 'update': 'limegreen', 'no_update': 'red'}
+color = unify.colors_file[UNIFY_PRESET]
+# color = {'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange',
+         # 'rating_3': 'gold', 'quality': 'deepskyblue', 'cast': 'yellow', 'lat': 'limegreen', 'vose': 'firebrick',
+         # 'vos': 'firebrick', 'vo': 'firebrick', 'server': 'orange', 'library': 'yellow', 'update': 'limegreen', 'no_update': 'red'}
+
 
 pornstar	>>>>>>>>>>>>	color.get('rating_3','')
 time		>>>>>>>>>>>>	color.get('year','')
 canal		>>>>>>>>>>>>	color.get('tvshow','')
+quality		>>>>>>>>>>>>	color.get('quality','')
+
+
+	------------------------------------------------------------------------------------
 
             # color_setting = self.color_setting
             # color_default = 'white'
@@ -44,6 +55,8 @@ AlfaChannel.color_setting
 color = AlfaChannel.color_setting.get('quality', '')  ====> 'deepskyblue'
 
 	------------------------------------------------------------------------------------
+
+
 entrepeliculasyseries  [canonical] 'search_active': None    evitar cargar proxyes en buscar que pide CF2
 			search  condicion search_active
 
@@ -89,6 +102,7 @@ porngo			multicanal porngo xxxfiles pornpapa porncake fapguru veryfreeporn pornt
 
 
 12milf		quitar paginacion categorias    findS['controls']['cnt_tot'] = 9999
+-24xxx
 4tube	        submenu gay trans
 absoluporn      pone videos aleatorios
 adptube
@@ -107,9 +121,11 @@ ballzdeep
 beeg		json  paginacion rara 'controls': {'url_base64': False, 'cnt_tot': 24, 'reverse': False, 'custom_pagination': True},
 		AlfaChannel.next_page_url = re.sub(r"&offset=\d+", "&offset=%s" % page, item.url)
 -bestbustytube	'list_all_thumbnail': {'find': [{'tag': ['video'], '@ARG': ['poster']}]},
-bigtitslust	
+-bigbuttshub
+bigtitslust
 -blackporn	TXX		
 bravoporn	last_page y next_page titulos y cantidad de section
+-brazz
 cambox
 cambro
 -camvideostv
@@ -165,6 +181,7 @@ heroero
 hoestube
 -hornybutt
 hotmovs		TXXX 
+-hotporn
 incestvidz	elem_json['action'] = 'findvideos'
 internetchicks  'findvideos' fuckingsession
 -inxxx
@@ -175,16 +192,20 @@ latestpornvideo		findvideo de fuckingsession
 -leakslove	'findvideos' con pornstars   findS['controls']['cnt_tot'] = 9999 en categorias sino no mostraba paginacion
 -lesbian8
 LIKUOO	
+-lovingsiren	FINVIDEOS  elem_json['url'] = elem.iframe.get("data-src", "") or elem.iframe.get('src', '')
 mangovideo	OUT Links	 'findvideos'
 manysex		TXXX2
 megatube	solucion al probema de search string "videos" de eporner
 momvids		babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
 -mondetube    	Cookie    kwargs['headers'] = {'Referer': host, "Cookie": "kt_tcookie=1; tag_id=%s" % item.orientation}
+-mypornerleak
+-netfapxtwo
 -nudede		https://iframe.mediadelivery.net/ por resolver
 nubilefilm
 okporn		next_page con last_page          findS['next_page'] = {}     item.last_page = 9999
 -onlyincest
 -petitespinners
+-phub		'list_all_premium': {'find': [{'tag': ['img'], 'src': re.compile(r"xtapes")}]}     #NETU
 -poldertubenl	
 porn00	
 porncaper
@@ -222,8 +243,10 @@ pornxp
 redtube
 
 -serakon	findvideos especial con PLAY  AUTOMATICO         return launcher.run(item)	ya que hay escenas en vsexin y peliculas para play 
-		- Si hay matches, se pasa el control a AH para que siga su proceso normal, cuidando de pasarle data=soup para que no tenga que descargar la                    	  página de nuevo 
-		- Si no hay matches, se ejecuta el código que habías puesto al final de findvideos_matches para preparar Item para la reproducción.  Si se                   	  hiciera un return itemlist listaría el enlace y el usuario tendría que pinchar para reproducir, sin embargo, con return launcher.run(item)                   	  llamamos al launcher para que piense que el usuario ya ha pinchado en el enlace, y empiece la reproducción inmediatamente.
+		- Si hay matches, se pasa el control a AH para que siga su proceso normal, cuidando de pasarle data=soup para que no tenga que descargar la
+                  página de nuevo 
+		- Si no hay matches, se ejecuta el código que habías puesto al final de findvideos_matches para preparar Item para la reproducción.  Si se
+                  hiciera un return itemlist listaría el enlace y el usuario tendría que pinchar para reproducir, sin embargo, con return launcher.run(item)                   	  			 	  llamamos al launcher para que piense que el usuario ya ha pinchado en el enlace, y empiece la reproducción inmediatamente.
 
 severeporn
 -sexmex
@@ -263,8 +286,10 @@ voyeurhit	TXXX
 watchporn
 -whereismyporn	findvideo de fuckingsession
 whoreshub
+-xfuntaxy
 xfy		viralxvideos    'findvideos' find_all(a href y iframe src) 
 -xhand
+-xmegadrive
 xmoviesforyou	'findvideos' 
 xozilla
 xtit		'list_all_quality': {'find': [{'tag': ['span'], 'class': ['hd'],  '@ARG': 'class',  '@TEXT': '(hd)' }]}

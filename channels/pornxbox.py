@@ -24,11 +24,12 @@ forced_proxy_opt = 'ProxySSL'
 #  https://porn2all.com/   https://pornxbox.com/
 #  https://tonicporn.com/ OUT
 
+
 canonical = {
              'channel': 'pornxbox', 
              'host': config.get_setting("current_host", 'pornxbox', default=''), 
-             'host_alt': ["https://pornxbox.com/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://porn2best.com/"], 
+             'host_black_list': ["https://pornxbox.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }

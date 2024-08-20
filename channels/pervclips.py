@@ -29,7 +29,6 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-
 def mainlist(item):
     logger.info()
     itemlist = []
