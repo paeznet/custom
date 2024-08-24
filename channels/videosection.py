@@ -27,7 +27,7 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-#####   Error al ver el m3u
+#####    Error creating demuxer al ver el m3u
 
 def mainlist(item):
     logger.info()

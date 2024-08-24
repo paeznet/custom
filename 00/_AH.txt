@@ -99,7 +99,7 @@ porngo			multicanal porngo xxxfiles pornpapa porncake fapguru veryfreeporn pornt
 -bingato		multicanal  bingato  sexmex  taboodude  arabporn    
 			'next_page': dict([('find', [{'tag': ['li'], 'class': ['next']}, {'tag': ['a'], '@ARG': 'href'}])])
 -josporn		multicanal  josporn   pornohd   xhdporno(diferente y play particular)    Paginacion diferente /page-1/  /page/1/  /page_1.html resuelto con next_page y last_page
-
+-freexxx		multicanal  freexxx   pornertwo   pornsoda
 
 12milf		quitar paginacion categorias    findS['controls']['cnt_tot'] = 9999
 -24xxx
@@ -249,6 +249,7 @@ redtube
                   hiciera un return itemlist listaría el enlace y el usuario tendría que pinchar para reproducir, sin embargo, con return launcher.run(item)                   	  			 	  llamamos al launcher para que piense que el usuario ya ha pinchado en el enlace, y empiece la reproducción inmediatamente.
 
 severeporn
+-sexfullmovies  AlfaChannel.doo_url + kwargs['post']  en play
 -sexmex
 
 -sexVR		'section_cantidad': dict([('find', [{'tagOR':   LA WEB muestra el video en 360º           

@@ -21,8 +21,8 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'pornhoarder', 
              'host': config.get_setting("current_host", 'pornhoarder', default=''), 
-             'host_alt': ["https://ww1.pornhoarder.tv/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://ww8.pornhoarder.tv/"], 
+             'host_black_list': ["https://ww1.pornhoarder.tv/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }

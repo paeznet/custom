@@ -26,8 +26,8 @@ forced_proxy_opt = 'ProxySSL'
 canonical = {
              'channel': 'pornxto', 
              'host': config.get_setting("current_host", 'pornxto', default=''), 
-             'host_alt': ["https://ww1.pornx.to/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://ww3.pornx.to/"], 
+             'host_black_list': [["https://ww1.pornx.to/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
