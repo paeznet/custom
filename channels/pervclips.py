@@ -18,6 +18,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+###    no muestra thumbnail    https://cdn.pervclips.com/tube/contents/videos_screenshots/1064102000/1064102366/367x275/3.jpg
+
 canonical = {
              'channel': 'pervclips', 
              'host': config.get_setting("current_host", 'pervclips', default=''), 
@@ -95,6 +97,7 @@ def lista(item):
         # title = elem.find('p', class_='title').text.strip()
         title = elem.img['alt']
         thumbnail = elem.img['data-original']
+        thumbnail = thumbnail.replace("?ver=3", "")
         time = elem.find('div', class_='time-holder').text.strip()
         quality = elem.find('i', class_='icon-hd')
         if quality:
@@ -102,7 +105,7 @@ def lista(item):
         else:
             title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         url = urlparse.urljoin(item.url,url)
-        thumbnail += "|Referer=%s" % host
+        # thumbnail += "|Referer=%s" % host
         plot = ""
         action = "play"
         if logger.info() == False:

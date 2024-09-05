@@ -1,0 +1,15 @@
+{
+  "id": "xxvideoss",
+  "name": "xxvideoss",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/4xRJ2Jfv/XXXVideos.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

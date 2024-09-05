@@ -446,7 +446,10 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
         # lista = item.contentTitle.split('[/COLOR]')
         # pornstar = pornstar.replace('[/COLOR]', '')
         # pornstar = ' %s' %pornstar
-        # lista.insert (2, pornstar)
+        # if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
+            # lista.insert (2, pornstar)
+        # else:
+            # lista.insert (1, pornstar)
         # item.contentTitle = '[/COLOR]'.join(lista)
     
     # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))

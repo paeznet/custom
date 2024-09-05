@@ -549,6 +549,23 @@ def play(item):
     color_setting = AlfaChannel.color_setting.get('rating_3', '')  ''' =====> ''' gold
 
 
+
+#####   CREAR PLAYLIST por año   pelisflix  xmovix
+def anno(item):
+    logger.info()
+    from datetime import datetime
+    
+    itemlist = []
+    
+    now = datetime.now()
+    year = int(now.year)
+    while year >= 1980:
+        itemlist.append(item.clone(title="%s" %year, action="lista", url= "%sen/watch/year/%s/" % (host,year)))
+        year -= 1
+    
+    return itemlist
+
+
     
     
                     ##### xxxfiles
