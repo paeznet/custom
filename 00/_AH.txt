@@ -166,7 +166,7 @@ fetishshrine
 		findS['url_replace'] = [['($)', '&sort=addDate.desc'],['shemale', 'shemale/'],['gay', 'gay/'],['\?q=', '1?q=']]
 
 fpo
-freeomovie
+freeomovie	findvideos
 freeuseporn
 freshporno
 fuckingsession	findS['controls']['action'] = 'findvideos'    'findvideos find_all(a href y iframe src)  

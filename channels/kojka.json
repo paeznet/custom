@@ -1,0 +1,15 @@
+{
+  "id": "kojka",
+  "name": "kojka",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://kojka.com/static/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

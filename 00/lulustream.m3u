@@ -1,0 +1,11 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="Fastream" tvg-name="Fastream" tvg-logo="" , Fastream
+https://s39.fastream.to/hls2/20/00069/ee5y4d15xt7d_,l,n,h,.urlset/index-f3-v1-a1.m3u8?t=ONX2Y-jjORRRjjmIPuZsWCMHn5z4-tjyPgbZ82U8rnk&s=1725609311&e=43200&f=347244&i=0.3&sp=0
+#EXTINF:-1 tvg-id="Fastream720" tvg-name="Fastream720" tvg-logo="" , Fastream720
+https://s39.fastream.to/hls2/20/00069/ee5y4d15xt7d_,l,n,h,.urlset/index-f3-v1-a1.m3u8?t=YDhms9aO47sHjaFqXs1kaF1J0CyZ40K8gsfZmIMhqoc&s=1725612581&e=43200&f=347244&i=0.3&sp=0
+#EXTINF:-1 tvg-id="Lulutream" tvg-name="Lulutream" tvg-logo="" , Lulutream
+https://cdn1024.tnmr.org/hls2/01/00376/j8b5qhy00rjs_h/master.m3u8?t=PVqQWebpwSsFqrY-OZidw6dJIVSwFvOV7sfZWFELxB8&s=1725612764&e=43200&f=1883521&i=0.3&sp=0
+#EXTINF:-1 tvg-id="Lulutream720" tvg-name="Lulutream720" tvg-logo="" , Lulutream720
+https://cdn1024.tnmr.org/hls2/01/00376/j8b5qhy00rjs_h/index-v1-a1.m3u8?t=PVqQWebpwSsFqrY-OZidw6dJIVSwFvOV7sfZWFELxB8&s=1725612764&e=43200&f=1883521&i=0.3&sp=0
+
+
