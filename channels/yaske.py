@@ -25,14 +25,14 @@ canonical = {
              'host': config.get_setting("current_host", 'yaske', default=''), 
              'host_alt': ["https://yaske.ru/"], 
              'host_black_list': [], 
-             'pattern': ['href="?([^"|\s*]+)["|\s*]\s*rel="?stylesheet"?'], 
+             'pattern': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
 
-
+                  # https://yaske.ru/api/v1/channel/2?returnContentOnly=true&restriction=&order=created_at:desc&perPage=50&query=&page=1
 #Nuevos             https://yaske.ru/api/v1/channel/2?returnContentOnly=true&restriction=&order=created_at:desc&perPage=50&query=&page=1
 #Mas visto          https://yaske.ru/api/v1/channel/2?returnContentOnly=true&restriction=&order=popularity:desc&perPage=50&query=&page=1
 #Mejor valorado     https://yaske.ru/api/v1/channel/2?returnContentOnly=true&restriction=&order=rating:desc&perPage=50&query=&page=1
@@ -186,9 +186,13 @@ def findvideos(item):
         language = elem ['language']
         domain = elem ['domain']
         url = urlparse.urljoin(item.url,url)
-        video = httptools.downloadpage(url, follow_redirects=False, only_headers=True).headers["location"]
-        # url = httptools.downloadpage(url).url
-        logger.debug(video)
+        headers={'Referer': url, 'Origin': 'https://yaske.ru'}
+        data = httptools.downloadpage(url, headers=headers).data
+        # , post={}
+        # video = httptools.downloadpage(url, follow_redirects=False, only_headers=True).url#.headers["location"]
+        # data = httptools.downloadpage("%s?" %url, timeout=20, follow_redirects=True, headers=headers).data
+        logger.debug("      @@@@@@@@@@@@@@@@        ")
+        logger.debug(data)
         {'id': 36388, 'name': None, 'thumbnail': None, 
          'src': '/link/vRqxp8gq0x', 'type': 'embed', 
          'quality': '5f744bff-7374-40c2-8f22-bb493823d3b9', 'title_id': 41, 

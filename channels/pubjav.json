@@ -1,0 +1,15 @@
+{
+  "id": "pubjav",
+  "name": "pubjav",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://pubjav.com/assets/css/img/footer_logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

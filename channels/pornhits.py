@@ -38,7 +38,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "videos.php?p=1&s=l"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "videos.php?p=1&s=pw"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "videos.php?p=1&s=bw"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "pornstars.php?p=1&s=avp&mg=f"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "pornstars.php?p=1&s=tv&mg=f"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="catalogo", url=host + "sites.php?p=1&s=avp"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories.php"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
@@ -63,8 +63,8 @@ def categorias(item):
     itemlist = []
     soup = create_soup(item.url)
     matches = soup.find('div', class_='box').find_all('a', class_='item')
-    if "models" in item.url:
-        matches.pop(0)
+    if "pornstars" in item.url:
+        matches = soup.find('div', class_='list-models').find_all('a')
     for elem in matches:
         url = elem['href']
         title = elem['title'].replace("porn videos", "" )
@@ -136,13 +136,14 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find('div', class_='list-videos').find_all('div', class_='item')
+    matches = soup.find('div', class_='list-videos').find_all('article', class_='item')
     for elem in matches:
         url = elem.a['href']
         id = scrapertools.find_single_match(url, '/video/(\d+)/')
-        title = elem.find('strong', class_='title').text.strip()
-        title = " ".join(title.split())
-        thumbnail = elem.img['data-original']
+        title = elem.a['title']
+        thumbnail = elem.img['src']
+        if "gif;base64" in thumbnail:
+            thumbnail = elem.img['data-original']
         time = elem.find('span', class_='duration').text.strip()
         pornstars = elem.find_all('a', href=re.compile("&ps=[A-z0-9-]+"))
         for x , value in enumerate(pornstars):

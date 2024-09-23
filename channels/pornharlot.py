@@ -111,6 +111,11 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
+    
+    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    if soup.find('div', class_='video-embedded'):
+        item.url = soup.find('div', class_='video-embedded').find(re.compile("(?:iframe|source)"))['src']
+    
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

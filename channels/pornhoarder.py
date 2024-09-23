@@ -150,9 +150,9 @@ def list_all(item):
             title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         url = urlparse.urljoin(host,url)
         plot = ""
-        action = "play"
-        if logger.info() == False:
-            action = "findvideos"
+        # action = "play"
+        # if logger.info() == False:
+            # action = "findvideos"
         itemlist.append(Item(channel=item.channel, action="findvideos", title=title, contentTitle=title, url=url, server=server,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('li', class_='next')
@@ -197,6 +197,9 @@ def findvideos(item):
             url = urlparse.urljoin(host,url)
             server = elem.text.strip().capitalize()
             itemlist.append(Item(channel=item.channel, action="play", title=server, contentTitle = item.contentTitle, server=server, url=url))
+    
+    # Requerido para AutoPlay
+    autoplay.start(itemlist, item)
     
     return itemlist
 

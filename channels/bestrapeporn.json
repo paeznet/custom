@@ -1,0 +1,15 @@
+{
+  "id": "bestrapeporn",
+  "name": "bestrapeporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/HxZ9PMJ6/bestrapeporn.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

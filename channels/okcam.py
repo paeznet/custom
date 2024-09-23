@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# -*- Channel Pornez -*-
+# -*- Channel Okcam -*-
 # -*- Created for Alfa-addon -*-
 # -*- By the Alfa Develop Group -*-
 
@@ -11,6 +11,7 @@ if PY3:
     import urllib.parse as urlparse                             # Es muy lento en PY2.  En PY3 es nativo
 else:
     import urlparse                                             # Usamos el nativo de PY2 que es más rápido
+
 
 from lib import AlfaChannelHelper
 if not PY3: _dict = dict; from AlfaChannelHelper import dict
@@ -29,10 +30,10 @@ forced_proxy_opt = 'ProxySSL'
 # https://pornez.cam/  https://okxxx.cam/ okcam
 
 canonical = {
-             'channel': 'pornez', 
-             'host': config.get_setting("current_host", 'pornez', default=''), 
-             'host_alt': ["https://pornez.cam/"], 
-             'host_black_list': ["https://pornez.site/","https://pornez.net/"], 
+             'channel': 'okcam', 
+             'host': config.get_setting("current_host", 'okcam', default=''), 
+             'host_alt': ["https://okxxx.cam/"], 
+             'host_black_list': [], 
              'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 3, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -55,7 +56,7 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
          'get_quality': {}, 
          'get_quality_rgx': '', 
          'next_page': {},
-         'next_page_rgx': [['\/\d+', '/%s/'], ['\/page\d+.html', '/page%s.html']], 
+         'next_page_rgx': [['\/page\/\d+', '/page/%s']], 
          'last_page': dict([('find', [{'tag': ['div', 'nav', 'ul'], 'class': ['n-pagination', 'pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
@@ -69,7 +70,7 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
                                                                 # {'tagOR': ['span'], 'style':['color']}]),
                                                       # ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])
                             },
-         'controls': {'url_base64': False, 'cnt_tot': 60, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 52, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -151,7 +152,7 @@ def play(item):
         url_decode = base64.b64decode(url[-1]).decode("utf8")
         url = urlparse.unquote(url_decode)
         url = scrapertools.find_single_match(url, 'src="([^"]+)"')
-    
+        
     itemlist.append(Item(channel = item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     

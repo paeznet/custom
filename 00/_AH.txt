@@ -219,6 +219,8 @@ pornerbross	    porntube
 -pornez
 -porngrabbz
 -porngrey
+-pornheal	paginacion okporn parameter sin ultima pagina           item.last_page = 9999  #### 1068 pag a 8-9-2024
+
 pornhub
 pornktube	joysporn    paginado necesita /2/  ===>  ['\/\d+', '/%s/']  
 			    findS['url_replace'] = [['($)', '1/']]  categorias formato "/c/10/#/" # pag
@@ -243,6 +245,7 @@ pornvase
 -pornworms	findS['profile_labels']['section_title'] = {'find': [{'tag': ['img'], '@ARG': 'alt'}]}
 -pornxbox
 pornxp
+-pubjav		findvideos  debe pasar post a play.
 -qiqitv
 redtube
 

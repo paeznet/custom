@@ -22,7 +22,7 @@ list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
 # https://fapnfuck.com/  https://fuqster.com/  https://sexpester.com/   https://w1mp.com/   https://w4nkr.com/ 
-# https://3sumxl.com/  https://cuminstead.com/  https://extremewhores.com/  https://hugewangs.com/  https://jizzpov.com/
+# https://3sumxl.com/  https://cuminstead.com/  https://extremehoes.com/ https://extremewhores.com/  https://hugewangs.com/  https://jizzpov.com/
 
 canonical = {
              'channel': 'fapnfuck', 
@@ -87,6 +87,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="w4nkr" , action="submenu", url= "https://w4nkr.com/", chanel="w4nkr", thumbnail = "https://cdnstatic.w4nkr.com/static/images/logo.png", type=1))
     itemlist.append(Item(channel=item.channel, title="3sumxl" , action="submenu", url= "https://3sumxl.com/", chanel="3sumxl", thumbnail = "https://cdnstatic.3sumxl.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="cuminstead" , action="submenu", url= "https://cuminstead.com/", chanel="cuminstead", thumbnail = "https://cdnstatic.cuminstead.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="extremehoes" , action="submenu", url= "https://extremehoes.com/", chanel="extremehoes", thumbnail = "https://cdnstatic.extremehoes.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="extremewhores" , action="submenu", url= "https://extremewhores.com/", chanel="extremewhores", thumbnail = "https://cdnstatic.extremewhores.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="hugewangs" , action="submenu", url= "https://hugewangs.com/", chanel="hugewangs", thumbnail = "https://cdnstatic.hugewangs.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="jizzpov" , action="submenu", url= "https://jizzpov.com/", chanel="jizzpov", thumbnail = "https://cdnstatic.jizzpov.com/static/images/logo.png"))

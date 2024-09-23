@@ -39,7 +39,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "videos/", ctype="addtime", cattype = "straight"))
     # itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "es/videos/", ctype="rating_month", cattype = "straight"))
     # itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host, ctype="comments_month", cattype = "straight"))
-    # itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host, ctype="longest", cattype = "straight"))
+    # itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "videos/", ctype="longest", cattype = "straight"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search", ctype="addtime", cattype = "straight"))
 
@@ -79,9 +79,9 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='categories-page')
+    matches = soup.find_all('div', class_='categories')
     hetero =  matches[0]
-    matches = hetero.find_all('li', class_='htr-catl')
+    matches = hetero.find_all('li', class_='categories-list-item')
     for elem in matches:
         url = elem.a['href']
         title = elem.a.text.strip()
@@ -109,28 +109,28 @@ def catalogo(item):
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('a', class_='pag-next')
+    next_page = soup.find("ul", class_='pagination').find_all('a')[-1]
     if next_page:
         next_page = next_page['href']
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="catalogo", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
-# no_popups=1; no_ads=1; traffic_type=3; no_push_notice=1; return_to=https%3A%2F%2Fproporn.com%2Fes%2Fvideos%2F; index_filter_sort=longest
+
 # index_filter_sort=comments_day; cattype=straight
 def create_soup(url, ctype=None, cattype=None):
     logger.info()
     if "search" in url: 
-        headers = {"Cookie": "cattype=%s; index_filter_sort=%s ;return_to=%s; search_filter_new=sort=mr&hq=" % (cattype, ctype,url)}
+        headers = {"Cookie": "cattype=%s; index_filter_sort=%s ; search_filter_new=sort=mr&hq=" % (cattype, ctype)}
         data = httptools.downloadpage(url, headers=headers, canonical=canonical).data
     else:
-        headers = {"Cookie": "cattype=%s; index_filter_sort=%s; return_to=%s; no_popups=1; no_ads=1; traffic_type=3; no_push_notice=1" % (cattype, ctype,url), "Referer" : "%ses/" %host}
+        headers = {"Cookie": "cattype=%s; index_filter_sort=%s; return_to=%ses/; no_popups=1; no_ads=1; traffic_type=3; no_push_notice=1" % (cattype, ctype,host), "Referer" : "%ses/" %url}
         data = httptools.downloadpage(url, headers=headers, canonical=canonical).data
-    logger.debug(headers)
+    # logger.debug(headers)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
     return soup
 
-# index_filter_sort=longest
+
 def lista(item):
     logger.info()
     itemlist = []
@@ -155,7 +155,7 @@ def lista(item):
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('ul', class_='pagination').find_all('a')[-1]
+    next_page = soup.find("ul", class_='pagination').find_all('a')[-1]
     if next_page:
         next_page = next_page['href']
         next_page = urlparse.urljoin(item.url,next_page)

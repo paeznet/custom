@@ -64,7 +64,7 @@ def categorias(item):
     for elem in matches:
         url = elem['href']
         title = elem.find('strong', class_='title').text.strip()
-        title = title.replace("free xxx ", "").replace("HD porn ", "").replace("adult videos ", "")
+        title = title.replace(" xxx videos ", " ").replace(" free xxx ", " ").replace(" HD porn ", " ").replace(" adult videos ", " ")
         if elem.find('span', class_='no-thumb'):
             thumbnail = ""
         else:
@@ -118,7 +118,15 @@ def lista(item):
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
         time = elem.find('span', class_='duration').text.strip()
-        title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
+        pornstars = elem.find_all('a', href=re.compile("&ps=[A-z0-9-]+"))
+        for x , value in enumerate(pornstars):
+            pornstars[x] = value.text.strip()
+        pornstar = ' '.join(pornstars).replace(',', '& ')
+        pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+        if elem.find_all('a', href=re.compile("&ps=[A-z0-9-]+")):
+            title = "[COLOR yellow]%s[/COLOR] %s %s" % (time,pornstar,title)
+        else:
+            title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         url = urlparse.urljoin(item.url,url)
         plot = ""
         action = "play"
@@ -148,18 +156,18 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
-    pornstars = soup.find_all('a', href=re.compile("&ps=[A-z0-9-]+"))
-    for x , value in enumerate(pornstars):
-        pornstars[x] = value.text.strip()
-    pornstar = ' & '.join(pornstars)
-    pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
-    lista = item.contentTitle.split()
-    if "HD" in item.title:
-        lista.insert (4, pornstar)
-    else:
-        lista.insert (2, pornstar)
-    item.contentTitle = ' '.join(lista)
+    # soup = create_soup(item.url)
+    # pornstars = soup.find_all('a', href=re.compile("&ps=[A-z0-9-]+"))
+    # for x , value in enumerate(pornstars):
+        # pornstars[x] = value.text.strip()
+    # pornstar = ' & '.join(pornstars)
+    # pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+    # lista = item.contentTitle.split()
+    # if "HD" in item.title:
+        # lista.insert (4, pornstar)
+    # else:
+        # lista.insert (2, pornstar)
+    # item.contentTitle = ' '.join(lista)
     
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
