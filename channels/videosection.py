@@ -21,13 +21,12 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'videosection', 
              'host': config.get_setting("current_host", 'videosection', default=''), 
-             'host_alt': ["https://es.videosection.com"], 
+             'host_alt': ["https://videosection.com"], 
              'host_black_list': [], 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-#####    Error creating demuxer al ver el m3u
 
 def mainlist(item):
     logger.info()
@@ -57,7 +56,7 @@ def submenu(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "%20")
-    item.url = "%s/search/%s?p=1" % (item.url,texto)
+    item.url = "%s/search/%s?sort=-created&p=1" % (item.url,texto)
     try:
         return lista(item)
     except:
@@ -95,6 +94,7 @@ def categorias(item):
             url += "?sort=-created&p=1"
         thumbnail = elem.img['data-src']
         url = urlparse.urljoin(item.url,url)
+        url += "?sort=-created&p=1"
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
         thumbnail = urlparse.urljoin(item.url,thumbnail)
@@ -127,16 +127,16 @@ def lista(item):
     soup = create_soup(item.url)
     matches = soup.find_all('app-video-item')
     for elem in matches:
-        logger.debug(elem)
         url = elem['video-href']
         title = elem.img['alt']
         thumbnail = elem.img['data-src']
-        # time = elem.find('div', class_='duration').text.strip()
-        # quality = elem.find('span', class_='label hd')
-        # if time:
-            # title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
-        # if quality:
-            # title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (stime,stitle)
+        if elem.a.get("data-duration", ""):
+            time = elem.a['data-duration']
+        quality = elem.find('div', class_='video-item__quality')
+        if quality:
+            title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
+        else:
+            title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         url = urlparse.urljoin(item.url,url)
         plot = ""
         action = "play"
@@ -155,8 +155,11 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    soup = create_soup(item.url)
+    url = soup.find('link', itemprop='contentUrl')['href']
+    # url += '|'
+    # url += urlparse.urlencode(httptools.default_headers)
+    itemlist.append(Item(channel=item.channel, action="play",  contentTitle = item.title, url=url))
     return itemlist
 
 
@@ -165,7 +168,7 @@ def play(item):
     itemlist = []
     soup = create_soup(item.url)
     url = soup.find('link', itemprop='contentUrl')['href']
-    url += "|Referer=%s" % host
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    # url += '|'
+    # url += urlparse.urlencode(httptools.default_headers)
+    itemlist.append(['[videosection]' , url])
     return itemlist

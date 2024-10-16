@@ -76,7 +76,7 @@ def mainlist(item):
     itemlist = []
     autoplay.init(item.channel, list_servers, list_quality)
 
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=api %("all","desc"))))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=api %("all","desc")))
     itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="list_all", url=api %("all","viewed")))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=api %("all","liked")))
     itemlist.append(Item(channel=item.channel, title="Favoritos" , action="list_all", url=api %("all","favorite")))
