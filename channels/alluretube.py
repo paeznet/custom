@@ -82,7 +82,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Favoritos", action="list_all", url=host + "videos?o=tf&t=m&page=1"))
     itemlist.append(Item(channel=item.channel, title="Mas largo", action="list_all", url=host + "videos?o=lg&t=m&page=1"))
     itemlist.append(Item(channel=item.channel, title="Categorias", action="section", url=host + "categories", extra="Categorias"))
-    # itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
+    itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
 
     return itemlist
 
@@ -99,7 +99,14 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    return AlfaChannel.list_all(item, **kwargs)
+    findS = finds.copy()
+    if item.extra:
+        findS['last_page'] = {}
+        findS['next_page'] =  dict([('find', [{'tag': ['ul'], 'class': ['pagination']}]), 
+                                    ('find_all', [{'tag': ['a'], '@POS': [-1], '@ARG': 'href'}])])
+
+    
+    return AlfaChannel.list_all(item, finds=findS, **kwargs)
 
 
 def findvideos(item):
@@ -139,6 +146,7 @@ def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
+    item.extra="Search"
     item.url = "%ssearch/videos/%s?o=mr&page=1" % (host, texto.replace(" ", "-"))
     
     try:

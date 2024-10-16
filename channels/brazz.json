@@ -1,0 +1,15 @@
+{
+  "id": "brazz",
+  "name": "brazz",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/k5J9F6F3/brazz.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

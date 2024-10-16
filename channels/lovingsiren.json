@@ -1,0 +1,15 @@
+{
+  "id": "lovingsiren",
+  "name": "lovingsiren",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i0.wp.com/lovingsiren.com/wp-content/uploads/2023/04/cropped-lovinngsiren-log-1.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

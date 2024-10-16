@@ -1,0 +1,15 @@
+{
+  "id": "okcam",
+  "name": "okcam",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/VLGFr9DK/okcam.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

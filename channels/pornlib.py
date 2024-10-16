@@ -111,6 +111,7 @@ def lista(item):
     soup = create_soup(item.url, item.ctype, item.cattype)
     matches = soup.find_all('div', class_='th')
     for elem in matches:
+        id = elem['data-video_id']
         url = elem.a['href']
         title = elem.img['alt']
         thumbnail = elem.img['src']
@@ -125,7 +126,7 @@ def lista(item):
         action = "play"
         if logger.info() == False:
             action = "findvideos"
-        itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
+        itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url, id=id,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('li', class_='item_page selected')
     if next_page and next_page.find_next_sibling("li"):
@@ -138,13 +139,13 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
 def play(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

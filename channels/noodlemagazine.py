@@ -22,16 +22,20 @@ from bs4 import BeautifulSoup
 # https://mat6tube.com/   https://noodlemagazine.com/
 
  ### thumbnail  CCurlFile::Stat - Failed: HTTP response code said error(22)
+# <img src="https://img.pvvstream.pro/preview/BbDMDyFWwr10ofRck_xscQ/-227168778_456239029/i.mycdn.me/getVideoPreview?id=7228484618771&amp;idx=5&amp;type=39&amp;tkn=Qhaef9-RaSpD7Jye6ZYVkfJPE10&amp;fn=vid_l" data-src="https://img.pvvstream.pro/preview/BbDMDyFWwr10ofRck_xscQ/-227168778_456239029/i.mycdn.me/getVideoPreview?id=7228484618771&amp;idx=5&amp;type=39&amp;tkn=Qhaef9-RaSpD7Jye6ZYVkfJPE10&amp;fn=vid_l" class=" ls-is-cached lazyloaded" alt="[onlyfans] chloewildd hardcore anal and blowjob [pov, butt plug, big tits, anal, rough, facial, hardcore]">
+# <img src="https://img.pvvstream.pro/preview/7vGaLMgpo-kZUfMK1gdrzA/-227259587_456239046/sun9-80.userapi.com/impg/wN7QPVcbAT99-EY0cOPuuc2LzOCH6p_xR3dYqw/bNkEgtVRYU0.jpg?size=320x240&amp;quality=95&amp;keep_aspect_ratio=1&amp;background=000000&amp;sign=5c2644ba33fa3a0043ec27d7af17e0df&amp;c_uniq_tag=ystg_EbYoe6Ln5msEr1m-7UIsWaBxq0rb0kdlma-U0w&amp;type=video_thumb" data-src="https://img.pvvstream.pro/preview/7vGaLMgpo-kZUfMK1gdrzA/-227259587_456239046/sun9-80.userapi.com/impg/wN7QPVcbAT99-EY0cOPuuc2LzOCH6p_xR3dYqw/bNkEgtVRYU0.jpg?size=320x240&amp;quality=95&amp;keep_aspect_ratio=1&amp;background=000000&amp;sign=5c2644ba33fa3a0043ec27d7af17e0df&amp;c_uniq_tag=ystg_EbYoe6Ln5msEr1m-7UIsWaBxq0rb0kdlma-U0w&amp;type=video_thumb" class=" ls-is-cached lazyloaded" alt="Diann ornelas onlyfans big tits большие сиськи big tits [трах, all sex, porn, big tits, milf, инцест, порно blowjob hot">
 
 canonical = {
              'channel': 'noodlemagazine', 
              'host': config.get_setting("current_host", 'noodlemagazine', default=''), 
              'host_alt': ["https://noodlemagazine.com/"], 
              'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 6, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
+
+
 
 
 def mainlist(item):
@@ -109,34 +113,30 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    url = create_soup(item.url).find('iframe', id='iplayer')['src']
-    url = urlparse.urljoin(item.url,url)
+    
+    data = httptools.downloadpage(item.url).data
+    url = scrapertools.find_single_match(data, '"embedUrl":\s*"([^"]+)"')
     data = httptools.downloadpage(url).data
-    url = scrapertools.find_single_match(data, "window.playlistUrl='([^']+)'")
-    url = urlparse.urljoin(item.url,url)
-    data = httptools.downloadpage(url).json
-    for elem in data['sources']:
-        url = elem['file']
-        url += "|Referer=%s" % host
-        quality = elem['label']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    patron = '\{"file":\s*"([^"]+)".*?'
+    patron += '"label":\s*"([^"]+)"'
+    matches = scrapertools.find_multiple_matches(data, patron)
+    for url,quality in matches:
+        # itemlist.append(['%s' %quality, url])
+        itemlist.append(Item(channel=item.channel, action="play", title= "%s" %quality, contentTitle = item.title, url=url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
 
 def play(item):
     logger.info()
     itemlist = []
-    url = create_soup(item.url).find('iframe', id='iplayer')['src']
-    url = urlparse.urljoin(item.url,url)
+    data = httptools.downloadpage(item.url).data
+    url = scrapertools.find_single_match(data, '"embedUrl":\s*"([^"]+)"')
     data = httptools.downloadpage(url).data
-    url = scrapertools.find_single_match(data, "window.playlistUrl='([^']+)'")
-    url = urlparse.urljoin(item.url,url)
-    data = httptools.downloadpage(url).json
-    for elem in data['sources']:
-        url = elem['file']
-        url += "|Referer=%s" % host
-        quality = elem['label']
-        itemlist.append(['%sp [.mp4]' %quality, url])
+    patron = '\{"file":\s*"([^"]+)".*?'
+    patron += '"label":\s*"([^"]+)"'
+    matches = scrapertools.find_multiple_matches(data, patron)
+    for url,quality in matches:
+        itemlist.append(['%s' %quality, url])
     itemlist.sort(key=lambda item: int( re.sub("\D", "", item[0])))
     return itemlist

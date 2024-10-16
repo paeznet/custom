@@ -18,6 +18,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+# https://pornovideow.com/    https://2023.pornvideobb.com/
+
 canonical = {
              'channel': 'pornovideow', 
              'host': config.get_setting("current_host", 'pornovideow', default=''), 
@@ -32,9 +34,9 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "home/?d=0323&sort=date"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "home/?d=0323&sort=views"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "home/?d=0323&sort=liked"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "home/?d=09&sort=date"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "home/?d=09&sort=views"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "home/?d=09&sort=liked"))
     itemlist.append(Item(channel=item.channel, title="PornStar" , action="catalogo", url=host + "porn_actor/"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "study/"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host))
@@ -45,7 +47,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%ssearch_video/?q=%s" % (host,texto)
+    item.url = "%ssearch_video/?q=%s&sort=date" % (host,texto)
     try:
         return lista(item)
     except:
@@ -125,6 +127,8 @@ def lista(item):
         block = elem.find('div', class_='block-images-porn-set')
         url = block.a['href']
         title = block.img['alt']
+        if title.startswith("Porn video "):
+            title = title.replace("Porn video ", "")
         thumbnail = block.img['src']
         if not url.startswith("https"):
             url = "https:%s" % url
@@ -160,6 +164,21 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    data = httptools.downloadpage(item.url).data
+    soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
+    
+    pornstars = soup.find_all('a', href=re.compile("&actor=\w+"))
+    for x , value in enumerate(pornstars):
+        pornstars[x] = value.text.strip()
+    pornstar = ' & '.join(pornstars)
+    pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+    lista = item.contentTitle.split()
+    if "HD" in item.title:
+        lista.insert (4, pornstar)
+    else:
+        lista.insert (2, pornstar)
+    item.contentTitle = ' '.join(lista)
+    
+    url = scrapertools.find_single_match(data, 'id:"player", file:"([^"]+)"')
+    itemlist.append(Item(channel=item.channel, action="play", server= "Directo", contentTitle = item.contentTitle, url=url))
     return itemlist

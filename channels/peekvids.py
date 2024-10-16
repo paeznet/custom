@@ -166,9 +166,9 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    logger.debug(soup.video)
+    # logger.debug(soup.video)
     data = httptools.downloadpage(item.url, canonical=canonical).data
-    logger.debug(data)
+    # logger.debug(data)
     patron = 'data-hls-src(\d+)="([^"]+)"'
     matches = re.compile(patron,re.DOTALL).findall(data)
     for quality, url in matches:

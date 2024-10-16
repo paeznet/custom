@@ -107,28 +107,12 @@ def create_soup(url, referer=None, unescape=False):
     return soup
 
 
-            # color_setting = self.color_setting
-            # color_default = 'white'
-            # text = color_setting.get('movie', color_default)
-            # stime = color_setting.get('year', color_default)
-            # quality = color_setting.get('quality', color_default)
-            # language = color_setting.get('cast', color_default)
-            # server = color_setting.get('server', color_default)
-            # canal = color_setting.get('tvshow', color_default)
-            # views = color_setting.get('rating_3', color_default)
-            # library = color_setting.get('library', color_default)
-            # page = color_setting.get('update', color_default)
-            # star = color_setting.get('rating_3', color_default)
-            # error = 'red'
-
-
-# from platformcode import unify
-# UNIFY_PRESET = config.get_setting("preset_style", default="Inicial")
-# logger.debug(unify.colors_file[UNIFY_PRESET])
-
-color = {'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange',
-         'rating_3': 'gold', 'quality': 'deepskyblue', 'cast': 'yellow', 'lat': 'limegreen', 'vose': 'firebrick',
-         'vos': 'firebrick', 'vo': 'firebrick', 'server': 'orange', 'library': 'yellow', 'update': 'limegreen', 'no_update': 'red'}
+from platformcode import unify
+UNIFY_PRESET = config.get_setting("preset_style", default="Inicial")
+color = unify.colors_file[UNIFY_PRESET]
+# color = {'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange',
+         # 'rating_3': 'gold', 'quality': 'deepskyblue', 'cast': 'yellow', 'lat': 'limegreen', 'vose': 'firebrick',
+         # 'vos': 'firebrick', 'vo': 'firebrick', 'server': 'orange', 'library': 'yellow', 'update': 'limegreen', 'no_update': 'red'}
 
 
 def lista(item):
@@ -141,7 +125,7 @@ def lista(item):
         id = elem['id']
         title = elem['title']
         thumbnail = elem['image']
-        quality = elem['resolutions']
+        res = elem['resolutions']
         pornstars = elem['performers']
         canal = elem['content_provider'][0]['name']
         source = elem['source']
@@ -155,8 +139,8 @@ def lista(item):
         
         canal = "[COLOR %s][%s][/COLOR]" % (color.get('tvshow',''),canal)
         
-        res = quality.split(',')
-        res = "[COLOR red]%s[/COLOR]" %res[-1]
+        quality = res.split(',')
+        quality = "[COLOR %s]%s[/COLOR]" % (color.get('quality',''),quality[-1])
         
         horas=int(segundos/3600)
         segundos-=horas*3600
@@ -170,15 +154,15 @@ def lista(item):
             duration = "%s:%s" % (minutos,segundos)
         else:
             duration = "%s:%s:%s" % (horas,minutos,segundos)
-        time = "[COLOR cyan]%s[/COLOR]" %duration
+        time = "[COLOR %s]%s[/COLOR]" % (color.get('year',''),duration)
         
-        title = "%s %s %s %s %s" %(time, res, canal, pornstar,title)
+        title = "%s %s %s %s %s" %(time, quality, canal, pornstar,title)
         
         plot = pornstar
         action = "play"
         if logger.info() == False:
             action = "findvideos"        
-        itemlist.append(Item(channel=item.channel, action=action, title=title, url=source, thumbnail=thumbnail, quality=quality,
+        itemlist.append(Item(channel=item.channel, action=action, title=title, url=source, thumbnail=thumbnail, quality=res,
                                plot=plot, fanart=thumbnail, contentTitle=title ))
     
     # next_page = scrapertools.find_single_match(data, 'title="Next page".*?href="(/videos\?page[^"]+)"')

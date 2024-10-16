@@ -132,7 +132,6 @@ def play(item):
             url_decode = base64.b64decode(url[-1]).decode("utf8")
             url = AlfaChannel.do_unquote(url_decode)
             url = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
-            logger.debug(url)
     
     # url = soup.find('meta', itemprop='embedURL')['content']
     

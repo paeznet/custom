@@ -1,0 +1,15 @@
+{
+  "id": "phub",
+  "name": "phub",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://phub.at/wp-content/uploads/2024/02/cropped-1.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

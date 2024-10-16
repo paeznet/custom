@@ -23,10 +23,13 @@ forced_proxy_opt = 'ProxySSL'
 
 # https://ixiporn.com   https://xvideosdesi.net/   https://www.pornhqxxx.com/  
 # https://uncutmaza.com/ 
+
+
+
 canonical = {
              'channel': 'ixiporn', 
              'host': config.get_setting("current_host", 'ixiporn', default=''), 
-             'host_alt': ["https://xvideosdesi.cc"], 
+             'host_alt': ["https://ixiporn.info/"], 
              'host_black_list': ["https://ixiporn.com"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -44,7 +47,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/?filter=popular"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "/?filter=longest"))
 
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/porn-category"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/porn-video-categories"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -52,7 +55,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/?s=%s" % (host,texto)
+    item.url = "%s?s=%s&filter=latest" % (host,texto)
     try:
         return lista(item)
     except:
@@ -68,7 +71,6 @@ def categorias(item):
     soup = create_soup(item.url)
     matches = soup.find_all('div', class_='video-block')
     for elem in matches:
-        logger.debug(elem)
         url = elem.a['href']
         title = elem.a['title']
         thumbnail = elem.img['data-src']
@@ -136,8 +138,10 @@ def findvideos(item):
         url = base64.b64decode(url[1]).decode('utf-8')
         url = urlparse.unquote(url)
         url = scrapertools.find_single_match(url, '<(?:source|iframe) src="([^"]+)"')
-    url += "|Referer=%s" % host
-    itemlist.append(Item(channel=item.channel, action="play", title= url, contentTitle = item.title, url=url))
+        url += "|Referer=%s" % host
+    # itemlist.append(Item(channel=item.channel, action="play", title= url, contentTitle = item.title, url=url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
 
@@ -145,12 +149,14 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    url = soup.find('iframe')['data-lazy-src']
+    url = soup.find('iframe')['src']
     if "ixiporn" in url or "xvideosdesi" in url:
         url = url.split("?q=")
         url = base64.b64decode(url[1]).decode('utf-8')
         url = urlparse.unquote(url)
         url = scrapertools.find_single_match(url, '<(?:source|iframe) src="([^"]+)"')
-    url += "|Referer=%s" % host
-    itemlist.append(Item(channel=item.channel, action="play", title= url, contentTitle = item.title, url=url))
+        url += "|Referer=%s" % host
+    # itemlist.append(Item(channel=item.channel, action="play", title= url, contentTitle = item.title, url=url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

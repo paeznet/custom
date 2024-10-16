@@ -1,4 +1,10 @@
 Alfa toolset
+
+serakon intenta reproducir mixdrop y da error.
+
+
+
+
 pelisplay 	tarda mucho
 	playview	tarda
 porndish
@@ -15,7 +21,6 @@ directo 	tarda mucho y no es un server
 
 
 
-serakon intenta reproducir mixdrop y da error.
 
 
 ERROR TEST POR certificado TLS

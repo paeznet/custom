@@ -235,6 +235,13 @@ soup = get_source(item.url, soup=True)
 
 url = httptools.downloadpage(url, headers=headers , follow_redirects=False, only_headers=True).headers.get("location", "")
 
+
+
+        ### #XXXSeed
+                    soup = create_soup(item.url)
+                    data = soup.find('script', id='__NEXT_DATA__').string
+                    JSONData = json.load(data)['props']['pageProps']['data']
+
             # PORNOXO  coger SCRIPT con soup y json
                     def prueba(item):
                         from core import jsontools as json
@@ -540,6 +547,23 @@ def play(item):
     color_setting =  AlfaChannel.color_setting
     {'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange', 'rating_3': 'gold', 'quality': 'deepskyblue', 'cast': 'yellow', 'lat': 'limegreen', 'vose': 'firebrick', 'vos': 'firebrick', 'vo': 'firebrick', 'server': 'orange', 'library': 'yellow', 'update': 'limegreen', 'no_update': 'red'}
     color_setting = AlfaChannel.color_setting.get('rating_3', '')  ''' =====> ''' gold
+
+
+
+#####   CREAR PLAYLIST por año   pelisflix  xmovix
+def anno(item):
+    logger.info()
+    from datetime import datetime
+    
+    itemlist = []
+    
+    now = datetime.now()
+    year = int(now.year)
+    while year >= 1980:
+        itemlist.append(item.clone(title="%s" %year, action="lista", url= "%sen/watch/year/%s/" % (host,year)))
+        year -= 1
+    
+    return itemlist
 
 
     

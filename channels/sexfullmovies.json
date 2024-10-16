@@ -1,0 +1,15 @@
+{
+  "id": "sexfullmovies",
+  "name": "sexfullmovies",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/hjxGXm57/sexfullmovies.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

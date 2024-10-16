@@ -18,7 +18,7 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-# OUT 20-6-2024
+# OUT 20-6-2024 
 
 canonical = {
              'channel': 'pornbraze', 
@@ -103,7 +103,7 @@ def lista(item):
         if "gif" in thumbnail:
             thumbnail = elem.img['data-original']
         if not thumbnail.startswith("https"):
-            thumbnail = "https:%s" % thumbnail
+            thumbnail = urlparse.urljoin(item.url,thumbnail)
         time = elem.find('span', class_='duration').text.strip()
         quality = elem.find('span', class_='is-hd')
         if "HD" in time:

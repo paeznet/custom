@@ -1,0 +1,15 @@
+{
+  "id": "povcum",
+  "name": "povcum",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/7ZR4PtXZ/Logo-POV5-png.webp",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
