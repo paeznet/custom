@@ -40,7 +40,7 @@ tv_path = ''
 language = []
 url_replace = []
 
-finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['content']}]),
+finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['animation-2', 'search-page']}]),
                        ('find_all', [{'tag': ['article']}])]),
                              # {'find_all': [{'tag': ['article'], 'id': re.compile(r"^post-\d+")}]},
          'categories': {'find_all': [{'tag': ['li'], 'class': ['category']}]}, 
