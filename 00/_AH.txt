@@ -124,6 +124,7 @@ ballzdeep
 beeg		json  paginacion rara 'controls': {'url_base64': False, 'cnt_tot': 24, 'reverse': False, 'custom_pagination': True},
 		AlfaChannel.next_page_url = re.sub(r"&offset=\d+", "&offset=%s" % page, item.url)
 -bestbustytube	'list_all_thumbnail': {'find': [{'tag': ['video'], '@ARG': ['poster']}]},
+-bestrapeporn
 -bigbuttshub
 bigtitslust
 -blackporn	TXX		

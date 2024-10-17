@@ -5,10 +5,10 @@ serakon intenta reproducir mixdrop y da error.
 
 
 
-pelisplay 	tarda mucho
+	pelisplay 	tarda mucho
 	playview	tarda
-porndish
-pornxbit
+	porndish
+	pornxbit
 
 	xvideosspanish    el archivo no existe
 
@@ -29,6 +29,10 @@ hoestube
 
 
 CAMBIO host
+xvideos		xnxxx
+sensueel 	https://es.pornhub.com/  CANONICAL
+
+
 pornwiss 	https://xhamster.com/	 CANONICAL
 pornoflix 	https://eporner.xxx/	 cambio host
 sensueel 	https://es.pornhub.com/  CANONICAL

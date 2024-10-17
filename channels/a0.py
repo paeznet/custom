@@ -1153,3 +1153,22 @@ def play_netu(item):
     itemlist = servertools.get_servers_itemlist(itemlist)
     
     return itemlist
+    
+    
+    
+    #########################################
+    YA NO NECESARIO PARA COGER CALIDADES
+    
+    # data = httptools.downloadpage(m3u).data
+    # if PY3 and isinstance(data, bytes): data = data.decode()
+    # patron = 'RESOLUTION=\d+x(\d+),.*?'
+    # patron += 'URI="([^"]+)"'
+    # matches = re.compile(patron,re.DOTALL).findall(data)
+    # for quality,url in matches:
+        # url = url.replace("iframes", "index")
+        # url = urlparse.urljoin(m3u,url)
+        # url +='|User-Agent=%s&Referer=%s' % (httptools.get_user_agent(), page_url)
+        # url += "|verifypeer=false"
+        # url += "|Referer=%s" % page_url
+        # video_urls.append(['[fastream] .m3u8 %sp' %quality, url])
+    # video_urls.sort(key=lambda item: int( re.sub("\D", "", item[0])))    

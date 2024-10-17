@@ -1,6 +1,6 @@
 {
   "id": "videosection",
-  "name": "01videosection",
+  "name": "videosection",
   "active": true,
   "adult": true,
   "language": ["*"],
