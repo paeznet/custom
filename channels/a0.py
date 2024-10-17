@@ -439,6 +439,10 @@ def play(item):
         pornstars[x] = value.text.strip()
 
 
+#####   PELISFORTE   purgar en findvideos por el lenguaje del menu hay que meter item.extra en list_all
+    if item.extra:
+        itemlist = [i for i in itemlist if i.language == item.extra]
+
 
 
     plot = 'Canal de pruebas de [COLOR yellow][B]AlfaChannelHelper[/B][/COLOR]'
