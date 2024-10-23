@@ -23,6 +23,7 @@ forced_proxy_opt = 'ProxySSL'
 
 # https://fapnfuck.com/  https://fuqster.com/  https://sexpester.com/   https://w1mp.com/   https://w4nkr.com/ 
 # https://3sumxl.com/  https://cuminstead.com/  https://extremehoes.com/ https://extremewhores.com/  https://hugewangs.com/  https://jizzpov.com/
+# https://m1lfs.com/
 
 canonical = {
              'channel': 'fapnfuck', 
@@ -91,7 +92,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="extremewhores" , action="submenu", url= "https://extremewhores.com/", chanel="extremewhores", thumbnail = "https://cdnstatic.extremewhores.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="hugewangs" , action="submenu", url= "https://hugewangs.com/", chanel="hugewangs", thumbnail = "https://cdnstatic.hugewangs.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="jizzpov" , action="submenu", url= "https://jizzpov.com/", chanel="jizzpov", thumbnail = "https://cdnstatic.jizzpov.com/static/images/logo.png"))
-    # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="m1lfs" , action="submenu", url= "https://m1lfs.com/", chanel="m1lfs", thumbnail = "https://cdnstatic.m1lfs.com/static/images/logo.png"))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     return itemlist
