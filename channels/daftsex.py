@@ -68,7 +68,7 @@ def categorias(item):
     soup = create_soup(item.url)
     matches = soup.find_all('article', class_=re.compile(r"^post-\d+"))
     for elem in matches:
-        url = elem.a['href']
+        url = elem.a['href'].replace("?actors=", "/pornstars/")
         title = elem.a['title']
         if elem.find('span', class_='no-thumb'):
             thumbnail = ""
@@ -83,7 +83,7 @@ def categorias(item):
             title = "%s (%s)" % (title,cantidad.text.strip())
         # url = urlparse.urljoin(item.url,url)
         # thumbnail = urlparse.urljoin(item.url,thumbnail)
-        url += "page/1/?filter=latest"
+        url += "/page/1/?filter=latest"
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )

@@ -18,6 +18,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+####   OUT oct 2024
+
 canonical = {
              'channel': 'biguz', 
              'host': config.get_setting("current_host", 'biguz', default=''), 
