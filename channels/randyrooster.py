@@ -108,6 +108,7 @@ def lista(item):
     matches = soup.find_all('a', class_='SingleVideoItemLink')
     for elem in matches:
         url = elem['href']
+        if not scrapertools.find_single_match(url, '/video/([A-z0-9-]+)'): continue
         title = elem.img['alt']
         thumbnail = elem.img['src']
         if "gif" in thumbnail or "/placeholders/" in thumbnail:
