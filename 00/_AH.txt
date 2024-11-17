@@ -223,6 +223,7 @@ pornerbross	    porntube
 -porngrey
 -pornheal	paginacion okporn parameter sin ultima pagina           item.last_page = 9999  #### 1068 pag a 8-9-2024
 
+-pornhegemon
 pornhub
 pornktube	joysporn    paginado necesita /2/  ===>  ['\/\d+', '/%s/']  
 			    findS['url_replace'] = [['($)', '1/']]  categorias formato "/c/10/#/" # pag

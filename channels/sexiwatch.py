@@ -94,7 +94,7 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find('div',id='primary').find_all('article', class_=re.compile(r"^post-\d+"))
+    matches = soup.find('main',id='main').find_all('article', class_=re.compile(r"^post-\d+"))
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
