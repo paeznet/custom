@@ -185,7 +185,7 @@ def findvideos(item):
     data = httptools.downloadpage(item.url, canonical=canonical).data
     url = scrapertools.find_single_match(data, '<iframe src="([^"]+)"')
     data = httptools.downloadpage(url).data
-    source= scrapertools.find_single_match(data, '("sources":.*?])')
+    source= scrapertools.find_single_match(data, '("srcSet":.*?])')
     source = "{%s}" %source
     JSONData = json.load(source)
     for elem in JSONData['sources']:
@@ -202,10 +202,10 @@ def play(item):
     data = httptools.downloadpage(item.url, canonical=canonical).data
     url = scrapertools.find_single_match(data, '<iframe src="([^"]+)"')
     data = httptools.downloadpage(url).data
-    source= scrapertools.find_single_match(data, '("sources":.*?])')
+    source= scrapertools.find_single_match(data, '("srcSet":.*?])')
     source = "{%s}" %source
     JSONData = json.load(source)
-    for elem in JSONData['sources']:
+    for elem in JSONData['srcSet']:
         if "video/mp4" in elem['type']:
             url = elem['src']
             quality = elem['label']
