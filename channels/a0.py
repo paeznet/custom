@@ -428,7 +428,14 @@ def play(item):
                             .capitalize()          # poner en mayuscula primera letra
     cantidad = cantidad.strip()             #quita los espacios antes y despues        
     title = " ".join(title.split())         #Quita los espacios entre palabras de title
-    (?i) hace que la concordancia de contenido no distinga entre mayúsculas y minúsculas
+    (?i) #hace que la concordancia de contenido no distinga entre mayúsculas y minúsculas
+
+
+
+    # findS['categories'] = dict([('find', [{'tag': ['li'], 'id': ['menu-item-314']}, 
+                                          # {'tag': ['ul'], 'class': ['sub-menu']}]), 
+                                # ('find_all', [{'tag': ['li']}])])
+
 
 
 ########## Coge elemento de la lista video_urls y de la lista idioma
@@ -471,6 +478,17 @@ def play(item):
     else:
         platformtools.dialog_ok("xvideospanish: Error", "El archivo no existe o ha sido borrado") 
         return
+
+    if "dato.porn" in url or "datoporn" in url or "openload" in url or "videomega." in url:
+        url = ""
+    if url:
+        itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    else:
+        platformtools.dialog_ok("xvideospanish: Error", "El archivo no existe o ha sido borrado")
+        return
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+
+
 
 ###### cuadro dialogo
         from platformcode import config, logger, platformtools
@@ -570,14 +588,22 @@ def anno(item):
     return itemlist
 
 
-    
+
+        from platformcode import unify
+        UNIFY_PRESET = config.get_setting("preset_style", default="Inicial")
+        color = unify.colors_file[UNIFY_PRESET]
+
+        pornstar	>>>>>>>>>>>>	color.get('rating_3','')
+        time		>>>>>>>>>>>>	color.get('year','')
+        canal		>>>>>>>>>>>>	color.get('tvshow','')
+        quality		>>>>>>>>>>>>	color.get('quality','')    
     
                     ##### xxxfiles
         pornstars = elem.find('div', class_='thumb-models').find_all('a')
         for x , value in enumerate(pornstars):
             pornstars[x] = value.text.strip()
         pornstar = ' & '.join(pornstars)
-        pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+        pornstar = "[COLOR %s]%s[/COLOR]" % (color.get('rating_3',''), pornstar)
 
     data = httptools.downloadpage(item.url, canonical=canonical).data
     patron = 'href="/models/[^"]+" title="([^"]+)"'
@@ -589,7 +615,7 @@ def anno(item):
         pornstars = scrapertools.find_multiple_matches(data, ">([^<]+)</a")
         # logger.debug(pornstars)
         pornstar = ' & '.join(pornstars)
-        pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+        pornstar = "[COLOR %s]%s[/COLOR]" % (color.get('rating_3',''), pornstar)
         lista = item.title.split()
         if "HD" in item.title:
             lista.insert (4, pornstar)
@@ -598,14 +624,29 @@ def anno(item):
         item.contentTitle = ' '.join(lista)
 
         ### fpo
-    soup = create_soup(item.url).find('div', class_='info')
-    matches = soup.find_all('div', class_='item')
+    soup = create_soup(item.url)
+    matches = soup.find('div', class_='info').find_all('div', class_='item')
     pornstars = matches[2].find_all('a')
     for x , value in enumerate(pornstars):
         pornstars[x] = value.text.strip()
     pornstar = ' & '.join(pornstars)
-    pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+    pornstar = "[COLOR %s]%s[/COLOR]" % (color.get('rating_3',''), pornstar)
     lista = item.title.split()
+    if "HD" in item.title:
+        lista.insert (4, pornstar)
+    else:
+        lista.insert (2, pornstar)
+    item.contentTitle = ' '.join(lista)
+
+
+
+    soup = create_soup(item.url)
+    pornstars = soup.find('div', class_='video-tags').find_all('a', href=re.compile("/actor/[A-z0-9-]+/"))
+    for x , value in enumerate(pornstars):
+        pornstars[x] = value.text.strip()
+    pornstar = ' & '.join(pornstars)
+    pornstar = "[COLOR %s]%s[/COLOR]" % (color.get('rating_3',''), pornstar)
+    lista = item.contentTitle.split()
     if "HD" in item.title:
         lista.insert (4, pornstar)
     else:
@@ -619,7 +660,7 @@ def anno(item):
     for x , value in enumerate(pornstars):
         pornstars[x] = value.text.strip()
     pornstar = ' & '.join(pornstars)
-    pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+    pornstar = "[COLOR %s]%s[/COLOR]" % (color.get('rating_3',''), pornstar)
     plot = ""
     if len(pornstars) <= 3:
         lista = item.contentTitle.split()

@@ -32,7 +32,8 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "new/"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/new"))
+    itemlist.append(Item(channel=item.channel, title="Mejor 2024" , action="lista", url=host + "best/2024"))
     itemlist.append(Item(channel=item.channel, title="Mejor 2023" , action="lista", url=host + "best/2023"))
     itemlist.append(Item(channel=item.channel, title="Mejor 2022" , action="lista", url=host + "best/2022"))
     itemlist.append(Item(channel=item.channel, title="Mejor 2021" , action="lista", url=host + "best/2021"))
@@ -67,6 +68,7 @@ def catalogo(item):
         url = elem.a['href']
         title = elem.a.text.strip()
         thumbnail = ""
+        url += "?sort=new"
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
@@ -124,7 +126,7 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.img['alt']
-        thumbnail = elem.img['src']
+        thumbnail = elem.img['data-jpg']
         if "gif" in thumbnail:
             thumbnail = elem.img['data-original']
         if not thumbnail.startswith("https"):

@@ -18,6 +18,11 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+from platformcode import unify
+UNIFY_PRESET = config.get_setting("preset_style", default="Inicial")
+color = unify.colors_file[UNIFY_PRESET]
+
+
 canonical = {
              'channel': 'xerotica', 
              'host': config.get_setting("current_host", 'xerotica', default=''), 
@@ -64,6 +69,7 @@ def categorias(item):
         url = elem.a['href']
         title = elem.a['title']
         thumbnail = elem.img['src']
+        thumbnail += "|Referer= %s" % host
         cantidad = elem.find('ul')
         if "channels/" in url:
             cantidad = cantidad.find_all('li')[1]
@@ -73,7 +79,7 @@ def categorias(item):
             cantidad = cantidad.text.strip().replace("Videos", "").replace(": ", "")
             title = "%s (%s)" % (title,cantidad)
         url = urlparse.urljoin(item.url,url)
-        thumbnail = urlparse.urljoin(item.url,thumbnail)
+        # thumbnail = urlparse.urljoin(item.url,thumbnail)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
@@ -106,8 +112,9 @@ def lista(item):
         url = elem.a['href']
         title = elem.a['title']
         thumbnail = elem.img['src']
+        thumbnail += "|Referer= %s" % host
         canal = elem.ul.li.text.strip()
-        title = "[COLOR cyan][%s][/COLOR] %s" % (canal,title)
+        title = "[COLOR %s][%s][/COLOR] %s" % (color.get('tvshow',''),canal,title)
         plot = ""
         action = "play"
         if logger.info() == False:
@@ -138,10 +145,10 @@ def play(item):
     for x , value in enumerate(pornstars):
         pornstars[x] = value.text.strip()
     pornstar = ' & '.join(pornstars)
-    pornstar = "%s[/COLOR]" % pornstar
+    pornstar = "[COLOR %s]%s" % (color.get('rating_3',''),pornstar)
     lista = item.contentTitle.split('[/COLOR]')
     lista.insert (1, pornstar)
-    item.contentTitle = ' '.join(lista)
+    item.contentTitle = '[/COLOR]'.join(lista)
     
     itemlist.append(Item(channel=item.channel, action="play", title= "%s" , contentTitle=item.contentTitle, url=item.url)) 
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize()) 

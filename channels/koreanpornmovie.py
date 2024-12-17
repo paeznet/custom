@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# -*- Channel AllnPorn -*-
+# -*- Channel KoreanPornMovie -*-
 # -*- Created for Alfa-addon -*-
 # -*- By the Alfa Develop Group -*-
 
@@ -21,12 +21,13 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
+#############################   Web rotos los links de thumb
 
 canonical = {
-             'channel': 'vlxxx', 
-             'host': config.get_setting("current_host", 'vlxxx', default=''), 
-             'host_alt': ["https://www.vlxxx.tv/"], 
-             'host_black_list': ['https://www.vlxxx.porn/'], 
+             'channel': 'koreanpornmovie', 
+             'host': config.get_setting("current_host", 'koreanpornmovie', default=''), 
+             'host_alt': ["https://koreanpornmovie.com/"], 
+             'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -40,10 +41,12 @@ tv_path = ''
 language = []
 url_replace = []
 
-finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
-                       ('find_all', [{'tag': ['article'], 'class':  re.compile(r"^post-\d+")}])]),
-         'categories':  dict([('find', [{'tag': ['div'], 'class': ['videos-list']}]),
-                              ('find_all', [{'tag': ['article'], 'class':  re.compile(r"^post-\d+")}])]),
+finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]), 
+                       ('find_all', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}])]), 
+         'categories':  dict([('find', [{'tag': ['main'], 'id': ['main']}]), 
+                              ('find_all', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}])]), 
+         # 'find': {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]},
+         # 'categories': {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]},
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
@@ -110,36 +113,12 @@ def findvideos(item):
                                          verify_links=False, findvideos_proc=True, **kwargs)
 
 
-def play(item):
-    logger.info()
-    
-    itemlist = []
-    
-    soup = AlfaChannel.create_soup(item.url, **kwargs)
-
-    if soup.find('div', id='video-actors'):
-        pornstars = soup.find('div', id='video-actors').find_all('a', href=re.compile("/actor/[A-z0-9-]+/"))
-        
-        for x, value in enumerate(pornstars):
-            pornstars[x] = value.get_text(strip=True)
-        
-        pornstar = ' & '.join(pornstars)
-        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-        lista = item.contentTitle.split('[/COLOR]')
-        item.contentTitle = '%s %s' %(pornstar,item.contentTitle)
-    
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
-    
-    return itemlist
-
-
 def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
     # item.url = "%sbuscar/?q=%s&sort_by=video_viewed&from_videos=1" % (host, texto.replace(" ", "+"))
-    item.url = "%spage/1/?s=%s&filter=latest" % (host, texto.replace(" ", "+"))
+    item.url = "%s?s=%s&filter=latest" % (host, texto.replace(" ", "+"))
     
     try:
         if texto:

@@ -23,7 +23,7 @@ forced_proxy_opt = 'ProxySSL'
 
 # https://fapnfuck.com/  https://fuqster.com/  https://sexpester.com/   https://w1mp.com/   https://w4nkr.com/ 
 # https://3sumxl.com/  https://cuminstead.com/  https://extremehoes.com/ https://extremewhores.com/  https://hugewangs.com/  https://jizzpov.com/
-# https://m1lfs.com/
+# https://b1gtits.com/
 
 canonical = {
              'channel': 'fapnfuck', 
@@ -81,18 +81,38 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
+    
+    
     itemlist.append(Item(channel=item.channel, title="fapnfuck" , action="submenu", url= "https://fapnfuck.com/", chanel="fapnfuck", thumbnail = "https://cdnstatic.fapnfuck.com/static/images/logo.png", type=1)) 
     itemlist.append(Item(channel=item.channel, title="fuqster" , action="submenu", url= "https://fuqster.com/", chanel="fuqster", thumbnail = "https://cdnstatic.fuqster.com/static/images/logo.png", type=1))
     itemlist.append(Item(channel=item.channel, title="sexpester" , action="submenu", url= "https://sexpester.com/", chanel="sexpester", thumbnail = "https://cdnstatic.sexpester.com/static/images/logo.png", type=1))
     itemlist.append(Item(channel=item.channel, title="w1mp" , action="submenu", url= "https://w1mp.com/", chanel="w1mp", thumbnail = "https://cdnstatic.w1mp.com/static/images/logo.png", type=1))
     itemlist.append(Item(channel=item.channel, title="w4nkr" , action="submenu", url= "https://w4nkr.com/", chanel="w4nkr", thumbnail = "https://cdnstatic.w4nkr.com/static/images/logo.png", type=1))
+    
     itemlist.append(Item(channel=item.channel, title="3sumxl" , action="submenu", url= "https://3sumxl.com/", chanel="3sumxl", thumbnail = "https://cdnstatic.3sumxl.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="bigbigtits" , action="submenu", url= "https://bigbigtits.com/", chanel="bigbigtits", thumbnail = "https://cdnstatic.bigbigtits.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="cuminstead" , action="submenu", url= "https://cuminstead.com/", chanel="cuminstead", thumbnail = "https://cdnstatic.cuminstead.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="extremehoes" , action="submenu", url= "https://extremehoes.com/", chanel="extremehoes", thumbnail = "https://cdnstatic.extremehoes.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="extremewhores" , action="submenu", url= "https://extremewhores.com/", chanel="extremewhores", thumbnail = "https://cdnstatic.extremewhores.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="hugewangs" , action="submenu", url= "https://hugewangs.com/", chanel="hugewangs", thumbnail = "https://cdnstatic.hugewangs.com/static/images/logo.png"))
-    itemlist.append(Item(channel=item.channel, title="jizzpov" , action="submenu", url= "https://jizzpov.com/", chanel="jizzpov", thumbnail = "https://cdnstatic.jizzpov.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="m1lfs" , action="submenu", url= "https://m1lfs.com/", chanel="m1lfs", thumbnail = "https://cdnstatic.m1lfs.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="maturevices" , action="submenu", url= "https://maturevices.com/", chanel="maturevices", thumbnail = "https://cdnstatic.maturevices.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="maturexy" , action="submenu", url= "https://maturexy.com/", chanel="maturexy", thumbnail = "https://cdnstatic.maturexy.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="gogoasians" , action="submenu", url= "https://gogoasians.com/", chanel="gogoasians", thumbnail = "https://cdnstatic.gogoasians.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="hardwhores" , action="submenu", url= "https://hardwhores.com/", chanel="hardwhores", thumbnail = "https://cdnstatic.hardwhores.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="povpow" , action="submenu", url= "https://povpow.com/", chanel="povpow", thumbnail = "https://cdnstatic.povpow.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="povrz" , action="submenu", url= "https://povrz.com/", chanel="povrz", thumbnail = "https://cdnstatic.povrz.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="jizzpov" , action="submenu", url= "https://jizzpov.com/", chanel="jizzpov", thumbnail = "https://cdnstatic.jizzpov.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="b1gtits" , action="submenu", url= "https://b1gtits.com/", chanel="b1gtits", thumbnail = "https://cdnstatic.b1gtits.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="bigtitsxl" , action="submenu", url= "https://bigtitsxl.com/", chanel="bigtitsxl", thumbnail = "https://cdnstatic.bigtitsxl.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="bigbuttz" , action="submenu", url= "https://bigbuttz.com/", chanel="bigbuttz", thumbnail = "https://cdnstatic.bigbuttz.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="bigbumfun" , action="submenu", url= "https://bigbumfun.com/", chanel="bigbumfun", thumbnail = "https://cdnstatic.bigbumfun.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="thrupnies" , action="submenu", url= "https://thrupnies.com/", chanel="thrupnies", thumbnail = "https://cdnstatic.thrupnies.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="povpoof" , action="submenu", url= "https://povpoof.com/", chanel="povpoof", thumbnail = "https://cdnstatic.povpoof.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="hard3r" , action="submenu", url= "https://hard3r.com/", chanel="hard3r", thumbnail = "https://cdnstatic.hard3r.com/static/images/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="threesomerz" , action="submenu", url= "https://threesomerz.com/", chanel="threesomerz", thumbnail = "https://cdnstatic.threesomerz.com/static/images/logo.png"))
+    # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
+    # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     return itemlist

@@ -1,0 +1,15 @@
+{
+  "id": "baddiehub",
+  "name": "baddiehub",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/kMkGh7w2/baddiehub.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

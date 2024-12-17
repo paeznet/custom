@@ -22,6 +22,8 @@ from modules import autoplay
 list_quality = []
 list_servers = []
 
+#####    LA PAGINA MUERTA LOS LINKS NO CONTIENEN VIDEO
+
 canonical = {
              'channel': 'xbxx', 
              'host': config.get_setting("current_host", 'xbxx', default=''), 
@@ -120,7 +122,6 @@ def lista(item):
         itemlist.append(Item(channel=item.channel, action="findvideos", title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('div', class_='navi')
-    logger.debug(elem)
     if next_page and next_page.span.find_next_sibling('a'):
         next_page = next_page.span.find_next_sibling('a')['href']
         next_page = urlparse.urljoin(item.url,next_page)
@@ -132,7 +133,6 @@ def findvideos(item):
     logger.info()
     itemlist = []
     data = httptools.downloadpage(item.url, canonical=canonical).data
-    logger.debug(data)
     patron = "function Video\d+.*?"
     patron += '.attr\("src",\s*"([^"]+)"'
     matches = scrapertools.find_multiple_matches(data, patron)

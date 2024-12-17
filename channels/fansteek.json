@@ -1,0 +1,15 @@
+{
+  "id": "fansteek",
+  "name": "fansteek",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/wjNNrKtz/Fansteek-logo-2.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

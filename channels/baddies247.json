@@ -1,0 +1,15 @@
+{
+  "id": "baddies247",
+  "name": "baddies247",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://baddies247.com/static/images/baddies247.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

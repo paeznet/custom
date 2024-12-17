@@ -11,12 +11,15 @@ else:
 
 import re
 
-from platformcode import config, logger, platformtools
+from platformcode import config, logger, platformtools, unify
 from core import scrapertools
 from core.item import Item
 from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
+
+UNIFY_PRESET = config.get_setting("preset_style", default="Inicial")
+color = unify.colors_file[UNIFY_PRESET]
 
 IDIOMAS = {}
 list_language = list(set(IDIOMAS.values()))
@@ -73,6 +76,7 @@ def categorias(item):
         thumbnail = elem.img['src']
         url = url.replace("https://www.xvideos-español.com" , host)
         thumbnail = thumbnail.replace("https://www.xvideos-español.com" , host)
+        url
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url, thumbnail=thumbnail,
                                   fanart=thumbnail, contentTitle=title ))
     next_page = soup.find('a', class_='current')
@@ -113,7 +117,7 @@ def lista(item):
         time = elem.find('span', class_='duration')
         if time:
             time = time.text.strip()
-            title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
+            title = "[COLOR %s]%s[/COLOR] %s" % (color.get('year',''), time,title)
         url = url.replace("https://www.xvideos-español.com" , host)
         thumbnail = thumbnail.replace("https://www.xvideos-español.com" , host)
         action = "play"
@@ -143,11 +147,26 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    url = create_soup(item.url).find('meta', itemprop='embedURL')['content']
-    if "dato.porn" in url or "datoporn" in url or "openload" in url:
+    
+    soup = create_soup(item.url)
+    pornstars = soup.find('div', class_='video-tags').find_all('a', href=re.compile("/actor/[A-z0-9-]+/"))
+    for x , value in enumerate(pornstars):
+        pornstars[x] = value.text.strip()
+    pornstar = ' & '.join(pornstars)
+    pornstar = "[COLOR %s]%s[/COLOR]" % (color.get('rating_3',''), pornstar)
+    lista = item.contentTitle.split()
+    if "HD" in item.title:
+        lista.insert (4, pornstar)
+    else:
+        lista.insert (2, pornstar)
+    item.contentTitle = ' '.join(lista)
+    
+    
+    url = soup.find('meta', itemprop='embedURL')['content']
+    if "dato.porn" in url or "datoporn" in url or "openload" in url or "videomega." in url:
         url = ""
     if url:
-        itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+        itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     else:
         platformtools.dialog_ok("xvideospanish: Error", "El archivo no existe o ha sido borrado")
         return

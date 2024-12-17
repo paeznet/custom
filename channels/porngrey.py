@@ -26,8 +26,8 @@ forced_proxy_opt = 'ProxySSL'
 canonical = {
              'channel': 'porngrey', 
              'host': config.get_setting("current_host", 'porngrey', default=''), 
-             'host_alt': ["https://porngrey.com/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://porngrey.net/"], 
+             'host_black_list': ["https://porngrey.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }

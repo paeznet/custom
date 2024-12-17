@@ -1,0 +1,15 @@
+{
+  "id": "eboblack",
+  "name": "eboblack",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/0ygdwJCP/eboblack.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

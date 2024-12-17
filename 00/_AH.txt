@@ -9,6 +9,10 @@ babestube tenia el play llamando directamente a xbmc
     return xbmc.Player().play(url, listitem)
 
 
+    # findS['categories'] = dict([('find', [{'tag': ['li'], 'id': ['menu-item-314']}, 
+                                          # {'tag': ['ul'], 'class': ['sub-menu']}]), 
+                                # ('find_all', [{'tag': ['li']}])])
+
 
 <setting id="debug_report" default="true">true</setting> en settings.xml
 
@@ -70,6 +74,10 @@ findS['controls']['action'] = 'findvideos'    en list_all
  
 findS['url_replace'] = [['($)', '1/']]			url + "1/"
 
+findS['url_replace'] = [['([^$]+$)', r'\1&filter=latest&paged=1']] >>>>> https://baddiehub.com/?cat=90 + &filter=latest
+
+item.last_page = 9999   uppornx tiene load moore  >>>>>>>  models/?sort_by=total_videos&from=1 +1 
+
 findS['controls']['cnt_tot'] = 9999
     kwargs['headers'] = {'Referer': host}   					mondetube
     dict_cookie = {"kt_tcookie": 1,"tag_id": item.orientation}
@@ -101,9 +109,12 @@ porngo			multicanal porngo xxxfiles pornpapa porncake fapguru veryfreeporn pornt
 			'next_page': dict([('find', [{'tag': ['li'], 'class': ['next']}, {'tag': ['a'], '@ARG': 'href'}])])
 -josporn		multicanal  josporn   pornohd   xhdporno(diferente y play particular)    Paginacion diferente /page-1/  /page/1/  /page_1.html resuelto con next_page y last_page
 -freexxx		multicanal  freexxx   pornertwo   pornsoda
--fapnfuck		multicanal  fapnfuck	fuqster	sexpester  w1mp  w4nkr  3sumxl bigbigtits cuminstead  extremehoes extremewhores  hugewangs  jizzpov m1lfs maturevices maturexy
-				    gogoasians  hardwhores   povpow  povrz
-
+-fapnfuck		multicanal  fapnfuck	fuqster	sexpester  w1mp  w4nkr  3sumxl bigbigtits cuminstead  extremehoes extremewhores  hugewangs  jizzpov 
+				    m1lfs maturevices maturexy  gogoasians  hardwhores   povpow  povrz  jizzpov  b1gtits bigtitsxl bigbuttz bigbumfun thrupnies
+				    povpoof  hard3r  threesomerz
+-baddies247             multicanal   baddies247  baddiesonly
+-onlinetube		multicanal   onlinetube  huyamba   pornoreka
+-leslez 		multicanal   leslez  teenxy
 
 12milf		quitar paginacion categorias    findS['controls']['cnt_tot'] = 9999
 -24xxx
@@ -120,7 +131,7 @@ area51		'list_all_stime': {'find': [{'tag': ['span'], 'class': ['is-hd'], '@TEXT
                 'list_all_quality': {'find': [{'tag': ['span'], 'class': ['is-hd'],  '@ARG': 'class',  '@TEXT': '(hd)' }]},
 
 babestube	babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
-
+-baddiehub
 ballzdeep
 beeg		json  paginacion rara 'controls': {'url_base64': False, 'cnt_tot': 24, 'reverse': False, 'custom_pagination': True},
 		AlfaChannel.next_page_url = re.sub(r"&offset=\d+", "&offset=%s" % page, item.url)
@@ -146,7 +157,8 @@ cheemsporn
 -czechporn	'list_all_thumbnail': {'find': [{'tag': ['video'], '@ARG': ['poster']}]},
 deviants	babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
 -dirtyship=
--draftsex      'next_page_rgx': [['page\d+.html', 'next_page_url']]   pornstar list_all findS['find']
+-draftsex      	'next_page_rgx': [['page\d+.html', 'next_page_url']]   pornstar list_all findS['find']
+-dumpxxx	'next_page_rgx': [['page\d+.html', 'next_page_url']],
 -ebonyporn
 eporner
 eroticmv
@@ -156,9 +168,11 @@ erotika		https://phixxx.cc/player/play.php?vid=06f69a66357cfdf3b91d94c46477cdd7
 faapy
 -familyroleplayporn     findvideo de fuckingsession	
 familypornTV	  next_page con last_page          findS['next_page'] = {}     item.last_page = 9999
+-fansteek	list_all con findS  item.extra == "Search" : 
 
 OUT				fapmeifyoucan    ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+ \w)'}])])  coge "49 minutes" >> 49m
 						 ('get_text', [{'tag': '', 'strip': True, '@TEXT': '([A-z ]+)\d+'}])])  categorias sin cantidad
+
 
 fetishshrine
 -flyflv		Cookie		kwargs['headers'] = {'Referer': host, "Cookie": "contentNiche=%s" % item.orientation}
@@ -180,6 +194,7 @@ fux		json porntube
 -fuxmovies
 -girlswallowed
 goodporn
+-gotanynudes	Pornstar con AlfaChannel.doo_url   no consigo paginacion
 hclips		TXXX 
 -hdporn92	findvideo de fuckingsession  
 hdzog		TXXX 
@@ -280,6 +295,8 @@ tubexporn	joysporn
 TXXX   		json
 ultrahorny	veporns    
 upornia		TXXX
+-uppornx			        item.last_page = 9999    tiene un moore  esto +1 a last_page
+
 veporns 
 -vidzxxxhd
 viralxvideos	xfy		'findvideos' find_all(a href y iframe src)  

@@ -18,6 +18,7 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+
 canonical = {
              'channel': 'wank8', 
              'host': config.get_setting("current_host", 'wank8', default=''), 
@@ -32,10 +33,10 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "en/month/"))
+    # itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "en/month/"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "en/best/"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "en/"))
-    itemlist.append(Item(channel=item.channel, title="Categorias Best" , action="categorias", url=host + "en/"))
+    # itemlist.append(Item(channel=item.channel, title="Categorias Best" , action="categorias", url=host + "en/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -116,9 +117,9 @@ def lista(item):
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('a', class_='active')
-    if next_page and next_page.parent.find_next_sibling("li"):
-        next_page = next_page.parent.find_next_sibling("li").a['href']
+    next_page = soup.find('ul', class_='paginator').find_all('a')[-1]
+    if next_page:
+        next_page = next_page['href']
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist

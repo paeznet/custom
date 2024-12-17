@@ -1,0 +1,15 @@
+{
+  "id": "onlinetube",
+  "name": "onlinetube",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/QdYMpYYG/onlinetube.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

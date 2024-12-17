@@ -48,7 +48,7 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
          'get_quality': {}, 
          'get_quality_rgx': '', 
          'next_page': {},
-         'next_page_rgx': [['\/page\/\d+\/', '/page/%s/']], 
+         'next_page_rgx': [['\/page\/\d+', '/page/%s'], ['\/page\/\d+\/', '/page/%s/']], 
          'last_page': dict([('find', [{'tag': ['div'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            '@ARG': 'href', '@TEXT': 'page/(\d+)'}])]), 
@@ -78,7 +78,7 @@ def mainlist(item):
     itemlist.append(Item(channel = item.channel, title="Mas vistos" , action="list_all", url=host + "page1/?filter=most-viewed"))
     itemlist.append(Item(channel = item.channel, title="Mejor valorado" , action="list_all", url=host + "page1/?filter=popular"))
     itemlist.append(Item(channel = item.channel, title="Mas metraje" , action="list_all", url=host + "page1/?filter=longest"))
-    itemlist.append(Item(channel = item.channel, title="Canal" , action="section", url=host + "categories/page/1/", extra="Canal"))
+    itemlist.append(Item(channel = item.channel, title="Canal" , action="section", url=host + "categories/page/1", extra="Canal"))
     itemlist.append(Item(channel = item.channel, title="Buscar", action="search"))
     
     autoplay.show_option(item.channel, itemlist)
@@ -132,6 +132,13 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
                 elem_json['url'] = elem.get("href", "") or elem.get("content", "")
             elem_json['language'] = ''
             
+            if "php?q=" in elem_json['url']:
+                import base64
+                url = elem_json['url'].split('php?q=')
+                url_decode = base64.b64decode(url[-1]).decode("utf8")
+                url = AlfaChannel.do_unquote(url_decode)
+                elem_json['url'] = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
+                
             
             pornstars = soup.find_all('a', href=re.compile(r"/(?:cast|pornstar|actor)/[A-z0-9-]+"))
             if pornstars:

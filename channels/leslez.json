@@ -1,0 +1,15 @@
+{
+  "id": "leslez",
+  "name": "leslez",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/RhyLL3mc/leslez.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
