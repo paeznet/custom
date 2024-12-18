@@ -120,6 +120,15 @@ porngo			multicanal porngo xxxfiles pornpapa porncake fapguru veryfreeporn pornt
 -24xxx
 4tube	        submenu gay trans
 absoluporn      pone videos aleatorios
+			    	soup = AHkwargs.get('soup', {})
+  			   	if AlfaChannel.last_page in [9999, 99999] and soup and soup.find('div', class_='pagination-nbpage'): 
+        			total = soup.find('div', class_='pagination-nbpage').find('span', class_='text1').get_text(strip=True)
+        			total = scrapertools.unescape(total).split(' ')[-2]
+        			AlfaChannel.last_page = int(int(total) / finds['controls'].get('cnt_tot', 30))
+        			logger.error(AlfaChannel.last_page)
+
+
+
 adptube
 -allnporn
 -alluretube	pornudes		  	
@@ -213,6 +222,7 @@ latestpornvideo		findvideo de fuckingsession
 -leakslove	'findvideos' con pornstars   findS['controls']['cnt_tot'] = 9999 en categorias sino no mostraba paginacion
 -lesbian8
 LIKUOO	
+-longporn	Si la paginacion es baja no existe last_page por lo que en general next_page
 -lovingsiren	FINVIDEOS  elem_json['url'] = elem.iframe.get("data-src", "") or elem.iframe.get('src', '')
 mangovideo	OUT Links	 'findvideos'
 manysex		TXXX2
