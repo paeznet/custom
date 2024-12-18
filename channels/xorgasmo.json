@@ -1,0 +1,15 @@
+{
+  "id": "xorgasmo",
+  "name": "xorgasmo",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/g2qHpPrV/xorgasmo.jpg",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

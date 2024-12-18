@@ -329,6 +329,7 @@ xfy		viralxvideos    'findvideos' find_all(a href y iframe src)
 -xhand
 -xmegadrive
 xmoviesforyou	'findvideos' 
+-xorgasmo
 xozilla
 xtit		'list_all_quality': {'find': [{'tag': ['span'], 'class': ['hd'],  '@ARG': 'class',  '@TEXT': '(hd)' }]}
 -xxk	        'next_page': dict([('find', [{'tag': ['li'], 'class': ['next']}, {'tag': ['a'], '@ARG': 'href'}])]),
