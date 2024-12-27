@@ -1,0 +1,15 @@
+{
+  "id": "sexofilm",
+  "name": "sexofilm",
+  "active": false,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i0.wp.com/sexofilm.com/xbox/wp-content/uploads/2016/06/SexoFilm-Logo-230x54-LOGO-MOBILE.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

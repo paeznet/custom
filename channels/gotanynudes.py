@@ -87,6 +87,7 @@ def section(item):
     
     if item.extra == 'PornStar':
         findS['controls']['cnt_tot'] = 48
+        findS['controls']['force_find_last_page'] = [0, 0, 'post']
         if "a-z-leaked-model" in item.url:
             soup = AlfaChannel.create_soup(item.url, **kwargs)
             data = soup.find('script', id='custom-gallery-js-extra').string

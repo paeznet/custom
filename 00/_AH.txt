@@ -76,7 +76,10 @@ findS['url_replace'] = [['($)', '1/']]			url + "1/"
 
 findS['url_replace'] = [['([^$]+$)', r'\1&filter=latest&paged=1']] >>>>> https://baddiehub.com/?cat=90 + &filter=latest
 
+load more con parametros     if item.extra == 'PornStar':
+        						   item.last_page = 9999
 item.last_page = 9999   uppornx tiene load moore  >>>>>>>  models/?sort_by=total_videos&from=1 +1 
+
 
 findS['controls']['cnt_tot'] = 9999
     kwargs['headers'] = {'Referer': host}   					mondetube
@@ -117,6 +120,7 @@ porngo			multicanal porngo xxxfiles pornpapa porncake fapguru veryfreeporn pornt
 -leslez 		multicanal   leslez  teenxy
 
 12milf		quitar paginacion categorias    findS['controls']['cnt_tot'] = 9999
+-143porn
 -24xxx
 4tube	        submenu gay trans
 absoluporn      pone videos aleatorios
@@ -134,6 +138,11 @@ adptube
 -alluretube	pornudes		  	
 amateurtv	json AlfaChannel.httptools.downloadpage(host, canonical=canonical).data
 americass
+-amigosporn	findvideos	submenu abc pornstar
+				list_all_matches  elem_json['thumbnail'] =  scrapertools.find_single_match(img, "'([^']+)'")
+						  elem_json['canal'] = canal  	title = title.replace(canal, "")
+						  elem_json['star']		title = title.replace(elem, "")
+
 analdin
 anyporn		'list_all_stime': {'find': [{'tag': ['em'],   '@TEXT': '(\d+m:\d+s)' }]},
 area51		'list_all_stime': {'find': [{'tag': ['span'], 'class': ['is-hd'], '@TEXT': '(\d+:\d+)' }]},
@@ -163,7 +172,11 @@ canalporno	('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])  coge 
 celebsnudeworld
 -cheems
 cheemsporn
+-coralxxx	pornstar load more con parametros     if item.extra == 'PornStar':
+        						   item.last_page = 9999
+	
 -czechporn	'list_all_thumbnail': {'find': [{'tag': ['video'], '@ARG': ['poster']}]},
+
 deviants	babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
 -dirtyship=
 -draftsex      	'next_page_rgx': [['page\d+.html', 'next_page_url']]   pornstar list_all findS['find']
@@ -203,7 +216,8 @@ fux		json porntube
 -fuxmovies
 -girlswallowed
 goodporn
--gotanynudes	Pornstar con AlfaChannel.doo_url   no consigo paginacion
+-gotanynudes	Pornstar con AlfaChannel.doo_url      paginacion     findS['controls']['force_find_last_page'] = [0, 0, 'post']
+
 hclips		TXXX 
 -hdporn92	findvideo de fuckingsession  
 hdzog		TXXX 
@@ -230,6 +244,8 @@ megatube	solucion al probema de search string "videos" de eporner
 momvids		babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
 -mondetube    	Cookie    kwargs['headers'] = {'Referer': host, "Cookie": "kt_tcookie=1; tag_id=%s" % item.orientation}
 -mypornerleak
+-neporn		Cookie 		kwargs['headers'] = {"Cookie": "niche=%s" %item.orientation}
+		submenu   shemale		
 -netfapxtwo
 -nudede		https://iframe.mediadelivery.net/ por resolver
 nubilefilm
@@ -272,7 +288,8 @@ pornudes
 pornvase
 -pornworms	findS['profile_labels']['section_title'] = {'find': [{'tag': ['img'], '@ARG': 'alt'}]}
 -pornxbox
-pornxp
+pornxp		findvideos  
+-pornz 		
 -pubjav		findvideos  debe pasar post a play.
 -qiqitv
 redtube
@@ -293,6 +310,7 @@ severeporn
 
 shooshtime
 -speedporn	findvideo pandamovie
+-subtitula2	findvideos
 -sxyprnXXX
 tabooporn
 tabootube
@@ -308,6 +326,8 @@ upornia		TXXX
 -uppornx			        item.last_page = 9999    tiene un moore  esto +1 a last_page
 
 veporns 
+-verpeliculaporno	findvideos 	https://verpeliculaporno.com/?trembed=0&trid=5161&trtype=1
+
 -vidzxxxhd
 viralxvideos	xfy		'findvideos' find_all(a href y iframe src)  
 				 findS['profile_labels']['section_title'] = {'find': [{'tag': ['*'], '@ARG': 'aria-label'}]}

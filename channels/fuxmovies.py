@@ -25,8 +25,8 @@ forced_proxy_opt = 'ProxySSL'
 canonical = {
              'channel': 'fuxmovies', 
              'host': config.get_setting("current_host", 'fuxmovies', default=''), 
-             'host_alt': ["https://fuxmovies.com/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://pornegy.com/"], 
+             'host_black_list': ["https://fuxmovies.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -106,22 +106,22 @@ def play(item):
     itemlist = []
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
-    tags = soup.find('div', class_='keywordslist').find_all('a')
-    for x, value in enumerate(tags):
-        tags[x] = value.get_text(strip=True)
-    id = tags.index('1080p')-1
-    pornstars = tags[1:id]
-    pornstar = ' & '.join(pornstars)
-    pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-    lista = item.contentTitle.split('[/COLOR]')
-    pornstar = pornstar.replace('[/COLOR]', '')
-    pornstar = ' %s' %pornstar
-    lista.insert (1, pornstar)
-    item.contentTitle = '[/COLOR]'.join(lista)
+    # tags = soup.find('div', class_='keywordslist').find_all('a')
+    # for x, value in enumerate(tags):
+        # tags[x] = value.get_text(strip=True)
+    # id = tags.index('1080p')-1
+    # pornstars = tags[1:id]
+    # pornstar = ' & '.join(pornstars)
+    # pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+    # lista = item.contentTitle.split('[/COLOR]')
+    # pornstar = pornstar.replace('[/COLOR]', '')
+    # pornstar = ' %s' %pornstar
+    # lista.insert (1, pornstar)
+    # item.contentTitle = '[/COLOR]'.join(lista)
     
     
     url = soup.iframe['src'] 
-    if "embedb" in url and scrapertools.find_single_match(url, "([0-9]+).html"):
+    if "embed" in url and scrapertools.find_single_match(url, "([0-9]+).html"):
         url = scrapertools.find_single_match(url, "([0-9]+).html")
         url = "https://www.trendyporn.com/embed/%s" %url
     elif ".html" in url and scrapertools.find_single_match(url, "([A-z0-9]+).html"):

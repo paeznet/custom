@@ -75,7 +75,7 @@ def mainlist(item):
     logger.info()
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="bingato" , action="submenu", url= "https://bingato.com/", chanel="bingato", thumbnail = "https://i.postimg.cc/63z8Hc1y/bingato.png")) # thumbnail += "|verifypeer=false"   #SSL peer certificate or SSH remote key was not OK(60)
-    itemlist.append(Item(channel=item.channel, title="sexmexto" , action="submenu", url= "https://sexmex.to/", chanel="sexmexto", thumbnail = "https://i.postimg.cc/rpNTvXDg/sexmex.png"))
+    itemlist.append(Item(channel=item.channel, title="[COLOR red]sexmexto[/COLOR]" , action="submenu", url= "https://sexmex.to/", chanel="sexmexto", thumbnail = "https://i.postimg.cc/rpNTvXDg/sexmex.png"))
     itemlist.append(Item(channel=item.channel, title="taboodude" , action="submenu", url= "https://taboodude.com/", chanel="taboodude", thumbnail = "https://i.postimg.cc/bJkWM43L/taboodude.png"))
     # itemlist.append(Item(channel=item.channel, title="arabporn" , action="submenu", url= "https://arabporn.xxx/", chanel="arabporn", thumbnail = "https://i.postimg.cc/SKXttnK4/arabporn.png"))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
@@ -146,7 +146,7 @@ def play(item):
         lista = item.contentTitle.split('[/COLOR]')
         pornstar = pornstar.replace('[/COLOR]', '')
         pornstar = ' %s' %pornstar
-        if "HD" in item.contentTitle:
+        if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
             lista.insert (2, pornstar)
         else:
             lista.insert (1, pornstar)

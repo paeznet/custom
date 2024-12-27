@@ -121,7 +121,7 @@ def findvideos(item):
     itemlist = []
     videos = []
     soup = create_soup(item.url)
-    pornstars = soup.find('b', class_='icon-star').parent.find_all('a')
+    pornstars = soup.find('div', id='dato-1').find_all('a', href=re.compile("/actor/[A-z0-9-]+/"))
     for x , value in enumerate(pornstars):
         pornstars[x] = value.text.strip()
     pornstar = ' & '.join(pornstars)

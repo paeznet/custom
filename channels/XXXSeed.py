@@ -14,13 +14,17 @@ else:
 
 import re
 
-from platformcode import config, logger
+from platformcode import config, logger, unify
 from core import scrapertools
 from core.item import Item
 from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 from core import jsontools as json
+from platformcode import unify
+
+UNIFY_PRESET = config.get_setting("preset_style", default="Inicial")
+color = unify.colors_file[UNIFY_PRESET]
 
 forced_proxy_opt = 'ProxySSL'
 
@@ -154,7 +158,7 @@ def list_all(item):
         else:
             time = "%s:%s:%s" % (horas,minutos,segundos)
         
-        title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
+        title = "[COLOR %s]%s[/COLOR] %s" % (color.get('year',''),time,title)
         thumbnail += "|Referer=%s" % host #"|verifypeer=false"
         plot = elem['description']
         action = "play"
@@ -179,12 +183,6 @@ def findvideos(item):
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
-from platformcode import unify
-UNIFY_PRESET = config.get_setting("preset_style", default="Inicial")
-color = unify.colors_file[UNIFY_PRESET]
-# color = {'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange',
-         # 'rating_3': 'gold', 'quality': 'deepskyblue', 'cast': 'yellow', 'lat': 'limegreen', 'vose': 'firebrick',
-         # 'vos': 'firebrick', 'vo': 'firebrick', 'server': 'orange', 'library': 'yellow', 'update': 'limegreen', 'no_update': 'red'}
 
 
 def play(item):

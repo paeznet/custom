@@ -21,10 +21,12 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
-# https://latestpornvideo.com/   https://hdporn92.com/   https://familyroleplayporn.com/
-# https://mynewpornvideo.com/   https://newpornvideo.xyz/
-# https://trashxxx.com/     https://whereismyporn.com/
-# https://vidzxxxhd.com/
+# https://familyroleplayporn.com/  https://hdporn92.com/  https://latestpornvideo.com/  https://vidzxxxhd.com/
+# https://www.pornxday.com/  https://www.vpornhd.com/  https://asiaxbit.com/
+# https://mynewpornvideo.com/   
+# https://trashxxx.com/  https://whereismyporn.com/
+
+# OUT https://newpornvideo.xyz/ 
 
 
 canonical = {
@@ -58,7 +60,7 @@ finds = {'find': {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-
          'plot': {}, 
          'findvideos': dict([('find', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]), 
                              ('find_all', [{'tagOR': ['a'], 'href': True, 'id': 'tracking-url'},
-                                           {'tag': ['iframe'], 'src': True}])]),
+                                           {'tag': ['iframe'], 'src': True, 'width': 640}])]), #'width': 640 quita iframe malo
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 

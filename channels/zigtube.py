@@ -21,6 +21,8 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+###############   OUT dic 2024
+
 #      https://www.sexvr.com/  https://celebsnudeworld.com/      https://www.hentaikif.com/  https://www.zigtube.com/   https://www.pornworms.com/
 
 canonical = {

@@ -18,13 +18,15 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+forced_proxy_opt = 'ProxySSL'  # False
+
 canonical = {
              'channel': 'sexiwatch', 
              'host': config.get_setting("current_host", 'sexiwatch', default=''), 
              'host_alt': ["https://sexiwatch.com/"], 
              'host_black_list': [], 
              'pattern': ['<h1 class="site-title"><a href="?([^"|\s*]+)["|\s*]'], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 3, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -140,6 +142,7 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
+    logger.debug(soup)
     url_code = soup.find('div', class_='responsive-player').iframe['src']
     if "php?q=" in url_code:
         import base64

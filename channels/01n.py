@@ -156,7 +156,7 @@ def section(item):
     # findS = finds.copy()
     # findS['url_replace'] = [['(\/(?:categories|channels|models|pornstars)\/[^$]+$)', r'\1?sort_by=post_date&from=1']]
     
-    # if item.extra == 'Pornstar':
+    # if item.extra == 'PornStar':
         # findS['categories'] = dict([('find', [{'tag': ['div'], 'class': 'list-models'}]), 
                                     # ('find_all', [{'tag': ['a'], 'class': 'item'}])])
     
@@ -165,6 +165,7 @@ def section(item):
                                     # ('find_all', [{'tag': ['li']}])])
         # findS['profile_labels']['section_title'] = {'find': [{'tag': ['img'], '@ARG': 'alt'}]}
         # findS['last_page'] = {}
+        # findS['controls']['cnt_tot'] = 12
     
     # if item.extra == 'Categorias':
         # findS['categories'] = dict([('find', [{'tag': ['div'], 'class': 'list-categories'}]), 
@@ -259,6 +260,10 @@ def section_matches(item, matches_int, **AHkwargs):
 def list_all(item):
     logger.info()
     
+    # findS = finds.copy()
+    # findS['controls']['action'] = 'findvideos'
+    
+    # return AlfaChannel.list_all(item, finds=findS, **kwargs)
     return AlfaChannel.list_all(item, **kwargs)
     # return AlfaChannel.list_all(item, matches_post=list_all_matches, **kwargs)
 

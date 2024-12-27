@@ -426,6 +426,7 @@ def play(item):
     quality = quality.strip().upper()    .lower()   #quitar espacios y mayusculas o minusculas 
                             .isupper() .islower() #comprueba que sean MAY o min devolviendo true o false.
                             .capitalize()          # poner en mayuscula primera letra
+                            .title()            # poner en mayuscula primera letra de cada palabra
     cantidad = cantidad.strip()             #quita los espacios antes y despues        
     title = " ".join(title.split())         #Quita los espacios entre palabras de title
     (?i) #hace que la concordancia de contenido no distinga entre mayúsculas y minúsculas
@@ -538,6 +539,14 @@ def play(item):
 
     logger.debug(isinstance(url, bytes))
 
+  ######  allpornstream
+    logger.debug(type(data[0]))
+    if isinstance(data[0], dict): dict v list
+        para diferenciar una lista de un dict en json
+        list   'urls': [{'url': 'https://mydaddy.cc/video/eecd44ca6cde2b98ca/', 'status_code': 200, 'status_text': 'OK', 'last_status_change': '2024-12-25T15:13:17.971Z', 'last_status_check': '2024-12-25T15:13:17.971Z'}, {'url': 'https://mydaddy.cc/video/eecd44ca6cde2b98ca/&alt', 'status_code': 200, 'status_text': 'OK', 'last_status_change': '2024-12-25T15:13:17.964Z', 'last_status_check': '2024-12-25T15:13:17.964Z'}]        
+        dict   'urls': [['360', 'https://s.bellesa.co/v/676466a3c4f9d813adb7099d/360.mp4'], ['480', 'https://s.bellesa.co/v/676466a3c4f9d813adb7099d/480.mp4'], ['720', 'https://s.bellesa.co/v/676466a3c4f9d813adb7099d/720.mp4'], ['1080', 'https://s.bellesa.co/v/676466a3c4f9d813adb7099d/1080.mp4']]
+
+
         if elem_json['url'].endswith('.jpg'): continue
 
         if not url.startswith("https"):
@@ -570,6 +579,15 @@ def play(item):
     {'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange', 'rating_3': 'gold', 'quality': 'deepskyblue', 'cast': 'yellow', 'lat': 'limegreen', 'vose': 'firebrick', 'vos': 'firebrick', 'vo': 'firebrick', 'server': 'orange', 'library': 'yellow', 'update': 'limegreen', 'no_update': 'red'}
     color_setting = AlfaChannel.color_setting.get('rating_3', '')  ''' =====> ''' gold
 
+
+###################      -porneec AH
+            url = vid.iframe.get('data-litespeed-src', '') or vid.iframe.get('src', '') 
+            if "player-x.php?" in url:
+                data = AlfaChannel.convert_url_base64(url, host)  	####  DECODE
+                data =AlfaChannel.do_unquote(data)			####  quita %20  urlparse.unquote(url)
+                data = AlfaChannel.do_soup(data)			####  BeautifulSoup(url, "html5lib", from_encoding="utf-8")
+                url = data.source['src']
+            url += "|Referer=%s" % host
 
 
 #####   CREAR PLAYLIST por año   pelisflix  xmovix
@@ -622,6 +640,25 @@ def anno(item):
         else:
             lista.insert (2, pornstar)
         item.contentTitle = ' '.join(lista)
+
+########   GENERICO AH
+    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    if soup.find('a', itemprop='actor'):
+        pornstars = soup.find_all('a', itemprop='actor')
+        for x , value in enumerate(pornstars):
+            pornstars[x] = value.text.strip()
+        pornstar = ' & '.join(pornstars)
+        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+        lista = item.contentTitle.split('[/COLOR]')
+        pornstar = pornstar.replace('[/COLOR]', '')
+        pornstar = ' %s' %pornstar
+        if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
+            lista.insert (2, pornstar)
+        else:
+            lista.insert (1, pornstar)
+        item.contentTitle = '[/COLOR]'.join(lista)
+
+
 
         ### fpo
     soup = create_soup(item.url)
