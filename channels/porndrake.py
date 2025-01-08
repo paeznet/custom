@@ -143,7 +143,7 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/"))
+    pornstars = soup.find_all('a', href=re.compile("/pornstar/[A-z0-9-]+/"))
     for x , value in enumerate(pornstars):
         pornstars[x] = value.text.strip()
     pornstar = ' & '.join(pornstars)

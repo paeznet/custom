@@ -111,7 +111,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="povpoof" , action="submenu", url= "https://povpoof.com/", chanel="povpoof", thumbnail = "https://cdnstatic.povpoof.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="hard3r" , action="submenu", url= "https://hard3r.com/", chanel="hard3r", thumbnail = "https://cdnstatic.hard3r.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="threesomerz" , action="submenu", url= "https://threesomerz.com/", chanel="threesomerz", thumbnail = "https://cdnstatic.threesomerz.com/static/images/logo.png"))
-    # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="pumpjap" , action="submenu", url= "https://pumpjap.com/", chanel="pumpjap", thumbnail = "https://cdnstatic.pumpjap.com/static/images/logo.png"))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))

@@ -89,6 +89,7 @@ findS['controls']['cnt_tot'] = 9999
 'next_page_rgx': [['page\d+.html', 'next_page_url']] PAGINACION SIEMPRE https://www.sexvr.com/page2.html  HOST + page2.html   y asi item.url + page2.html
 
 url = AlfaChannel.do_unquote(url)  quita los %20 por su simbolo  EQUIVALE a urlparse.unquote(url)
+data = AlfaChannel.convert_url_base64(url, host)  porneec
 
 ###############################################################################################################################################
 
@@ -110,7 +111,8 @@ porngo			multicanal porngo xxxfiles pornpapa porncake fapguru veryfreeporn pornt
 -xnxxxvideoshd		multicanal  xnxxxvideoshd  xnxxxvideosxxx  xnxx2  nangivideos aagmaal  hentayco
 -bingato		multicanal  bingato  sexmex  taboodude  arabporn    
 			'next_page': dict([('find', [{'tag': ['li'], 'class': ['next']}, {'tag': ['a'], '@ARG': 'href'}])])
--josporn		multicanal  josporn   pornohd   xhdporno(diferente y play particular)    Paginacion diferente /page-1/  /page/1/  /page_1.html resuelto con next_page y last_page
+-josporn		multicanal  josporn   pornohd   xhdporno(diferente y play particular)    Paginacion diferente /page-1/  /page/1/  /page_1.html resuelto con 													next_page y last_page
+-freepornsex
 -freexxx		multicanal  freexxx   pornertwo   pornsoda
 -fapnfuck		multicanal  fapnfuck	fuqster	sexpester  w1mp  w4nkr  3sumxl bigbigtits cuminstead  extremehoes extremewhores  hugewangs  jizzpov 
 				    m1lfs maturevices maturexy  gogoasians  hardwhores   povpow  povrz  jizzpov  b1gtits bigtitsxl bigbuttz bigbumfun thrupnies
@@ -178,7 +180,7 @@ cheemsporn
 -czechporn	'list_all_thumbnail': {'find': [{'tag': ['video'], '@ARG': ['poster']}]},
 
 deviants	babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
--dirtyship=
+-dirtyship
 -draftsex      	'next_page_rgx': [['page\d+.html', 'next_page_url']]   pornstar list_all findS['find']
 -dumpxxx	'next_page_rgx': [['page\d+.html', 'next_page_url']],
 -ebonyporn
@@ -202,9 +204,11 @@ fetishshrine
 		last_page     @ARG': 'href', '@TEXT': '(?:\/|=)(\d+)(?:\?|$)'}])]),    href="/movies/models/1915/Ava_Addams/2">
 		findS['url_replace'] = [['\?sort\=popularity', ''],['($)', '/1?sort=addDate.desc']]
 		findS['url_replace'] = [['($)', '&sort=addDate.desc'],['shemale', 'shemale/'],['gay', 'gay/'],['\?q=', '1?q=']]
-
+-foxnxx
+-foxprn
 fpo
 freeomovie	findvideos
+-freepornsex
 freeuseporn
 freshporno
 fuckingsession	findS['controls']['action'] = 'findvideos'    'findvideos find_all(a href y iframe src)  
@@ -226,6 +230,7 @@ hoestube
 -hornybutt
 hotmovs		TXXX 
 -hotporn
+-iceporncasting
 incestvidz	elem_json['action'] = 'findvideos'
 internetchicks  'findvideos' fuckingsession
 -inxxx
@@ -249,6 +254,7 @@ momvids		babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find
 -netfapxtwo
 -nudede		https://iframe.mediadelivery.net/ por resolver
 nubilefilm
+-ogporn
 okporn		next_page con last_page          findS['next_page'] = {}     item.last_page = 9999
 -onlyincest
 -petitespinners
@@ -258,7 +264,10 @@ porn00
 porncaper
 pornditt
 -porndroids	if "Categorias" in item.extra:        findS['controls']['cnt_tot'] = 9999 
-pornerbross	    porntube  
+-porneec	findvideos              if "player-x.php?" in url:
+               					 data = AlfaChannel.convert_url_base64(url, host)
+
+-pornegy	trendypornpornerbross	    porntube  
 -pornez
 -porngrabbz
 -porngrey
@@ -274,6 +283,7 @@ pornmeka
 -PornoBande	last_ page  	'@ARG': 'href', '@TEXT': '(?:videos|actresses|categorie/[a-z0-9-]+|actress/[a-z0-9-]+.html)/(\d+)'}])]), 
  
 pornoflix      	veporns    	paginacion host + wp-admin/admin-ajax.php
+
 pornohdmega	findvideos     elem_json['url'] = scrapertools.find_single_match(elem.textarea.get_text(strip=True), 'data-lazy-src="([^"]+)"')
 pornomovies	babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
 pornone

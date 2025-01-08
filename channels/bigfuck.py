@@ -18,6 +18,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+######  FALLA AL REPRODUCIR Key expired
+
 canonical = {
              'channel': 'bigfuck', 
              'host': config.get_setting("current_host", 'bigfuck', default=''), 
@@ -119,7 +121,8 @@ def lista(item):
             thumbnail = "https:%s" % thumbnail
         time = elem.find('div', class_='thumb-badge left').text.strip()
         if "HD" in time:
-            title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time.replace("HD\n", ""),title)
+            time = time.replace("HD\n", "").strip()
+            title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
         else:
             title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         url = urlparse.urljoin(item.url,url)

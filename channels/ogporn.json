@@ -1,0 +1,15 @@
+{
+  "id": "ogporn",
+  "name": "ogporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/9FWwq8H7/OGPorn-Logo-2.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

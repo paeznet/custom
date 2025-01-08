@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# -*- Channel DirtyShip -*-
+# -*- Channel freepornsex -*-
 # -*- Created for Alfa-addon -*-
 # -*- By the Alfa Develop Group -*-
 
@@ -21,11 +21,10 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
-
 canonical = {
-             'channel': 'dirtyship', 
-             'host': config.get_setting("current_host", 'dirtyship', default=''), 
-             'host_alt': ["https://dirtyship.com/"], 
+             'channel': 'freepornsex', 
+             'host': config.get_setting("current_host", 'freepornsex', default=''), 
+             'host_alt': ["https://www.freepornsex.net/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -40,14 +39,14 @@ tv_path = ''
 language = []
 url_replace = []
 
-finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['thumi']}]},     #'id': re.compile(r"^browse_\d+")}]},
-         'categories': {'find_all': [{'tag': ['li', 'div'], 'class': ['thumi', 'performer-item']}]}, 
+finds = {'find': {'find_all': [{'tag': ['article'], 'class': ['latestPost']}]},     #'id': re.compile(r"^browse_\d+")}]},
+         'categories': {'find_all': [{'tag': ['article'], 'class': ['latestPost']}]}, 
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
          'next_page': {},
-         'next_page_rgx': [['/page/\d+/', '/page/%s/'], ['/page/\d+', '/page/%s']], 
-         'last_page': dict([('find', [{'tag': ['div', 'nav'], 'class': ['pager']}]), 
+         'next_page_rgx': [['\/\d+', '/%s'], ['&page=\d+', '&page=%s']], 
+         'last_page': dict([('find', [{'tag': ['nav'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-2], 
                                            '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
          'plot': {}, 
@@ -56,10 +55,8 @@ finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['thumi']}]},     #'id':
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            'section_cantidad': dict([('find', [{'tag': ['i'], 'class': ['fa']}]),
-                                                      ('get_text', [{'strip': True}])])
                            },
-         'controls': {'url_base64': False, 'cnt_tot': 30, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 18, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -71,15 +68,12 @@ def mainlist(item):
     logger.info()
     itemlist = []
     
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1/?order=newest"))
-    itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="list_all", url=host + "page/1/?order=views"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "page/1/?order=rate"))
-    itemlist.append(Item(channel=item.channel, title="Mas Comentado" , action="list_all", url=host + "page/1/?order=discussed"))
-    # itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "videos/longest/"))
-    # itemlist.append(Item(channel=item.channel, title="Mas Descargas" , action="list_all", url=host + "videos/downloaded/"))
-    # itemlist.append(Item(channel=item.channel, title="Trending" , action="list_all", url=host + "videos/watched/"))
-    itemlist.append(Item(channel=item.channel, title="Pornstar" , action="section", url=host + "actors-3/page/1", extra="PornStars"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories-f/", extra="Categorias"))
+    itemlist.append(Item(channel=item.channel, title="Lesbian Sex" , action="list_all", url=host + "lesbian-sex/page/1/"))
+    itemlist.append(Item(channel=item.channel, title="Girls Masturbating" , action="list_all", url=host + "girls-masturbating/page/1/"))
+    itemlist.append(Item(channel=item.channel, title="Nude Models" , action="list_all", url=host + "nude-models/page/1/"))
+    itemlist.append(Item(channel=item.channel, title="Sex Art" , action="list_all", url=host + "sex-art/page/1/"))
+    itemlist.append(Item(channel=item.channel, title="Shaved Pussy" , action="list_all", url=host + "shaved-pussy/page/1/"))
+    itemlist.append(Item(channel=item.channel, title="The Art of Orgasm" , action="list_all", url=host + "the-art-of-orgasm/page/1/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     
     return itemlist
@@ -87,10 +81,8 @@ def mainlist(item):
 
 def section(item):
     logger.info()
-    findS = finds.copy()
-    # findS['url_replace'] = [['(\/(?:category|channels|models|pornstars)\/[^$]+$)', r'\1page/1/?order=newest']]
     
-    return AlfaChannel.section(item, finds=findS, **kwargs)
+    return AlfaChannel.section(item, **kwargs)
 
 
 def list_all(item):
@@ -106,11 +98,32 @@ def findvideos(item):
                                          verify_links=False, findvideos_proc=True, **kwargs)
 
 
+def play(item):
+    logger.info()
+    itemlist = []
+    
+    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    
+    if soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/")):
+        pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/"))
+        for x, value in enumerate(pornstars):
+            pornstars[x] = value.get_text(strip=True)
+        pornstar = ' & '.join(pornstars)
+        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+        item.contentTitle = "%s %s" %(pornstar,item.contentTitle)
+    
+    data = soup.find('div', class_='clear').script.string
+    url = scrapertools.find_single_match(data, 'file:\s+"([^"]+)"')
+    url += "|Referer=%s" %host
+    itemlist.append(['.m3u', url])
+    return itemlist
+
+
 def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    item.url = "%spage/1/?s=%s&order=newest" % (host, texto.replace(" ", "+"))
+    item.url = "%spage/1/?s=%s" % (host, texto.replace(" ", "+"))
     
     try:
         if texto:

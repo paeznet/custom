@@ -1,0 +1,15 @@
+{
+  "id": "pornegy",
+  "name": "pornegy",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://pornegy.com/favicon-128x128.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

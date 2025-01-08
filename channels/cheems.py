@@ -14,7 +14,7 @@ else:
 
 import re
 
-from platformcode import config, logger
+from platformcode import config, logger,unify
 from core import scrapertools
 
 from core.item import Item
@@ -22,6 +22,16 @@ from core import servertools, channeltools
 from core import httptools
 from bs4 import BeautifulSoup
 from core.jsontools import json
+from modules import autoplay
+
+UNIFY_PRESET = config.get_setting("preset_style", default="Inicial")
+color = unify.colors_file[UNIFY_PRESET]
+
+
+list_quality = []
+list_servers = []
+
+#########           Falla visualizacion de thumbnails
 
 canonical = {
              'channel': 'cheems', 
@@ -35,21 +45,21 @@ host = canonical['host'] or canonical['host_alt'][0]
 
 api = "%sapi/%s?perPage=36&orderBy=%s&order=desc&page=1"
 
-    # , 'Accept': '*/*', 'Content-Type': 'application/json'
-    # url = "https://cheemsporno.com/api/posts/4bca4393-6703-44b9-a3e2-823d36543e00/post-views"
-    # referer="https://cheemsporno.com/es/posts/videos/hot-guys-fuck-naudi-nala-fucks-and-sucks-a-fat-nut-out-of-kolby-gigante-naudi-nala"
-    # headers = {'Referer': referer, 'Content-Type': 'application/json'}
-    # data = httptools.downloadpage(url, post=url, headers=headers).json
-
 def mainlist(item):
     logger.info()
     itemlist = []
+    
+    autoplay.init(item.channel, list_servers, list_quality)
+    
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=api %(host, "posts", "date") ))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=api %(host, "posts", "views") ))
     itemlist.append(Item(channel=item.channel, title="Pornstar" , action="categorias", url=api %(host, "actors", "views") ))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=api %(host, "producers", "views") ))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "/_next/data/szZ1j-vl4ApRKhifI4UL6/es/tags.json" ))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "_next/data/IPiH7-r6cZNpzsbHsG-3c/es/tags.json", extra="Categorias" ))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
+    
+    autoplay.show_option(item.channel, itemlist)
+    
     return itemlist
 
 
@@ -101,7 +111,8 @@ def categorias(item):
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              thumbnail=thumbnail , plot=plot) )
-                             
+    if item.extra:
+        itemlist.sort(key=lambda x: x.title)
     if postsNumber:
         lastpage = postsNumber/36
         if lastpage - int(lastpage) > 0:
@@ -127,9 +138,6 @@ def create_soup(url, referer=None, unescape=False):
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
     return soup
 
-color = {'movie': 'white', 'tvshow': 'salmon', 'year': 'cyan', 'rating_1': 'red', 'rating_2': 'orange',
-         'rating_3': 'gold', 'quality': 'deepskyblue', 'cast': 'yellow', 'lat': 'limegreen', 'vose': 'firebrick',
-         'vos': 'firebrick', 'vo': 'firebrick', 'server': 'orange', 'library': 'yellow', 'update': 'limegreen', 'no_update': 'red'}
 
 def lista(item):
     logger.info()
@@ -140,11 +148,14 @@ def lista(item):
         id = elem['post']['id']
         title = elem['post']['title']
         slug = elem['post']['slug']
-        thumbnail = elem['post']['meta'][1]['value']
-        segundos = elem['post']['meta'][0]['value'].split(".")[0]
+        for v in elem['post']['meta']:
+            if "duration" in v['type']: segundos = v['value'].split(".")[0]
+            if "resolution" in v['type']: quality = v['value']
+            if "thumb" in v['type']: thumbnail = v['value']
         if elem['post']['producer']:
             canal = elem['post']['producer']['name']
             canal = "[COLOR %s][%s][/COLOR]" % (color.get('tvshow',''),canal)
+        quality = "[COLOR %s][%s][/COLOR]" % (color.get('quality',''),quality)
         plot = elem['post']['description']
         
         segundos = int(segundos)
@@ -163,9 +174,9 @@ def lista(item):
         time = "[COLOR %s]%s[/COLOR]" %(color.get('year',''),duration)
         
         if canal:
-            title = "%s %s %s" %(time, canal, title)
+            title = "%s %s %s %s" %(time, quality, canal, title)
         else:
-            title = "%s %s" %(time, title)
+            title = "%s %s %s" %(time, quality, title)
         
         url = "%sposts/videos/%s" %(host, slug)
         
@@ -189,30 +200,33 @@ def findvideos(item):
     logger.info()
     itemlist = []
     data = httptools.downloadpage(item.url).data
-    soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
-    pornstars = soup.find_all('a', href=re.compile("/actors/[A-z0-9-]+"))
-    for x , value in enumerate(pornstars):
-        pornstars[x] = value.text.strip()
-    pornstar = ' & '.join(pornstars)
-    pornstar = "[COLOR %s]%s[/COLOR]" % (color.get('rating_3',''),pornstar)
-    lista = item.contentTitle.split('[/COLOR]')
-    pornstar = pornstar.replace('[/COLOR]', '')
-    if color.get('tvshow','') in item.title:
-        lista.insert (2, pornstar)
-    else:
-        lista.insert (1, pornstar)
-    item.contentTitle = '[/COLOR]'.join(lista)
-    
+    # soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
+    # pornstars = soup.find_all('a', href=re.compile("/actors/[A-z0-9-]+"))
+    # for x , value in enumerate(pornstars):
+        # pornstars[x] = value.text.strip()
+    # pornstar = ' & '.join(pornstars)
+    # pornstar = "[COLOR %s]%s[/COLOR]" % (color.get('rating_3',''),pornstar)
+    # lista = item.contentTitle.split('[/COLOR]')
+    # pornstar = pornstar.replace('[/COLOR]', '')
+    # if color.get('tvshow','') in item.title:
+        # lista.insert (2, pornstar)
+    # else:
+        # lista.insert (1, pornstar)
+    # item.contentTitle = '[/COLOR]'.join(lista)
     
     patron = '\{"title":"([^"]+)"."url":"([^"]+)","type":'
     matches = scrapertools.find_multiple_matches(data, patron)
     copias=[]
     for serv, url in matches:
+        if "cheems" in url: continue
         marca = url.split("/")[-1].replace("embed-", "")
         if not marca in copias: 
             copias.append(marca)
             itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    # Requerido para AutoPlay
+    autoplay.start(itemlist, item)
+    
     return itemlist
 
 

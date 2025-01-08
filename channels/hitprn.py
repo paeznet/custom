@@ -92,6 +92,9 @@ def lista(item):
         url = elem.a['href']
         title = elem.a['title']
         thumbnail = elem.img['src']
+        # thumbnail += "|verifypeer=false"
+        # thumbnail += "|ignore_response_code=True"
+        thumbnail += "|Referer=%s" % host
         plot = elem.find('p', class_='entry-summary').text.strip()
         action = "play"
         if logger.info() == False:

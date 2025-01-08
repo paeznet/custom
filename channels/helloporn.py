@@ -97,10 +97,9 @@ def catalogo(item):
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('div', class_='next')
     if next_page:
-        next_page = next_page.a['data-parameters'].replace(":", "=").replace("+from_albums", "").split(";")
-        next_page = "?%s&%s" % (next_page[0], next_page[1])
+        next_page = next_page.a['data-parameters'].split(":")[-1]
         next_page = urlparse.urljoin(item.url,next_page)
-        itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+        itemlist.append(Item(channel=item.channel, action="catalogo", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
@@ -124,6 +123,9 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
+        time = ""
+        time = elem.p.text.strip()
+        title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         thumbnail = elem.img['data-src']
         plot = ""
         action = "play"
@@ -133,8 +135,7 @@ def lista(item):
                                plot=plot, fanart=thumbnail, contentTitle=title ))
     next_page = soup.find('div', class_='next')
     if next_page:
-        next_page = next_page.a['data-parameters'].replace(":", "=").replace("+from_albums", "").split(";")
-        next_page = "?%s&%s" % (next_page[0], next_page[1])
+        next_page = next_page.a['data-parameters'].split(":")[-1]
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist

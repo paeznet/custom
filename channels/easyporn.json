@@ -1,0 +1,15 @@
+{
+  "id": "easyporn",
+  "name": "000easyporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://static.hd-easyporn.com/img/header_50.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

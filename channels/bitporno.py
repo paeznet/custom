@@ -118,7 +118,8 @@ def findvideos(item):
     itemlist = []
     data = httptools.downloadpage(item.url).data
     data = re.sub(r"\n|\r|\t|&nbsp;|<br>|<br/>", "", data)
-    url = scrapertools.find_single_match(data, 'file: "([^"]+)"')
+    # url = scrapertools.find_single_match(data, 'file: "([^"]+)"')
+    url = scrapertools.find_single_match(data, "url: '([^']+)'")
     if ".m3u" in url:
         url= urlparse.urljoin(host,url)
         m3u_data = httptools.downloadpage(url).data
@@ -137,7 +138,8 @@ def play(item):
     itemlist = []
     data = httptools.downloadpage(item.url).data
     data = re.sub(r"\n|\r|\t|&nbsp;|<br>|<br/>", "", data)
-    url = scrapertools.find_single_match(data, 'file: "([^"]+)"')
+    # url = scrapertools.find_single_match(data, 'file: "([^"]+)"')
+    url = scrapertools.find_single_match(data, "url: '([^']+)'")
     if ".m3u" in url:
         url= urlparse.urljoin(host,url)
         m3u_data = httptools.downloadpage(url).data
@@ -146,7 +148,7 @@ def play(item):
         if matches:
             for quality, url in matches:
                 itemlist.append(["%s  %sp [bitporno]" % (filename, quality), url])
-    else:
+    elif url:
         itemlist.append(["[bitporno] .mp4", url])
     return itemlist
 

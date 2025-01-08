@@ -60,15 +60,17 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='item-tag')
+    matches = soup.find_all('div', class_='item-cat')
     for elem in matches:
         url = elem.a['href']
-        title = elem.find_all('span')
-        thumbnail = ""
-        title = "%s (%s)" % (title[0].text,title[-1].text)
+        title = elem.find('div', class_='item-title').text.strip()
+        cantidad = elem.span.text.strip()
+        thumbnail = elem.img['src']
+        title = "%s (%s)" % (title,cantidad)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
+    itemlist.sort(key=lambda x: x.title)
     return itemlist
 
 
@@ -98,7 +100,7 @@ def catalogo(item):
     if next_page and next_page.parent.find_next_sibling("li"):
         next_page = next_page.parent.find_next_sibling("li").a['href']
         next_page = urlparse.urljoin(item.url,next_page)
-        itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+        itemlist.append(Item(channel=item.channel, action="catalogo", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
@@ -122,26 +124,26 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
-        thumbnail = elem.img['src']
+        thumbnail = elem.img['data-flickity-lazyload-srcset']
         if "gif" in thumbnail:
             thumbnail = elem.img['data-src']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
         time = elem.find('span', class_='duration').text.strip()
-        # pornstar = elem.find('div', class_='item-model-holder')
-        # if pornstar:
-            # title = "[COLOR yellow]%s[/COLOR] [COLOR cyan]%s[/COLOR] %s" % (time,pornstar.text.strip(),title)
-        # else:
-        title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
+        pornstar = elem.find('div', class_='item-model-holder')
+        if pornstar:
+            title = "[COLOR yellow]%s[/COLOR] [COLOR cyan]%s[/COLOR] %s" % (time,pornstar.text.strip(),title)
+        else:
+            title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         plot = ""
         action = "play"
         if logger.info() == False:
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('ul', class_='pagination').find(class_='active')
-    if next_page and next_page.parent.find_next_sibling("li"):
-        next_page = next_page.parent.find_next_sibling("li").a['href']
+    next_page = soup.find('ul', class_='pagination')
+    if next_page and next_page.find(class_='active').parent.find_next_sibling("li"):
+        next_page = next_page.find(class_='active').parent.find_next_sibling("li").a['href']
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
@@ -164,14 +166,15 @@ def play(item):
         pornstars[x] = value['content']
     pornstar = ' & '.join(pornstars)
     pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
-    lista = item.title.split()
-    # if "[COLOR cyan]" in item.title:
-        # logger.debug(item.contentTitle)
-        # item.contentTitle = item.contentTitle.replace("[COLOR cyan][A-z ]+[/COLOR]", "")
-        # logger.debug(item.contentTitle)
-    # else:
+    if "[COLOR cyan]" in item.title:
+        porn = scrapertools.find_single_match(item.contentTitle, "(\[COLOR cyan\].*?\[/COLOR\] )")
+        item.contentTitle = item.contentTitle.replace(porn, "")
+    lista = item.contentTitle.split()
     lista.insert (2, pornstar)
-    item.contentTitle = ' '.join(lista)    
+    item.contentTitle = ' '.join(lista)
+    
+    if soup.find('iframe'):
+        item.url = soup.iframe['src']
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

@@ -1,0 +1,15 @@
+{
+  "id": "foxnxx",
+  "name": "foxnxx",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://foxnxx.com/favicon.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

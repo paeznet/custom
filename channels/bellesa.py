@@ -54,7 +54,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%ssearch?type=videos&sort=recent&q=%s" % (host,texto)
+    item.url = "%ssearch?type=videos&sort=recent&q=%s&page=1" % (host,texto)
     try:
         return lista(item)
     except:
@@ -121,7 +121,11 @@ def lista(item):
     data = httptools.downloadpage(item.url, canonical=canonical).data
     data_json = scrapertools.find_single_match(data, "window.__INITIAL_DATA__ = (.*?);")
     data_json = json.loads(data_json)
-    for elem in data_json['videos']:  # data_json['videos']   data_json['pagination']   data_json['filters']['performers']   data_json['filters']['providers']   data_json['filters']['categories']
+    if "search?" in item.url:
+        data_json = data_json['data']
+    else:
+        data_json = data_json['videos']
+    for elem in data_json:  # data_json['videos']   data_json['pagination']   data_json['filters']['performers']   data_json['filters']['providers']   data_json['filters']['categories']
         id = elem['id']
         title = elem['title']
         thumbnail = elem['image']

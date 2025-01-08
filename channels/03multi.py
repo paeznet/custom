@@ -167,7 +167,10 @@ def play(item):
         lista = item.contentTitle.split('[/COLOR]')
         pornstar = pornstar.replace('[/COLOR]', '')
         pornstar = ' %s' %pornstar
-        lista.insert (1, pornstar)
+        if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
+            lista.insert (2, pornstar)
+        else:
+            lista.insert (1, pornstar)
         item.contentTitle = '[/COLOR]'.join(lista)
 
 

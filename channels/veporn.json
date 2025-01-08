@@ -1,0 +1,15 @@
+{
+  "id": "veporn",
+  "name": "veporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.veporn.net/theme/images/veporn.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

@@ -18,6 +18,7 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+####    NO MUESTRA thumbnail
 
 canonical = {
              'channel': 'bobstuber', 
