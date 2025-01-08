@@ -21,12 +21,30 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+        # ENGLISH                         DEUTCH
+# https://www.hd-easyporn.com/ == https://www.hdpornos.xxx/  
+# https://www.porndrake.com/ ==  https://www.pornoente.tv/  
+# https://www.pornblade.com/ ==  https://www.pornoklinge.com/
+# https://www.porntommy.com/ ==  https://www.pornotommy.com/
+# https://www.porn-monkey.com/ == https://www.pornoaffe.net/  https://www.pornomico.com/
 
-# https://www.hd-easyporn.com/  https://www.porndrake.com/   https://www.pornblade.com/
 # https://www.pornboxer.com/    https://www.sexmovies69.net/  https://www.sexclips66.com/  https://www.pornolisa.com/
-# https://www.porn-monkey.com/    https://www.pornoleon.com/  https://www.meinyouporn.com/ https://www.hd-pornos.info/
-# https://www.pornotanja.com/  
 
+# https://www.pornoleon.com/  https://www.meinyouporn.com/ https://www.hd-pornos.info/
+# https://www.pornotanja.com/  https://www.pornozebra.com/  https://www.pornohans.net/
+# https://www.deinesexfilme.com/   https://www.pornofisch.com/  https://www.lesbenhd.com/
+# https://www.pornohammer.com/   https://www.gutesexfilme.com/  https://www.pornhub-sexfilme.net/
+# https://www.pornotom.com/  https://www.pornozebra.com/  https://www.pornohirsch.net/
+# https://www.sexvideos-hd.com/  https://www.pornoschlange.com/  https://www.halloporno.net/
+# https://www.sexente.com/  https://www.hd-sexfilme.com/  https://www.pornodavid.com/
+# https://www.tube8-pornos.com/  https://www.pornojenny.net/  https://www.beeg-pornos.com/
+# https://www.herzporno.net/  https://www.sexfilme-gratis.com/  https://www.drsexfilme.com/
+# https://www.pornoritze.com/  https://www.sexvideos-gratis.com/  https://www.hdpornos.xxx/
+# https://www.nursexfilme.com/  https://www.milffabrik.com/  https://www.pornovideos-hd.com/
+# https://www.einfachtitten.com/  https://www.pornosusi.com/
+# https://www.xnxx-pornos.xxx/  https://www.xnxx-porno.com/  https://www.xnxx-sexfilme.com/
+
+# https://www.sexhamster.org/  https://www.deutscherporno.biz/
 
 canonical = {
              'channel': 'easyporn', 
@@ -110,6 +128,16 @@ def submenu(item):
     itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "pornstars/?p=1", extra="PornStar", chanel=item.chanel))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=item.url + "channels/", extra="Canal", chanel=item.chanel))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "categories/", extra="Categorias", chanel=item.chanel))
+    
+    
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "?o=n&p=1", chanel=item.chanel))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=item.url + "?o=v&p=1", chanel=item.chanel))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "?o=r&p=1", chanel=item.chanel))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=item.url + "?o=d&p=1", chanel=item.chanel))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "pornostars/?p=1", extra="PornStar", chanel=item.chanel))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=item.url + "kanaele/", extra="Canal", chanel=item.chanel))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "kategorien/", extra="Categorias", chanel=item.chanel))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url, extra="Categorias", chanel=item.chanel))
     
     
     # if "porn-monkey" in item.chanel:
