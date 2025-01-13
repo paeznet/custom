@@ -93,7 +93,11 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    return AlfaChannel.list_all(item, **kwargs)
+    findS = finds.copy()
+    
+    if item.extra == "Search" :
+        findS['controls']['cnt_tot'] = 24
+    return AlfaChannel.list_all(item, finds=findS, **kwargs)
 
 
 def findvideos(item):
@@ -135,9 +139,8 @@ def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    # item.url = "%sbuscar/?q=%s&sort_by=video_viewed&from_videos=1" % (host, texto.replace(" ", "+"))
-    # item.url = "%ssearch/%s/" % (host, texto.replace(" ", "-"))
-    item.url = "%ssearch/?q=%s&sort_by=post_date&from_videos=1" % (host, texto.replace(" ", "+"))
+    item.extra = "Search"
+    item.url = "%ssearch/?q=%s&sort_by=post_date&from=1" % (host, texto.replace(" ", "+"))
     
     try:
         if texto:

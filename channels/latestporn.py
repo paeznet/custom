@@ -108,6 +108,8 @@ def lista(item):
         url = elem.a['href']
         title = elem.img['alt']
         thumbnail = elem.img['src']
+        if "data:image" in thumbnail:
+            thumbnail = elem.img['data-src']
         plot = ""
         itemlist.append(Item(channel=item.channel, action="findvideos", title=title, url=url, thumbnail=thumbnail,
                                plot=plot, fanart=thumbnail, contentTitle=title ))

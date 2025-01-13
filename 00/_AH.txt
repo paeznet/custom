@@ -237,6 +237,8 @@ internetchicks  'findvideos' fuckingsession
 javwhores
 jizzberry
 joysporn	joysporn   'next_page_rgx': [['/page/\d+', '/page/%s/']],    last_page para search
+-kojka		    item.extra = "Search"
+
 latestpornvideo		findvideo de fuckingsession
 -leakslove	'findvideos' con pornstars   findS['controls']['cnt_tot'] = 9999 en categorias sino no mostraba paginacion
 -lesbian8
