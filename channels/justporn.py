@@ -102,7 +102,7 @@ def lista(item):
         url = elem.a['href']
         title = elem.h2.text.strip()
         thumbnail = elem.img['src']
-        time = elem.find('div', class_='content-img-details').text.strip()
+        time = elem.find('div', class_='detail2').text.strip()
         pornstars = elem.find_all('a', class_='acters')
         for x , value in enumerate(pornstars):
             pornstars[x] = value.text.strip()

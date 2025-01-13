@@ -18,7 +18,7 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-# https://mat6tube.com/   https://noodlemagazine.com/
+# https://mat6tube.com/   https://noodlemagazine.com/   https://ukdevilz.com/
 
 ##### cloudflare error 403
  ### thumbnail  CCurlFile::Stat - Failed: HTTP response code said error(22)
