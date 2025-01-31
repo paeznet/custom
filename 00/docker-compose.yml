@@ -1,0 +1,467 @@
+
+ssh pi@192.168.0.20
+
+sudo reboot
+sudo raspi-config
+sudo apt-get update && sudo apt-get upgrade
+
+
+
+#############   CASAOS ##################
+
+
+wget https://downloads.rclone.org/v1.61.1/rclone-v1.61.1-linux-arm64.zip
+unzip -j -d rclone-temp rclone-v1.61.1-linux-arm64.zip
+sudo mv ~/rclone-temp/rclone /usr/bin/rclone
+sudo mv ~/rclone-temp/rclone.1 /usr/share/man/man1/rclone.1
+sudo chown root: /usr/bin/rclone
+
+rm rclone-v1.61.1-linux-arm64.zip
+rm -r -f ~/rclone-temp
+
+
+# curl https://rclone.org/install.sh | sudo bash
+curl -fsSL -k http://get.casaos.io/ | sudo bash
+
+
+
+########################################################################################
+
+sudo apt install samba
+sudo apt install samba-common samba-common-bin  smbclient cifs-utils
+# sudo nano /etc/samba/smb.conf
+[pi]
+path=/home/pi
+browsable=yes
+writeable=yes
+create mask=0777
+directory mask=0777
+# sudo smbpasswd -a pi
+
+sudo systemctl start smbd nmbd
+
+sudo apt install wsdd
+sudo service wsdd start
+# en windows cmd
+net use X: \\192.168.0.20\pi /user:pi ziripot68 /persistent:yes
+
+#########################################################################################
+pwd >>>  Muestra en que directorio te encuentras
+cd ~  >>>  navegar hasta este directoriopwd
+
+sudo blkid  >>>>> Muestra discos
+# /dev/mmcblk0p2: LABEL="rootfs" UUID="bb15c8e6-d999-4838-be67-5ff200bffa46" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="7649b767-02"
+# /dev/mmcblk0p1: LABEL_FATBOOT="bootfs" LABEL="bootfs" UUID="4F7A-F93F" BLOCK_SIZE="512" TYPE="vfat" PARTUUID="7649b767-01"
+# /dev/sda1: UUID="DCC9-42E5" BLOCK_SIZE="512" TYPE="vfat" PARTUUID="4dcb9ea6-01"
+
+cd / >>> ruta principal de linux
+ls -l >>>dir
+# total 216
+# drwxr-xr-x 6 root root   4096 Jan 22 18:22 docker
+# -rw-r--r-- 1 root root 165418 Jan 23 21:02 omv_install.log
+# -rw-r--r-- 1 root root  40672 Jan 23 20:54 openmediavault-omvextrasorg_latest_all7.deb
+# -rw-r--r-- 1 root root   1104 Jan 23 20:38 wget-log
+
+lsblk >>>> lista discos
+# NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+# sda           8:0    0 232.9G  0 disk
+# └─sda1        8:1    0 232.9G  0 part
+# mmcblk0     179:0    0  14.8G  0 disk
+# ├─mmcblk0p1 179:1    0   512M  0 part /boot/firmware
+# └─mmcblk0p2 179:2    0  14.3G  0 part /
+df >>> disk free espacio libre en discos
+# Filesystem     1K-blocks    Used Available Use% Mounted on
+# udev              336856       0    336856   0% /dev
+# tmpfs              94304    2348     91956   3% /run
+# /dev/mmcblk0p2  14756172 4052424   9935904  29% /
+# tmpfs             471516       0    471516   0% /dev/shm
+# tmpfs               5120      12      5108   1% /run/lock
+# /dev/mmcblk0p1    522230   84802    437428  17% /boot/firmware
+# tmpfs              94300       0     94300   0% /run/user/1000
+
+
+########################################################################################
+
+# https://www.duckdns.org/update?domai
+ns=zutik.duckdns.org&token=57fb116a-153a-413b-a398-71cc0878c5ee
+
+
+services:
+  duckdns:
+    image: lsioarmhf/duckdns:latest
+    container_name: duckdns
+    network_mode: host #optional
+    environment:
+      - PUID=1000 #optional
+      - PGID=1000 #optional
+      - TZ=Europe/Madrid #optional
+      - SUBDOMAINS=zutik
+      - TOKEN=57fb116a-153a-413b-a398-71cc0878c5ee
+      - UPDATE_IP=ipv4 #optional
+      - LOG_FILE=false #optional
+    volumes:
+      - /home/pi/docker/duckdns/config:/config #optional
+    restart: unless-stopped
+    
+
+
+##############################################################################################
+
+version: "3"
+
+# More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp" # Only required if you are using Pi-hole as your DHCP server
+      - "80:80/tcp"
+    environment:
+      TZ: 'Europe/Madrid'
+      WEBPASSWORD: 'ziripot68'
+    # Volumes store your data between container upgrades
+    volumes:
+      - '/home/pi/docker/pihole/config:/etc/pihole'
+      - '/home/pi/docker/pihole/dnsmasq.d:/etc/dnsmasq.d'
+    #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
+    network_mode: bridge
+    cap_add:
+      - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed
+    restart: unless-stopped
+
+#############################################################################################
+
+
+    
+    
+    
+# docker run --detach \
+  # --name wg-easy \
+  # --env LANG=de \
+  # --env WG_HOST=zutik.duckdns.org\
+  # --env PASSWORD_HASH='<🚨YOUR_ADMIN_PASSWORD_HASH>' \
+  # --env PORT=51821 \
+  # --env WG_PORT=51820 \
+  # --volume ~/.wg-easy:/etc/wireguard \
+  # --publish 51820:51820/udp \
+  # --publish 51821:51821/tcp \
+  # --cap-add NET_ADMIN \
+  # --cap-add SYS_MODULE \
+  # --sysctl 'net.ipv4.conf.all.src_valid_mark=1' \
+  # --sysctl 'net.ipv4.ip_forward=1' \
+  # --restart unless-stopped \
+  # ghcr.io/wg-easy/wg-easy
+
+
+
+
+
+
+# docker run --rm -it ghcr.io/wg-easy/wg-easy wgpw 'ziripot68'
+# PASSWORD_HASH='$2a$12$PnGXXvrlsrwaZ5Ys8hifMe/h5Ld3t0kYR510ZMWARYnB8H81qPE6a'
+
+version: "3.8"
+
+services:
+  wg-easy:
+    image: ghcr.io/wg-easy/wg-easy
+    environment:
+      # ⚠️ Change the server's hostname (clients will connect to):
+      - WG_HOST=zutik.duckdns.org
+
+      # ⚠️ Change the Web UI Password:
+      - PASSWORD_HASH=$$2a$$12$$PnGXXvrlsrwaZ5Ys8hifMe/h5Ld3t0kYR510ZMWARYnB8H81qPE6a
+
+      # 💡 This is the Pi-Hole Container's IP Address
+      - WG_DEFAULT_DNS=10.8.1.3
+      - WG_DEFAULT_ADDRESS=10.8.0.x
+    container_name: wg-easy
+    volumes:
+      - /home/pi/docker/wg-easy:/etc/wireguard
+    ports:
+      - "51820:51820/udp"
+      - "51821:51821/tcp"
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.ip_forward=1
+      - net.ipv4.conf.all.src_valid_mark=1
+    networks:
+      wg-easy:
+        ipv4_address: 10.8.1.2
+
+  pihole:
+    image: pihole/pihole
+    container_name: pihole
+    environment:
+      TZ: 'Europe/Madrid'
+      WEBPASSWORD: 'ziripot68'
+    volumes:
+      - '/home/pi/docker/pihole/config:/etc/pihole'
+      - '/home/pi/docker/pihole/dnsmasq.d:/etc/dnsmasq.d'
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "5353:80/tcp"
+    # network_mode: bridge
+    # cap_add:
+      # - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed
+    restart: unless-stopped
+    networks:
+      wg-easy:
+        ipv4_address: 10.8.1.3
+
+networks:
+  wg-easy:
+    ipam:
+      config:
+        - subnet: 10.8.1.0/24 
+
+#################################################################################
+
+  nextcloud:
+    image: linuxserver/nextcloud
+    container_name: nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - /home/pi/docker/nextcloud/config:/config
+      - /home/pi/docker/nextcloud/data:/data
+    ports:
+      - 2443:443
+    restart: unless-stopped 
+    
+    
+###################################################################################
+    
+# version: "3.5"
+# services:
+  # watchtower:
+    # image: containrrr/watchtower:latest
+    # container_name: watchtower
+    # restart: unless-stopped
+    # volumes:
+      # - /var/run/docker.sock:/var/run/docker.sock
+    # environment:
+      # - WATCHTOWER_CLEANUP=true
+      # - WATCHTOWER_INCLUDE_RESTARTING=true
+      # - WATCHTOWER_INCLUDE_STOPPED=true
+      # - WATCHTOWER_REVIVE_STOPPED=false
+      # - WATCHTOWER_NO_RESTART=false
+      # - WATCHTOWER_TIMEOUT=30s
+      # - WATCHTOWER_SCHEDULE=0 0 4 * * *
+      # - WATCHTOWER_DEBUG=false
+      # - WATCHTOWER_NOTIFICATION_URL=telegram://BOT_TOKEN@telegram/?channels=CHAT_ID
+      # - TZ=Europe/Madrid
+    # network_mode: bridge    
+ 
+###################################################################################
+
+version: "3"
+services:
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    volumes:
+       /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 86400 --cleanup
+    restart: unless-stopped 
+    
+###################################################################################
+
+nano docker-compose.yml
+
+docker-compose up -d wireguard # Crear y arrancar contenedor
+docker-compose stop swag # Parar contenedor 
+docker-compose start wireguard # Arrancar contenedor
+docker-compose down wireguard #Parar y eliminar contenedor
+
+docker-compose down duckdns
+docker-compose up -d swag && docker logs -f swag
+
+sudo docker logs -f duckdns
+
+
+cd /data/swag/config/nginx/proxy-confs/
+
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+
+https://zutik.duckdns.org/pihole/admin/
+##############################################
+
+version: '2.1'
+services:
+
+
+  speedtest-tracker:
+    image: lscr.io/linuxserver/speedtest-tracker:latest
+    restart: unless-stopped
+    container_name: speedtest-tracker
+    ports:
+      - 8080:80
+      - 8443:443
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - APP_KEY=base64:r1BW6qnO8IqCSBgDHb1KVlx3mEqB+Jz8Pz6f9BI5tzQ=
+      - DB_CONNECTION=sqlite
+      - DB_CONNECTION=sqlite
+      - SPEEDTEST_SCHEDULE=0 * * * *
+      - SPEEDTEST_SERVERS=
+      - PRUNE_RESULTS_OLDER_THAN=
+      - CHART_DATETIME_FORMAT=H:m
+      - DATETIME_FORMAT=H:m
+      - APP_TIMEZONE=Europe/Madrid
+      - TZ=Europe/Madrid
+      - DISPLAY_TIMEZONE=Europe/Madrid
+    volumes:
+      - /home/pi/docker/data/speedtest/:/config
+      - /home/pi/docker/data/speedtest/to-custom-ssl-keys:/config/keys
+
+  swag:
+    image: linuxserver/swag
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - URL=zutik.duckdns.org
+      - SUBDOMAINS=www,
+      - VALIDATION=duckdns
+      - DNSPLUGIN=cloudflare #optional
+      - PROPAGATION= #optional
+      - DUCKDNSTOKEN=57fb116a-153a-413b-a398-71cc0878c5ee
+      - EMAIL= #optional
+      - ONLY_SUBDOMAINS=false #optional
+      - EXTRA_DOMAINS= #optional
+      - STAGING=false #optional
+    volumes:
+      - /home/pi/docker/data/swag/config:/config
+    ports:
+      - 443:443
+      - 80:80 #optional
+    restart: unless-stopped
+
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      - 67:67/udp
+      - 5353:80/tcpcd docker
+      - 1443:443/tcp
+    environment:
+      TZ: Europe/Madrid
+    volumes:
+       - /home/pi/docker/data/pihole/etc-pihole/:/etc/pihole/
+       - /home/pi/docker/data/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+
+
+  wireguard:
+    image: lscr.io/linuxserver/wireguard:latest
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - SERVERURL=zutik.duckdns.org #optional
+      - SERVERPORT=51820 #optional
+      - PEERS=1 #optional
+      - PEERDNS=auto #optional
+      - INTERNAL_SUBNET=10.13.13.0 #optional
+      - ALLOWEDIPS=0.0.0.0/0 #optional
+      - PERSISTENTKEEPALIVE_PEERS= #optional
+      - LOG_CONFS=true #optional
+    volumes:
+      - /path/to/wireguard/config:/config
+      - /lib/modules:/lib/modules #optional
+    ports:
+      - 51820:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: unless-stopped
+
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./portainer-data:/data
+    ports:
+      - 9000:9000
+    restart: unless-stopped
+
+
+
+  nextcloud:
+    image: linuxserver/nextcloud
+    container_name: nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - /home/pi/docker/data/nextcloud/config:/config
+      - /home/pi/docker/data/nextcloud/data:/data
+    ports:
+      - 2443:443
+    restart: unless-stopped
+
+  # qbittorrent:
+    # image: linuxserver/qbittorrent
+    # container_name: qbittorrent
+    # environment:
+      # - PUID=1000
+      # - PGID=1000
+      # - TZ=Europe/Madrid
+      # - UMASK_SET=022
+      # - WEBUI_PORT=8080
+    # volumes:
+      # - /home/pi/docker/data/qbittorrent/config:/config
+      # - /home/pi/docker/data/qbittorrent/downloads:/downloads
+    # ports:
+      # - 6881:6881
+      # - 6881:6881/udp
+      # - 3080:8080
+    # restart: unless-stopped
+
+  # jackett:
+    # image: linuxserver/jackett
+    # container_name: jackett
+    # environment:
+      # - PUID=1000
+      # - PGID=1000
+      # - TZ=Europe/Madrid
+      # - AUTO_UPDATE=true #optional
+      # - RUN_OPTS=<run options here> #optional
+    # volumes:
+      # - /home/pi/docker/data/jackett/config:/config
+      # - /home/pi/docker/data/jackett/downloads:/downloads
+    # ports:
+      # - 9117:9117
+    # restart: unless-stopped
+

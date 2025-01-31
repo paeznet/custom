@@ -76,10 +76,10 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="sextubefun" , action="submenu", url= "https://sextubefun.com/", chanel="sextubefun", thumbnail = "https://i.postimg.cc/qRwRXggy/logo.png"))
-    itemlist.append(Item(channel=item.channel, title="wanktv" , action="submenu", url= "https://wanktv.com/", chanel="wanktv", thumbnail= "https://i.postimg.cc/zGrNd8Wf/logo.png"))
-    itemlist.append(Item(channel=item.channel, title="iporntoo" , action="submenu", url= "https://iporntoo.com/", chanel="iporntoo", thumbnail = "https://i.postimg.cc/vTyrD4kn/logo.png"))
-    itemlist.append(Item(channel=item.channel, title="hdporn-movies" , action="submenu", url= "https://hdporn-movies.com/", chanel="hdporn-movies", thumbnail = "https://i.postimg.cc/7hySW5N6/logo.png"))
+    # itemlist.append(Item(channel=item.channel, title="sextubefun" , action="submenu", url= "https://sextubefun.com/", chanel="sextubefun", thumbnail = "https://i.postimg.cc/qRwRXggy/logo.png"))
+    # itemlist.append(Item(channel=item.channel, title="wanktv" , action="submenu", url= "https://wanktv.com/", chanel="wanktv", thumbnail= "https://i.postimg.cc/zGrNd8Wf/logo.png"))
+    # itemlist.append(Item(channel=item.channel, title="iporntoo" , action="submenu", url= "https://iporntoo.com/", chanel="iporntoo", thumbnail = "https://i.postimg.cc/vTyrD4kn/logo.png"))
+    # itemlist.append(Item(channel=item.channel, title="hdporn-movies" , action="submenu", url= "https://hdporn-movies.com/", chanel="hdporn-movies", thumbnail = "https://i.postimg.cc/7hySW5N6/logo.png"))
     itemlist.append(Item(channel=item.channel, title="wetsins" , action="submenu", url= "https://www.wetsins.com/", chanel="wetsins", thumbnail = "https://i.postimg.cc/zGrNd8Wf/logo.png"))
     return itemlist
 

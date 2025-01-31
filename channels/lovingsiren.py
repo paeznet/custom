@@ -19,6 +19,7 @@ list_quality = []
 list_quality_movies = []
 list_quality_tvshow = []
 list_servers = []
+
 forced_proxy_opt = 'ProxySSL'
 
 canonical = {

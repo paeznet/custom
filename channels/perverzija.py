@@ -37,8 +37,9 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "studio/page/1/?orderby=like"))
     itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "studio/page/1/?orderby=comment"))
     itemlist.append(Item(channel=item.channel, title="4k" , action="lista", url=host + "tag/4k-quality/page/1/?orderby=date"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host))
+    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="categorias", url=host + "stars/"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "studios/"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host+ "tags/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     itemlist.append(Item(channel=item.channel, title="-------------------"))
     itemlist.append(Item(channel=item.channel, title="Peliculas", action="movie"))
@@ -72,12 +73,8 @@ def search(item, texto):
 def categorias(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url).find('ul', class_='nav-ul-menu').find_all('ul')
-    if "Canal" in item.title:
-        matches = soup[1].find_all('li')
-    else:
-        matches = soup[3].find_all('li')
-    matches.pop(0)
+    soup = create_soup(item.url)
+    matches= soup.find('div', id='az-slider').find_all('li')
     for elem in matches:
         url = elem.a['href']
         title = elem.a.text.strip()

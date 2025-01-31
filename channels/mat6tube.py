@@ -22,6 +22,7 @@ from bs4 import BeautifulSoup
 
 ##### cloudflare error 403
  ### thumbnail  CCurlFile::Stat - Failed: HTTP response code said error(22)
+###  No reproduce los videos la web si lo hace
 
 
 forced_proxy_opt = 'ProxySSL'
@@ -81,6 +82,7 @@ def lista(item):
         url = elem.a['href']
         title = elem.find('div', class_='title').text.strip()
         thumbnail = elem.img['data-src']  ### CCurlFile::Stat - Failed: HTTP response code said error(22)
+        logger.debug(thumbnail)
         # thumbnail += "|verifypeer=false"
         # thumbnail += "|ignore_response_code=True"
         # thumbnail += "|Referer=%s" % host
@@ -125,12 +127,13 @@ def play(item):
     logger.info()
     itemlist = []
     data = httptools.downloadpage(item.url).data
-    url = scrapertools.find_single_match(data, '"embedUrl":\s*"([^"]+)"')
-    data = httptools.downloadpage(url).data
-    patron = '\{"file":\s*"([^"]+)".*?'
-    patron += '"label":\s*"([^"]+)"'
+    # url = scrapertools.find_single_match(data, '"embedUrl":\s*"([^"]+)"')
+    # data = httptools.downloadpage(url).data
+    patron = '\{"file":\s*"([^"]+)"\s*,\s*"label":\s*"([^"]+)"'
     matches = scrapertools.find_multiple_matches(data, patron)
     for url,quality in matches:
+        # url = urlparse.unquote(url)
+        # url += "|Referer=%s" % host
         itemlist.append(['%s' %quality, url])
     itemlist.sort(key=lambda item: int( re.sub("\D", "", item[0])))
     return itemlist

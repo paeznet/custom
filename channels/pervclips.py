@@ -98,6 +98,11 @@ def lista(item):
         title = elem.img['alt']
         thumbnail = elem.img['data-original']
         thumbnail = thumbnail.replace("?ver=3", "")
+        # logger.debug(thumbnail)
+        # thumbnail += "|ignore_response_code=True"
+        # thumbnail += "|Referer=%s" % host
+        # thumbnail += "|verifypeer=false"
+       
         time = elem.find('div', class_='time-holder').text.strip()
         quality = elem.find('i', class_='icon-hd')
         if quality:
