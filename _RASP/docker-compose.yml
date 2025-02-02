@@ -5,7 +5,7 @@ sudo reboot
 sudo raspi-config
 sudo apt-get update && sudo apt-get upgrade
 
-
+sudo apt-mark showmanual >>>> aplicaciones instaladas
 
 #############   CASAOS ##################
 
@@ -29,6 +29,12 @@ curl -fsSL -k http://get.casaos.io/ | sudo bash
 
 sudo apt install samba
 sudo apt install samba-common samba-common-bin  smbclient cifs-utils
+
+sudo service smbd restart
+
+sudo chmod 777 /media/devmon/sda1-usb-WD_2500BEVExtern/NAS
+\\192.168.0.20\NAS
+
 # sudo nano /etc/samba/smb.conf
 [pi]
 path=/home/pi
@@ -162,7 +168,7 @@ services:
 
 
 # docker run --rm -it ghcr.io/wg-easy/wg-easy wgpw 'ziripot68'
-# PASSWORD_HASH='$2a$12$PnGXXvrlsrwaZ5Ys8hifMe/h5Ld3t0kYR510ZMWARYnB8H81qPE6a'
+# PASSWORD_HASH= $2a$12$PnGXXvrlsrwaZ5Ys8hifMe/h5Ld3t0kYR510ZMWARYnB8H81qPE6a
 
 version: "3.8"
 
@@ -299,8 +305,6 @@ https://zutik.duckdns.org/pihole/admin/
 
 version: '2.1'
 services:
-
-
   speedtest-tracker:
     image: lscr.io/linuxserver/speedtest-tracker:latest
     restart: unless-stopped
@@ -384,6 +388,11 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      # ⚠️ Change the server's hostname (clients will connect to):
+      - WG_HOST=zutik.duckdns.org
+
+      # ⚠️ Change the Web UI Password:
+      - PASSWORD_HASH=$$2a$$12$$PnGXXvrlsrwaZ5Ys8hifMe/h5Ld3t0kYR510ZMWARYnB8H81qPE6a
       - SERVERURL=zutik.duckdns.org #optional
       - SERVERPORT=51820 #optional
       - PEERS=1 #optional

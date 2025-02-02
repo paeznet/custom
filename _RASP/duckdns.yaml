@@ -1,0 +1,45 @@
+name: yourprojectname
+services:
+  duckdns:
+    cpu_shares: 90
+    command: []
+    container_name: duckdns
+    deploy:
+      resources:
+        limits:
+          memory: 907M
+    environment:
+      - LOG_FILE=false
+      - PGID=1000
+      - PUID=1000
+      - SUBDOMAINS=zutik
+      - TOKEN=57fb116a-153a-413b-a398-71cc0878c5ee
+      - TZ=Etc/UTC
+      - UPDATE_IP=ipv4
+    hostname: duckdns
+    image: lscr.io/linuxserver/duckdns:latest
+    labels:
+      icon: https://icon.casaos.io/main/all/duckdns.png
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/duckdns/config
+        target: /config
+    ports: []
+    devices: []
+    cap_add: []
+    network_mode: host
+    privileged: false
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: https://icon.casaos.io/main/all/duckdns.png
+  index: /
+  is_uncontrolled: false
+  port_map: ""
+  scheme: http
+  store_app_id: yourprojectname
+  title:
+    custom: ""
+    en_us: duckdns

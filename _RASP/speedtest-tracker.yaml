@@ -1,0 +1,59 @@
+name: speedtest-tracker
+services:
+  speedtest-tracker:
+    cpu_shares: 90
+    command: []
+    container_name: speedtest-tracker
+    deploy:
+      resources:
+        limits:
+          memory: 907M
+    environment:
+      - APP_KEY=base64:r1BW6qnO8IqCSBgDHb1KVlx3mEqB+Jz8Pz6f9BI5tzQ
+      - APP_TIMEZONE=Europe/Madrid
+      - CHART_DATETIME_FORMAT=H:m
+      - DATETIME_FORMAT=H:m
+      - DB_CONNECTION=sqlite
+      - DISPLAY_TIMEZONE=Europe/Madrid
+      - PGID=1000
+      - PRUNE_RESULTS_OLDER_THAN=
+      - PUID=1000
+      - SPEEDTEST_SCHEDULE=0 * * * *
+      - SPEEDTEST_SERVERS=
+      - TZ=Europe/Madrid
+    hostname: speedtest-tracker
+    image: lscr.io/linuxserver/speedtest-tracker:latest
+    labels:
+      icon: https://cdn.jsdelivr.net/gh/alexjustesen/speedtest-tracker/public/img/speedtest-tracker-icon.png
+    ports:
+      - target: 80
+        published: "8080"
+        protocol: tcp
+      - target: 443
+        published: "8443"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/speedtest-tracker/config
+        target: /config
+      - type: bind
+        source: /DATA/AppData/speedtest-tracker/config/keys
+        target: /config/keys
+    devices: []
+    cap_add: []
+    network_mode: bridge
+    privileged: false
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: https://cdn.jsdelivr.net/gh/alexjustesen/speedtest-tracker/public/img/speedtest-tracker-icon.png
+  index: /
+  is_uncontrolled: false
+  port_map: "8080"
+  scheme: http
+  store_app_id: speedtest-tracker
+  title:
+    custom: ""
+    en_us: speedtest-tracker
