@@ -12,7 +12,7 @@ services:
         limits:
           memory: 907M
     environment:
-      - PASSWORD_HASH=$$2a$$12$$PnGXXvrlsrwaZ5Ys8hifMe/h5Ld3t0kYR510ZMWARYnB8H81qPE6a
+      - PASSWORD_HASH=$2a$12$PnGXXvrlsrwaZ5Ys8hifMe/h5Ld3t0kYR510ZMWARYnB8H81qPE6a
       - WG_DEFAULT_DNS=1.1.1.1
       - WG_HOST=zutik.duckdns.org
       - WG_PORT=51820

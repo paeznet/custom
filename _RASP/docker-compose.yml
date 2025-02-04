@@ -7,6 +7,10 @@ sudo apt-get update && sudo apt-get upgrade
 
 sudo apt-mark showmanual >>>> aplicaciones instaladas
 
+
+
+curl ifconfig.me  >>>>>>  da la ip publica
+
 #############   CASAOS ##################
 
 
@@ -23,7 +27,13 @@ rm -r -f ~/rclone-temp
 # curl https://rclone.org/install.sh | sudo bash
 curl -fsSL -k http://get.casaos.io/ | sudo bash
 
+#### reset user and password  admin y casaos
+sudo su
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/bigbeartechworld/big-bear-scripts/master/reset-password-for-casaos/run.sh)"
 
+
+####### cambiar puerto 80 a 90
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/bigbeartechworld/big-bear-scripts/master/change-casaos-web-ui-port/run.sh)"
 
 ########################################################################################
 

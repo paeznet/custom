@@ -1,7 +1,7 @@
 #https://koprulu1.global.ssl.fastly.net/app2/mehmetey?kategori=All.m3u
 #https://koprulu1.global.ssl.fastly.net/app2/mehmetey?kategori=Spain.m3u
 #https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/Canales_soportados.txt
-#https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml
+#https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml  guiaiptv.xml
 
 #EXTM3U
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR+ " tvg-logo="" group-title="TV",Movistar Plus+
@@ -189,7 +189,7 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=4079560337&e=.m3u8
 https://metvmetvmetv7.serv00.net/vavame.php?id=4205258144&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="SOMOS " tvg-logo="" group-title="CINE",Somos
 https://metvmetvmetv7.serv00.net/vavame.php?id=4252300734&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="WARNER TV " tvg-logo="" group-title="CINE",Warner TV
+#EXTINF:-1 tvg-id="" tvg-name="WARNER TV " tvg-logo="" group-title="CINE",M+ Los Goya
 https://metvmetvmetv7.serv00.net/vavame.php?id=2109803559&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TNT HD" tvg-logo="" group-title="CINE",Warner TV
 https://metvmetvmetv7.serv00.net/vavame.php?id=4259288064&e=.m3u8
@@ -234,13 +234,21 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=1739393340&e=.m3u8
 https://metvmetvmetv7.serv00.net/vavame.php?id=427708442&e=.m3u8
 
 
+#EXTINF:-1 tvg-id="1624090577" tvg-name="ES | MOVISTAR DEPORTE 1 HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="DEPORTES",ES | MOVISTAR DEPORTE 1 HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1624090577&e=.m3u8
+#EXTINF:-1 tvg-id="2981915461" tvg-name="ES | M.DEPORTES HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="DEPORTES",ES | M.DEPORTES HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2981915461&e=.m3u8
+#EXTINF:-1 tvg-id="1188166343" tvg-name="ES | MOVISTAR DEPORTES (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="DEPORTES",ES | MOVISTAR DEPORTES (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1188166343&e=.m3u8
+
+
 
 
 #EXTINF:-1 tvg-id="" tvg-name="MULTIDEPORTE " tvg-logo="" group-title="DEPORTES",MULTIDEPORTE
 https://metvmetvmetv7.serv00.net/vavame.php?id=242013171&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="MOVISTAR DEPORTES" tvg-logo="" group-title="DEPORTES",M+ Deportes
+#EXTINF:-1 tvg-id="" tvg-name="MOVISTAR DEPORTES" tvg-logo="" group-title="DEPORTES",M+ Deportes OUT
 https://metvmetvmetv7.serv00.net/vavame.php?id=1188166343&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="M.DEPORTES HD" tvg-logo="" group-title="DEPORTES",M+ Deportes
+#EXTINF:-1 tvg-id="" tvg-name="M.DEPORTES HD" tvg-logo="" group-title="DEPORTES",M+ Deportes OUT
 https://metvmetvmetv7.serv00.net/vavame.php?id=2981915461&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR DEPORTE 1 HD" tvg-logo="" group-title="DEPORTES",MOVISTAR DEPORTE 1
 https://metvmetvmetv7.serv00.net/vavame.php?id=1624090577&e=.m3u8
@@ -260,13 +268,14 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=3632748102&e=.m3u8
 https://metvmetvmetv7.serv00.net/vavame.php?id=2423006885&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 2 " tvg-logo="" group-title="DEPORTES",Eurosport 2
 https://metvmetvmetv7.serv00.net/vavame.php?id=2670144662&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 2" tvg-logo="" group-title="DEPORTES",Eurosport 3
+#EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 2 fr" tvg-logo="" group-title="DEPORTES",FR | Eurosport 2
 https://metvmetvmetv7.serv00.net/vavame.php?id=3620494453&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 2 (BACKUP)" tvg-logo="" group-title="DEPORTES",Eurosport 4
+#EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 2 (BACKUP)" tvg-logo="" group-title="DEPORTES",FR | Eurosport 2
 https://metvmetvmetv7.serv00.net/vavame.php?id=3474692336&e=.m3u8
 
-#EXTINF:-1 tvg-id="" tvg-name="BEIN SPORTS N" tvg-logo="" group-title="DEPORTES",BEIN SPORTS N
-https://metvmetvmetv7.serv00.net/vavame.php?id=581292525&e=.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-name="BEIN SPORTS XTRA Ñ (6)" tvg-logo="" group-title="DEPORTES",beIN SPORTS XTRA ñ
+https://metvmetvmetv7.serv00.net/vavame.php?id=979824657&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BEIN SPORTS N " tvg-logo="" group-title="DEPORTES",BEIN SPORTS N
 https://metvmetvmetv7.serv00.net/vavame.php?id=3580225131&e=.m3u8
 
@@ -325,24 +334,26 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=2648419344&e=.m3u8
 
 
 
+#EXTINF:-1 tvg-id="" tvg-name="BEIN SPORTS LA LIGA" tvg-logo="" group-title="FUTBOL",La 1
+https://metvmetvmetv7.serv00.net/vavame.php?id=3939390473&e=.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA 1" tvg-logo="" group-title="FUTBOL",La 1
+https://metvmetvmetv7.serv00.net/vavame.php?id=1969674121&e=.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="LA LIGA TV BAR HD" tvg-logo="" group-title="FUTBOL",LA LIGA TV BAR
 https://metvmetvmetv7.serv00.net/vavame.php?id=109394788&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA (BACKUP)" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV
+#EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA (BACKUP)" tvg-logo="" group-title="FUTBOL",M+ LaLiga TV
 https://metvmetvmetv7.serv00.net/vavame.php?id=2652614938&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV
+#EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA" tvg-logo="" group-title="FUTBOL",M+ LaLiga TV
 https://metvmetvmetv7.serv00.net/vavame.php?id=2428779244&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LIGA TV" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV 2
 https://metvmetvmetv7.serv00.net/vavame.php?id=1995273516&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA 1" tvg-logo="" group-title="FUTBOL",LA 1
-https://metvmetvmetv7.serv00.net/vavame.php?id=1969674121&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LA LIGA TV HD" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV
 https://metvmetvmetv7.serv00.net/vavame.php?id=3923153097&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA 2" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV 2
 https://metvmetvmetv7.serv00.net/vavame.php?id=851881305&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA 3" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV 3
 https://metvmetvmetv7.serv00.net/vavame.php?id=262571241&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="M+ LALIGA " tvg-logo="" group-title="FUTBOL",M+ LALIGA
+#EXTINF:-1 tvg-id="" tvg-name="M+ LALIGA " tvg-logo="" group-title="FUTBOL",M+ LaLiga TV
 https://metvmetvmetv7.serv00.net/vavame.php?id=3996529465&e=.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="M.LIGA DE CAMPEONES HD" tvg-logo="" group-title="FUTBOL",M+ Liga de Campeones
@@ -360,11 +371,11 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=2761614279&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LIGA DE CAMPEONES 4 HD (ONLY EVENT)" tvg-logo="" group-title="FUTBOL",M+ Liga de Campeones 4
 https://metvmetvmetv7.serv00.net/vavame.php?id=3447547295&e=.m3u8
 
-#EXTINF:-1 tvg-id="" tvg-name="LALIGA TV HYPERMOTION " tvg-logo="" group-title="FUTBOL",LALIGA TV HYPERMOTION
+#EXTINF:-1 tvg-id="" tvg-name="LALIGA TV HYPERMOTION " tvg-logo="" group-title="FUTBOL",LaLiga TV Hypermotion HD
 https://metvmetvmetv7.serv00.net/vavame.php?id=3958277473&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LALIGA SMARTBANK TV 1 " tvg-logo="" group-title="FUTBOL",LALIGA TV HYPERMOTION
 https://metvmetvmetv7.serv00.net/vavame.php?id=1164372496&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="LALIGA TV HYPERMOTION 2 " tvg-logo="" group-title="FUTBOL",LALIGA TV HYPERMOTION 2
+#EXTINF:-1 tvg-id="" tvg-name="LALIGA TV HYPERMOTION 2 " tvg-logo="" group-title="FUTBOL",LaLiga TV Hypermotion HD
 https://metvmetvmetv7.serv00.net/vavame.php?id=899887126&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LALIGA SMARTBANK TV 2 " tvg-logo="" group-title="FUTBOL",LALIGA TV HYPERMOTION 2
 https://metvmetvmetv7.serv00.net/vavame.php?id=46567616&e=.m3u8
@@ -373,21 +384,20 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=1067891056&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LALIGA SMARTBANK TV " tvg-logo="" group-title="FUTBOL",LALIGA TV HYPERMOTION
 https://metvmetvmetv7.serv00.net/vavame.php?id=3443159697&e=.m3u8
 
-#EXTINF:-1 tvg-id="" tvg-name="BEIN SPORTS LA LIGA" tvg-logo="" group-title="FUTBOL",LA 1
-https://metvmetvmetv7.serv00.net/vavame.php?id=3939390473&e=.m3u8
 
-#EXTINF:-1 tvg-id="" tvg-name="VAMOS BAR 1 HD" tvg-logo="" group-title="FUTBOL",VAMOS BAR 1
+
+#EXTINF:-1 tvg-id="" tvg-name="VAMOS BAR 1 HD" tvg-logo="" group-title="FUTBOL",Vamos BAR
 https://metvmetvmetv7.serv00.net/vavame.php?id=2276951612&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="VAMOS BAR 2 HD" tvg-logo="" group-title="FUTBOL",VAMOS BAR 2
+#EXTINF:-1 tvg-id="" tvg-name="VAMOS BAR 2 HD" tvg-logo="" group-title="FUTBOL",Vamos BAR 2
 https://metvmetvmetv7.serv00.net/vavame.php?id=154698207&e=.m3u8
 
-#EXTINF:-1 tvg-id="" tvg-name="LALIGA TV BAR" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV BAR
+#EXTINF:-1 tvg-id="" tvg-name="LALIGA TV BAR" tvg-logo="" group-title="FUTBOL",LaLiga TV BAR HD
 https://metvmetvmetv7.serv00.net/vavame.php?id=2178025822&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="LALIGA TV BAR " tvg-logo="" group-title="FUTBOL",M+ LALIGA TV BAR
+#EXTINF:-1 tvg-id="" tvg-name="LALIGA TV BAR " tvg-logo="" group-title="FUTBOL",LaLiga TV BAR HD
 https://metvmetvmetv7.serv00.net/vavame.php?id=1980907224&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="LIGA TV BAR 3 HD" tvg-logo="" group-title="FUTBOL",LIGA TV BAR 3
+#EXTINF:-1 tvg-id="" tvg-name="LIGA TV BAR 3 HD" tvg-logo="" group-title="FUTBOL",LaLiga TV BAR 3
 https://metvmetvmetv7.serv00.net/vavame.php?id=4050371970&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="LIGA TV BAR 4 HD" tvg-logo="" group-title="FUTBOL",LIGA TV BAR 4
+#EXTINF:-1 tvg-id="" tvg-name="LIGA TV BAR 4 HD" tvg-logo="" group-title="FUTBOL",LaLiga TV BAR 4
 https://metvmetvmetv7.serv00.net/vavame.php?id=4222536859&e=.m3u8
 
 
@@ -411,7 +421,7 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=1735831563&e=.m3u8
 https://metvmetvmetv7.serv00.net/vavame.php?id=2193702924&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="IBERALIA TV " tvg-logo="" group-title="VARIOS",Iberalia TV
 https://metvmetvmetv7.serv00.net/vavame.php?id=745432578&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="NATURE TIME " tvg-logo="" group-title="VARIOS",NATURE TIME
+#EXTINF:-1 tvg-id="" tvg-name="NATURE TIME " tvg-logo="" group-title="VARIOS",NatureTime
 https://metvmetvmetv7.serv00.net/vavame.php?id=3291147412&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CACAVISION " tvg-logo="" group-title="VARIOS",Cazavisión
 https://metvmetvmetv7.serv00.net/vavame.php?id=2496355050&e=.m3u8
@@ -448,37 +458,40 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=3555546026&e=.m3u8
 
 
 
-#EXTINF:-1 tvg-id="" tvg-name="24 HORAS" tvg-logo="" group-title="NOTICIAS",24 HORAS
+#EXTINF:-1 tvg-id="" tvg-name="24 HORAS" tvg-logo="" group-title="NOTICIAS",24 Horas
 https://metvmetvmetv7.serv00.net/vavame.php?id=1537807715&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CANAL 24 HORAS " tvg-logo="" group-title="NOTICIAS",CANAL 24 HORAS
+#EXTINF:-1 tvg-id="" tvg-name="CANAL 24 HORAS " tvg-logo="" group-title="NOTICIAS",24 Horas
 https://metvmetvmetv7.serv00.net/vavame.php?id=2123081752&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="RTVE " tvg-logo="" group-title="NOTICIAS",CANAL 24 HORAS
+#EXTINF:-1 tvg-id="" tvg-name="RTVE " tvg-logo="" group-title="NOTICIAS",24 Horas
 https://metvmetvmetv7.serv00.net/vavame.php?id=3177511590&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TVE INTERNACIONAL EUROPA " tvg-logo="" group-title="NOTICIAS",TVE INTERNACIONAL EUROPA
 https://metvmetvmetv7.serv00.net/vavame.php?id=3969343348&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="EURONEWS EN ESPANOL " tvg-logo="" group-title="NOTICIAS",EURONEWS EN ESPANOL
+#EXTINF:-1 tvg-id="" tvg-name="EURONEWS EN ESPANOL " tvg-logo="" group-title="NOTICIAS",EuroNews
 https://metvmetvmetv7.serv00.net/vavame.php?id=3882151848&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CNN EN ESPANOL " tvg-logo="" group-title="NOTICIAS",CNN EN ESPANOL
+#EXTINF:-1 tvg-id="" tvg-name="CNN EN ESPANOL " tvg-logo="" group-title="NOTICIAS",CNN en Español
 https://metvmetvmetv7.serv00.net/vavame.php?id=2703788385&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="BLOOMBERG TV EUROPE " tvg-logo="" group-title="NOTICIAS",BLOOMBERG TV EUROPE
+#EXTINF:-1 tvg-id="" tvg-name="BLOOMBERG TV EUROPE " tvg-logo="" group-title="NOTICIAS",Bloomberg TV Europe
 https://metvmetvmetv7.serv00.net/vavame.php?id=605083986&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="BLOOMBERG TV EMEA LIVE EVENT " tvg-logo="" group-title="NOTICIAS",BLOOMBERG TV EMEA LIVE EVENT
+#EXTINF:-1 tvg-id="" tvg-name="BLOOMBERG TV EMEA LIVE EVENT " tvg-logo="" group-title="NOTICIAS",Bloomberg TV Europe
 https://metvmetvmetv7.serv00.net/vavame.php?id=3037841209&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="NEGOCIOS TV " tvg-logo="" group-title="NOTICIAS",NEGOCIOS TV
+#EXTINF:-1 tvg-id="" tvg-name="NEGOCIOS TV " tvg-logo="" group-title="NOTICIAS",Negocios TV
 https://metvmetvmetv7.serv00.net/vavame.php?id=3478528126&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="RT ESPAÑOL " tvg-logo="" group-title="NOTICIAS",RT ESPAÑOL
 https://metvmetvmetv7.serv00.net/vavame.php?id=3881386219&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="FRANCE 24 " tvg-logo="" group-title="NOTICIAS",FRANCE 24
 https://metvmetvmetv7.serv00.net/vavame.php?id=1626957676&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="EL TORO TV " tvg-logo="" group-title="NOTICIAS",EL TORO TV
+#EXTINF:-1 tvg-id="" tvg-name="EL TORO TV " tvg-logo="" group-title="NOTICIAS",El Toro TV
 https://metvmetvmetv7.serv00.net/vavame.php?id=1390269076&e=.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TOROS TV HD" tvg-logo="" group-title="NOTICIAS",El Toro TV
+https://metvmetvmetv7.serv00.net/vavame.php?id=1213515147&e=.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TOROS " tvg-logo="" group-title="NOTICIAS",El Toro TV
+https://metvmetvmetv7.serv00.net/vavame.php?id=142832720&e=.m3u8
 
 
 
-
-#EXTINF:-1 tvg-id="" tvg-name="MTV ESPANA" tvg-logo="" group-title="MUSICA",MTV
+#EXTINF:-1 tvg-id="" tvg-name="MTV ESPANA" tvg-logo="" group-title="MUSICA",MTV España
 https://metvmetvmetv7.serv00.net/vavame.php?id=2061606272&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="MTV ESPANA " tvg-logo="" group-title="MUSICA",MTV
+#EXTINF:-1 tvg-id="" tvg-name="MTV ESPANA " tvg-logo="" group-title="MUSICA",MTV España
 https://metvmetvmetv7.serv00.net/vavame.php?id=4068619843&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CLASSICA" tvg-logo="" group-title="MUSICA",Classica
 https://metvmetvmetv7.serv00.net/vavame.php?id=2838647061&e=.m3u8
@@ -517,15 +530,15 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=2411568928&e=.m3u8
 https://metvmetvmetv7.serv00.net/vavame.php?id=615663221&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="NICKELODEON " tvg-logo="" group-title="KID's",Nickelodeon
 https://metvmetvmetv7.serv00.net/vavame.php?id=2720994160&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="NICK JR" tvg-logo="" group-title="KID's",NICK JR
+#EXTINF:-1 tvg-id="" tvg-name="NICK JR" tvg-logo="" group-title="KID's",Nick JR
 https://metvmetvmetv7.serv00.net/vavame.php?id=787563522&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="NICK JUNIOR " tvg-logo="" group-title="KID's",NICK JR
+#EXTINF:-1 tvg-id="" tvg-name="NICK JUNIOR " tvg-logo="" group-title="KID's",Nick JR
 https://metvmetvmetv7.serv00.net/vavame.php?id=1143774621&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CLAN TVE" tvg-logo="" group-title="KID's",Clan TVE
+#EXTINF:-1 tvg-id="" tvg-name="CLAN TVE" tvg-logo="" group-title="KID's",Clan
 https://metvmetvmetv7.serv00.net/vavame.php?id=1995483814&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CLAN TVE " tvg-logo="" group-title="KID's",Clan TVE
+#EXTINF:-1 tvg-id="" tvg-name="CLAN TVE " tvg-logo="" group-title="KID's",Clan
 https://metvmetvmetv7.serv00.net/vavame.php?id=2747600950&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="CLAN" tvg-logo="" group-title="KID's",Clan TVE
+#EXTINF:-1 tvg-id="" tvg-name="CLAN" tvg-logo="" group-title="KID's",Clan
 https://metvmetvmetv7.serv00.net/vavame.php?id=3121791135&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BOING" tvg-logo="" group-title="KID's",Boing
 https://metvmetvmetv7.serv00.net/vavame.php?id=636171559&e=.m3u8
@@ -538,18 +551,14 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=3531960591&e=.m3u8
 
 
 
-#EXTINF:-1 tvg-id="" tvg-name="ONETORO " tvg-logo="" group-title="TOROS",Onetoro TV
+#EXTINF:-1 tvg-id="" tvg-name="ONETORO " tvg-logo="" group-title="TOROS",Onetoro
 https://metvmetvmetv7.serv00.net/vavame.php?id=1442267705&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="TOROS TV" tvg-logo="" group-title="TOROS",Onetoro TV
-https://metvmetvmetv7.serv00.net/vavame.php?id=469813358&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="TOROS TV HD" tvg-logo="" group-title="TOROS",Onetoro TV
-https://metvmetvmetv7.serv00.net/vavame.php?id=1213515147&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="TOROLÉ TV " tvg-logo="" group-title="TOROS",TOROLÉ TV
+#EXTINF:-1 tvg-id="" tvg-name="TOROLÉ TV " tvg-logo="" group-title="TOROS",Torolé TV
 https://metvmetvmetv7.serv00.net/vavame.php?id=472209056&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="TOROS " tvg-logo="" group-title="TOROS",TOROS
-https://metvmetvmetv7.serv00.net/vavame.php?id=142832720&e=.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="TOROS TV " tvg-logo="" group-title="TOROS",Onetoro TV
-https://metvmetvmetv7.serv00.net/vavame.php?id=2695762315&e=.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="TOROS TV" tvg-logo="" group-title="TOROS",TOROS TV
+https://metvmetvmetv7.serv00.net/vavame.php?id=469813358&e=.m3u8
+
+
 
 
 
