@@ -121,8 +121,12 @@ def lista(item):
     matches = soup.find_all('div', class_=re.compile(r"^video-item-\d+"))
     for elem in matches:
         url = elem.a['href']
-        title = elem.img['alt']
-        thumbnail = elem.img['src']
+        if elem.img:
+            title = elem.img['alt']
+            thumbnail = elem.img['src']
+        else:
+            title = elem.h5.text.strip()
+            thumbnail = ""
         time = elem.find('span', class_='duration').text.strip()
         quality = elem.find('span', class_='hd')
         if quality:
@@ -166,9 +170,7 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    # logger.debug(soup.video)
     data = httptools.downloadpage(item.url, canonical=canonical).data
-    # logger.debug(data)
     patron = 'data-hls-src(\d+)="([^"]+)"'
     matches = re.compile(patron,re.DOTALL).findall(data)
     for quality, url in matches:

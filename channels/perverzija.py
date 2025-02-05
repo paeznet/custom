@@ -177,7 +177,7 @@ def play(item):
         pornstars[x] = value.text.strip()
     pornstar = ' & '.join(pornstars)
     pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
-    logger.debug(pornstar)
+    # logger.debug(pornstar)
     lista = []
     lista.insert (0,pornstar)
     lista.insert (1,item.plot)
@@ -190,5 +190,6 @@ def play(item):
     matches = scrapertools.find_multiple_matches(data, patron)
     for quality, url in matches:
         # url += '|ignore_response_code="True"'
+        # url += '|Referer=%s' %host
         itemlist.append(['[perverzija] %sp' %quality, url])
     return itemlist
