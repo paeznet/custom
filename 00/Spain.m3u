@@ -1,161 +1,159 @@
+#https://koprulu1.global.ssl.fastly.net/app2/mehmetey?kategori=All.m3u
+#https://koprulu1.global.ssl.fastly.net/app2/mehmetey?kategori=Spain.m3u
+#https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/Canales_soportados.txt
+#https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml  guiaiptv.xml
+
 #EXTM3U
+#EXTINF:-1 tvg-id="2881668464" tvg-name="ES | MOVISTAR+ (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | MOVISTAR+ (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2881668464&e=.m3u8
 #EXTINF:-1 tvg-id="2673626663" tvg-name="ES | LA 1 HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | LA 1 HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2673626663&e=.m3u8
-#EXTINF:-1 tvg-id="254679370" tvg-name="ES | ANTENA 3 (6)" tvg-logo="" group-title="Spain",ES | ANTENA 3 (6)
+#EXTINF:-1 tvg-id="779986648" tvg-name="ES | TVE LA 2 (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | TVE LA 2 (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=779986648&e=.m3u8
+#EXTINF:-1 tvg-id="254679370" tvg-name="ES | ANTENA 3 (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | ANTENA 3 (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=254679370&e=.m3u8
-#EXTINF:-1 tvg-id="2660027208" tvg-name="ES | LA SEXTA (6)" tvg-logo="" group-title="Spain",ES | LA SEXTA (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2660027208&e=.m3u8
-#EXTINF:-1 tvg-id="1024256819" tvg-name="ES | TELECINCO (6)" tvg-logo="" group-title="Spain",ES | TELECINCO (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1024256819&e=.m3u8
-#EXTINF:-1 tvg-id="3831249317" tvg-name="ES | MEGA (6)" tvg-logo="" group-title="Spain",ES | MEGA (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3831249317&e=.m3u8
-#EXTINF:-1 tvg-id="2881668464" tvg-name="ES | MOVISTAR+ (6)" tvg-logo="" group-title="Spain",ES | MOVISTAR+ (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2881668464&e=.m3u8
-#EXTINF:-1 tvg-id="238901671" tvg-name="ES | LA SEXTA HD (1)" tvg-logo="" group-title="Spain",ES | LA SEXTA HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=238901671&e=.m3u8
 #EXTINF:-1 tvg-id="2255480833" tvg-name="ES | ANTENA 3 HD (1)" tvg-logo="" group-title="Spain",ES | ANTENA 3 HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2255480833&e=.m3u8
-#EXTINF:-1 tvg-id="4194733823" tvg-name="ES | CUATRO HD (1)" tvg-logo="" group-title="Spain",ES | CUATRO HD (1)
+#EXTINF:-1 tvg-id="4194733823" tvg-name="ES | CUATRO HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | CUATRO HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=4194733823&e=.m3u8
-#EXTINF:-1 tvg-id="353095972" tvg-name="ES | TELECINCO HD (1)" tvg-logo="" group-title="Spain",ES | TELECINCO HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=353095972&e=.m3u8
-#EXTINF:-1 tvg-id="4133961499" tvg-name="ES | FACTORIA DE FICCION (6)" tvg-logo="" group-title="Spain",ES | FACTORIA DE FICCION (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=4133961499&e=.m3u8
-#EXTINF:-1 tvg-id="4175356411" tvg-name="ES | CRIME DISTRICT (6)" tvg-logo="" group-title="Spain",ES | CRIME DISTRICT (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=4175356411&e=.m3u8
-#EXTINF:-1 tvg-id="1934981639" tvg-name="ES | DMAX (6)" tvg-logo="" group-title="Spain",ES | DMAX (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1934981639&e=.m3u8
-#EXTINF:-1 tvg-id="897942216" tvg-name="ES | GRAN HERMANO (6)" tvg-logo="" group-title="Spain",ES | GRAN HERMANO (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=897942216&e=.m3u8
-#EXTINF:-1 tvg-id="2540924807" tvg-name="ES | ENERGY (1)" tvg-logo="" group-title="Spain",ES | ENERGY (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2540924807&e=.m3u8
-#EXTINF:-1 tvg-id="643888368" tvg-name="ES | ENERGY (6)" tvg-logo="" group-title="Spain",ES | ENERGY (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=643888368&e=.m3u8
-#EXTINF:-1 tvg-id="3177511590" tvg-name="ES | RTVE (6)" tvg-logo="" group-title="Spain",ES | RTVE (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3177511590&e=.m3u8
-#EXTINF:-1 tvg-id="1590334161" tvg-name="ES | CUATRO (6)" tvg-logo="" group-title="Spain",ES | CUATRO (6)
+#EXTINF:-1 tvg-id="1590334161" tvg-name="ES | CUATRO (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | CUATRO (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=1590334161&e=.m3u8
-#EXTINF:-1 tvg-id="1358849039" tvg-name="ES | ATRESERIES (A3 SERIES) (6)" tvg-logo="" group-title="Spain",ES | ATRESERIES (A3 SERIES) (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1358849039&e=.m3u8
-#EXTINF:-1 tvg-id="251250868" tvg-name="ES | AXN HD (1)" tvg-logo="" group-title="Spain",ES | AXN HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=251250868&e=.m3u8
-#EXTINF:-1 tvg-id="1263523264" tvg-name="ES | COMEDY CENTRAL HD (1)" tvg-logo="" group-title="Spain",ES | COMEDY CENTRAL HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1263523264&e=.m3u8
-#EXTINF:-1 tvg-id="1846141874" tvg-name="ES | MEGA (1)" tvg-logo="" group-title="Spain",ES | MEGA (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1846141874&e=.m3u8
-#EXTINF:-1 tvg-id="103395382" tvg-name="ES | NOVA (6)" tvg-logo="" group-title="Spain",ES | NOVA (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=103395382&e=.m3u8
-#EXTINF:-1 tvg-id="1462723502" tvg-name="ES | AMC (6)" tvg-logo="" group-title="Spain",ES | AMC (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1462723502&e=.m3u8
-#EXTINF:-1 tvg-id="3950004696" tvg-name="ES | NEOX (6)" tvg-logo="" group-title="Spain",ES | NEOX (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3950004696&e=.m3u8
-#EXTINF:-1 tvg-id="1980405275" tvg-name="ES | TEN (6)" tvg-logo="" group-title="Spain",ES | TEN (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1980405275&e=.m3u8
-#EXTINF:-1 tvg-id="2269507513" tvg-name="ES | XTRM (6)" tvg-logo="" group-title="Spain",ES | XTRM (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2269507513&e=.m3u8
-#EXTINF:-1 tvg-id="4289152978" tvg-name="ES | D KISS (6)" tvg-logo="" group-title="Spain",ES | D KISS (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=4289152978&e=.m3u8
-#EXTINF:-1 tvg-id="3891466198" tvg-name="ES | TCM (6)" tvg-logo="" group-title="Spain",ES | TCM (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3891466198&e=.m3u8
-#EXTINF:-1 tvg-id="2356963873" tvg-name="ES | NOVA (1)" tvg-logo="" group-title="Spain",ES | NOVA (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2356963873&e=.m3u8
-#EXTINF:-1 tvg-id="1066305614" tvg-name="ES | 13 TV (6)" tvg-logo="" group-title="Spain",ES | 13 TV (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1066305614&e=.m3u8
-#EXTINF:-1 tvg-id="1709759307" tvg-name="ES | PARAMOUNT CHANNEL (1)" tvg-logo="" group-title="Spain",ES | PARAMOUNT CHANNEL (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1709759307&e=.m3u8
-#EXTINF:-1 tvg-id="902146587" tvg-name="ES | TRECE TV (6)" tvg-logo="" group-title="Spain",ES | TRECE TV (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=902146587&e=.m3u8
-#EXTINF:-1 tvg-id="22905730" tvg-name="ES | BE MAD (6)" tvg-logo="" group-title="Spain",ES | BE MAD (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=22905730&e=.m3u8
-#EXTINF:-1 tvg-id="779986648" tvg-name="ES | TVE LA 2 (6)" tvg-logo="" group-title="Spain",ES | TVE LA 2 (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=779986648&e=.m3u8
-#EXTINF:-1 tvg-id="2278873401" tvg-name="ES | PARAMOUNT NETWORK (6)" tvg-logo="" group-title="Spain",ES | PARAMOUNT NETWORK (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2278873401&e=.m3u8
-#EXTINF:-1 tvg-id="2622585831" tvg-name="ES | FDF (1)" tvg-logo="" group-title="Spain",ES | FDF (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2622585831&e=.m3u8
-#EXTINF:-1 tvg-id="581715654" tvg-name="ES | COMEDY CENTRAL (6)" tvg-logo="" group-title="Spain",ES | COMEDY CENTRAL (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=581715654&e=.m3u8
-#EXTINF:-1 tvg-id="2840476606" tvg-name="ES | BE MAD HD (1)" tvg-logo="" group-title="Spain",ES | BE MAD HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2840476606&e=.m3u8
-#EXTINF:-1 tvg-id="4187786300" tvg-name="ES | DIVINITY (1)" tvg-logo="" group-title="Spain",ES | DIVINITY (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=4187786300&e=.m3u8
-#EXTINF:-1 tvg-id="1629852623" tvg-name="ES | NEOX (1)" tvg-logo="" group-title="Spain",ES | NEOX (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1629852623&e=.m3u8
-#EXTINF:-1 tvg-id="749287084" tvg-name="ES | DIVINITY (6)" tvg-logo="" group-title="Spain",ES | DIVINITY (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=749287084&e=.m3u8
-#EXTINF:-1 tvg-id="2831642787" tvg-name="ES | ETB 2 (6)" tvg-logo="" group-title="Spain",ES | ETB 2 (6)
+#EXTINF:-1 tvg-id="1024256819" tvg-name="ES | TELECINCO (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | TELECINCO (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1024256819&e=.m3u8
+#EXTINF:-1 tvg-id="353095972" tvg-name="ES | TELECINCO HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | TELECINCO HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=353095972&e=.m3u8
+#EXTINF:-1 tvg-id="2660027208" tvg-name="ES | LA SEXTA (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | LA SEXTA (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2660027208&e=.m3u8
+#EXTINF:-1 tvg-id="238901671" tvg-name="ES | LA SEXTA HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | LA SEXTA HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=238901671&e=.m3u8
+#EXTINF:-1 tvg-id="4016507507" tvg-name="ES | ETB 1 (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | ETB 1 (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=4016507507&e=.m3u8
+#EXTINF:-1 tvg-id="2831642787" tvg-name="ES | ETB 2 (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | ETB 2 (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2831642787&e=.m3u8
-#EXTINF:-1 tvg-id="2537320036" tvg-name="ES | TEN (1)" tvg-logo="" group-title="Spain",ES | TEN (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2537320036&e=.m3u8
+#EXTINF:-1 tvg-id="3689889997" tvg-name="ES | ETB BASQUE (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | ETB BASQUE (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3689889997&e=.m3u8
+#EXTINF:-1 tvg-id="1358849039" tvg-name="ES | ATRESERIES (A3 SERIES) (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | ATRESERIES (A3 SERIES) (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1358849039&e=.m3u8
 #EXTINF:-1 tvg-id="3340892937" tvg-name="ES | A3 SERIES HD (1)" tvg-logo="" group-title="Spain",ES | A3 SERIES HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3340892937&e=.m3u8
+#EXTINF:-1 tvg-id="2356963873" tvg-name="ES | NOVA (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | NOVA (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2356963873&e=.m3u8
+#EXTINF:-1 tvg-id="103395382" tvg-name="ES | NOVA (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | NOVA (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=103395382&e=.m3u8
+#EXTINF:-1 tvg-id="2540924807" tvg-name="ES | ENERGY (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | ENERGY (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2540924807&e=.m3u8
+#EXTINF:-1 tvg-id="643888368" tvg-name="ES | ENERGY (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | ENERGY (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=643888368&e=.m3u8
+#EXTINF:-1 tvg-id="4133961499" tvg-name="ES | FACTORIA DE FICCION (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | FACTORIA DE FICCION (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=4133961499&e=.m3u8
+#EXTINF:-1 tvg-id="2622585831" tvg-name="ES | FDF (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | FDF (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2622585831&e=.m3u8
+#EXTINF:-1 tvg-id="1709759307" tvg-name="ES | PARAMOUNT CHANNEL (1)" tvg-logo="" group-title="Spain",ES | PARAMOUNT CHANNEL (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1709759307&e=.m3u8
+#EXTINF:-1 tvg-id="2278873401" tvg-name="ES | PARAMOUNT NETWORK (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | PARAMOUNT NETWORK (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2278873401&e=.m3u8
+#EXTINF:-1 tvg-id="1846141874" tvg-name="ES | MEGA (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | MEGA (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1846141874&e=.m3u8
+#EXTINF:-1 tvg-id="3831249317" tvg-name="ES | MEGA (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | MEGA (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3831249317&e=.m3u8
+#EXTINF:-1 tvg-id="3950004696" tvg-name="ES | NEOX (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | NEOX (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3950004696&e=.m3u8
+#EXTINF:-1 tvg-id="1629852623" tvg-name="ES | NEOX (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | NEOX (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1629852623&e=.m3u8
+#EXTINF:-1 tvg-id="1066305614" tvg-name="ES | 13 TV (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | 13 TV (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1066305614&e=.m3u8
+#EXTINF:-1 tvg-id="902146587" tvg-name="ES | TRECE TV (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | TRECE TV (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=902146587&e=.m3u8
+#EXTINF:-1 tvg-id="581715654" tvg-name="ES | COMEDY CENTRAL (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | COMEDY CENTRAL (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=581715654&e=.m3u8
+#EXTINF:-1 tvg-id="1263523264" tvg-name="ES | COMEDY CENTRAL HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | COMEDY CENTRAL HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1263523264&e=.m3u8
+#EXTINF:-1 tvg-id="4175356411" tvg-name="ES | CRIME DISTRICT (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | CRIME DISTRICT (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=4175356411&e=.m3u8
+#EXTINF:-1 tvg-id="3547398786" tvg-name="ES | DISCOVERY CHANNEL (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | DISCOVERY CHANNEL (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3547398786&e=.m3u8
+#EXTINF:-1 tvg-id="1041357840" tvg-name="ES | DISCOVERY WORLD (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | DISCOVERY WORLD (6)SOMOS
+https://metvmetvmetv7.serv00.net/vavame.php?id=1041357840&e=.m3u8
+#EXTINF:-1 tvg-id="1934981639" tvg-name="ES | DMAX (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | DMAX (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1934981639&e=.m3u8
+#EXTINF:-1 tvg-id="2269507513" tvg-name="ES | XTRM (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | XTRM (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2269507513&e=.m3u8
 #EXTINF:-1 tvg-id="4208329945" tvg-name="ES | XTRM FULL HD (1)" tvg-logo="" group-title="Spain",ES | XTRM FULL HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=4208329945&e=.m3u8
+#EXTINF:-1 tvg-id="22905730" tvg-name="ES | BE MAD (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | BE MAD (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=22905730&e=.m3u8
+#EXTINF:-1 tvg-id="2840476606" tvg-name="ES | BE MAD HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | BE MAD HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2840476606&e=.m3u8
+#EXTINF:-1 tvg-id="4187786300" tvg-name="ES | DIVINITY (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | DIVINITY (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=4187786300&e=.m3u8
+#EXTINF:-1 tvg-id="749287084" tvg-name="ES | DIVINITY (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | DIVINITY (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=749287084&e=.m3u8
+#EXTINF:-1 tvg-id="4289152978" tvg-name="ES | D KISS (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | D KISS (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=4289152978&e=.m3u8
 #EXTINF:-1 tvg-id="4170408528" tvg-name="ES | DKISS (1)" tvg-logo="" group-title="Spain",ES | DKISS (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=4170408528&e=.m3u8
-#EXTINF:-1 tvg-id="4016507507" tvg-name="ES | ETB 1 (6)" tvg-logo="" group-title="Spain",ES | ETB 1 (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=4016507507&e=.m3u8
-#EXTINF:-1 tvg-id="3689889997" tvg-name="ES | ETB BASQUE (6)" tvg-logo="" group-title="Spain",ES | ETB BASQUE (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3689889997&e=.m3u8
+#EXTINF:-1 tvg-id="1980405275" tvg-name="ES | TEN (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | TEN (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1980405275&e=.m3u8
+#EXTINF:-1 tvg-id="2537320036" tvg-name="ES | TEN (1)" tvg-logo="" group-title="Spain",ES | TEN (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2537320036&e=.m3u8
+#EXTINF:-1 tvg-id="3835338116" tvg-name="ES | TVE STAR (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | TVE STAR (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3835338116&e=.m3u8
+#EXTINF:-1 tvg-id="897942216" tvg-name="ES | GRAN HERMANO (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | GRAN HERMANO (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=897942216&e=.m3u8
+
 #EXTINF:-1 tvg-id="4259288064" tvg-name="ES | TNT HD (1)" tvg-logo="" group-title="Spain",ES | TNT HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=4259288064&e=.m3u8
-#EXTINF:-1 tvg-id="3835338116" tvg-name="ES | TVE STAR (6)" tvg-logo="" group-title="Spain",ES | TVE STAR (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3835338116&e=.m3u8
-#EXTINF:-1 tvg-id="958089500" tvg-name="ES | BETEVE (6)" tvg-logo="" group-title="Spain",ES | BETEVE (6)
+#EXTINF:-1 tvg-id="958089500" tvg-name="ES | BETEVE (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | BETEVE (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=958089500&e=.m3u8
+#EXTINF:-1 tvg-id="3177511590" tvg-name="ES | RTVE (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | RTVE (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3177511590&e=.m3u8
 
 
 
-#EXTINF:-1 tvg-id="3547398786" tvg-name="ES | DISCOVERY CHANNEL (1)" tvg-logo="" group-title="Spain",ES | DISCOVERY CHANNEL (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3547398786&e=.m3u8
-#EXTINF:-1 tvg-id="1041357840" tvg-name="ES | DISCOVERY WORLD (6)" tvg-logo="" group-title="Spain",ES | DISCOVERY WORLD (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1041357840&e=.m3u8
 
-#EXTINF:-1 tvg-id="3126618519" tvg-name="ES | A&E (6)" tvg-logo="" group-title="Spain",ES | A&E (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3126618519&e=.m3u8
-#EXTINF:-1 tvg-id="2047635278" tvg-name="ES | BLAZE (1)" tvg-logo="" group-title="Spain",ES | BLAZE (1)
+#EXTINF:-1 tvg-id="2047635278" tvg-name="ES | BLAZE (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | BLAZE (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2047635278&e=.m3u8
-#EXTINF:-1 tvg-id="26978931" tvg-name="ES | HISTORIA (1)" tvg-logo="" group-title="Spain",ES | HISTORIA (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=26978931&e=.m3u8
-#EXTINF:-1 tvg-id="3568177379" tvg-name="ES | HISTORIA (6)" tvg-logo="" group-title="Spain",ES | HISTORIA (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3568177379&e=.m3u8
-#EXTINF:-1 tvg-id="406958643" tvg-name="ES | CANAL ODISEA (1)" tvg-logo="" group-title="Spain",ES | CANAL ODISEA (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=406958643&e=.m3u8
-#EXTINF:-1 tvg-id="1795451587" tvg-name="ES | CANAL ODISEA (6)" tvg-logo="" group-title="Spain",ES | CANAL ODISEA (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1795451587&e=.m3u8
-#EXTINF:-1 tvg-id="3137067513" tvg-name="ES | AMC BREAK (6)" tvg-logo="" group-title="Spain",ES | AMC BREAK (6)
+#EXTINF:-1 tvg-id="3137067513" tvg-name="ES | AMC BREAK (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | AMC BREAK (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3137067513&e=.m3u8
-#EXTINF:-1 tvg-id="2970833245" tvg-name="ES | COSMOPOLITAN TV (6)" tvg-logo="" group-title="Spain",ES | COSMOPOLITAN TV (6)
+#EXTINF:-1 tvg-id="26978931" tvg-name="ES | HISTORIA (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | HISTORIA (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=26978931&e=.m3u8
+#EXTINF:-1 tvg-id="3568177379" tvg-name="ES | HISTORIA (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | HISTORIA (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3568177379&e=.m3u8
+#EXTINF:-1 tvg-id="406958643" tvg-name="ES | CANAL ODISEA (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | CANAL ODISEA (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=406958643&e=.m3u8
+#EXTINF:-1 tvg-id="1795451587" tvg-name="ES | CANAL ODISEA (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | CANAL ODISEA (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1795451587&e=.m3u8
+#EXTINF:-1 tvg-id="2970833245" tvg-name="ES | COSMOPOLITAN TV (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | COSMOPOLITAN TV (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2970833245&e=.m3u8
-#EXTINF:-1 tvg-id="3767840195" tvg-name="ES | COSMO HD (1)" tvg-logo="" group-title="Spain",ES | COSMO HD (1)
+#EXTINF:-1 tvg-id="3767840195" tvg-name="ES | COSMO HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | COSMO HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3767840195&e=.m3u8
-#EXTINF:-1 tvg-id="289455435" tvg-name="ES | NAT GEO WILD (6)" tvg-logo="" group-title="Spain",ES | NAT GEO WILD (6)
+#EXTINF:-1 tvg-id="289455435" tvg-name="ES | NAT GEO WILD (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | NAT GEO WILD (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=289455435&e=.m3u8
-#EXTINF:-1 tvg-id="2832532485" tvg-name="ES | NAT GEO WILD HD (1)" tvg-logo="" group-title="Spain",ES | NAT GEO WILD HD (1)
+#EXTINF:-1 tvg-id="2832532485" tvg-name="ES | NAT GEO WILD HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | NAT GEO WILD HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2832532485&e=.m3u8
-#EXTINF:-1 tvg-id="3689902952" tvg-name="ES | NAT GEO (6)" tvg-logo="" group-title="Spain",ES | NAT GEO (6)
+#EXTINF:-1 tvg-id="3689902952" tvg-name="ES | NAT GEO (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | NAT GEO (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3689902952&e=.m3u8
-#EXTINF:-1 tvg-id="1462574321" tvg-name="ES | NATIONAL GEOGRAPHIC HD (1)" tvg-logo="" group-title="Spain",ES | NATIONAL GEOGRAPHIC HD (1)
+#EXTINF:-1 tvg-id="1462574321" tvg-name="ES | NATIONAL GEOGRAPHIC HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | NATIONAL GEOGRAPHIC HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=1462574321&e=.m3u8
-#EXTINF:-1 tvg-id="2193702924" tvg-name="ES | IBERLIA TV (1)" tvg-logo="" group-title="Spain",ES | IBERLIA TV (1)
+#EXTINF:-1 tvg-id="2193702924" tvg-name="ES | IBERLIA TV (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | IBERLIA TV (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2193702924&e=.m3u8
-#EXTINF:-1 tvg-id="745432578" tvg-name="ES | IBERALIA TV (6)" tvg-logo="" group-title="Spain",ES | IBERALIA TV (6)
+#EXTINF:-1 tvg-id="745432578" tvg-name="ES | IBERALIA TV (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | IBERALIA TV (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=745432578&e=.m3u8
-#EXTINF:-1 tvg-id="2148381699" tvg-name="ES | CAZA Y PESCA HD (1)" tvg-logo="" group-title="Spain",ES | CAZA Y PESCA HD (1)
+#EXTINF:-1 tvg-id="2148381699" tvg-name="ES | CAZA Y PESCA HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | CAZA Y PESCA HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2148381699&e=.m3u8
-#EXTINF:-1 tvg-id="3961204377" tvg-name="ES | CAZA Y PESCA (6)" tvg-logo="" group-title="Spain",ES | CAZA Y PESCA (6)
+#EXTINF:-1 tvg-id="3961204377" tvg-name="ES | CAZA Y PESCA (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | CAZA Y PESCA (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3961204377&e=.m3u8
-#EXTINF:-1 tvg-id="1735831563" tvg-name="ES | CAZA Y PESCA HD (BACKUP) (1)" tvg-logo="" group-title="Spain",ES | CAZA Y PESCA HD (BACKUP) (1)
+#EXTINF:-1 tvg-id="1735831563" tvg-name="ES | CAZA Y PESCA HD (BACKUP) (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | CAZA Y PESCA HD (BACKUP) (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=1735831563&e=.m3u8
-#EXTINF:-1 tvg-id="2496355050" tvg-name="ES | CACAVISION (6)" tvg-logo="" group-title="Spain",ES | CACAVISION (6)
+#EXTINF:-1 tvg-id="2496355050" tvg-name="ES | CACAVISION (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | CACAVISION (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2496355050&e=.m3u8
-#EXTINF:-1 tvg-id="3418635035" tvg-name="ES | CANAL COCINA (6)" tvg-logo="" group-title="Spain",ES | CANAL COCINA (6)
+#EXTINF:-1 tvg-id="3418635035" tvg-name="ES | CANAL COCINA (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | CANAL COCINA (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3418635035&e=.m3u8
 #EXTINF:-1 tvg-id="3095520235" tvg-name="ES | CANAL COCINA (1)" tvg-logo="" group-title="Spain",ES | CANAL COCINA (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3095520235&e=.m3u8
 #EXTINF:-1 tvg-id="1137978670" tvg-name="ES | CANAL DECASA (1)" tvg-logo="" group-title="Spain",ES | CANAL DECASA (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=1137978670&e=.m3u8
-#EXTINF:-1 tvg-id="326701577" tvg-name="ES | DECASA (6)" tvg-logo="" group-title="Spain",ES | DECASA (6)
+#EXTINF:-1 tvg-id="326701577" tvg-name="ES | DECASA (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | DECASA (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=326701577&e=.m3u8
 #EXTINF:-1 tvg-id="4285181325" tvg-name="ES | VIAJAR (6)" tvg-logo="" group-title="Spain",ES | VIAJAR (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=4285181325&e=.m3u8
@@ -167,74 +165,82 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=4077015271&e=.m3u8
 https://metvmetvmetv7.serv00.net/vavame.php?id=1502859990&e=.m3u8
 
 
-#EXTINF:-1 tvg-id="3864398596" tvg-name="ES | M.ESTRENOS HD (1)" tvg-logo="" group-title="Spain",ES | M.ESTRENOS HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3864398596&e=.m3u8
-#EXTINF:-1 tvg-id="2748019555" tvg-name="ES | MOVISTAR DRAMA HD (1)" tvg-logo="" group-title="Spain",ES | MOVISTAR DRAMA HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2748019555&e=.m3u8
-#EXTINF:-1 tvg-id="3697992438" tvg-name="ES | MOVISTAR ACCI©N HD (1)" tvg-logo="" group-title="Spain",ES | MOVISTAR ACCI©N HD (1)
+#EXTINF:-1 tvg-id="3697992438" tvg-name="ES | MOVISTAR ACCI©N HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | MOVISTAR ACCI©N HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3697992438&e=.m3u8
-#EXTINF:-1 tvg-id="1704900898" tvg-name="ES | M.ACCION HD (1)" tvg-logo="" group-title="Spain",ES | M.ACCION HD (1)
+#EXTINF:-1 tvg-id="1704900898" tvg-name="ES | M.ACCION HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | M.ACCION HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=1704900898&e=.m3u8
-#EXTINF:-1 tvg-id="4205258144" tvg-name="ES | HOLLYWOOD HD (1)" tvg-logo="" group-title="Spain",ES | HOLLYWOOD HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=4205258144&e=.m3u8
-#EXTINF:-1 tvg-id="3288402534" tvg-name="ES | CANAL HOLLYWOOD (6)" tvg-logo="" group-title="Spain",ES | CANAL HOLLYWOOD (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3288402534&e=.m3u8
-#EXTINF:-1 tvg-id="4238619703" tvg-name="ES | AXN (6)" tvg-logo="" group-title="Spain",ES | AXN (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=4238619703&e=.m3u8
-#EXTINF:-1 tvg-id="1285043320" tvg-name="ES | MOVISTAR COMEDIA HD (1)" tvg-logo="" group-title="Spain",ES | MOVISTAR COMEDIA HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1285043320&e=.m3u8
-#EXTINF:-1 tvg-id="385322260" tvg-name="ES | DARK (6)" tvg-logo="" group-title="Spain",ES | DARK (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=385322260&e=.m3u8
-#EXTINF:-1 tvg-id="1940642395" tvg-name="ES | AMC HD (1)" tvg-logo="" group-title="Spain",ES | AMC HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1940642395&e=.m3u8
-#EXTINF:-1 tvg-id="3362806456" tvg-name="ES | FOX (6)" tvg-logo="" group-title="Spain",ES | FOX (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3362806456&e=.m3u8
-#EXTINF:-1 tvg-id="2909740152" tvg-name="ES | CALLE 13 HD (1)" tvg-logo="" group-title="Spain",ES | CALLE 13 HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2909740152&e=.m3u8
-#EXTINF:-1 tvg-id="501658715" tvg-name="ES | STAR CHANNEL (6)" tvg-logo="" group-title="Spain",ES | STAR CHANNEL (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=501658715&e=.m3u8
-#EXTINF:-1 tvg-id="486650129" tvg-name="ES | SUNDANCE TV (6)" tvg-logo="" group-title="Spain",ES | SUNDANCE TV (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=486650129&e=.m3u8
-#EXTINF:-1 tvg-id="1868847447" tvg-name="ES | TCM HD (1)" tvg-logo="" group-title="Spain",ES | TCM HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1868847447&e=.m3u8
-#EXTINF:-1 tvg-id="2493319111" tvg-name="ES | AXN MOVIES (6)" tvg-logo="" group-title="Spain",ES | AXN MOVIES (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2493319111&e=.m3u8
-#EXTINF:-1 tvg-id="1343655533" tvg-name="ES | CALLE 13 (6)" tvg-logo="" group-title="Spain",ES | CALLE 13 (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1343655533&e=.m3u8
-#EXTINF:-1 tvg-id="2656093401" tvg-name="ES | FOX HD (1)" tvg-logo="" group-title="Spain",ES | FOX HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2656093401&e=.m3u8
-#EXTINF:-1 tvg-id="4079560337" tvg-name="ES | HOLLYWOOD (6)" tvg-logo="" group-title="Spain",ES | HOLLYWOOD (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=4079560337&e=.m3u8
-#EXTINF:-1 tvg-id="3126656022" tvg-name="ES | SYFY HD (1)" tvg-logo="" group-title="Spain",ES | SYFY HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3126656022&e=.m3u8
-#EXTINF:-1 tvg-id="2109803559" tvg-name="ES | WARNER TV (6)" tvg-logo="" group-title="Spain",ES | WARNER TV (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2109803559&e=.m3u8
-#EXTINF:-1 tvg-id="3362559361" tvg-name="ES | DREAMWORKS TV (6)" tvg-logo="" group-title="Spain",ES | DREAMWORKS TV (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3362559361&e=.m3u8
-#EXTINF:-1 tvg-id="2566347328" tvg-name="ES | BOM CINE (6)" tvg-logo="" group-title="Spain",ES | BOM CINE (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=2566347328&e=.m3u8
-#EXTINF:-1 tvg-id="3062256453" tvg-name="ES | AXN WHITE HD (1)" tvg-logo="" group-title="Spain",ES | AXN WHITE HD (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3062256453&e=.m3u8
-#EXTINF:-1 tvg-id="3585307980" tvg-name="ES | MOVISTAR ESTRENOS HD (1)" tvg-logo="" group-title="Spain",ES | MOVISTAR ESTRENOS HD (1)
+#EXTINF:-1 tvg-id="3864398596" tvg-name="ES | M.ESTRENOS HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | M.ESTRENOS HD (1) INDIE
+https://metvmetvmetv7.serv00.net/vavame.php?id=3864398596&e=.m3u8
+#EXTINF:-1 tvg-id="3585307980" tvg-name="ES | MOVISTAR ESTRENOS HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | MOVISTAR ESTRENOS HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3585307980&e=.m3u8
 #EXTINF:-1 tvg-id="1138873971" tvg-name="ES | MOVISTAR SERIES HD (1)" tvg-logo="" group-title="Spain",ES | MOVISTAR SERIES HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=1138873971&e=.m3u8
 #EXTINF:-1 tvg-id="1344073831" tvg-name="ES | MOVISTAR SERIESMANIA HD (1)" tvg-logo="" group-title="Spain",ES | MOVISTAR SERIESMANIA HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=1344073831&e=.m3u8
-#EXTINF:-1 tvg-id="3068126176" tvg-name="ES | SYFY (6)" tvg-logo="" group-title="Spain",ES | SYFY (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3068126176&e=.m3u8
-#EXTINF:-1 tvg-id="3312673778" tvg-name="ES | AXN WHITE (6)" tvg-logo="" group-title="Spain",ES | AXN WHITE (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3312673778&e=.m3u8
-#EXTINF:-1 tvg-id="4128340393" tvg-name="ES | HBO (6)" tvg-logo="" group-title="Spain",ES | HBO (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=4128340393&e=.m3u8
+#EXTINF:-1 tvg-id="2748019555" tvg-name="ES | MOVISTAR DRAMA HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | MOVISTAR DRAMA HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2748019555&e=.m3u8
+#EXTINF:-1 tvg-id="1285043320" tvg-name="ES | MOVISTAR COMEDIA HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | MOVISTAR COMEDIA HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1285043320&e=.m3u8
+#EXTINF:-1 tvg-id="3126618519" tvg-name="ES | A&E (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | A&E (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3126618519&e=.m3u8
+#EXTINF:-1 tvg-id="501658715" tvg-name="ES | STAR CHANNEL (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | STAR CHANNEL (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=501658715&e=.m3u8
+#EXTINF:-1 tvg-id="3362806456" tvg-name="ES | FOX (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | FOX (6) STAR
+https://metvmetvmetv7.serv00.net/vavame.php?id=3362806456&e=.m3u8
+#EXTINF:-1 tvg-id="2656093401" tvg-name="ES | FOX HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | FOX HD (1) STAR
+https://metvmetvmetv7.serv00.net/vavame.php?id=2656093401&e=.m3u8
 #EXTINF:-1 tvg-id="2765569410" tvg-name="ES | FOX LIFE HD (1)" tvg-logo="" group-title="Spain",ES | FOX LIFE HD (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2765569410&e=.m3u8
+#EXTINF:-1 tvg-id="1462723502" tvg-name="ES | AMC (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | AMC (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1462723502&e=.m3u8
+#EXTINF:-1 tvg-id="1940642395" tvg-name="ES | AMC HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | AMC HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1940642395&e=.m3u8
+#EXTINF:-1 tvg-id="4238619703" tvg-name="ES | AXN (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | AXN (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=4238619703&e=.m3u8
+#EXTINF:-1 tvg-id="251250868" tvg-name="ES | AXN HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | AXN HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=251250868&e=.m3u8
+#EXTINF:-1 tvg-id="2493319111" tvg-name="ES | AXN MOVIES (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | AXN MOVIES (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2493319111&e=.m3u8
+#EXTINF:-1 tvg-id="3062256453" tvg-name="ES | AXN WHITE HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | AXN WHITE HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3062256453&e=.m3u8
+#EXTINF:-1 tvg-id="3312673778" tvg-name="ES | AXN WHITE (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | AXN WHITE (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3312673778&e=.m3u8
+#EXTINF:-1 tvg-id="4205258144" tvg-name="ES | HOLLYWOOD HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | HOLLYWOOD HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=4205258144&e=.m3u8
+#EXTINF:-1 tvg-id="3288402534" tvg-name="ES | CANAL HOLLYWOOD (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | CANAL HOLLYWOOD (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3288402534&e=.m3u8
+#EXTINF:-1 tvg-id="4079560337" tvg-name="ES | HOLLYWOOD (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | HOLLYWOOD (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=4079560337&e=.m3u8
+#EXTINF:-1 tvg-id="4252300734" tvg-name="ES | SOMOS (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | SOMOS (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=4252300734&e=.m3u8
+#EXTINF:-1 tvg-id="2109803559" tvg-name="ES | WARNER TV (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | WARNER TV (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2109803559&e=.m3u8
+#EXTINF:-1 tvg-id="385322260" tvg-name="ES | DARK (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | DARK (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=385322260&e=.m3u8
+#EXTINF:-1 tvg-id="3068126176" tvg-name="ES | SYFY (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | SYFY (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3068126176&e=.m3u8
+#EXTINF:-1 tvg-id="3126656022" tvg-name="ES | SYFY HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | SYFY HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3126656022&e=.m3u8
+#EXTINF:-1 tvg-id="1343655533" tvg-name="ES | CALLE 13 (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | CALLE 13 (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1343655533&e=.m3u8
+#EXTINF:-1 tvg-id="2909740152" tvg-name="ES | CALLE 13 HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | CALLE 13 HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2909740152&e=.m3u8
+#EXTINF:-1 tvg-id="2566347328" tvg-name="ES | BOM CINE (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | BOM CINE (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=2566347328&e=.m3u8
+#EXTINF:-1 tvg-id="486650129" tvg-name="ES | SUNDANCE TV (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | SUNDANCE TV (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=486650129&e=.m3u8
+#EXTINF:-1 tvg-id="3891466198" tvg-name="ES | TCM (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | TCM (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3891466198&e=.m3u8
+#EXTINF:-1 tvg-id="1868847447" tvg-name="ES | TCM HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | TCM HD (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1868847447&e=.m3u8
+#EXTINF:-1 tvg-id="3362559361" tvg-name="ES | DREAMWORKS TV (6)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="Spain",ES | DREAMWORKS TV (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3362559361&e=.m3u8
+#EXTINF:-1 tvg-id="4128340393" tvg-name="ES | HBO (6)" tvg-logo="" group-title="Spain",ES | HBO (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=4128340393&e=.m3u8
 #EXTINF:-1 tvg-id="3555546026" tvg-name="ES | RAKUTEN FAMILY (6)" tvg-logo="" group-title="Spain",ES | RAKUTEN FAMILY (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3555546026&e=.m3u8
 #EXTINF:-1 tvg-id="1456200012" tvg-name="ES | TELENOVELAS (6)" tvg-logo="" group-title="Spain",ES | TELENOVELAS (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=1456200012&e=.m3u8
-#EXTINF:-1 tvg-id="4252300734" tvg-name="ES | SOMOS (6)" tvg-logo="" group-title="Spain",ES | SOMOS (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=4252300734&e=.m3u8
 
 
 
@@ -467,16 +473,30 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=2755024161&e=.m3u8
 #EXTINF:-1 tvg-id="581292525" tvg-name="ES | BEIN SPORTS N (1)" tvg-logo="" group-title="Spain",ES | BEIN SPORTS N (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=581292525&e=.m3u8
 
+#EXTINF:-1 tvg-id="15865034" tvg-name="ES | OLYMPIC CHANNEL (6)" tvg-logo="" group-title="Spain",ES | OLYMPIC CHANNEL (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=15865034&e=.m3u8
+#EXTINF:-1 tvg-id="3037841209" tvg-name="ES | BLOOMBERG TV EMEA LIVE EVENT (6)" tvg-logo="" group-title="Spain",ES | BLOOMBERG TV EMEA LIVE EVENT (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3037841209&e=.m3u8
+#EXTINF:-1 tvg-id="1626957676" tvg-name="ES | FRANCE 24 (6)" tvg-logo="" group-title="Spain",ES | FRANCE 24 (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1626957676&e=.m3u8
+#EXTINF:-1 tvg-id="1529983433" tvg-name="ES | TVE INTERNACIONAL AMÉRICA 1 (6)" tvg-logo="" group-title="Spain",ES | TVE INTERNACIONAL AMÉRICA 1 (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1529983433&e=.m3u8
+#EXTINF:-1 tvg-id="469813358" tvg-name="ES | TOROS TV (1)" tvg-logo="" group-title="Spain",ES | TOROS TV (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=469813358&e=.m3u8
+#EXTINF:-1 tvg-id="3969343348" tvg-name="ES | TVE INTERNACIONAL EUROPA (6)" tvg-logo="" group-title="Spain",ES | TVE INTERNACIONAL EUROPA (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3969343348&e=.m3u8
 #EXTINF:-1 tvg-id="2235179797" tvg-name="ES | TV3 CATALUNIA (1)" tvg-logo="" group-title="Spain",ES | TV3 CATALUNIA (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2235179797&e=.m3u8
+#EXTINF:-1 tvg-id="1898714632" tvg-name="ES | TV3 CATALUNYA (6)" tvg-logo="" group-title="Spain",ES | TV3 CATALUNYA (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1898714632&e=.m3u8
 #EXTINF:-1 tvg-id="2021291682" tvg-name="ES | TVE LA 1 MADRID (6)" tvg-logo="" group-title="Spain",ES | TVE LA 1 MADRID (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2021291682&e=.m3u8
 #EXTINF:-1 tvg-id="460346627" tvg-name="ES | CANAL SUR A (1)" tvg-logo="" group-title="Spain",ES | CANAL SUR A (1)
 https://metvmetvmetv7.serv00.net/vavame.php?id=460346627&e=.m3u8
-#EXTINF:-1 tvg-id="3410008380" tvg-name="ES | CANAL EXTREMADURA (6)" tvg-logo="" group-title="Spain",ES | CANAL EXTREMADURA (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3410008380&e=.m3u8
 #EXTINF:-1 tvg-id="2458539823" tvg-name="ES | CANAL SUR ANDALUCIA (6)" tvg-logo="" group-title="Spain",ES | CANAL SUR ANDALUCIA (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2458539823&e=.m3u8
+#EXTINF:-1 tvg-id="3410008380" tvg-name="ES | CANAL EXTREMADURA (6)" tvg-logo="" group-title="Spain",ES | CANAL EXTREMADURA (6)
+https://metvmetvmetv7.serv00.net/vavame.php?id=3410008380&e=.m3u8
 #EXTINF:-1 tvg-id="426249559" tvg-name="ES | POPULAR TV CANTABRIA (6)" tvg-logo="" group-title="Spain",ES | POPULAR TV CANTABRIA (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=426249559&e=.m3u8
 #EXTINF:-1 tvg-id="353289702" tvg-name="ES | TELE MADRID (1)" tvg-logo="" group-title="Spain",ES | TELE MADRID (1)
@@ -489,28 +509,22 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=3449921394&e=.m3u8
 https://metvmetvmetv7.serv00.net/vavame.php?id=3521839803&e=.m3u8
 #EXTINF:-1 tvg-id="1249174614" tvg-name="ES | ANDORRA TV (6)" tvg-logo="" group-title="Spain",ES | ANDORRA TV (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=1249174614&e=.m3u8
+#EXTINF:-1 tvg-id="1532168948" tvg-name="ES | ARAGON (1)" tvg-logo="" group-title="Spain",ES | ARAGON (1)
+https://metvmetvmetv7.serv00.net/vavame.php?id=1532168948&e=.m3u8
 #EXTINF:-1 tvg-id="521393455" tvg-name="ES | ARAGON TV INTERNACIONAL (6)" tvg-logo="" group-title="Spain",ES | ARAGON TV INTERNACIONAL (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=521393455&e=.m3u8
 #EXTINF:-1 tvg-id="2801370243" tvg-name="ES | 7 TELEVALENCIA (6)" tvg-logo="" group-title="Spain",ES | 7 TELEVALENCIA (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2801370243&e=.m3u8
 #EXTINF:-1 tvg-id="3307268079" tvg-name="ES | AFV ESPANOL (6)" tvg-logo="" group-title="Spain",ES | AFV ESPANOL (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3307268079&e=.m3u8
-#EXTINF:-1 tvg-id="1898714632" tvg-name="ES | TV3 CATALUNYA (6)" tvg-logo="" group-title="Spain",ES | TV3 CATALUNYA (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1898714632&e=.m3u8
 #EXTINF:-1 tvg-id="286586580" tvg-name="ES | PUNT 3 VALL UIXO (6)" tvg-logo="" group-title="Spain",ES | PUNT 3 VALL UIXO (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=286586580&e=.m3u8
-#EXTINF:-1 tvg-id="1532168948" tvg-name="ES | ARAGON (1)" tvg-logo="" group-title="Spain",ES | ARAGON (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1532168948&e=.m3u8
 #EXTINF:-1 tvg-id="2642866194" tvg-name="ES | GALICIA TV (6)" tvg-logo="" group-title="Spain",ES | GALICIA TV (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=2642866194&e=.m3u8
 #EXTINF:-1 tvg-id="3892867833" tvg-name="ES | ACTIVA TV (6)" tvg-logo="" group-title="Spain",ES | ACTIVA TV (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3892867833&e=.m3u8
 #EXTINF:-1 tvg-id="1498547821" tvg-name="ES | MOTO ADV (6)" tvg-logo="" group-title="Spain",ES | MOTO ADV (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=1498547821&e=.m3u8
-#EXTINF:-1 tvg-id="1626957676" tvg-name="ES | FRANCE 24 (6)" tvg-logo="" group-title="Spain",ES | FRANCE 24 (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1626957676&e=.m3u8
-#EXTINF:-1 tvg-id="1529983433" tvg-name="ES | TVE INTERNACIONAL AMÉRICA 1 (6)" tvg-logo="" group-title="Spain",ES | TVE INTERNACIONAL AMÉRICA 1 (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=1529983433&e=.m3u8
 #EXTINF:-1 tvg-id="1762459844" tvg-name="ES | TUYA LA JANDA TV (6)" tvg-logo="" group-title="Spain",ES | TUYA LA JANDA TV (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=1762459844&e=.m3u8
 #EXTINF:-1 tvg-id="4022001704" tvg-name="ES | FOX SPORTS 2 (6)" tvg-logo="" group-title="Spain",ES | FOX SPORTS 2 (6)
@@ -525,8 +539,6 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=4251716677&e=.m3u8
 https://metvmetvmetv7.serv00.net/vavame.php?id=3790097768&e=.m3u8
 #EXTINF:-1 tvg-id="3202539477" tvg-name="ES | M95 MARBELLA (6)" tvg-logo="" group-title="Spain",ES | M95 MARBELLA (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3202539477&e=.m3u8
-#EXTINF:-1 tvg-id="3037841209" tvg-name="ES | BLOOMBERG TV EMEA LIVE EVENT (6)" tvg-logo="" group-title="Spain",ES | BLOOMBERG TV EMEA LIVE EVENT (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3037841209&e=.m3u8
 #EXTINF:-1 tvg-id="3831813669" tvg-name="ES | LANCELOT TV (6)" tvg-logo="" group-title="Spain",ES | LANCELOT TV (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3831813669&e=.m3u8
 #EXTINF:-1 tvg-id="1340694365" tvg-name="ES | LA URBAN TV (6)" tvg-logo="" group-title="Spain",ES | LA URBAN TV (6)
@@ -611,10 +623,6 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=4080888323&e=.m3u8
 https://metvmetvmetv7.serv00.net/vavame.php?id=3339403662&e=.m3u8
 #EXTINF:-1 tvg-id="3423367835" tvg-name="ES | SEVILLA (6)" tvg-logo="" group-title="Spain",ES | SEVILLA (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3423367835&e=.m3u8
-#EXTINF:-1 tvg-id="469813358" tvg-name="ES | TOROS TV (1)" tvg-logo="" group-title="Spain",ES | TOROS TV (1)
-https://metvmetvmetv7.serv00.net/vavame.php?id=469813358&e=.m3u8
-#EXTINF:-1 tvg-id="3969343348" tvg-name="ES | TVE INTERNACIONAL EUROPA (6)" tvg-logo="" group-title="Spain",ES | TVE INTERNACIONAL EUROPA (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=3969343348&e=.m3u8
 #EXTINF:-1 tvg-id="1205331668" tvg-name="ES | DIEZ TV (6)" tvg-logo="" group-title="Spain",ES | DIEZ TV (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=1205331668&e=.m3u8
 #EXTINF:-1 tvg-id="3847314697" tvg-name="ES | MARBELLA TV (6)" tvg-logo="" group-title="Spain",ES | MARBELLA TV (6)
@@ -627,7 +635,5 @@ https://metvmetvmetv7.serv00.net/vavame.php?id=3432994000&e=.m3u8
 https://metvmetvmetv7.serv00.net/vavame.php?id=2264854819&e=.m3u8
 #EXTINF:-1 tvg-id="3400528078" tvg-name="ES | LOCOMOTION TV (6)" tvg-logo="" group-title="Spain",ES | LOCOMOTION TV (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=3400528078&e=.m3u8
-#EXTINF:-1 tvg-id="15865034" tvg-name="ES | OLYMPIC CHANNEL (6)" tvg-logo="" group-title="Spain",ES | OLYMPIC CHANNEL (6)
-https://metvmetvmetv7.serv00.net/vavame.php?id=15865034&e=.m3u8
 #EXTINF:-1 tvg-id="1383981291" tvg-name="ES | ESPERANZA TV (6)" tvg-logo="" group-title="Spain",ES | ESPERANZA TV (6)
 https://metvmetvmetv7.serv00.net/vavame.php?id=1383981291&e=.m3u8

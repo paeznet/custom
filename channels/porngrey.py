@@ -21,6 +21,8 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+### SI se logra reproducir un video lo REPRODUCE LENTO Y MAL
+
 canonical = {
              'channel': 'porngrey', 
              'host': config.get_setting("current_host", 'porngrey', default=''), 
@@ -31,7 +33,7 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-timeout = 5
+timeout = 20
 kwargs = {}
 debug = config.get_setting('debug_report', default=False)
 movie_path = ''

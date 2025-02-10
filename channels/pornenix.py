@@ -171,8 +171,7 @@ def play(item):
     url = soup.find(type='video/mp4')
     if url:
         url = url['src']
-        url += "|ignore_response_code=True"
-        itemlist.append(Item(channel=item.channel, action="play", contentTitle = item.contentTitle, url=url))
+        itemlist.append(["[Pornenix .mp4]", url])
     else:
         url = soup.find('div', class_='-video').iframe['src']
         itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))

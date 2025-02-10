@@ -55,7 +55,7 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
          'get_quality': {}, 
          'get_quality_rgx': '', 
          'next_page': {},
-         'next_page_rgx': [['\/\d+', '/%s/'], ['\/page\d+.html', '/page%s.html']], 
+         'next_page_rgx': [['\/page\/\d+', '/page/%s/']], 
          'last_page': dict([('find', [{'tag': ['div', 'nav', 'ul'], 'class': ['n-pagination', 'pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
@@ -69,7 +69,7 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
                                                                 # {'tagOR': ['span'], 'style':['color']}]),
                                                       # ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])
                             },
-         'controls': {'url_base64': False, 'cnt_tot': 60, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 50, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -82,12 +82,8 @@ def mainlist(item):
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="Nuevo" , action="list_all", url=host + "page/1/?filter=latest"))
     itemlist.append(Item(channel=item.channel, title="Mas Visto" , action="list_all", url=host + "page/1/?filter=most-viewed"))
-    # itemlist.append(Item(channel=item.channel, title="Mejor Valorado" , action="list_all", url=host + "page/1/?filter=latest"))
     itemlist.append(Item(channel=item.channel, title="Mas Popular" , action="list_all", url=host + "page/1/?filter=popular"))
-    # itemlist.append(Item(channel=item.channel, title="Lo Mejor" , action="list_all", url=host + "videos/best-recent/1"))
-    # itemlist.append(Item(channel=item.channel, title="Mas Comentado" , action="list_all", url=host + "discussed/"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "page/1/?filter=longest"))
-    # itemlist.append(Item(channel=item.channel, title="Mas Descargas" , action="list_all", url=host + "downloaded/"))
     # itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "studios/", extra="Canal"))
     itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "actors/page/1/", extra="PornStar"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/page/1/", extra="Categorias"))
@@ -111,6 +107,10 @@ def section(item):
 def list_all(item):
     logger.info()
     
+    findS = finds.copy()
+    if "Categorias" in item.extra:
+        findS['controls']['cnt_tot'] = 20
+
     return AlfaChannel.list_all(item, **kwargs)
 
 
@@ -151,7 +151,8 @@ def play(item):
         url_decode = base64.b64decode(url[-1]).decode("utf8")
         url = urlparse.unquote(url_decode)
         url = scrapertools.find_single_match(url, 'src="([^"]+)"')
-    
+        url += "|Referer=%s" % host
+        
     itemlist.append(Item(channel = item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     
