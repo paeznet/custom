@@ -1,0 +1,15 @@
+{
+  "id": "studentki",
+  "name": "000studentki",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://sex-studentki.live/front/images/logo_ng_new.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

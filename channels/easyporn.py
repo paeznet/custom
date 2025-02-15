@@ -21,6 +21,10 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+
+
+        # easyporn                      drsexfilme
+    
         # ENGLISH                         DEUTCH
 # https://www.hd-easyporn.com/ == https://www.hdpornos.xxx/  
 # https://www.porndrake.com/ ==  https://www.pornoente.tv/  
@@ -28,23 +32,34 @@ forced_proxy_opt = 'ProxySSL'
 # https://www.porntommy.com/ ==  https://www.pornotommy.com/
 # https://www.porn-monkey.com/ == https://www.pornoaffe.net/  https://www.pornomico.com/
 
-# https://www.pornboxer.com/    https://www.sexmovies69.net/  https://www.sexclips66.com/  https://www.pornolisa.com/
+                                # https://www.pornolisa.com/
+# https://www.pornboxer.com/    https://www.sexmovies69.net/  https://www.sexclips66.com/  
 
-# https://www.pornoleon.com/  https://www.meinyouporn.com/ https://www.hd-pornos.info/
-# https://www.pornotanja.com/  https://www.pornozebra.com/  https://www.pornohans.net/
-# https://www.deinesexfilme.com/   https://www.pornofisch.com/  https://www.lesbenhd.com/
-# https://www.pornohammer.com/   https://www.gutesexfilme.com/  https://www.pornhub-sexfilme.net/
-# https://www.pornotom.com/  https://www.pornozebra.com/  https://www.pornohirsch.net/
-# https://www.sexvideos-hd.com/  https://www.pornoschlange.com/  https://www.halloporno.net/
-# https://www.sexente.com/  https://www.hd-sexfilme.com/  https://www.pornodavid.com/
-# https://www.tube8-pornos.com/  https://www.pornojenny.net/  https://www.beeg-pornos.com/
-# https://www.herzporno.net/  https://www.sexfilme-gratis.com/  https://www.drsexfilme.com/
-# https://www.pornoritze.com/  https://www.sexvideos-gratis.com/  https://www.hdpornos.xxx/
-# https://www.nursexfilme.com/  https://www.milffabrik.com/  https://www.pornovideos-hd.com/
-# https://www.einfachtitten.com/  https://www.pornosusi.com/
-# https://www.xnxx-pornos.xxx/  https://www.xnxx-porno.com/  https://www.xnxx-sexfilme.com/
 
-# https://www.sexhamster.org/  https://www.deutscherporno.biz/
+# https://www.sexvideos-gratis.com/ https://www.pornoritze.com/  https://www.pornotanja.com/
+# https://www.pornotom.com/   https://www.hd-sexfilme.com/  https://www.gutesexfilme.com/
+# https://www.pornodavid.com/    https://www.pornohirsch.net/   https://www.drsexfilme.com/
+# https://www.pornofisch.com/   https://www.lesbenhd.com/  https://www.halloporno.net/
+# https://www.pornofelix.com/
+
+# https://www.xnxx-pornos.xxx/ 
+
+# https://www.pornoleon.com/  https://www.hd-pornos.info/  https://www.sexfilme-gratis.com/ 
+# https://www.meinyouporn.com/ https://www.deinesexvideos.com/  https://www.sexvideos-hd.com/ 
+# https://www.tube8-pornos.com/ https://www.deinesexfilme.com/  https://www.pornozebra.com/
+# https://www.pornhub-sexfilme.net/  https://www.pornosusi.com/  https://www.pornojenny.net/
+# https://www.pornohammer.com/   https://www.sexente.com/  https://www.pornovideos-hd.com/
+# https://www.pornoschlange.com/   https://www.beeg-pornos.com/    https://www.herzporno.net/ 
+# https://www.einfachtitten.com/  https://www.nursexfilme.com/  https://www.milffabrik.com/
+# https://www.pornohans.net/
+
+ 
+# https://www.xnxx-porno.com/   https://www.xnxx-sexfilme.com/
+
+
+# https://www.sexhamster.org/  https://www.deutscherporno.biz/  https://www.scharfe-pornos.com/
+# https://www.sexhamster.biz/  https://www.sexfilme24.org/  https://www.gratis-sex-videos.net/
+# https://misex.net/
 
 canonical = {
              'channel': 'easyporn', 
@@ -72,20 +87,16 @@ finds = {'find': dict([('find', [{'tag': ['div', 'section'], 'class': ['videos',
          'get_quality': {}, 
          'get_quality_rgx': '', 
          'next_page': {},
-         'next_page_rgx': [['&p=\d+', '&p=%s'], ['?p=\d+', '?p=%s']], 
+         'next_page_rgx': [['&p=\d+', '&p=%s']], 
          'last_page': dict([('find', [{'tag': ['div'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-1], 
-                                           '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
+                                           '@ARG': 'href', '@TEXT': 'p=(\d+)'}])]), 
          'plot': {}, 
          'findvideos':{},
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            # 'list_all_quality': dict([('find', [{'tag': ['div'], 'class': ['b-thumb-item__detail']}]),
-                                                      # ('get_text', [{'strip': True}])]),
-                            # 'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['category-videos']}]),
-                                                      # ('get_text', [{'strip': True}])])
                            },
          'controls': {'url_base64': False, 'cnt_tot': 36, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
@@ -101,10 +112,11 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="easyporn" , action="submenu", url= "https://www.hd-easyporn.com/", chanel="easyporn", thumbnail = "https://static.hd-easyporn.com/img/header_50.png"))
     itemlist.append(Item(channel=item.channel, title="porndrake" , action="submenu", url= "https://www.porndrake.com/", chanel="porndrake", thumbnail = "https://static.porndrake.com/img/header_50.png"))
     itemlist.append(Item(channel=item.channel, title="pornblade" , action="submenu", url= "https://www.pornblade.com/", chanel="pornblade", thumbnail = "https://static.pornblade.com/img/header_50.png"))
-    itemlist.append(Item(channel=item.channel, title="pornboxer" , action="submenu", url= "https://www.pornboxer.com/", chanel="pornboxer", thumbnail = "https://i.postimg.cc/ryBNMrhK/pornboxer.png"))
-    itemlist.append(Item(channel=item.channel, title="pornolisa" , action="submenu", url= "https://www.pornolisa.com/", chanel="pornolisa", thumbnail = "https://i.postimg.cc/KvW9RDPb/pornolisa.png"))
-    itemlist.append(Item(channel=item.channel, title="sexmovies69" , action="submenu", url= "https://www.sexmovies69.net/", chanel="sexmovies69", thumbnail = "https://i.postimg.cc/zfjkNCpT/sexmovies69.png"))
-    itemlist.append(Item(channel=item.channel, title="sexclips66" , action="submenu", url= "https://www.sexclips66.com/", chanel="sexclips66", thumbnail = "https://i.postimg.cc/G2mxm4SV/sexclips66.png"))
+    itemlist.append(Item(channel=item.channel, title="porntommy" , action="submenu", url= "https://www.porntommy.com/", chanel="porntommy", thumbnail = "https://static.porntommy.com/img/header_50.png"))
+    itemlist.append(Item(channel=item.channel, title="pornboxer" , action="submenu", url= "https://www.pornboxer.com/", chanel="pornboxer", thumbnail = "https://i.postimg.cc/ryBNMrhK/pornboxer.png", canal=1))
+    # itemlist.append(Item(channel=item.channel, title="pornolisa" , action="submenu", url= "https://www.pornolisa.com/", chanel="pornolisa", thumbnail = "https://i.postimg.cc/KvW9RDPb/pornolisa.png", canal=1))
+    itemlist.append(Item(channel=item.channel, title="sexmovies69" , action="submenu", url= "https://www.sexmovies69.net/", chanel="sexmovies69", thumbnail = "https://i.postimg.cc/zfjkNCpT/sexmovies69.png", canal=1))
+    itemlist.append(Item(channel=item.channel, title="sexclips66" , action="submenu", url= "https://www.sexclips66.com/", chanel="sexclips66", thumbnail = "https://i.postimg.cc/G2mxm4SV/sexclips66.png", canal=1))
     itemlist.append(Item(channel=item.channel, title="porn-monkey" , action="submenu", url= "https://www.porn-monkey.com/", chanel="porn-monkey", thumbnail = "https://static.porn-monkey.com/img/header_60.png"))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
@@ -120,59 +132,26 @@ def submenu(item):
     AlfaChannel.host = item.url
     AlfaChannel.canonical.update({'channel': item.chanel, 'host': AlfaChannel.host, 'host_alt': [AlfaChannel.host]})
     
+    if "porn-monkey" in item.chanel:
+        itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "new-videos/?o=n&p=1", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=item.url + "new-videos/?o=v&p=1", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "new-videos/?o=r&p=1", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=item.url + "new-videos/?o=d&p=1", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "pornstars/?p=1", extra="PornStar", chanel=item.chanel))
+        # itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=item.url + "channels/", extra="Canal", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url, extra="Categorias", chanel=item.chanel))
     
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "?o=n&p=1", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=item.url + "?o=v&p=1", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "?o=r&p=1", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=item.url + "?o=d&p=1", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "pornstars/?p=1", extra="PornStar", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=item.url + "channels/", extra="Canal", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "categories/", extra="Categorias", chanel=item.chanel))
-    
-    
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "?o=n&p=1", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=item.url + "?o=v&p=1", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "?o=r&p=1", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=item.url + "?o=d&p=1", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "pornostars/?p=1", extra="PornStar", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=item.url + "kanaele/", extra="Canal", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "kategorien/", extra="Categorias", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url, extra="Categorias", chanel=item.chanel))
-    
-    
-    # if "porn-monkey" in item.chanel:
-        # itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "new-videos/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "best-videos/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "pornstars/", extra="PornStar", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "videos/1/", extra="Categorias", chanel=item.chanel))
-    # if "bestpornstars" in item.chanel:
-        # itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "new/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "best/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Mas Caliente" , action="list_all", url=item.url + "trending/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "categories/1/", extra="Categorias", chanel=item.chanel))
-    # if "bigfuck" in item.chanel:
-        # itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "recent/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "best/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Mas Popular" , action="list_all", url=item.url + "most-popular/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "stars/1/", extra="PornStar", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "category/", extra="Categorias", chanel=item.chanel))
-    # if "redporn" in item.chanel:
-        # itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "new/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "best/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Mas Caliente" , action="list_all", url=item.url + "trends/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "pornstars/1/", extra="PornStar", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "tubes/1/", extra="Categorias", chanel=item.chanel))
-    # if "zzztube" in item.chanel:
-        # itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "latest/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "best/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Mas Caliente" , action="list_all", url=item.url + "hot/1/", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "pornstars/1/", extra="PornStar", chanel=item.chanel))
-        # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "categories/1/", extra="Categorias", chanel=item.chanel))
-    
-    # itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=item.url + "channels/1/", extra="Canal", chanel=item.chanel))
+    else:
+        itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "?o=n&p=1", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=item.url + "?o=v&p=1", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "?o=r&p=1", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=item.url + "?o=d&p=1", chanel=item.chanel))
+        if not item.canal:
+            itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "pornstars/?p=1", extra="PornStar", chanel=item.chanel))
+            itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=item.url + "channels/", extra="Canal", chanel=item.chanel))
+        itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "categories/", extra="Categorias", chanel=item.chanel))
     
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=item.url, chanel=item.chanel))
-    
     return itemlist
 
 
@@ -183,22 +162,17 @@ def section(item):
     findS['url_replace'] = [['(\/(?:category|channel|pornstar)\/[^$]+$)', r'\1?o=n&p=1']]
     
     if item.extra == 'PornStar':
+        findS['next_page_rgx'] = [['?p=\d+', '?p=%s']]
         findS['last_page'] = dict([('find_all', [{'tag': ['a'], 'href': re.compile("/\?p=\d+"), '@POS': [-1], 
                                                 '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])])
-        findS['next_page_rgx'] = [['?p=\d+', '?p=%s']]
-
-    # if item.extra == 'Canal':
-        # findS['categories'] = dict([('find', [{'tag': ['div'], 'id': 'popup-sponsors'}]), 
-                                    # ('find_all', [{'tag': ['li']}])])
-        # findS['profile_labels']['section_title'] = {'find': [{'tag': ['img'], '@ARG': 'alt'}]}
-        # findS['last_page'] = {}
-        # findS['controls']['cnt_tot'] = 12
+    
+    if "porn-monkey" in item.chanel and "Categorias" in item.extra:
+        findS['categories'] = dict([('find', [{'tag': ['div'], 'class': ['videos']}]), 
+                                    ('find_all', [{'tag': ['div'], 'class': ['grid_box']}])])
     
     if item.extra == 'Categorias':
-        findS['title_clean'] =[['(?i)\s*Porn*\s*', ''], ['(?i)\s*Sex Movies*\s*', ''], ['(?i)\s*Sex Clips*\s*', '']]
-        # findS['categories'] = dict([('find', [{'tag': ['div'], 'class': 'list-categories'}]), 
-                                    # ('find_all', [{'tag': ['a']}])])
-    # return AlfaChannel.section(item, **kwargs)
+        findS['title_clean'] =[[' Porn\s*', ''], [' Sex Movies\s*', ''], [' Sex Clips\s*', '']]
+    
     return AlfaChannel.section(item, finds=findS, **kwargs)
 
 
@@ -223,9 +197,7 @@ def play(item):
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
     
-    # if soup.find('div', id='video-info').find_all('a', href=re.compile("/pornstars/[A-z0-9-]+")):
     pornstars =soup.find_all('a', href=re.compile("/pornstar/[A-z0-9-]+/"))
-    
     for x, value in enumerate(pornstars):
         pornstars[x] = value.get_text(strip=True)
     pornstar = ""
@@ -240,12 +212,8 @@ def play(item):
         else:
             lista.insert (1, pornstar)
         item.contentTitle = '[/COLOR]'.join(lista)
-
-
-
-    # if "6xtube" in item.url or "blendporn" in item.url:
-        # matches = soup.find('div', id='player-container')
-        # item.url = matches.iframe['src']
+    
+    
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
@@ -255,7 +223,7 @@ def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    item.url = "%ssearch/%s/1/" % (item.url, texto.replace(" ", "+"))
+    item.url = "%ssearch/?k=%s&o=n&p=1" % (item.url, texto.replace(" ", "+"))
     
     try:
         if texto:
