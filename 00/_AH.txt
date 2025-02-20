@@ -1,3 +1,14 @@
+playdede
+    devuelve = servertools.findvideosbyserver(item.url, item.server)
+    if devuelve:
+        item.url = devuelve[0][1]
+
+vsexin(SERVER)
+    devuelve = servertools.findvideos(url, True)
+    if devuelve:
+        url = devuelve[0][1]
+        server = devuelve[0][2]
+
 babestube tenia el play llamando directamente a xbmc
     import xbmc
     import xbmcgui

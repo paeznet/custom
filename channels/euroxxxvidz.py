@@ -22,6 +22,8 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
 forced_proxy_opt = 'ProxySSL'
 
+####  OUT feb-2025
+
 # https://euroxxxvidz.com/   https://www.pornhegemon.com/ 
 
 canonical = {

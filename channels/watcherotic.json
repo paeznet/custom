@@ -1,0 +1,15 @@
+{
+  "id": "watcherotic",
+  "name": "000watcherotic",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://watcherotic.com/contents/fetrcudmeesb/theme/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
