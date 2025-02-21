@@ -4,8 +4,10 @@
 plugin://script.module.horus?action=play&id=c9c6e562d63019f283415540827c7bce5704f54d
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Liga%20de%202Campeones.png" tvg-id="M+ LIGA DE CAMPEONES 2 FHD" group-title="LIGA DE CAMPEONES", M+ Liga de Campeones 2 HD
 plugin://script.module.horus?action=play&id=1b16e6969c9170273cf7e08abe0b919db3e9351f
+
 #EXTINF:-1 tvg-logo="https://i.ibb.co/FVzKq1y/dazn1.png" tvg-id="DAZN 1 HD" group-title="DAZN", DAZN 1 HD
 plugin://script.module.horus?action=play&id=4397faf316e52508dd2f0db6f1d5cbab432f46a3
+
 #EXTINF:-1 tvg-logo="https://i.ibb.co/gWMRpFB/vamos.png" tvg-id="#VAMOS FHD" group-title="MOVISTAR", M+ Vamos HD
 plugin://script.module.horus?action=play&id=472b73d3c63fe53c3a95644f20aab65b31a6e506
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%201%20BAR.png" tvg-id="LaLiga TV BAR HD" group-title="LA LIGA", LaLiga TV BAR HD
@@ -78,6 +80,8 @@ plugin://script.module.horus?action=play&id=505c4130005386ca0854500fab2bae25ca6a
 plugin://script.module.horus?action=play&id=e41352c657506cfe6eecc4f17982f69275f1660b
 #EXTINF:-1 tvg-logo="https://i.ibb.co/2Ndmtbp/f1.png" tvg-id="DAZN F1 FHD (SAT) por Tronoss" group-title="FORMULA 1", DAZN F1 HD
 plugin://script.module.horus?action=play&id=37875b8c4e71b3daca16e03070968e0f6344ba4c
+
+
 #EXTINF:-1 tvg-logo="https://i.ibb.co/FVzKq1y/dazn1.png" tvg-id="DAZN 1 FHD (SAT) por Tronoss" group-title="DAZN", DAZN 1 HD
 plugin://script.module.horus?action=play&id=e253307f495a6beeda976d2363d72501f2dc1fe3
 #EXTINF:-1 tvg-logo="https://i.ibb.co/FVzKq1y/dazn1.png" tvg-id="DAZN 1 FHD por Tronoss" group-title="DAZN", DAZN 1 HD
@@ -96,6 +100,8 @@ plugin://script.module.horus?action=play&id=3e3f801d03eaf7df527617eaa4c2c5e26dfc
 plugin://script.module.horus?action=play&id=ddb1d0ff24955582668c0c6e4d4fb3d58cc4b65e
 #EXTINF:-1 tvg-logo="https://i.ibb.co/R4LBVWP/dazn4.png" tvg-id="DAZN 4 FHD (*) por Tronoss" group-title="DAZN", DAZN 4 HD
 plugin://script.module.horus?action=play&id=846a1ff238ee87a09785f1c053ccd2e4f57267b1
+
+
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Bundesliga_logo_%282017%29.svg/180px-Bundesliga_logo_%282017%29.svg.png" tvg-id="" group-title="BUNDESLIGA", DAZN BUNDESLIGA 1 FHD por Tronoss
 plugin://script.module.horus?action=play&id=4fa5fb9ab4a3213f7ffe2dfa2ca2d3740f8fd61d
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/2._Bundesliga_logo.svg/170px-2._Bundesliga_logo.svg.png" tvg-id="" group-title="BUNDESLIGA", DAZN BUNDESLIGA 2 FHD por Tronoss

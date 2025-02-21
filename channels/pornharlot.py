@@ -73,15 +73,16 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
+    plot = '[COLOR yellow]No existen los videos[/COLOR]'
     
-    itemlist.append(Item(channel=item.channel, title="Nuevos", action="list_all", url=host + "videos?o=mr&page=1"))
-    itemlist.append(Item(channel=item.channel, title="Más visto", action="list_all", url=host + "videos?o=mv&t=m&page=1"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado", action="list_all", url=host + "videos?o=tr&t=m&page=1"))
-    itemlist.append(Item(channel=item.channel, title="Mas comentado", action="list_all", url=host + "videos?o=md&t=m&page=1"))
-    itemlist.append(Item(channel=item.channel, title="Favoritos", action="list_all", url=host + "videos?o=tf&t=m&page=1"))
-    itemlist.append(Item(channel=item.channel, title="Mas largo", action="list_all", url=host + "videos?o=lg&t=m&page=1"))
-    itemlist.append(Item(channel=item.channel, title="Categorias", action="section", url=host + "categories", extra="Categorias"))
-    itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos", action="list_all", url=host + "videos?o=mr&page=1", contentPlot=plot))
+    itemlist.append(Item(channel=item.channel, title="Más visto", action="list_all", url=host + "videos?o=mv&t=m&page=1", contentPlot=plot))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado", action="list_all", url=host + "videos?o=tr&t=m&page=1", contentPlot=plot))
+    itemlist.append(Item(channel=item.channel, title="Mas comentado", action="list_all", url=host + "videos?o=md&t=m&page=1", contentPlot=plot))
+    itemlist.append(Item(channel=item.channel, title="Favoritos", action="list_all", url=host + "videos?o=tf&t=m&page=1", contentPlot=plot))
+    itemlist.append(Item(channel=item.channel, title="Mas largo", action="list_all", url=host + "videos?o=lg&t=m&page=1", contentPlot=plot))
+    itemlist.append(Item(channel=item.channel, title="Categorias", action="section", url=host + "categories", extra="Categorias", contentPlot=plot))
+    itemlist.append(Item(channel=item.channel, title="Buscar", action="search", contentPlot=plot))
 
     return itemlist
 
