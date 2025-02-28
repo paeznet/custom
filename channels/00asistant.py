@@ -2,10 +2,10 @@ import sys
 PY3 = False
 if sys.version_info[0] >= 3: PY3 = True; unicode = str; unichr = chr; long = int
 
-# if PY3:
-    # import urllib.parse as urlparse
-# else:
-    # import urlparse
+if PY3:
+    import urllib.parse as urlparse
+else:
+    import urlparse
 
 import re
 
@@ -15,22 +15,13 @@ from core import servertools
 from core.item import Item
 from core import httptools
 from bs4 import BeautifulSoup
-from channels import filtertools
+from modules import filtertools
 from lib import alfa_assistant
 
 
-host = "https://analtime.org/videos/gia-derza-naughty-anal-penetration/"
-# https://waaw.to/watch_video.php?v=dGxvei9KMTMzaFpOUlBUUkZxRTJ2WjFYNmhEOGdzQ1l6RWU3dHY3cm05bzlaekR2cnltVGllNTh1am1XN2pGTg%3D%3D#iss=MTU5LjE0Ny45LjExNQ==
+host = "https://www.babestube.com/latest-updates/?sort_by=post_date&from=01"
 
-# https://czechvideo.org/22000-6603-publicpickups-molly-pills-tenting-his-pants-leads-to-pantsing-in-tent.html
 url1 = "https://evoload.io/SecurePlayer"
-# url1="https://czxxx.org/player/embed_player.php?vid=vtEr19eH9EMv|Referer='https://czechvideo.org/"
-# url1="https://4fw4gd.cfeucdn.com/secip/1/861rQM940fF8R1fZDCdglg/OTQuMjUuMTcwLjI2/1606597200/hls-vod-s03/flv/api/files/videos/2018/08/01/153311550983uua.mp4.m3u8"
-
-
-
-# https://waaw.to/f/mMl0ncNtpck0
-# https://waaw.to/watch_video.php?v=dGxvei9KMTMzaFpOUlBUUkZxRTJ2WjFYNmhEOGdzQ1l6RWU3dHY3cm05bzlaekR2cnltVGllNTh1am1XN2pGTg%3D%3D#iss=MTU5LjE0Ny45LjExNQ==
 
 
 def mainlist(item):
@@ -52,11 +43,13 @@ def create_soup(item):
         data = alfa_assistant.get_source_by_page_finished(item.url, 5, closeAfter=True)
         if not data:
             return False
+    logger.debug(data)
     data = alfa_assistant.find_htmlsource_by_url_pattern(data, item.url)
     if isinstance(data, dict):
         data = data.get('source', '')
         if not data:
             return False
+    logger.debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     logger.debug(data)
     if data:
         soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
