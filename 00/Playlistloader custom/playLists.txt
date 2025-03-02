@@ -85,7 +85,7 @@
         "url": "https://iptv-org.github.io/iptv/countries/es.m3u",
         "image": "",
         "logos": "",
-        "epg": "",
+        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml",
         "cache": 0,
         "uuid": "fbb51ad8-adec-46d6-be3d-1a925010bbb0"
     },
@@ -169,68 +169,5 @@
         "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml",
         "cache": 0,
         "uuid": "430e2547-21bc-43d2-9467-ed7f0a2c2516"
-    },
-    {
-        "name": "VAVOO_pc",
-        "url": "D:/Kraken/custom/00/vavoo_to-welt-2.m3u",
-        "image": "",
-        "logos": "",
-        "epg": "",
-        "cache": 0,
-        "uuid": "2f3c2a76-6e39-416f-b4c4-960757d9a8e0"
-    },
-    {
-        "name": "VAVOO_SP_pc",
-        "url": "D:/Kraken/custom/00/vavoo_SP.m3u",
-        "image": "",
-        "logos": "",
-        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml",
-        "cache": 0,
-        "uuid": "8730ac2f-91b4-4d0e-a11f-65cb2fa2b07b"
-    },
-    {
-        "name": "Futbol_pc",
-        "url": "D:/Kraken/custom/00/futbol.m3u",
-        "image": "",
-        "logos": "",
-        "epg": "",
-        "cache": 0,
-        "uuid": "8f222c97-1d41-4770-943e-8bcdbc57f4bf"
-    },
-    {
-        "name": "SirRandomss_pc",
-        "url": "D:/Kraken/custom/00/mixto.m3u",
-        "image": "",
-        "logos": "",
-        "epg": "",
-        "cache": 0,
-        "uuid": "497c0cb9-04cb-4992-915a-38ded13bdbb7"
-    },
-    {
-        "name": "spain",
-        "url": "D:\\Kraken\\custom\\00\\Spain.m3u",
-        "image": "",
-        "logos": "",
-        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml",
-        "cache": 0,
-        "uuid": "eeceb541-2c05-4238-85f3-c6434d215f6e"
-    },
-    {
-        "name": "BASE ELCANO",
-        "url": "D:\\Kraken\\custom\\00\\base.m3u",
-        "image": "",
-        "logos": "",
-        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml",
-        "cache": 0,
-        "uuid": "f302ba42-0edf-4247-b745-c8a15dcebc8a"
-    },
-    {
-        "name": "lista-ace",
-        "url": "D:\\Kraken\\custom\\00\\lista-ace.m3u",
-        "image": "",
-        "logos": "",
-        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml",
-        "cache": 0,
-        "uuid": "b1e8186a-4fe0-4323-89a0-e7f5b98796ed"
     }
 ]

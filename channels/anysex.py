@@ -18,6 +18,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+##   NO MUESTRA THUMBNAILS   https://i2.anysex.com/videos_screenshots/422000/422957/608x342/1.jpg
+ 
 canonical = {
              'channel': 'anysex', 
              'host': config.get_setting("current_host", 'anysex', default=''), 
@@ -33,10 +35,11 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "new-movies/"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "most-popular/"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "top-rated/"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "models/"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "search/1/?sort=new")) #&q=
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "search/1/?sort=views"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "search/1/?sort=top"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "models/1/?sort=total_videos"))
+    itemlist.append(Item(channel=item.channel, title="Caanal" , action="categorias", url=host + "channels/1/?sort_by=total_videos"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories/?sort_by=title"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
@@ -45,7 +48,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%ssearch/?q=%s" % (host,texto)
+    item.url = "%ssearch/1/?sort=new&q=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -59,10 +62,11 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find('ul', class_='box').find_all('li', class_='item')
+    matches = soup.find('div', class_='content').find_all(class_='item')
     for elem in matches:
-        url = elem.a['href']
-        title = elem.a['title']
+        
+        url = elem.a['href'] if elem.find('a') else elem['href']
+        title = elem.a['title'] if elem.find('a') else elem['title']
         if elem.find('span', class_='no-thumb'):
             thumbnail = ""
         else:
@@ -71,19 +75,18 @@ def categorias(item):
             thumbnail = elem.img['data-src']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
-        cantidad = elem.find('span', class_='views')
+        cantidad = elem.find('span', class_='video_count')
         if cantidad:
-            title = "%s (%s)" % (title,cantidad.text.strip())
+            cantidad = cantidad.text.strip().replace("videos","")
+            title = "%s (%s)" % (title, cantidad)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('div', class_='pagination')
     if next_page:
-        next_page = next_page.find('span', string=re.compile(r"^\d+"))
-        if next_page and next_page.find_next_sibling("a"):
-            next_page = next_page.find_next_sibling("a")['href']
-            next_page = urlparse.urljoin(item.url,next_page)
-            itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+        next_page = next_page.find_all('a')[-1]['href']
+        next_page = urlparse.urljoin(item.url, next_page)
+        itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
@@ -103,16 +106,16 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find('ul', class_='box').find_all('li', class_='item')
+    matches = soup.find('div', class_='list-videos').find_all('div', class_='item')
     for elem in matches:
         url = elem.a['href']
-        title = elem.a['title']
+        title = elem.img['alt']
         thumbnail = elem.img['src']
         if "gif" in thumbnail:
-            thumbnail = elem.img['data-original']
+            thumbnail = elem.img['data-jpg']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
-        time = elem.find('span', class_='time').text.strip()
+        time = elem.find('div', class_='duration').text.strip()
         quality = elem.find('span', class_='is-hd')
         title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         url = urlparse.urljoin(item.url,url)
@@ -124,11 +127,9 @@ def lista(item):
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('div', class_='pagination')
     if next_page:
-        next_page = next_page.find('span', string=re.compile(r"^\d+"))
-        if next_page and next_page.find_next_sibling("a"):
-            next_page = next_page.find_next_sibling("a")['href']
-            next_page = urlparse.urljoin(item.url,next_page)
-            itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+        next_page = next_page.find_all('a')[-1]['href']
+        next_page = urlparse.urljoin(item.url, next_page)
+        itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
@@ -145,7 +146,7 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/"))
+    pornstars = soup.find('div', class_='video-tags').find_all('a', href=re.compile("/models/[A-z0-9-]+/"))
     for x , value in enumerate(pornstars):
         pornstars[x] = value.text.strip()
     pornstar = ' & '.join(pornstars)
