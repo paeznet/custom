@@ -222,10 +222,7 @@ def m3uCategory(url, logos, epg, cache, mode, gListIndex=-1):
     else: epgDict = {}
     
     #xbmc.log('EPGDICT')
-    # xbmc.log(str(epgDict.get(u'name')))
-    # elements = [row[0] for row in epgDict[u'data']]
-    # xbmc.log(str(elements))
-    # xbmc.log(str(epgDict.get(u'data')))
+    #xbmc.log(str(epgDict))
     groupChannels = []
     
     for channel in chList:
@@ -254,10 +251,9 @@ def m3uCategory(url, logos, epg, cache, mode, gListIndex=-1):
                 tvgid = common.GetEncodeString(channel["tvg_id"]) if not isGroupChannel else common.GetEncodeString(channel.get("group_title", channel["tvg_id"]))
             except:
                 tvgid = ''
-            xbmc.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+            ## xbmc.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
             ## xbmc.log(str(isGroupChannel))
-            xbmc.log(str(name))
-            xbmc.log(str(tvgid))
+            ## xbmc.log(str(name))
 ##############################################################################
             plot = "" if meta is None else meta[channel["group_title"]]["overview"] if channel["group_title"] in meta else ""
             fanart = "" if meta is None else meta[channel["group_title"]]["fanarts"][0] if (channel["group_title"] in meta and len(meta[channel["group_title"]]["fanarts"]) > 0) else ""
@@ -283,42 +279,23 @@ def m3uCategory(url, logos, epg, cache, mode, gListIndex=-1):
 #################################### si tvg_id en EPG
                         elif tvgid in epgDict.get(u'name'):
                             idx = epgDict[u'name'].index(tvgid)
-                        if tvgid and not idx:
-                            elements = [row[0] for row in epgDict[u'data']]
-                            if tvgid in elements:
-                                idx = elements.index(tvgid)
-                                name = channel["display_name"] #epgDict[u'name'][idx]
-                            # xbmc.log(str(name))
-                            # idx = 
-                        xbmc.log(str(idx))
-                        xbmc.log(str(name))
-                        # if idx:
-                            # xbmc.log(str(epgDict[u'data'][idx][1]))
-                        # for x , value in enumerate(pornstars):
-                            # pornstars[x] = value.text.strip()
-                        
-                        
                         if image == "" and idx is not None:
                                 image = epgDict[u'data'][idx][1]
+                                
                         t2len = 0
                         title2nd = ''
                         edescr = ''
                         next = False
 
                         if idx is not None:
-                            # xbmc.log(str( epgDict.get('prg').get(epgDict[u'data'][idx][0])))
+                            #xbmc.log(str( epgDict.get('prg').get(epgDict[u'data'][idx][0])))
                             if epgDict.get('prg').get(epgDict[u'data'][idx][0]):
-                                xbmc.log(str( epgDict.get('prg').get(epgDict[u'data'][idx][0])))
-                                # xbmc.log(str(dnow))
                                 for start,stop,title in epgDict.get('prg').get(epgDict[u'data'][idx][0]):
                                     stime = parser.parse(start)
                                     etime = parser.parse(stop)
-                                    xbmc.log(str(stime)+" < "+ str(dnow)+" < "+ str(stime))
                                     if stime <= dnow <= etime or next:
-                                        xbmc.log(str(stime))
                                         ebgn = stime.astimezone(to_zone).strftime('%H:%M')
                                         eend = etime.astimezone(to_zone).strftime('%H:%M')
-                                        xbmc.log(str(ebgn))
                                         if use_time == 'true':
                                             stmp = '%s-%s' % (ebgn, eend)
                                             t2len += (len(stmp) + 1) 
@@ -327,8 +304,6 @@ def m3uCategory(url, logos, epg, cache, mode, gListIndex=-1):
                                         title2nd += ' %s' % title
                                         t2len += (len(title) + 1)
                                         
-                                        
-                                      
                                         title2nd = title2nd.replace('&quot;','`').replace('&amp;',' & ')
                                         if not t2len: t2len = len(name)
                                         if not next:
@@ -359,6 +334,9 @@ def PlayUrl(name, url, iconimage=None):
     if ".mpd" in url:
         listitem.setProperty('inputstream', 'inputstream.adaptive')
         listitem.setProperty('inputstream.adaptive.manifest_type', 'mpd')
+    if ".m3u8" in url:
+        listitem.setProperty('inputstream', 'inputstream.adaptive')
+        listitem.setProperty('inputstream.adaptive.manifest_type', 'hls')
     listitem.setInfo(type="Video", infoLabels={"mediatype": "movie"})
         
     if iconimage is not None:
