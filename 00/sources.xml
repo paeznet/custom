@@ -1,0 +1,155 @@
+<sources>
+    <programs>
+        <default pathversion="1"></default>
+    </programs>
+    <video>
+        <default pathversion="1"></default>
+        <source>
+            <name>videolibrary</name>
+            <path pathversion="1">special://profile/addon_data/plugin.video.alfa/videolibrary/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>downloads</name>
+            <path pathversion="1">special://profile/addon_data/plugin.video.alfa/downloads/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+    </video>
+    <music>
+        <default pathversion="1"></default>
+    </music>
+    <pictures>
+        <default pathversion="1"></default>
+    </pictures>
+    <files>
+        <default pathversion="1"></default>
+        <source>
+            <name>.kodi</name>
+            <path pathversion="1">D:\Kodi21\portable_data\</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@LUAR</name>
+            <path pathversion="1">http://luarsource.github.io/Fuente/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@alfa</name>
+            <path pathversion="1">https://alfa-addon.com/alfa/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@blackghost</name>
+            <path pathversion="1">https://github.com/blackghostaddon/repo/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@cguZZmam</name>
+            <path pathversion="1">https://repo.daro.mx/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@kodivertido</name>
+            <path pathversion="1">https://fuente.kodivertidoteam.es/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@kodiadictos</name>
+            <path pathversion="1">https://kodiadictos.github.io/fuente/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@Konectas</name>
+            <path pathversion="1">http://konectas.es/repo/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@Team_scripts</name>
+            <path pathversion="1">https://kodivertidoteam.es/scripts/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@RepoilClub</name>
+            <path pathversion="1">https://repoil.club/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@hiraya</name>
+            <path pathversion="1">https://hirayasoftware.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@chikiry</name>
+            <path pathversion="1">https://chikiry.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@CHOPO</name>
+            <path pathversion="1">https://fuente-tvchopo.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@michazVAVOO</name>
+            <path pathversion="1">https://michaz1988.github.io/repo/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@JackTook</name>
+            <path pathversion="1">https://sam-max.github.io/repository.jacktook/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@thecrew</name>
+            <path pathversion="1">https://team-crew.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@AguilasDoradas</name>
+            <path pathversion="1">https://dregs1.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@gtkingbuild</name>
+            <path pathversion="1">https://gtkingbuild.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>xbmc</name>
+            <path pathversion="1">special://xbmc/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@Acestreams Channels</name>
+            <path pathversion="1">https://hparlon6.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@KodiSpain</name>
+            <path pathversion="1">https://teamsix-fuente.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@BL-Sports</name>
+            <path pathversion="1">https://cmanbuilds.com/repo/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@TVloucos</name>
+            <path pathversion="1">https://kodiloucosbr.github.io/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@TV 111</name>
+            <path pathversion="1">https://repo.redwizard.xyz/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>@playlistloader</name>
+            <path pathversion="1">https://kodi-unlimited-support.de/repo/data/repository.kus.allinone/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+    </files>
+    <games>
+        <default pathversion="1"></default>
+    </games>
+</sources>

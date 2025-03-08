@@ -251,9 +251,10 @@ def m3uCategory(url, logos, epg, cache, mode, gListIndex=-1):
                 tvgid = common.GetEncodeString(channel["tvg_id"]) if not isGroupChannel else common.GetEncodeString(channel.get("group_title", channel["tvg_id"]))
             except:
                 tvgid = ''
-            ## xbmc.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+            xbmc.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
             ## xbmc.log(str(isGroupChannel))
-            ## xbmc.log(str(name))
+            xbmc.log(str(name))
+            xbmc.log(str(tvgid))
 ##############################################################################
             plot = "" if meta is None else meta[channel["group_title"]]["overview"] if channel["group_title"] in meta else ""
             fanart = "" if meta is None else meta[channel["group_title"]]["fanarts"][0] if (channel["group_title"] in meta and len(meta[channel["group_title"]]["fanarts"]) > 0) else ""
@@ -279,6 +280,30 @@ def m3uCategory(url, logos, epg, cache, mode, gListIndex=-1):
 #################################### si tvg_id en EPG
                         elif tvgid in epgDict.get(u'name'):
                             idx = epgDict[u'name'].index(tvgid)
+                        if tvgid and not idx:
+                            elements = [row[0] for row in epgDict[u'data']]
+                            if tvgid in elements:
+                                idx = elements.index(tvgid)
+                                # name = channel["display_name"] #epgDict[u'name'][idx]
+                        elif not idx:
+                            elementos =  [row[0].lower() for row in epgDict[u'data']]
+                            # xbmc.log(str(elementos))
+                            for elem in elementos:
+                                if idx: continue
+                                if elem in channel["display_name"].lower():
+                                    xbmc.log(str(elem))
+                                    idx = elementos.index(elem)
+                            # elif not idx:
+                                # for elem in elementos:
+                                    # if elem in channel["display_name"]:
+                                        # idx = elements.index(elem)
+                            # xbmc.log(str(name))
+                            # idx = 
+                        xbmc.log(str(idx))
+                        xbmc.log(str(name))
+                        # if idx:
+                            # xbmc.log(str(epgDict[u'data'][idx][1]))
+                        # for x , value in enumerate(pornstars):
                         if image == "" and idx is not None:
                                 image = epgDict[u'data'][idx][1]
                                 

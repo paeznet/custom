@@ -287,7 +287,19 @@ def m3uCategory(url, logos, epg, cache, mode, gListIndex=-1):
                             elements = [row[0] for row in epgDict[u'data']]
                             if tvgid in elements:
                                 idx = elements.index(tvgid)
-                                name = channel["display_name"] #epgDict[u'name'][idx]
+                                # name = channel["display_name"] #epgDict[u'name'][idx]
+                        elif not idx:
+                            elementos =  [row[0].lower() for row in epgDict[u'data']]
+                            # xbmc.log(str(elementos))
+                            for elem in elementos:
+                                if idx: continue
+                                if elem in channel["display_name"].lower():
+                                    xbmc.log(str(elem))
+                                    idx = elementos.index(elem)
+                            # elif not idx:
+                                # for elem in elementos:
+                                    # if elem in channel["display_name"]:
+                                        # idx = elements.index(elem)
                             # xbmc.log(str(name))
                             # idx = 
                         xbmc.log(str(idx))
@@ -308,17 +320,17 @@ def m3uCategory(url, logos, epg, cache, mode, gListIndex=-1):
                         if idx is not None:
                             # xbmc.log(str( epgDict.get('prg').get(epgDict[u'data'][idx][0])))
                             if epgDict.get('prg').get(epgDict[u'data'][idx][0]):
-                                xbmc.log(str( epgDict.get('prg').get(epgDict[u'data'][idx][0])))
+                                # xbmc.log(str( epgDict.get('prg').get(epgDict[u'data'][idx][0])))
                                 # xbmc.log(str(dnow))
                                 for start,stop,title in epgDict.get('prg').get(epgDict[u'data'][idx][0]):
                                     stime = parser.parse(start)
                                     etime = parser.parse(stop)
-                                    xbmc.log(str(stime)+" < "+ str(dnow)+" < "+ str(stime))
+                                    # xbmc.log(str(stime)+" < "+ str(dnow)+" < "+ str(stime))
                                     if stime <= dnow <= etime or next:
-                                        xbmc.log(str(stime))
+                                        # xbmc.log(str(stime))
                                         ebgn = stime.astimezone(to_zone).strftime('%H:%M')
                                         eend = etime.astimezone(to_zone).strftime('%H:%M')
-                                        xbmc.log(str(ebgn))
+                                        # xbmc.log(str(ebgn))
                                         if use_time == 'true':
                                             stmp = '%s-%s' % (ebgn, eend)
                                             t2len += (len(stmp) + 1) 

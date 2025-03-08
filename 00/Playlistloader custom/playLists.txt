@@ -161,7 +161,25 @@
         "cache": 0,
         "uuid": "8eaf5920-1886-4b13-ae56-fabd6050cc2f"
     },
+     {
+        "name": "RAKUTEN",
+        "url": "https://raw.githubusercontent.com/joaquinito2070/rakuten-m3u/refs/heads/main/rakuten_playlist.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/joaquinito2070/rakuten-m3u/refs/heads/main/rakuten_epg.xml",
+        "cache": 0,
+        "uuid": "770068f6-554c-416d-888e-86b84264c8c8"
+    },
     {
+        "name": "pluto",
+        "url": "https://gist.githubusercontent.com/verga123/4ce004bd8d70840d9ba388278684c21c/raw/78db28f0e31b2761a3057b8f803358fc08a3f9db/pluto.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "fefa9e73-7f43-4615-9483-d04f5550b7f3"
+    },
+   {
         "name": "ALL",
         "url": "https://koprulu1.global.ssl.fastly.net/app2/mehmetey?kategori=All.m3u",
         "image": "",

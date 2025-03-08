@@ -11,14 +11,14 @@ else:
 
 import re
 
-from modules import autoplay
 from platformcode import config, logger, platformtools
 from core.item import Item
 from core import httptools, scrapertools, jsontools, tmdb
 from core import servertools, channeltools
-from channels import filtertools
 from bs4 import BeautifulSoup
 from channelselector import get_thumb
+from modules import filtertools
+from modules import autoplay
 
 forced_proxy_opt = 'ProxySSL'
 
