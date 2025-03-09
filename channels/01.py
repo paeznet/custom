@@ -1,22 +1,27 @@
 # -*- coding: utf-8 -*-
 #------------------------------------------------------------
-import sys
-PY3 = False
-if sys.version_info[0] >= 3: PY3 = True; unicode = str; unichr = chr; long = int
-
-if PY3:
-    import urllib.parse as urlparse                             # Es muy lento en PY2.  En PY3 es nativo
-else:
-    import urlparse                                             # Usamos el nativo de PY2 que es más rápido
 
 import re
 
+from core import urlparse
 from platformcode import config, logger
 from core import scrapertools
 from core.item import Item
 from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
+
+
+https://stripcamfun.com/wp-content/plugins/wp-cam-builder/ajax/load_more_data.php?start_id=0&page_id=1&category=&count=6124&site=1&code=UA&region=&model_category=&current_url=https://stripcamfun.com/
+https://stripcamfun.com/wp-content/plugins/wp-cam-builder/ajax/load_more_data.php?start_id=48&page_id=2&category=&count=6124&site=1&code=UA&region=&model_category=&current_url=https://stripcamfun.com/
+https://stripcamfun.com/wp-content/plugins/wp-cam-builder/ajax/load_more_data.php?start_id=96&page_id=3&category=&count=6124&site=1&code=UA&region=&model_category=&current_url=https://stripcamfun.com/
+
+https://stripcamfun.com/wp-content/plugins/wp-cam-builder/ajax/load_more_data.php?start_id=48&page_id=2&category=female&count=4369&site=1&code=&region=&model_category=f&current_url=https://stripcamfun.com/
+https://stripcamfun.com/wp-content/plugins/wp-cam-builder/ajax/load_more_data.php?start_id=48&page_id=2&category=couple&count=291&site=1&code=US&region=TX&model_category=c&current_url=https://stripcamfun.com/
+https://stripcamfun.com/wp-content/plugins/wp-cam-builder/ajax/load_more_data.php?start_id=48&page_id=2&category=trans&count=493&site=1&code=UA&region=&model_category=s&current_url=https://stripcamfun.com/
+https://stripcamfun.com/wp-content/plugins/wp-cam-builder/ajax/load_more_data.php?start_id=48&page_id=2&category=male&count=1037&site=1&code=UA&region=&model_category=m&current_url=https://stripcamfun.com/
+
+model_category=f c s m female couple shemale man
 
 canonical = {
              'channel': 'ballzdeep', 

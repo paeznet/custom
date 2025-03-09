@@ -1,14 +1,6 @@
-import sys
-PY3 = False
-if sys.version_info[0] >= 3: PY3 = True; unicode = str; unichr = chr; long = int
 
-if PY3:
-    import urllib.parse as urlparse
-else:
-    import urlparse
 
-import re
-
+from core import urlparse
 from platformcode import config, logger, platformtools
 from core import scrapertools
 from core import servertools
@@ -19,7 +11,7 @@ from modules import filtertools
 from lib import alfa_assistant
 
 
-host = "https://www.babestube.com/latest-updates/?sort_by=post_date&from=01"
+host = "https://yaske.ru/link/kvMlRLp5Gz"
 
 url1 = "https://evoload.io/SecurePlayer"
 
