@@ -11,6 +11,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+# OUT marzo 2025  se hace de pago
+
 canonical = {
              'channel': 'xpornium', 
              'host': config.get_setting("current_host", 'xpornium', default=''), 

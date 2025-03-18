@@ -25,14 +25,17 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-# https://pornxs.com/big-natural-tits
-# https://pornxs.com/api/videos/big-natural-tits/0
-
 
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "?o=a"))
+    itemlist.append(Item(channel=item.channel, title="Nuevas" , action="lista", url=host + "videos?p=1"))
+    itemlist.append(Item(channel=item.channel, title="Mas Vistas" , action="lista", url=host + "videos?o=v7&p=1"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorada" , action="lista", url=host + "videos?o=r7&p=1"))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "videos?o=l&p=1"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "channels?p=1", id="listChannels"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "models?p=1", id="listProfiles"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories", id="listTags"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -40,7 +43,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "-")
-    item.url = "%ss/%s" % (host,texto)
+    item.url = "%s/search?q=%s&p=1" % (host,texto)
     try:
         return lista(item)
     except:
@@ -54,74 +57,60 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = get_source(item.url, soup=True)
-    global pagcat
-    pagcat = scrapertools.find_single_match(get_source(host), '"maxPages":(\d+)')
-    matches = soup.find_all('a', class_='squares__item')
-    for elem in matches:
-        url = elem['href']
-        title = elem.find('div', class_='squares__item_title').text.strip()
-        cantidad = elem.find('span', class_='squares__item_numbers')
+    matches = soup.find('ul', class_='%s' %item.id)
+    for elem in matches.find_all('li'):
+        if elem.find('a', class_='title'):
+            url = elem.find('a', class_='title')['href']
+            title = elem.find('a', class_='title').text.strip()
+        else:
+            url = elem.a['href']
+            title = elem.find('span', class_='title').text.strip()
+        cantidad = elem.find('span', class_='count')
         if cantidad:
             title = "%s (%s)" %(title,cantidad.text.strip())
-        thumbnail = elem.div['data-loader-src']
+        if elem.find('img', class_='channel-cover'):
+            thumbnail = elem.find_all('source')[-2]['srcset']
+        else:
+            thumbnail = elem.img['src']
+        url = urlparse.urljoin(item.url,url)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                               thumbnail=thumbnail , plot=plot) )
-    if "/api/" in item.url:
-        current = int(scrapertools.find_single_match(item.url, '/(\d+)'))
-    else:
-        current = 0
-    if int(current) < int(pagcat):
-        page = current + 1
-        next_page = "%sapi/categories/%s?o=a"  %(host,page)
-        itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+    next_page = soup.find("a", string=re.compile(r"^Next"))
+    if next_page:
+        next_page = next_page['href']
+        next_page = urlparse.urljoin(item.url,next_page)
+        itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page, id=item.id) )
     return itemlist
 
 
 def get_source(url, json=False, soup=False, multipart_post=None, timeout=30, add_host=True, **opt):
     logger.info()
-
+    
     opt['canonical'] = canonical
     data = httptools.downloadpage(url, soup=soup, files=multipart_post, add_host=add_host, timeout=timeout, **opt)
-
-    # Verificamos que tenemos una sesión válida, sino, no tiene caso devolver nada
-    if "Iniciar sesión" in data.data:
-        # Si no tenemos sesión válida, mejor cerramos definitivamente la sesión
-        global account
-        if account: logout({})
-        platformtools.dialog_notification("No se ha inciado sesión", "Inicia sesión en el canal {} para poder usarlo".format(__channel__))
-        return None
-
+    
     if json:
         data = data.json
     elif soup:
         data = data.soup
     else:
         data = data.data
-
+    
     return data
 
 
 def lista(item):
     logger.info()
     itemlist = []
-    global name,pagcat
-    if "/api/" in item.url:
-        name = item.url.split("/")[5]
-        name = "/%s" %name
-    else:
-        name = item.url
-        item.url = urlparse.urljoin(host,name)
-    url = urlparse.urljoin(host,name)
-    pagcat = scrapertools.find_single_match(get_source(url), '"maxPages":(\d+)')
     soup = get_source(item.url, soup=True)
-    matches = soup.find_all('div', class_='squares__item')
+    matches = soup.find('ul', class_='listThumbs').find_all('li')
     for elem in matches:
         if elem.find('iframe'): continue
-        url = elem.a['data-embed-url']
-        title = elem.a['title']
-        thumbnail = elem.div['data-loader-src']
-        time = elem.find('div', class_='squares__item_numbers').text.strip()
+        url = elem.find('a', class_='title')['href']
+        title = elem.find('a', class_='title')['title']
+        thumbnail = elem.img['src']
+        time = elem.find('span', class_='duration').text.strip()
         title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         url = urlparse.urljoin(item.url,url)
         plot = ""
@@ -130,13 +119,10 @@ def lista(item):
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, url=url, thumbnail=thumbnail,
                                plot=plot, fanart=thumbnail, contentTitle=title ))
-    if "/api/" in item.url:
-        current = int(scrapertools.find_single_match(item.url, '/(\d+)'))
-    else:
-        current = 0
-    if int(current) < int(pagcat):
-        page = current + 1
-        next_page = "%sapi/videos%s/%s?o=a"  %(host,name,page)
+    next_page = soup.find("a", string=re.compile(r"^Next"))
+    if next_page:
+        next_page = next_page['href']
+        next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
@@ -144,14 +130,19 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    data = httptools.downloadpage(item.url).data
+    url = scrapertools.find_single_match(data, '"all":"([^"]+)"')
+    itemlist.append(['[pornxs]', url])
+    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
-
 
 def play(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    data = httptools.downloadpage(item.url).data
+    url = scrapertools.find_single_match(data, '"all":"([^"]+)"')
+    itemlist.append(['[pornxs]', url])
+    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

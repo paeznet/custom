@@ -1,3 +1,19 @@
+####################### 	 RESOLVERURL     #################################
+ctrl+may+d para debug
+
+from resolveurl import common
+common.logger.log('*******************************************')
+common.logger.log('web_url: ' + recaptcha)
+
+o bien
+
+logger = common.log_utils.Logger.get_logger(__name__)
+logger.disable()
+logger.log_debug(recaptcha)
+
+##################################################################################
+
+
 playdede
     devuelve = servertools.findvideosbyserver(item.url, item.server)
     if devuelve:

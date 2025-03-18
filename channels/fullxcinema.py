@@ -96,8 +96,8 @@ def submenu(item):
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=item.url + "page/1/?filter=most-viewed", chanel=item.chanel))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "page/1/?filter=popular", chanel=item.chanel))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=item.url + "page/1/?filter=longest", chanel=item.chanel))
-    if not "fulladultmovies" in item.url:
-        itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=item.url + "actors/page/1/", extra="PornStar", chanel=item.chanel))
+    # if not "fulladultmovies" in item.url:
+        # itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=item.url + "actors/page/1/", extra="PornStar", chanel=item.chanel))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "categories/page/1/", extra="Categorias", chanel=item.chanel))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=item.url))
     return itemlist
@@ -145,7 +145,7 @@ def play(item):
             lista.insert (1, pornstar)
         item.plot = '[/COLOR]'.join(lista)
     
-    if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)")):
+    if soup.find('div', class_='responsive-player'):
         url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))['src']
         if "php?q=" in url:
             import base64
@@ -153,6 +153,8 @@ def play(item):
             url_decode = base64.b64decode(url[-1]).decode("utf8")
             url = AlfaChannel.do_unquote(url_decode)
             url = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
+    elif soup.find('div', class_='myiframe'):
+        url = soup.find('div', class_='myiframe').iframe['src']
     # url = soup.find('meta', itemprop='embedURL')['content']
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url, plot=item.plot))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())

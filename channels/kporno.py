@@ -22,7 +22,7 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
 forced_proxy_opt = 'ProxySSL'
 
-###    CARGA MAL LOS LINK drtube nuvid
+###    CARGA MAL LOS LINK drtube nuvid LOS LINKS NO SON el video que deberia
 
 canonical = {
              'channel': 'kporno', 

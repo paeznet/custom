@@ -25,8 +25,8 @@ forced_proxy_opt = 'ProxySSL'
 canonical = {
              'channel': 'sexfullmovies', 
              'host': config.get_setting("current_host", 'sexfullmovies', default=''), 
-             'host_alt': ["https://wo.sexfullmovies.com/"], 
-             'host_black_list': ["https://go.sexfullmovies.com/"], 
+             'host_alt': ["https://sexfullmovies.sbs/"], 
+             'host_black_list': ["https://wo.sexfullmovies.com/", "https://go.sexfullmovies.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
