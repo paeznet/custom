@@ -14,6 +14,12 @@ logger.log_debug(recaptcha)
 ##################################################################################
 
 
+shooshtime    
+    soup = AlfaChannel.create_soup(item.url, canonical_check=False, **kwargs)    ## canonical_check=False 	>>>  no coge canonical y cambia host en play 
+    if not host in AlfaChannel.response.url:					 ## AlfaChannel.response.url	>>>  redireccion de la url
+        item.url = AlfaChannel.response.url
+
+
 playdede
     devuelve = servertools.findvideosbyserver(item.url, item.server)
     if devuelve:
