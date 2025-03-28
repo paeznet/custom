@@ -59,7 +59,7 @@ finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['thumbs']}]),
          'url_replace': [], 
          'profile_labels': {},
          'profile_labels': {
-                            # 'list_all_stime': {'find': [{'tag': ['div'], 'class': ['time'], '@TEXT': '(\d+:\d+)' }]},
+                            'list_all_stime': {'find': [{'tag': ['div'], 'class': ['time'], '@TEXT': '(\d+:\d+)' }]},
                             # 'list_all_premium': dict([('find', [{'tag': ['span'], 'class': ['ico-premium']}]),
                                                       # ('get_text', [{'tag': '', 'strip': True}])]),
                             'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['thumb-item']}]),
@@ -109,7 +109,7 @@ def list_all(item):
     logger.info()
     
     findS = finds.copy()
-    if item.extra != 'Categorias':
+    if item.extra and item.extra != 'Categorias':
         findS['controls']['cnt_tot'] = 12
     
     return AlfaChannel.list_all(item, finds=findS, **kwargs)

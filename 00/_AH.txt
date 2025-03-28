@@ -1,5 +1,5 @@
 ####################### 	 RESOLVERURL     #################################
-ctrl+may+d para debug
+ctrl+may+d para debug                                   KTP >>>>  fapcat
 
 from resolveurl import common
 common.logger.log('*******************************************')
@@ -10,6 +10,11 @@ o bien
 logger = common.log_utils.Logger.get_logger(__name__)
 logger.disable()
 logger.log_debug(recaptcha)
+
+
+#############################  Cumination #########################################
+
+utils.kodilog(url)   @@@@Cumination:
 
 ##################################################################################
 

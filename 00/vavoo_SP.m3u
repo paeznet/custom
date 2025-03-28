@@ -3,9 +3,17 @@
 #https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/Canales_soportados.txt
 #https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml  guiaiptv.xml
 
+
+
+#https://www2.vavoo.to/live2/index
+#D:\Kodi21\portable_data\addons\plugin.video.vavooto\resources\lib\vjlive.py
+#def choose():
+#	for c in requests.get("https://www2.vavoo.to/live2/index", params={"output": "json"}).json():
+
+
 #EXTM3U
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR+ " tvg-logo="" group-title="TV",Movistar Plus+
-https://metvmetv.tiiny.io/?id=2881668464&e=.m3u8
+https://vavoo.to/live2/play/2881668464.ts
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR ESTRENOS HD" tvg-logo="" group-title="TV",Movistar Plus+
 https://metvmetv.tiiny.io/?id=3585307980&e=.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="VIAJAR HD" tvg-logo="" group-title="TV",La Resistencia
