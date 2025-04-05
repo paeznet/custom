@@ -78,8 +78,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "sponsors.html?sort_by=total_videos&from=1", extra="Canal"))
     itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "girls.html?sort_by=total_videos&from=1", extra="PornStar" 
                         , plot="[COLOR gold] elem_json['url'] = elem.get('href', '') or elem.a.get('href', ''),                                                 'NoneType' object has no attribute 'get'[/COLOR]" ))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "video-groups.html?sort_by=title&from=1", extra="Categorias"
-                        , plot="[COLOR gold]NO MUESTRA PAGINA SIGUIENTE[/COLOR]" ))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "video-groups.html?sort_by=title&from=1", extra="Categorias" ))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -88,14 +87,15 @@ def section(item):
     logger.info()
     
     findS = finds.copy()
-    findS['url_replace'] = [['(\/(?:categories|category-name|category|channels|sites|models|model|pornstars)\/[^$]+$)', r'\1?sort_by=post_date&from=1']]
+    # findS['url_replace'] = [['([^$]+$)', r'\1?sort_by=post_date&from=1']]
     findS['next_page'] = {}
     item.last_page = 9999
     if item.extra == 'PornStar':
-        findS['profile_labels']['section_url'] =  {'find': [{'tag': ['*'], '@ARG': 'onclick'}]}
+        findS['profile_labels']['section_url'] = {'find': [{'tag': ['*'], '@ARG': ['onclick']}]}
         findS['profile_labels']['section_cantidad'] =  dict([('find', [{'tag': ['span'], 'class': ['videos_count']}]),
                                                       ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])
     if item.extra == 'Categorias':
+        findS['url_replace'] = [['([^$]+$)', r'\1?sort_by=post_date&from=1']]
         findS['controls']['cnt_tot'] = 9999
     
     return AlfaChannel.section(item, finds=findS, **kwargs)
@@ -107,7 +107,9 @@ def list_all(item):
     findS = finds.copy()
     findS['next_page'] = {}
     item.last_page = 9999
-    
+    if item.extra == 'PornStar':
+        item.url = item.url.replace("window.location='", "").replace("';", "").replace("https://watch-my-gf.com/", "")
+        item.url += "&sort_by=post_date&from_videos=1"
     return AlfaChannel.list_all(item, finds=findS, **kwargs)
 
 

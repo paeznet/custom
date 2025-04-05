@@ -96,101 +96,105 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    # findS = finds.copy()
-    # findS['controls']['action'] = 'findvideos'
+    findS = finds.copy()
+    findS['controls']['action'] = 'findvideos'
     
-    # return AlfaChannel.list_all(item, finds=findS, **kwargs)
-    return AlfaChannel.list_all(item, **kwargs)
+    return AlfaChannel.list_all(item, finds=findS, **kwargs)
+    # return AlfaChannel.list_all(item, **kwargs)
 
 
 def findvideos(item):
     logger.info()
     
-    return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
-                                         verify_links=False, findvideos_proc=True, **kwargs)
-    # return AlfaChannel.get_video_options(item, item.url, matches_post=findvideos_matches, 
-                                         # verify_links=False, generictools=True, findvideos_proc=True, **kwargs)
+    # return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
+                                         # verify_links=False, findvideos_proc=True, **kwargs)
+    return AlfaChannel.get_video_options(item, item.url, matches_post=findvideos_matches, 
+                                         verify_links=False, generictools=True, findvideos_proc=True, **kwargs)
 
 # <div class="responsive-player"><IFRAME SRC="https://pbflux.com/embed-cpe27qk5ry4g.html" FRAMEBORDER="0" MARGINWIDTH="0" MARGINHEIGHT="0" SCROLLING="NO" WIDTH="640" HEIGHT="360" allowfullscreen></IFRAME></div></div
 # <a class="descarga" href="https://uptobox.com/ampy2r54c7hy" target="_blank" rel="noopener">UPTOBOX [SD]</a>
 
-# def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
-    # logger.info()
-    
-    # matches = []
-    # findS = AHkwargs.get('finds', finds)
-    # srv_ids = {"dood": "Doodstream",
-               # "Streamtape": "Streamtape ",
-               # "sbthe": "Streamsb",
-               # "VOE": "voe",
-               # "mixdrop.co": "Mixdrop",
-               # "Upstream": "Upstream"}
-    
-    # for elem in matches_int:
-        # elem_json = {}
-        # logger.error(elem)
-
-        # try:
-            # if isinstance(elem, str):
-                # elem_json['url'] = elem
-                # if elem_json['url'].endswith('.jpg'): continue
-            # else:
-                # elem_json['url'] = elem.get("href", "") or elem.get("src", "")
-            # if AlfaChannel.obtain_domain(elem_json['url']):
-                # elem_json['server'] = AlfaChannel.obtain_domain(elem_json['url']).split('.')[-2]
-            # else: 
-                # elem_json['server'] = "dutrag"  ### Quitar los watch/YnqAKRJybm2PJ  aparecen en movies
-            # if elem_json['server'] in ["Netu", "trailer", "k2s", "dutrag"]: continue
-            # if elem_json['server'] in srv_ids:
-                # elem_json['server'] = srv_ids[elem_json['server']]
-            # elem_json['language'] = ''
-
-        # except:
-            # logger.error(elem)
-            # logger.error(traceback.format_exc())
-
-        # if not elem_json.get('url', ''): continue
-
-        # matches.append(elem_json.copy())
-
-    # return matches, langs
-
-
-
-
-
-
-
-
-
-
-
-
-def play(item):
+def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     logger.info()
     
-    itemlist = []
-    
-    soup = AlfaChannel.create_soup(item.url, **kwargs)
-    logger.debug(soup.find('article'))
-    if soup.find('div', id="video-actor"):
-        pornstars = soup.find('div', id="video-actor").find_all('a', href=re.compile("/actor/[A-z0-9-]+/"))
+    matches = []
+    findS = AHkwargs.get('finds', finds)
+    srv_ids = {"dood": "Doodstream",
+               "Streamtape": "Streamtape ",
+               "sbthe": "Streamsb",
+               "tubexplayer": "Tiwikiwi",
+               "VOE": "voe",
+               "mixdrop.co": "Mixdrop",
+               "Upstream": "Upstream"}
+    for elem in matches_int:
+        elem_json = {}
+        logger.error(elem)
         
-        for x, value in enumerate(pornstars):
-            pornstars[x] = value.get_text(strip=True)
+        logger.debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        logger.debug(elem)
         
-        pornstar = ' & '.join(pornstars)
-        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-        lista = item.contentTitle.split('[/COLOR]')
-        pornstar = pornstar.replace('[/COLOR]', '')
-        pornstar = ' %s' %pornstar
-        lista.insert (2, pornstar)
-        item.contentTitle = '[/COLOR]'.join(lista)
-    url = soup.find('div', class_="responsive-player").iframe['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+        try:
+            if isinstance(elem, str):
+                elem_json['url'] = elem
+                if elem_json['url'].endswith('.jpg'): continue
+            else:
+                elem_json['url'] = elem.get("href", "") or elem.get("src", "")
+            if AlfaChannel.obtain_domain(elem_json['url']):
+                elem_json['server'] = AlfaChannel.obtain_domain(elem_json['url']).split('.')[-2]
+            else: 
+                elem_json['server'] = "dutrag"  ### Quitar los watch/YnqAKRJybm2PJ  aparecen en movies
+            logger.debug(elem_json['server']+"   " + elem_json['url'])
+            if elem_json['server'] in ["Netu", "trailer", "k2s", "dutrag", "adtng"]: continue
+            if elem_json['server'] in srv_ids:
+                elem_json['server'] = srv_ids[elem_json['server']]
+            elem_json['language'] = ''
+
+        except:
+            logger.error(elem)
+            logger.error(traceback.format_exc())
+
+        if not elem_json.get('url', ''): continue
+
+        matches.append(elem_json.copy())
+
+    return matches, langs
+
+
+
+
+
+
+
+
+
+
+
+
+# def play(item):
+    # logger.info()
     
-    return itemlist
+    # itemlist = []
+    
+    # soup = AlfaChannel.create_soup(item.url, **kwargs)
+    # logger.debug(soup.find('article'))
+    # if soup.find('div', id="video-actor"):
+        # pornstars = soup.find('div', id="video-actor").find_all('a', href=re.compile("/actor/[A-z0-9-]+/"))
+        
+        # for x, value in enumerate(pornstars):
+            # pornstars[x] = value.get_text(strip=True)
+        
+        # pornstar = ' & '.join(pornstars)
+        # pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+        # lista = item.contentTitle.split('[/COLOR]')
+        # pornstar = pornstar.replace('[/COLOR]', '')
+        # pornstar = ' %s' %pornstar
+        # lista.insert (2, pornstar)
+        # item.contentTitle = '[/COLOR]'.join(lista)
+    # url = soup.find('div', class_="responsive-player").iframe['src']
+    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    
+    # return itemlist
 
 
 def search(item, texto, **AHkwargs):
