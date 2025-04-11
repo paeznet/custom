@@ -1,0 +1,15 @@
+{
+  "id": "qporn",
+  "name": "0000qporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/VLBthgzb/qporn.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

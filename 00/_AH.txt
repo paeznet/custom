@@ -109,6 +109,10 @@ retrotv		'last_page': dict([('find', [{'tag': ['a'], 'string': re.compile('(?i)s
                 		   ('find_previous', [{'tag': ['a'], 'class': ['page-numbers']}]), 
                             	   ('get_text', [{'tag': '', '@STRIP': True}])]), 
 
+qporn
+         # 'next_page': {'find': [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@ARG': 'href'}]}, #### COGE blog que tiene more
+         'next_page': dict([('find', [{'tag': ['div', 'ul'], 'class': ['pagination']}]), 
+                            ('find_all', [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@POS': [-1], '@ARG': 'href'}])]),
 
 
 findS['controls']['action'] = 'findvideos'    en list_all
@@ -129,8 +133,12 @@ findS['controls']['cnt_tot'] = 9999
 
 'next_page_rgx': [['page\d+.html', 'next_page_url']] PAGINACION SIEMPRE https://www.sexvr.com/page2.html  HOST + page2.html   y asi item.url + page2.html
 
+
+
 url = AlfaChannel.do_unquote(url)  quita los %20 por su simbolo  EQUIVALE a urlparse.unquote(url)
 data = AlfaChannel.convert_url_base64(url, host)  porneec
+elem_json['url'] =AlfaChannel.urljoin(AlfaChannel.host,url)  qporn   EQUIVALE a urlparse.urljoin(item.url,url)
+
 
 ###############################################################################################################################################
 

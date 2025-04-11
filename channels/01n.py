@@ -53,6 +53,9 @@ finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['video']}]},     #'id':
          # 'next_page': dict([('find', [{'tag': ['div'], 'class': ['pagination-page-bas']}, {'tag': ['span']}]),
                             # ('find_next_sibling', [{'tag': ['a'], '@ARG': 'href'}])]), 
          # 'next_page': dict([('find', [{'tag': ['a'], 'class': 'tm_pag_nav_next', '@ARG': 'href'}])]), 
+         # 'next_page': {'find': [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@ARG': 'href'}]}, #### COGE blog que tiene more
+         # 'next_page': dict([('find', [{'tag': ['div', 'ul'], 'class': ['pagination']}]), 
+                            # ('find_all', [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@POS': [-1], '@ARG': 'href'}])]),
          'next_page': {},
          'next_page_rgx': [['\/\d+', '/%s'], ['&page=\d+', '&page=%s']], 
          'last_page': dict([('find', [{'tag': ['ul'], 'class': ['pagination']}]), 
