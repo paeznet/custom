@@ -108,12 +108,26 @@ entrepeliculasyseries  [canonical] 'search_active': None    evitar cargar proxye
 retrotv		'last_page': dict([('find', [{'tag': ['a'], 'string': re.compile('(?i)siguiente')}]), 
                 		   ('find_previous', [{'tag': ['a'], 'class': ['page-numbers']}]), 
                             	   ('get_text', [{'tag': '', '@STRIP': True}])]), 
+		
+	         'last_page': dict([('find', [{'tag': ['ul'], 'class': ['pagination']}, 
+                                      {'tag': ['a'], 'class': ['next page-numbers']}]), 
+                            ('find_previous', [{'tag': ['a'], 'class': ['page-numbers']}]), 
+                            ('get_text', [{'@TEXT': '(\d+)'}])]), 		
 
 qporn
          # 'next_page': {'find': [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@ARG': 'href'}]}, #### COGE blog que tiene more
          'next_page': dict([('find', [{'tag': ['div', 'ul'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@POS': [-1], '@ARG': 'href'}])]),
 
+
+studentki 
+         'next_page': dict([('find', [{'tag': ['div'], 'class': ['pagination']}, 
+                                      {'tag': ['li'], 'class': ['selected']}]), 
+                            ('find_next', [{'tag': ['li']},
+                                           {'tag': ['a'], '@ARG': 'href'}]) ]),
+
+
+	
 
 findS['controls']['action'] = 'findvideos'    en list_all
  
@@ -169,6 +183,10 @@ porngo			multicanal porngo xxxfiles pornpapa porncake fapguru veryfreeporn pornt
 -baddies247             multicanal   baddies247  baddiesonly
 -onlinetube		multicanal   onlinetube  huyamba   pornoreka
 -leslez 		multicanal   leslez  teenxy
+-studentki		multicanal   studentki rumult
+
+
+
 
 12milf		quitar paginacion categorias    findS['controls']['cnt_tot'] = 9999
 -143porn

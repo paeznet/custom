@@ -22,8 +22,9 @@ list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
 # https://fapnfuck.com/  https://fuqster.com/  https://sexpester.com/   https://w1mp.com/   https://w4nkr.com/ 
+# https://fukxl.com/ https://hugedickz.com/
 # https://3sumxl.com/  https://cuminstead.com/  https://extremehoes.com/ https://extremewhores.com/  https://hugewangs.com/  https://jizzpov.com/
-# https://b1gtits.com/
+# https://b1gtits.com/  https://threesomerz.com/
 
 canonical = {
              'channel': 'fapnfuck', 
@@ -53,7 +54,7 @@ finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['thumbs']}]),
          'get_quality_rgx': '', 
          'next_page': {},
          'next_page_rgx': [['&from_videos=\d+', '&from_videos=%s'], ['&from=\d+', '&from=%s']], 
-         'last_page': dict([('find', [{'tag': ['div'], 'class': ['pagination', 'load-more']}]), 
+         'last_page': dict([('find', [{'tag': ['div', 'ul'], 'class': ['pagination', 'load-more']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-2], 
                                            '@ARG': 'data-parameters', '@TEXT': '\:(\d+)'}])]), 
          'plot': {}, 
@@ -62,7 +63,7 @@ finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['thumbs']}]),
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            'list_all_stime': {'find': [{'tag': ['div'], 'class': ['time'], '@TEXT': '(\d+:\d+)' }]},
+                            'list_all_stime': {'find': [{'tag': ['div'], 'class': ['time', 'box-item'], '@TEXT': '(\d+:\d+)' }]},
                             'list_all_quality': dict([('find', [{'tag': ['div'], 'class': ['qualtiy', 'quality']}]),
                                                       ('get_text', [{'tag': '', 'strip': True}])]),
                             'list_all_premium': dict([('find', [{'tag': ['span'], 'class': ['ico-premium']}]),
@@ -82,12 +83,12 @@ def mainlist(item):
     logger.info()
     itemlist = []
     
-    
     itemlist.append(Item(channel=item.channel, title="fapnfuck" , action="submenu", url= "https://fapnfuck.com/", chanel="fapnfuck", thumbnail = "https://cdnstatic.fapnfuck.com/static/images/logo.png", type=1)) 
     itemlist.append(Item(channel=item.channel, title="fuqster" , action="submenu", url= "https://fuqster.com/", chanel="fuqster", thumbnail = "https://cdnstatic.fuqster.com/static/images/logo.png", type=1))
     itemlist.append(Item(channel=item.channel, title="sexpester" , action="submenu", url= "https://sexpester.com/", chanel="sexpester", thumbnail = "https://cdnstatic.sexpester.com/static/images/logo.png", type=1))
     itemlist.append(Item(channel=item.channel, title="w1mp" , action="submenu", url= "https://w1mp.com/", chanel="w1mp", thumbnail = "https://cdnstatic.w1mp.com/static/images/logo.png", type=1))
     itemlist.append(Item(channel=item.channel, title="w4nkr" , action="submenu", url= "https://w4nkr.com/", chanel="w4nkr", thumbnail = "https://cdnstatic.w4nkr.com/static/images/logo.png", type=1))
+    # itemlist.append(Item(channel=item.channel, title="babejizz" , action="submenu", url= "https://demo3.kvs-themes.com/", chanel="babejizz", thumbnail = "https://demo3.kvs-themes.com/contents/eibtlnubtttd/theme/logo.png", type=1))
     
     itemlist.append(Item(channel=item.channel, title="3sumxl" , action="submenu", url= "https://3sumxl.com/", chanel="3sumxl", thumbnail = "https://cdnstatic.3sumxl.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="bigbigtits" , action="submenu", url= "https://bigbigtits.com/", chanel="bigbigtits", thumbnail = "https://cdnstatic.bigbigtits.com/static/images/logo.png"))
@@ -112,7 +113,8 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="hard3r" , action="submenu", url= "https://hard3r.com/", chanel="hard3r", thumbnail = "https://cdnstatic.hard3r.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="threesomerz" , action="submenu", url= "https://threesomerz.com/", chanel="threesomerz", thumbnail = "https://cdnstatic.threesomerz.com/static/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="pumpjap" , action="submenu", url= "https://pumpjap.com/", chanel="pumpjap", thumbnail = "https://cdnstatic.pumpjap.com/static/images/logo.png"))
-    # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="fukxl" , action="submenu", url= "https://fukxl.com/", chanel="fukxl", thumbnail = "https://i.postimg.cc/bNPy68QQ/fukxl.png"))
+    itemlist.append(Item(channel=item.channel, title="hugedickz" , action="submenu", url= "https://hugedickz.com/", chanel="hugedickz", thumbnail = "https://i.postimg.cc/vZQmmMTQ/hugedickz.png"))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     return itemlist
@@ -174,21 +176,23 @@ def play(item):
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
     
-    if soup.find('div', class_='top-options').find_all('a', href=re.compile("/models/[A-z0-9-]+")):
-        pornstars = soup.find('div', class_='top-options').find_all('a', href=re.compile("/models/[A-z0-9-]+"))
-        for x, value in enumerate(pornstars):
-            pornstars[x] = value.get_text(strip=True)
-        pornstar = ' & '.join(pornstars)
-        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-        lista = item.contentTitle.split('[/COLOR]')
-        pornstar = pornstar.replace('[/COLOR]', '')
-        pornstar = ' %s' %pornstar
-        if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
-            lista.insert (2, pornstar)
-        else:
-            lista.insert (1, pornstar)
-        item.contentTitle = '[/COLOR]'.join(lista)
-    
+    try:
+        if soup.find('div', class_='top-options-player').find_all('a', href=re.compile("/models/[A-z0-9-]+")):
+            pornstars = soup.find('div', class_='top-options-player').find_all('a', href=re.compile("/models/[A-z0-9-]+"))
+            for x, value in enumerate(pornstars):
+                pornstars[x] = value.get_text(strip=True)
+            pornstar = ' & '.join(pornstars)
+            pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+            lista = item.contentTitle.split('[/COLOR]')
+            pornstar = pornstar.replace('[/COLOR]', '')
+            pornstar = ' %s' %pornstar
+            if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
+                lista.insert (2, pornstar)
+            else:
+                lista.insert (1, pornstar)
+            item.contentTitle = '[/COLOR]'.join(lista)
+    except:
+        logger.error()
     
     if  soup.find('div', class_='player-holder').iframe:
         item.url = soup.find('div', class_='player-holder').iframe['src']

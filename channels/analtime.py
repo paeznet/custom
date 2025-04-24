@@ -21,7 +21,7 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-#   SERVER HYDRA
+# NO HAY LINKS anteriormente  SERVER HYDRA
 # https://analtime.org/?sort_by=post_date&from=1
 
 def mainlist(item):
