@@ -22,6 +22,11 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
 forced_proxy_opt = 'ProxySSL'
 
+# https://xfuntaxy.com/     https://mydadspies.com/    https://sexyretromovie.com/
+
+#      amigosporn             https://amg.upns.live/#x6diue       https://upns.live/#x6diue
+###    FALTA RESOLVER SERVER  https://xfuntaxy.upns.xyz/#onaa9w   https://upns.xyz/#onaa9w 
+
 canonical = {
              'channel': 'xfuntaxy', 
              'host': config.get_setting("current_host", 'xfuntaxy', default=''), 

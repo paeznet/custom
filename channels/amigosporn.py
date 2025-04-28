@@ -22,6 +22,9 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+###    FALTA SERVER    https://amg.upns.live/#x6diue       https://upns.xyz/#x6diue
+###    xfuntaxy        https://xfuntaxy.upns.xyz/#onaa9w   https://upns.xyz/#onaa9w 
+
 canonical = {
              'channel': 'amigosporn', 
              'host': config.get_setting("current_host", 'amigosporn', default=''), 
@@ -32,7 +35,7 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-timeout = 5
+timeout = 10
 kwargs = {}
 debug = config.get_setting('debug_report', default=False)
 movie_path = ''
@@ -177,7 +180,7 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     logger.info()
     matches = []
     findS = AHkwargs.get('finds', finds)
-    
+    logger.debug(matches_int)
     for elem in matches_int:
         elem_json = {}
         
