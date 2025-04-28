@@ -123,7 +123,7 @@ def play(item):
     soup = AlfaChannel.create_soup(item.url, **kwargs)
     if soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/")):
         pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/"))
-        
+        logger.debug(pornstars)
         for x, value in enumerate(pornstars):
             pornstars[x] = value.get_text(strip=True)
         pornstar = ' & '.join(pornstars)
@@ -137,7 +137,7 @@ def play(item):
             lista.insert (1, pornstar)
         item.contentTitle = '[/COLOR]'.join(lista)
     
-    if soup.find('div', class_='embed-wrap').iframe['src']:
+    if soup.find('div', class_='embed-wrap'):
         url = soup.find('div', class_='embed-wrap').iframe['src']
     else:
         url = item.url

@@ -156,22 +156,30 @@ def play(item):
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
     
-    if soup.find('div', id='video-info').find_all('a', href=re.compile("/pornstars/[A-z0-9-]+")):
-        pornstars = soup.find('div', id='video-info').find_all('a', href=re.compile("/pornstars/[A-z0-9-]+"))
-        
-        for x, value in enumerate(pornstars):
-            pornstars[x] = value.get_text(strip=True)
-        
-        pornstar = ' & '.join(pornstars)
-        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-        lista = item.contentTitle.split('[/COLOR]')
-        pornstar = pornstar.replace('[/COLOR]', '')
-        pornstar = ' %s' %pornstar
-        lista.insert (1, pornstar)
-        item.contentTitle = '[/COLOR]'.join(lista)
-
-
-
+    try:
+        pornstars = ""
+        if item.chanel == "bigfuck":
+            pornstars = soup.find_all('a', href=re.compile("/stars/[A-z0-9-]+"))
+        if item.chanel == "zzztube":
+            pornstars = soup.find('div', id='details').find_all('a', href=re.compile("/pornstar/[A-z0-9-]+"))
+        elif soup.find('div', id='video-info').find_all('a', href=re.compile("/pornstars/[A-z0-9-]+")):
+            pornstars = soup.find('div', id='video-info').find_all('a', href=re.compile("/pornstars/[A-z0-9-]+"))
+        if pornstars:
+            for x, value in enumerate(pornstars):
+                pornstars[x] = value.get_text(strip=True)
+            
+            pornstar = ' & '.join(pornstars)
+            pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+            lista = item.contentTitle.split('[/COLOR]')
+            pornstar = pornstar.replace('[/COLOR]', '')
+            pornstar = ' %s' %pornstar
+            lista.insert (1, pornstar)
+            if item.chanel == "bigfuck":
+                lista.insert (0, pornstar)
+            item.contentTitle = '[/COLOR]'.join(lista)
+    except:
+        logger.error()
+    
     if "6xtube" in item.url or "blendporn" in item.url:
         matches = soup.find('div', id='player-container')
         item.url = matches.iframe['src']
@@ -184,8 +192,11 @@ def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    item.url = "%ssearch/%s/1/" % (item.url, texto.replace(" ", "+"))
-    
+    if item.chanel == "bigfuck":
+        item.url = "%ss/%s/1/" % (item.url, texto.replace(" ", "-"))
+    else:
+        item.url = "%ssearch/%s/new/1" % (item.url, texto.replace(" ", "+"))
+
     try:
         if texto:
             item.c_type = "search"
