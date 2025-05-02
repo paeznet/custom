@@ -22,6 +22,10 @@ utils.kodilog(url)   @@@@Cumination:
 
 ##################################################################################
 
+entrepeliculasyseries CIFRADO AES
+   GibberishAES(string=elem['link'], pass_=clave).result
+
+
 
 shooshtime    
     soup = AlfaChannel.create_soup(item.url, canonical_check=False, **kwargs)    ## canonical_check=False 	>>>  no coge canonical y cambia host en play 

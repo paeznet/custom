@@ -131,9 +131,12 @@ def play(item):
             lista.insert (1, pornstar)
         item.contentTitle = '[/COLOR]'.join(lista)
     
-    if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)")):
+    if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)")).get('data-src', ''):
         url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))['data-src']
-    
+    else:
+        url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))['src']
+    if "bestrapeporn.com" in url:
+        url = "http://hqq.tv/player/hash.php?hash=4f46erg" ### NETU
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     

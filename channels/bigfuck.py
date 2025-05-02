@@ -112,7 +112,8 @@ def lista(item):
             thumbnail = "https:%s" % thumbnail
         time = elem.find('div', class_='thumb-badge left').text.strip()
         if "HD" in time:
-            title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time.replace("HD\n", ""),title)
+            time = time.replace("HD\n", "")
+            title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time.strip(),title)
         else:
             title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         url = urlparse.urljoin(item.url,url)
