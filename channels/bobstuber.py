@@ -12,6 +12,7 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 ####    NO MUESTRA thumbnail
+####    No existen los videos KTP
 
 canonical = {
              'channel': 'bobstuber', 
@@ -64,6 +65,9 @@ def categorias(item):
         thumbnail = elem.img['src']
         if "data:" in thumbnail:
             thumbnail = elem.img['data-original']
+        if not thumbnail.startswith("https"):
+            thumbnail = "https://st.bobtictic.com%s" %thumbnail
+        logger.debug(thumbnail)
         cantidad = elem.find('div', class_='videos')
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
@@ -107,6 +111,7 @@ def lista(item):
         thumbnail = elem.img['src']
         if "gif" in thumbnail:
             thumbnail = elem.img['data-original']
+        thumbnail = thumbnail.replace("374x210", "721x406")
         time = elem.find('div', class_='duration').text.strip()
         quality = elem.find('span', class_='label hd')
         if quality:

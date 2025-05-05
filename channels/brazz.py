@@ -22,6 +22,8 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
 forced_proxy_opt = 'ProxySSL'
 
+host_a= "https://brazzpw.com/"
+
 canonical = {
              'channel': 'brazz', 
              'host': config.get_setting("current_host", 'brazz', default=''), 
@@ -76,7 +78,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=host + "page/1/?filter=most-viewed"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "page/1/?filter=popular"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "page/1/?filter=longest"))
-    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "actors/page/1/", extra="PornStar"))
+    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "pornstars/gender/female/page/1/2025/", extra="PornStar"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/page/1/", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
@@ -109,8 +111,8 @@ def play(item):
     itemlist = []
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
-    if soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+")):
-        pornstars = soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+"))
+    if soup.find_all('a', href=re.compile(r"/models/[a-z0-9-]+")):
+        pornstars = soup.find_all('a', href=re.compile(r"/models/[a-z0-9-]+"))
         for x, value in enumerate(pornstars):
             pornstars[x] = value.get_text(strip=True)
         pornstar = ' & '.join(pornstars)
@@ -126,8 +128,9 @@ def play(item):
     # https://brazz.org/cplayer/video_getinfo.php?id=10293401
     # https://brazz.org/cm3u8_10293401.m3u8?sub=1
     # https://brazz.org/cm3u8_10293371.m3u8?sub=index-f3-v1-a1
-    id = scrapertools.find_single_match(item.thumbnail, "cid=(\d+)")
-    url = "%scm3u8_%s.m3u8?sub=index-f3-v1-a1" %(host,id)
+    # https://brazzpw.com/player/m3u8_10840481.m3u8?hash=174646&time=174646
+    id = scrapertools.find_single_match(item.url, "video/(\d+)/")
+    url = "%splayer/m3u8_%s.m3u8?hash=174646&time=174646" %(host_a,id)
     # if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)")):
         # referer = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))['src']
     url += "|Referer=%s" %host #referer

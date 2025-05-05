@@ -21,6 +21,8 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
+# https://xfuntaxy.com/     https://mydadspies.com/    https://sexyretromovie.com/
+
 
 canonical = {
              'channel': 'sexyretromovie', 
@@ -41,8 +43,9 @@ language = []
 url_replace = []
 
 finds = {'find':  {'find_all': [{'tag': ['div'], 'class': ['video-block']}]},
-         'categories': dict([('find', [{'tag': ['div'], 'id': ['primary']}]),
-                             ('find_all', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}])]), 
+         'categories': {'find_all': [{'tag': ['div'], 'class': ['video-block']}]},
+             # dict([('find', [{'tag': ['div'], 'id': ['video-loop']}]),
+                             # ('find_all', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}])]), 
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
@@ -60,8 +63,8 @@ finds = {'find':  {'find_all': [{'tag': ['div'], 'class': ['video-block']}]},
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['hd-video']}]),
-                                                      ('get_text', [{'tag': '', 'strip': True}])]),
+                            # 'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['hd-video']}]),
+                                                      # ('get_text', [{'tag': '', 'strip': True}])]),
                             },
          'controls': {'url_base64': False, 'cnt_tot': 30, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
@@ -74,14 +77,20 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
+    
+    autoplay.init(item.channel, list_servers, list_quality)
+    
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1/?filter=latest"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=host + "page/1/?filter=most-viewed"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "page/1/?filter=popular"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "page/1/?filter=longest"))
-    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "ebony-porn-actresses/page/1/", extra="PornStar"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "channels/page/1/", extra="Canal"))
+    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "actors/page/1/", extra="PornStar"))
+    # itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "channels/page/1/", extra="Canal"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/page/1/", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
+    
+    autoplay.show_option(item.channel, itemlist)
+    
     return itemlist
 
 

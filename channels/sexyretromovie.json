@@ -1,10 +1,10 @@
 {
   "id": "sexyretromovie",
-  "name": "000sexyretromovie",
+  "name": "sexyretromovie",
   "active": true,
   "adult": true,
   "language": ["*"],
-  "thumbnail": "",
+  "thumbnail": "https://i.postimg.cc/66ng5BRn/sexyretromovie.png",
   "banner": "",
   "fanart": "",
   "categories": [
