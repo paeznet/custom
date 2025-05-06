@@ -12,6 +12,7 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 # https://ceskeporno.cz  https://ceske-kundy.cz/   https://porno-videa-zdarma.cz/
+
 canonical = {
              'channel': 'ceskeporno', 
              'host': config.get_setting("current_host", 'ceskeporno', default=''), 
@@ -23,7 +24,6 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-# NECESITA ASSISTANT CLOUDFLARE Cloudflare version 2
 
 def mainlist(item):
     logger.info()
@@ -132,11 +132,17 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
-    matches = soup.find_all('source',  type='video/mp4')
-    for elem in matches:
-        url = elem['src']
-        url = urlparse.urljoin(item.url,url)
-        quality = elem['title']
-        itemlist.append(['.mp4 %s' %quality, url])
-    return itemlist[::-1]
+
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+	
+	# soup = create_soup(item.url)
+	# url = soup.find('iframe', id='video-iframe')['src']    # else:
+	# matches = soup.find_all('source',  type='video/mp4')
+	# for elem in matches:
+		# url = elem['src']
+		# url = urlparse.urljoin(item.url,url)
+		# quality = elem['title']
+		# itemlist.append(['.mp4 %s' %quality, url])
+    # return itemlist[::-1]
+    return itemlist
