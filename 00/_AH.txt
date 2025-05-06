@@ -309,6 +309,7 @@ internetchicks  'findvideos' fuckingsession
 javwhores
 jizzberry
 joysporn	joysporn   'next_page_rgx': [['/page/\d+', '/page/%s/']],    last_page para search
+-justporn
 -kojka		    item.extra = "Search"
 
 latestpornvideo		findvideo de fuckingsession
