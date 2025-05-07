@@ -1,10 +1,10 @@
 {
   "id": "mydadspies",
-  "name": "000mydadspies",
+  "name": "mydadspies",
   "active": true,
   "adult": true,
   "language": ["*"],
-  "thumbnail": "",
+  "thumbnail": "https://i.postimg.cc/63jyvmMn/mydadspies.png",
   "banner": "",
   "fanart": "",
   "categories": [

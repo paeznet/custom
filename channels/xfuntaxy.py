@@ -64,6 +64,10 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
+         'profile_labels': {
+                            # 'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['hd-video']}]),
+                                                      # ('get_text', [{'tag': '', 'strip': True}])]),
+                            },
          'controls': {'url_base64': False, 'cnt_tot': 32, 'reverse': False, 'profile': 'default'}, 
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
@@ -128,7 +132,7 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     for elem in matches_int:
         elem_json = {}
         #logger.error(elem)
-
+        
         try:
             if isinstance(elem, str):
                 elem_json['url'] = elem
@@ -149,19 +153,28 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
             if pornstars:
                 for x, value in enumerate(pornstars):
                     pornstars[x] = value.get_text(strip=True)
-                pornstar = '& '.join(pornstars)
-                # pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+                pornstar = ' & '.join(pornstars)
+                pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+                lista = item.contentTitle.split('[/COLOR]')
+                pornstar = pornstar.replace('[/COLOR]', '')
+                pornstar = ' %s' %pornstar
+                if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
+                    lista.insert (2, pornstar)
+                else:
+                    lista.insert (1, pornstar)
+                item.contentTitle = '[/COLOR]'.join(lista)
+                pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
                 elem_json['plot'] = pornstar
             
             
         except:
             logger.error(elem)
             logger.error(traceback.format_exc())
-
+        
         if not elem_json.get('url', ''): continue
-
+        
         matches.append(elem_json.copy())
-
+    
     return matches, langs
 
 
