@@ -12,6 +12,10 @@ from core import httptools
 from core import jsontools
 from bs4 import BeautifulSoup
 
+forced_proxy_opt = ''
+timeout = 45
+
+
 # https://mat6tube.com/   https://noodlemagazine.com/  https://ukdevilz.com/
 
  ### thumbnail  CCurlFile::Stat - Failed: HTTP response code said error(22)
@@ -23,7 +27,10 @@ canonical = {
              'host': config.get_setting("current_host", 'noodlemagazine', default=''), 
              'host_alt': ["https://noodlemagazine.com/"], 
              'host_black_list': [], 
-             'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 6, 'cf_assistant': False, 
+             # 'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 6, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -57,9 +64,9 @@ def search(item, texto):
 def create_soup(url, referer=None, unescape=False):
     logger.info()
     if referer:
-        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
+        data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical, timeout=timeout).data
     else:
-        data = httptools.downloadpage(url, canonical=canonical).data
+        data = httptools.downloadpage(url, canonical=canonical, timeout=timeout).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -107,29 +114,30 @@ def findvideos(item):
     logger.info()
     itemlist = []
     
-    data = httptools.downloadpage(item.url).data
-    url = scrapertools.find_single_match(data, '"embedUrl":\s*"([^"]+)"')
-    data = httptools.downloadpage(url).data
+    data = httptools.downloadpage(item.url, canonical=canonical, timeout=timeout).data
+    # url = scrapertools.find_single_match(data, '"embedUrl":\s*"([^"]+)"')
+    # data = httptools.downloadpage(url, canonical=canonical, timeout=timeout).data
     patron = '\{"file":\s*"([^"]+)".*?'
     patron += '"label":\s*"([^"]+)"'
     matches = scrapertools.find_multiple_matches(data, patron)
     for url,quality in matches:
-        # itemlist.append(['%s' %quality, url])
+        url += "|Referer=%s" %host
         itemlist.append(Item(channel=item.channel, action="play", title= "%s" %quality, contentTitle = item.title, url=url))
     # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
-
+# "file":"https://cdn-pr.pvvstream.pro/videos/1080/-227355247_456242539.mp4?url=dmt2ZDQwOS5va2Nkbi5ydS8_c3JjSXA9NDUuODQuMzEuMTIxJnByPTQwJmV4cGlyZXM9MTc0NzEwOTE5ODc2MCZzcmNBZz1VTktOT1dOJmZyb21DYWNoZT0xJm1zPTQ1LjEzNi4yMC4xNjkmdHlwZT01JnNpZz1rUEYxbmo5SGU5ayZjdD0wJnVybHM9MTg1LjIyNi41My4yMDMmY2xpZW50VHlwZT0xNCZhcHBJZD01MTIwMDAzODQzOTcmaWQ9ODE1NzA5Nzk1Mzk3OA&secure=1746649998-qRIG6EwaZkKIGE5WnttNozK2rTZlKa8ClY5FmAomp1M%3D","label":"1080","type":"mp4"
 def play(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url).data
-    url = scrapertools.find_single_match(data, '"embedUrl":\s*"([^"]+)"')
-    data = httptools.downloadpage(url).data
+    data = httptools.downloadpage(item.url, canonical=canonical, timeout=timeout).data
+    # url = scrapertools.find_single_match(data, '"embedUrl":\s*"([^"]+)"')
+    # data = httptools.downloadpage(url, canonical=canonical, timeout=timeout).data
     patron = '\{"file":\s*"([^"]+)".*?'
     patron += '"label":\s*"([^"]+)"'
     matches = scrapertools.find_multiple_matches(data, patron)
     for url,quality in matches:
+        url += "|Referer=%s" %host
         itemlist.append(['%s' %quality, url])
     itemlist.sort(key=lambda item: int( re.sub("\D", "", item[0])))
     return itemlist

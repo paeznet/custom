@@ -48,8 +48,8 @@ language = []
 url_replace = []
 
 
-finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['list-videos']}]),
-                             ('find_all', [{'tag': ['div'], 'class':['item']}])]),
+finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['list-videos', 'thumbs']}]),
+                             ('find_all', [{'tag': ['div'], 'class':['item', 'thumb']}])]),
                # {'find_all': [{'tag': ['div'], 'class':['item']}]},  # 'id': re.compile(r"^vid-\d+")
          'categories': dict([('find', [{'tag': ['div'], 'class': ['list-cat', 'list-albums', 'list-channels', 'list-models', 'list-categories', 'list-sponsors']}]),  #, 'list-videos'       porndr['list-cat', 'list-albums', 'list-channels']
                              ('find_all', [{'tag': ['a']}])]),
@@ -67,7 +67,7 @@ finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['list-videos']}]),
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            'list_all_stime': dict([('find', [{'tag': ['div', 'span'], 'class': ['duration', 'video-duration', 'views-counter2']}]),
+                            'list_all_stime': dict([('find', [{'tag': ['div', 'span'], 'class': ['duration', 'video-duration', 'views-counter2', 'time']}]),
                                                     ('get_text', [{'tag': '', 'strip': True}])]),
                             # 'list_all_quality': dict([('find', [{'tag': ['div'], 'class': ['b-thumb-item__detail']}]),
                                                       # ('get_text', [{'strip': True}])]),
@@ -87,8 +87,8 @@ def mainlist(item):
     itemlist = []
     
     
-    itemlist.append(Item(channel=item.channel, title="Ezporn" , action="submenu", url= "https://www.ezporn.tv/", chanel="ezporn", thumbnail = "https://i.postimg.cc/28FJxnfS/ezporn.png"))
-    itemlist.append(Item(channel=item.channel, title="Fullporno" , action="submenu", url= "https://www.fullporno.tv/", chanel="fullporno", thumbnail = "https://i.postimg.cc/63JLS1rJ/fullporno.png"))
+    itemlist.append(Item(channel=item.channel, title="[COLOR red]Ezporn[/COLOR]" , action="submenu", url= "https://www.ezporn.tv/", chanel="ezporn", thumbnail = "https://i.postimg.cc/28FJxnfS/ezporn.png"))
+    itemlist.append(Item(channel=item.channel, title="[COLOR red]Fullporno[/COLOR]" , action="submenu", url= "https://www.fullporno.tv/", chanel="fullporno", thumbnail = "https://i.postimg.cc/63JLS1rJ/fullporno.png"))
     itemlist.append(Item(channel=item.channel, title="Pornwex" , action="submenu", url= "https://www.pornwex.tv/", chanel="pornwex", thumbnail = "https://i.postimg.cc/02F6cKGh/pornwex.png"))
     
     itemlist.append(Item(channel=item.channel, title="4wank" , action="submenu", url= "https://www.4wank.com/", chanel="4wank", thumbnail = "https://i.postimg.cc/fLD5yrJ7/4wank.png"))
@@ -98,14 +98,14 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="faptor" , action="submenu", url= "https://faptor.com/", chanel="faptor", thumbnail = "https://i.postimg.cc/L4TjSyzq/faptor.png"))
     itemlist.append(Item(channel=item.channel, title="hqbang" , action="submenu", url= "https://hqbang.com/", chanel="hqbang", thumbnail = "https://i.postimg.cc/kMYpcjTq/logo-hqbang.webp"))
     itemlist.append(Item(channel=item.channel, title="in35" , action="submenu", url= "https://in35.com/", chanel="in35", thumbnail = "https://i.postimg.cc/K8phwnry/in35.png"))
-    itemlist.append(Item(channel=item.channel, title="love4porn" , action="submenu", url= "https://love4porn.com/", chanel="love4porn", thumbnail = "https://i.postimg.cc/LXJv4zpM/leakxxx.png"))
+    itemlist.append(Item(channel=item.channel, title="[COLOR red]love4porn[/COLOR]" , action="submenu", url= "https://love4porn.com/", chanel="love4porn", thumbnail = "https://i.postimg.cc/LXJv4zpM/leakxxx.png"))
     itemlist.append(Item(channel=item.channel, title="Momzr" , action="submenu", url= "https://momzr.com/", chanel="momzr", thumbnail = "https://i.postimg.cc/zvHtWRF8/momzr.png"))
     itemlist.append(Item(channel=item.channel, title="[COLOR red]mypornhere[/COLOR]" , action="submenu", url= "https://www.mypornhere.com/", chanel="mypornhere", thumbnail = "https://i.postimg.cc/hthFxSX0/mypornhere.png"))
     itemlist.append(Item(channel=item.channel, title="pornbimbo" , action="submenu", url= "http://pornbimbo.com/", chanel="pornbimbo", thumbnail = "https://i.postimg.cc/hGY4L8Qj/pornbimbo.png"))######## PRIVATE
     itemlist.append(Item(channel=item.channel, title="porndr" , action="submenu", url= "https://www.porndr.com/", chanel="porndr", thumbnail = "https://i.postimg.cc/sgPnJF9v/Porndr-logo.png"))
     itemlist.append(Item(channel=item.channel, title="pornkinky" , action="submenu", url= "https://pornkinky.com/", chanel="pornkinky", thumbnail = "https://i.postimg.cc/J47whDtd/pornkinky.png"))  ######## PRIVATE
-    itemlist.append(Item(channel=item.channel, title="thothd" , action="submenu", url= "https://thothd.com/", chanel="thothd", thumbnail = "https://i.postimg.cc/C5XTysD2/thothd.webp"))
-    itemlist.append(Item(channel=item.channel, title="viralpornhub" , action="submenu", url= "https://viralpornhub.com/", chanel="viralpornhub", thumbnail = "https://i.postimg.cc/KcJ3vNBg/logo.png"))
+    itemlist.append(Item(channel=item.channel, title="[COLOR red]thothd[/COLOR]" , action="submenu", url= "https://thothd.com/", chanel="thothd", thumbnail = "https://i.postimg.cc/C5XTysD2/thothd.webp"))
+    # itemlist.append(Item(channel=item.channel, title="viralpornhub" , action="submenu", url= "https://viralpornhub.com/", chanel="viralpornhub", thumbnail = "https://i.postimg.cc/KcJ3vNBg/logo.png"))
     itemlist.append(Item(channel=item.channel, title="xxam" , action="submenu", url= "https://www.xxam.org/", chanel="xxam", thumbnail = "https://i.postimg.cc/SQ8tGpFB/xxam.png"))
 
     #### SIN CANAL
@@ -188,8 +188,12 @@ def play(item):
     if "4wank" in item.url or "cremz" in item.url or "momzr" in item.url or "faptor" in item.url:
         soup = AlfaChannel.create_soup(item.url, **kwargs)
         
-        if soup.find('div', class_='video-info').find_all('a', href=re.compile("/models/[A-z0-9-]+")):
-            pornstars = soup.find('div', class_='video-info').find_all('a', href=re.compile("/models/[A-z0-9-]+"))
+        if soup.find('div', class_='video-info'):
+            matches = soup.find('div', class_='video-info')
+        else:
+            matches = soup.find('div', class_='col-video')
+        if matches:
+            pornstars = matches.find_all('a', href=re.compile("/models/[A-z0-9-]+"))
             
             for x, value in enumerate(pornstars):
                 pornstars[x] = value.get_text(strip=True)

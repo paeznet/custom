@@ -11,8 +11,9 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-forced_proxy_opt = 'ProxySSL'
-timeout = 30
+# forced_proxy_opt = 'ProxySSL'
+forced_proxy_opt = ''
+timeout = 45
 
 # https://iceporn.tv/     https://randyrooster.com/  https://pornmonde.com/
 canonical = {
@@ -21,10 +22,11 @@ canonical = {
              'host_alt': ["https://iceporn.tv/"], 
              'host_black_list': [], 
              'pattern': ['Logo" src="([^"]+)"'], 
-             'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 3, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
-             'CF': False, 'CF_test': False, 'alfa_s': True
-             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             # 'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 3, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              # 'CF': False, 'CF_test': False, 'alfa_s': True
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
+             'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
@@ -136,18 +138,19 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url).data
+    data = httptools.downloadpage(item.url, canonical=canonical, timeout=timeout).data
     url = scrapertools.find_single_match(data, '"file":"([^"]+)"')
     url = url.replace("\/", "/")
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    itemlist.append(Item(channel=item.channel, action="play", server= "Directo", contentTitle = item.contentTitle, url=url))
+    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
 
 def play(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url).data
+    data = httptools.downloadpage(item.url, canonical=canonical, timeout=timeout).data
     pornstars= scrapertools.find_single_match(data, 'class="VideoPornstars"(.*?)</ul')
     if pornstars:
         patron = '"Popover">([^<]+)<'
@@ -163,6 +166,7 @@ def play(item):
     
     url = scrapertools.find_single_match(data, '"file":"([^"]+)"')
     url = url.replace("\/", "/")
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    itemlist.append(Item(channel=item.channel, action="play", server= "Directo", contentTitle = item.contentTitle, url=url))
+    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
