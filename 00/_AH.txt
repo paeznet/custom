@@ -348,6 +348,7 @@ pornditt
 
 -pornegy	trendypornpornerbross	    porntube  
 -pornez
+-pornezoo
 -porngrabbz
 -porngrey
 -pornheal	paginacion okporn parameter sin ultima pagina           item.last_page = 9999  #### 1068 pag a 8-9-2024
@@ -378,7 +379,9 @@ pornvase
 -pornworms	findS['profile_labels']['section_title'] = {'find': [{'tag': ['img'], '@ARG': 'alt'}]}
 -pornxbox
 pornxp		findvideos  
--pornz 		
+-pornz 
+-pornezoo      findS['url_replace'] = [['\\?actors\\=', '/actor/'],['(\/(?:categories|channels|models|pornstars|actor|category)\/[^$]+$)', r'\1?filter=latest']]
+		
 -pubjav		findvideos  debe pasar post a play.
 -qiqitv
 redtube

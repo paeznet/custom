@@ -56,6 +56,11 @@ finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['video']}]},     #'id':
          # 'next_page': {'find': [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@ARG': 'href'}]}, #### COGE blog que tiene more
          # 'next_page': dict([('find', [{'tag': ['div', 'ul'], 'class': ['pagination']}]), 
                             # ('find_all', [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@POS': [-1], '@ARG': 'href'}])]),
+         # 'next_page': dict([('find', [{'tag': ['div'], 'class': ['pagination']}, 
+                                      # {'tag': ['li'], 'class': ['selected']}]), 
+                            # ('find_next', [{'tag': ['li']},
+                                           # {'tag': ['a'], '@ARG': 'href'}]) ]), ## Coge pag siguiente a "selected"
+
          'next_page': {},
          'next_page_rgx': [['\/\d+', '/%s'], ['&page=\d+', '&page=%s']], 
          'last_page': dict([('find', [{'tag': ['ul'], 'class': ['pagination']}]), 
@@ -66,6 +71,16 @@ finds = {'find': {'find_all': [{'tag': ['li'], 'class': ['video']}]},     #'id':
                             # ('get_text', [{'strip': True}])]), 
          # 'last_page':  dict([('find', [{'tag': ['script'], 'string': re.compile('(?i)var objectPagination')}]), 
                              # ('get_text', [{'strip': True, '@TEXT': 'total:\s*(\d+)'}])]), 
+         # 'last_page': dict([('find', [{'tag': ['a'], 'string': re.compile('(?i)siguiente')}]), 
+                            # ('find_previous', [{'tag': ['a'], 'class': ['page-numbers']}]), 
+                            # ('get_text', [{'tag': '', '@STRIP': True}])]), 
+
+         # 'last_page': dict([('find', [{'tag': ['ul'], 'class': ['pagination']}, 
+                                      # {'tag': ['a'], 'class': ['next page-numbers']}]), 
+                            # ('find_previous', [{'tag': ['a'], 'class': ['page-numbers']}]), 
+                            # ('get_text', [{'@TEXT': '(\d+)'}])]), 
+
+
          # 'last_page': {},
          'plot': {}, 
          # 'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),

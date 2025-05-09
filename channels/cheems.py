@@ -24,7 +24,8 @@ color = unify.colors_file[UNIFY_PRESET]
 list_quality = []
 list_servers = []
 
-#########           Falla visualizacion de thumbnails
+#########           Falla visualizacion de thumbnails  380x214
+                                    # solo se ven      320x180
 
 canonical = {
              'channel': 'cheems', 
@@ -48,7 +49,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=api %(host, "posts", "views") ))
     itemlist.append(Item(channel=item.channel, title="Pornstar" , action="categorias", url=api %(host, "actors", "views") ))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=api %(host, "producers", "views") ))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "_next/data/IPiH7-r6cZNpzsbHsG-3c/es/tags.json", extra="Categorias" ))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "_next/data/z0gvQYzPinJD8AebTGltX/en/tags.json", extra="Categorias" ))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     
     autoplay.show_option(item.channel, itemlist)
@@ -151,6 +152,11 @@ def lista(item):
         quality = "[COLOR %s][%s][/COLOR]" % (color.get('quality',''),quality)
         plot = elem['post']['description']
         
+        # thumbnail += "|verifypeer=false"
+        # thumbnail += "|ignore_response_code=True"
+        # thumbnail += "|Referer=%s" % host
+        logger.debug(thumbnail)
+        
         segundos = int(segundos)
         horas=int(segundos/3600)
         segundos -=horas*3600
@@ -206,13 +212,12 @@ def findvideos(item):
     # else:
         # lista.insert (1, pornstar)
     # item.contentTitle = '[/COLOR]'.join(lista)
-    
     patron = '\{"title":"([^"]+)"."url":"([^"]+)","type":'
     matches = scrapertools.find_multiple_matches(data, patron)
     copias=[]
     for serv, url in matches:
-        if "cheems" in url: continue
-        marca = url.split("/")[-1].replace("embed-", "")
+        if "send.now" in url: continue
+        marca = url.split("/")[-1].replace("embed-", "").replace(".html", "").replace("\\u0026dl=1", '').strip()
         if not marca in copias: 
             copias.append(marca)
             itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
@@ -221,5 +226,3 @@ def findvideos(item):
     autoplay.start(itemlist, item)
     
     return itemlist
-
-
