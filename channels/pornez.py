@@ -22,7 +22,9 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
-# https://pornez.cam/  https://okxxx.cam/ okcam
+# https://pornez.cam/  https://okxxx.cam/ okcam  https://pornmz.net/  https://pornezoo.net/
+# https://fikfap.mobi/  https://pornmz.cam/  https://pornbzz.com/  https://tikslove.com/  https://porntn.net/
+# https://fuqq.cam/   
 
 canonical = {
              'channel': 'pornez', 
@@ -147,7 +149,8 @@ def play(item):
         url_decode = base64.b64decode(url[-1]).decode("utf8")
         url = urlparse.unquote(url_decode)
         url = scrapertools.find_single_match(url, 'src="([^"]+)"')
-        url += "|Referer=%s" % host
+        if ".m3u" in url or ".mp4" in url:
+            url += "|Referer=%s" % host
         
     itemlist.append(Item(channel = item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())

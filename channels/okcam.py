@@ -22,7 +22,9 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
-# https://pornez.cam/  https://okxxx.cam/ okcam
+# https://pornez.cam/  https://okxxx.cam/ okcam  https://pornmz.net/  https://pornezoo.net/
+# https://fikfap.mobi/  https://pornmz.cam/  https://pornbzz.com/  https://tikslove.com/  https://porntn.net/
+# https://fuqq.cam/   
 
 canonical = {
              'channel': 'okcam', 
@@ -65,7 +67,7 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
                                                                 # {'tagOR': ['span'], 'style':['color']}]),
                                                       # ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])
                             },
-         'controls': {'url_base64': False, 'cnt_tot': 52, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 30, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 

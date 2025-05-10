@@ -21,6 +21,9 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
+# https://pornez.cam/  https://okxxx.cam/ okcam  https://pornmz.net/  https://pornezoo.net/
+# https://fikfap.mobi/  https://pornmz.cam/  https://pornbzz.com/  https://tikslove.com/  https://porntn.net/
+# https://fuqq.cam/   
 
 canonical = {
              'channel': 'pornezoo', 

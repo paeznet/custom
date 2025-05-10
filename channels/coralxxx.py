@@ -125,8 +125,8 @@ def play(item):
     itemlist = []
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
-    if soup.find_all('a', href=re.compile("/(?:pornstars|models)/[A-z0-9-]+/")):
-        pornstars = soup.find_all('a', href=re.compile("/(?:pornstars|models)/[A-z0-9-]+/"))
+    if soup.find_all('a', class_='btn', href=re.compile("/(?:pornstars|models)/[A-z0-9-]+/")):
+        pornstars = soup.find_all('a', class_='btn', href=re.compile("/(?:pornstars|models)/[A-z0-9-]+/"))
         
         for x, value in enumerate(pornstars):
             pornstars[x] = value.get_text(strip=True)
