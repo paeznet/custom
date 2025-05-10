@@ -43,6 +43,7 @@ tv_path = ''
 language = []
 url_replace = []
 
+####  PAGINACION?
 
 # https://0porn.org/  https://0porn.info/  https://5porn.net   https://5porn.info  https://6porn.info  
 # https://porn4.info/
@@ -62,7 +63,8 @@ finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['videos']}]),
          # 'next_page': {'find': [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@ARG': 'href'}]}, #### COGE blog que tiene more
          'next_page': dict([('find', [{'tag': ['div', 'ul'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@POS': [-1], '@ARG': 'href'}])]),
-         'next_page_rgx': [['\?page=\d+', 'next_page_url'], ['\?page=\d+&o=popular', 'next_page_url']], 
+         # 'next_page_rgx': [['\?page=\d+', 'next_page_url'], ['\?page=\d+&o=[a-z]+', 'next_page_url']], 
+         'next_page_rgx': [['\?page=\d+', 'next_page_url']], 
          'last_page':  {},
          'plot': {}, 
          'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
@@ -154,7 +156,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
     soup = AHkwargs.get('soup', {})
     # logger.debug(soup)
     # matches = soup.find_all('li', id=re.compile(r"^browse_\d+"))
-    logger.debug(soup.find('div', class_='pagination').find('a', string=re.compile("(?i)(?:more|next)")))
+    # logger.debug(soup.find('div', class_='pagination').find('a', string=re.compile("(?i)(?:more|next)")))
     
     matches_org = AHkwargs.get('matches', [])
     logger.debug("=================== findS ==========================")
@@ -180,7 +182,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
         
         try:
             # if 'livecam' in elem.get("class", []): continue   ###  Excepcion pornone para quitar los item livecams
-
+            
             elem_json['url'] = elem.a.get('href', '')
             elem_json['title'] = elem.a.get('title', '') #\
                                  # or elem.find(class_='title').get_text(strip=True) if elem.find(class_='title') else ''
@@ -189,8 +191,10 @@ def list_all_matches(item, matches_int, **AHkwargs):
             
             elem_json['thumbnail'] = elem.span.get('data-i', '')
             id = elem.span['id']
-            elem_json['url'] = "https://qporn.org/cdn/%s.mp4" %id
-            elem_json['url'] = "https://qporn.org/cdn/%s.m3u8|Referer=%s" %(id, host)
+            # url = "cdn/%s.mp4" %id
+            url = "cdn/%s.m3u8|Referer=%s" %(id, item.url)
+            elem_json['url'] =AlfaChannel.urljoin(AlfaChannel.host,url)
+            
             elem_json['stime'] = elem.find_all('p')[-2].get_text(strip=True)
             # if not elem_json['stime'] and elem.find(text=lambda text: isinstance(text, self.Comment) \
                                       # and 'duration' in text):
