@@ -37,8 +37,8 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "hottest-videos/page/1"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "most-viewed-videos/page/1"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "most-liked-videos/page/1"))
-    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "pornstars/page/1"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "channels/page/1"))
+    itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "pornstars/page/1?sort=mostLiked"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "channels/page/1?sort=video_count"))
 
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories?sort=name"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
@@ -48,7 +48,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "%20")
-    item.url = "%s/search?q=%s" % (host,texto)
+    item.url = "%s/search/page/1?q=%s&sort=hottest" % (host,texto)
     try:
         return lista(item)
     except:
@@ -68,15 +68,13 @@ def categorias(item):
         title = elem.img['alt']
         thumbnail = elem.img['data-src']
         url = urlparse.urljoin(host,url)
-        url += "/page/1"
+        url += "/page/1?sort=hottest"
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
     next_page = soup.find('li', class_='page-item active')
-    page = scrapertools.find_single_match(item.url, "(.*?/page/)")
-    if next_page:
-        next_page = next_page.find_next_sibling('li')
-        next_page = "%s%s" % (page, next_page.text)
+    if next_page  and next_page.find_next_sibling("li"):
+        next_page = next_page.find_next_sibling('li').a['href']
         itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
@@ -113,10 +111,8 @@ def lista(item):
         itemlist.append(Item(channel=item.channel, action="play", title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail, plot=plot))
     next_page = soup.find('li', class_='page-item active')
-    page = scrapertools.find_single_match(item.url, "(.*?/page/)")
-    if next_page:
-        next_page = next_page.find_next_sibling('li')
-        next_page = "%s%s" % (page, next_page.text)
+    if next_page  and next_page.find_next_sibling("li"):
+        next_page = next_page.find_next_sibling('li').a['href']
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
