@@ -1,36 +1,66 @@
 # -*- coding: utf-8 -*-
 #------------------------------------------------------------
-import urlparse,urllib2,urllib,re
-import os, sys
+import re
+
 from platformcode import config, logger
 from core import scrapertools
 from core.item import Item
 from core import servertools
 from core import httptools
+from core import urlparse
+from bs4 import BeautifulSoup
 
-host = "http://hd.xtapes.to"
 
-# Links NetuTV
+forced_proxy_opt = ''
+timeout = 45
+
+canonical = {
+             'channel': 'xtapes', 
+             'host': config.get_setting("current_host", 'xtapes', default=''), 
+             'host_alt': ["https://ww2.xtapes.to/"], 
+             'host_black_list': ["http://hd.xtapes.to/"], 
+             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
+             'CF': False, 'CF_test': False, 'alfa_s': True
+            }
+host = canonical['host'] or canonical['host_alt'][0]
+
+
+# Links NetuTV <iframe src=   https://74k.io/e/a9e4rdlxn29v    https://88z.io/#tapgfp
+
+# https://ww2.xtapes.to/bigtits-hd-porn-371770/page/2/?display=tube&filtre=date
+
 
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append( Item(channel=item.channel, title="Peliculas" , action="lista", url=host + "/hd-porn-movies/"))
-    itemlist.append( Item(channel=item.channel, title="Productora" , action="categorias", url=host))
-    itemlist.append( Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/?filtre=date&cat=0"))
-    itemlist.append( Item(channel=item.channel, title="Mas Vistos" , action="lista", url=host + "/?display=tube&filtre=views"))
-    itemlist.append( Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "/?display=tube&filtre=rate"))
-    itemlist.append( Item(channel=item.channel, title="Longitud" , action="lista", url=host + "/?display=tube&filtre=duree"))
-    itemlist.append( Item(channel=item.channel, title="Canal" , action="categorias", url=host))
-    itemlist.append( Item(channel=item.channel, title="Categorias" , action="categorias", url=host))
-    itemlist.append( Item(channel=item.channel, title="Buscar", action="search"))
+    itemlist.append( Item(channel=item.channel, title="Peliculas" , action="submenu", url=host + "porn-movies-hd/", extra=1))
+    itemlist.append( Item(channel=item.channel, title="Videos" , action="submenu", url=host))
+    return itemlist
+
+
+def submenu(item):
+    logger.info()
+    itemlist = []
+    # itemlist.append( Item(channel=item.channel, title="Peliculas" , action="lista", url=host + "porn-movies-hd/"))
+    #
+    itemlist.append( Item(channel=item.channel, title="Nuevos" , action="lista", url=item.url + "?filtre=date&cat=0"))
+    itemlist.append( Item(channel=item.channel, title="Mas Vistos" , action="lista", url=item.url + "?display=tube&filtre=views"))
+    itemlist.append( Item(channel=item.channel, title="Mejor valorado" , action="lista", url=item.url + "?display=tube&filtre=rate"))
+    itemlist.append( Item(channel=item.channel, title="Longitud" , action="lista", url=item.url + "?display=tube&filtre=duree"))
+    if item.extra:
+        itemlist.append( Item(channel=item.channel, title="Productora" , action="categorias", url=host))
+    else:
+        itemlist.append( Item(channel=item.channel, title="Canal" , action="categorias", url=host))
+        itemlist.append( Item(channel=item.channel, title="Categorias" , action="categorias", url=host))
+    itemlist.append( Item(channel=item.channel, title="Buscar", url=item.url, action="search"))
     return itemlist
 
 
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = host + "/?s=%s" % texto
+    item.url = "%s?s=%s" % (item.url,texto)
     try:
         return lista(item)
     except:
