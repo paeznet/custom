@@ -120,3 +120,14 @@ def lista(item):
     return itemlist
 
 
+def findvideos(item):
+    logger.info()
+    itemlist = []
+    data = httptools.downloadpage(item.url).data
+    data =scrapertools.find_single_match(data, '"video-embed">(.*?)</div')
+    patron = '<(?:IFRAME|iframe) (?:SRC|src)="([^"]+)"'
+    matches = re.compile(patron,re.DOTALL).findall(data)
+    for url in matches:
+        itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    return itemlist

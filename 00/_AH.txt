@@ -17,6 +17,7 @@ o bien
 
 logger = common.log_utils.Logger.get_logger(__name__)
 logger.disable()
+logger.log_debug('*******************************************')
 logger.log_debug(recaptcha)
 
 
