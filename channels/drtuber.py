@@ -165,13 +165,28 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel = item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
+    itemlist.append(Item(channel = item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
 def play(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel = item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
+    
+    soup = create_soup(item.url)
+    class_='categories_list'
+    if soup.find('div', class_='categories_list').find_all('a', href=re.compile("/pornstar/[A-z0-9-]+")):
+        pornstars = soup.find('div', class_='categories_list').find_all('a', href=re.compile("/pornstar/[A-z0-9-]+"))
+        for x , value in enumerate(pornstars):
+            pornstars[x] = value.text.strip()
+        pornstar = ' & '.join(pornstars)
+        pornstar = "[COLOR cyan]%s" % pornstar
+        lista = item.contentTitle.split("[/COLOR]")
+        if "HD" in item.title:
+            lista.insert (2, pornstar)
+        else:
+            lista.insert (1, pornstar)
+        item.contentTitle = ' [/COLOR]'.join(lista)    
+    itemlist.append(Item(channel = item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

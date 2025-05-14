@@ -28,8 +28,8 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "new/"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "toprated"))
     itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "pornstars?page=1"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories/"))
-    itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories/", extra=1))
+    itemlist.append(Item(channel=item.channel, title="Buscar is out", action="search"))
     return itemlist
 
 
@@ -58,6 +58,8 @@ def categorias(item):
         cantidad = elem.span
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
+        if item.extra:
+            url += "/new/1"
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                               thumbnail=thumbnail , plot=plot) )
@@ -91,24 +93,25 @@ def lista(item):
         url = elem.a['href']
         title = elem.img['alt']
         thumbnail = elem.img['src']
-        if "gif" in thumbnail:
-            thumbnail = elem.img['data-original']
+        if "gif" in thumbnail or "placeholder.jpg" in thumbnail:
+            thumbnail = elem.img['data-src']
         time = elem.find('div', class_='video-duration').text.strip()
         quality = elem.find('div', class_='max-quality')
         if quality:
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]%s[/COLOR] %s" % (time,quality.text.strip(),title)
         else:
             title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
-        url =  "%sajax/video-player/%s"  % (host,vid)
+        
         plot = ""
         action = "play"
         if logger.info() == False:
             action = "findvideos"
-        itemlist.append(Item(channel=item.channel, action=action, title=title, url=url, thumbnail=thumbnail,
-                               plot=plot, fanart=thumbnail, contentTitle=title ))
+        itemlist.append(Item(channel=item.channel, action=action, title=title, url=url, vid=vid,
+                               thumbnail=thumbnail, fanart=thumbnail, contentTitle=title, plot=plot))
     next_page = soup.find('li', class_='pagination-next')
     if next_page:
         next_page = next_page.a['href']
+        next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
@@ -116,22 +119,49 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url, canonical=canonical).json
-    soup = BeautifulSoup(data['html'], "html5lib", from_encoding="utf-8")
-    matches  = soup.video.find_all('source', type='video/mp4')
+    
+    url = "%sajax/video-player/%s"  % (host,item.vid)
+    data = httptools.downloadpage(url, canonical=canonical).json
+    data = BeautifulSoup(data['html'], "html5lib", from_encoding="utf-8")
+    
+    matches  = data.video.find_all('source', type='video/mp4')
     for elem in matches:
         url = elem['src']
         quality = elem['size']
-        itemlist.append(Item(channel=item.channel, action="play", title= "%s" %quality, contentTitle = item.title, url=url))
+        itemlist.append(Item(channel=item.channel, action="play", title= "%s" %quality, contentTitle = item.contentTitle, url=url))
     return itemlist
 
 
 def play(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url, canonical=canonical).json
-    soup = BeautifulSoup(data['html'], "html5lib", from_encoding="utf-8")
-    matches  = soup.video.find_all('source', type='video/mp4')
+    
+    soup = create_soup(item.url)
+    if soup.find_all('a', class_="badge-kiss"):
+        ### pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+"))
+        pornstars = soup.find_all('a', class_='badge-kiss')
+        for x , value in enumerate(pornstars):
+            pornstars[x] = value.text.strip()
+        pornstar = ' & '.join(pornstars)
+        pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+        plot = ""
+        if len(pornstars) <= 3:
+            lista = item.contentTitle.split('[/COLOR]')
+            pornstar = pornstar.replace('[/COLOR]', '')
+            pornstar = ' %s' %pornstar
+            if "[COLOR red]" in item.title:
+                lista.insert (2, pornstar)
+            else:
+                lista.insert (1, pornstar)
+            item.contentTitle = '[/COLOR]'.join(lista)
+        else:
+            plot = pornstar
+    
+    url = "%sajax/video-player/%s"  % (host,item.vid)
+    data = httptools.downloadpage(url, canonical=canonical).json
+    data = BeautifulSoup(data['html'], "html5lib", from_encoding="utf-8")
+    
+    matches  = data.video.find_all('source', type='video/mp4')
     for elem in matches:
         url = elem['src']
         quality = elem['size']

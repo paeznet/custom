@@ -113,8 +113,9 @@ def lista(item):
             thumbnail = elem.img['data-original']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
-        time = elem.find('img', src='/img/icons/video.svg').parent.text.strip()
-        # title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
+        time = elem.find('img', src=re.compile("/video.svg"))
+        if time:
+            title = "[COLOR yellow]%s[/COLOR] %s" % (time.parent.text.strip(),title)
         url = urlparse.urljoin(item.url,url)
         plot = ""
         action = "play"

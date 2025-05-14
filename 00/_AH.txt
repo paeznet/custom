@@ -1,3 +1,29 @@
+Vavoo.tV   vjlive.py  def vavoo_groups():  https://www2.vavoo.to/live2/index?output=json
+
+Vavoo.tV   
+#D:\Kodi21\portable_data\addons\plugin.video.vavooto\resources\lib\vjlive.py
+#    https://www2.vavoo.to/live2/index?output=json
+
+#def choose():
+#	for c in requests.get("https://www2.vavoo.to/live2/index", params={"output": "json"}).json():
+
+
+ACTIVAR DEBUG  ctr+may+D
+
+def liveplay:
+
+	utils.log("Spiele %s" % n)
+	utils.log("Spiele %s" % url)
+
+
+####VAVOOTO####
+           "Spiele https://vavoo.to/vavoo-iptv/play/1940642395ece0dbc0c8c9"
+
+
+
+
+################################################################################
+
 403 RESUELTOS: spankbang+server CAMSODA+server BONGACAMS porn00+ktp
 
 

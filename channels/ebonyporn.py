@@ -21,6 +21,7 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
+###  MUCHOS VIDEOS sin LINKS
 
 canonical = {
              'channel': 'ebonyporn', 
@@ -134,7 +135,9 @@ def play(item):
             # url_decode = base64.b64decode(url[-1]).decode("utf8")
             # url = urlparse.unquote(url_decode)
             # url = scrapertools.find_single_match(url, '<iframe src="([^"]+)"')
-    url = soup.find('meta', itemprop='embedURL')['content']        
+    if soup.find('meta', itemprop=re.compile("(?:embedURL|contentURL)")):
+        url = soup.find('meta', itemprop=re.compile("(?:embedURL|contentURL)"))['content']
+    url = item.url
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     
