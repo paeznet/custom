@@ -38,569 +38,571 @@ def liveplay:
 
 
 ####VAVOOTO####
-           "Spiele https://vavoo.to/vavoo-iptv/play/1940642395ece0dbc0c8c9"
+           "Spiele https://www.kool.to/play/1940642395ece0dbc0c8c9"
 ########
 
 #########################################################################################
 
 
-##     https://vavoo.to/live2/play/3585307980.ts >>>   https://vavoo.to/live2/play/3585307980.ts
+##     https://www.kool.to/play/3585307980/index.m3u8 >>>   https://www.kool.to/play/3585307980/index.m3u8
+
+
 
 
 #EXTM3U
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR+ " tvg-logo="" group-title="TV",Movistar Plus+
-https://vavoo.to/live2/play/2881668464.ts
+https://www.kool.to/play/2881668464/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR ESTRENOS HD" tvg-logo="" group-title="TV",Movistar Plus+
-https://vavoo.to/live2/play/3585307980.ts
+https://www.kool.to/play/3585307980/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="VIAJAR HD" tvg-logo="" group-title="TV",La Resistencia
-https://vavoo.to/live2/play/296276062.ts
+https://www.kool.to/play/296276062/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="TVE LA 1 MADRID " tvg-logo="" group-title="TV",La 1
-https://vavoo.to/live2/play/2021291682.ts
+https://www.kool.to/play/2021291682/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LA 1 HD" tvg-logo="" group-title="TV",La 1
-https://vavoo.to/live2/play/2673626663.ts
+https://www.kool.to/play/2673626663/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TVE LA 2 " tvg-logo="" group-title="TV",La 2
-https://vavoo.to/live2/play/779986648.ts
+https://www.kool.to/play/779986648/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ANTENA 3 " tvg-logo="" group-title="TV",Antena 3
-https://vavoo.to/live2/play/254679370.ts
+https://www.kool.to/play/254679370/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ANTENA 3 HD" tvg-logo="" group-title="TV",Antena 3
-https://vavoo.to/live2/play/2255480833.ts
+https://www.kool.to/play/2255480833/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CUATRO " tvg-logo="" group-title="TV",Cuatro
-https://vavoo.to/live2/play/1590334161.ts
+https://www.kool.to/play/1590334161/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CUATRO HD" tvg-logo="" group-title="TV",Cuatro
-https://vavoo.to/live2/play/4194733823.ts
+https://www.kool.to/play/4194733823/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TELECINCO " tvg-logo="" group-title="TV",Telecinco
-https://vavoo.to/live2/play/1024256819.ts
+https://www.kool.to/play/1024256819/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TELECINCO HD" tvg-logo="" group-title="TV",Telecinco
-https://vavoo.to/live2/play/353095972.ts
+https://www.kool.to/play/353095972/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LA SEXTA " tvg-logo="" group-title="TV",La Sexta
-https://vavoo.to/live2/play/2660027208.ts
+https://www.kool.to/play/2660027208/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LA SEXTA HD" tvg-logo="" group-title="TV",La Sexta
-https://vavoo.to/live2/play/238901671.ts
+https://www.kool.to/play/238901671/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="ETB 1 " tvg-logo="" group-title="TV",ETB1
-https://vavoo.to/live2/play/4016507507.ts
+https://www.kool.to/play/4016507507/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ETB 2" tvg-logo="" group-title="TV",ETB2
-https://vavoo.to/live2/play/2831642787.ts
+https://www.kool.to/play/2831642787/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ETB BASQUE " tvg-logo="" group-title="TV",EITB Basque
-https://vavoo.to/live2/play/3689889997.ts
+https://www.kool.to/play/3689889997/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="ATRESERIES (A3 SERIES) " tvg-logo="" group-title="TV",Atreseries
-https://vavoo.to/live2/play/1358849039.ts
+https://www.kool.to/play/1358849039/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="A3 SERIES HD" tvg-logo="" group-title="TV",Atreseries
-https://vavoo.to/live2/play/3340892937.ts
+https://www.kool.to/play/3340892937/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="NOVA " tvg-logo="" group-title="TV",Nova
-https://vavoo.to/live2/play/103395382.ts
+https://www.kool.to/play/103395382/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="NOVA" tvg-logo="" group-title="TV",Nova
-https://vavoo.to/live2/play/2356963873.ts
+https://www.kool.to/play/2356963873/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ENERGY " tvg-logo="" group-title="TV",Energy
-https://vavoo.to/live2/play/643888368.ts
+https://www.kool.to/play/643888368/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ENERGY" tvg-logo="" group-title="TV",Energy
-https://vavoo.to/live2/play/2540924807.ts
+https://www.kool.to/play/2540924807/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="FDF" tvg-logo="" group-title="TV",Factoría de Ficción
-https://vavoo.to/live2/play/2622585831.ts
+https://www.kool.to/play/2622585831/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="FACTORIA DE FICCION " tvg-logo="" group-title="TV",Factoría de Ficción
-https://vavoo.to/live2/play/4133961499.ts
+https://www.kool.to/play/4133961499/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="PARAMOUNT CHANNEL" tvg-logo="" group-title="TV",Paramount Network
-https://vavoo.to/live2/play/1709759307.ts
+https://www.kool.to/play/1709759307/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="PARAMOUNT NETWORK " tvg-logo="" group-title="TV",Paramount Network
-https://vavoo.to/live2/play/2278873401.ts
+https://www.kool.to/play/2278873401/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MEGA" tvg-logo="" group-title="TV",Mega
-https://vavoo.to/live2/play/1846141874.ts
+https://www.kool.to/play/1846141874/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MEGA " tvg-logo="" group-title="TV",Mega
-https://vavoo.to/live2/play/3831249317.ts
+https://www.kool.to/play/3831249317/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="Neox " tvg-logo="" group-title="TV",Neox
-https://vavoo.to/live2/play/3950004696.ts
+https://www.kool.to/play/3950004696/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="Neox" tvg-logo="" group-title="TV",Neox
-https://vavoo.to/live2/play/1629852623.ts
+https://www.kool.to/play/1629852623/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TRECE TV " tvg-logo="" group-title="TV",13 TV
-https://vavoo.to/live2/play/902146587.ts
+https://www.kool.to/play/902146587/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="COMEDY CENTRAL HD" tvg-logo="" group-title="TV",Comedy Central
-https://vavoo.to/live2/play/1263523264.ts
+https://www.kool.to/play/1263523264/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="COMEDY CENTRAL " tvg-logo="" group-title="TV",Comedy Central
-https://vavoo.to/live2/play/581715654.ts
+https://www.kool.to/play/581715654/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DISCOVERY CHANNEL" tvg-logo="" group-title="TV",Discovery
-https://vavoo.to/live2/play/3547398786.ts
+https://www.kool.to/play/3547398786/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DISCOVERY WORLD " tvg-logo="" group-title="TV",Discovery
-https://vavoo.to/live2/play/1041357840.ts
+https://www.kool.to/play/1041357840/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="XTRM " tvg-logo="" group-title="TV",XTRM
-https://vavoo.to/live2/play/2269507513.ts
+https://www.kool.to/play/2269507513/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="XTRM FULL HD" tvg-logo="" group-title="TV",XTRM
-https://vavoo.to/live2/play/4208329945.ts
+https://www.kool.to/play/4208329945/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TCM " tvg-logo="" group-title="TV",TCM
-https://vavoo.to/live2/play/3891466198.ts
+https://www.kool.to/play/3891466198/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TCM HD" tvg-logo="" group-title="TV",TCM
-https://vavoo.to/live2/play/1868847447.ts
+https://www.kool.to/play/1868847447/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BE MAD HD" tvg-logo="" group-title="TV",Be Mad
-https://vavoo.to/live2/play/2840476606.ts
+https://www.kool.to/play/2840476606/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BE MAD " tvg-logo="" group-title="TV",Be Mad
-https://vavoo.to/live2/play/22905730.ts
+https://www.kool.to/play/22905730/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DMAX " tvg-logo="" group-title="TV",DMAX
-https://vavoo.to/live2/play/1934981639.ts
+https://www.kool.to/play/1934981639/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="AMC BREAK " tvg-logo="" group-title="TV",AMC Break
-https://vavoo.to/live2/play/3137067513.ts
+https://www.kool.to/play/3137067513/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BLAZE" tvg-logo="" group-title="TV",AMC Break
-https://vavoo.to/live2/play/2047635278.ts
+https://www.kool.to/play/2047635278/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="HISTORIA" tvg-logo="" group-title="TV",Historia
-https://vavoo.to/live2/play/26978931.ts
+https://www.kool.to/play/26978931/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="HISTORIA " tvg-logo="" group-title="TV",Historia
-https://vavoo.to/live2/play/3568177379.ts
+https://www.kool.to/play/3568177379/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="DIVINITY" tvg-logo="" group-title="TV",Divinity
-https://vavoo.to/live2/play/4187786300.ts
+https://www.kool.to/play/4187786300/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DIVINITY " tvg-logo="" group-title="TV",Divinity
-https://vavoo.to/live2/play/749287084.ts
+https://www.kool.to/play/749287084/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DKISS" tvg-logo="" group-title="TV",DKISS
-https://vavoo.to/live2/play/4170408528.ts
+https://www.kool.to/play/4170408528/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="D KISS " tvg-logo="" group-title="TV",DKISS
-https://vavoo.to/live2/play/4289152978.ts
+https://www.kool.to/play/4289152978/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TEN " tvg-logo="" group-title="TV",Ten
-https://vavoo.to/live2/play/1980405275.ts
+https://www.kool.to/play/1980405275/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TEN" tvg-logo="" group-title="TV",Ten
-https://vavoo.to/live2/play/2537320036.ts
+https://www.kool.to/play/2537320036/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="COSMOPOLITAN TV " tvg-logo="" group-title="TV",Cosmo
-https://vavoo.to/live2/play/2970833245.ts
+https://www.kool.to/play/2970833245/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="COSMO HD" tvg-logo="" group-title="TV",Cosmo
-https://vavoo.to/live2/play/3767840195.ts
+https://www.kool.to/play/3767840195/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="HOLA TV " tvg-logo="" group-title="TV",HOLA TV
-https://vavoo.to/live2/play/3449921394.ts
+https://www.kool.to/play/3449921394/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="CRIME & INVESTIGATION" tvg-logo="" group-title="TV",AMC Crime
-https://vavoo.to/live2/play/4077015271.ts
+https://www.kool.to/play/4077015271/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CRIME DISTRICT " tvg-logo="" group-title="TV",AMC Crime
-https://vavoo.to/live2/play/4175356411.ts
+https://www.kool.to/play/4175356411/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="INVESTIGATION DISCOVERY " tvg-logo="" group-title="TV",INVESTIGATION DISCOVERY
-https://vavoo.to/live2/play/1502859990.ts
+https://www.kool.to/play/1502859990/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="TVE STAR " tvg-logo="" group-title="TV",TVE STAR
-https://vavoo.to/live2/play/3835338116.ts
+https://www.kool.to/play/3835338116/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="UBEAT " tvg-logo="" group-title="TV",UBEAT
-https://vavoo.to/live2/play/2930666210.ts
+https://www.kool.to/play/2930666210/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="GRAN HERMANO " tvg-logo="" group-title="TV",GRAN HERMANO
-https://vavoo.to/live2/play/897942216.ts
+https://www.kool.to/play/897942216/index.m3u8
 
 
 
 
 #EXTINF:-1 tvg-id="" tvg-name="M.ACCION HD" tvg-logo="" group-title="CINE",M+ Acción
-https://vavoo.to/live2/play/1704900898.ts
+https://www.kool.to/play/1704900898/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR ACCI©N HD" tvg-logo="" group-title="CINE",M+ Acción
-https://vavoo.to/live2/play/3697992438.ts
+https://www.kool.to/play/3697992438/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="M.ESTRENOS HD" tvg-logo="" group-title="CINE",M+ Indie HD
-https://vavoo.to/live2/play/3864398596.ts
+https://www.kool.to/play/3864398596/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR COMEDIA HD" tvg-logo="" group-title="CINE",M+ Comedia
-https://vavoo.to/live2/play/1285043320.ts
+https://www.kool.to/play/1285043320/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR DRAMA HD" tvg-logo="" group-title="CINE",M+ Drama
-https://vavoo.to/live2/play/2748019555.ts
+https://www.kool.to/play/2748019555/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR SERIES HD" tvg-logo="" group-title="CINE",M+ Hits
-https://vavoo.to/live2/play/1138873971.ts
+https://www.kool.to/play/1138873971/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR SERIESMANIA HD" tvg-logo="" group-title="CINE",M+ Hits HD
-https://vavoo.to/live2/play/1344073831.ts
+https://www.kool.to/play/1344073831/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="A&E " tvg-logo="" group-title="CINE",A&E
-https://vavoo.to/live2/play/3126618519.ts
+https://www.kool.to/play/3126618519/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="FOX " tvg-logo="" group-title="CINE",STAR Channel
-https://vavoo.to/live2/play/3362806456.ts
+https://www.kool.to/play/3362806456/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="FOX HD" tvg-logo="" group-title="CINE",STAR Channel
-https://vavoo.to/live2/play/2656093401.ts
+https://www.kool.to/play/2656093401/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="FOX LIFE HD" tvg-logo="" group-title="CINE",Fox
-https://vavoo.to/live2/play/2765569410.ts
+https://www.kool.to/play/2765569410/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="FOX LIFE " tvg-logo="" group-title="CINE",Fox
-https://vavoo.to/live2/play/1862646610.ts
+https://www.kool.to/play/1862646610/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="AMC " tvg-logo="" group-title="CINE",AMC
-https://vavoo.to/live2/play/1462723502.ts
+https://www.kool.to/play/1462723502/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="AMC HD" tvg-logo="" group-title="CINE",AMC
-https://vavoo.to/live2/play/1940642395.ts
+https://www.kool.to/play/1940642395/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="AXN " tvg-logo="" group-title="CINE",AXN
-https://vavoo.to/live2/play/4238619703.ts
+https://www.kool.to/play/4238619703/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="AXN HD" tvg-logo="" group-title="CINE",AXN
-https://vavoo.to/live2/play/251250868.ts
+https://www.kool.to/play/251250868/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="AXN MOVIES " tvg-logo="" group-title="CINE",AXN Movies
-https://vavoo.to/live2/play/2493319111.ts
+https://www.kool.to/play/2493319111/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="AXN WHITE " tvg-logo="" group-title="CINE",AXN Movies
-https://vavoo.to/live2/play/3062256453.ts
+https://www.kool.to/play/3062256453/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="AXN WHITE HD" tvg-logo="" group-title="CINE",AXN Movies
-https://vavoo.to/live2/play/3312673778.ts
+https://www.kool.to/play/3312673778/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL HOLLYWOOD " tvg-logo="" group-title="CINE",Canal Hollywood HD
-https://vavoo.to/live2/play/3288402534.ts
+https://www.kool.to/play/3288402534/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="HOLLYWOOD " tvg-logo="" group-title="CINE",Canal Hollywood HD
-https://vavoo.to/live2/play/4079560337.ts
+https://www.kool.to/play/4079560337/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="HOLLYWOOD HD" tvg-logo="" group-title="CINE",Canal Hollywood HD
-https://vavoo.to/live2/play/4205258144.ts
+https://www.kool.to/play/4205258144/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="SOMOS " tvg-logo="" group-title="CINE",Somos
-https://vavoo.to/live2/play/4252300734.ts
+https://www.kool.to/play/4252300734/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="WARNER TV " tvg-logo="" group-title="CINE",M+ Los Goya
-https://vavoo.to/live2/play/2109803559.ts
+https://www.kool.to/play/2109803559/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TNT HD" tvg-logo="" group-title="CINE",Warner TV
-https://vavoo.to/live2/play/4259288064.ts
+https://www.kool.to/play/4259288064/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="DARK " tvg-logo="" group-title="CINE",DARK
-https://vavoo.to/live2/play/385322260.ts
+https://www.kool.to/play/385322260/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="SYFY HD" tvg-logo="" group-title="CINE",SyFy HD
-https://vavoo.to/live2/play/3126656022.ts
+https://www.kool.to/play/3126656022/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="SYFY " tvg-logo="" group-title="CINE",SyFy HD
-https://vavoo.to/live2/play/3068126176.ts
+https://www.kool.to/play/3068126176/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CALLE 13 " tvg-logo="" group-title="CINE",Calle 13
-https://vavoo.to/live2/play/1343655533.ts
+https://www.kool.to/play/1343655533/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CALLE 13 HD" tvg-logo="" group-title="CINE",Calle 13
-https://vavoo.to/live2/play/2909740152.ts
+https://www.kool.to/play/2909740152/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BOM CINE " tvg-logo="" group-title="CINE",BOM Cine
-https://vavoo.to/live2/play/2566347328.ts
+https://www.kool.to/play/2566347328/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="SUNDANCE TV " tvg-logo="" group-title="CINE",Sundance TV
-https://vavoo.to/live2/play/486650129.ts
+https://www.kool.to/play/486650129/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="STAR CHANNEL " tvg-logo="" group-title="CINE",STAR Channel
-https://vavoo.to/live2/play/501658715.ts
+https://www.kool.to/play/501658715/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="STAR LIFE " tvg-logo="" group-title="CINE",STAR LIFE
-https://vavoo.to/live2/play/737189879.ts
+https://www.kool.to/play/737189879/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="HBO " tvg-logo="" group-title="CINE",HBO
-https://vavoo.to/live2/play/4128340393.ts
+https://www.kool.to/play/4128340393/index.m3u8
 
 
 
 
 #EXTINF:-1 tvg-id="" tvg-name="DAZN 1 " tvg-logo="" group-title="DAZN",DAZN 1
-https://vavoo.to/live2/play/2941093452.ts
+https://www.kool.to/play/2941093452/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DAZN F1 " tvg-logo="" group-title="DAZN",DAZN F1
-https://vavoo.to/live2/play/3129220252.ts
+https://www.kool.to/play/3129220252/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DAZN LALIGA " tvg-logo="" group-title="DAZN",DAZN LaLiga HD
-https://vavoo.to/live2/play/3461295847.ts
+https://www.kool.to/play/3461295847/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DAZN 2 " tvg-logo="" group-title="DAZN",DAZN 2 HD
-https://vavoo.to/live2/play/3907910812.ts
+https://www.kool.to/play/3907910812/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DAZN 3 " tvg-logo="" group-title="DAZN",DAZN 3 HD
-https://vavoo.to/live2/play/3582842156.ts
+https://www.kool.to/play/3582842156/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DAZN 4 " tvg-logo="" group-title="DAZN",DAZN 4 HD
-https://vavoo.to/live2/play/1739393340.ts
+https://www.kool.to/play/1739393340/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DAZN LALIGA 2 " tvg-logo="" group-title="DAZN",DAZN LaLiga 2 HD
-https://vavoo.to/live2/play/427708442.ts
+https://www.kool.to/play/427708442/index.m3u8
 
 
 #EXTINF:-1 tvg-id="1624090577" tvg-name="ES | MOVISTAR DEPORTE 1 HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="DEPORTES",ES | MOVISTAR DEPORTE 1 HD (1)
-https://vavoo.to/live2/play/1624090577.ts
+https://www.kool.to/play/1624090577/index.m3u8
 #EXTINF:-1 tvg-id="2981915461" tvg-name="ES | M.DEPORTES HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="DEPORTES",ES | M.DEPORTES HD (1)
-https://vavoo.to/live2/play/2981915461.ts
+https://www.kool.to/play/2981915461/index.m3u8
 #EXTINF:-1 tvg-id="1188166343" tvg-name="ES | MOVISTAR DEPORTES (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="DEPORTES",ES | MOVISTAR DEPORTES (1)
-https://vavoo.to/live2/play/1188166343.ts
+https://www.kool.to/play/1188166343/index.m3u8
 
 
 
 
 #EXTINF:-1 tvg-id="" tvg-name="MULTIDEPORTE " tvg-logo="" group-title="DEPORTES",MULTIDEPORTE
-https://vavoo.to/live2/play/242013171.ts
+https://www.kool.to/play/242013171/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR DEPORTES" tvg-logo="" group-title="DEPORTES",M+ Deportes OUT
-https://vavoo.to/live2/play/1188166343.ts
+https://www.kool.to/play/1188166343/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="M.DEPORTES HD" tvg-logo="" group-title="DEPORTES",M+ Deportes OUT
-https://vavoo.to/live2/play/2981915461.ts
+https://www.kool.to/play/2981915461/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR DEPORTE 1 HD" tvg-logo="" group-title="DEPORTES",MOVISTAR DEPORTE 1
-https://vavoo.to/live2/play/1624090577.ts
+https://www.kool.to/play/1624090577/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="VAMOS BAR 1 HD" tvg-logo="" group-title="DEPORTES",M+ Vamos
-https://vavoo.to/live2/play/2276951612.ts
+https://www.kool.to/play/2276951612/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="VAMOS " tvg-logo="" group-title="DEPORTES",M+ Vamos
-https://vavoo.to/live2/play/2724831939.ts
+https://www.kool.to/play/2724831939/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="VAMOS HD" tvg-logo="" group-title="DEPORTES",M+ Vamos
-https://vavoo.to/live2/play/450666896.ts
+https://www.kool.to/play/450666896/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="M+ ELLAS #V " tvg-logo="" group-title="DEPORTES",M+ Ellas Vamos
-https://vavoo.to/live2/play/3518404885.ts
+https://www.kool.to/play/3518404885/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 1 HD" tvg-logo="" group-title="DEPORTES",Eurosport 1
-https://vavoo.to/live2/play/1364676535.ts
+https://www.kool.to/play/1364676535/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 1 " tvg-logo="" group-title="DEPORTES",Eurosport 1
-https://vavoo.to/live2/play/3632748102.ts
+https://www.kool.to/play/3632748102/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 1" tvg-logo="" group-title="DEPORTES",Eurosport 1
-https://vavoo.to/live2/play/2423006885.ts
+https://www.kool.to/play/2423006885/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 2 " tvg-logo="" group-title="DEPORTES",Eurosport 2
-https://vavoo.to/live2/play/2670144662.ts
+https://www.kool.to/play/2670144662/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 2 fr" tvg-logo="" group-title="DEPORTES",FR | Eurosport 2
-https://vavoo.to/live2/play/3620494453.ts
+https://www.kool.to/play/3620494453/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 2 (BACKUP)" tvg-logo="" group-title="DEPORTES",FR | Eurosport 2
-https://vavoo.to/live2/play/3474692336.ts
+https://www.kool.to/play/3474692336/index.m3u8
 
 
 #EXTINF:-1 tvg-id="" tvg-name="BEIN SPORTS XTRA Ñ (6)" tvg-logo="" group-title="DEPORTES",beIN SPORTS XTRA ñ
-https://vavoo.to/live2/play/979824657.ts
+https://www.kool.to/play/979824657/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BEIN SPORTS N " tvg-logo="" group-title="DEPORTES",BEIN SPORTS N
-https://vavoo.to/live2/play/3580225131.ts
+https://www.kool.to/play/3580225131/index.m3u8
 
 
 #EXTINF:-1 tvg-id="" tvg-name="TELEDEPORTE" tvg-logo="" group-title="DEPORTES",Teledeporte
-https://vavoo.to/live2/play/2183991865.ts
+https://www.kool.to/play/2183991865/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TELEDEPORTE HD" tvg-logo="" group-title="DEPORTES",Teledeporte
-https://vavoo.to/live2/play/531598528.ts
+https://www.kool.to/play/531598528/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TELEDEPORTE " tvg-logo="" group-title="DEPORTES",Teledeporte
-https://vavoo.to/live2/play/3401999066.ts
+https://www.kool.to/play/3401999066/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="M.FORMULA 1 HD" tvg-logo="" group-title="DEPORTES",DAZN F1
-https://vavoo.to/live2/play/1826839470.ts
+https://www.kool.to/play/1826839470/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR F1 HD" tvg-logo="" group-title="DEPORTES",DAZN F1
-https://vavoo.to/live2/play/270716645.ts
+https://www.kool.to/play/270716645/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="M.GOLF HD" tvg-logo="" group-title="DEPORTES",M+ Golf
-https://vavoo.to/live2/play/428774689.ts
+https://www.kool.to/play/428774689/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR GOLF HD" tvg-logo="" group-title="DEPORTES",M+ Golf
-https://vavoo.to/live2/play/2703480816.ts
+https://www.kool.to/play/2703480816/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="GOL PLAY " tvg-logo="" group-title="DEPORTES",GOL PLAY
-https://vavoo.to/live2/play/467441495.ts
+https://www.kool.to/play/467441495/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="GOL" tvg-logo="" group-title="DEPORTES",GOL PLAY
-https://vavoo.to/live2/play/441554993.ts
+https://www.kool.to/play/441554993/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="GOL TV HD" tvg-logo="" group-title="DEPORTES",GOL PLAY
-https://vavoo.to/live2/play/4165524123.ts
+https://www.kool.to/play/4165524123/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="GOL TV " tvg-logo="" group-title="DEPORTES",GOL TV
-https://vavoo.to/live2/play/1447300419.ts
+https://www.kool.to/play/1447300419/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="FOX SPORTS 2 " tvg-logo="" group-title="DEPORTES",FOX SPORTS 2
-https://vavoo.to/live2/play/4022001704.ts
+https://www.kool.to/play/4022001704/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="FOX SPORTS 3 " tvg-logo="" group-title="DEPORTES",FOX SPORTS 3
-https://vavoo.to/live2/play/3537553816.ts
+https://www.kool.to/play/3537553816/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOTO ADV " tvg-logo="" group-title="DEPORTES",MOTO ADV
-https://vavoo.to/live2/play/1498547821.ts
+https://www.kool.to/play/1498547821/index.m3u8
 
 
 #EXTINF:-1 tvg-id="" tvg-name="ESPORT 3 " tvg-logo="" group-title="DEPORTES",Esport 3
-https://vavoo.to/live2/play/3950843408.ts
+https://www.kool.to/play/3950843408/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="REAL MADRID TV" tvg-logo="" group-title="DEPORTES",Real Madrid TV
-https://vavoo.to/live2/play/3927192385.ts
+https://www.kool.to/play/3927192385/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="REAL MADRID TV " tvg-logo="" group-title="DEPORTES",Real Madrid TV
-https://vavoo.to/live2/play/2755024161.ts
+https://www.kool.to/play/2755024161/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="REAL MADRID TV HD" tvg-logo="" group-title="DEPORTES",Real Madrid TV
-https://vavoo.to/live2/play/2530683051.ts
+https://www.kool.to/play/2530683051/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="REAL MADRID TV 480 " tvg-logo="" group-title="DEPORTES",Real Madrid TV
-https://vavoo.to/live2/play/2707218142.ts
+https://www.kool.to/play/2707218142/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="SEVILLA FC TV " tvg-logo="" group-title="DEPORTES",Sevilla FC TV
-https://vavoo.to/live2/play/1389221209.ts
+https://www.kool.to/play/1389221209/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BARCA TV" tvg-logo="" group-title="DEPORTES",Barcelona TV
-https://vavoo.to/live2/play/1979280950.ts
+https://www.kool.to/play/1979280950/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BARCA TV (BACKUP)" tvg-logo="" group-title="DEPORTES",BARCA TV
-https://vavoo.to/live2/play/1097058594.ts
+https://www.kool.to/play/1097058594/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ESPN DEPORTES " tvg-logo="" group-title="DEPORTES",ESPN DEPORTES
-https://vavoo.to/live2/play/2648419344.ts
+https://www.kool.to/play/2648419344/index.m3u8
 
 
 
 #EXTINF:-1 tvg-id="" tvg-name="BEIN SPORTS LA LIGA" tvg-logo="" group-title="FUTBOL",La 1
-https://vavoo.to/live2/play/3939390473.ts
+https://www.kool.to/play/3939390473/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA 1" tvg-logo="" group-title="FUTBOL",La 1
-https://vavoo.to/live2/play/1969674121.ts
+https://www.kool.to/play/1969674121/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="LA LIGA TV BAR HD" tvg-logo="" group-title="FUTBOL",LA LIGA TV BAR
-https://vavoo.to/live2/play/109394788.ts
+https://www.kool.to/play/109394788/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA (BACKUP)" tvg-logo="" group-title="FUTBOL",M+ LaLiga TV
-https://vavoo.to/live2/play/2652614938.ts
+https://www.kool.to/play/2652614938/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA" tvg-logo="" group-title="FUTBOL",M+ LaLiga TV
-https://vavoo.to/live2/play/2428779244.ts
+https://www.kool.to/play/2428779244/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LIGA TV" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV 2
-https://vavoo.to/live2/play/1995273516.ts
+https://www.kool.to/play/1995273516/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LA LIGA TV HD" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV
-https://vavoo.to/live2/play/3923153097.ts
+https://www.kool.to/play/3923153097/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA 2" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV 2
-https://vavoo.to/live2/play/851881305.ts
+https://www.kool.to/play/851881305/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LA LIGA 3" tvg-logo="" group-title="FUTBOL",M+ LALIGA TV 3
-https://vavoo.to/live2/play/262571241.ts
+https://www.kool.to/play/262571241/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="M+ LALIGA " tvg-logo="" group-title="FUTBOL",M+ LaLiga TV
-https://vavoo.to/live2/play/3996529465.ts
+https://www.kool.to/play/3996529465/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="M.LIGA DE CAMPEONES HD" tvg-logo="" group-title="FUTBOL",M+ Liga de Campeones
-https://vavoo.to/live2/play/2726712057.ts
+https://www.kool.to/play/2726712057/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LIGA CAMPEONES HD" tvg-logo="" group-title="FUTBOL",M+ Liga de Campeones
-https://vavoo.to/live2/play/1198249236.ts
+https://www.kool.to/play/1198249236/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LIGA DE CAMPEONES 1 HD (ONLY EVENT)" tvg-logo="" group-title="FUTBOL",M+ Liga de Campeones
-https://vavoo.to/live2/play/1079960250.ts
+https://www.kool.to/play/1079960250/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LIGA DE CAMPEONES" tvg-logo="" group-title="FUTBOL",M+ Liga de Campeones
-https://vavoo.to/live2/play/1275784434.ts
+https://www.kool.to/play/1275784434/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LIGA DE CAMPEONES 2 HD (ONLY EVENT)" tvg-logo="" group-title="FUTBOL",M+ Liga de Campeones 2
-https://vavoo.to/live2/play/994074713.ts
+https://www.kool.to/play/994074713/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LIGA DE CAMPEONES 3 HD (ONLY EVENT)" tvg-logo="" group-title="FUTBOL",M+ Liga de Campeones 3
-https://vavoo.to/live2/play/2761614279.ts
+https://www.kool.to/play/2761614279/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOVISTAR LIGA DE CAMPEONES 4 HD (ONLY EVENT)" tvg-logo="" group-title="FUTBOL",M+ Liga de Campeones 4
-https://vavoo.to/live2/play/3447547295.ts
+https://www.kool.to/play/3447547295/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="LALIGA TV HYPERMOTION " tvg-logo="" group-title="FUTBOL",LaLiga TV Hypermotion HD
-https://vavoo.to/live2/play/3958277473.ts
+https://www.kool.to/play/3958277473/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LALIGA SMARTBANK TV 1 " tvg-logo="" group-title="FUTBOL",LALIGA TV HYPERMOTION
-https://vavoo.to/live2/play/1164372496.ts
+https://www.kool.to/play/1164372496/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LALIGA TV HYPERMOTION 2 " tvg-logo="" group-title="FUTBOL",LaLiga TV Hypermotion HD
-https://vavoo.to/live2/play/899887126.ts
+https://www.kool.to/play/899887126/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LALIGA SMARTBANK TV 2 " tvg-logo="" group-title="FUTBOL",LALIGA TV HYPERMOTION 2
-https://vavoo.to/live2/play/46567616.ts
+https://www.kool.to/play/46567616/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LALIGA SMARTBANK TV 3 " tvg-logo="" group-title="FUTBOL",LALIGA TV HYPERMOTION 3
-https://vavoo.to/live2/play/1067891056.ts
+https://www.kool.to/play/1067891056/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LALIGA SMARTBANK TV " tvg-logo="" group-title="FUTBOL",LALIGA TV HYPERMOTION
-https://vavoo.to/live2/play/3443159697.ts
+https://www.kool.to/play/3443159697/index.m3u8
 
 
 
 #EXTINF:-1 tvg-id="" tvg-name="VAMOS BAR 1 HD" tvg-logo="" group-title="FUTBOL",Vamos BAR
-https://vavoo.to/live2/play/2276951612.ts
+https://www.kool.to/play/2276951612/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="VAMOS BAR 2 HD" tvg-logo="" group-title="FUTBOL",Vamos BAR 2
-https://vavoo.to/live2/play/154698207.ts
+https://www.kool.to/play/154698207/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="LALIGA TV BAR" tvg-logo="" group-title="FUTBOL",LaLiga TV BAR HD
-https://vavoo.to/live2/play/2178025822.ts
+https://www.kool.to/play/2178025822/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LALIGA TV BAR " tvg-logo="" group-title="FUTBOL",LaLiga TV BAR HD
-https://vavoo.to/live2/play/1980907224.ts
+https://www.kool.to/play/1980907224/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LIGA TV BAR 3 HD" tvg-logo="" group-title="FUTBOL",LaLiga TV BAR 3
-https://vavoo.to/live2/play/4050371970.ts
+https://www.kool.to/play/4050371970/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LIGA TV BAR 4 HD" tvg-logo="" group-title="FUTBOL",LaLiga TV BAR 4
-https://vavoo.to/live2/play/4222536859.ts
+https://www.kool.to/play/4222536859/index.m3u8
 
 
 
 
 #EXTINF:-1 tvg-id="" tvg-name="NAT GEO " tvg-logo="" group-title="VARIOS",National Geographic
-https://vavoo.to/live2/play/3689902952.ts
+https://www.kool.to/play/3689902952/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="NATIONAL GEOGRAPHIC HD" tvg-logo="" group-title="VARIOS",National Geographic
-https://vavoo.to/live2/play/1462574321.ts
+https://www.kool.to/play/1462574321/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="NAT GEO WILD " tvg-logo="" group-title="VARIOS",Nat Geo Wild
-https://vavoo.to/live2/play/289455435.ts
+https://www.kool.to/play/289455435/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="NAT GEO WILD HD" tvg-logo="" group-title="VARIOS",Nat Geo Wild
-https://vavoo.to/live2/play/2832532485.ts
+https://www.kool.to/play/2832532485/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CAZA Y PESCA " tvg-logo="" group-title="VARIOS",Caza y Pesca
-https://vavoo.to/live2/play/3961204377.ts
+https://www.kool.to/play/3961204377/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CAZA Y PESCA HD" tvg-logo="" group-title="VARIOS",Caza y Pesca
-https://vavoo.to/live2/play/2148381699.ts
+https://www.kool.to/play/2148381699/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CAZA Y PESCA HD (BACKUP)" tvg-logo="" group-title="VARIOS",Caza y Pesca
-https://vavoo.to/live2/play/1735831563.ts
+https://www.kool.to/play/1735831563/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="IBERLIA TV" tvg-logo="" group-title="VARIOS",Iberalia TV
-https://vavoo.to/live2/play/2193702924.ts
+https://www.kool.to/play/2193702924/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="IBERALIA TV " tvg-logo="" group-title="VARIOS",Iberalia TV
-https://vavoo.to/live2/play/745432578.ts
+https://www.kool.to/play/745432578/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="NATURE TIME " tvg-logo="" group-title="VARIOS",NatureTime
-https://vavoo.to/live2/play/3291147412.ts
+https://www.kool.to/play/3291147412/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CACAVISION " tvg-logo="" group-title="VARIOS",Cazavisión
-https://vavoo.to/live2/play/2496355050.ts
+https://www.kool.to/play/2496355050/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="CANAL ODISEA " tvg-logo="" group-title="VARIOS",Odisea
-https://vavoo.to/live2/play/1795451587.ts
+https://www.kool.to/play/1795451587/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL ODISEA" tvg-logo="" group-title="VARIOS",Odisea
-https://vavoo.to/live2/play/406958643.ts
+https://www.kool.to/play/406958643/index.m3u8
 
 #EXTINF:-1 tvg-id="" tvg-name="CANAL DECASA" tvg-logo="" group-title="VARIOS",Decasa
-https://vavoo.to/live2/play/1137978670.ts
+https://www.kool.to/play/1137978670/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DECASA " tvg-logo="" group-title="VARIOS",Decasa
-https://vavoo.to/live2/play/326701577.ts
+https://www.kool.to/play/326701577/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL COCINA " tvg-logo="" group-title="VARIOS",Canal Cocina
-https://vavoo.to/live2/play/3418635035.ts
+https://www.kool.to/play/3418635035/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL COCINA" tvg-logo="" group-title="VARIOS",Canal Cocina
-https://vavoo.to/live2/play/3095520235.ts
+https://www.kool.to/play/3095520235/index.m3u8
 
 
 
 #EXTINF:-1 tvg-id="" tvg-name="RAKUTEN 1 " tvg-logo="" group-title="RAKUTEN",RAKUTEN 1
-https://vavoo.to/live2/play/3354821207.ts
+https://www.kool.to/play/3354821207/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="RAKUTEN 2 " tvg-logo="" group-title="RAKUTEN",RAKUTEN 2
-https://vavoo.to/live2/play/1976983111.ts
+https://www.kool.to/play/1976983111/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="RAKUTEN 3 " tvg-logo="" group-title="RAKUTEN",RAKUTEN 3
-https://vavoo.to/live2/play/3174486327.ts
+https://www.kool.to/play/3174486327/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="RAKUTEN 6 " tvg-logo="" group-title="RAKUTEN",RAKUTEN 6
-https://vavoo.to/live2/play/2153183367.ts
+https://www.kool.to/play/2153183367/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="RAKUTEN 7 " tvg-logo="" group-title="RAKUTEN",RAKUTEN 7
-https://vavoo.to/live2/play/1219917815.ts
+https://www.kool.to/play/1219917815/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="RAKUTEN FAMILY " tvg-logo="" group-title="RAKUTEN",RAKUTEN FAMILY
-https://vavoo.to/live2/play/3555546026.ts
+https://www.kool.to/play/3555546026/index.m3u8
 
 
 
 
 #EXTINF:-1 tvg-id="" tvg-name="24 HORAS" tvg-logo="" group-title="NOTICIAS",24 Horas
-https://vavoo.to/live2/play/1537807715.ts
+https://www.kool.to/play/1537807715/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL 24 HORAS " tvg-logo="" group-title="NOTICIAS",24 Horas
-https://vavoo.to/live2/play/2123081752.ts
+https://www.kool.to/play/2123081752/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="RTVE " tvg-logo="" group-title="NOTICIAS",24 Horas
-https://vavoo.to/live2/play/3177511590.ts
+https://www.kool.to/play/3177511590/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TVE INTERNACIONAL EUROPA " tvg-logo="" group-title="NOTICIAS",TVE INTERNACIONAL EUROPA
-https://vavoo.to/live2/play/3969343348.ts
+https://www.kool.to/play/3969343348/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="EURONEWS EN ESPANOL " tvg-logo="" group-title="NOTICIAS",EuroNews
-https://vavoo.to/live2/play/3882151848.ts
+https://www.kool.to/play/3882151848/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CNN EN ESPANOL " tvg-logo="" group-title="NOTICIAS",CNN en Español
-https://vavoo.to/live2/play/2703788385.ts
+https://www.kool.to/play/2703788385/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BLOOMBERG TV EUROPE " tvg-logo="" group-title="NOTICIAS",Bloomberg TV Europe
-https://vavoo.to/live2/play/605083986.ts
+https://www.kool.to/play/605083986/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BLOOMBERG TV EMEA LIVE EVENT " tvg-logo="" group-title="NOTICIAS",Bloomberg TV Europe
-https://vavoo.to/live2/play/3037841209.ts
+https://www.kool.to/play/3037841209/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="NEGOCIOS TV " tvg-logo="" group-title="NOTICIAS",Negocios TV
-https://vavoo.to/live2/play/3478528126.ts
+https://www.kool.to/play/3478528126/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="RT ESPAÑOL " tvg-logo="" group-title="NOTICIAS",RT ESPAÑOL
-https://vavoo.to/live2/play/3881386219.ts
+https://www.kool.to/play/3881386219/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="FRANCE 24 " tvg-logo="" group-title="NOTICIAS",FRANCE 24
-https://vavoo.to/live2/play/1626957676.ts
+https://www.kool.to/play/1626957676/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="EL TORO TV " tvg-logo="" group-title="NOTICIAS",El Toro TV
-https://vavoo.to/live2/play/1390269076.ts
+https://www.kool.to/play/1390269076/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TOROS TV HD" tvg-logo="" group-title="NOTICIAS",El Toro TV
-https://vavoo.to/live2/play/1213515147.ts
+https://www.kool.to/play/1213515147/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TOROS " tvg-logo="" group-title="NOTICIAS",El Toro TV
-https://vavoo.to/live2/play/142832720.ts
+https://www.kool.to/play/142832720/index.m3u8
 
 
 
 #EXTINF:-1 tvg-id="" tvg-name="MTV ESPANA" tvg-logo="" group-title="MUSICA",MTV España
-https://vavoo.to/live2/play/2061606272.ts
+https://www.kool.to/play/2061606272/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MTV ESPANA " tvg-logo="" group-title="MUSICA",MTV España
-https://vavoo.to/live2/play/4068619843.ts
+https://www.kool.to/play/4068619843/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CLASSICA" tvg-logo="" group-title="MUSICA",Classica
-https://vavoo.to/live2/play/2838647061.ts
+https://www.kool.to/play/2838647061/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="STINGRAY CLASSICA " tvg-logo="" group-title="MUSICA",Classica
-https://vavoo.to/live2/play/497796471.ts
+https://www.kool.to/play/497796471/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MEZZO " tvg-logo="" group-title="MUSICA",Mezzo
-https://vavoo.to/live2/play/1556364158.ts
+https://www.kool.to/play/1556364158/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MEZZO LIVE " tvg-logo="" group-title="MUSICA",Mezzo Live HD
-https://vavoo.to/live2/play/1583754502.ts
+https://www.kool.to/play/1583754502/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MOLAHITS TV " tvg-logo="" group-title="MUSICA",MOLAHITS TV
-https://vavoo.to/live2/play/328081519.ts
+https://www.kool.to/play/328081519/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CADENA ELITE " tvg-logo="" group-title="MUSICA",CADENA ELITE
-https://vavoo.to/live2/play/2235104269.ts
+https://www.kool.to/play/2235104269/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ACTIVA TV " tvg-logo="" group-title="MUSICA",ACTIVA TV
-https://vavoo.to/live2/play/3892867833.ts
+https://www.kool.to/play/3892867833/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="PORTAL FOXMIX " tvg-logo="" group-title="MUSICA",PORTAL FOXMIX
-https://vavoo.to/live2/play/2666326430.ts
+https://www.kool.to/play/2666326430/index.m3u8
 
 
 
 
 
 #EXTINF:-1 tvg-id="" tvg-name="DISNEY CHANNEL HD" tvg-logo="" group-title="KID's",Disney Channel
-https://vavoo.to/live2/play/1113196758.ts
+https://www.kool.to/play/1113196758/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DISNEY JUNIOR" tvg-logo="" group-title="KID's",Disney Junior
-https://vavoo.to/live2/play/4130868041.ts
+https://www.kool.to/play/4130868041/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DREAMWORKS TV " tvg-logo="" group-title="KID's",Dreamworks
-https://vavoo.to/live2/play/3362559361.ts
+https://www.kool.to/play/3362559361/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL PANDA" tvg-logo="" group-title="KID's",Enfamilia
-https://vavoo.to/live2/play/3910659553.ts
+https://www.kool.to/play/3910659553/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL PANDA " tvg-logo="" group-title="KID's",Enfamilia
-https://vavoo.to/live2/play/2717687042.ts
+https://www.kool.to/play/2717687042/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ENFAMILIA " tvg-logo="" group-title="KID's",Enfamilia
-https://vavoo.to/live2/play/2411568928.ts
+https://www.kool.to/play/2411568928/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="NICKELODEON HD" tvg-logo="" group-title="KID's",Nickelodeon
-https://vavoo.to/live2/play/615663221.ts
+https://www.kool.to/play/615663221/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="NICKELODEON " tvg-logo="" group-title="KID's",Nickelodeon
-https://vavoo.to/live2/play/2720994160.ts
+https://www.kool.to/play/2720994160/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="NICK JR" tvg-logo="" group-title="KID's",Nick JR
-https://vavoo.to/live2/play/787563522.ts
+https://www.kool.to/play/787563522/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="NICK JUNIOR " tvg-logo="" group-title="KID's",Nick JR
-https://vavoo.to/live2/play/1143774621.ts
+https://www.kool.to/play/1143774621/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CLAN TVE" tvg-logo="" group-title="KID's",Clan
-https://vavoo.to/live2/play/1995483814.ts
+https://www.kool.to/play/1995483814/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CLAN TVE " tvg-logo="" group-title="KID's",Clan
-https://vavoo.to/live2/play/2747600950.ts
+https://www.kool.to/play/2747600950/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CLAN" tvg-logo="" group-title="KID's",Clan
-https://vavoo.to/live2/play/3121791135.ts
+https://www.kool.to/play/3121791135/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BOING" tvg-logo="" group-title="KID's",Boing
-https://vavoo.to/live2/play/636171559.ts
+https://www.kool.to/play/636171559/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BOING " tvg-logo="" group-title="KID's",Boing
-https://vavoo.to/live2/play/3971769720.ts
+https://www.kool.to/play/3971769720/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BABY TV " tvg-logo="" group-title="KID's",Baby TV
-https://vavoo.to/live2/play/1448805961.ts
+https://www.kool.to/play/1448805961/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BABY TV" tvg-logo="" group-title="KID's",Baby TV
-https://vavoo.to/live2/play/3531960591.ts
+https://www.kool.to/play/3531960591/index.m3u8
 
 
 
 #EXTINF:-1 tvg-id="" tvg-name="ONETORO " tvg-logo="" group-title="TOROS",Onetoro
-https://vavoo.to/live2/play/1442267705.ts
+https://www.kool.to/play/1442267705/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TOROLÉ TV " tvg-logo="" group-title="TOROS",Torolé TV
-https://vavoo.to/live2/play/472209056.ts
+https://www.kool.to/play/472209056/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TOROS TV" tvg-logo="" group-title="TOROS",TOROS TV
-https://vavoo.to/live2/play/469813358.ts
+https://www.kool.to/play/469813358/index.m3u8
 
 
 
@@ -608,181 +610,181 @@ https://vavoo.to/live2/play/469813358.ts
 
 
 #EXTINF:-1 tvg-id="" tvg-name="TELE MADRID" tvg-logo="" group-title="REGIONAL",Telemadrid
-https://vavoo.to/live2/play/353289702.ts
+https://www.kool.to/play/353289702/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TELEMADRID " tvg-logo="" group-title="REGIONAL",Telemadrid
-https://vavoo.to/live2/play/2123930014.ts
+https://www.kool.to/play/2123930014/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL SUR A" tvg-logo="" group-title="REGIONAL",Canal Sur
-https://vavoo.to/live2/play/460346627.ts
+https://www.kool.to/play/460346627/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL SUR ANDALUCIA " tvg-logo="" group-title="REGIONAL",Canal Sur
-https://vavoo.to/live2/play/2458539823.ts
+https://www.kool.to/play/2458539823/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL EXTREMADURA " tvg-logo="" group-title="REGIONAL",Canal Extremadura
-https://vavoo.to/live2/play/3410008380.ts
+https://www.kool.to/play/3410008380/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ARAGON" tvg-logo="" group-title="REGIONAL",Aragón TV
-https://vavoo.to/live2/play/1532168948.ts
+https://www.kool.to/play/1532168948/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ARAGON TV INTERNACIONAL " tvg-logo="" group-title="REGIONAL",Aragón TV Internacional
-https://vavoo.to/live2/play/521393455.ts
+https://www.kool.to/play/521393455/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TV GALICIA" tvg-logo="" group-title="REGIONAL",TVG -TV Galicia
-https://vavoo.to/live2/play/4080888323.ts
+https://www.kool.to/play/4080888323/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TVG 2 " tvg-logo="" group-title="REGIONAL",TVG 2
-https://vavoo.to/live2/play/56692299.ts
+https://www.kool.to/play/56692299/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TV3 CATALUNYA " tvg-logo="" group-title="REGIONAL",TV3CAT Catalunya
-https://vavoo.to/live2/play/1898714632.ts
+https://www.kool.to/play/1898714632/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TV3 CATALUNIA" tvg-logo="" group-title="REGIONAL",TV3 Catalunya
-https://vavoo.to/live2/play/2235179797.ts
+https://www.kool.to/play/2235179797/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ONDA CADIZ " tvg-logo="" group-title="REGIONAL",Onda Cadiz TV
-https://vavoo.to/live2/play/2682195445.ts
+https://www.kool.to/play/2682195445/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BETEVE " tvg-logo="" group-title="REGIONAL",Betevé
-https://vavoo.to/live2/play/958089500.ts
+https://www.kool.to/play/958089500/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TV CASTILLA LA MANCHA " tvg-logo="" group-title="REGIONAL",Castilla la Mancha TV
-https://vavoo.to/live2/play/3432994000.ts
+https://www.kool.to/play/3432994000/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LA OTRA " tvg-logo="" group-title="REGIONAL",LA OTRA
-https://vavoo.to/live2/play/3503480950.ts
+https://www.kool.to/play/3503480950/index.m3u8
 
 
 #EXTINF:-1 tvg-id="" tvg-name="TELENOVELAS " tvg-logo="" group-title="REGIONAL",TELENOVELAS
-https://vavoo.to/live2/play/1456200012.ts
+https://www.kool.to/play/1456200012/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="5RTV SANTA FE " tvg-logo="" group-title="REGIONAL",5RTV SANTA FE
-https://vavoo.to/live2/play/3558636721.ts
+https://www.kool.to/play/3558636721/index.m3u8
 
 
 #EXTINF:-1 tvg-id="" tvg-name="HAMAIKA TELEBISTA " tvg-logo="" group-title="REGIONAL",HAMAIKA TELEBISTA
-https://vavoo.to/live2/play/4120875927.ts
+https://www.kool.to/play/4120875927/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="OIZMENDI TELEBISTA " tvg-logo="" group-title="REGIONAL",OIZMENDI TELEBISTA
-https://vavoo.to/live2/play/619735660.ts
+https://www.kool.to/play/619735660/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TELE SAFOR " tvg-logo="" group-title="REGIONAL",TELE SAFOR
-https://vavoo.to/live2/play/977226543.ts
+https://www.kool.to/play/977226543/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BAILEN TV " tvg-logo="" group-title="REGIONAL",BAILEN TV
-https://vavoo.to/live2/play/1994370616.ts
+https://www.kool.to/play/1994370616/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL 25 BARBASTRO " tvg-logo="" group-title="REGIONAL",CANAL 25 BARBASTRO
-https://vavoo.to/live2/play/3726531801.ts
+https://www.kool.to/play/3726531801/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="SOLIDARIA TV " tvg-logo="" group-title="REGIONAL",SOLIDARIA TV
-https://vavoo.to/live2/play/3973811070.ts
+https://www.kool.to/play/3973811070/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="AFV ESPANOL " tvg-logo="" group-title="REGIONAL",AFV ESPANOL
-https://vavoo.to/live2/play/3307268079.ts
+https://www.kool.to/play/3307268079/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ALACANTI TV " tvg-logo="" group-title="REGIONAL",ALACANTI TV
-https://vavoo.to/live2/play/4125579950.ts
+https://www.kool.to/play/4125579950/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL TARONJA OSONA " tvg-logo="" group-title="REGIONAL",CANAL TARONJA OSONA
-https://vavoo.to/live2/play/645787578.ts
+https://www.kool.to/play/645787578/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL TARONJA OSONA I MOIANÉS " tvg-logo="" group-title="REGIONAL",CANAL TARONJA OSONA I MOIANÉS
-https://vavoo.to/live2/play/688033992.ts
+https://www.kool.to/play/688033992/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="GALICIA TV " tvg-logo="" group-title="REGIONAL",GALICIA TV
-https://vavoo.to/live2/play/2642866194.ts
+https://www.kool.to/play/2642866194/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="324 CAT " tvg-logo="" group-title="REGIONAL",324 CAT
-https://vavoo.to/live2/play/2640191847.ts
+https://www.kool.to/play/2640191847/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="101 TV MALAGA " tvg-logo="" group-title="REGIONAL",101 TV MALAGA
-https://vavoo.to/live2/play/3042734297.ts
+https://www.kool.to/play/3042734297/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ANDORRA TV " tvg-logo="" group-title="REGIONAL",ANDORRA TV
-https://vavoo.to/live2/play/1249174614.ts
+https://www.kool.to/play/1249174614/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ALCARRIA TV " tvg-logo="" group-title="REGIONAL",ALCARRIA TV
-https://vavoo.to/live2/play/4251716677.ts
+https://www.kool.to/play/4251716677/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="EL PINGUINO TV " tvg-logo="" group-title="REGIONAL",EL PINGUINO TV
-https://vavoo.to/live2/play/1710359793.ts
+https://www.kool.to/play/1710359793/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="COSTADELSOL TV " tvg-logo="" group-title="REGIONAL",COSTADELSOL TV
-https://vavoo.to/live2/play/3711475512.ts
+https://www.kool.to/play/3711475512/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="JUNTA CASTILLA Y LEON " tvg-logo="" group-title="REGIONAL",JUNTA CASTILLA Y LEON
-https://vavoo.to/live2/play/1957287328.ts
+https://www.kool.to/play/1957287328/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL MALAGA " tvg-logo="" group-title="REGIONAL",CANAL MALAGA
-https://vavoo.to/live2/play/3490700601.ts
+https://www.kool.to/play/3490700601/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LANCELOT TV " tvg-logo="" group-title="REGIONAL",LANCELOT TV
-https://vavoo.to/live2/play/3831813669.ts
+https://www.kool.to/play/3831813669/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL DONANA " tvg-logo="" group-title="REGIONAL",CANAL DONANA
-https://vavoo.to/live2/play/2180152276.ts
+https://www.kool.to/play/2180152276/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL PARLAMENTO " tvg-logo="" group-title="REGIONAL",CANAL PARLAMENTO
-https://vavoo.to/live2/play/1111750157.ts
+https://www.kool.to/play/1111750157/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MAR TV " tvg-logo="" group-title="REGIONAL",MAR TV
-https://vavoo.to/live2/play/3767887105.ts
+https://www.kool.to/play/3767887105/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL 45 TV " tvg-logo="" group-title="REGIONAL",CANAL 45 TV
-https://vavoo.to/live2/play/2197204081.ts
+https://www.kool.to/play/2197204081/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="25 TV " tvg-logo="" group-title="REGIONAL",25 TV
-https://vavoo.to/live2/play/3228351756.ts
+https://www.kool.to/play/3228351756/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="RADIO TELEVISIÓN MELILLA " tvg-logo="" group-title="REGIONAL",RADIO TELEVISIÓN MELILLA
-https://vavoo.to/live2/play/2520649121.ts
+https://www.kool.to/play/2520649121/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DISTRITO TV " tvg-logo="" group-title="REGIONAL",DISTRITO TV
-https://vavoo.to/live2/play/4257164702.ts
+https://www.kool.to/play/4257164702/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="GIRONA TV " tvg-logo="" group-title="REGIONAL",GIRONA TV
-https://vavoo.to/live2/play/1349066536.ts
+https://www.kool.to/play/1349066536/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CGTN ESPANOL " tvg-logo="" group-title="REGIONAL",CGTN ESPANOL
-https://vavoo.to/live2/play/2525619575.tsg
+https://www.kool.to/play/2525619575/index.m3u8g
 #EXTINF:-1 tvg-id="" tvg-name="RTV VIDA " tvg-logo="" group-title="REGIONAL",RTV VIDA
-https://vavoo.to/live2/play/2788570309.ts
+https://www.kool.to/play/2788570309/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="SOPHIA TV ESPAÑOL " tvg-logo="" group-title="REGIONAL",SOPHIA TV ESPAÑOL
-https://vavoo.to/live2/play/3711717935.ts
+https://www.kool.to/play/3711717935/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MIRAME TV " tvg-logo="" group-title="REGIONAL",MIRAME TV
-https://vavoo.to/live2/play/3375922050.ts
+https://www.kool.to/play/3375922050/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="POPULAR TV MELILLA " tvg-logo="" group-title="REGIONAL",POPULAR TV MELILLA
-https://vavoo.to/live2/play/18640730.ts
+https://www.kool.to/play/18640730/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="PTV CORDOBA " tvg-logo="" group-title="REGIONAL",PTV CORDOBA
-https://vavoo.to/live2/play/3995929237.ts
+https://www.kool.to/play/3995929237/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="NORTEVISION " tvg-logo="" group-title="REGIONAL",NORTEVISION
-https://vavoo.to/live2/play/3216535545.ts
+https://www.kool.to/play/3216535545/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TELEVISIÓN MELILLA " tvg-logo="" group-title="REGIONAL",TELEVISIÓN MELILLA
-https://vavoo.to/live2/play/3719112207.ts
+https://www.kool.to/play/3719112207/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LOGOS TV " tvg-logo="" group-title="REGIONAL",LOGOS TV
-https://vavoo.to/live2/play/44475216.ts
+https://www.kool.to/play/44475216/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ONDA ALGECIRAS TV " tvg-logo="" group-title="REGIONAL",ONDA ALGECIRAS TV
-https://vavoo.to/live2/play/610646599.ts
+https://www.kool.to/play/610646599/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL SIERRA DE CADIZ " tvg-logo="" group-title="REGIONAL",CANAL SIERRA DE CADIZ
-https://vavoo.to/live2/play/1475374610.ts
+https://www.kool.to/play/1475374610/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="BON DIA TV " tvg-logo="" group-title="REGIONAL",BON DIA TV
-https://vavoo.to/live2/play/3334324116.ts
+https://www.kool.to/play/3334324116/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL 10 EMPORDA " tvg-logo="" group-title="REGIONAL",CANAL 10 EMPORDA
-https://vavoo.to/live2/play/1294208925.ts
+https://www.kool.to/play/1294208925/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="ESPERANZA TV " tvg-logo="" group-title="REGIONAL",ESPERANZA TV
-https://vavoo.to/live2/play/1383981291.ts
+https://www.kool.to/play/1383981291/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="PEQUERADIO " tvg-logo="" group-title="REGIONAL",PEQUERADIO
-https://vavoo.to/live2/play/3872495261.ts
+https://www.kool.to/play/3872495261/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="RTVIDA " tvg-logo="" group-title="REGIONAL",RTVIDA
-https://vavoo.to/live2/play/2601907871.ts
+https://www.kool.to/play/2601907871/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="POPULAR TV CANTABRIA " tvg-logo="" group-title="REGIONAL",POPULAR TV CANTABRIA
-https://vavoo.to/live2/play/426249559.ts
+https://www.kool.to/play/426249559/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="COSTA NOROESTE TV " tvg-logo="" group-title="REGIONAL",COSTA NOROESTE TV
-https://vavoo.to/live2/play/1757152742.ts
+https://www.kool.to/play/1757152742/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="PUNT 3 VALL UIXO " tvg-logo="" group-title="REGIONAL",PUNT 3 VALL UIXO
-https://vavoo.to/live2/play/286586580.ts
+https://www.kool.to/play/286586580/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="DIEZ TV " tvg-logo="" group-title="REGIONAL",DIEZ TV
-https://vavoo.to/live2/play/1205331668.ts
+https://www.kool.to/play/1205331668/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TELEVIGO " tvg-logo="" group-title="REGIONAL",TELEVIGO
-https://vavoo.to/live2/play/967807787.ts
+https://www.kool.to/play/967807787/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MARBELLA TV " tvg-logo="" group-title="REGIONAL",MARBELLA TV
-https://vavoo.to/live2/play/3847314697.ts
+https://www.kool.to/play/3847314697/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TV FERROL " tvg-logo="" group-title="REGIONAL",TV FERROL
-https://vavoo.to/live2/play/899969829.ts
+https://www.kool.to/play/899969829/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="EMPORDA TV " tvg-logo="" group-title="REGIONAL",EMPORDA TV
-https://vavoo.to/live2/play/1054272251.ts
+https://www.kool.to/play/1054272251/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="LA URBAN TV " tvg-logo="" group-title="REGIONAL",LA URBAN TV
-https://vavoo.to/live2/play/1340694365.ts
+https://www.kool.to/play/1340694365/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CONDAVISION " tvg-logo="" group-title="REGIONAL",CONDAVISION
-https://vavoo.to/live2/play/3519716522.ts
+https://www.kool.to/play/3519716522/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CULTURA 24 TV " tvg-logo="" group-title="REGIONAL",CULTURA 24 TV
-https://vavoo.to/live2/play/3509056761.ts
+https://www.kool.to/play/3509056761/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="IBIZA GLOBAL TV " tvg-logo="" group-title="REGIONAL",IBIZA GLOBAL TV
-https://vavoo.to/live2/play/3694215617.ts
+https://www.kool.to/play/3694215617/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="STAR LIFE " tvg-logo="" group-title="REGIONAL",STAR LIFE
-https://vavoo.to/live2/play/737189879.ts
+https://www.kool.to/play/737189879/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL 56 " tvg-logo="" group-title="REGIONAL",CANAL 56
-https://vavoo.to/live2/play/3918688074.ts
+https://www.kool.to/play/3918688074/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="FUENGIROLA TV " tvg-logo="" group-title="REGIONAL",FUENGIROLA TV
-https://vavoo.to/live2/play/2240203018.ts
+https://www.kool.to/play/2240203018/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TV5 LIMARES " tvg-logo="" group-title="REGIONAL",TV5 LIMARES
-https://vavoo.to/live2/play/2455049178.ts
+https://www.kool.to/play/2455049178/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TVG MUSIGAL " tvg-logo="" group-title="REGIONAL",TVG MUSIGAL
-https://vavoo.to/live2/play/1338054601.ts
+https://www.kool.to/play/1338054601/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="MARÍA VISIÓN " tvg-logo="" group-title="REGIONAL",MARÍA VISIÓN
-https://vavoo.to/live2/play/4020820423.ts
+https://www.kool.to/play/4020820423/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL DIOCESANO " tvg-logo="" group-title="REGIONAL",CANAL DIOCESANO
-https://vavoo.to/live2/play/4217507207.ts
+https://www.kool.to/play/4217507207/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TELEONUBA " tvg-logo="" group-title="REGIONAL",TELEONUBA
-https://vavoo.to/live2/play/3225990350.ts
+https://www.kool.to/play/3225990350/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="13 TV " tvg-logo="" group-title="REGIONAL",13 TV
-https://vavoo.to/live2/play/1066305614.ts
+https://www.kool.to/play/1066305614/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="7 TV MURCIA " tvg-logo="" group-title="REGIONAL",7 TV MURCIA
-https://vavoo.to/live2/play/3521839803.ts
+https://www.kool.to/play/3521839803/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL 4 " tvg-logo="" group-title="REGIONAL",CANAL 4
-https://vavoo.to/live2/play/3790097768.ts
+https://www.kool.to/play/3790097768/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="TUYA LA JANDA TV " tvg-logo="" group-title="REGIONAL",TUYA LA JANDA TV
-https://vavoo.to/live2/play/1762459844.ts
+https://www.kool.to/play/1762459844/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="7 TELEVALENCIA " tvg-logo="" group-title="REGIONAL",7 TELEVALENCIA
-https://vavoo.to/live2/play/2801370243.ts
+https://www.kool.to/play/2801370243/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="CANAL EXTREMADURA " tvg-logo="" group-title="REGIONAL",Canal Extremadura
 #EXTINF:-1 tvg-id="" tvg-name="M95 MARBELLA " tvg-logo="" group-title="REGIONAL",M95 MARBELLA
-https://vavoo.to/live2/play/3202539477.ts
+https://www.kool.to/play/3202539477/index.m3u8
