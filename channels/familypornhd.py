@@ -55,7 +55,7 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='elementor-widget-container')
+    matches = soup.find_all('h3')
     for elem in matches:
         url = elem.a['href']
         title = elem.a.text.strip()
@@ -70,13 +70,13 @@ def catalogo(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('li', class_='g1-terms-item')
+    matches = soup.find('div', class_='entry-content').find_all('li')
     for elem in matches:
+        # logger.debug(elem)
         url = elem.a['href']
         title = elem.h4.text.strip()
-        thumbnail = elem.a['style']
-        thumbnail = scrapertools.find_single_match(thumbnail, "url\(([^\\)]+)")
-        cantidad = elem.find('span', class_='g1-term-count')
+        thumbnail = ""
+        cantidad = elem.strong
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
         plot = ""
@@ -127,19 +127,9 @@ def findvideos(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    ref = soup.iframe['src']
-    data = httptools.downloadpage(ref, headers={'Referer': item.url}).data
-    videourl = scrapertools.find_single_match(data, '"videoUrl":"([^"]+)"').replace("\/", "/")
-    videoserver = scrapertools.find_single_match(data, '"videoServer":"([^"]+)"')
-    videourl = "%s?s=%s&d=" %(videourl,videoserver)
-    videourl = urlparse.urljoin(ref,videourl)
-    headers = {'Accept': '*/*', 'Referer': videourl}
-    data = httptools.downloadpage(videourl, headers= headers).data
-    patron = 'RESOLUTION=\d+x(\d+)\s*([^\s]+)'
-    matches = re.compile(patron,re.DOTALL).findall(data)
-    for quality,url in matches:
-        url += "|Referer=%s" %ref
-        itemlist.append(Item(channel=item.channel, action="play", title= quality, contentTitle = item.title, url=url))
+    url = soup.iframe['src']
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
 
@@ -147,24 +137,15 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    ref = soup.iframe['src']
+    
     pornstar = soup.find('p', class_='has-text-align-center').text.strip()
     pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar.replace("Pornstar: ", "")
     lista = item.contentTitle.split("]")
     lista[0]= "%s]" %lista[0]
     lista.insert (1, pornstar)
-    item.contentTitle = ' '.join(lista)    
-    data = httptools.downloadpage(ref, headers={'Referer': item.url}).data
-    videourl = scrapertools.find_single_match(data, '"videoUrl":"([^"]+)"').replace("\/", "/")
-    videoserver = scrapertools.find_single_match(data, '"videoServer":"([^"]+)"')
-    videourl = "%s?s=%s&d=" %(videourl,videoserver)
-    videourl = urlparse.urljoin(ref,videourl)
-    headers = {'Accept': '*/*', 'Referer': videourl}
-    data = httptools.downloadpage(videourl, headers= headers).data
-    patron = 'RESOLUTION=\d+x(\d+)\s*([^\s]+)'
-    matches = re.compile(patron,re.DOTALL).findall(data)
-    for quality,url in matches:
-        url += "|Referer=%s" %ref
-        itemlist.append(['%sp' %quality, url])
-    itemlist.sort(key=lambda item: int( re.sub("\D", "", item[0])))
+    item.contentTitle = ' '.join(lista)
+    
+    url = soup.iframe['src']
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

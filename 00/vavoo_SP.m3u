@@ -23,23 +23,37 @@
 #################################################################################
 Vavoo.tV   
 #D:\Kodi21\portable_data\addons\plugin.video.vavooto\resources\lib\vjlive.py
-#    https://www2.vavoo.to/live2/index?output=json
 
-#def choose():
-#	for c in requests.get("https://www2.vavoo.to/live2/index", params={"output": "json"}).json():
-
+vav_channels = "D://Kraken/custom/vav_channels.json"
 
 ACTIVAR DEBUG  ctr+may+D
 
-def liveplay:
+def vav_channels():
+	chans = utils.get_cache("vav_channels")
+	if chans: return chans
+	_headers={"user-agent": "okhttp/4.11.0", "accept": "application/json", "content-type": "application/json; charset=utf-8", "content-length": "1106", "accept-encoding": "gzip", "mediahubmx-signature": utils.getAuthSignature()}
+	utils.log("_headers %s" % _headers)
+	items = []
+	for group in vavoo_groups():
+		cursor = 0
+		while True:
+			_data={"language":"de","region":"AT","catalogId":"iptv","id":"iptv","adult":False,"search":"","sort":"name","filter":{"group":group},"cursor":cursor,"clientVersion":"3.0.2"}
+			r = requests.post("https://vavoo.to/mediahubmx-catalog.json", json=_data, headers=_headers).json()
+			cursor = r.get("nextCursor")
+			items += r.get("items")
+			if 'Spain' in group:
+				utils.log("_data %s" % _data)
+				utils.log("_data %s" % r)
+				utils.log("SPAIN %s" % items)
+			if not cursor: break
+	utils.set_cache("vav_channels", items, timeout = 60 * int(addon.getSetting("vav_cache")))
+	utils.log("vav_channels %s" % items)
+	return items
 
-	utils.log("Spiele %s" % n)
-	utils.log("Spiele %s" % url)
 
-
-####VAVOOTO####
+        ####VAVOOTO####
            "Spiele https://www.kool.to/play/1940642395ece0dbc0c8c9"
-########
+        ########
 
 #########################################################################################
 

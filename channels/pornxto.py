@@ -26,8 +26,9 @@ forced_proxy_opt = 'ProxySSL'
 canonical = {
              'channel': 'pornxto', 
              'host': config.get_setting("current_host", 'pornxto', default=''), 
-             'host_alt': ["https://ww4.pornx.to/"], 
-             'host_black_list': ["https://ww3.pornx.to/", "https://ww1.pornx.to/"], 
+             'host_alt': ["https://w63.pornx.to/"], 
+             'host_black_list': [
+                                 "https://ww4.pornx.to/", "https://ww3.pornx.to/", "https://ww1.pornx.to/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -67,13 +68,13 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
                                      list_quality_movies=list_quality_movies, list_quality_tvshow=list_quality_tvshow, 
                                      channel=canonical['channel'], actualizar_titulos=True, url_replace=url_replace, debug=debug)
 
+    # https://w63.pornx.to/wp-admin/admin-ajax.php?filter[order_by]=viewmonth&params[paged]=1
 
 def mainlist(item):
     logger.info()
     itemlist = []
-    
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1/?s=&filter[order_by]=date")) #"newest" 
-    # itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="list_all", url=host + "most-viewed-month"))
+    # itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="list_all", url=host + "page/1/?s=&filter[order_by]=viewmonth"))
     # itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "top-rated-month"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "channels/page/1/?archive_query=view", extra="Canal"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/", extra="Categorias"))

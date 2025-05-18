@@ -51,7 +51,7 @@ url_replace = []
 finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['list-videos', 'thumbs']}]),
                              ('find_all', [{'tag': ['div'], 'class':['item', 'thumb']}])]),
                # {'find_all': [{'tag': ['div'], 'class':['item']}]},  # 'id': re.compile(r"^vid-\d+")
-         'categories': dict([('find', [{'tag': ['div'], 'class': ['list-cat', 'list-albums', 'list-channels', 'list-models', 'list-categories', 'list-sponsors']}]),  #, 'list-videos'       porndr['list-cat', 'list-albums', 'list-channels']
+         'categories': dict([('find', [{'tag': ['div'], 'class': ['list-cat', 'list-albums', 'list-channels', 'list-models', 'list_models_models_list', 'list-categories','list_categories_categories_list',  'list-sponsors']}]),  #, 'list-videos'       porndr['list-cat', 'list-albums', 'list-channels']
                              ('find_all', [{'tag': ['a']}])]),
          'search': {}, 
          'get_quality': {}, 
@@ -112,8 +112,9 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="alotporn" , action="submenu", url= "https://www.alotporn.com/", chanel="alotporn", thumbnail = "https://i.postimg.cc/rFc78PKG/alotporn.webp"))
     itemlist.append(Item(channel=item.channel, title="hornyfap" , action="submenu", url= "https://hornyfap.com/", chanel="hornyfap", thumbnail = "https://i.postimg.cc/4NhjP8JD/hornyfap.png"))
     # itemlist.append(Item(channel=item.channel, title="leakxxx" , action="submenu", url= "https://leak.xxx/", chanel="leakxxx", thumbnail = "https://i.postimg.cc/LXJv4zpM/leakxxx.png"))   ### models paginacion moore
-    itemlist.append(Item(channel=item.channel, title="nudes7" , action="submenu", url= "https://nudes7.com/", chanel="nudes7", thumbnail = "https://i.postimg.cc/nccCQDp9/nudes7.png"))
-    itemlist.append(Item(channel=item.channel, title="sloppyfans" , action="submenu", url= "https://sloppyfans.com/", chanel="sloppyfans", thumbnail = "https://i.postimg.cc/Df1qcs9C/sloppyfans.png"))
+    # itemlist.append(Item(channel=item.channel, title="nudes7" , action="submenu", url= "https://nudes7.com/", chanel="nudes7", thumbnail = "https://i.postimg.cc/nccCQDp9/nudes7.png"))
+    itemlist.append(Item(channel=item.channel, title="shareanynudes" , action="submenu", url= "https://shareanynudes.com/", chanel="shareanynudes", thumbnail = "https://i.postimg.cc/nccCQDp9/nudes7.png"))
+    # itemlist.append(Item(channel=item.channel, title="sloppyfans" , action="submenu", url= "https://sloppyfans.com/", chanel="sloppyfans", thumbnail = "https://i.postimg.cc/Df1qcs9C/sloppyfans.png"))
     itemlist.append(Item(channel=item.channel, title="thothub" , action="submenu", url= "https://thothub.org/", chanel="thothub", thumbnail = "https://i.postimg.cc/Sx41nPyr/thothub.png"))
 
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
@@ -143,7 +144,7 @@ def submenu(item):
     if not "ezporn" in item.url and not "fullporno" in item.url and not "pornwex" in item.url:
         if "porndr" in item.url:
             itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=item.url + "channels/?sort_by=total_videos&from=1", extra="Canal", chanel=item.chanel))
-        elif not "alotporn" in item.url and not "hornyfap" in item.url and not "leak.xxx" in item.url and not "nudes7" in item.url \
+        elif not "alotporn" in item.url and not "hornyfap" in item.url and not "leak.xxx" in item.url and not "nudes7" in item.url and not "shareanynudes" in item.url\
             and not "pornkinky" in item.url and not "pornbimbo" in item.url and not "sloppyfans" in item.url and not "thothub" in item.url:
             itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=item.url + "sites/?sort_by=total_videos&from=1", extra="Canal", chanel=item.chanel))
         if "love4porn" in item.url:
