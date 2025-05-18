@@ -419,6 +419,17 @@ redtube
 		- Si no hay matches, se ejecuta el código que habías puesto al final de findvideos_matches para preparar Item para la reproducción.  Si se
                   hiciera un return itemlist listaría el enlace y el usuario tendría que pinchar para reproducir, sin embargo, con return launcher.run(item)                   	  			 	  llamamos al launcher para que piense que el usuario ya ha pinchado en el enlace, y empiece la reproducción inmediatamente.
 
+		# soup = AlfaChannel.create_soup(item.url, **kwargs)
+		# matches = AlfaChannel.parse_finds_dict(soup, finds['findvideos'])
+		    # if not matches:
+			# from platformcode import launcher
+			# item.action = 'play'
+			# item.language = ''
+			# item.server = 'vsexin'
+			# item.setMimeType = 'application/vnd.apple.mpegurl'
+			# return launcher.run(item)
+
+
 severeporn
 -sexfullmovies  AlfaChannel.doo_url + kwargs['post']  en play
 -sexmex
