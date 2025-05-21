@@ -23,7 +23,7 @@ forced_proxy_opt = 'ProxySSL'
 
 ###### https://serakon.com/  https://vsex.in/
 
-                ####   NETU    falta resolver escenas en vsex.in
+                ####   NETU
 
 canonical = {
              'channel': 'serakon', 
@@ -55,7 +55,8 @@ finds = {'find': {'find_all': [{'tag': ['article'], 'class': ['movie-box']}]},  
                             ('find_all', [{'tag': ['a'], '@POS': [-1]}]),
                             ('get_text', [{'strip': True}])]), 
          'plot': {},
-         'findvideos': {'find_all': [{'tag': ['h3'], 'class': ['descargas-borde']}]},
+         # 'findvideos': {'find_all': [{'tag': ['div','h3'], 'class': ['descargas-borde']}]},
+         'findvideos': {},
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
@@ -102,49 +103,79 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    findS = finds.copy()
-    findS['controls']['action'] = 'findvideos'
+    # findS = finds.copy()
+    # findS['controls']['action'] = 'findvideos'
     
-    return AlfaChannel.list_all(item, finds=findS, **kwargs)
+    # return AlfaChannel.list_all(item, finds=findS, **kwargs)
+    return AlfaChannel.list_all(item, **kwargs)
 
 
 def findvideos(item):
     logger.info()
     
-    soup = AlfaChannel.create_soup(item.url, **kwargs)
-    matches = AlfaChannel.parse_finds_dict(soup, finds['findvideos'])
-    if not matches:
-        from platformcode import launcher
-        item.action = 'play'
-        item.language = ''
-        item.server = 'vsexin'
-        item.setMimeType = 'application/vnd.apple.mpegurl'
-        return launcher.run(item)
+    # soup = AlfaChannel.create_soup(item.url, **kwargs)
+    # matches = AlfaChannel.parse_finds_dict(soup, finds['findvideos'])
+    # if not matches:
+        # from platformcode import launcher
+        # item.action = 'play'
+        # item.language = ''
+        # item.server = 'vsexin'
+        # item.setMimeType = 'application/vnd.apple.mpegurl'
+        # return launcher.run(item)
     
-    return AlfaChannel.get_video_options(item, item.url, data=soup, matches_post=findvideos_matches, 
-                                         verify_links=False, generictools=True, findvideos_proc=True, **kwargs)
+    return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
+                                         verify_links=False, findvideos_proc=True, **kwargs)
+    # return AlfaChannel.get_video_options(item, item.url, data=soup, matches_post=findvideos_matches, 
+                                         # verify_links=False, generictools=True, findvideos_proc=True, **kwargs)
 
 
-def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
-    logger.info()
-    matches = []
-    findS = AHkwargs.get('finds', finds)
+# def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
+    # logger.info()
+    # matches = []
+    # findS = AHkwargs.get('finds', finds)
     
-    for elem in matches_int:
-        elem_json = {}
+    # for elem in matches_int:
+        # elem_json = {}
         
-        try:
-            elem_json['url'] = elem.a.get("href", "")
-            elem_json['title'] = elem.a.get_text(strip=True).capitalize()
-            elem_json['language'] = ''
-        except:
-            logger.error(elem)
-            logger.error(traceback.format_exc())
+        # try:
+            # elem_json['url'] = elem.a.get("href", "")
+            # elem_json['title'] = elem.a.get_text(strip=True).capitalize()
+            
+            # elem_json['language'] = ''
+        # except:
+            # logger.error(elem)
+            # logger.error(traceback.format_exc())
 
-        if not elem_json.get('url', ''): continue
-        matches.append(elem_json.copy())
+        # if not elem_json.get('url', ''): continue
+        # matches.append(elem_json.copy())
 
-    return matches, langs
+    # return matches, langs
+
+
+def play(item):
+    logger.info()
+    itemlist = []
+    
+    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    # descargas = soup.find('div', class_='descargas')
+    
+    if soup.find_all('a', href=re.compile("/pornstar/[A-z0-9-%20]+/")):
+        pornstars = soup.find_all('a', href=re.compile("/pornstar/[A-z0-9-%20]+/"))
+        for x, value in enumerate(pornstars):
+            pornstars[x] = value.get_text(strip=True)
+        pornstar = ' & '.join(pornstars)
+        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+        lista = item.contentTitle.split()
+        ## pornstar = pornstar.replace('[/COLOR]', '')
+        # pornstar = ' %s' %pornstar
+        # lista.insert (0, pornstar)
+        # item.contentTitle = ' '.join(lista)
+        plot = pornstar
+        
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url, plot=plot))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    
+    return itemlist
 
 
 def search(item, texto, **AHkwargs):
