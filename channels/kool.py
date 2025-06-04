@@ -41,6 +41,9 @@ canonical = {
 host = canonical['host'] or canonical['host_alt'][0]
 vavoo = "https://vavoo.to/"
 
+# vav_channels = "D://Kraken/custom/00/vav_channels.json"
+# D:\Kodi21\portable_data\userdata\addon_data\plugin.video.vavooto\cache
+vav_channels = "D://Kodi21/portable_data/userdata/addon_data/plugin.video.vavooto/cache/vav_channels.json"
 
 def mainlist(item):
     logger.info()
@@ -49,6 +52,8 @@ def mainlist(item):
     url = "%schannels" % host
 
     itemlist.append(Item(channel=item.channel, title="IPTV" , action="iptv", url=url, pais="Spain"))
+    itemlist.append(Item(channel=item.channel, title="VAVOOTO" , action="vavooto", url=vav_channels, pais="Spain"))
+
     
     headers = {'Referer': host}
     data = httptools.downloadpage(url, headers=headers, canonical=canonical, timeout=timeout).json  #canonical=canonical,
@@ -163,6 +168,7 @@ NOMBRE={'AXN MOVIES': 'AXN Movies', 'AXN WHITE': 'AXN Movies', 'CACAVISION': 'Ca
 
 
 
+
 def iptv(item):
     logger.info()
     itemlist = []
@@ -170,13 +176,19 @@ def iptv(item):
     from core import filetools
     path = filetools.translatePath("special://xbmc")+ 'portable_data/'
     
-    data = httptools.downloadpage(item.url).json
+    
+    from core.jsontools import json
+    data_json = json.loads(vav_channels)
+    logger.debug(data_json)
+    
+    # data = httptools.downloadpage(item.url).json
     ficheros =['DAZN', 'FUTBOL', 'RAKUTEN', 'CAMBIO']
     Dazn = ""
     Futbol = ""
     Rakuten = ""
     Cambio = ""
-    for elem in data:
+    for elem in item.url:
+        logger.debug(elem)
         if item.pais in elem['country']:
             x = ""
             titulo = elem['name'].replace(" .b", "").replace(".c", "")
@@ -231,6 +243,86 @@ def iptv(item):
     # itemlist.sort(key=lambda x: x.title)
     
     return itemlist
+
+
+def vavooto(item):
+    logger.info()
+    itemlist = []
+    # D:\Nexus\portable_data
+    from core import filetools
+    path = filetools.translatePath("special://xbmc")+ 'portable_data/'
+    
+    comparar = "D://Kraken/custom/00/vavoo_SP.m3u"
+    comparar = filetools.read(comparar)
+    
+    from core.jsontools import json
+    data_json = json.loads(filetools.read(item.url))
+    
+    
+    ficheros =['DAZN', 'FUTBOL', 'RAKUTEN', 'CAMBIO']
+    Dazn = ""
+    Futbol = ""
+    Rakuten = ""
+    Cambio = ""
+    for elem in data_json['value']:
+        if item.pais in elem['group']:
+            x = ""
+            titulo = elem['name']
+            title = elem['name'].replace(" .b", "").replace(".c", "")
+            lang = title.replace(" (BACKUP)", "").replace(" FULL HD", "").replace(" HD", "").strip()
+            id = elem['ids']['id']
+            url = elem['url']
+            # pos = elem['p']
+            if lang in NOMBRE:
+                title = NOMBRE.get(lang, lang)
+            else:
+                title = lang
+            
+            
+            if 'dazn' in lang.lower(): 
+                grupo = "DAZN"
+            elif 'BAR ' in lang or 'liga' in lang.lower() or 'laliga' in lang.lower(): 
+                grupo = "FUTBOL"
+            elif 'rakuten' in  lang.lower():
+                grupo = "RAKUTEN"
+            else: 
+                grupo = "CAMBIO"
+            # logger.debug(grupo)
+            lin = '#EXTINF:-1 tvg-id="" tvg-name="%s" tvg-logo="" group-title="%s",%s\n' %(titulo,grupo,title)
+            x += lin
+            # https://vavoo.to/vavoo-iptv/play/
+            url = "%svavoo-iptv/play/%s\n" %(vavoo,id)
+            x += url
+            if grupo == "DAZN" and not id in comparar: Dazn +=x
+            if grupo == "FUTBOL" and not id in comparar: Futbol +=x
+            if grupo == "RAKUTEN" and not id in comparar: Rakuten +=x
+            if grupo == "CAMBIO" and not id in comparar: Cambio +=x
+    # logger.debug(Dazn)
+    # logger.debug(Futbol)
+    # logger.debug(Rakuten)
+    # logger.debug(Cambio)
+    for elem in ficheros:
+        ficherosubtitulo = filetools.join(path, "Z_%s.txt" %elem)
+        if filetools.exists(ficherosubtitulo):
+            try:
+                filetools.remove(ficherosubtitulo)
+            except IOError:
+                logger.error("Error al eliminar el archivo " + ficherosubtitulo)
+                raise
+        if elem == "DAZN": filetools.write(ficherosubtitulo, Dazn)
+        if elem == "FUTBOL": filetools.write(ficherosubtitulo, Futbol)
+        if elem == "RAKUTEN": filetools.write(ficherosubtitulo, Rakuten)
+        if elem == "CAMBIO": filetools.write(ficherosubtitulo, Cambio)
+
+        
+            # itemlist.append(Item(channel=item.channel, action="play", title=title, url=url))
+            # logger.debug(elem)
+            # logger.debug(lin)
+            # logger.debug(url)
+    # itemlist.sort(key=lambda x: x.title)
+    
+    return itemlist
+
 
 
 def findvideos(item):

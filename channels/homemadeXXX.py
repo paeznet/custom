@@ -134,6 +134,22 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
+    
+    soup = create_soup(item.url)
+    
+    if soup.find_all('a', href=re.compile("/models/[A-z0-9-]+(?:/|)")):
+        pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+(?:/|)"))
+        for x, value in enumerate(pornstars):
+            pornstars[x] = value.get_text(strip=True)
+        pornstar = ' & '.join(pornstars)
+        pornstar = "[COLOR cyan] %s" %pornstar
+        lista = item.contentTitle.split('[/COLOR]')
+        if "HD" in item.title:
+            lista.insert (2, pornstar)
+        else:
+            lista.insert (1, pornstar)
+        item.contentTitle = '[/COLOR]'.join(lista)
+    
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
