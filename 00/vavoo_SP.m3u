@@ -298,14 +298,15 @@ https://vavoo.to/vavoo-iptv/play/427708442185d92163f61
 
 #EXTINF:-1 tvg-id="" tvg-name="MULTIDEPORTE " tvg-logo="" group-title="DEPORTES",MULTIDEPORTE
 https://vavoo.to/vavoo-iptv/play/2420131717f9390441c4d
-#EXTINF:-1 tvg-id="1624090577" tvg-name="ES | MOVISTAR DEPORTE 1 HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="DEPORTES",ES | MOVISTAR DEPORTE 1 HD (1)
+#EXTINF:-1 tvg-id="" tvg-name="MOVISTAR DEPORTES" tvg-logo="" group-title="DEPORTES",M+ Deportes
+https://vavoo.to/vavoo-iptv/play/11881663439d233a8dd226
+#EXTINF:-1 tvg-id="1624090577" tvg-name="ES | MOVISTAR DEPORTE 1 HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="DEPORTES",M+ Deportes HD
 https://vavoo.to/vavoo-iptv/play/16240905772a1bd64a3b10
-#EXTINF:-1 tvg-id="2981915461" tvg-name="ES | M.DEPORTES HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="DEPORTES",ES | M.DEPORTES HD (1)
+#EXTINF:-1 tvg-id="2981915461" tvg-name="ES | M.DEPORTES HD (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="DEPORTES",M+ Deportes HD
 https://vavoo.to/vavoo-iptv/play/2981915461c801aa5afbb8
-#EXTINF:-1 tvg-id="1188166343" tvg-name="ES | MOVISTAR DEPORTES (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="DEPORTES",ES | MOVISTAR DEPORTES (1)
+#EXTINF:-1 tvg-id="1188166343" tvg-name="ES | MOVISTAR DEPORTES (1)" tvg-logo="https://www.beceriksizler.net/images/OzBeceriksizlerNetV2/logo.png" group-title="DEPORTES",M+ Deportes
 https://vavoo.to/vavoo-iptv/play/11881663439d233a8dd226
-#EXTINF:-1 tvg-id="" tvg-name="MOVISTAR DEPORTES" tvg-logo="" group-title="DEPORTES",M+ Deportes OUT
-https://vavoo.to/vavoo-iptv/play/11881663439d233a8dd226
+
 #EXTINF:-1 tvg-id="" tvg-name="VAMOS BAR 1 HD" tvg-logo="" group-title="DEPORTES",M+ Vamos
 https://vavoo.to/vavoo-iptv/play/22769516123defcca9246a
 #EXTINF:-1 tvg-id="" tvg-name="VAMOS " tvg-logo="" group-title="DEPORTES",M+ Vamos
@@ -328,6 +329,10 @@ https://vavoo.to/vavoo-iptv/play/27225633662edaae9cc410
 https://vavoo.to/vavoo-iptv/play/36204944534de72eaba372
 #EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 2 (BACKUP)" tvg-logo="" group-title="DEPORTES",FR | Eurosport 2
 https://vavoo.to/vavoo-iptv/play/34746923364fda5c6d183d
+#EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 4 .c" tvg-logo="" group-title="DEPORTES",EUROSPORT 4
+https://vavoo.to/vavoo-iptv/play/2752412701e74afdf9b33
+#EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 5 .c" tvg-logo="" group-title="DEPORTES",EUROSPORT 5
+https://vavoo.to/vavoo-iptv/play/755495046b3dab0609106
 
 
 #EXTINF:-1 tvg-id="" tvg-name="BEIN SPORTS XTRA Ñ (6)" tvg-logo="" group-title="DEPORTES",beIN SPORTS XTRA ñ

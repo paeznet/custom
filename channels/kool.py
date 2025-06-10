@@ -293,6 +293,10 @@ def vavooto(item):
             # https://vavoo.to/vavoo-iptv/play/
             url = "%svavoo-iptv/play/%s\n" %(vavoo,id)
             x += url
+            # if grupo == "DAZN": Dazn +=x
+            # if grupo == "FUTBOL": Futbol +=x
+            # if grupo == "RAKUTEN": Rakuten +=x
+            # if grupo == "CAMBIO": Cambio +=x
             if grupo == "DAZN" and not id in comparar: Dazn +=x
             if grupo == "FUTBOL" and not id in comparar: Futbol +=x
             if grupo == "RAKUTEN" and not id in comparar: Rakuten +=x
@@ -302,7 +306,7 @@ def vavooto(item):
     # logger.debug(Rakuten)
     # logger.debug(Cambio)
     for elem in ficheros:
-        ficherosubtitulo = filetools.join(path, "Z_%s.txt" %elem)
+        ficherosubtitulo = filetools.join(path, "Z_vavooto%s.txt" %elem)
         if filetools.exists(ficherosubtitulo):
             try:
                 filetools.remove(ficherosubtitulo)

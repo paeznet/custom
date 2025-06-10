@@ -232,7 +232,7 @@ def episodios(item):
     logger.info()
     itemlist = []
     templist = seasons(item)
-    for tempitem in templist:
+    for tempitem in templist[:-1]:
         itemlist += episodesxseasons(tempitem)
     return itemlist
 
