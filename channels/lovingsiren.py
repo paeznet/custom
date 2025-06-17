@@ -42,25 +42,26 @@ url_replace = []
 
 finds = {'find':  dict([('find', [{'tag': ['div', 'main'], 'id': ['primary', 'main']}]),
                        ('find_all', [{'tag': ['article'], 'class': [re.compile(r"^post-\d+")]}])]),      #'id': re.compile(r"^browse_\d+")}]},
-         'categories': {'find_all': [{'tag': ['li'], 'class': ['category']}]}, 
+         'categories':  dict([('find', [{'tag': ['div', 'main'], 'id': ['primary', 'main']}]),
+                              ('find_all', [{'tag': ['article'], 'class': [re.compile(r"^post-\d+")]}])]),
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
          'next_page': {},
          'next_page_rgx': [['\/page\/\d+', '/page/%s']], 
-         'last_page': dict([('find', [{'tag': ['nav'], 'class': ['pagination']}]), 
-                            ('find_all', [{'tag': ['a'], '@POS': [-2], 
+         'last_page': dict([('find', [{'tag': ['div'], 'class': ['pagination']}]), 
+                            ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
          'plot': {}, 
-         'findvideos': {'find_all': [{'tag': ['div'], 'class': ['awpcontenedor']}]},
+         'findvideos': {'find_all': [{'tag': ['div'], 'class': ['responsive-player', 'awpcontenedor']}]},
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            'list_all_title': dict([('find', [{'tag': ['h3']}]),
-                                                    ('get_text', [{'tag': '', 'strip': True}])])
+                            # 'list_all_title': dict([('find', [{'tag': ['h3']}]),
+                                                    # ('get_text', [{'tag': '', 'strip': True}])])
                            },
-         'controls': {'url_base64': False, 'cnt_tot': 15, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 28, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -72,7 +73,12 @@ def mainlist(item):
     itemlist = []
     autoplay.init(item.channel, list_servers, list_quality)
     
-    itemlist.append(Item(channel=item.channel, title="Todos" , action="list_all", url=host + "page/1"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1/?filter=latest"))
+    itemlist.append(Item(channel=item.channel, title="Mas visto" , action="list_all", url=host + "page/1/?filter=most-viewed"))
+    itemlist.append(Item(channel=item.channel, title="Popular" , action="list_all", url=host + "page/1/?filter=popular"))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "page/1/?filter=longest"))
+    # itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1/?filter=latest"))
+    # itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1/?filter=latest"))
     itemlist.append(Item(channel=item.channel, title="Bangbros" , action="list_all", url=host + "category/bangbros/page/1"))
     itemlist.append(Item(channel=item.channel, title="Brazzers" , action="list_all", url=host + "category/brazzers/page/1"))
     itemlist.append(Item(channel=item.channel, title="Putalocura" , action="list_all", url=host + "category/putalocura/page/1"))
@@ -80,6 +86,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="MilkyPeru" , action="list_all", url=host + "category/milkyperu/page/1"))
     itemlist.append(Item(channel=item.channel, title="Onlyfans" , action="list_all", url=host + "category/onlyfans/page/1"))
     itemlist.append(Item(channel=item.channel, title="18-years-old" , action="list_all", url=host + "category/18-years-old/page/1"))
+    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "actors/page/1/", extra="PornStar"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     
     autoplay.show_option(item.channel, itemlist)
@@ -89,8 +96,10 @@ def mainlist(item):
 
 def section(item):
     logger.info()
-    
-    return AlfaChannel.section(item, **kwargs)
+    findS = finds.copy()
+    if item.extra == 'PornStar':
+        findS['controls']['cnt_tot'] = 20
+    return AlfaChannel.section(item, finds=findS, **kwargs)
 
 
 def list_all(item):
@@ -113,12 +122,16 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     logger.info()
     matches = []
     findS = AHkwargs.get('finds', finds)
-    
+    # logger.debug(matches_int)
     for elem in matches_int:
         elem_json = {}
         
         try:
-            elem_json['url'] = elem.iframe.get("data-src", "") or elem.iframe.get('src', '')
+            if elem.find('iframe'):
+                elem_json['url'] = elem.iframe.get("data-src", "") or elem.iframe.get('src', '')
+            else:
+                continue
+            if ".realsrv." in elem_json['url']: continue
             elem_json['language'] = ''
         
         except:
@@ -135,7 +148,7 @@ def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    item.url = "%spage/1/?s=%s" % (host, texto.replace(" ", "+"))
+    item.url = "%spage/1/?s=%s&filter=latest" % (host, texto.replace(" ", "+"))
     
     try:
         if texto:

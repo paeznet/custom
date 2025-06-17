@@ -180,9 +180,25 @@ def lista2(item):
 def play(item):
     logger.info()
     itemlist = []
+    soup = create_soup(item.url, referer=host)
+    
+    if soup.find('div', class_='star-avatar'):
+        pornstars = soup.find_all('div', class_='star-avatar')
+        for x , value in enumerate(pornstars):
+            pornstars[x] = value.img['alt']
+        pornstar = ' & '.join(pornstars)
+        logger.debug(pornstar)
+        pornstar = " [COLOR cyan]%s" % pornstar
+        lista = item.contentTitle.split('[/COLOR]')
+        if "[COLOR yellow]" in item.contentTitle:
+            lista.insert (1, pornstar)
+        else:
+            lista.insert (0, pornstar)
+        item.contentTitle = '[/COLOR]'.join(lista)
+    
     if "/video/" in item.url:
-        soup = create_soup(item.url, referer=host).find('div', class_='article-content')
-        elem = soup.find('iframe')
+        matches = soup.find('div', class_='article-content')
+        elem = matches.find('iframe')
         if elem.get("data-src", ""):
             url = elem['data-src']
         else:

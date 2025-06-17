@@ -11,13 +11,18 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+forced_proxy_opt = ""
+
 canonical = {
              'channel': 'perverzija', 
              'host': config.get_setting("current_host", 'perverzija', default=''), 
              'host_alt': ["https://tube.perverzija.com/"], 
              'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
-             'CF': False, 'CF_test': False, 'alfa_s': True
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
+             'CF': True, 'CF_test': False, 'alfa_s': True
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
@@ -164,18 +169,20 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
+    
     soup = create_soup(item.url)
-    pornstars = soup.find('div', class_='item-tax-list').find_all('a', href=re.compile("/stars/"))
-    for x , value in enumerate(pornstars):
-        pornstars[x] = value.text.strip()
-    pornstar = ' & '.join(pornstars)
-    pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
-    # logger.debug(pornstar)
-    lista = []
-    lista.insert (0,pornstar)
-    lista.insert (1,item.plot)
-    item.plot = '\n'.join(lista)
-
+    if soup.find('div', class_='item-tax-list'):
+        pornstars = soup.find('div', class_='item-tax-list').find_all('a', href=re.compile("/stars/"))
+        for x , value in enumerate(pornstars):
+            pornstars[x] = value.text.strip()
+        pornstar = ' & '.join(pornstars)
+        pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+        lista = []
+        lista.insert (0,pornstar)
+        lista.insert (1,item.plot)
+        item.plot = '\n'.join(lista)
+    
+    
     url = soup.iframe['src']
     url = url.replace("index.php?", "load_m3u8_xtremestream.php?")
     data = httptools.downloadpage(url).data
@@ -183,6 +190,6 @@ def play(item):
     matches = scrapertools.find_multiple_matches(data, patron)
     for quality, url in matches:
         # url += '|ignore_response_code="True"'
-        # url += '|Referer=%s' %host
+        # url += '|Referer=%s' %url
         itemlist.append(['[perverzija] %sp' %quality, url])
     return itemlist

@@ -37,14 +37,14 @@ def mainlist(item):
 
     autoplay.init(item.channel, list_servers, list_quality)
 
-    itemlist.append(Item(channel=item.channel, title="Peliculas" , action="lista", url=host + "adult/"))
-    itemlist.append(Item(channel=item.channel, title="      Mas vistas" , action="lista", url=host + "adult/?v_sortby=views"))
-    itemlist.append(Item(channel=item.channel, title="      Mas valoradas" , action="lista", url=host + "adult/?r_sortby=highest_rated"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "adult/"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "adult/"))
-    itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=host + "adult/"))
+    itemlist.append(Item(channel=item.channel, title="Peliculas" , action="submenu", url=host + "adult/", vid = ""))
+    # itemlist.append(Item(channel=item.channel, title="      Mas vistas" , action="lista", url=host + "adult/?v_sortby=views"))
+    # itemlist.append(Item(channel=item.channel, title="      Mas valoradas" , action="lista", url=host + "adult/?r_sortby=highest_rated"))
+    # itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "adult/"))
+    # itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "adult/"))
+    # itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=host + "adult/"))
 
-    itemlist.append(Item(channel=item.channel, title="Videos" , action="submenu", url=host + "scenes/"))
+    itemlist.append(Item(channel=item.channel, title="Videos" , action="submenu", url=host + "scenes/", vid = "vid"))
 
     autoplay.show_option(item.channel, itemlist)
 
@@ -59,7 +59,7 @@ def submenu(item):
     itemlist.append(Item(channel=item.channel, title="Mas valorados" , action="lista", url=item.url + "?r_sortby=highest_rated"))
     itemlist.append(Item(channel=item.channel, title="Destacados" , action="lista", url=item.url + "category/featured-scenes/"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=item.url))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host, vid = "vid"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host, vid = item.vid))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=item.url))
     return itemlist
 

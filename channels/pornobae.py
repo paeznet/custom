@@ -21,7 +21,8 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
-##  FALTA RESOLVER EL CAPTCHA para ver los download
+######   CF
+
 canonical = {
              'channel': 'pornobae', 
              'host': config.get_setting("current_host", 'pornobae', default=''), 
@@ -29,6 +30,9 @@ canonical = {
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
+             # 'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             # 'cf_assistant': False, 'CF_stat': True, 
+             # 'CF': True, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
@@ -71,6 +75,8 @@ def mainlist(item):
     logger.info()
     itemlist = []
     
+    autoplay.init(item.channel, list_servers, list_quality)
+    
     itemlist.append(Item(channel = item.channel, title="Nuevos" , action="list_all", url=host + "page/1/?filter=latest"))
     itemlist.append(Item(channel = item.channel, title="Mas vistos" , action="list_all", url=host + "page/1/?filter=most-viewed"))
     itemlist.append(Item(channel = item.channel, title="Mejor valorado" , action="list_all", url=host + "page/1/?filter=popular"))
@@ -78,6 +84,8 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "actors/page/1/", extra="PornStar"))
     itemlist.append(Item(channel = item.channel, title="Canal" , action="section", url=host + "categories/page/1/", extra="Canal"))
     itemlist.append(Item(channel = item.channel, title="Buscar", action="search"))
+    
+    autoplay.show_option(item.channel, itemlist)
     
     return itemlist
 
@@ -111,12 +119,9 @@ def findvideos(item):
     return AlfaChannel.get_video_options(item, item.url, matches_post=findvideos_matches, 
                                          verify_links=False, generictools=True, findvideos_proc=True, **kwargs)
 
-# <div class="responsive-player"><IFRAME SRC="https://pbflux.com/embed-cpe27qk5ry4g.html" FRAMEBORDER="0" MARGINWIDTH="0" MARGINHEIGHT="0" SCROLLING="NO" WIDTH="640" HEIGHT="360" allowfullscreen></IFRAME></div></div
-# <a class="descarga" href="https://uptobox.com/ampy2r54c7hy" target="_blank" rel="noopener">UPTOBOX [SD]</a>
 
 def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     logger.info()
-    
     matches = []
     findS = AHkwargs.get('finds', finds)
     srv_ids = {"dood": "Doodstream",
@@ -126,12 +131,28 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
                "VOE": "voe",
                "mixdrop.co": "Mixdrop",
                "Upstream": "Upstream"}
+    
+    
+    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    
+    if soup.find('div', id='video-actors'):
+        pornstars = soup.find('div', id='video-actors').find_all('a', href=re.compile("/actor/[A-z0-9-]+/"))
+        for x, value in enumerate(pornstars):
+            pornstars[x] = value.get_text(strip=True)
+        pornstar = ' & '.join(pornstars)
+        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+        item.plot = pornstar
+        # lista = item.contentTitle.split()
+        # if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
+            # lista.insert (4, pornstar)
+        # else:
+            # lista.insert (2, pornstar)
+        # item.contentTitle = ' '.join(lista)
+    
+    
     for elem in matches_int:
         elem_json = {}
-        logger.error(elem)
-        
-        logger.debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-        logger.debug(elem)
+        # logger.error(elem)
         
         try:
             if isinstance(elem, str):
@@ -143,65 +164,29 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
                 elem_json['server'] = AlfaChannel.obtain_domain(elem_json['url']).split('.')[-2]
             else: 
                 elem_json['server'] = "dutrag"  ### Quitar los watch/YnqAKRJybm2PJ  aparecen en movies
-            logger.debug(elem_json['server']+"   " + elem_json['url'])
             if elem_json['server'] in ["Netu", "trailer", "k2s", "dutrag", "adtng"]: continue
             if elem_json['server'] in srv_ids:
                 elem_json['server'] = srv_ids[elem_json['server']]
             elem_json['language'] = ''
-
+        
         except:
             logger.error(elem)
             logger.error(traceback.format_exc())
-
+        
         if not elem_json.get('url', ''): continue
-
+        
         matches.append(elem_json.copy())
+    
+
 
     return matches, langs
-
-
-
-
-
-
-
-
-
-
-
-
-# def play(item):
-    # logger.info()
-    
-    # itemlist = []
-    
-    # soup = AlfaChannel.create_soup(item.url, **kwargs)
-    # logger.debug(soup.find('article'))
-    # if soup.find('div', id="video-actor"):
-        # pornstars = soup.find('div', id="video-actor").find_all('a', href=re.compile("/actor/[A-z0-9-]+/"))
-        
-        # for x, value in enumerate(pornstars):
-            # pornstars[x] = value.get_text(strip=True)
-        
-        # pornstar = ' & '.join(pornstars)
-        # pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-        # lista = item.contentTitle.split('[/COLOR]')
-        # pornstar = pornstar.replace('[/COLOR]', '')
-        # pornstar = ' %s' %pornstar
-        # lista.insert (2, pornstar)
-        # item.contentTitle = '[/COLOR]'.join(lista)
-    # url = soup.find('div', class_="responsive-player").iframe['src']
-    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
-    
-    # return itemlist
 
 
 def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    item.url = "%ssearch/%s/" % (host, texto.replace(" ", "-"))
+    item.url = "%spage/1/?s=%s&filter=latest" % (host, texto.replace(" ", "+"))
     
     try:
         if texto:

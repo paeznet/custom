@@ -25,15 +25,18 @@ forced_proxy_opt = 'ProxySSL'
 canonical = {
              'channel': 'onlinetube', 
              'host': config.get_setting("current_host", 'onlinetube', default=''), 
-             'host_alt': ["https://onlinetube.tv/"], 
-             'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             'host_alt': ["https://x.onlinetube.tv/"], 
+             'host_black_list': ["https://onlinetube.tv/"], 
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 
 host = canonical['host'] or canonical['host_alt'][0]
 
-timeout = 5
+timeout = 45
 kwargs = {}
 debug = config.get_setting('debug_report', default=False)
 movie_path = ''
@@ -41,7 +44,7 @@ tv_path = ''
 language = []
 url_replace = []
 
-finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['list-videos', 'thumbs__list_video']}]),
+finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['list-videos', 'thumbs__list_video', 'main-flex']}]),
                              ('find_all', [{'tag': ['div'], 'class': ['item']}])]),  # 'id': re.compile(r"^vid-\d+")
          'categories': dict([('find', [{'tag': ['div'], 'class': ['list-categories', 'list-models', 'list-channels', 'thumbs__list']}]),
                              ('find_all', [{'tag': ['a', 'div'], 'class': ['item']}])]),
@@ -76,7 +79,7 @@ def mainlist(item):
     logger.info()
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="onlinetube" , action="submenu", url= "https://onlinetube.tv/", chanel="onlinetube", thumbnail = "https://i.postimg.cc/QdYMpYYG/onlinetube.png"))
-    itemlist.append(Item(channel=item.channel, title="huyamba" , action="submenu", url= "https://huyamba.info/", chanel="huyamba", thumbnail = "https://i.postimg.cc/d1Ycd8Fc/logo-huyamba.png"))
+    itemlist.append(Item(channel=item.channel, title="huyamba" , action="submenu", url= "https://wvvw.huyamba.mobi/", chanel="huyamba", thumbnail = "https://i.postimg.cc/d1Ycd8Fc/logo-huyamba.png"))
     itemlist.append(Item(channel=item.channel, title="pornoreka" , action="submenu", url= "https://pornoreka.tv/", chanel="pornoreka", thumbnail = "https://i.postimg.cc/28cYJbQn/pornoreka.png"))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     return itemlist
@@ -130,17 +133,13 @@ def list_all(item):
     logger.info()
     
     findS = finds.copy()
+    
     if item.chanel == 'huyamba':
-        findS['list_all_stime']= dict([('find', [{'tag': ['div'], 'class': ['thumb-video__time']}]),
+        findS['list_all_stime']= dict([('find', [{'tag': ['div'], 'class': ['box', 'thumb-video__time']}]),
                                        ('get_text', [{'tag': '', 'strip': True}])])
-        findS['last_page'] = {}
-        findS['next_page'] =  dict([('find', [{'tag': ['div'], 'class': ['pagination', 'load-more']}]),
-                                    ('find_all', [{'tag': ['a'], '@POS': [-1], '@ARG': 'href',}])]) 
+        item.last_page = 9999
     if item.chanel == 'pornoreka':
         item.last_page = 9999
-        # findS['last_page']= dict([('find', [{'tag': ['div'], 'class': ['pagination', 'load-more']}]), 
-                                  # ('find_all', [{'tag': ['a'], '@POS': [-1], 
-                                           # '@ARG': 'data-parameters', '@TEXT': '\:(\d+)'}])]) 
     
     return AlfaChannel.list_all(item, finds=findS, **kwargs)
 

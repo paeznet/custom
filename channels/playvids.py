@@ -38,7 +38,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%svideos?q=%s" % (host,texto)
+    item.url = "%svideos?qry=%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -174,12 +174,8 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url, canonical=canonical).data
-    patron = 'data-hls-src(\d+)="([^"]+)"'
-    matches = re.compile(patron,re.DOTALL).findall(data)
-    for quality, url in matches:
-        url = url.replace("amp;", "")
-        itemlist.append(Item(channel=item.channel, action="play", title= "%s" %quality, url=url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
 
@@ -187,8 +183,6 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    data = httptools.downloadpage(item.url, canonical=canonical).data
-    soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
     
     pornstars = soup.find('ul', class_='detail-video').find_all('a', href=re.compile("/pornstar/[A-z0-9-]+"))
     for x , value in enumerate(pornstars):
@@ -202,10 +196,7 @@ def play(item):
         lista.insert (2, pornstar)
     item.contentTitle = ' '.join(lista)
     
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     
-    patron = 'data-hls-src(\d+)="([^"]+)"'
-    matches = re.compile(patron,re.DOTALL).findall(data)
-    for quality, url in matches:
-        url = url.replace("amp;", "")
-        itemlist.append(['[peekvids] %sp' %quality, url])
     return itemlist

@@ -134,6 +134,9 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
             elem_json['url'] = elem.get("href", "")
             elem_json['language'] = ''
             
+            if "eliotabrain" in elem_json['url']: elem_json['server']="voe"
+            if "eliotalogic" in elem_json['url']: elem_json['server']="filemoon"
+            
             soup = AlfaChannel.create_soup(item.url, **kwargs)
             pornstars = soup.find_all('a', href=re.compile(r"/(?:cast|pornstar|actor)/[A-z0-9-]+"))
             if pornstars:

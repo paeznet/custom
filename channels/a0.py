@@ -641,6 +641,10 @@ def anno(item):
             lista.insert (2, pornstar)
         item.contentTitle = ' '.join(lista)
 
+
+
+
+
 ########   GENERICO AH
     soup = AlfaChannel.create_soup(item.url, **kwargs)
     if soup.find('a', itemprop='actor'):
@@ -658,6 +662,22 @@ def anno(item):
             lista.insert (1, pornstar)
         item.contentTitle = '[/COLOR]'.join(lista)
 
+
+            #### orgasmatrix
+    soup = create_soup(item.url)
+    if soup.find('div', class_='star-avatar'):
+        pornstars = soup.find_all('div', class_='star-avatar')
+        for x , value in enumerate(pornstars):
+            pornstars[x] = value.img['alt']
+        pornstar = ' & '.join(pornstars)
+        logger.debug(pornstar)
+        pornstar = " [COLOR cyan]%s" % pornstar
+        lista = item.contentTitle.split('[/COLOR]')
+        if "[COLOR yellow]" in item.contentTitle:
+            lista.insert (1, pornstar)
+        else:
+            lista.insert (0, pornstar)
+        item.contentTitle = '[/COLOR]'.join(lista)
 
 
         ### fpo

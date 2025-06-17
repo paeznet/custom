@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 #------------------------------------------------------------
 
+import re
+
 from core import urlparse
 from platformcode import config, logger
 from core import scrapertools
@@ -28,6 +30,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "tube/latest-updates/"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "tube/most-popular/month/"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "tube/top-rated/month/"))
+    itemlist.append(Item(channel=item.channel, title="Pornstar" , action="categorias", url=host + "tube/pornstars/"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "tube/categories/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
@@ -53,8 +56,10 @@ def categorias(item):
     matches = soup.find_all('div', class_='item')
     for elem in matches:
         url = elem.a['href']
-        # title = elem.find('p', class_='title').text.strip()
-        title = elem.img['alt']
+        if elem.find('p', class_='title'):
+            title = elem.find('p', class_='title').text.strip()
+        else:
+            title = elem.img['alt']
         thumbnail = elem.img['src']
         cantidad = elem.find('span', class_='quantity')
         if cantidad:
@@ -126,6 +131,21 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
+    
+    soup = create_soup(item.url)
+    if soup.find('div', class_='models'):
+        pornstars = soup.find('div', class_='models').find_all('a', href=re.compile("/pornstars/[A-z0-9-]+/"))
+        for x , value in enumerate(pornstars):
+            pornstars[x] = value.text.strip()
+        pornstar = ' & '.join(pornstars)
+        pornstar = " [COLOR cyan]%s" % pornstar
+        lista = item.contentTitle.split('[/COLOR]')
+        if "[COLOR yellow]" in item.contentTitle:
+            lista.insert (1, pornstar)
+        else:
+            lista.insert (0, pornstar)
+        item.contentTitle = '[/COLOR]'.join(lista)
+    
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

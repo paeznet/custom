@@ -11,6 +11,10 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+# forced_proxy_opt = 'ProxySSL'
+forced_proxy_opt = ''
+
+
 # https://www.playvids.com/
 
 canonical = {
@@ -18,6 +22,9 @@ canonical = {
              'host': config.get_setting("current_host", 'peekvids', default=''), 
              'host_alt': ["https://www.peekvids.com/"], 
              'host_black_list': [], 
+             # 'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             # 'cf_assistant': False, 'CF_stat': True, 
+             # 'CF': True, 'CF_test': False, 'alfa_s': True
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -162,7 +169,7 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
+    # soup = create_soup(item.url)
     data = httptools.downloadpage(item.url, canonical=canonical).data
     patron = 'data-hls-src(\d+)="([^"]+)"'
     matches = re.compile(patron,re.DOTALL).findall(data)

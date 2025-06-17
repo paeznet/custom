@@ -1,3 +1,12 @@
+BGHOSt 
+default.py
+
+try:
+    playlist = eval(urllib_parse.unquote_plus(params["playlist"]).replace('||', ','))
+    addon_log(playlist)
+
+
+######################################################################################
 Vavoo.tV   vjlive.py  def vavoo_groups():  https://www2.vavoo.to/live2/index?output=json
 
 Vavoo.tV   
@@ -262,6 +271,7 @@ beeg		json  paginacion rara 'controls': {'url_base64': False, 'cnt_tot': 24, 're
 		AlfaChannel.next_page_url = re.sub(r"&offset=\d+", "&offset=%s" % page, item.url)
 -bestbustytube	'list_all_thumbnail': {'find': [{'tag': ['video'], '@ARG': ['poster']}]},
 -bestrapeporn
+-bigboobsxxx
 -bigbuttshub
 bigtitslust
 -blackporn	TXX		
@@ -350,7 +360,8 @@ latestpornvideo		findvideo de fuckingsession
 -lesbian8
 LIKUOO	
 -longporn	Si la paginacion es baja no existe last_page por lo que en general next_page
--lovingsiren	FINVIDEOS  elem_json['url'] = elem.iframe.get("data-src", "") or elem.iframe.get('src', '')
+-lovingsiren	FINVIDEOS	'findvideos': {'find_all': [{'tag': ['div'], 'class': ['responsive-player', 'awpcontenedor']}]}, primero responsive si no da error
+				  elem_json['url'] = elem.iframe.get("data-src", "") or elem.iframe.get('src', '')
 mangovideo	OUT Links	 'findvideos'
 manysex		TXXX2
 megatube	solucion al probema de search string "videos" de eporner
