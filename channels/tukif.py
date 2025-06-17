@@ -15,13 +15,14 @@ from core import jsontools as json
 canonical = {
              'channel': 'tukif', 
              'host': config.get_setting("current_host", 'tukif', default=''), 
-             'host_alt': ["https://tukif.com/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://tukif.porn/"], 
+             'host_black_list': ["https://tukif.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 hosta = '%sposts/load_more_posts/' %host
+# https://tukif.porn/posts/load_more_posts?main_category_id=1&type=post&name=multifilter_videos&filters%5Bfilter_type%5D=date&filters%5Bfilter_period%5D=month&filters%5Bfilter_quality%5D%5B%5D=270&filters%5Bfilter_duration%5D%5B%5D=45&filters%5Bfilter_duration%5D%5B%5D=26&filters%5Bfilter_duration%5D%5B%5D=15&filters%5Bfilter_duration%5D%5B%5D=14&adblock_enabled=&offset=0
 post = "main_category_id=%s&type=%s&name=%s&filters[filter_type]=%s&filters[filter_period]=%s&filters[filter_quality][]=270&filters[filter_duration][]=14&adblock_enabled=1&current_page_offset=0&offset=0"
                                                                                                                                                                         # current_page_offset	"0"                
 def mainlist(item):
@@ -148,9 +149,10 @@ def lista(item):
     soup = BeautifulSoup(data['content'], "html5lib", from_encoding="utf-8")
     matches = soup.find_all('section')
     for elem in matches:
+        logger.debug(elem)
         url = elem.a['href']
         title = elem.a.text.strip()
-        thumbnail = elem.img['data-src']
+        thumbnail = elem.find('img', class_='thumb_preview')['data-src']
         time = elem.find('div', class_='bubble_duration').text.strip()
         title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         url = urlparse.urljoin(item.url,url)
