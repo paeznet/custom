@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# -*- Channel Deviants -*-
+# -*- Channel PornoMovies -*-
 # -*- Created for Alfa-addon -*-
 # -*- By the Alfa Develop Group -*-
 
@@ -27,16 +27,19 @@ forced_proxy_opt = 'ProxySSL'
 ###  FALLA KTP por PROXY  ERROR en los test por CERTIFICADO TLS
 
 canonical = {
-             'channel': 'deviants', 
-             'host': config.get_setting("current_host", 'deviants', default=''), 
-             'host_alt': ["https://www.deviants.com/"], 
+             'channel': 'pornomovies', 
+             'host': config.get_setting("current_host", 'pornomovies', default=''), 
+             'host_alt': ["https://www.pornomovies.com/"], 
              'host_black_list': ["https://www.onlyscoop.com/"], 
-             'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 3, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
+             # 'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 3, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-timeout = 30
+timeout = 45
 kwargs = {}
 debug = config.get_setting('debug_report', default=False)
 movie_path = ''
@@ -55,10 +58,9 @@ finds = {'find':  dict([('find', [{'tag': ['div'], 'class': ['videos_list']}]),
          'next_page_rgx': [['&page=\d+', '&page=%s'], ['\?page=\d+', '?page=%s'], ['\/page\/\d+\/', '/page/%s/'], ['&from_videos=\d+', '&from_videos=%s'], ['&from=\d+', '&from=%s']], 
          'last_page': dict([('find', [{'tag': ['ul'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-2], 
-                                           '@ARG': 'data-parameters', '@TEXT': '\:(\d+)'}])]), 
+                                           '@ARG': 'data-parameters', '@TEXT': ':(\d+)'}])]), 
          'plot': {}, 
-         'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
-                             ('find_all', [{'tag': ['a'], '@ARG': 'href'}])]),
+         'findvideos': {},
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
@@ -66,7 +68,7 @@ finds = {'find':  dict([('find', [{'tag': ['div'], 'class': ['videos_list']}]),
                             'list_all_stime': dict([('find', [{'tag': ['div'], 'class': ['time']}]),
                                                     ('get_text', [{'tag': '', 'strip': True}])]),
                             },
-         'controls': {'url_base64': False, 'cnt_tot': 24, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 25, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -90,6 +92,8 @@ def mainlist(item):
 
 def section(item):
     logger.info()
+    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    logger.debug(soup)
     
     findS = finds.copy()
     findS['url_replace'] = [['(\/(?:categories|sites|models)\/[^$]+$)', r'\1?sort_by=post_date&from=1']]
@@ -98,14 +102,19 @@ def section(item):
     if item.extra == 'Categorias':
         findS['controls']['cnt_tot'] = 40
     
-    if item.extra == 'Canal':
-        findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
+    # if item.extra == 'Canal':
+        # findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
     
     return AlfaChannel.section(item, finds=findS, **kwargs)
 
 
 def list_all(item):
     logger.info()
+    
+    findS = finds.copy()
+    
+    # if item.extra != 'Categorias':
+        # findS['controls']['cnt_tot'] = 10
 
     return AlfaChannel.list_all(item, **kwargs)
 

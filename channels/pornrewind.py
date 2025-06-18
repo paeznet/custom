@@ -10,6 +10,7 @@ from core import servertools
 from core import httptools
 from core import urlparse
 
+
 canonical = {
              'channel': 'pornrewind', 
              'host': config.get_setting("current_host", 'pornrewind', default=''), 

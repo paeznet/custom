@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# -*- Channel BabesTube -*-
+# -*- Channel MomVids -*-
 # -*- Created for Alfa-addon -*-
 # -*- By the Alfa Develop Group -*-
 
@@ -20,30 +20,34 @@ list_quality_tvshow = []
 list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
-forced_proxy_opt = 'ProxySSL'
+
+# forced_proxy_opt = 'ProxySSL'
+forced_proxy_opt = ''
+
 
 # https://www.babestube.com   https://www.deviants.com   https://www.momvids.com     https://www.pornomovies.com  
 
-###  FALLA KTP por PROXY  ERROR en los test por CERTIFICADO TLS
 
 canonical = {
-             'channel': 'babestube', 
-             'host': config.get_setting("current_host", 'babestube', default=''), 
-             'host_alt': ["https://www.babestube.com/"], 
+             'channel': 'momvids', 
+             'host': config.get_setting("current_host", 'momvids', default=''), 
+             'host_alt': ["https://www.momvids.com/"], 
              'host_black_list': ["https://www.onlyscoop.com/"], 
-             'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 3, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
+             # 'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 3, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-timeout = 30
+timeout = 45
 kwargs = {}
 debug = config.get_setting('debug_report', default=False)
 movie_path = ''
 tv_path = ''
 language = []
 url_replace = []
-
 
 finds = {'find':  dict([('find', [{'tag': ['div'], 'class': ['videos_list']}]),
                        ('find_all', [{'tag': ['div'], 'class': ['item']}])]),
@@ -58,7 +62,8 @@ finds = {'find':  dict([('find', [{'tag': ['div'], 'class': ['videos_list']}]),
                             ('find_all', [{'tag': ['a'], '@POS': [-2], 
                                            '@ARG': 'data-parameters', '@TEXT': '\:(\d+)'}])]), 
          'plot': {}, 
-         'findvideos': {},
+         'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
+                             ('find_all', [{'tag': ['a'], '@ARG': 'href'}])]),
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 

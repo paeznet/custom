@@ -1,10 +1,10 @@
 {
-  "id": "pornomovies",
-  "name": "pornomovies",
-  "active": false,
+  "id": "momvids",
+  "name": "000000momvids",
+  "active": true,
   "adult": true,
   "language": ["*"],
-  "thumbnail": "https://www.pornomovies.com/images/logo.png",
+  "thumbnail": "https://www.momvids.com/images/logo.png",
   "banner": "",
   "fanart": "",
   "categories": [
