@@ -157,7 +157,10 @@ retrotv		'last_page': dict([('find', [{'tag': ['a'], 'string': re.compile('(?i)s
 	         'last_page': dict([('find', [{'tag': ['ul'], 'class': ['pagination']}, 
                                       {'tag': ['a'], 'class': ['next page-numbers']}]), 
                             ('find_previous', [{'tag': ['a'], 'class': ['page-numbers']}]), 
-                            ('get_text', [{'@TEXT': '(\d+)'}])]), 		
+                            ('get_text', [{'@TEXT': '(\d+)'}])]), 
+		
+pornixi
+         'next_page': {'find_all': [{'tag': ['a'], 'class': ['btn-page'], '@POS': [-1], '@ARG': 'href'}]},
 
 qporn
          # 'next_page': {'find': [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@ARG': 'href'}]}, #### COGE blog que tiene more
@@ -219,7 +222,7 @@ porngo			multicanal porngo xxxfiles pornpapa porncake fapguru veryfreeporn pornt
 -xnxxxvideoshd		multicanal  xnxxxvideoshd  xnxxxvideosxxx  xnxx2  nangivideos aagmaal  hentayco
 -bingato		multicanal  bingato  sexmex  taboodude  arabporn    
 			'next_page': dict([('find', [{'tag': ['li'], 'class': ['next']}, {'tag': ['a'], '@ARG': 'href'}])])
--josporn		multicanal  josporn   pornohd   xhdporno(diferente y play particular)    Paginacion diferente /page-1/  /page/1/  /page_1.html resuelto con 													next_page y last_page
+josporn		multicanal  josporn   pornohd   xhdporno(diferente y play particular)    Paginacion diferente /page-1/  /page/1/  /page_1.html resuelto con 													next_page y last_page
 -freepornsex
 -freexxx		multicanal  freexxx   pornertwo   pornsoda
 -fapnfuck		multicanal  fapnfuck	fuqster	sexpester  w1mp  w4nkr  3sumxl bigbigtits cuminstead  extremehoes extremewhores  hugewangs  jizzpov 
@@ -238,6 +241,7 @@ porngo			multicanal porngo xxxfiles pornpapa porncake fapguru veryfreeporn pornt
 12milf		quitar paginacion categorias    findS['controls']['cnt_tot'] = 9999
 -143porn
 -24xxx
+3prn
 4tube	        submenu gay trans
 absoluporn      pone videos aleatorios
 			    	soup = AHkwargs.get('soup', {})
@@ -254,7 +258,7 @@ adptube
 -alluretube	pornudes		  	
 amateurtv	json AlfaChannel.httptools.downloadpage(host, canonical=canonical).data
 americass
--amigosporn	findvideos	submenu abc pornstar
+amigosporn	findvideos	submenu abc pornstar
 				list_all_matches  elem_json['thumbnail'] =  scrapertools.find_single_match(img, "'([^']+)'")
 						  elem_json['canal'] = canal  	title = title.replace(canal, "")
 						  elem_json['star']		title = title.replace(elem, "")
@@ -264,9 +268,9 @@ anyporn		'list_all_stime': {'find': [{'tag': ['em'],   '@TEXT': '(\d+m:\d+s)' }]
 area51		'list_all_stime': {'find': [{'tag': ['span'], 'class': ['is-hd'], '@TEXT': '(\d+:\d+)' }]},
                 'list_all_quality': {'find': [{'tag': ['span'], 'class': ['is-hd'],  '@ARG': 'class',  '@TEXT': '(hd)' }]},
 
-babestube	babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
+-babestube	babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
 -baddiehub
-ballzdeep
+-ballzdeep
 beeg		json  paginacion rara 'controls': {'url_base64': False, 'cnt_tot': 24, 'reverse': False, 'custom_pagination': True},
 		AlfaChannel.next_page_url = re.sub(r"&offset=\d+", "&offset=%s" % page, item.url)
 -bestbustytube	'list_all_thumbnail': {'find': [{'tag': ['video'], '@ARG': ['poster']}]},
@@ -294,9 +298,9 @@ cheemsporn
 	
 -czechporn	'list_all_thumbnail': {'find': [{'tag': ['video'], '@ARG': ['poster']}]},
 
-deviants	babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
+-deviants	babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
 -dirtyship
--draftsex      	'next_page_rgx': [['page\d+.html', 'next_page_url']]   pornstar list_all findS['find']
+draftsex      	'next_page_rgx': [['page\d+.html', 'next_page_url']]   pornstar list_all findS['find']
 -dumpxxx	'next_page_rgx': [['page\d+.html', 'next_page_url']],
 -ebonyporn
 eporner
@@ -332,8 +336,8 @@ fuckingsession	findS['controls']['action'] = 'findvideos'    'findvideos find_al
 -fulltaboo
 -fullxcinema	url = AlfaChannel.do_unquote(url_decode)
 fux		json porntube 
--fuxmovies
--girlswallowed
+fuxmovies
+girlswallowed
 goodporn
 -gotanynudes	Pornstar con AlfaChannel.doo_url      paginacion     findS['controls']['force_find_last_page'] = [0, 0, 'post']
 
@@ -341,7 +345,7 @@ hclips		TXXX
 -hdporn92	findvideo de fuckingsession  
 hdzog		TXXX 
 heroero 
-hoestube
+-hoestube
 -hornybutt
 hotmovs		TXXX 
 -hotporn
@@ -353,7 +357,7 @@ javwhores
 jizzberry
 joysporn	joysporn   'next_page_rgx': [['/page/\d+', '/page/%s/']],    last_page para search
 -justporn
--kojka		    item.extra = "Search"
+kojka		    item.extra = "Search"
 
 latestpornvideo		findvideo de fuckingsession
 -leakslove	'findvideos' con pornstars   findS['controls']['cnt_tot'] = 9999 en categorias sino no mostraba paginacion
@@ -365,8 +369,9 @@ LIKUOO
 mangovideo	OUT Links	 'findvideos'
 manysex		TXXX2
 megatube	solucion al probema de search string "videos" de eporner
-momvids		babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
+-momvids		babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
 -mondetube    	Cookie    kwargs['headers'] = {'Referer': host, "Cookie": "kt_tcookie=1; tag_id=%s" % item.orientation}
+mydadspies
 -mypornerleak
 -neporn		Cookie 		kwargs['headers'] = {"Cookie": "niche=%s" %item.orientation}
 		submenu   shemale		
@@ -395,6 +400,7 @@ pornditt
 
 -pornhegemon
 pornhub
+-pornixi
 pornktube	joysporn    paginado necesita /2/  ===>  ['\/\d+', '/%s/']  
 			    findS['url_replace'] = [['($)', '1/']]  categorias formato "/c/10/#/" # pag
 
@@ -405,7 +411,7 @@ pornmeka
 pornoflix      	veporns    	paginacion host + wp-admin/admin-ajax.php
 
 pornohdmega	findvideos     elem_json['url'] = scrapertools.find_single_match(elem.textarea.get_text(strip=True), 'data-lazy-src="([^"]+)"')
-pornomovies	babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
+-pornomovies	babestube  findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
 pornone
 pornox
 -pornoxo	categorias json  

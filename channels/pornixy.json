@@ -1,0 +1,15 @@
+{
+  "id": "pornixy",
+  "name": "pornixy",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://pornixy.com/apple-touch-icon.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
