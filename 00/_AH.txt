@@ -458,7 +458,10 @@ severeporn
 		y asi item.url + page2.html
 
 shooshtime
--sosalkino
+-sosalkino	item.last_page = 9999
+		Search   item.extra="Search"  from_videos=1 el resto de secciones /1/
+
+
 -speedporn	findvideo pandamovie
 -subtitula2	findvideos
 -sxyprnXXX
