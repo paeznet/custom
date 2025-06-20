@@ -1,0 +1,15 @@
+{
+  "id": "sosalkino",
+  "name": "sosalkino",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/L60Sdrgv/sosalkino.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
