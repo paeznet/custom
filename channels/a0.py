@@ -508,6 +508,11 @@ def play(item):
     "([^"]+)"   #todo lo que hay hasta comillas
     \'([^\']+)\'
     ([^,"]+)    #todo lo que hay hasta , o "  TUBEXPORN
+    
+    
+    match = re.compile(r'<source\s+src=[\'"]([^\'"]+)[\'"][^>]*type=[\'"]video/mp4[\'"][^>]*label=[\'"]([^\'"]+)[\'"]', re.DOTALL | re.IGNORECASE).findall(videohtml)
+    {'Referer': host, 'Origin': host[:-1]}
+    
         enc_data = scrapertools.find_single_match(data, "<script type=[\"']text/javascript[\"']>\s*;?(eval.*?)</script>")
     
                         ######################    LISTAS POR CCOMPRESION    ###########################

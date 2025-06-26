@@ -364,7 +364,13 @@ latestpornvideo		findvideo de fuckingsession
 -lesbian8
 LIKUOO	
 -longporn	Si la paginacion es baja no existe last_page por lo que en general next_page
--lovingsiren	FINVIDEOS	'findvideos': {'find_all': [{'tag': ['div'], 'class': ['responsive-player', 'awpcontenedor']}]}, primero responsive si no da error
+
+-longvideo      elem_json['canal'] = scrapertools.find_single_match(elem_json['title'], '^\[([^\]]+)')
+         	elem_json['title'] = elem_json['title'].replace("[%s] -" % elem_json['canal'], "")
+		elem_json['title'] = elem_json['title'].replace(" - %s" % value.get_text(strip=True), "")
+
+
+lovingsiren	FINVIDEOS	'findvideos': {'find_all': [{'tag': ['div'], 'class': ['responsive-player', 'awpcontenedor']}]}, primero responsive si no da error
 				  elem_json['url'] = elem.iframe.get("data-src", "") or elem.iframe.get('src', '')
 mangovideo	OUT Links	 'findvideos'
 manysex		TXXX2

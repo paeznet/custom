@@ -25,7 +25,6 @@ forced_proxy_opt = ''
 
 # https://www.babestube.com   https://www.deviants.com   https://www.momvids.com     https://www.pornomovies.com  
 
-
 canonical = {
              'channel': 'babestube', 
              'host': config.get_setting("current_host", 'babestube', default=''), 

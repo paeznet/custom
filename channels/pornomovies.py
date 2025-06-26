@@ -20,11 +20,11 @@ list_quality_tvshow = []
 list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
-forced_proxy_opt = 'ProxySSL'
+# forced_proxy_opt = 'ProxySSL'
+forced_proxy_opt = ''
 
 # https://www.babestube.com   https://www.deviants.com   https://www.momvids.com     https://www.pornomovies.com  
 
-###  FALLA KTP por PROXY  ERROR en los test por CERTIFICADO TLS
 
 canonical = {
              'channel': 'pornomovies', 
@@ -83,8 +83,8 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mas Vistas" , action="list_all", url=host + "most-popular/?sort_by=video_viewed_month&from=01"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorada" , action="list_all", url=host + "top-rated/?sort_by=rating_month&from=01"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "longest/?sort_by=duration&from=01"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "sites/?sort_by=rating&from=01", extra="Canal"))
-    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "models/?sort_by=model_viewed&from=01", extra="PornStar"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "sites/?sort_by=total_videos&from=01", extra="Canal"))
+    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "models/?sort_by=total_videos&from=01", extra="PornStar"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
@@ -92,13 +92,14 @@ def mainlist(item):
 
 def section(item):
     logger.info()
-    soup = AlfaChannel.create_soup(item.url, **kwargs)
-    logger.debug(soup)
     
     findS = finds.copy()
     findS['url_replace'] = [['(\/(?:categories|sites|models)\/[^$]+$)', r'\1?sort_by=post_date&from=1']]
     
     findS['controls']['cnt_tot'] = 20
+    if item.extra == 'Canal':
+        findS['profile_labels']['section_title'] = dict([('find', [{'tag': ['div'], 'class': ['title']}]),
+                                                         ('get_text', [{'tag': '', 'strip': True}])])
     if item.extra == 'Categorias':
         findS['controls']['cnt_tot'] = 40
     
@@ -111,11 +112,6 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    findS = finds.copy()
-    
-    # if item.extra != 'Categorias':
-        # findS['controls']['cnt_tot'] = 10
-
     return AlfaChannel.list_all(item, **kwargs)
 
 

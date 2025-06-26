@@ -24,9 +24,7 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 # forced_proxy_opt = 'ProxySSL'
 forced_proxy_opt = ''
 
-
 # https://www.babestube.com   https://www.deviants.com   https://www.momvids.com     https://www.pornomovies.com  
-
 
 canonical = {
              'channel': 'momvids', 
@@ -64,7 +62,7 @@ finds = {'find':  dict([('find', [{'tag': ['div'], 'class': ['videos_list']}]),
          'plot': {}, 
          'findvideos': dict([('find', [{'tag': ['li'], 'class': 'link-tabs-container', '@ARG': 'href'}]),
                              ('find_all', [{'tag': ['a'], '@ARG': 'href'}])]),
-         'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
+         'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', ''], ["Mature ", ""]],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
@@ -100,11 +98,11 @@ def section(item):
     findS['url_replace'] = [['(\/(?:categories|sites|models)\/[^$]+$)', r'\1?sort_by=post_date&from=1']]
     
     findS['controls']['cnt_tot'] = 20
+    
     if item.extra == 'Categorias':
         findS['controls']['cnt_tot'] = 40
-    
     if item.extra == 'Canal':
-        findS['profile_labels'] = {'section_thumbnail': dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])}
+        findS['profile_labels']['section_thumbnail'] = dict([('find', [{'tag': ['div'], 'class': ['brand_image']}, {'tag': ['img'], '@ARG': 'src'}])])
     
     return AlfaChannel.section(item, finds=findS, **kwargs)
 

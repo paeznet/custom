@@ -24,9 +24,7 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 # forced_proxy_opt = 'ProxySSL'
 forced_proxy_opt = ''
 
-
 # https://www.babestube.com   https://www.deviants.com   https://www.momvids.com     https://www.pornomovies.com  
-
 
 canonical = {
              'channel': 'deviants', 

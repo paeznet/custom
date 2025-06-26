@@ -21,6 +21,7 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
 # forced_proxy_opt = 'ProxySSL'
+
 forced_proxy_opt = ''
 
 canonical = {
@@ -94,6 +95,7 @@ def section(item):
     
     findS = finds.copy()
     findS['url_replace'] = [['(\/(?:categories|category-name|category|channels|sites|models|model|pornstars)\/[^$]+$)', r'\1?sort_by=post_date&from=1']]
+    
     return AlfaChannel.section(item, finds=findS, **kwargs)
 
 
