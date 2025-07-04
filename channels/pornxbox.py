@@ -21,7 +21,8 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
-#  https://porn2all.com/   https://pornxbox.com/
+#  https://porn2all.com/  solo los ultimos tiene video
+#  https://pornxbox.com/  cam
 #  https://tonicporn.com/ OUT
 
 canonical = {
