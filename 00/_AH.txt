@@ -147,6 +147,21 @@ color = AlfaChannel.color_setting.get('quality', '')  ====> 'deepskyblue'
 	------------------------------------------------------------------------------------
 
 
+
+#########################################
+"force_inputstream": "ffmpegdirect" "adaptive" "none"
+
+filemoon.json  lulustream.json  osjonosu.json  tiwikiwi.json  vidguard.json  voe.json
+camsoda.json    mat6tube.json  mat6tube.json  stripchat.json  vsexin.json   xvideos.json
+
+
+#########################################
+
+
+
+
+
+
 entrepeliculasyseries  [canonical] 'search_active': None    evitar cargar proxyes en buscar que pide CF2
 			search  condicion search_active
 

@@ -1,14 +1,14 @@
 {
   "id": "acestream",
-  "name": "00000acestream",
+  "name": "acestream",
   "active": true,
-  "adult": true,
+  "adult": false,
   "language": ["*"],
-  "thumbnail": "",
+  "thumbnail": "https://i.postimg.cc/7hfYzZtt/acestream.jpg",
   "banner": "",
   "fanart": "",
   "categories": [
-    "adult"
+    "direct"
   ],
   "settings": [
   ]

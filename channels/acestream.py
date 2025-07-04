@@ -12,25 +12,21 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 
-forced_proxy_opt = 'ProxySSL'
+# canonical = {
+             # 'channel': 'acestream', 
+             # 'host': config.get_setting("current_host", 'acestream', default=''), 
+             # 'host_alt': ["https://kool.to/"], 
+             # 'host_black_list': [], 
+             # 'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 3, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
+            # }
+# host = canonical['host'] or canonical['host_alt'][0]
+# host= ""
 
+
+forced_proxy_opt = 'ProxySSL'
 
 timeout =30
-
-canonical = {
-             'channel': 'acestream', 
-             'host': config.get_setting("current_host", 'acestream', default=''), 
-             'host_alt': ["https://kool.to/"], 
-             'host_black_list': [], 
-             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
-             'set_tls': False, 'set_tls_min': False, 'retries_cloudflare': 3, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
-             'CF': False, 'CF_test': False, 'alfa_s': True
-            }
-host = canonical['host'] or canonical['host_alt'][0]
-host= ""
-
-forced_proxy_opt = 'ProxySSL'
-
 
 kwargs = {
     'set_tls': 	True,
@@ -41,12 +37,12 @@ kwargs = {
 }
 
 
-
 acestream_channels = "D://Kodi21/portable_data/addons/plugin.video.acestream_channels/addon.py"
 XUPIMARC2 = "https://www.socialcreator.com/xupimarc2/?s=289267"
 ciriaco = "https://fr.4everproxy.com/direct/aHR0cHM6Ly9jaXJpYWNvLWxpYXJ0LnZlcmNlbC5hcHAv"  ## "https://ciriaco-liart.vercel.app/"
 verceltv = "https://fr.4everproxy.com/direct/aHR0cHM6Ly9ldmVudG9zLWxpYXJ0dmVyY2VsYXBwLnZlcmNlbC5hcHAv"  ## https://eventos-liartvercelapp.vercel.app/
 mister = "https://www.misterchire.com/"
+
 
 def mainlist(item):
     logger.info()

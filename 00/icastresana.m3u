@@ -1,5 +1,5 @@
 #EXTM3U url-tvg="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_sincolor1.xml.gz, https://raw.githubusercontent.com/Icastresana/lista1/main/epg.xml, https://epgshare01.online/epgshare01/epg_ripper_TR1.xml.gz, https://epgshare01.online/epgshare01/epg_ripper_PL1.xml.gz, https://xmltv.info/de/epg.xml, https://epgshare01.online/epgshare01/epg_ripper_US1.xml.gz, https://epgshare01.online/epgshare01/epg_ripper_NL1.xml.gz, https://epgshare01.online/epgshare01/epg_ripper_RO1.xml.gz, https://epgshare01.online/epgshare01/epg_ripper_IT1.xml.gz, https://iptvx.one/EPG"
-
+## https://github.com/Icastresana
 ##  acestream:// >>>>> plugin://script.module.horus?action=play&id=
 
 #EXTINF:-1 tvg-logo="" group-title="1RFEF" tvg-id="Canal 1", Canal 1
@@ -768,87 +768,6 @@ plugin://script.module.horus?action=play&id=e72d03fb9694164317260f684470be9ab781
 
 
 
-#EXTINF:-1 tvg-id="" tvg-name="MOTORVISION" tvg-logo="" group-title="Xupimarc2",MOTORVISION
-plugin://script.module.horus?action=play&id=9c75e6ed0671eec6670cb2eabcc7d78267c7f404
-#EXTINF:-1 tvg-id="" tvg-name="CANAL MOTOR" tvg-logo="" group-title="Xupimarc2",CANAL MOTOR
-plugin://script.module.horus?action=play&id=35e17cc84abc5e393b5acd688536a9681105f2d5
-#EXTINF:-1 tvg-id="" tvg-name="LA LIGA TV3 M+" tvg-logo="" group-title="Xupimarc2",LA LIGA TV3 M+
-plugin://script.module.horus?action=play&id=835639b89db00cc0d94660da3c10b6e38bfbcdc1
-#EXTINF:-1 tvg-id="" tvg-name="DAZN LA LIGA 2" tvg-logo="" group-title="Xupimarc2",DAZN LA LIGA 2
-plugin://script.module.horus?action=play&id=fb51ef5294e99767811a3fa95a1933fb864e9ff3
-#EXTINF:-1 tvg-id="" tvg-name="DAZN BUNDESLIGA 1" tvg-logo="" group-title="Xupimarc2",DAZN BUNDESLIGA 1
-plugin://script.module.horus?action=play&id=cb18d080d81f7fccf26b7723ce6a5d86d31220db
-#EXTINF:-1 tvg-id="" tvg-name="DAZN BUNDESLIGA 1" tvg-logo="" group-title="Xupimarc2",DAZN BUNDESLIGA 1
-plugin://script.module.horus?action=play&id=d4f56cda0a15f47e7820daaac8e37b4d67d9c918
-#EXTINF:-1 tvg-id="" tvg-name="DAZN BUNDESLIGA 1" tvg-logo="" group-title="Xupimarc2",DAZN BUNDESLIGA 1
-plugin://script.module.horus?action=play&id=692d6a47ba99fbfc67fa947e468e859c7f2b9564
-#EXTINF:-1 tvg-id="" tvg-name="LA LIGA HIPERMOTION" tvg-logo="" group-title="Xupimarc2",LA LIGA HIPERMOTION
-plugin://script.module.horus?action=play&id=fe289ab20d8f9dcb426fc6d56ce9dbbddb66e3b3
-#EXTINF:-1 tvg-id="" tvg-name="HIPERMOTION 4" tvg-logo="" group-title="Xupimarc2",HIPERMOTION 4
-plugin://script.module.horus?action=play&id=0829094f216f639b2ac2d00b6cccce6585de6c7b
-#EXTINF:-1 tvg-id="" tvg-name="HIPER 5" tvg-logo="" group-title="Xupimarc2",HIPER 5
-plugin://script.module.horus?action=play&id=061f42fcaa7632fb0a889272a731036d033cddf5
-#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES UHD" tvg-logo="" group-title="Xupimarc2",CAMPEONES UHD
-plugin://script.module.horus?action=play&id=7b8d9d280e8a3a9ccbdf560a63b3652b4f0d6f13
-#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 3" tvg-logo="" group-title="Xupimarc2",CAMPEONES 3
-plugin://script.module.horus?action=play&id=15127320406cf6a072c4f485f31c841d7d3e62f3
-#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 9" tvg-logo="" group-title="Xupimarc2",CAMPEONES 9
-plugin://script.module.horus?action=play&id=80abcb38122c25fefb4dffeb57086998447ff49b
-#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 10" tvg-logo="" group-title="Xupimarc2",CAMPEONES 10
-plugin://script.module.horus?action=play&id=0103373118989085dd0d02667c629ee36d462cb1
-#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 11" tvg-logo="" group-title="Xupimarc2",CAMPEONES 11
-plugin://script.module.horus?action=play&id=6e12a5849a4edea248ed9c8689e58bd66fc9f8fa
-#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 12" tvg-logo="" group-title="Xupimarc2",CAMPEONES 12
-plugin://script.module.horus?action=play&id=130d37f9a68bd8f29f0d636dcde522a1e91d1cb7
-#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 13" tvg-logo="" group-title="Xupimarc2",CAMPEONES 13
-plugin://script.module.horus?action=play&id=9c246c5e6a153ba2b765e4b84f4d50e0836b3556
-#EXTINF:-1 tvg-id="" tvg-name="campeones 14" tvg-logo="" group-title="Xupimarc2",campeones 14
-plugin://script.module.horus?action=play&id=773ef9e2d2feb4f80ef558b253c72fda8d8e53cf
-#EXTINF:-1 tvg-id="" tvg-name="campeones 15" tvg-logo="" group-title="Xupimarc2",campeones 15
-plugin://script.module.horus?action=play&id=47ce8fe15adfcf4e1749b0c0dee1fc79a3d5ca6d
-#EXTINF:-1 tvg-id="" tvg-name="campeones 16" tvg-logo="" group-title="Xupimarc2",campeones 16
-plugin://script.module.horus?action=play&id=348cc65d5cbd5a77da0fe006ce97eff6ad72b9da
-#EXTINF:-1 tvg-id="" tvg-name="campeones 17" tvg-logo="" group-title="Xupimarc2",campeones 17
-plugin://script.module.horus?action=play&id=a15a132ffe7867a2b61b49617df39a8309cce27c
-#EXTINF:-1 tvg-id="" tvg-name="DAZN F1" tvg-logo="" group-title="Xupimarc2",DAZN F1
-plugin://script.module.horus?action=play&id=4b1066552d40ac452ab408c97fc3215699a52c4f
-#EXTINF:-1 tvg-id="" tvg-name="ALONSO ASTON MARTIN" tvg-logo="" group-title="Xupimarc2",ALONSO ASTON MARTIN
-plugin://script.module.horus?action=play&id=a97ccf39516515e7812d5c04dcacdf748f3545e8
-#EXTINF:-1 tvg-id="" tvg-name="CARLOS SAINZ F1" tvg-logo="" group-title="Xupimarc2",CARLOS SAINZ F1
-plugin://script.module.horus?action=play&id=ddc3b1c8297d57d8096ba20edc1da41eb149a167
-#EXTINF:-1 tvg-id="" tvg-name="DAZN 1" tvg-logo="" group-title="Xupimarc2",DAZN 1
-plugin://script.module.horus?action=play&id=6a1703a6bbe6110a1d27f35a41c88661e1740bfa
-#EXTINF:-1 tvg-id="" tvg-name="ONE BOARD 1" tvg-logo="" group-title="Xupimarc2",ONE BOARD 1
-plugin://script.module.horus?action=play&id=2e764a7ad94bcb4e67e82369b7aa982c6b2751b4
-#EXTINF:-1 tvg-id="" tvg-name="ONE BOARD 2" tvg-logo="" group-title="Xupimarc2",ONE BOARD 2
-plugin://script.module.horus?action=play&id=b926e6a6ab1d5dc855ce2d3dbeb5e97b9d42b304
-#EXTINF:-1 tvg-id="" tvg-name="ONE BOAARD 3" tvg-logo="" group-title="Xupimarc2",ONE BOAARD 3
-plugin://script.module.horus?action=play&id=9798df57203105309f47b1aa81b6badf00fd0f35
-#EXTINF:-1 tvg-id="" tvg-name="ONE BOARD 4" tvg-logo="" group-title="Xupimarc2",ONE BOARD 4
-plugin://script.module.horus?action=play&id=de3ae87e72054cf3ce75268753845c97b931ad58
-#EXTINF:-1 tvg-id="" tvg-name="VAMOS 2" tvg-logo="" group-title="Xupimarc2",VAMOS 2
-plugin://script.module.horus?action=play&id=e2d26332bf1aa59aec7e3cbe9ed4689df44ae368
-#EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 1" tvg-logo="" group-title="Xupimarc2",EUROSPORT 1
-plugin://script.module.horus?action=play&id=1d04e3b27c2ac3ff52dc949e76f36207fbb235c4
-
-
-
-#EXTINF:-1 tvg-id="" tvg-name="AUTOMOTORSPORT" tvg-logo="" group-title="Xupimarc2",AUTOMOTORSPORT
-plugin://script.module.horus?action=play&id=610993aea3a2bfd509594334b7461ce96900f54c
-#EXTINF:-1 tvg-id="" tvg-name="MOTORS TV" tvg-logo="" group-title="Xupimarc2",MOTORS TV
-plugin://script.module.horus?action=play&id=442aeb6643b8836f9d00361c9e48eeb0841ddf98
-#EXTINF:-1 tvg-id="" tvg-name="RETROVISION" tvg-logo="" group-title="Xupimarc2",RETROVISION
-plugin://script.module.horus?action=play&id=b8b8c4470d3d27c75302cf49ab6c4b52a660bff3
-#EXTINF:-1 tvg-id="" tvg-name="WINTER SERIES" tvg-logo="" group-title="Xupimarc2",WINTER SERIES
-plugin://script.module.horus?action=play&id=2f3a139d7a2ca1f305ae8cd67444b961d468a9d4
-#EXTINF:-1 tvg-id="" tvg-name="LA 1" tvg-logo="" group-title="Xupimarc2",LA 1
-plugin://script.module.horus?action=play&id=7225e4b281975f1a36d61dfd9724b669d7747b70
-#EXTINF:-1 tvg-id="" tvg-name="DISCOVERY CHANNEL" tvg-logo="" group-title="Xupimarc2",DISCOVERY CHANNEL
-plugin://script.module.horus?action=play&id=cd485af78cf86934d77cf867f73fe7f5cd32981a
-
-
-
-
 
 #EXTINF:-1 tvg-id="" tvg-name=" la 1 uhd" tvg-logo="" group-title="tdt", la 1 uhd
 plugin://script.module.horus?action=play&id=6636a5c1055b5913ddcd0e87a5523f7d935350af
@@ -880,3 +799,196 @@ plugin://script.module.horus?action=play&id=bb1982ae8d2d409d4ccd7a9f498042684e35
 plugin://script.module.horus?action=play&id=41af6926a6010b68ba2540975761436bb077748f
 #EXTINF:-1 tvg-id="" tvg-name=" td" tvg-logo="" group-title="tdt", td
 plugin://script.module.horus?action=play&id=e2395d28ad19423212fd3aa0e81f387db3e8bb9f
+
+
+
+
+
+
+#EXTINF:-1 tvg-id="" tvg-name="Movistar Plus+ 1080" tvg-logo="" group-title="Ciriaco",Movistar Plus+ 1080
+plugin://script.module.horus?action=play&id=1ab443f5b4beb6d586f19e8b25b9f9646cf2ab78
+#EXTINF:-1 tvg-id="" tvg-name="Movistar Plus+ New Era I" tvg-logo="" group-title="Ciriaco",Movistar Plus+ New Era I
+plugin://script.module.horus?action=play&id=e2bc4aee95306b8897d15b01cc64b239dd1b8a1f
+#EXTINF:-1 tvg-id="" tvg-name="M+ Deportes 2 1080" tvg-logo="" group-title="Ciriaco",M+ Deportes 2 1080
+plugin://script.module.horus?action=play&id=f0ee7a2b43c1df5ea9e4fac5bf876d5bef4372b0
+#EXTINF:-1 tvg-id="" tvg-name="M+ Deportes 2 720" tvg-logo="" group-title="Ciriaco",M+ Deportes 2 720
+plugin://script.module.horus?action=play&id=bfa01c11c5c6b7a616a516de4f2c769a89d26b25
+#EXTINF:-1 tvg-id="" tvg-name="M+ Wimbledon UHD New Era I" tvg-logo="" group-title="Ciriaco",M+ Wimbledon UHD New Era I
+plugin://script.module.horus?action=play&id=92adffb05fbd616bc9ab8e71665be05952880cdf
+
+
+
+
+
+
+#EXTINF:-1 tvg-id="" tvg-name="DAZN 1" tvg-logo="" group-title="Xupimarc2",DAZN 1
+plugin://script.module.horus?action=play&id=6a1703a6bbe6110a1d27f35a41c88661e1740bfa
+#EXTINF:-1 tvg-id="" tvg-name="MOTORVISION" tvg-logo="" group-title="Xupimarc2",MOTORVISION
+plugin://script.module.horus?action=play&id=9c75e6ed0671eec6670cb2eabcc7d78267c7f404
+#EXTINF:-1 tvg-id="" tvg-name="CANAL MOTOR" tvg-logo="" group-title="Xupimarc2",CANAL MOTOR
+plugin://script.module.horus?action=play&id=35e17cc84abc5e393b5acd688536a9681105f2d5
+#EXTINF:-1 tvg-id="" tvg-name="AUTOMOTORSPORT" tvg-logo="" group-title="Xupimarc2",AUTOMOTORSPORT
+plugin://script.module.horus?action=play&id=610993aea3a2bfd509594334b7461ce96900f54c
+#EXTINF:-1 tvg-id="" tvg-name="MOTORS TV" tvg-logo="" group-title="Xupimarc2",MOTORS TV
+plugin://script.module.horus?action=play&id=442aeb6643b8836f9d00361c9e48eeb0841ddf98
+
+#EXTINF:-1 tvg-id="" tvg-name="M+ LIGA UHD" tvg-logo="" group-title="Xupimarc2",M+ LIGA UHD
+plugin://script.module.horus?action=play&id=00c9bc9c5d7d87680a5a6bed349edfa775a89947
+#EXTINF:-1 tvg-id="" tvg-name="M+ LIGA UHD" tvg-logo="" group-title="Xupimarc2",M+ LIGA UHD
+plugin://script.module.horus?action=play&id=c9321006921967d6258df6945f1d598a5c0cbf1e
+#EXTINF:-1 tvg-id="" tvg-name="M+ LIGA UHD" tvg-logo="" group-title="Xupimarc2",M+ LIGA UHD
+plugin://script.module.horus?action=play&id=4b528d10eaad747ddf52251206177573ee3e9f74
+#EXTINF:-1 tvg-id="" tvg-name="LA LIGA M+" tvg-logo="" group-title="Xupimarc2",LA LIGA M+
+plugin://script.module.horus?action=play&id=14b6cd8769cd485f2cffdca64be9698d9bfeac58
+#EXTINF:-1 tvg-id="" tvg-name="DAZN LA LIGA 2" tvg-logo="" group-title="Xupimarc2",DAZN LA LIGA 2
+plugin://script.module.horus?action=play&id=635b61c1f240449163260cd914d10d886a54fee3
+
+#EXTINF:-1 tvg-id="" tvg-name="LA LIGA TV2 M+" tvg-logo="" group-title="Xupimarc2",LA LIGA TV2 M+
+plugin://script.module.horus?action=play&id=51b363b1c4d42724e05240ad068ad219df8042ec
+#EXTINF:-1 tvg-id="" tvg-name="LA LIGA TV2 M+" tvg-logo="" group-title="Xupimarc2",LA LIGA TV2 M+
+plugin://script.module.horus?action=play&id=ad42faa399df66dcd62a1cbc9d1c99ed4512d3b8
+#EXTINF:-1 tvg-id="" tvg-name="LA LIGA TV3 M+" tvg-logo="" group-title="Xupimarc2",LA LIGA TV3 M+
+plugin://script.module.horus?action=play&id=7ad14386deef2f45ffe17d30a631dbf79b6a1a87
+#EXTINF:-1 tvg-id="" tvg-name="LA LIGA TV3 M+" tvg-logo="" group-title="Xupimarc2",LA LIGA TV3 M+
+plugin://script.module.horus?action=play&id=382b14499e3d76e557d449d2e5bbc4e4bd63bd39
+
+#EXTINF:-1 tvg-id="" tvg-name="DAZN LA LIGA" tvg-logo="" group-title="Xupimarc2",DAZN LA LIGA
+plugin://script.module.horus?action=play&id=e2b8a4aba2f4ea3dd68992fcdb65c9e62d910b05
+#EXTINF:-1 tvg-id="" tvg-name="DAZN LA LIGA" tvg-logo="" group-title="Xupimarc2",DAZN LA LIGA
+plugin://script.module.horus?action=play&id=4e6d9cf7d177366045d33cd8311d8b1d7f4bed1f
+#EXTINF:-1 tvg-id="" tvg-name="DAZN LA LIGA 2" tvg-logo="" group-title="Xupimarc2",DAZN LA LIGA 2
+plugin://script.module.horus?action=play&id=a231b2fa1f7754433efeb8bb8d69d7b9096dcba8
+#EXTINF:-1 tvg-id="" tvg-name="DAZN LA LIGA 2" tvg-logo="" group-title="Xupimarc2",DAZN LA LIGA 2
+plugin://script.module.horus?action=play&id=c976c7b37964322752db562b4ad65515509c8d36
+
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES UHD" tvg-logo="" group-title="Xupimarc2",CAMPEONES UHD
+plugin://script.module.horus?action=play&id=97df5b7824948972d041d8ca2a4d29c90b641bc9
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES UHD" tvg-logo="" group-title="Xupimarc2",CAMPEONES UHD
+plugin://script.module.horus?action=play&id=2b51710cee513e8939785fa3e7980f32d4e0415f
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES UHD" tvg-logo="" group-title="Xupimarc2",CAMPEONES UHD
+plugin://script.module.horus?action=play&id=9db029dff6a9c637d1f670e78dbc1a479b9b406e
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES UHD" tvg-logo="" group-title="Xupimarc2",CAMPEONES UHD
+plugin://script.module.horus?action=play&id=b028202ff335911db3118bceac027df3e8ef6c32
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 2" tvg-logo="" group-title="Xupimarc2",CAMPEONES 2
+plugin://script.module.horus?action=play&id=74ab4e4ec7e2da001f473ca40893b7307b8029c5
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 2" tvg-logo="" group-title="Xupimarc2",CAMPEONES 2
+plugin://script.module.horus?action=play&id=38f7b2044e549df2039ff26cefa6f9a60c854d5e
+
+#EXTINF:-1 tvg-id="" tvg-name="DAZN F1" tvg-logo="" group-title="Xupimarc2",DAZN F1
+plugin://script.module.horus?action=play&id=b08e158ea3f5c72084f5ff8e3c30ca2e4d1ff6d1
+#EXTINF:-1 tvg-id="" tvg-name="DAZN F1" tvg-logo="" group-title="Xupimarc2",DAZN F1
+plugin://script.module.horus?action=play&id=bcf9dc38f92e90a71b87bd54b3bac91b76d09a69
+#EXTINF:-1 tvg-id="" tvg-name="DAZN F1" tvg-logo="" group-title="Xupimarc2",DAZN F1
+plugin://script.module.horus?action=play&id=fd53cfa7055fe458d4f5c0ff59a06cd43723be55
+#EXTINF:-1 tvg-id="" tvg-name="DAZN F1" tvg-logo="" group-title="Xupimarc2",DAZN F1
+plugin://script.module.horus?action=play&id=ed6188dcbb491efeb2092c1a6199226c27f61727
+
+#EXTINF:-1 tvg-id="" tvg-name="VAMOS 2" tvg-logo="" group-title="Xupimarc2",VAMOS 2
+plugin://script.module.horus?action=play&id=c7c81acdd1a03ecc418c94c2f28e2adb0556c40b
+#EXTINF:-1 tvg-id="" tvg-name="VAMOS 2" tvg-logo="" group-title="Xupimarc2",VAMOS 2
+plugin://script.module.horus?action=play&id=0e5d8c9724fa9163f49096b70484e315251eb785
+
+#EXTINF:-1 tvg-id="" tvg-name="RETROVISION" tvg-logo="" group-title="Xupimarc2",RETROVISION
+plugin://script.module.horus?action=play&id=b8b8c4470d3d27c75302cf49ab6c4b52a660bff3
+
+
+
+
+
+#EXTINF:-1 tvg-id="" tvg-name="LA LIGA TV3 M+" tvg-logo="" group-title="Xupimarc2",LA LIGA TV3 M+ out
+plugin://script.module.horus?action=play&id=835639b89db00cc0d94660da3c10b6e38bfbcdc1
+#EXTINF:-1 tvg-id="" tvg-name="DAZN LA LIGA 2" tvg-logo="" group-title="Xupimarc2",DAZN LA LIGA 2 out
+plugin://script.module.horus?action=play&id=fb51ef5294e99767811a3fa95a1933fb864e9ff3
+
+#EXTINF:-1 tvg-id="" tvg-name="DAZN BUNDESLIGA 1" tvg-logo="" group-title="Xupimarc2",DAZN BUNDESLIGA 1
+plugin://script.module.horus?action=play&id=cb18d080d81f7fccf26b7723ce6a5d86d31220db
+#EXTINF:-1 tvg-id="" tvg-name="DAZN BUNDESLIGA 1" tvg-logo="" group-title="Xupimarc2",DAZN BUNDESLIGA 1
+plugin://script.module.horus?action=play&id=d4f56cda0a15f47e7820daaac8e37b4d67d9c918
+#EXTINF:-1 tvg-id="" tvg-name="DAZN BUNDESLIGA 1" tvg-logo="" group-title="Xupimarc2",DAZN BUNDESLIGA 1
+plugin://script.module.horus?action=play&id=692d6a47ba99fbfc67fa947e468e859c7f2b9564
+
+#EXTINF:-1 tvg-id="" tvg-name="LA LIGA HIPERMOTION" tvg-logo="" group-title="Xupimarc2",LA LIGA HIPERMOTION
+plugin://script.module.horus?action=play&id=fe289ab20d8f9dcb426fc6d56ce9dbbddb66e3b3
+#EXTINF:-1 tvg-id="" tvg-name="HIPERMOTION 4" tvg-logo="" group-title="Xupimarc2",HIPERMOTION 4
+plugin://script.module.horus?action=play&id=0829094f216f639b2ac2d00b6cccce6585de6c7b
+#EXTINF:-1 tvg-id="" tvg-name="HIPER 5" tvg-logo="" group-title="Xupimarc2",HIPER 5
+plugin://script.module.horus?action=play&id=061f42fcaa7632fb0a889272a731036d033cddf5
+
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES UHD" tvg-logo="" group-title="Xupimarc2",CAMPEONES UHD
+plugin://script.module.horus?action=play&id=7b8d9d280e8a3a9ccbdf560a63b3652b4f0d6f13
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 3" tvg-logo="" group-title="Xupimarc2",CAMPEONES 3
+plugin://script.module.horus?action=play&id=15127320406cf6a072c4f485f31c841d7d3e62f3
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 9" tvg-logo="" group-title="Xupimarc2",CAMPEONES 9
+plugin://script.module.horus?action=play&id=80abcb38122c25fefb4dffeb57086998447ff49b
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 10" tvg-logo="" group-title="Xupimarc2",CAMPEONES 10
+plugin://script.module.horus?action=play&id=0103373118989085dd0d02667c629ee36d462cb1
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 11" tvg-logo="" group-title="Xupimarc2",CAMPEONES 11
+plugin://script.module.horus?action=play&id=6e12a5849a4edea248ed9c8689e58bd66fc9f8fa
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 12" tvg-logo="" group-title="Xupimarc2",CAMPEONES 12
+plugin://script.module.horus?action=play&id=130d37f9a68bd8f29f0d636dcde522a1e91d1cb7
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES 13" tvg-logo="" group-title="Xupimarc2",CAMPEONES 13
+plugin://script.module.horus?action=play&id=9c246c5e6a153ba2b765e4b84f4d50e0836b3556
+#EXTINF:-1 tvg-id="" tvg-name="campeones 14" tvg-logo="" group-title="Xupimarc2",campeones 14
+plugin://script.module.horus?action=play&id=773ef9e2d2feb4f80ef558b253c72fda8d8e53cf
+#EXTINF:-1 tvg-id="" tvg-name="campeones 15" tvg-logo="" group-title="Xupimarc2",campeones 15
+plugin://script.module.horus?action=play&id=47ce8fe15adfcf4e1749b0c0dee1fc79a3d5ca6d
+#EXTINF:-1 tvg-id="" tvg-name="campeones 16" tvg-logo="" group-title="Xupimarc2",campeones 16
+plugin://script.module.horus?action=play&id=348cc65d5cbd5a77da0fe006ce97eff6ad72b9da
+#EXTINF:-1 tvg-id="" tvg-name="campeones 17" tvg-logo="" group-title="Xupimarc2",campeones 17
+plugin://script.module.horus?action=play&id=a15a132ffe7867a2b61b49617df39a8309cce27c
+
+#EXTINF:-1 tvg-id="" tvg-name="DAZN F1" tvg-logo="" group-title="Xupimarc2",DAZN F1
+plugin://script.module.horus?action=play&id=4b1066552d40ac452ab408c97fc3215699a52c4f
+#EXTINF:-1 tvg-id="" tvg-name="ALONSO ASTON MARTIN" tvg-logo="" group-title="Xupimarc2",ALONSO ASTON MARTIN
+plugin://script.module.horus?action=play&id=a97ccf39516515e7812d5c04dcacdf748f3545e8
+#EXTINF:-1 tvg-id="" tvg-name="CARLOS SAINZ F1" tvg-logo="" group-title="Xupimarc2",CARLOS SAINZ F1
+plugin://script.module.horus?action=play&id=ddc3b1c8297d57d8096ba20edc1da41eb149a167
+
+#EXTINF:-1 tvg-id="" tvg-name="ONE BOARD 1" tvg-logo="" group-title="Xupimarc2",ONE BOARD 1
+plugin://script.module.horus?action=play&id=2e764a7ad94bcb4e67e82369b7aa982c6b2751b4
+#EXTINF:-1 tvg-id="" tvg-name="ONE BOARD 2" tvg-logo="" group-title="Xupimarc2",ONE BOARD 2
+plugin://script.module.horus?action=play&id=b926e6a6ab1d5dc855ce2d3dbeb5e97b9d42b304
+#EXTINF:-1 tvg-id="" tvg-name="ONE BOAARD 3" tvg-logo="" group-title="Xupimarc2",ONE BOAARD 3
+plugin://script.module.horus?action=play&id=9798df57203105309f47b1aa81b6badf00fd0f35
+#EXTINF:-1 tvg-id="" tvg-name="ONE BOARD 4" tvg-logo="" group-title="Xupimarc2",ONE BOARD 4
+plugin://script.module.horus?action=play&id=de3ae87e72054cf3ce75268753845c97b931ad58
+
+#EXTINF:-1 tvg-id="" tvg-name="VAMOS 2" tvg-logo="" group-title="Xupimarc2",VAMOS 2
+plugin://script.module.horus?action=play&id=e2d26332bf1aa59aec7e3cbe9ed4689df44ae368
+#EXTINF:-1 tvg-id="" tvg-name="EUROSPORT 1" tvg-logo="" group-title="Xupimarc2",EUROSPORT 1
+plugin://script.module.horus?action=play&id=1d04e3b27c2ac3ff52dc949e76f36207fbb235c4
+
+#EXTINF:-1 tvg-id="" tvg-name="WINTER SERIES" tvg-logo="" group-title="Xupimarc2",WINTER SERIES
+plugin://script.module.horus?action=play&id=2f3a139d7a2ca1f305ae8cd67444b961d468a9d4
+#EXTINF:-1 tvg-id="" tvg-name="LA 1" tvg-logo="" group-title="Xupimarc2",LA 1
+plugin://script.module.horus?action=play&id=7225e4b281975f1a36d61dfd9724b669d7747b70
+#EXTINF:-1 tvg-id="" tvg-name="DISCOVERY CHANNEL" tvg-logo="" group-title="Xupimarc2",DISCOVERY CHANNEL
+plugin://script.module.horus?action=play&id=cd485af78cf86934d77cf867f73fe7f5cd32981a
+
+#EXTINF:-1 tvg-id="" tvg-name="ARA ESTOS" tvg-logo="" group-title="Xupimarc2",ARA ESTOS
+plugin://script.module.horus?action=play&id=1a9085a7b8aa402f317fb86f7243f3736770b325
+#EXTINF:-1 tvg-id="" tvg-name="MOVISTAR +" tvg-logo="" group-title="Xupimarc2",MOVISTAR +
+plugin://script.module.horus?action=play&id=01e9b62b0612bb40ad1bea342b833038f8258a65
+#EXTINF:-1 tvg-id="" tvg-name="LA LIGA M+" tvg-logo="" group-title="Xupimarc2",LA LIGA M+
+plugin://script.module.horus?action=play&id=9ea64600ac7f188a57d14e08f6e3c1055bbb7f1a
+#EXTINF:-1 tvg-id="" tvg-name="DAZN LA LIGA" tvg-logo="" group-title="Xupimarc2",DAZN LA LIGA
+plugin://script.module.horus?action=play&id=d10a14db9cdba08c05b475071de68b86a400e35b
+#EXTINF:-1 tvg-id="" tvg-name="CAMPEONES UHD" tvg-logo="" group-title="Xupimarc2",CAMPEONES UHD
+plugin://script.module.horus?action=play&id=03fe4c2658ad7419313f0a1bd41d511dd776aca7
+#EXTINF:-1 tvg-id="" tvg-name="COMEDIA" tvg-logo="" group-title="Xupimarc2",COMEDIA
+plugin://script.module.horus?action=play&id=ee1a0185a6a5dc2b7b7ff4e2bda4ae3892cf94ef
+#EXTINF:-1 tvg-id="" tvg-name="DAZN 1" tvg-logo="" group-title="Xupimarc2",DAZN 1
+plugin://script.module.horus?action=play&id=eb6ffec065b26259ad3d1811e0bbb0a5332ed276
+
+
+
+
+
+
+
+
+
+
+#EXTINF:-1 tvg-id="" tvg-name="Teledeporte New Era I" tvg-logo="" group-title="Ciriaco",Teledeporte New Era I
+plugin://script.module.horus?action=play&id=bdc32e0f99653f96e0e1a3b98c88764b631ed9ef
+
