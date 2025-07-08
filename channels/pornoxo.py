@@ -40,14 +40,14 @@ language = []
 url_replace = []
 
 
-finds = {'find': {'find_all': [{'tag': ['div'],  'class': ['media-item__inner-wrapper']}]},
-         'categories':dict([('find', [{'tag': ['body']}]), 	
-                            ('get_text', [{'tag': '', '@STRIP': False, '@JSON': 'DEFAULT'}])]),
+finds = {'find': {'find_all': [{'tag': ['li'],  'class': ['media-item']}]},
+         'categories':dict([('find', [{'tag': ['ul'], 'class': ['left-menu-box']}]),
+                            ('find_all', [{'tag': ['a'], 'href': re.compile("/tags/[A-z0-9-]+/")}])]),
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
          'next_page': {},
-         'next_page_rgx': [['\/\d+', '/%s/'], ['&page=\d+', '&page=%s']], 
+         'next_page_rgx': [['?page=\d+', '?page=%s'], ['\/\d+', '/%s/']], 
          'last_page': dict([('find', [{'tag': ['div', 'nav', 'ul'], 'class': ['n-pagination', 'pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
@@ -62,7 +62,7 @@ finds = {'find': {'find_all': [{'tag': ['div'],  'class': ['media-item__inner-wr
                             'list_all_quality': dict([('find', [{'tag': ['div', 'span'], 'class': ['media-item__info']}]),
                                                       ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+p)'}])]),
                             },
-         'controls': {'url_base64': False, 'cnt_tot': 30, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 36, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -73,12 +73,12 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevo" , action="list_all", url=host + "videos/newest/1"))
-    itemlist.append(Item(channel=item.channel, title="Mejor Valorado" , action="list_all", url=host + "videos/top-rated/1"))
-    itemlist.append(Item(channel=item.channel, title="Mas Popular" , action="list_all", url=host + "videos/most-popular/daily/1"))
-    itemlist.append(Item(channel=item.channel, title="Lo Mejor" , action="list_all", url=host + "videos/best-recent/1"))
-    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "videos/longest/1"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "tags/json/", extra="Categorias")) #404
+    itemlist.append(Item(channel=item.channel, title="Nuevo" , action="list_all", url=host + "search/?page=1&sort=mr"))
+    itemlist.append(Item(channel=item.channel, title="Mejor Valorado" , action="list_all", url=host + "search/?page=1&sort=tr"))
+    itemlist.append(Item(channel=item.channel, title="Mas Popular" , action="list_all", url=host + "search/?page=1&sort=mw"))
+    itemlist.append(Item(channel=item.channel, title="Lo Mejor" , action="list_all", url=host + "search/?page=1&sort=br"))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "search/?page=1&sort=lg"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "tags/tags/?response_format=json", extra="Categorias")) #404
     # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "tags/", extra="Categorias")) #
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
@@ -137,7 +137,7 @@ def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    item.url = "%ssearch/%s/?sort=mr&page=1" % (host, texto.replace(" ", "+"))
+    item.url = "%ssearch/?page=1&q=%s&sort=mr" % (host, texto.replace(" ", "+"))
     
     try:
         if texto:

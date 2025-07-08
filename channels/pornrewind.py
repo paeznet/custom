@@ -10,6 +10,7 @@ from core import servertools
 from core import httptools
 from core import urlparse
 
+# LOS Videos no existen.
 
 canonical = {
              'channel': 'pornrewind', 
@@ -22,7 +23,6 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-# Videos que no existen.
 
 def mainlist(item):
     logger.info()
@@ -109,7 +109,6 @@ def play(item):
     logger.info(item)
     itemlist = []
     data = httptools.downloadpage(item.url).data
-    logger.debug(data)
     data= scrapertools.find_single_match(data, '<div class="player">(.*?)<div class="media-info">')
     patron = '<(?:IFRAME SRC|iframe src|source src)="([^"]+)"'
     matches = re.compile(patron,re.DOTALL).findall(data)

@@ -16,7 +16,7 @@ canonical = {
              'host': config.get_setting("current_host", 'pornstarstube', default=''), 
              'host_alt': ["https://pornstars.tube/"], 
              'host_black_list': [], 
-             'pattern': ['href="?([^"|\s*]+)["|\s*]\s*rel="?stylesheet"?'], 
+             # 'pattern': ['href="?([^"|\s*]+)["|\s*]\s*rel="?stylesheet"?'], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -71,6 +71,9 @@ def lista(item):
         url = elem.a['href']
         title = elem.a['title']
         thumbnail = elem.img['src']
+        time = elem.find(class_='duration_item')
+        if time:
+            title = "[COLOR yellow]%s[/COLOR] %s" % (time.text.strip(),title)
         if "gif" in thumbnail:
             thumbnail = elem.img['data-original']
         plot = ""
@@ -104,10 +107,10 @@ def play(item):
     for x , value in enumerate(pornstars):
         pornstars[x] = value.text.strip()
     pornstar = ' & '.join(pornstars)
-    pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
-    lista = item.contentTitle.split()
-    lista.insert (0, pornstar)
-    item.contentTitle = ' '.join(lista)    
+    pornstar = "[COLOR cyan]%s" % pornstar
+    lista = item.contentTitle.split("[/COLOR]")
+    lista.insert (1, pornstar)
+    item.contentTitle = ' [/COLOR]'.join(lista)
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
