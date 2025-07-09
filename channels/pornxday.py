@@ -21,6 +21,9 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
+
+################   CF2
+
 # https://familyroleplayporn.com/  https://hdporn92.com/  https://latestpornvideo.com/  https://vidzxxxhd.com/
 # https://www.pornxday.com/  https://www.vpornhd.com/  https://asiaxbit.com/
 # https://mynewpornvideo.com/   
