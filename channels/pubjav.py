@@ -158,6 +158,7 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
                "Sw": "Streamwish",
                "Dd": "Doodstream",
                "St": "Streamtape",
+               "Su": "bestb",
                # "Us": "https://player.upn.one/#urh1y",
                "Fl": "Vidhidepro"
                }
