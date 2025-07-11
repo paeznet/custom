@@ -20,10 +20,9 @@ list_quality_tvshow = []
 list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
-forced_proxy_opt = 'ProxySSL'
-
-
-#####    <html><head></head><body></body></html>
+# forced_proxy_opt = 'ProxySSL'
+forced_proxy_opt = ''
+##################################  TEST ERROR
 
 canonical = {
              'channel': 'inxxx', 
@@ -33,8 +32,6 @@ canonical = {
              'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
              'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
-             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
-             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
@@ -60,12 +57,12 @@ finds = {'find':  dict([('find', [{'tag': ['div'], 'class': ['video-list', 'list
                                            '@ARG': 'data-parameters', '@TEXT': '\:(\d+)'}])]), 
          'plot': {}, 
          'findvideos': {},
-         'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
+         'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['Big Boobs Porn Video ', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
                             },
-         'controls': {'url_base64': False, 'cnt_tot': 24, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 32, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -76,7 +73,7 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevas" , action="list_all", url=host + "new/?sort_by=post_date&from=1"))
+    # itemlist.append(Item(channel=item.channel, title="Nuevas" , action="list_all", url=host + "new/?sort_by=post_date&from=1"))
     itemlist.append(Item(channel=item.channel, title="Nuevas" , action="list_all", url=host + "s/?sort_by=post_date&from_videos=1"))
     itemlist.append(Item(channel=item.channel, title="Mas Vistas" , action="list_all", url=host + "s/?sort_by=video_viewed&from=1"))
     itemlist.append(Item(channel=item.channel, title="Mejor Valorada" , action="list_all", url=host + "s/?sort_by=rating&from=1"))

@@ -39,7 +39,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s?s=%s&filter=latest" % (host,texto)
+    item.url = "%svideos/q?search=%s&orderBy=createdAt&sort=desc" % (host,texto)
     try:
         return lista(item)
     except:
@@ -115,6 +115,7 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
+    logger.debug(soup)
     matches = soup.find('div', class_='grid').find_all('a')
     for elem in matches:
         url = elem['href']

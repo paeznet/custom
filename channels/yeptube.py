@@ -115,14 +115,13 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url, item.ctype, item.cattype)
-    matches = soup.find_all('div', class_='th-video')
+    matches = soup.find_all('div', class_='thumb-main')
     for elem in matches:
-        
         url = elem.a['href']
         title = elem.img['alt']
         thumbnail = elem.img['src']
-        time = elem.find('span', class_='time').text.strip()
-        quality = elem.find('span', class_='hd')
+        time = elem.find('span', class_='duration-badge').text.strip()
+        quality = elem.find('span', class_='quality-badge')
         if quality:
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
         else:
@@ -134,9 +133,9 @@ def lista(item):
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('a', class_='pag-next')
-    if next_page:
-        next_page = next_page['href']
+    next_page = soup.find('span', class_='pagination-link-current')
+    if next_page and next_page.parent.find_next_sibling("li"):
+        next_page = next_page.parent.find_next_sibling("li").a['href']
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist

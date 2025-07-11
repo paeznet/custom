@@ -33,7 +33,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s/search?q=%s" % (host,texto)
+    item.url = "%ssearch?q=%s" % (host,texto)
     try:
         return lista(item)
     except:

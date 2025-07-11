@@ -20,7 +20,6 @@ list_quality_tvshow = []
 list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
-######       Los KTP no existen
 
 forced_proxy_opt = 'ProxySSL'
 
@@ -42,7 +41,7 @@ tv_path = ''
 language = []
 url_replace = []
 
-finds = {'find':  dict([('find', [{'tag': ['div'], 'class': ['video-list', 'list-videos']}]),
+finds = {'find':  dict([('find', [{'tag': ['div'], 'class': ['list-videos']}]),
                        ('find_all', [{'tag': ['div'], 'class': ['item']}])]),
          'categories': dict([('find', [{'tag': ['div'], 'class': ['list-categories', 'list-models', 'list-channels']}]),
                              ('find_all', [{'tag': ['a']}])]),

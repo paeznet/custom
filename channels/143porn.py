@@ -19,7 +19,11 @@ list_quality_movies = AlfaChannelHelper.LIST_QUALITY_MOVIES_A
 list_quality_tvshow = []
 list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
-forced_proxy_opt = 'ProxySSL'
+
+# forced_proxy_opt = 'ProxySSL'
+forced_proxy_opt = ''
+
+#########################    OUT julio 2025
 
 canonical = {
              'channel': '143porn', 
