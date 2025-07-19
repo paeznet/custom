@@ -4,14 +4,21 @@
     "ignore_urls": [],
     "patterns": [
       {
-        "pattern": "(https://www.fireload.com/[A-z0-9]+/[A-z0-9_]+.mp4)",
-        "url": "\\1"
+        "pattern": "((?:hqq|waaw|netu|waaw1)(?:\\.tv\\/|\\.watch\\/|.ac\\/|\\.cc\\/|\\.to\\/|\\.php\\?)(e/|f/)[A-z0-9]+)",
+        "url": "https://\\1"
       }
     ]
   },
   "free": true,
-  "id": "fireload",
-  "name": "fireload",
+  "id": {
+    "value": [
+      "netutv",
+      "netu",
+      "waaw",
+      "hqq"
+    ]
+  },
+  "name": "netutv",
   "settings": [
     {
       "default": false,
@@ -38,5 +45,5 @@
       "visible": false
     }
   ],
-  "thumbnail": "https://www.fireload.com/assets/images/icons/favicon/favicon.png"
+  "thumbnail": "server_netutv.png"
 }

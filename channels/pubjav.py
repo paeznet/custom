@@ -129,6 +129,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
             tit1 = trailer['data-title']
             tit2 = elem.h2.text.strip()
             elem_json['thumbnail'] = trailer.get('data-poster', '') or elem.img.get('data-original', '')
+            elem_json['thumbnail'] += "|Referer=%s" % host
             elem_json['title'] = "%s %s" %(tit1,tit2)
             
         except:
@@ -159,7 +160,7 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
                "Dd": "Doodstream",
                "St": "Streamtape",
                "Su": "bestb",
-               # "Us": "https://player.upn.one/#urh1y",
+               "Us": "kinoger",
                "Fl": "Vidhidepro"
                }
     
@@ -176,7 +177,6 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
         pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
         item.plot = "Estudio: %s \nActores: %s" %(canal,pornstar)
     
-    
     for elem in matches_int:
         elem_json = {}
         try:
@@ -187,7 +187,7 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
             elem_json['post']= "episode=%s&filmId=%s" %(id,src)
             elem_json['url'] = item.url
             elem_json['server'] = elem.get_text(strip=True).capitalize()
-            if elem_json['server'] in ["Us", "trailer"]: continue
+            # if elem_json['server'] in ["Us", "trailer"]: continue
             if elem_json['server'] in srv_ids:
                 elem_json['server'] = srv_ids[elem_json['server']]
             elem_json['language'] = ''
@@ -210,13 +210,16 @@ def play(item):
     post_url = "%sajax/player" %host
     soup = AlfaChannel.create_soup(post_url, post=item.post, **kwargs)
     data = str(soup).replace("'\\", "").replace("\/", "/").replace("\\", "")
+    
     url = scrapertools.find_single_match(data, 'src="([^"]+)"')
+    
     if "Streamwish" in item.server or "Vidhidepro" in item.server: ###  or "Emturbovid" in item.server
         url += "|Referer=%s" %host
+    if "bestb" in item.server or "kinoger" in item.server:
+        devuelve = servertools.findvideosbyserver(url, item.server)
+        url =  devuelve[0][1]
     itemlist.append(Item(channel=item.channel, action="play", server= item.server, contentTitle = item.contentTitle, url=url))
     
-    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
 

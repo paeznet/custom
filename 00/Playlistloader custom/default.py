@@ -283,6 +283,7 @@ def m3uCategory(url, logos, epg, cache, mode, gListIndex=-1):
 #################################### si tvg_id en EPG
                         elif tvgid in epgDict.get(u'name'):
                             idx = epgDict[u'name'].index(tvgid)
+                        ####### AQUI para comparar textos???
                         if tvgid and not idx:
                             elements = [row[0] for row in epgDict[u'data']]
                             if tvgid in elements:

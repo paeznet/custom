@@ -1,3 +1,10 @@
+
+%appdata%\kodi\addons
+special://profile/addon_data/plugin.video.alfa
+
+
+
+
 BGHOSt 
 default.py
 
@@ -461,7 +468,7 @@ redtube
 
 		# soup = AlfaChannel.create_soup(item.url, **kwargs)
 		# matches = AlfaChannel.parse_finds_dict(soup, finds['findvideos'])
-		    # if not matches:
+		# if not matches:
 			# from platformcode import launcher
 			# item.action = 'play'
 			# item.language = ''

@@ -75,10 +75,10 @@ def lista(item):
         url = elem.a['href']
         title = elem.find('div', class_='title').text.strip()
         thumbnail = elem.img['data-src']  ### CCurlFile::Stat - Failed: HTTP response code said error(22)
-        logger.debug(thumbnail)
-        # thumbnail += "|verifypeer=false"
-        # thumbnail += "|ignore_response_code=True"
-        # thumbnail += "|Referer=%s" % host
+        if 'getVideoPreview' in thumbnail:
+            i1, i2 = thumbnail.split('/getVideoPreview')
+            thumbnail = 'https://' + i1.split('/')[-1] + '/getVideoPreview' + i2
+        thumbnail = thumbnail.replace('&amp;', '&')
         time = elem.find('div', class_='m_time').text.strip()
         quality = elem.find('i', class_='hd_mark')
         if quality:
