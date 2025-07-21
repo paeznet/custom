@@ -22,20 +22,15 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
 forced_proxy_opt = 'ProxySSL'
 
-############   NETU  # https://player.netpornsex.net/e/N3FRS0g1R1loUCtvY1k1WDIxVGh5QT09
+############   NETU  
 
 # https://netpornsex.net/    https://espaporn.com/
 
-# https://netpornsex.net/big-tits-round-fucking-armani-black/
-# https://netpornsex.net/big-tits-round-anal-craving/ https://hqq.tv/player/embed_player.php?vid=FdK5HQru8a2G&autoplay=none
-# <div class="responsive-player"><div id="07b02207602203a02204606404b03504805107207503806103204702207d" 
-# https://hqq.to/e/FdK5HQru8a2G
-# https://hqq.to/e/opMwEWKOAedS
 
 canonical = {
-             'channel': 'netpornsex', 
-             'host': config.get_setting("current_host", 'netpornsex', default=''), 
-             'host_alt': ["https://netpornsex.net/"], 
+             'channel': 'espaporn', 
+             'host': config.get_setting("current_host", 'espaporn', default=''), 
+             'host_alt': ["https://espaporn.com/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -121,7 +116,6 @@ def play(item):
     itemlist = []
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
-    logger.debug(soup)
     if soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+/")):
         pornstars = soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+"))
         for x, value in enumerate(pornstars):
@@ -140,11 +134,7 @@ def play(item):
     
     url= ""
     if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)")):
-        url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))
-        if url.get('id', ''):
-            url = url['id']
-        else:
-            url = url['src']
+        url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))['src']
     if "player.netpornsex.net" in url:
         url = url.replace("player.netpornsex.net", "hqq.to")
     # matches = soup.find('div', class_='responsive-player')

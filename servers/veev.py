@@ -17,11 +17,8 @@ from core import filetools
 import xml.etree.ElementTree as ET
 import resolveurl
 
-
-# addon.xml
-# <requires>
-    # <import addon="script.module.resolveurl" optional="true" />
-
+# https://veev.to/e/2IVw98bXUifPchjcPnQapmKuvHPWsJ1I1Hf6MZe
+# resolveurl.resolver.ResolverError: Video removed
 
 def get_video_url(page_url, premium=False, user="", password="", video_password=""):
     logger.info("url=" + page_url)
@@ -48,13 +45,12 @@ def get_video_url(page_url, premium=False, user="", password="", video_password=
         tree.write(comparar)
     
     url = urlsolver(page_url)
-    video_urls.append(["[netu.tv]", url])
+    video_urls.append(["[veev]", url])
     
     return video_urls
 
 
 def urlsolver(url):
-    logger.info("url=" + url)
     # try:
         # import resolveurl
     # except:
@@ -62,7 +58,6 @@ def urlsolver(url):
 
     if resolveurl.HostedMediaFile(url).valid_url():
         resolved = resolveurl.resolve(url)
-        logger.debug(resolved)
     else:
         # platformtools.dialog_ok("Error", "%s" %url)
         resolved = url

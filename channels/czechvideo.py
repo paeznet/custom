@@ -13,6 +13,7 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+############   NETU
 
 canonical = {
              'channel': 'czechvideo', 
@@ -60,6 +61,7 @@ def categorias(item):
         title = elem.text.strip()
         thumbnail = ""
         url = urlparse.urljoin(item.url,url)
+        url += "page/1/"
         # thumbnail = urlparse.urljoin(item.url,thumbnail)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
@@ -139,10 +141,11 @@ def play(item):
         for elem in pornstars:
             if elem in item.contentTitle:
                 item.contentTitle = item.contentTitle.replace(elem, "[COLOR cyan]%s[/COLOR]" % elem)
-    else:
+        item.contentTitle = item.contentTitle.replace("[/COLOR] and [COLOR cyan]", " and ").replace("[/COLOR]and [COLOR cyan]", " and ")
+    elif pornstars:
         if pornstars in item.contentTitle:
-            item.contentTitle = item.contentTitle.replace(pornstar, "[COLOR cyan]%s[/COLOR]" % pornstars)
-    item.contentTitle = item.contentTitle.replace("[/COLOR] and [COLOR cyan]", " and ").replace("[/COLOR]and [COLOR cyan]", " and ")
+            item.contentTitle = item.contentTitle.replace(pornstars, "[COLOR cyan]%s[/COLOR]" % pornstars)
+            item.contentTitle = item.contentTitle.replace("[/COLOR] and [COLOR cyan]", " and ").replace("[/COLOR]and [COLOR cyan]", " and ")
     # pornstar = pornstars.replace(", ", "&")
     # pornstar = "[COLOR cyan]%s" % pornstar
     # lista = item.contentTitle.split("[/COLOR]")

@@ -11,7 +11,7 @@ from modules import filtertools
 from lib import alfa_assistant
 
 
-host = "https://yaske.ru/link/kvMlRLp5Gz"
+host = "https://netpornsex.net/big-tits-round-fucking-armani-black/"
 
 url1 = "https://evoload.io/SecurePlayer"
 
@@ -30,12 +30,12 @@ def create_soup(item):
     data = ""
     alfa_assistant.open_alfa_assistant()
     data = alfa_assistant.get_source_by_page_finished(item.url, 5, closeAfter=True)
-    if not data:
-        platformtools.dialog_ok("Alfa Assistant: Error", "ACTIVE la app Alfa Assistant para continuar")
-        data = alfa_assistant.get_source_by_page_finished(item.url, 5, closeAfter=True)
-        if not data:
-            return False
-    logger.debug(data)
+    # if not data:
+        # platformtools.dialog_ok("Alfa Assistant: Error", "ACTIVE la app Alfa Assistant para continuar")
+        # data = alfa_assistant.get_source_by_page_finished(item.url, 5, closeAfter=True)
+        # if not data:
+            # return False
+    # logger.debug(data)
     data = alfa_assistant.find_htmlsource_by_url_pattern(data, item.url)
     if isinstance(data, dict):
         data = data.get('source', '')

@@ -19,7 +19,10 @@ list_quality = []
 list_quality_movies = []
 list_quality_tvshow = []
 list_servers = []
+
 forced_proxy_opt = 'ProxySSL'
+
+############   NETU
 
 canonical = {
              'channel': 'pornfromczech', 
@@ -40,9 +43,6 @@ language = []
 url_replace = []
 
 
-###################  MUCHO NETU
-
-
 finds = {'find': {'find_all': [{'tag': ['div'], 'id': re.compile(r"^video-\d+")}]},     #'id': re.compile(r"^browse_\d+")}]},
          'categories': dict([('find', [{'tag': ['div'], 'class': ['menu-category-container']}]),
                              ('find_all', [{'tag': ['a']}])]),
@@ -56,7 +56,7 @@ finds = {'find': {'find_all': [{'tag': ['div'], 'id': re.compile(r"^video-\d+")}
                                            '@ARG': 'href', '@TEXT': 'page/(\d+)'}])]), 
          'plot': {}, 
          'findvideos': dict([('find', [{'tag': ['div'], 'class': ['video_code']}]), 
-                             ('find_all', [{'tag': ['iframe'], '@ARG': 'src'}])]),
+                             ('find_all', [{'tag': ['p']}])]),
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
@@ -73,6 +73,7 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
+    
     autoplay.init(item.channel, list_servers, list_quality)
     
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1/?order=date"))
@@ -91,11 +92,9 @@ def section(item):
     logger.info()
     
     findS = finds.copy()
-    findS['url_replace'] = [['(\/(?:category|pornstars)\/[^$]+$)', r'\1/page/1/?order=date']]
+    findS['url_replace'] = [['(\/(?:category|pornstars)\/[^$]+$)', r'\1page/1/?order=date']]
     
     return AlfaChannel.section(item, finds=findS, **kwargs)
-    # return AlfaChannel.section(item, **kwargs)
-    # return AlfaChannel.section(item, matches_post=section_matches, **kwargs)
 
 
 def list_all(item):
@@ -110,9 +109,6 @@ def list_all(item):
 def findvideos(item):
     logger.info()
     
-    
-    # return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
-                                         # verify_links=False, findvideos_proc=True, **kwargs)
     return AlfaChannel.get_video_options(item, item.url, matches_post=findvideos_matches, 
                                          verify_links=False, generictools=True, findvideos_proc=True, **kwargs)
 
@@ -122,14 +118,12 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     matches = []
     findS = AHkwargs.get('finds', finds)
     
+    logger.debug(matches_int)
     for elem in matches_int:
         elem_json = {}
         
         try:
-            # if 'hqq' in elem or 'player.xkeezmovies' in elem:
-                # from platformcode import platformtools
-                # platformtools.dialog_ok("Server no soportado:", "%s" %elem)
-            elem_json['url'] = elem
+            elem_json['url'] = elem.iframe['src']
             elem_json['server'] = ''
             elem_json['language'] = ''
         

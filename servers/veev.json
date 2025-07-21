@@ -4,21 +4,14 @@
     "ignore_urls": [],
     "patterns": [
       {
-        "pattern": "((?:hqq|waaw|netu|waaw1)(?:\\.watch\\/|\\.\\w{2,4}\\/|\\.php\\?(?:v=|vid=))(?:e/|f/|)[A-z0-9]+)",
+        "pattern": "(veev.to/(e|f)/[A-z0-9]+)",
         "url": "https://\\1"
       }
     ]
   },
   "free": true,
-  "id": {
-    "value": [
-      "netutv",
-      "netu",
-      "waaw",
-      "hqq"
-    ]
-  },
-  "name": "netutv",
+  "id": "veev",
+  "name": "veev",
   "settings": [
     {
       "default": false,

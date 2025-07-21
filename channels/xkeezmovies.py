@@ -45,6 +45,9 @@ url_replace = []
 # rich-content   https://xkeezmovies.com/bigtitsroundasses-red-eviee-piping-hot-sweaty-tits-01-18-2025/
 # <div class='video'><iframe src= (hqq.to, https://player.xkeezmovies.com/) NETU   https://xkeezmovies.com/7803-daria-czechcasting/
 # # <div id='player-torotube'><iframe src=   https://xkeezmovies.com/right-signals-sent-and-received-premium-porn/
+# <video id  sourtype  https://xkeezmovies.com/i-do-need-a-hand-here-sis-premium-porn/
+
+
 
 finds = {'find': {'find_all': [{'tag': ['div'], 'class': re.compile(r"^post-\d+")}]},     #'id': re.compile(r"^browse_\d+")}]},
          'categories': {'find_all': [{'tag': ['span'], 'class': ['catlist']}]}, 
@@ -109,7 +112,7 @@ def section(item):
     logger.info()
     
     findS = finds.copy()
-    findS['url_replace'] = [['(\/(?:category|pornstars)\/[^$]+$)', r'\1/page/1/?orderby=date']]
+    findS['url_replace'] = [['(\/(?:category|pornstars)\/[^$]+$)', r'\1page/1/?orderby=date']]
     
     # if item.extra == 'PornStar':
         # findS['categories'] = dict([('find', [{'tag': ['div'], 'class': 'list-models'}]), 
@@ -185,9 +188,6 @@ def list_all(item):
 def findvideos(item):
     logger.info()
     
-    
-    # return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
-                                         # verify_links=False, findvideos_proc=True, **kwargs)
     return AlfaChannel.get_video_options(item, item.url, matches_post=findvideos_matches, 
                                          verify_links=False, generictools=True, findvideos_proc=True, **kwargs)
 
@@ -195,7 +195,27 @@ def findvideos(item):
 def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     logger.info()
     matches = []
+    
     findS = AHkwargs.get('finds', finds)
+    
+    soup = AHkwargs.get('soup', {})
+    if soup.find('div', id='details').find('div', class_='entry-content').find_all('a', rel="tag"):
+        pornstars = soup.find('div', id='details').find('div', class_='entry-content').find_all('a', rel="tag")
+        for x, value in enumerate(pornstars):
+            pornstars[x] = value.get_text(strip=True)
+        
+        pornstar = ' & '.join(pornstars)
+        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+        # lista = item.contentTitle.split('[/COLOR]')
+        # pornstar = pornstar.replace('[/COLOR]', '')
+        # pornstar = ' %s' %pornstar
+        # if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
+            # lista.insert (2, pornstar)
+        # else:
+            # lista.insert (1, pornstar)
+        # item.contentTitle = '[/COLOR]'.join(lista)
+        item.plot = pornstar
+    
     
     for elem in matches_int:
         elem_json = {}
@@ -205,10 +225,12 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
                 url = elem['href']
             else:
                 url = elem.iframe['src']
-                if 'hqq' in url or 'player.xkeezmovies' in url:
-                    from platformcode import platformtools
-                    platformtools.dialog_ok("Server no soportado:", "%s" %url)
-                    return
+                # if 'hqq' in url or 'player.xkeezmovies' in url:
+                    # from platformcode import platformtools
+                    # platformtools.dialog_ok("Server no soportado:", "%s" %url)
+                    # return
+            if "player.xkeezmovies.com" in url:
+                url= url.replace("player.xkeezmovies.com", "hqq.to")
             logger.debug(url)
             elem_json['url'] = url
             elem_json['server'] = ''
