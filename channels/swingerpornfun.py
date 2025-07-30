@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# -*- Channel netpornsex -*-
+# -*- Channel swingerpornfun -*-
 # -*- Created for Alfa-addon -*-
 # -*- By the Alfa Develop Group -*-
 
@@ -24,13 +24,10 @@ forced_proxy_opt = 'ProxySSL'
 
 ############   NETU  
 
-# https://netpornsex.net/    https://espaporn.com/
-
-
 canonical = {
-             'channel': 'espaporn', 
-             'host': config.get_setting("current_host", 'espaporn', default=''), 
-             'host_alt': ["https://espaporn.com/"], 
+             'channel': 'swingerpornfun', 
+             'host': config.get_setting("current_host", 'swingerpornfun', default=''), 
+             'host_alt': ["https://swingerpornfun.com/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -45,8 +42,12 @@ tv_path = ''
 language = []
 url_replace = []
 
-finds = {'find': {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]},
-         'categories': {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]},
+finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
+                       ('find_all', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}])]),
+                       # {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]},
+         'categories': dict([('find', [{'tag': ['div'], 'class': ['videos-list']}]),
+                             ('find_all', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}])]),
+                             # {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]},
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
@@ -78,7 +79,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=host + "page/1/?filter=most-viewed"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "page/1/?filter=popular"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "page/1/?filter=longest"))
-    # itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "actors/page/1/", extra="PornStar"))
+    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "actors/page/1/", extra="PornStar"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/page/1/", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
@@ -100,10 +101,7 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    # findS = finds.copy()
-    # if "Categorias" in item.extra:
-        # findS['controls']['cnt_tot'] = 30
-
+    
     # return AlfaChannel.list_all(item, **kwargs)
     return AlfaChannel.list_all(item, matches_post=list_all_matches, **kwargs)
 
@@ -172,10 +170,13 @@ def play(item):
     itemlist = []
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
+    
+    # control = scrapertools.find_single_match(item.contentTitle, "%s\](.*?)\[/COLOR\]" % AlfaChannel.color_setting.get('rating_3', ''))
     # if soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+/")):
         # pornstars = soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+"))
         # for x, value in enumerate(pornstars):
-            # pornstars[x] = value.get_text(strip=True)
+                # pornstars[x] = value.get_text(strip=True)
+                # pornstars[x] = value.get_text(strip=True) if not value.get_text(strip=True) in control else None
         
         # pornstar = ' & '.join(pornstars)
         # pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
@@ -189,11 +190,17 @@ def play(item):
         # item.contentTitle = '[/COLOR]'.join(lista)
     
     # url= ""
-    if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)")):
-        url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))['src']
+    if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source|script)")):
+        url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source|script)"))
+        if url.get('id', ''):
+            url = url['id']
+        else:
+            url = url['src']
         if "player.netpornsex.net" in url:
             url = url.replace("player.netpornsex.net", "hqq.to")
-    logger.debug(url)
+        if "hash=" in url:
+            id = url.split("=")[-1]
+            url = "https://hqq.tv/player/embed_player.php?vid=%s" %id
     # matches = soup.find('div', class_='responsive-player')
     # if matches.find('video'):
         # url = matches.source['src']
@@ -211,8 +218,7 @@ def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    # item.url = "%sbuscar/?q=%s&sort_by=video_viewed&from_videos=1" % (host, texto.replace(" ", "+"))
-    item.url = "%s?s=%s&filter=latest" % (host, texto.replace(" ", "+"))
+    item.url = "%spage/1/?s=%s&filter=latest" % (host, texto.replace(" ", "+"))
     
     try:
         if texto:

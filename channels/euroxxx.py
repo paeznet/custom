@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# -*- Channel netpornsex -*-
+# -*- Channel euroxxx -*-
 # -*- Created for Alfa-addon -*-
 # -*- By the Alfa Develop Group -*-
 
@@ -22,15 +22,15 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
 forced_proxy_opt = 'ProxySSL'
 
-############   NETU  
 
 # https://netpornsex.net/    https://espaporn.com/
+# https://euroxxx.net/
 
 
 canonical = {
-             'channel': 'espaporn', 
-             'host': config.get_setting("current_host", 'espaporn', default=''), 
-             'host_alt': ["https://espaporn.com/"], 
+             'channel': 'euroxxx', 
+             'host': config.get_setting("current_host", 'euroxxx', default=''), 
+             'host_alt': ["https://euroxxx.net/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -61,9 +61,8 @@ finds = {'find': {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            # 'list_all_thumbnail': {'find': [{'tag': ['video'], '@ARG': ['poster']}]},
                             },
-         'controls': {'url_base64': False, 'cnt_tot': 20, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 40, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -78,7 +77,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=host + "page/1/?filter=most-viewed"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "page/1/?filter=popular"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "page/1/?filter=longest"))
-    # itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "actors/page/1/", extra="PornStar"))
+    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "actors/page/1/", extra="PornStar"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/page/1/", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
@@ -90,6 +89,7 @@ def section(item):
     findS = finds.copy()
     findS['url_replace'] = [['(\/(?:category|models|pornstars|actor)\/[^$]+$)', r'\1page/1/?filter=latest']]
     
+    findS['controls']['cnt_tot'] = 30
     if "Categorias" in item.extra:
         findS['controls']['cnt_tot'] = 9999
     
@@ -100,12 +100,12 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    # findS = finds.copy()
-    # if "Categorias" in item.extra:
-        # findS['controls']['cnt_tot'] = 30
-
-    # return AlfaChannel.list_all(item, **kwargs)
-    return AlfaChannel.list_all(item, matches_post=list_all_matches, **kwargs)
+    findS = finds.copy()
+    if "Categorias" in item.extra:
+        findS['controls']['cnt_tot'] = 30
+    
+    # return AlfaChannel.list_all(item, finds=findS, **kwargs)
+    return AlfaChannel.list_all(item, finds=findS, matches_post=list_all_matches, **kwargs)
 
 
 def list_all_matches(item, matches_int, **AHkwargs):
@@ -172,6 +172,7 @@ def play(item):
     itemlist = []
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
+    
     # if soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+/")):
         # pornstars = soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+"))
         # for x, value in enumerate(pornstars):
@@ -190,10 +191,13 @@ def play(item):
     
     # url= ""
     if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)")):
-        url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))['src']
-        if "player.netpornsex.net" in url:
-            url = url.replace("player.netpornsex.net", "hqq.to")
-    logger.debug(url)
+        url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))
+        if url.get('id', ''):
+            url = url['id']
+        else:
+            url = url['src']
+        if "player.euroxxx.net" in url:
+            url = url.replace("player.euroxxx.net", "hqq.to")
     # matches = soup.find('div', class_='responsive-player')
     # if matches.find('video'):
         # url = matches.source['src']

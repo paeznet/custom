@@ -189,20 +189,20 @@ def list_all_matches(item, matches_int, **AHkwargs):
             # if not elem_json['title']:
                 # elem_json['title'] = elem.img.get('alt', '')
             
-            elem_json['thumbnail'] = elem.span.get('data-i', '')
-            id = elem.span['id']
+            elem_json['thumbnail'] = elem.img.get('src', '')
+            id = elem.figure['id']
             # url = "cdn/%s.mp4" %id
             url = "cdn/%s.m3u8|Referer=%s" %(id, item.url)
             elem_json['url'] =AlfaChannel.urljoin(AlfaChannel.host,url)
             
-            elem_json['stime'] = elem.find_all('p')[-2].get_text(strip=True)
+            elem_json['stime'] = elem.i.get('data-text', '')
             # if not elem_json['stime'] and elem.find(text=lambda text: isinstance(text, self.Comment) \
                                       # and 'duration' in text):
                 # elem_json['stime'] = self.do_soup(elem.find(text=lambda text: isinstance(text, self.Comment) \
                                                   # and 'duration' in text)).find(class_='duration').get_text(strip=True)
             # if not elem_json['stime'] and elem.find(string=re.compile('^([01]?[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?$')):
                 # elem_json['stime'] = elem.find(string=re.compile('^([01]?[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?$'))
-            if elem.find('span', class_=['hd']):
+            if elem.find('figure', class_=['hd']):
                 elem_json['quality'] = "HD"
             # if elem.find('span', class_=['hd-thumbnail', 'is-hd', 'video_quality']):
                 # elem_json['quality'] = elem.find('span', class_=['hd-thumbnail', 'is-hd', 'video_quality']).get_text(strip=True)

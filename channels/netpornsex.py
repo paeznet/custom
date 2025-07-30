@@ -106,7 +106,60 @@ def list_all(item):
     logger.info()
     
     
-    return AlfaChannel.list_all(item, **kwargs)
+    # return AlfaChannel.list_all(item, **kwargs)
+    return AlfaChannel.list_all(item, matches_post=list_all_matches, **kwargs)
+
+
+def list_all_matches(item, matches_int, **AHkwargs):
+    logger.info()
+    matches = []
+    
+    findS = AHkwargs.get('finds', finds)
+    
+    
+    for elem in matches_int:
+        elem_json = {}
+        
+        try:
+            elem_json['url'] = elem.a.get('href', '')
+            elem_json['title'] = elem.a.get('title', '') \
+                                 or elem.find(class_='title').get_text(strip=True) if elem.find(class_='title') else ''
+            if not elem_json['title']:
+                elem_json['title'] = elem.img.get('alt', '')
+            
+            elem_json['thumbnail'] = elem.img.get('data-thumb_url', '') or elem.img.get('data-original', '') \
+                                     or elem.img.get('data-src', '') \
+                                     or elem.img.get('src', '')
+            elem_json['stime'] = elem.find(class_='duration').get_text(strip=True) if elem.find(class_='duration') else ''
+            if elem.find('span', class_=['hd-thumbnail', 'is-hd']):
+                elem_json['quality'] = elem.find('span', class_=['hd-thumbnail', 'is-hd']).get_text(strip=True)
+            if elem.find('span', class_=['hd-thumbnail', 'is-hd', 'video_quality']):
+                elem_json['quality'] = elem.find('span', class_=['hd-thumbnail', 'is-hd', 'video_quality']).get_text(strip=True)
+            elem_json['premium'] = elem.find('i', class_='premiumIcon') \
+                                     or elem.find('span', class_=['ico-private', 'premium-video-icon']) or ''
+            if elem.find('span', class_='views'):
+                elem_json['views'] = elem.find('span', class_='views').get_text(strip=True)
+            
+            
+            data = elem['class']
+            data = ', '.join(data) #### Junta lista a str
+            patron  = 'actors-([a-z-]+)'
+            pornstars = re.compile(patron,re.DOTALL).findall(data)
+            if pornstars:
+                for x, value in enumerate(pornstars):
+                    pornstars[x] = value.replace("-", " ").title()
+                elem_json['star'] = ' & '.join(pornstars)
+            
+            
+        except:
+            logger.error(elem)
+            logger.error(traceback.format_exc())
+            continue
+        
+        if not elem_json['url']: continue
+        matches.append(elem_json.copy())
+    
+    return matches
 
 
 def findvideos(item):
@@ -121,32 +174,34 @@ def play(item):
     itemlist = []
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
-    logger.debug(soup)
-    if soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+/")):
-        pornstars = soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+"))
-        for x, value in enumerate(pornstars):
-            pornstars[x] = value.get_text(strip=True)
-        
-        pornstar = ' & '.join(pornstars)
-        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-        lista = item.contentTitle.split('[/COLOR]')
-        pornstar = pornstar.replace('[/COLOR]', '')
-        pornstar = ' %s' %pornstar
-        if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
-            lista.insert (2, pornstar)
-        else:
-            lista.insert (1, pornstar)
-        item.contentTitle = '[/COLOR]'.join(lista)
     
-    url= ""
+    # control = scrapertools.find_single_match(item.contentTitle, "%s\](.*?)\[/COLOR\]" % AlfaChannel.color_setting.get('rating_3', ''))
+    # if soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+/")):
+        # pornstars = soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+"))
+        # for x, value in enumerate(pornstars):
+                # pornstars[x] = value.get_text(strip=True)
+                # pornstars[x] = value.get_text(strip=True) if not value.get_text(strip=True) in control else None
+        
+        # pornstar = ' & '.join(pornstars)
+        # pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+        # lista = item.contentTitle.split('[/COLOR]')
+        # pornstar = pornstar.replace('[/COLOR]', '')
+        # pornstar = ' %s' %pornstar
+        # if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
+            # lista.insert (2, pornstar)
+        # else:
+            # lista.insert (1, pornstar)
+        # item.contentTitle = '[/COLOR]'.join(lista)
+    
+    # url= ""
     if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)")):
         url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))
         if url.get('id', ''):
             url = url['id']
         else:
             url = url['src']
-    if "player.netpornsex.net" in url:
-        url = url.replace("player.netpornsex.net", "hqq.to")
+        if "player.netpornsex.net" in url:
+            url = url.replace("player.netpornsex.net", "hqq.to")
     # matches = soup.find('div', class_='responsive-player')
     # if matches.find('video'):
         # url = matches.source['src']

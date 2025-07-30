@@ -42,17 +42,18 @@ XUPIMARC2 = "https://www.socialcreator.com/xupimarc2/?s=289267"
 ciriaco = "https://fr.4everproxy.com/direct/aHR0cHM6Ly9jaXJpYWNvLWxpYXJ0LnZlcmNlbC5hcHAv"  ## "https://ciriaco-liart.vercel.app/"
 verceltv = "https://fr.4everproxy.com/direct/aHR0cHM6Ly9ldmVudG9zLWxpYXJ0dmVyY2VsYXBwLnZlcmNlbC5hcHAv"  ## https://eventos-liartvercelapp.vercel.app/
 mister = "https://www.misterchire.com/"
-
+shickath = "https://shickat.me/"
 
 def mainlist(item):
     logger.info()
     itemlist = []
     
     itemlist.append(Item(channel=item.channel, title="acestream_channels" , action="acestream", url=acestream_channels))
-    itemlist.append(Item(channel=item.channel, title="XUPIMARC2" , action="xupimarc2", url=XUPIMARC2))
     itemlist.append(Item(channel=item.channel, title="Ciriaco" , action="ciri", url=ciriaco))
-    itemlist.append(Item(channel=item.channel, title="Verceltv" , action="vercel", url=verceltv))
     itemlist.append(Item(channel=item.channel, title="Misterchire" , action="misterchire", url=mister))
+    itemlist.append(Item(channel=item.channel, title="Shickat" , action="shickat", url=shickath))
+    itemlist.append(Item(channel=item.channel, title="Verceltv" , action="vercel", url=verceltv))
+    itemlist.append(Item(channel=item.channel, title="XUPIMARC2" , action="xupimarc2", url=XUPIMARC2))
     
     return itemlist
 
@@ -88,7 +89,7 @@ def vercel(item):
         url = elem['href']
         id = url.replace("acestream://", "")
         
-        lin = '#EXTINF:-1 tvg-id="" tvg-name="%s" tvg-logo="" group-title="%s",%s\n' %(title, "Verceltv", title)
+        lin = '#EXTINF:-1 tvg-name="%s" tvg-logo="" group-title="%s" tvg-id="",%s\n'  %("Verceltv", "Verceltv", title)
         x += lin
         url = "plugin://script.module.horus?action=play&id=%s\n" % id
         x += url
@@ -96,7 +97,7 @@ def vercel(item):
         # Verceltv +=x
         if not id in comparar: Verceltv +=x
     
-    ficherosubtitulo = filetools.join(path, "Z_Verceltv.txt")
+    ficherosubtitulo = filetools.join(path, "Z_aVerceltv.txt")
     if filetools.exists(ficherosubtitulo):
         try:
             filetools.remove(ficherosubtitulo)
@@ -111,7 +112,7 @@ def vercel(item):
 def ciri(item):
     logger.info()
     itemlist = []
-    
+    ids = []
     from core import filetools
     path = filetools.translatePath("special://xbmc")+ 'portable_data/'
     
@@ -127,7 +128,11 @@ def ciri(item):
         url = elem['href']
         id = url.replace("acestream://", "")
         
-        lin = '#EXTINF:-1 tvg-id="" tvg-name="%s" tvg-logo="" group-title="%s",%s\n' %(title, "Ciriaco", title)
+        if not id in ids:
+            ids.append(id)
+        else: continue
+        
+        lin = '#EXTINF:-1 tvg-name="%s" tvg-logo="" group-title="%s" tvg-id="",%s\n' %("Ciriaco", "Ciriaco", title)
         x += lin
         url = "plugin://script.module.horus?action=play&id=%s\n" % id
         x += url
@@ -135,7 +140,7 @@ def ciri(item):
         # Ciriaco +=x
         if not id in comparar: Ciriaco +=x
     
-    ficherosubtitulo = filetools.join(path, "Z_Ciriaco.txt")
+    ficherosubtitulo = filetools.join(path, "Z_aCiriaco.txt")
     if filetools.exists(ficherosubtitulo):
         try:
             filetools.remove(ficherosubtitulo)
@@ -169,7 +174,7 @@ def xupimarc2(item):
         url = elem['href']
         id = url.replace("acestream://", "")
         
-        lin = '#EXTINF:-1 tvg-id="" tvg-name="%s" tvg-logo="" group-title="%s",%s\n' %(title, "Xupimarc2", title)
+        lin = '#EXTINF:-1 tvg-name="%s" tvg-logo="" group-title="%s" tvg-id="",%s\n'  %("Xupimarc2", "Xupimarc2", title)
         x += lin
         url = "plugin://script.module.horus?action=play&id=%s\n" % id
         x += url
@@ -177,7 +182,7 @@ def xupimarc2(item):
         # Xupimarc2 +=x
         if not id in comparar: Xupimarc2 +=x
     
-    ficherosubtitulo = filetools.join(path, "Z_Xupimarc2.txt")
+    ficherosubtitulo = filetools.join(path, "Z_aXupimarc2.txt")
     if filetools.exists(ficherosubtitulo):
         try:
             filetools.remove(ficherosubtitulo)
@@ -186,6 +191,50 @@ def xupimarc2(item):
             raise
     filetools.write(ficherosubtitulo, Xupimarc2)
     # logger.debug(Xupimarc2)  
+    return itemlist
+
+
+def shickat(item):
+    logger.info()
+    itemlist = []
+    
+    from core import filetools
+    path = filetools.translatePath("special://xbmc")+ 'portable_data/'
+    
+    comparar = "D://Kraken/custom/00/icastresana.m3u"
+    comparar = filetools.read(comparar)
+    
+    soup = create_soup(item.url)
+    
+    # matches = soup.find_all('a', href=re.compile(r"^acestream://[A-z0-9]+(?:/|)"))
+    matches = soup.find_all('article', class_="canal-card")
+    Shickat = ""
+    for elem in matches:
+        x = ""
+        if elem.get('data-titulo', ''):
+            title = elem['data-titulo']
+        else:
+            title = elem.text.strip()
+        url = elem.a['href']
+        id = url.replace("acestream://", "")
+        
+        lin = '#EXTINF:-1 tvg-name="%s" tvg-logo="" group-title="%s" tvg-id="",%s\n'  %("Shickat", "Shickat", title)
+        x += lin
+        url = "plugin://script.module.horus?action=play&id=%s\n" % id
+        x += url
+        
+        # Shickat +=x
+        if not id in comparar: Shickat +=x
+    
+    ficherosubtitulo = filetools.join(path, "Z_aShickat.txt")
+    if filetools.exists(ficherosubtitulo):
+        try:
+            filetools.remove(ficherosubtitulo)
+        except IOError:
+            logger.error("Error al eliminar el archivo " + ficherosubtitulo)
+            raise
+    filetools.write(ficherosubtitulo, Shickat)
+    # logger.debug(Shickat)  
     return itemlist
 
 
@@ -213,7 +262,7 @@ def acestream(item):
         else:
             grupo = scrapertools.find_single_match(name, '(\w+)')
         
-        lin = '#EXTINF:-1 tvg-id="" tvg-name="%s" tvg-logo="" group-title="%s",%s\n' %(title, grupo, name)
+        lin = '#EXTINF:-1 tvg-name="%s" tvg-logo="" group-title="%s" tvg-id="",%s\n'  %(title, grupo, name)
         x += lin
         url = "plugin://script.module.horus?action=play&id=%s\n" % id
         x += url
@@ -270,7 +319,7 @@ def misterchire(item):
             title = thumb[-1].replace(".jpg", "").replace(".png", "").replace("icono", "").replace("-", " ")
             id = url.replace("acestream://", "")
             
-            lin = '#EXTINF:-1 tvg-id="" tvg-name="%s" tvg-logo="" group-title="%s",%s\n' %(title, grupo, title)
+            lin = '#EXTINF:-1 tvg-name="%s" tvg-logo="" group-title="%s" tvg-id="",%s\n'  %("misterchire", grupo, title)
             x += lin
             url = "plugin://script.module.horus?action=play&id=%s\n" % id
             x += url
@@ -278,7 +327,7 @@ def misterchire(item):
             # Misterchire +=x
             if not id in comparar: Misterchire +=x
     
-    ficherosubtitulo = filetools.join(path, "Z_Misterchire.txt")
+    ficherosubtitulo = filetools.join(path, "Z_aMisterchire.txt")
     if filetools.exists(ficherosubtitulo):
         try:
             filetools.remove(ficherosubtitulo)

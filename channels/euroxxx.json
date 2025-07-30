@@ -1,0 +1,15 @@
+{
+  "id": "euroxxx",
+  "name": "00000euroxxx",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://euroxxx.net/wp-content/uploads/2024/09/logo_2.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
