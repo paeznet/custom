@@ -43,6 +43,9 @@ ciriaco = "https://fr.4everproxy.com/direct/aHR0cHM6Ly9jaXJpYWNvLWxpYXJ0LnZlcmNl
 verceltv = "https://fr.4everproxy.com/direct/aHR0cHM6Ly9ldmVudG9zLWxpYXJ0dmVyY2VsYXBwLnZlcmNlbC5hcHAv"  ## https://eventos-liartvercelapp.vercel.app/
 mister = "https://www.misterchire.com/"
 shickath = "https://shickat.me/"
+probando = "https://github.com/Icastresana/lista1/blob/main/Probando"
+peticiones = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones"
+
 
 def mainlist(item):
     logger.info()
@@ -54,6 +57,8 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Shickat" , action="shickat", url=shickath))
     itemlist.append(Item(channel=item.channel, title="Verceltv" , action="vercel", url=verceltv))
     itemlist.append(Item(channel=item.channel, title="XUPIMARC2" , action="xupimarc2", url=XUPIMARC2))
+    itemlist.append(Item(channel=item.channel, title="Icastresana" , action="icastresana", url=probando))
+    
     
     return itemlist
 
@@ -238,7 +243,7 @@ def shickat(item):
     return itemlist
 
 
-def acestream(item):
+def icastresana(item):
     logger.info()
     itemlist = []
     from core import filetools
@@ -247,38 +252,40 @@ def acestream(item):
     comparar = "D://Kraken/custom/00/icastresana.m3u"
     comparar = filetools.read(comparar)
     
-    data = filetools.read(item.url)
-    
-    patron = '\{"name": "([^"]+)", "url": "([^"]+)"'
+    data = httptools.downloadpage(item.url, timeout=timeout, **kwargs).data
+    logger.debug(data)
+    patron = '(\#EXTINF.*?)\n'
+    patron += 'acestream://([a-z0-9]+)'
     matches = re.compile(patron,re.DOTALL).findall(data)
-    Acestream = ""
-    for title, url in matches:
+    logger.debug(matches)
+    Icastresana = ""
+    for lin, id in matches:
         x = ""
-        id = url.replace("acestream://", "")
-        grupo = title.split("|")
-        name = grupo[-1]
-        if len(grupo) >=1:
-            grupo = grupo[0]
-        else:
-            grupo = scrapertools.find_single_match(name, '(\w+)')
+        # id = url.replace("acestream://", "")
+        # grupo = title.split("|")
+        # name = grupo[-1]
+        # if len(grupo) >=1:
+            # grupo = grupo[0]
+        # else:
+            # grupo = scrapertools.find_single_match(name, '(\w+)')
         
-        lin = '#EXTINF:-1 tvg-name="%s" tvg-logo="" group-title="%s" tvg-id="",%s\n'  %(title, grupo, name)
-        x += lin
+        # lin = '#EXTINF:-1 tvg-name="%s" tvg-logo="" group-title="%s" tvg-id="",%s\n'  %(title, grupo, name)
+        x += '%s\n' %lin
         url = "plugin://script.module.horus?action=play&id=%s\n" % id
         x += url
         
         # Acestream +=x
-        if not id in comparar: Acestream +=x
+        if not id in comparar: Icastresana +=x
     
-    ficherosubtitulo = filetools.join(path, "Z_Acestream.txt")
+    ficherosubtitulo = filetools.join(path, "Z_Icastresana.txt")
     if filetools.exists(ficherosubtitulo):
         try:
             filetools.remove(ficherosubtitulo)
         except IOError:
             logger.error("Error al eliminar el archivo " + ficherosubtitulo)
             raise
-    filetools.write(ficherosubtitulo, Acestream)
-    # logger.debug(Acestream)
+    filetools.write(ficherosubtitulo, Icastresana)
+    # logger.debug(Icastresana)
     
     return itemlist
 
@@ -336,6 +343,51 @@ def misterchire(item):
             raise
     filetools.write(ficherosubtitulo, Misterchire)
     # logger.debug(Misterchire)
+    
+    return itemlist
+
+
+def acestream(item):
+    logger.info()
+    itemlist = []
+    from core import filetools
+    path = filetools.translatePath("special://xbmc")+ 'portable_data/'
+    
+    comparar = "D://Kraken/custom/00/icastresana.m3u"
+    comparar = filetools.read(comparar)
+    
+    data = filetools.read(item.url)
+    
+    patron = '\{"name": "([^"]+)", "url": "([^"]+)"'
+    matches = re.compile(patron,re.DOTALL).findall(data)
+    Acestream = ""
+    for title, url in matches:
+        x = ""
+        id = url.replace("acestream://", "")
+        grupo = title.split("|")
+        name = grupo[-1]
+        if len(grupo) >=1:
+            grupo = grupo[0]
+        else:
+            grupo = scrapertools.find_single_match(name, '(\w+)')
+        
+        lin = '#EXTINF:-1 tvg-name="%s" tvg-logo="" group-title="%s" tvg-id="",%s\n'  %(title, grupo, name)
+        x += lin
+        url = "plugin://script.module.horus?action=play&id=%s\n" % id
+        x += url
+        
+        # Acestream +=x
+        if not id in comparar: Acestream +=x
+    
+    ficherosubtitulo = filetools.join(path, "Z_Acestream.txt")
+    if filetools.exists(ficherosubtitulo):
+        try:
+            filetools.remove(ficherosubtitulo)
+        except IOError:
+            logger.error("Error al eliminar el archivo " + ficherosubtitulo)
+            raise
+    filetools.write(ficherosubtitulo, Acestream)
+    # logger.debug(Acestream)
     
     return itemlist
 
