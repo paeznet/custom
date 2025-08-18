@@ -161,7 +161,8 @@ def play(item):
     itemlist = []
     soup = create_soup(item.url)
     url = soup.find('link', itemprop='contentUrl')['href']
-    # url += '|'
-    # url += urlparse.urlencode(httptools.default_headers)
+    headers = httptools.default_headers.copy()
+    url += "|%s&Referer=%s/&Origin=%s" % (urlparse.urlencode(headers), host,host)
+    
     itemlist.append(['[videosection]' , url])
     return itemlist
