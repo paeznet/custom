@@ -28,7 +28,7 @@ forced_proxy_opt = 'ProxySSL'
 
 # https://xnxx2.tv/   https://aagmaal.to/   MISMO CONTENIDO INDI  https://video.nangiphotos.com/
 # https://hentay.co/
-
+# https://xnxxxvideosxxx.com/  CAMBIO ESTRUCTURA
 
 canonical = {
              'channel': 'xnxxxvideoshd', 
@@ -48,8 +48,11 @@ tv_path = ''
 language = []
 url_replace = []
 
-finds = {'find': {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]},
-         'categories': {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]},
+finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['video-list-content ','videos-list']}]),
+                       ('find_all', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}])]),
+            # {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]},
+         'categories': dict([('find', [{'tag': ['div'], 'class': ['video-list-content ','videos-list']}]),
+                             ('find_all', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}])]),
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
@@ -89,7 +92,8 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="hentayco" , action="submenu", url= "https://hentay.co/", chanel="hentayco", thumbnail = "https://i.postimg.cc/ZYscDKJ0/hentayco.png"))
     itemlist.append(Item(channel=item.channel, title="xnxx2" , action="submenu", url= "https://xnxx2.tv/", chanel="xnxx2", thumbnail = "https://i.postimg.cc/hGwCQDhX/xnxxtv.png"))
     itemlist.append(Item(channel=item.channel, title="nangivideos" , action="submenu", url= "https://video.nangiphotos.com/", chanel="nangivideos", thumbnail = "https://i.postimg.cc/SRr0F3Sy/nangivideos.png"))
-    itemlist.append(Item(channel=item.channel, title="xnxxxvideosxxx" , action="submenu", url= "https://xnxxxvideosxxx.com/", chanel="xnxxxvideosxxx", thumbnail = "https://i.postimg.cc/26vLLtSW/xnxxxvideosxxx.png"))
+    # itemlist.append(Item(channel=item.channel, title="xnxxxvideosxxx" , action="submenu", url= "https://xnxxxvideosxxx.com/", chanel="xnxxxvideosxxx", thumbnail = "https://i.postimg.cc/26vLLtSW/xnxxxvideosxxx.png"))
+    
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     
@@ -109,7 +113,8 @@ def submenu(item):
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=item.url + "page/1/?filter=most-viewed", chanel=item.chanel))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "page/1/?filter=popular", chanel=item.chanel))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=item.url + "page/1/?filter=longest", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=item.url + "actors/page/1/", extra="PornStar", chanel=item.chanel))
+    if not "hentayco" in item.chanel:
+        itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=item.url + "actors/page/1/", extra="PornStar", chanel=item.chanel))
     itemlist.append(Item(channel=item.channel, title="Categories" , action="section", url=item.url + "categories/page/1/", extra="Canal", chanel=item.chanel))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=item.url, chanel=item.chanel))
     return itemlist
@@ -119,7 +124,10 @@ def section(item):
     logger.info()
     
     findS = finds.copy()
-    findS['url_replace'] = [['(\/(?:categories|channels|models|pornstars|actor)\/[^$]+$)', r'\1?filter=latest"']]
+    findS['url_replace'] = [['(\/(?:categories|channels|models|pornstars|actor)\/[^$]+$)', r'\1page/1/?filter=latest']]
+    
+    # if item.extra == 'Categorias':
+        # findS['controls']['cnt_tot'] = 9999
     
     return AlfaChannel.section(item, finds=findS, **kwargs)
 
@@ -127,10 +135,12 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    # findS = finds.copy()
+    findS = finds.copy()
     # findS['controls']['action'] = 'findvideos'
+    if item.extra == 'PornStar':
+        findS['controls']['cnt_tot'] = 12
     
-    return AlfaChannel.list_all(item, **kwargs)
+    return AlfaChannel.list_all(item, finds=findS, **kwargs)
 
 
 def findvideos(item):
@@ -146,9 +156,8 @@ def play(item):
     itemlist = []
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
-    
-    if soup.find('div', id="video-actor"):
-        pornstars = soup.find('div', id="video-actor").find_all('a', href=re.compile("/actor/[A-z0-9-]+/"))
+    if soup.find('div', id=re.compile(r"^video-actor(?:s|)")):
+        pornstars = soup.find('div', id=re.compile(r"^video-actor(?:s|)")).find_all('a', href=re.compile("/actor/[A-z0-9-]+/"))
         
         for x, value in enumerate(pornstars):
             pornstars[x] = value.get_text(strip=True)
@@ -170,9 +179,11 @@ def play(item):
         import base64
         url = url.split('php?q=')
         url_decode = base64.b64decode(url[-1]).decode("utf8")
-        url = urlparse.unquote(url_decode)
-        url += "|Referer=%s" % host
-        url = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
+        decode = urlparse.unquote(url_decode)
+        # url += "|Referer=%s" % host
+        url = scrapertools.find_single_match(decode, '<(?:iframe|source) src="([^"]+)"')
+        if not url:
+            url = scrapertools.find_single_match(decode, "<(?:iframe|source) src='([^']+)'")
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     
@@ -184,7 +195,7 @@ def search(item, texto, **AHkwargs):
     kwargs.update(AHkwargs)
     
     # item.url = "%sbuscar/?q=%s&sort_by=video_viewed&from_videos=1" % (host, texto.replace(" ", "+"))
-    item.url = "%s?s=%s&filter=latest" % (host, texto.replace(" ", "+"))
+    item.url = "%s?s=%s&filter=latest" % (item.url, texto.replace(" ", "+"))
     
     try:
         if texto:

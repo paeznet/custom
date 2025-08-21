@@ -57,7 +57,8 @@ finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['videos-list']}]),
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            'list_all_views': {'find': [{'tag': ['div'], 'class': ['es-porn-icon'], '@ARG': 'class',  '@TEXT': '(es)' }]},
+                            'list_all_stime': {'find': [{'tag': ['div'], 'class': ['duration'], '@TEXT': '(\d+:\d+)' }]},
+                            # 'list_all_views': {'find': [{'tag': ['div'], 'class': ['es-porn-icon'], '@ARG': 'class',  '@TEXT': '(es)' }]},
                            },
          'controls': {'url_base64': False, 'cnt_tot': 30, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}

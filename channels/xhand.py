@@ -127,7 +127,7 @@ def play(item):
     itemlist = []
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
-    if soup.find('div', class_='models_cs').find_all('a', href=re.compile("/(?:pornstars|models|model)/[A-z0-9-]+/")):
+    if soup.find('div', class_='models_cs'):
         pornstars = soup.find('div', class_='models_cs').find_all('a', href=re.compile("/(?:pornstars|models|model)/[A-z0-9-]+/"))
         
         for x, value in enumerate(pornstars):
