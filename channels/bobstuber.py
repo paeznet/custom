@@ -14,11 +14,15 @@ from bs4 import BeautifulSoup
 ####    NO MUESTRA thumbnail
 ####    No existen los videos KTP
 
+
+# https://rt.bobs-tuber.live/  sin CF, esta OUT
+# https://bobs-tuber.com/  con CF
+
 canonical = {
              'channel': 'bobstuber', 
              'host': config.get_setting("current_host", 'bobstuber', default=''), 
-             'host_alt': ["https://rt.bobs-tuber.live/"], 
-             'host_black_list': ["https://bobs-tuber.com/"], 
+             'host_alt': ["https://bobs-tuber.com/"], 
+             'host_black_list': ["https://rt.bobs-tuber.live/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }

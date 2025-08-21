@@ -39,17 +39,22 @@ tv_path = ''
 language = []
 url_replace = []
 
-finds = {'find': {'find_all': [{'tag': ['a'], 'class': ['vblock']}]},     #'id': re.compile(r"^browse_\d+")}]},
-         'categories': dict([('find', [{'tag': ['div'], 'class': ['catg', 'series', 'models']}]),
-                             ('find_all', [{'tag': ['a']}])]),
+finds = {'find': {'find_all': [{'tag': ['a'], 'class': ['video']}]},     #'id': re.compile(r"^browse_\d+")}]},
+         'categories': {'find_all': [{'tag': ['a'], 'class': ['taxonomy-link']}]},
+                       # dict([('find', [{'tag': ['div'], 'class': ['catg', 'series', 'models']}]),
+                             # ('find_all', [{'tag': ['a']}])]),
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
-         'next_page': {},
+         # 'next_page': {},
+         # 'next_page': dict([('find', [{'tag': ['div'], 'class': ['pagination-page-bas']}, {'tag': ['span']}]),
+                            # ('find_next_sibling', [{'tag': ['a'], '@ARG': 'href'}])]), 
+         'next_page': dict([('find', [{'tag': ['div'], 'class': ['nav-previous']}, {'tag': ['a'], '@ARG': 'href'}])]),
          'next_page_rgx': [['\/\d+', '/%s'], ['&page=\d+', '&page=%s']], 
-         'last_page': dict([('find', [{'tag': ['ul', 'div'], 'class': ['wpm-pagination']}]), 
-                            ('find_all', [{'tag': ['a'], '@POS': [-2], 
-                                           '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
+         # 'last_page': dict([('find', [{'tag': ['ul', 'div'], 'class': ['nav-previous']}]), 
+                            # ('find_all', [{'tag': ['a'], '@POS': [-2], 
+                                           # '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
+         'last_page': {},
          'plot': {}, 
          'findvideos': {},
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
@@ -70,7 +75,7 @@ def mainlist(item):
     
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "series/", extra="Canal"))
-    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "model/page/1/", extra="PornStar"))
+    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "model/", extra="PornStar"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     
@@ -95,18 +100,12 @@ def section_matches(item, matches_int, **AHkwargs):
         try:
             
             elem_json['url'] = elem.get('href', '')
-            if "Canal" in item.extra:
-                txt = elem.text.split("\n")
-                elem_json['title'] = txt[-1].replace("\t", "")
-                elem_json['cantidad'] = txt[-2]
-            else:
-                elem_json['title'] = elem.get('title', '') \
-                                     or elem.h3.get_text(strip=True)
-            thumb = elem['style']
-            elem_json['thumbnail'] = scrapertools.find_single_match(thumb, "'([^']+)'")
+            elem_json['title'] = elem.get('title', '') \
+                                 or elem.h2.get_text(strip=True)
+            elem_json['thumbnail'] = ""
             
-            if elem.find('span', class_=['MCount']):
-                elem_json['cantidad'] = elem.find('span', class_=['MCount']).get_text(strip=True)
+            if elem.find('span', class_=['taxonomy-count']):
+                elem_json['cantidad'] = elem.find('span', class_=['taxonomy-count']).get_text(strip=True)
             if elem.find('total'):
                 elem_json['cantidad'] = elem.total.get_text(strip=True)
         
@@ -139,10 +138,8 @@ def list_all_matches(item, matches_int, **AHkwargs):
         try:
             
             elem_json['url'] = elem.get('href', '')
-            elem_json['title'] = elem.get('title', '') 
-            
-            thumb = elem['style']
-            elem_json['thumbnail'] = scrapertools.find_single_match(thumb, "'([^']+)'")
+            elem_json['title'] = elem.get('title', '')
+            elem_json['thumbnail'] = elem.get('data-bg', '')
             
             elem_json['stime'] = elem.find(class_='time').get_text(strip=True) if elem.find(class_='time') else ''
             
@@ -173,8 +170,8 @@ def play(item):
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
     
-    if soup.find('div', class_="models"):
-        pornstars = soup.find('div', class_="models").find_all('a', href=re.compile("/model/[A-z0-9-]+/"))
+    if soup.find('div', class_="model-list"):
+        pornstars = soup.find('div', class_="model-list").find_all('a', href=re.compile("/model/[A-z0-9-]+/"))
         
         for x, value in enumerate(pornstars):
             pornstars[x] = value.get_text(strip=True)

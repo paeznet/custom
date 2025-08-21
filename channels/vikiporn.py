@@ -84,6 +84,7 @@ def lista(item):
     matches = soup.find_all('div', class_='thumb')
     for elem in matches:
         url = elem.a['href']
+        if "rpwmct." in url: continue
         title = elem.img['alt']
         thumbnail = elem.span['data-poster'].replace("?ver=3", "")
         time = elem.find('span', itemprop='duration').text.strip()
@@ -92,7 +93,8 @@ def lista(item):
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
         else:
             title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
-        thumbnail += "|Referer=%s" % host
+        # thumbnail += "|Referer=%s" % host
+        # logger.debug(thumbnail)
         plot = ""
         action = "play"
         if logger.info() == False:

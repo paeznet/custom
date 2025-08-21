@@ -258,7 +258,6 @@ def vavooto(item):
     from core.jsontools import json
     data_json = json.loads(filetools.read(item.url))
     
-    
     ficheros =['DAZN', 'FUTBOL', 'RAKUTEN', 'CAMBIO']
     Dazn = ""
     Futbol = ""
@@ -272,7 +271,7 @@ def vavooto(item):
             lang = title.replace(" (BACKUP)", "").replace(" FULL HD", "").replace(" HD", "").strip()
             id = elem['ids']['id']
             url = elem['url']
-            # pos = elem['p']
+            # logger.debug(id +"   "+ titulo + " >> " + url)
             if lang in NOMBRE:
                 title = NOMBRE.get(lang, lang)
             else:
@@ -288,11 +287,12 @@ def vavooto(item):
             else: 
                 grupo = "CAMBIO"
             # logger.debug(grupo)
-            lin = '#EXTINF:-1 tvg-id="" tvg-name="%s" tvg-logo="" group-title="%s",%s\n' %(titulo,grupo,title)
+            lin = '#EXTINF:-1 tvg-name="%s" tvg-logo="" group-title="%s" tvg-id="",%s\n' %(titulo,grupo,title)
             x += lin
             # https://vavoo.to/vavoo-iptv/play/
-            url = "%svavoo-iptv/play/%s\n" %(vavoo,id)
+            # url = "%svavoo-iptv/play/%s\n" %(vavoo,id)
             x += url
+            logger.debug(x)
             # if grupo == "DAZN": Dazn +=x
             # if grupo == "FUTBOL": Futbol +=x
             # if grupo == "RAKUTEN": Rakuten +=x

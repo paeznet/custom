@@ -62,7 +62,10 @@ def catalogo(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.img['alt']
-        thumbnail = elem.img['data-src']
+        if elem.img.get('data-src', ''):
+            thumbnail = elem.img['data-src']
+        else:
+            thumbnail = elem.img['src']
         cantidad = elem.find(class_=re.compile("video(:?-|_)count"))
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
@@ -120,11 +123,12 @@ def lista(item):
     soup = create_soup(item.url)#.find('div', id='category_video_list')
     matches = soup.find_all('div', class_='video-box')
     for elem in matches:
+        if elem.ins: continue
         url = elem.a['href']
         title = elem.img['alt']
         thumbnail = elem.img['data-src']
         quality = elem.find('p', class_='video-best-resolution')
-        time = elem.find('p', class_='video-duration').text.strip()
+        time = elem.find(class_='video-duration').text.strip()
         if quality:
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]%s[/COLOR] %s" % (time, quality.text.strip(), title)
         else:

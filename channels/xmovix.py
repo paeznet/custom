@@ -12,6 +12,7 @@ from core import httptools
 from bs4 import BeautifulSoup
 from core import jsontools as json
 
+###########   OUT agosto 2025
 
 canonical = {
              'channel': 'xmovix', 

@@ -23,6 +23,8 @@ forced_proxy_opt = 'ProxySSL'
 
 #https://pornseed.net/   https://xxxseed.com/
 
+##############    OUT agosto 2025
+
 canonical = {
              'channel': 'XXXSeed', 
              'host': config.get_setting("current_host", 'XXXSeed', default=''), 

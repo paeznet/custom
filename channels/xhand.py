@@ -21,6 +21,7 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 #  FALTA EL TIME que esta comentado y no se coger  <!--<span class="card__time">12:00</span> -->
+#       comentarios = soup.find_all(string = lambda text: isinstance(text, element.Comment))
 #  https://xhand.com/  https://xhand.net/
 
 
@@ -60,7 +61,8 @@ finds = {'find':  dict([('find', [{'tag': ['div'], 'class': ['video-list', 'list
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            # 'list_all_stime': {'find': [{'tag': ['span'], 'class': ['is-hd'], '@TEXT': '(\d+:\d+)' }]},
+                            # 'list_all_stime': dict([('find', [{'tag': ['div'], 'class': ['ithumb']}]),
+                                                    # ('get_text', [{'tag': '', 'strip': True}])])
                             # 'list_all_quality': {'find': [{'tag': ['span'], 'class': ['is-hd'],  '@ARG': 'class',  '@TEXT': '(hd)' }]},
                             # 'section_cantidad': dict([('find', [{'tag': ['span'], 'class': ['videos']}]),
                                                       # ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])
@@ -125,8 +127,8 @@ def play(item):
     itemlist = []
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
-    if soup.find_all('a', href=re.compile("/(?:pornstars|models|model)/[A-z0-9-]+/")):
-        pornstars = soup.find_all('a', href=re.compile("/(?:pornstars|models|model)/[A-z0-9-]+/"))
+    if soup.find('div', class_='models_cs').find_all('a', href=re.compile("/(?:pornstars|models|model)/[A-z0-9-]+/")):
+        pornstars = soup.find('div', class_='models_cs').find_all('a', href=re.compile("/(?:pornstars|models|model)/[A-z0-9-]+/"))
         
         for x, value in enumerate(pornstars):
             pornstars[x] = value.get_text(strip=True)
@@ -136,9 +138,9 @@ def play(item):
         pornstar = pornstar.replace('[/COLOR]', '')
         pornstar = ' %s' %pornstar
         if "HD" in item.contentTitle:
-            lista.insert (2, pornstar)
-        else:
             lista.insert (1, pornstar)
+        else:
+            lista.insert (0, pornstar)
         item.contentTitle = '[/COLOR]'.join(lista)
     
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))

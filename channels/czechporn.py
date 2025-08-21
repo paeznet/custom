@@ -21,6 +21,8 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
+##############  OUT agosto 2025
+
 # https://czechporn.me  https://czechporn.com.es
 
 canonical = {

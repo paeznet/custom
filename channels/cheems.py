@@ -27,6 +27,9 @@ list_servers = []
 #########           Falla visualizacion de thumbnails  380x214
                                     # solo se ven      320x180
 
+####   OUT 7-8-2025
+
+
 canonical = {
              'channel': 'cheems', 
              'host': config.get_setting("current_host", 'cheems', default=''), 
