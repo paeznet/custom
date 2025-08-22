@@ -421,6 +421,22 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     logger.info()
     matches = []
     findS = AHkwargs.get('finds', finds)
+    
+    soup = AHkwargs.get('soup', {})
+    if soup.find_all('a', href=re.compile("/actor/[A-z0-9-]+(?:/|)")):
+        pornstars = soup.find_all('a', href=re.compile("/actor/[A-z0-9-]+(?:/|)"))
+        
+        for x, value in enumerate(pornstars):
+            pornstars[x] = value.get_text(strip=True)
+        
+        pornstar = ' & '.join(pornstars)
+        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+        lista = item.contentTitle.split('[/COLOR]')
+        pornstar = pornstar.replace('[/COLOR]', '')
+        pornstar = ' %s' %pornstar
+        lista.insert (2, pornstar)
+        item.contentTitle = '[/COLOR]'.join(lista)
+
     srv_ids = {"Doodstream": "Doodstream",
                "Streamtape": "Streamtape ",
                "StreamSB": "Streamsb",
@@ -459,7 +475,7 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     
     # if soup.find_all('li', class_="starw"):
         # pornstars = soup.find_all('li', class_="starw")
-        # pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/"))
+        # pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+(?:/|)"))
         
         # for x, value in enumerate(pornstars):
             # pornstars[x] = value.get_text(strip=True)
