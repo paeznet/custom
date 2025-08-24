@@ -69,8 +69,8 @@ def search(item, texto):
 def categorias(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url)
-    matches = soup.find_all('a', class_='th-catline')
+    soup = create_soup(item.url).find('ul', class_='categories-list')
+    matches = soup.find_all('li', class_='categories-list-item')
     # if "gay" in item.cattype:
         # matches = soup.find('div', class_='cat_box_gay').find_all('a')
     # elif "trans" in item.cattype:
@@ -78,8 +78,11 @@ def categorias(item):
     # else:
         # matches = soup.find('div', class_='cat_box_straight').find_all('a')
     for elem in matches:
-        url = elem['href']
-        title = elem.text
+        url = elem.a['href']
+        txt = elem.find_all('span')
+        title = txt[0].text.strip()
+        cantidad = txt[1].text.strip()
+        title = "%s %s" %(title, cantidad)
         thumbnail = ""
         plot = ""
         url = urlparse.urljoin(item.url,url)
@@ -105,7 +108,7 @@ def create_soup(url, ctype=None, cattype=None):
         data = httptools.downloadpage(url, headers=headers, canonical=canonical).data
     else:
         headers = {"Cookie": cookie ,'Referer': "%ses/" % host,'Accept': "%s" % accept, "User-Agent": UA}
-        logger.debug(headers)
+        # logger.debug(headers)
         data = httptools.downloadpage(url, headers=headers, canonical=canonical).data
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
     return soup
