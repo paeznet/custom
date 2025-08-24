@@ -6,14 +6,25 @@
 
 
 
-
-
 #EXTINF:-1 tvg-name="Movistar Plus+ 1080" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Movistar%20Plus%2B.png" group-title="TDT" tvg-id="Movistar Plus+ HD",Movistar Plus+ 1080 ELCANO
 plugin://script.module.horus?action=play&id=1ab443f5b4beb6d586f19e8b25b9f9646cf2ab78
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="TDT" tvg-id="Movistar Plus+ HD", Movistar Plus --> NEW ERA VI (shickat.me)
+plugin://script.module.horus?action=play&id=5d9a26e0a5f3e5f2ae027bd05635ab9a4fd4b51a
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="TDT" tvg-id="Movistar Plus+ HD", Movistar Plus --> NEW ERA VI (shickat.me)
+plugin://script.module.horus?action=play&id=5e24a1b9187fccb91553f7c7da4b36341386f74a
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="TDT" tvg-id="Movistar Plus+ HD", M+ PLUS --> NEW ERA
 plugin://script.module.horus?action=play&id=b2a4d1eba9b46df5f52a87105df779f9d39abeb4
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="TDT" tvg-id="Movistar Plus+ HD", M+ PLUS --> NEW ERA
+plugin://script.module.horus?action=play&id=8c67cdb5ba81976662c3a67984a9545d9cfb0f70
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="TDT" tvg-id="Movistar Plus+ HD", M+ PLUS --> NEW ERA
+plugin://script.module.horus?action=play&id=b6ffbbc72a5b6b579faf79ebac229af7a25b933b
 #EXTINF:-1 tvg-name="Movistar Plus+ New Era I" tvg-logo="" group-title="TDT" tvg-id="Movistar Plus+ HD",Movistar Plus [??]
 plugin://script.module.horus?action=play&id=38287ff99db3590da7a2e077da1777d150167577
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="TDT" tvg-id="Movistar Plus+ HD",Movistar Plus+ 1080
+plugin://script.module.horus?action=play&id=56ac8e227d526e722624675ccdd91b0cc850582f
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Movistar%20Plus%2B%202.png" group-title="TDT" tvg-id="Movistar Plus+ 2 HD", M+ PLUS 2 FHD --> NEW ERA
+plugin://script.module.horus?action=play&id=fbc39d8a9e5d7c9ac6a1438d440104620f54e09c
+
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="TDT" tvg-id="Movistar Plus+ HD", MOVISTAR PLUS 1080 ELCANO (-)
 plugin://script.module.horus?action=play&id=1ab443f5b4beb6d586f19e8b25b9f9646cf2ab78
 
@@ -22,12 +33,20 @@ plugin://script.module.horus?action=play&id=09b8bed9be1feadb4ef83e46d50dc51f7639
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/La%201.png" group-title="TDT" tvg-id="La 1 HD", LA 1 FHD --> NEW ERA
 plugin://script.module.horus?action=play&id=8bdd29882fa2c2f9fe49e67b102934c9e293f5a5
+#EXTINF:-1 tvg-logo="" group-title="TDT" tvg-id="La 1 HD", LA 1 FHD --> NEW ERA
+plugin://script.module.horus?action=play&id=7597d4feb3195079ffa606cf23a183d626ee40ba
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/La%202.png" group-title="TDT" tvg-id="La 2", LA 2 FHD --> NEW ERA
 plugin://script.module.horus?action=play&id=fc36c7249aef74e3ea579500efdfd7a98d8e9ac5
+#EXTINF:-1 tvg-logo="" group-title="TDT" tvg-id="La 2", LA 2 FHD --> NEW ERA
+plugin://script.module.horus?action=play&id=9934906503661142f97a044ae1509a294057c2ed
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Antena%203.png" group-title="TDT" tvg-id="Antena 3 HD", ANTENA 3 FHD --> NEW ERA
 plugin://script.module.horus?action=play&id=390b5b0fc49a811c5c5ebd6d195b08a48b1e8496
+#EXTINF:-1 tvg-logo="" group-title="TDT" tvg-id="Antena 3 HD", ANTENA 3 FHD --> NEW ERA
+plugin://script.module.horus?action=play&id=f9d2a6d5da8d1f2423a0b6ed0047636a728040e9
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Cuatro.png" group-title="TDT" tvg-id="Cuatro HD", CUATRO FHD --> NEW ERA
 plugin://script.module.horus?action=play&id=18f63b299de66029e17dc35e12f6c244e1979a91
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Cuatro.png" group-title="TDT" tvg-id="Cuatro HD", CUATRO FHD --> NEW ERA
+plugin://script.module.horus?action=play&id=8d66979e705a8b532b9243bbc0862c0f1c734ef0
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Telecinco.png" group-title="TDT" tvg-id="Telecinco HD", TELECINCO FHD --> NEW ERA
 plugin://script.module.horus?action=play&id=6d2af61410d7fb6ed46fc7fe0c199951389bf75b
 #EXTINF:-1 tvg-name="Telecinco New Era I" tvg-logo="" group-title="TDT" tvg-id="Telecinco HD",TELECINCO FHD --> NEW ERA
@@ -36,6 +55,8 @@ plugin://script.module.horus?action=play&id=5133d1e8f45095f0b7dabbd78db0ce19a496
 plugin://script.module.horus?action=play&id=3d376333ee90d6db3d413fc5764ef635882076f5
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/La%20Sexta.png" group-title="TDT" tvg-id="La Sexta HD", LA SEXTA FHD --> NEW ERA
 plugin://script.module.horus?action=play&id=1c6486082949172d1ffd318db8fb965dd5af7e31
+#EXTINF:-1 tvg-logo="" group-title="TDT" tvg-id="La Sexta HD", LA SEXTA FHD --> NEW ERA
+plugin://script.module.horus?action=play&id=44828a7580cd99fcb36245c327889c47f34b457f
 
 #EXTINF:-1 tvg-logo="https://i.ibb.co/xSZjMs6j/etb1.png" group-title="TDT" tvg-id="ETB1", ETB 1
 plugin://script.module.horus?action=play&id=2bac673f7fc25abda5f902850ce9f8c04a2b2056
@@ -58,6 +79,8 @@ plugin://script.module.horus?action=play&id=4869e4c131cb3478cc375944c7cc68d1bb8e
 plugin://script.module.horus?action=play&id=db81615f1b2eebaf584edc252ddd73883123fbb3
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/GOL%20PLAY.png" group-title="TDT" tvg-id="GOL PLAY", GOL PLAY FHD --> NEW ERA
 plugin://script.module.horus?action=play&id=b2d560741c006fc5e4a42412bb52dbd25a6a4a3a
+#EXTINF:-1 tvg-logo="" group-title="TDT" tvg-id="GOL PLAY", GOL PLAY FHD --> NEW ERA
+plugin://script.module.horus?action=play&id=9fb99c40a2c45d5c5342b30626eb56140f980612
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/24%20Horas.png" group-title="TDT" tvg-id="24 Horas", 24 HORAS HD --> NEW ERA
 plugin://script.module.horus?action=play&id=cc5ed178702605513cd18b4899c4be954d306cca
 
@@ -306,6 +329,8 @@ plugin://script.module.horus?action=play&id=97d663cba59ddd8aca032267169019b544dc
 plugin://script.module.horus?action=play&id=688e785893b50acc1d00cb37f15bfc42e72f5ae3
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DAZN%201.png" group-title="Dazn" tvg-id="DAZN 1 HD", DAZN 1 FHD (SAT)
 plugin://script.module.horus?action=play&id=50a8a13c474848d1efbd5586efdb5b6cdd173fa9
+#EXTINF:-1 tvg-logo="" group-title="Dazn" tvg-id="DAZN 1 HD", DAZN 1 --> NEW ERA VI (shickat.me)
+plugin://script.module.horus?action=play&id=ee4dc45720d3ec283f61189fbfc120c91d5141bf
 #EXTINF:-1 tvg-name="Xupimarc2" tvg-logo="" group-title="Dazn" tvg-id="DAZN 1 HD",DAZN 1 FHD (*) --> NEW ERA
 plugin://script.module.horus?action=play&id=6a1703a6bbe6110a1d27f35a41c88661e1740bfa
 
@@ -333,6 +358,8 @@ plugin://script.module.horus?action=play&id=7e27e46c25d4308d16098d9dc67fcd8736e8
 plugin://script.module.horus?action=play&id=75306ac6ffbe33b08c5c28487674f75f012c7f50
 #EXTINF:-1 tvg-logo="https://i.ibb.co/R4LBVWP/dazn4.png" group-title="Dazn" tvg-id="DAZN 4 HD", DAZN 4 
 plugin://script.module.horus?action=play&id=7e90956539f4e1318a63f3960e4f75c7c7c5a3b8
+#EXTINF:-1 tvg-logo="" group-title="Dazn" tvg-id="DAZN 4 HD", DAZN 4 FHD --> NEW ERA
+plugin://script.module.horus?action=play&id=c015d37d1ead8155b1e7b97e743a1fe9850f0af5
 
 #EXTINF:-1 tvg-logo="" group-title="Dazn" tvg-id="", DAZN EVENTOS 1 --> NEW ERA
 plugin://script.module.horus?action=play&id=176f0b8565a161f87c81a4a250463e3eaf678fb5
@@ -920,14 +947,11 @@ plugin://script.module.horus?action=play&id=cd485af78cf86934d77cf867f73fe7f5cd32
 
 #### #############################################################################################################
 
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="Movistar Plus+ HD",Movistar Plus+ 1080
-plugin://script.module.horus?action=play&id=56ac8e227d526e722624675ccdd91b0cc850582f
+
 #EXTINF:-1 tvg-name="Movistar Plus+ New Era I" tvg-logo="" group-title="OUT" tvg-id="Movistar Plus+ HD",Movistar Plus+ New Era I [OUT]
 plugin://script.module.horus?action=play&id=0248f0d8281287c96266f2ab4e44c32a4fae7d85
 #EXTINF:-1 tvg-name="Ciriaco" tvg-logo="" group-title="OUT" tvg-id="Movistar Plus+ HD",Movistar Plus+ New Era I
 plugin://script.module.horus?action=play&id=e2bc4aee95306b8897d15b01cc64b239dd1b8a1f
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Movistar%20Plus%2B%202.png" group-title="OUT" tvg-id="Movistar Plus+ 2 HD", MOVISTAR PLUS 2 FHD --> NEW ERA
-plugin://script.module.horus?action=play&id=fbc39d8a9e5d7c9ac6a1438d440104620f54e09c
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="Movistar Plus+ HD",Movistar Plus Shickat
 plugin://script.module.horus?action=play&id=a340c77b773a4a78a6c9aa25245a02698e05ac1a
 

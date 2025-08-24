@@ -112,7 +112,7 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
-        thumbnail = elem.img['data-src']
+        thumbnail = elem.img['src']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
         time = elem.find('span', class_='duration')

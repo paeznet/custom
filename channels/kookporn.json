@@ -1,0 +1,15 @@
+{
+  "id": "kookporn",
+  "name": "00000kookporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://kookporn.com/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
