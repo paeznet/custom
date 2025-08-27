@@ -93,36 +93,58 @@ plugin://script.module.horus?action=play&id=0827cf7d290967985892965c6e61244a479d
 
 
 
-
-
 #EXTINF:-1 tvg-name="" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Estrenos.png" group-title="Cine" tvg-id="M+ Estrenos HD", Movistar Estrenos (FHD) Shickat
 plugin://script.module.horus?action=play&id=b71478c824f787a6a696139db0d053de6fdd1d38
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Estrenos HD", Movistar Estrenos --> NEW ERA VI (Shickat.me)
+plugin://script.module.horus?action=play&id=6341392460596e63edf38b013bd137c015e44007
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Acción HD", Movistar Acción --> NEW ERA VI (Shickat.me)
+plugin://script.module.horus?action=play&id=b125325f52e057b8e5ea17a8b60d512d13d44e53
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Acción HD", Movistar Acción (FHD) Shickat
 plugin://script.module.horus?action=play&id=93b2f5ede5cf2fa0cdb50419258c4f651aabfc42
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Acci%C3%B3n.png" group-title="Cine" tvg-id="M+ Acción HD", MOVISTAR ACCION FHD --> NEW ERA
 plugin://script.module.horus?action=play&id=102bcb79ca391e37ac1fc9ee77dc53440d0a59ce
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Hits HD", Movistar Hits (FHD) Shickat
 plugin://script.module.horus?action=play&id=28b9b7ba12c0f5c7e097f4b07a547f6eda9a0695
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Hits HD", Movistar Hits --> NEW ERA VI (Shickat.me)
+plugin://script.module.horus?action=play&id=2b8e5c7438d56541df3467cc5986cf1e66014101
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Hits.png" group-title="Cine" tvg-id="M+ Hits HD", MOVISTAR SERIES FHD --> NEW ERA
 plugin://script.module.horus?action=play&id=2752dee68a7faa9c847216dc22a6821661db891a
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Drama HD", Movistar Drama (FHD) Shickat
 plugin://script.module.horus?action=play&id=aff9d7e45c4fc0f97ec8ec2b6d80cd3feb87c983
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Drama HD", Movistar Drama --> NEW ERA VI (Shickat.me)
+plugin://script.module.horus?action=play&id=edee311dc307e1638eeac880b11bb6f4759b0d83
 #EXTINF:-1 tvg-logo="" group-title="Cine" tvg-id="M+ Comedia HD", MOVISTAR COMEDIA FHD --> NEW ERA VI
 plugin://script.module.horus?action=play&id=124aa6d58fd72a763ed0349c874551bd2504798f
+#EXTINF:-1 tvg-logo="" group-title="Cine" tvg-id="M+ Comedia HD", MOVISTAR COMEDIA FHD --> NEW ERA VI
+plugin://script.module.horus?action=play&id=90a3ad526f67f987f662eaf7d52e88004c796914
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Clásicos HD", Movistar Clásicos --> NEW ERA VI (Shickat.me)
+plugin://script.module.horus?action=play&id=f9d431a6839e7f9964a0884dc1f18d298d990f39
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Clásicos HD", Movistar Clásicos (FHD) Shickat
 plugin://script.module.horus?action=play&id=095134586cd06e1488139842f1183b50b75f5fd1
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Cl%C3%A1sicos.png" group-title="Cine" tvg-id="M+ Clásicos HD", MOVISTAR CLASICOS FHD --> NEW ERA
 plugin://script.module.horus?action=play&id=cf6ffdfa3c51268c0bd216da6b275fb866160c0c
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Cine Español", Movistar Cine Español --> NEW ERA VI (Shickat.me)
+plugin://script.module.horus?action=play&id=e47cdeba9d919d6a9b4fa3c72c8094178985f668
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Cine Español", Movistar Cine Español (FHD) Shickat
 plugin://script.module.horus?action=play&id=168ad4a958aa6daa26adeee9700ed0312618bd07
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Indie HD", Movistar Indie (FHD) Shickat
 plugin://script.module.horus?action=play&id=4f35f115971f0b156baabb8efa9926b1eb8ba5af
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Indie HD", Movistar Indie --> NEW ERA VI (Shickat.me)
+plugin://script.module.horus?action=play&id=508ffdbab097339adb4f3d922070b5df2c114d01
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Wéstern", Movistar Western (FHD) Shickat
 plugin://script.module.horus?action=play&id=860dd021db341dbd02979eb8ea650d3f9d846765
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Wéstern", Movistar Western --> NEW ERA VI (Shickat.me)
+plugin://script.module.horus?action=play&id=e740a34497c3ba5943613a06999e805e6bbfa159
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Originales HD", Movistar Originales (FHD) Shickat
 plugin://script.module.horus?action=play&id=60fcd59471ac4268e6cd6448f068a2b518841c88
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Originales HD", Movistar Originales --> NEW ERA VI (Shickat.me)
+plugin://script.module.horus?action=play&id=1f092144252939810fd302cbd00d46de760b5dd7
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Documentales HD", Movistar Documentales (FHD) Shickat
 plugin://script.module.horus?action=play&id=0ba40acc350bc1493cf576a125806bda86abe38b
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Documentales HD", Movistar Documentales --> NEW ERA VI (Shickat.me)
+plugin://script.module.horus?action=play&id=6cda7d2622bcafd6aef486016238936855927d7d
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Vacaciones", Movistar Vacaciones --> NEW ERA VI (Shickat.me)
+plugin://script.module.horus?action=play&id=15123ab3458c59bf548fbf6e5503799e81da4de6
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Vacaciones", Movistar Vacaciones (FHD) Shickat
 plugin://script.module.horus?action=play&id=a0f71ac4897b2ccdf0114b5b3b7877902376a343
 
