@@ -43,15 +43,16 @@ tv_path = ''
 language = []
 url_replace = []
 
-####  PAGINACION?
 
-# https://0porn.org/  https://0porn.info/  https://5porn.net   https://5porn.info  https://6porn.info  
-# https://porn4.info/
-# ORG :  https://pornh.org/  https://pornq.org/  https://pornv.org/ https://pornq.org/ porn e,
-       # https://7porn.org/ https://cporn.org/  https://fporn.org/ https://hporn.org/  https://kporn.org/ 
-       # https://bporn.org/ https://cporn.org/  https://fporn.org/ https://hporn.org/  https://kporn.org/ 
-       # https://lporn.org/ https://pporn.org/ https://qporn.org/   https://rporn.org/
- #  https://pornq.info/
+#     https://5porn.net  https://pornj.net/
+# ORG :  https://pornf.org/  https://pornh.org/  https://pornv.org/ https://pornq.org/ 
+       # https://porn2.org/ , 3, 5, 6, L,     
+       # https://qporn.org/   https://bporn.org/  https://cporn.org/  https://fporn.org/ 
+       # https://hporn.org/  https://kporn.org/  https://lporn.org/  https://pporn.org/ 
+       # https://rporn.org/  https://7porn.org/ https://0porn.org/ , y, 
+ #  https://yporn.info/ , 0, 5, 6, 9, q, s, z
+ #  https://pornq.info/  https://pornf.info/ , 3, 4, 5, 6, 7, 8 , b, c, d, e, f, g, i, j, l, m, t, z
+ #  
 
 finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['videos']}]),
                        ('find_all', [{'tag': ['article']}])]),
@@ -60,10 +61,8 @@ finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['videos']}]),
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
-         # 'next_page': {'find': [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@ARG': 'href'}]}, #### COGE blog que tiene more
          'next_page': dict([('find', [{'tag': ['div', 'ul'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@POS': [-1], '@ARG': 'href'}])]),
-         # 'next_page_rgx': [['\?page=\d+', 'next_page_url'], ['\?page=\d+&o=[a-z]+', 'next_page_url']], 
          'next_page_rgx': [['\?page=\d+', 'next_page_url']], 
          'last_page':  {},
          'plot': {}, 
@@ -73,8 +72,6 @@ finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['videos']}]),
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            # 'list_all_quality': dict([('find', [{'tag': ['div'], 'class': ['b-thumb-item__detail']}]),
-                                                      # ('get_text', [{'strip': True}])]),
                             'section_cantidad': dict([('find', [{'tag': ['span']}]),
                                                       ('get_text', [{'strip': True}])])
                            },
@@ -93,9 +90,35 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="bporn" , action="submenu", url= "https://bporn.org/", chanel="bporn", thumbnail = ""))
     itemlist.append(Item(channel=item.channel, title="cporn" , action="submenu", url= "https://cporn.org/", chanel="cporn", thumbnail = ""))
     itemlist.append(Item(channel=item.channel, title="fporn" , action="submenu", url= "https://fporn.org/", chanel="fporn", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="hporn" , action="submenu", url= "https://hporn.org/", chanel="hporn", thumbnail = ""))
     itemlist.append(Item(channel=item.channel, title="kporn" , action="submenu", url= "https://kporn.org/", chanel="kporn", thumbnail = ""))
     itemlist.append(Item(channel=item.channel, title="lporn" , action="submenu", url= "https://lporn.org/", chanel="lporn", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="pporn" , action="submenu", url= "https://pporn.org/", chanel="pporn", thumbnail = ""))
     itemlist.append(Item(channel=item.channel, title="rporn" , action="submenu", url= "https://rporn.org/", chanel="rporn", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="yporn" , action="submenu", url= "https://yporn.org/", chanel="yporn", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="0porn" , action="submenu", url= "https://0porn.org/", chanel="0porn", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="7porn" , action="submenu", url= "https://7porn.org/", chanel="7porn", thumbnail = ""))
+    
+    itemlist.append(Item(channel=item.channel, title="pornq" , action="submenu", url= "https://pornq.info/", chanel="pornq", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="pornb" , action="submenu", url= "https://pornb.info/", chanel="pornb", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="pornc" , action="submenu", url= "https://pornc.info/", chanel="pornc", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="pornd" , action="submenu", url= "https://pornd.info/", chanel="pornd", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="porne" , action="submenu", url= "https://porne.info/", chanel="porne", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="pornf" , action="submenu", url= "https://pornf.info/", chanel="pornf", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="porng" , action="submenu", url= "https://porng.info/", chanel="porng", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="porni" , action="submenu", url= "https://porni.info/", chanel="porni", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="pornj" , action="submenu", url= "https://pornj.info/", chanel="pornj", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="pornl" , action="submenu", url= "https://pornl.info/", chanel="pornl", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="pornm" , action="submenu", url= "https://pornm.info/", chanel="pornm", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="pornt" , action="submenu", url= "https://pornt.info/", chanel="pornt", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="pornz" , action="submenu", url= "https://pornz.info/", chanel="pornz", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="porn3" , action="submenu", url= "https://porn3.info/", chanel="porn3", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="porn4" , action="submenu", url= "https://porn4.info/", chanel="porn4", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="porn5" , action="submenu", url= "https://porn5.info/", chanel="porn5", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="porn6" , action="submenu", url= "https://porn6.info/", chanel="porn6", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="porn7" , action="submenu", url= "https://porn7.info/", chanel="porn7", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="porn8" , action="submenu", url= "https://porn8.info/", chanel="porn8", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="porn9" , action="submenu", url= "https://porn9.info/", chanel="porn9", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     return itemlist
 
@@ -136,7 +159,6 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    # return AlfaChannel.list_all(item, **kwargs)
     return AlfaChannel.list_all(item, matches_post=list_all_matches, **kwargs)
 
 
@@ -145,84 +167,30 @@ def list_all_matches(item, matches_int, **AHkwargs):
     matches = []
     
     findS = AHkwargs.get('finds', finds)
-    # ''' Carga desde AHkwargs la clave “matches” resultado de la ejecución del “profile=default” en AH. 
-    # En “matches_int” sigue pasando los valores de siempre. '''
-    # matches_org = AHkwargs.get('matches', [])
-    # findS = AHkwargs.get('finds', finds)
-    # ''' contador para asegurar que matches_int y matches_org van sincronizados'''
-    # x = 0
-    
-    #############################################   TEST ###############################################
-    soup = AHkwargs.get('soup', {})
-    # logger.debug(soup)
-    # matches = soup.find_all('li', id=re.compile(r"^browse_\d+"))
-    # logger.debug(soup.find('div', class_='pagination').find('a', string=re.compile("(?i)(?:more|next)")))
-    
-    matches_org = AHkwargs.get('matches', [])
-    logger.debug("=================== findS ==========================")
-    logger.debug(findS)
-    # logger.debug("=========== matches_int & _org =====================")
-    # logger.debug(matches_int)
-    # logger.debug(matches_org)
-    logger.debug("=================== elem1 ==========================")
-    logger.debug(matches_int[0])
-    logger.debug(matches_org[0])
-    logger.debug("====================================================")
-    logger.debug(matches_int[0].a.get('title', ''))
-    logger.debug("elem_json['title'] = "+ matches_org[0].get('title', ''))
-    
-    ######################################################################################################
-    
     
     for elem in matches_int:
-        
         elem_json = {}
-        # '''carga el valor del json que ya viene procesado del “profile=default” en AH'''
-        # elem_json = matches_org[x].copy() if x+1 <= len(matches_org) else {}
         
         try:
-            # if 'livecam' in elem.get("class", []): continue   ###  Excepcion pornone para quitar los item livecams
             
             elem_json['url'] = elem.a.get('href', '')
-            elem_json['title'] = elem.a.get('title', '') #\
-                                 # or elem.find(class_='title').get_text(strip=True) if elem.find(class_='title') else ''
-            # if not elem_json['title']:
-                # elem_json['title'] = elem.img.get('alt', '')
-            
+            elem_json['title'] = elem.a.get('title', '')
             elem_json['thumbnail'] = elem.img.get('src', '')
             id = elem.figure['id']
-            # url = "cdn/%s.mp4" %id
             url = "cdn/%s.m3u8|Referer=%s" %(id, item.url)
             elem_json['url'] =AlfaChannel.urljoin(AlfaChannel.host,url)
             
             elem_json['stime'] = elem.i.get('data-text', '')
-            # if not elem_json['stime'] and elem.find(text=lambda text: isinstance(text, self.Comment) \
-                                      # and 'duration' in text):
-                # elem_json['stime'] = self.do_soup(elem.find(text=lambda text: isinstance(text, self.Comment) \
-                                                  # and 'duration' in text)).find(class_='duration').get_text(strip=True)
-            # if not elem_json['stime'] and elem.find(string=re.compile('^([01]?[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?$')):
-                # elem_json['stime'] = elem.find(string=re.compile('^([01]?[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?$'))
             if elem.find('figure', class_=['hd']):
                 elem_json['quality'] = "HD"
-            # if elem.find('span', class_=['hd-thumbnail', 'is-hd', 'video_quality']):
-                # elem_json['quality'] = elem.find('span', class_=['hd-thumbnail', 'is-hd', 'video_quality']).get_text(strip=True)
-            # elem_json['stime'] = elem_json['stime'].replace(elem_json['quality'], '')
-            # elif elem.find(text=lambda text: isinstance(text, self.Comment) and 'hd' in text):
-                # elem_json['quality'] = 'HD'
-            # elem_json['premium'] = elem.find('i', class_='premiumIcon') \
-                                     # or elem.find('span', class_='ico-private') or ''
-            # elem_json['premium'] = elem.find('i', class_='premiumIcon') \
-                                     # or elem.find('span', class_=['ico-private', 'premium-video-icon']) or ''
-
+            
             if elem.find('div', class_='videoDetailsBlock') \
                                      and elem.find('div', class_='videoDetailsBlock').find('span', class_='views'):
                 elem_json['views'] = elem.find('div', class_='videoDetailsBlock')\
                                     .find('span', class_='views').get_text('|', strip=True).split('|')[0]
-            # elif elem.find('div', class_='views'):
-                # elem_json['views'] = elem.find('div', class_='views').get_text(strip=True) 
+            
             elif elem.find('span', class_='video_count'):
                 elem_json['views'] = elem.find('span', class_='video_count').get_text(strip=True)
-            
             
             if elem.find('a',class_='video_channel'):
                 elem_json['canal'] = elem.find('a',class_='video_channel').get_text(strip=True)
@@ -231,10 +199,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
                 for x, value in enumerate(pornstars):
                     pornstars[x] = value.get_text(strip=True)
                 elem_json['star'] = ' & '.join(pornstars)
-            
-            # '''Pasar por findvideos '''
-            # elem_json['action'] = 'findvideos'
-            
+        
         except:
             logger.error(elem)
             logger.error(traceback.format_exc())
@@ -242,23 +207,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
         
         if not elem_json['url']: continue
         matches.append(elem_json.copy())
-        # '''filtros que deben coincidir con los que tiene el “profile=default” en AH para que no descuadren las dos listas'''
-        # if not elem.a.get('href', ''): continue 
-        
-        # '''guarda json modificado '''
-        # matches.append(elem_json.copy())
-        # '''se suma al contador de registros procesados VÁLIDOS'''
-        # x += 1
-        
-        ###########  Paginado en absoluporn  donde tengo numero total de videos y consigo last_page
-    # soup = AHkwargs.get('soup', {})
-    # if AlfaChannel.last_page in [9999, 99999] and soup and soup.find('div', class_='pagination-nbpage'): 
-        # total = soup.find('div', class_='pagination-nbpage').find('span', class_='text1').get_text(strip=True)
-        # total = scrapertools.unescape(total).split(' ')[-2]
-        # AlfaChannel.last_page = int(int(total) / finds['controls'].get('cnt_tot', 30))
-        # logger.error(AlfaChannel.last_page)
-        
-    # logger.debug(matches)
+    
     return matches
 
 
@@ -267,41 +216,6 @@ def findvideos(item):
     
     return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
                                          verify_links=False, findvideos_proc=True, **kwargs)
-
-# def play(item):
-    # logger.info()
-    # itemlist = []
-    
-    # AlfaChannel.host = config.get_setting("current_host", item.chanel, default=host)
-    # AlfaChannel.canonical.update({'channel': item.chanel, 'host': AlfaChannel.host, 'host_alt': [AlfaChannel.host]})
-    
-    # soup = AlfaChannel.create_soup(item.url, **kwargs)
-    
-    # if soup.find_all('a', href=re.compile("/pornstar/[A-z0-9-]+")):
-        # pornstars = soup.find_all('a', href=re.compile("/pornstar/[A-z0-9-]+"))
-        
-        # for x, value in enumerate(pornstars):
-            # pornstars[x] = value.get_text(strip=True)
-        
-        # pornstar = ' & '.join(pornstars)
-        # pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-        # lista = item.contentTitle.split('[/COLOR]')
-        # pornstar = pornstar.replace('[/COLOR]', '')
-        # pornstar = ' %s' %pornstar
-        # if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
-            # lista.insert (2, pornstar)
-        # else:
-            # lista.insert (1, pornstar)
-        # item.contentTitle = '[/COLOR]'.join(lista)
-
-
-
-    # if "6xtube" in item.url or "blendporn" in item.url:
-        # matches = soup.find('div', id='player-container')
-        # item.url = matches.iframe['src']
-    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
-    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
-    # return itemlist
 
 
 def search(item, texto, **AHkwargs):
