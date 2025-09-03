@@ -99,7 +99,10 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
-        thumbnail = elem.img['data-src']
+        if elem.img.get('src', ''):
+            thumbnail = elem.img['src']
+        else:
+            thumbnail = elem.img['data-src']
         if "gif" in thumbnail:
             thumbnail = elem.img['data-original']
         if not thumbnail.startswith("https"):

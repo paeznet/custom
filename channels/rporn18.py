@@ -21,6 +21,8 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+######      Fallan fotos     https://rporn18-2.nyc3.cdn.digitaloceanspaces.com/videos/83/miniaturas/out-all-night-brazzers-aria-valencia.webp
+######      Incluso con verifypeer
 
 canonical = {
              'channel': 'rporn18', 

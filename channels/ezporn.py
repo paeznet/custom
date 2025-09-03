@@ -100,7 +100,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="in35" , action="submenu", url= "https://in35.com/", chanel="in35", thumbnail = "https://i.postimg.cc/K8phwnry/in35.png"))
     itemlist.append(Item(channel=item.channel, title="[COLOR red]love4porn[/COLOR]" , action="submenu", url= "https://love4porn.com/", chanel="love4porn", thumbnail = "https://i.postimg.cc/LXJv4zpM/leakxxx.png"))
     itemlist.append(Item(channel=item.channel, title="Momzr" , action="submenu", url= "https://momzr.com/", chanel="momzr", thumbnail = "https://i.postimg.cc/zvHtWRF8/momzr.png"))
-    itemlist.append(Item(channel=item.channel, title="[COLOR red]mypornhere[/COLOR]" , action="submenu", url= "https://www.mypornhere.com/", chanel="mypornhere", thumbnail = "https://i.postimg.cc/hthFxSX0/mypornhere.png"))
+    itemlist.append(Item(channel=item.channel, title="mypornhere" , action="submenu", url= "https://www.mypornhere.com/", chanel="mypornhere", thumbnail = "https://i.postimg.cc/hthFxSX0/mypornhere.png"))
     itemlist.append(Item(channel=item.channel, title="pornbimbo" , action="submenu", url= "http://pornbimbo.com/", chanel="pornbimbo", thumbnail = "https://i.postimg.cc/hGY4L8Qj/pornbimbo.png"))######## PRIVATE
     itemlist.append(Item(channel=item.channel, title="porndr" , action="submenu", url= "https://www.porndr.com/", chanel="porndr", thumbnail = "https://i.postimg.cc/sgPnJF9v/Porndr-logo.png"))
     itemlist.append(Item(channel=item.channel, title="pornkinky" , action="submenu", url= "https://pornkinky.com/", chanel="pornkinky", thumbnail = "https://i.postimg.cc/J47whDtd/pornkinky.png"))  ######## PRIVATE
@@ -168,8 +168,12 @@ def section(item):
 
 def list_all(item):
     logger.info()
+    findS = finds.copy()
     
-    return AlfaChannel.list_all(item, **kwargs)
+    if "thothub" in item.chanel:
+        findS['controls']['verifypeer'] = item.url
+    
+    return AlfaChannel.list_all(item, finds=findS, **kwargs)
 
 
 def findvideos(item):

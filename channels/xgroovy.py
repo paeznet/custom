@@ -11,6 +11,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+##############   CF2
+
 canonical = {
              'channel': 'xgroovy', 
              'host': config.get_setting("current_host", 'xgroovy', default=''), 
@@ -25,7 +27,7 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "/new"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "new"))
     itemlist.append(Item(channel=item.channel, title="Mejor 2024" , action="lista", url=host + "best/2024"))
     itemlist.append(Item(channel=item.channel, title="Mejor 2023" , action="lista", url=host + "best/2023"))
     itemlist.append(Item(channel=item.channel, title="Mejor 2022" , action="lista", url=host + "best/2022"))

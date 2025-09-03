@@ -11,6 +11,7 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+######      Fallan fotos  https://c8b8a8134e.mjedge.net/contents/videos_screenshots/3620000/3620985/340x255/4.jpg
 
 canonical = {
              'channel': 'katestube', 
@@ -22,7 +23,6 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-# No coge thumbnail
 
 def mainlist(item):
     logger.info()
@@ -101,8 +101,9 @@ def lista(item):
         title = elem.img['alt']
         thumbnail = elem.img['src']#.replace("/340x255/", "/301x226/").replace("?ver=3", "")
         if ".gif" in thumbnail:
-            thumbnail = elem.img['data-original']#.replace("/340x255/", "/301x226/")#.replace("?ver=3", "")
+            thumbnail = elem.img['data-original']  ###.replace("/340x255/", "/301x226/")#.replace("?ver=3", "")
         # thumbnail += "|verifypeer=false"
+        # thumbnail += "|Referer=%s" %host
         # logger.debug(thumbnail)
         time = elem.find('span', itemprop='duration').text.strip()
         quality = elem.find('span', class_='hd')

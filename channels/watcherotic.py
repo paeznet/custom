@@ -22,6 +22,9 @@ list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
 
+######      KTP   ---->     https://bbaze.top/eu46/default.mp4
+######      Fallan fotos https://watcherotic.com/contents/videos_screenshots/3000/3444/336x189/4.jpg hasta con |verifypeer=false
+
 canonical = {
              'channel': 'watcherotic', 
              'host': config.get_setting("current_host", 'watcherotic', default=''), 

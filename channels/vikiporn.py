@@ -21,7 +21,7 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-################   No se ven thumbnail  https://cdni.vikiporn.com/contents/videos_screenshots/3509000/3509017/342x192/3.jpg?ver=3
+################   Fallan fotos  https://cdni.vikiporn.com/contents/videos_screenshots/3509000/3509017/342x192/3.jpg?ver=3
 
 def mainlist(item):
     logger.info()

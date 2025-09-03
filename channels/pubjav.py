@@ -23,6 +23,9 @@ forced_proxy_opt = 'ProxySSL'
 
 ###      https://sextb.net/  https://sextb.xyz/     mismo contenido y casi estructura
 
+######      Fallan fotos     https://cdn001.imggle.net/webp/poster/07202025/1756402658.webp  Failed: HTTP response code said error(22)
+######      Incluso con verifypeer
+
 canonical = {
              'channel': 'pubjav', 
              'host': config.get_setting("current_host", 'pubjav', default=''), 

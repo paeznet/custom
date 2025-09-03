@@ -1,3 +1,6 @@
+, viewType = "videos"  en Hentaila
+
+
 
 %appdata%\kodi\addons
 special://profile/addon_data/plugin.video.alfa
@@ -71,6 +74,10 @@ utils.kodilog(url)   @@@@Cumination:
 
 entrepeliculasyseries CIFRADO AES
    GibberishAES(string=elem['link'], pass_=clave).result
+
+
+
+
 
 
 
@@ -154,6 +161,21 @@ color = AlfaChannel.color_setting.get('quality', '')  ====> 'deepskyblue'
 	------------------------------------------------------------------------------------
 
 
+czechvideo busca en el title las pornstar para poner en azul
+
+    if ", " in pornstars:
+        pornstars = pornstars.split(", ")
+        for elem in pornstars:
+            if elem in item.contentTitle:
+                item.contentTitle = item.contentTitle.replace(elem, "[COLOR cyan]%s[/COLOR]" % elem)
+        item.contentTitle = item.contentTitle.replace("[/COLOR] and [COLOR cyan]", " and ").replace("[/COLOR]and [COLOR cyan]", " and ")
+    elif pornstars:
+        if pornstars in item.contentTitle:
+            item.contentTitle = item.contentTitle.replace(pornstars, "[COLOR cyan]%s[/COLOR]" % pornstars)
+            item.contentTitle = item.contentTitle.replace("[/COLOR] and [COLOR cyan]", " and ").replace("[/COLOR]and [COLOR cyan]", " and ")
+
+
+
 
 #########################################
 "force_inputstream": "ffmpegdirect" "adaptive" "none"
@@ -184,6 +206,9 @@ retrotv		'last_page': dict([('find', [{'tag': ['a'], 'string': re.compile('(?i)s
 pornixi
          'next_page': {'find_all': [{'tag': ['a'], 'class': ['btn-page'], '@POS': [-1], '@ARG': 'href'}]},
 
+tapesxporn
+	'next_page': {'find': [{'tag': ['a'], 'class': ['next'], '@ARG': 'href'}]},
+
 qporn
          # 'next_page': {'find': [{'tag': ['a'], 'string': re.compile('(?i)(?:more|next)'), '@ARG': 'href'}]}, #### COGE blog que tiene more
          'next_page': dict([('find', [{'tag': ['div', 'ul'], 'class': ['pagination']}]), 
@@ -197,8 +222,31 @@ studentki
                                            {'tag': ['a'], '@ARG': 'href'}]) ]),
 
 
-	
 
+############################################
+		En AlfaChannelHelper
+
+                                    if finds_controls.get('verifypeer', False):
+                                        if "http" in finds_controls.get('verifypeer'):
+                                            elem_json['thumbnail'] += "|Referer= %s" % finds_controls.get('verifypeer')
+                                        else:
+                                            elem_json['thumbnail'] += "|verifypeer=false"
+
+		Si verifypeer existe puede ser o True o "%s" % item.url  
+		Asi si es el segundo hace |Referer = item.url
+'verifypeer': True
+'verifypeer': host  item.url
+
+controls': {'url_base64': False, 'cnt_tot': 20, 'reverse': False, 'profile': 'default', 'verifypeer': True},
+
+En EZPORN que es multicanal
+
+    if "thothub" in item.chanel:
+        findS['controls']['verifypeer'] = '%s' %item.url
+
+
+	
+############################################
 findS['controls']['action'] = 'findvideos'    en list_all
  
 findS['url_replace'] = [['($)', '1/']]			url + "1/"
@@ -257,7 +305,8 @@ josporn		multicanal  josporn   pornohd   xhdporno(diferente y play particular)  
 -drsexfilme		multicanal   hdpornos  pornoente  pornoklinge  pornotommy  pornoaffe  drsexfilme gutesexfilme pornofisch  pornoritze pornotanja pornotom
 				     pornodavid  hd-sexfilme pornohirsch sexvideos-gratis  lesbenhd  halloporno  pornofelix  xnxx-pornos  pornolisa pornoleon
 				     hd-pornos   pornosusi  sexente einfachtitten  pornozebra  sexvideos-hd  pornohammer pornohans ........
-  
+-kookporn		multicanal   https://kookporn.com/    https://colliderporn.com/  https://pornobrot.com/
+
 
 
 12milf		quitar paginacion categorias    findS['controls']['cnt_tot'] = 9999
@@ -381,6 +430,7 @@ joysporn	joysporn   'next_page_rgx': [['/page/\d+', '/page/%s/']],    last_page 
 -justporn
 kojka		    item.extra = "Search"
 
+
 latestpornvideo		findvideo de fuckingsession
 -leakslove	'findvideos' con pornstars   findS['controls']['cnt_tot'] = 9999 en categorias sino no mostraba paginacion
 -lesbian8
@@ -492,9 +542,19 @@ shooshtime
 
 -speedporn	findvideo pandamovie
 -subtitula2	findvideos
--sxyprnXXX
+-sxyland	tapesxporn	
+-sxyprnXXX	
 tabooporn
 tabootube
+-tapesxporn	sxyland	 https://xtapes.porn/category/Anal   >>> https://xtapes.porn/?cat_name=Anal&op=search&per_page=30&page=1
+			 https://xtapes.porn/s/channel/BraZZers  https://xtapes.porn/?data_name=channel&data_value=BraZZers&op=search&per_page=30&page=1
+
+	    if "Canal" in item.extra:
+       		findS['url_replace'] = [['(\/channel\/[^$]+$)', r'\1&op=search&per_page=30&page=1'], ['s/channel/', '?data_name=channel&data_value=']]
+    	    if "Categorias" in item.extra:
+        	findS['url_replace'] = [['(\/category\/[^$]+$)', r'\1&op=search&per_page=30&page=1'], ['category/', '?cat_name=']]
+
+		
 thepornarea
 -titfap
 tonicporn

@@ -11,8 +11,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-##   NO MUESTRA THUMBNAILS   https://i2.anysex.com/videos_screenshots/422000/422957/608x342/1.jpg
- 
+##   Fallan fotos   https://i2.anysex.com/videos_screenshots/422000/422957/608x342/1.jpg
+
 canonical = {
              'channel': 'anysex', 
              'host': config.get_setting("current_host", 'anysex', default=''), 

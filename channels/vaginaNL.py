@@ -100,7 +100,7 @@ def lista(item):
     soup = create_soup(item.url)
     matches = soup.find('div', class_='list-rows').find_all('div', class_='list-item')
     for elem in matches:
-        if not elem.find('script'):
+        if not elem.find('ins'):
             url = elem.a['href']
             title = elem.img['alt']
             thumbnail = elem.img['data-src']

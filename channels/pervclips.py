@@ -11,7 +11,7 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-###    no muestra thumbnail    https://cdn.pervclips.com/tube/contents/videos_screenshots/1064102000/1064102366/367x275/3.jpg
+###    Fallan fotos    https://cdn.pervclips.com/tube/contents/videos_screenshots/1064102000/1064102366/367x275/3.jpg
 
 canonical = {
              'channel': 'pervclips', 

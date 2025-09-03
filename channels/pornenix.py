@@ -13,7 +13,9 @@ from bs4 import BeautifulSoup
 
 
 # https://pornenix.com/     https://playenix.com/
-# https:/daftsex.app/   https://draftsex.porn/
+# https://daftsex.app/   https://draftsex.porn/
+
+######      Fallan algunas fotos  https://pornenix.com/media/thumbs/embedded/233.jpg
 
 canonical = {
              'channel': 'pornenix', 
@@ -106,6 +108,10 @@ def lista(item):
             thumbnail = elem.img['data-original']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
+        # thumbnail += "|ignore_response_code=True"
+        # thumbnail += "|Referer=%s" % host
+        # thumbnail += "|verifypeer=false"
+        # logger.debug(thumbnail)
         time = elem.find('span', class_='-duration').text.strip()
         quality = elem.find('span', class_='-quality')
         if quality:

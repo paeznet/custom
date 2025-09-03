@@ -21,12 +21,15 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
+######      Fallan fotos    https://uppornx.b-cdn.net/contents/videos_screenshots/12000/12860/preview.mp4.jpg   hasta con verifypeer
+
+
 canonical = {
              'channel': 'uppornx', 
              'host': config.get_setting("current_host", 'uppornx', default=''), 
              'host_alt': ["https://uppornx.com/"], 
              'host_black_list': [], 
-             'pattern': ['base href="([^"]+)"'], 
+             # 'pattern': ['base href="([^"]+)"'], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }

@@ -15,7 +15,7 @@ canonical = {
              'channel': 'orgasmatrix', 
              'host': config.get_setting("current_host", 'orgasmatrix', default=''), 
              'host_alt': ["https://www.orgasmatrix.com/"], 
-             'host_black_list': [], 
+             'host_black_list': ['https://www.eporner.com/'], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }

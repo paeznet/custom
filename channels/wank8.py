@@ -12,6 +12,8 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 
+##################  OUT  ZOMBIE sept 3035
+
 canonical = {
              'channel': 'wank8', 
              'host': config.get_setting("current_host", 'wank8', default=''), 
@@ -104,6 +106,7 @@ def lista(item):
         th1 = thumbnail[:-2]
         th2 = thumbnail[-2:]
         thumbnail = "%sthumbs/AA/%s/%s.jpg" %(host,th1,th2)
+        logger.debug(thumbnail)
         plot = ""
         action = "play"
         if logger.info() == False:

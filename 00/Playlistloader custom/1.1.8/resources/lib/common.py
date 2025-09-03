@@ -202,6 +202,8 @@ def m3u2list(url, cache):
 						params += ln.replace('"', '').replace("#EXTGRP:" ,' group_title="') + '"'
 		if ".pluto" in url:
 			url += "|User-Agent=Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F134.0.6998.36+Safari%2F537.36"
+		if "acestream://" in url:
+			url = url.replace("acestream://", "plugin://script.module.horus?action=play&id=")
 		item_data = {"params": params, "display_name": display_name.strip(), "url": url.strip()}
 		li.append(item_data)
 	chList = []

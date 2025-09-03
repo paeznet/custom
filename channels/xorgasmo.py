@@ -57,7 +57,7 @@ finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['videos-list']}]),
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            'list_all_stime': {'find': [{'tag': ['div'], 'class': ['duration'], '@TEXT': '(\d+:\d+)' }]},
+                            # 'list_all_stime': {'find': [{'tag': ['div'], 'class': ['duration'], '@TEXT': '(\d+:\d+)' }]},
                             # 'list_all_views': {'find': [{'tag': ['div'], 'class': ['es-porn-icon'], '@ARG': 'class',  '@TEXT': '(es)' }]},
                            },
          'controls': {'url_base64': False, 'cnt_tot': 30, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
@@ -71,11 +71,11 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "videos/page/1/"))
-    itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="list_all", url=host + "most-viewed/page/1/"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "most-liked/page/1/"))
-    itemlist.append(Item(channel=item.channel, title="Favoritos" , action="list_all", url=host + "recomended/page/1/"))
-    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "longest/page/1/"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1/"))
+    # itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="list_all", url=host + "most-viewed/page/1/"))
+    # itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "most-liked/page/1/"))
+    # itemlist.append(Item(channel=item.channel, title="Favoritos" , action="list_all", url=host + "recomended/page/1/"))
+    # itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "longest/page/1/"))
     itemlist.append(Item(channel=item.channel, title="2024" , action="list_all", url=host + "2024/page/1/?f=p1"))
     itemlist.append(Item(channel=item.channel, title="2023" , action="list_all", url=host + "2023/page/1/?f=p1"))
     itemlist.append(Item(channel=item.channel, title="2022" , action="list_all", url=host + "2022/page/1/?f=p1"))
@@ -84,7 +84,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="2019" , action="list_all", url=host + "2019/page/1/?f=p1"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "channels/page/1/", extra="Canal"))
     itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "pornstar/page/1/", extra="PornStar"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categorias/", extra="Categorias"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/page/1/", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -93,10 +93,10 @@ def section(item):
     logger.info()
     
     findS = finds.copy()
-    # findS['url_replace'] = [['(\/(?:categories|channels|models|pornstars)\/[^$]+$)', r'\1?sort_by=post_date&from=1']]
-    if item.extra == 'PornStar':
-        findS['controls']['cnt_tot'] = 28
-    
+    findS['url_replace'] = [['(\/(?:category|channel|pornstar)\/[^$]+$)', r'\1/page/1']]
+    findS['controls']['cnt_tot'] = 20
+    if item.extra == 'Categorias':
+        findS['controls']['cnt_tot'] = 9999
     return AlfaChannel.section(item, finds=findS, **kwargs)
 
 
@@ -105,7 +105,7 @@ def list_all(item):
     
     findS = finds.copy()
     if item.extra:
-        findS['controls']['cnt_tot'] = 24
+        findS['controls']['cnt_tot'] = 20
     
     return AlfaChannel.list_all(item, finds=findS, **kwargs)
 

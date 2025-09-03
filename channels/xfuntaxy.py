@@ -68,7 +68,7 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
                             # 'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['hd-video']}]),
                                                       # ('get_text', [{'tag': '', 'strip': True}])]),
                             },
-         'controls': {'url_base64': False, 'cnt_tot': 32, 'reverse': False, 'profile': 'default'}, 
+         'controls': {'url_base64': False, 'cnt_tot': 28, 'reverse': False, 'profile': 'default'}, 
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -83,10 +83,10 @@ def mainlist(item):
     autoplay.init(item.channel, list_servers, list_quality)
     
     itemlist.append(Item(channel = item.channel, title="Peliculas" , action="list_all", url=host + "category/full-movies/page/1/?filter=latest"))
-    itemlist.append(Item(channel = item.channel, title="Nuevos" , action="list_all", url=host + "page1/?filter=latest"))
-    itemlist.append(Item(channel = item.channel, title="Mas vistos" , action="list_all", url=host + "page1/?filter=most-viewed"))
-    itemlist.append(Item(channel = item.channel, title="Mejor valorado" , action="list_all", url=host + "page1/?filter=popular"))
-    itemlist.append(Item(channel = item.channel, title="Mas metraje" , action="list_all", url=host + "page1/?filter=longest"))
+    itemlist.append(Item(channel = item.channel, title="Nuevos" , action="list_all", url=host + "page/1/?filter=latest"))
+    itemlist.append(Item(channel = item.channel, title="Mas vistos" , action="list_all", url=host + "page/1/?filter=most-viewed"))
+    itemlist.append(Item(channel = item.channel, title="Mejor valorado" , action="list_all", url=host + "page/1/?filter=popular"))
+    itemlist.append(Item(channel = item.channel, title="Mas metraje" , action="list_all", url=host + "page/1/?filter=longest"))
     itemlist.append(Item(channel = item.channel, title="Canal" , action="section", url=host + "categories/page/1", extra="Canal"))
     itemlist.append(Item(channel = item.channel, title="Buscar", action="search"))
     

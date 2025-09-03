@@ -21,7 +21,7 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
-# https://kookporn.com/  https://colliderporn.com/
+# https://kookporn.com/  https://colliderporn.com/  https://pornobrot.com/
 
 canonical = {
              'channel': 'kookporn', 
@@ -42,8 +42,8 @@ language = []
 url_replace = []
 
 
-finds = {'find': {'find_all': [{'tag': ['li'], 'class':['tmb']}]},  # 'id': re.compile(r"^vid-\d+")
-         'categories': {'find_all': [{'tag': ['li'], 'class': ['tmb']}]},
+finds = {'find': {'find_all': [{'tag': ['li'], 'class':['tmb', 'th']}]},  # 'id': re.compile(r"^vid-\d+")
+         'categories': {'find_all': [{'tag': ['li'], 'class': ['tmb', 'th']}]},
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
@@ -76,6 +76,7 @@ def mainlist(item):
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="kookporn" , action="submenu", url= "https://kookporn.com/", chanel="kookporn", thumbnail = "https://kookporn.com/images/logo.png"))
     itemlist.append(Item(channel=item.channel, title="colliderporn" , action="submenu", url= "https://colliderporn.com/", chanel="colliderporn", thumbnail = "https://colliderporn.com/images/logo1.png"))
+    itemlist.append(Item(channel=item.channel, title="pornobrot" , action="submenu", url= "https://pornobrot.com/", chanel="pornobrot", thumbnail = "https://pornobrot.com/images/logo.png"))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     return itemlist
 
@@ -88,14 +89,13 @@ def submenu(item):
     AlfaChannel.host = item.url
     AlfaChannel.canonical.update({'channel': item.chanel, 'host': AlfaChannel.host, 'host_alt': [AlfaChannel.host]})
 
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "en/best/?p=1", chanel=item.chanel))
-    # itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "best-videos/1/", chanel=item.chanel))
-    # itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=item.url + "channels/1/", extra="Canal", chanel=item.chanel))
-    # itemlist.append(Item(channel=item.channel, title="PornStar" , action="section", url=item.url + "pornstars/", extra="PornStar", chanel=item.chanel))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url, extra="Categorias", chanel=item.chanel))
+    if "pornobrot" in item.url:
+        itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "en/other/?p=1", chanel=item.chanel))
+    else:
+        itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "en/best/?p=1", chanel=item.chanel))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=item.url + "en", extra="Categorias", chanel=item.chanel))
     
-    
-    itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=item.url, chanel=item.chanel))
+    # itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=item.url, chanel=item.chanel))
     
     return itemlist
 
@@ -156,28 +156,8 @@ def play(item):
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
     
-    # if soup.find('div', id='video-info').find_all('a', href=re.compile("/pornstars/[A-z0-9-]+")):
-        # pornstars = soup.find('div', id='video-info').find_all('a', href=re.compile("/pornstars/[A-z0-9-]+"))
-        
-        # for x, value in enumerate(pornstars):
-            # pornstars[x] = value.get_text(strip=True)
-        
-        # pornstar = ' & '.join(pornstars)
-        # pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-        # lista = item.contentTitle.split('[/COLOR]')
-        # pornstar = pornstar.replace('[/COLOR]', '')
-        # pornstar = ' %s' %pornstar
-        # if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
-            # lista.insert (2, pornstar)
-        # else:
-            # lista.insert (1, pornstar)
-        # item.contentTitle = '[/COLOR]'.join(lista)
-
-
-
     url = soup.iframe['src']
     url = scrapertools.find_single_match(url, "'([^']+)'")
-    logger.debug(url)
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

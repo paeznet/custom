@@ -11,6 +11,9 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+######      Fallan fotos https://en8.pornhd8k.me/Cms_Data/Contents/admin/Media/images/new-cory-chase-amiee-cambridge-melanie-hicks-rae-west-bree-brooks-the-beat-cops-reverse-anal-gangbang-01-09-2025-anal-hardcore-milfb4e4dfa-4899-4e2c-9f71-54837cde9681.jpg hasta con |verifypeer=false
+
+
 canonical = {
              'channel': 'pornhd8k', 
              'host': config.get_setting("current_host", 'pornhd8k', default=''), 
@@ -104,7 +107,9 @@ def lista(item):
             title = "[COLOR red]HD[/COLOR] %s" % title
         # logger.debug(thumbnail)
         # thumbnail = scrapertools.find_single_match(thumbnail, '".*?url=([^"]+)"')
-        thumbnail=  urlparse.urljoin(item.url,thumbnail)
+        thumbnail =  urlparse.urljoin(item.url,thumbnail)
+        # thumbnail +="|verifypeer=false"
+        logger.debug(thumbnail)
         url=  urlparse.urljoin(item.url,url)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="play", title=title, url=url, thumbnail=thumbnail,

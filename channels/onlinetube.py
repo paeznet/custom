@@ -78,7 +78,7 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="onlinetube" , action="submenu", url= "https://onlinetube.tv/", chanel="onlinetube", thumbnail = "https://i.postimg.cc/QdYMpYYG/onlinetube.png"))
+    itemlist.append(Item(channel=item.channel, title="[COLOR red]onlinetube[/COLOR]" , action="submenu", url= "https://onlinetube.tv/", chanel="onlinetube", thumbnail = "https://i.postimg.cc/QdYMpYYG/onlinetube.png"))
     itemlist.append(Item(channel=item.channel, title="huyamba" , action="submenu", url= "https://wvvw.huyamba.mobi/", chanel="huyamba", thumbnail = "https://i.postimg.cc/d1Ycd8Fc/logo-huyamba.png"))
     itemlist.append(Item(channel=item.channel, title="pornoreka" , action="submenu", url= "https://pornoreka.tv/", chanel="pornoreka", thumbnail = "https://i.postimg.cc/28cYJbQn/pornoreka.png"))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))

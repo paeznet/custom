@@ -21,7 +21,8 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
-# https://freexxx.to/    https://porner.to/   https://pornsoda.to/
+# https://freexxx.to/     https://porner.to/       https://pornsoda.to/
+# fotos alguna            Ninguna foto en web      Ninguna foto en web
 
 canonical = {
              'channel': 'freexxx', 

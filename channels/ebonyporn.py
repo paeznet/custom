@@ -22,6 +22,7 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
 ###  MUCHOS VIDEOS sin LINKS
+###  OUT agosto 2025
 
 canonical = {
              'channel': 'ebonyporn', 
