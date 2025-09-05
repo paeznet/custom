@@ -31,22 +31,13 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-timeout = 5
+timeout = 20
 kwargs = {}
 debug = config.get_setting('debug_report', default=False)
 movie_path = ''
 tv_path = ''
 language = []
 url_replace = []
-
-
-
-# post_content   https://xkeezmovies.com/nurumassage-river-lynn-the-fucket-list-pizza-with-a-side-of-nuru-07-14-2025/
-# rich-content   https://xkeezmovies.com/bigtitsroundasses-red-eviee-piping-hot-sweaty-tits-01-18-2025/
-# <div class='video'><iframe src= (hqq.to, https://player.xkeezmovies.com/) NETU   https://xkeezmovies.com/7803-daria-czechcasting/
-# # <div id='player-torotube'><iframe src=   https://xkeezmovies.com/right-signals-sent-and-received-premium-porn/
-# <video id  sourtype  https://xkeezmovies.com/i-do-need-a-hand-here-sis-premium-porn/
-
 
 
 finds = {'find': {'find_all': [{'tag': ['div'], 'class': re.compile(r"^post-\d+")}]},     #'id': re.compile(r"^browse_\d+")}]},
@@ -69,17 +60,6 @@ finds = {'find': {'find_all': [{'tag': ['div'], 'class': re.compile(r"^post-\d+"
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            # 'list_all_stime': {'find': [{'tag': ['span'], 'class': ['is-hd'], '@TEXT': '(\d+:\d+)' }]},
-                            # 'list_all_url': {'find': [{'tag': ['a'], 'class': ['link'], '@ARG': 'href'}]},
-                            # 'list_all_stime': dict([('find', [{'tag': ['div'], 'class': ['time']}]),
-                                                    # ('get_text', [{'tag': '', 'strip': True}])]),
-                            # 'list_all_quality': {'find': [{'tag': ['span', 'div'], 'class': ['hd'], '@ARG': 'class',  '@TEXT': '(hd)' }]},
-                            # 'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['is-hd']}]),
-                                                      # ('get_text', [{'tag': '', 'strip': True}])]),
-                            # 'list_all_premium': dict([('find', [{'tag': ['span'], 'class': ['ico-private']}]),
-                                                       # ('get_text', [{'tag': '', 'strip': True}])]),
-                            # 'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['thumb-item']}]),
-                                                      # ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])
                            },
          'controls': {'url_base64': False, 'cnt_tot': 39, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
@@ -114,66 +94,7 @@ def section(item):
     findS = finds.copy()
     findS['url_replace'] = [['(\/(?:category|pornstars)\/[^$]+$)', r'\1page/1/?orderby=date']]
     
-    # if item.extra == 'PornStar':
-        # findS['categories'] = dict([('find', [{'tag': ['div'], 'class': 'list-models'}]), 
-                                    # ('find_all', [{'tag': ['a'], 'class': 'item'}])])
-    
-    # if item.extra == 'Canal':
-        # findS['categories'] = dict([('find', [{'tag': ['div'], 'id': 'popup-sponsors'}]), 
-                                    # ('find_all', [{'tag': ['li']}])])
-        # findS['profile_labels']['section_title'] = {'find': [{'tag': ['img'], '@ARG': 'alt'}]}
-        # findS['last_page'] = {}
-        # findS['controls']['cnt_tot'] = 12
-    
-    # if item.extra == 'Categorias':
-        # findS['categories'] = dict([('find', [{'tag': ['div'], 'class': 'list-categories'}]), 
-                                    # ('find_all', [{'tag': ['a']}])])
     return AlfaChannel.section(item, finds=findS, **kwargs)
-    # return AlfaChannel.section(item, **kwargs)
-    # return AlfaChannel.section(item, matches_post=section_matches, **kwargs)
-
-
-def section_matches(item, matches_int, **AHkwargs):
-    logger.info()
-    matches = []
-    
-    findS = AHkwargs.get('finds', finds)
-    
-    for elem in matches_int:
-        
-        elem_json = {}
-        
-        try:
-            
-            elem_json['url'] = elem.get("href", '') or elem.a.get("href", '')
-            elem_json['title'] = elem.a.get('data-mxptext', '') or elem.a.get('title', '') \
-                                                                or (elem.img.get('alt', '') if elem.img else '') \
-                                                                or elem.a.get_text(strip=True)
-            if elem.img: elem_json['thumbnail'] = elem.img.get('data-thumb_url', '') or elem.img.get('data-original', '') \
-                                                                                     or elem.img.get('data-src', '') \
-                                                                                     or elem.img.get('src', '')
-            if elem.find('span', class_=['videoCount', 'videosNumber']):
-                elem_json['cantidad'] = elem.find('span', class_=['videoCount', 'videosNumber']).get_text(strip=True)
-            elif elem.find('div', class_='videos'):
-                elem_json['cantidad'] = elem.find('div', class_='videos').get_text(strip=True)
-            elif elem.find(string=re.compile(r"(?i)videos|movies")):
-                elem_json['cantidad'] = elem.find(string=re.compile(r"(?i)videos|movies")).strip()
-                # logger.debug(elem_json['cantidad'].strip())
-            # elif elem.find(string='Videos'):
-                # elem_json['cantidad'] = elem.find(string='Videos').get_text(strip=True)
-            # if not elem_json.get('cantidad') and elem.find(text=lambda text: isinstance(text, self.Comment) \
-                                              # and 'videos' in text):
-                # elem_json['cantidad'] = self.do_soup(elem.find(text=lambda text: isinstance(text, self.Comment) \
-                                                     # and 'videos' in text)).find(class_='videos').get_text(strip=True)
-        
-        except:
-            logger.error(elem)
-            logger.error(traceback.format_exc())
-            continue
-        
-        if not elem_json['url']: continue
-        matches.append(elem_json.copy())
-    return matches
 
 
 def list_all(item):
@@ -182,7 +103,60 @@ def list_all(item):
     findS = finds.copy()
     findS['controls']['action'] = 'findvideos'
     
-    return AlfaChannel.list_all(item, finds=findS, **kwargs)
+    # if item.extra == 'Canal':  #####  CANAL TIENE last_page en -2
+        # findS['find']['last_page']= {}
+        # findS['find']['next_page'] = dict([('find', [{'tag': ['div'], 'class': ['pag-nav']}]), 
+                                           # ('find_all', [{'tag': ['a'], '@POS': [-2], '@ARG': 'href'}])])
+    
+    # return AlfaChannel.list_all(item, finds=findS, **kwargs)
+    return AlfaChannel.list_all(item, finds=findS, matches_post=list_all_matches, **kwargs)
+
+
+def list_all_matches(item, matches_int, **AHkwargs):
+    logger.info()
+    matches = []
+    
+    findS = AHkwargs.get('finds', finds)
+    
+    
+    for elem in matches_int:
+        elem_json = {}
+        
+        try:
+            elem_json['url'] = elem.a.get('href', '')
+            title = elem.a.get('title', '')
+            if "[" in title and "(" in title:
+                canal = scrapertools.find_single_match(title, '\[([^\]]+)\]')  #([^\']+)
+                pornstar = scrapertools.find_single_match(title, '\]([^\(]+)\(')
+                elem_json['star'] = pornstar
+                elem_json['canal'] = canal
+                title = title.replace(canal, '').replace(pornstar, '').replace('[]', '').replace('(', '').replace(')', '')
+            elem_json['title'] = title
+            elem_json['thumbnail'] = elem.img.get('data-thumb_url', '') or elem.img.get('data-original', '') \
+                                     or elem.img.get('data-src', '') \
+                                     or elem.img.get('src', '')
+            elem_json['stime'] = elem.find(class_='duration').get_text(strip=True) if elem.find(class_='duration') else ''
+            if elem.find('span', class_=['hd-thumbnail', 'is-hd']):
+                elem_json['quality'] = elem.find('span', class_=['hd-thumbnail', 'is-hd']).get_text(strip=True)
+            if elem.find('span', class_=['hd-thumbnail', 'is-hd', 'video_quality']):
+                elem_json['quality'] = elem.find('span', class_=['hd-thumbnail', 'is-hd', 'video_quality']).get_text(strip=True)
+            elem_json['premium'] = elem.find('i', class_='premiumIcon') \
+                                     or elem.find('span', class_=['ico-private', 'premium-video-icon']) or ''
+            if elem.find('span', class_='views'):
+                elem_json['views'] = elem.find('span', class_='views').get_text(strip=True)
+            
+            
+            
+            
+        except:
+            logger.error(elem)
+            logger.error(traceback.format_exc())
+            continue
+        
+        if not elem_json['url']: continue
+        matches.append(elem_json.copy())
+    
+    return matches
 
 
 def findvideos(item):
@@ -198,25 +172,6 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     
     findS = AHkwargs.get('finds', finds)
     
-    soup = AHkwargs.get('soup', {})
-    if soup.find('div', id='details').find('div', class_='entry-content').find_all('a', rel="tag"):
-        pornstars = soup.find('div', id='details').find('div', class_='entry-content').find_all('a', rel="tag")
-        for x, value in enumerate(pornstars):
-            pornstars[x] = value.get_text(strip=True)
-        
-        pornstar = ' & '.join(pornstars)
-        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-        # lista = item.contentTitle.split('[/COLOR]')
-        # pornstar = pornstar.replace('[/COLOR]', '')
-        # pornstar = ' %s' %pornstar
-        # if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
-            # lista.insert (2, pornstar)
-        # else:
-            # lista.insert (1, pornstar)
-        # item.contentTitle = '[/COLOR]'.join(lista)
-        item.plot = pornstar
-    
-    
     for elem in matches_int:
         elem_json = {}
         
@@ -231,7 +186,6 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
                     # return
             if "player.xkeezmovies.com" in url:
                 url= url.replace("player.xkeezmovies.com", "hqq.to")
-            logger.debug(url)
             elem_json['url'] = url
             elem_json['server'] = ''
             elem_json['language'] = ''

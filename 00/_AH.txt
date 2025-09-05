@@ -232,7 +232,7 @@ studentki
                                         else:
                                             elem_json['thumbnail'] += "|verifypeer=false"
 
-		Si verifypeer existe puede ser o True o "%s" % item.url  
+		Si verifypeer existe puede ser o True o item.url  
 		Asi si es el segundo hace |Referer = item.url
 'verifypeer': True
 'verifypeer': host  item.url
@@ -242,7 +242,7 @@ controls': {'url_base64': False, 'cnt_tot': 20, 'reverse': False, 'profile': 'de
 En EZPORN que es multicanal
 
     if "thothub" in item.chanel:
-        findS['controls']['verifypeer'] = '%s' %item.url
+        findS['controls']['verifypeer'] = item.url
 
 
 	
@@ -253,8 +253,12 @@ findS['url_replace'] = [['($)', '1/']]			url + "1/"
 
 findS['url_replace'] = [['([^$]+$)', r'\1&filter=latest&paged=1']] >>>>> https://baddiehub.com/?cat=90 + &filter=latest
 
+
 load more con parametros     if item.extra == 'PornStar':
-        						   item.last_page = 9999
+				findS['next_page'] = {}   ### SI LA PAGINACION ES por NEXT_PAGE
+        			item.last_page = 9999
+
+
 item.last_page = 9999   uppornx tiene load moore  >>>>>>>  models/?sort_by=total_videos&from=1 +1 
 
 

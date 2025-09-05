@@ -44,10 +44,8 @@ url_replace = []
 
 finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
                        ('find_all', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}])]),
-                       # {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]},
          'categories': dict([('find', [{'tag': ['div'], 'class': ['videos-list']}]),
                              ('find_all', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}])]),
-                             # {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]},
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
@@ -62,7 +60,6 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            # 'list_all_thumbnail': {'find': [{'tag': ['video'], '@ARG': ['poster']}]},
                             },
          'controls': {'url_base64': False, 'cnt_tot': 20, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
@@ -171,7 +168,6 @@ def play(item):
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
     
-    # control = scrapertools.find_single_match(item.contentTitle, "%s\](.*?)\[/COLOR\]" % AlfaChannel.color_setting.get('rating_3', ''))
     # if soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+/")):
         # pornstars = soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+"))
         # for x, value in enumerate(pornstars):
@@ -201,14 +197,7 @@ def play(item):
         if "hash=" in url:
             id = url.split("=")[-1]
             url = "https://hqq.tv/player/embed_player.php?vid=%s" %id
-    # matches = soup.find('div', class_='responsive-player')
-    # if matches.find('video'):
-        # url = matches.source['src']
-    # else:
-        # url = matches.iframe['src']
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    
-    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     
     return itemlist

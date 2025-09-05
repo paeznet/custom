@@ -198,14 +198,7 @@ def play(item):
             url = url['src']
         if "player.euroxxx.net" in url:
             url = url.replace("player.euroxxx.net", "hqq.to")
-    # matches = soup.find('div', class_='responsive-player')
-    # if matches.find('video'):
-        # url = matches.source['src']
-    # else:
-        # url = matches.iframe['src']
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    
-    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     
     return itemlist

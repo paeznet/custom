@@ -26,11 +26,6 @@ forced_proxy_opt = 'ProxySSL'
 
 # https://netpornsex.net/    https://espaporn.com/
 
-# https://netpornsex.net/big-tits-round-fucking-armani-black/
-# https://netpornsex.net/big-tits-round-anal-craving/ https://hqq.tv/player/embed_player.php?vid=FdK5HQru8a2G&autoplay=none
-# <div class="responsive-player"><div id="07b02207602203a02204606404b03504805107207503806103204702207d" 
-# https://hqq.to/e/FdK5HQru8a2G
-# https://hqq.to/e/opMwEWKOAedS
 
 canonical = {
              'channel': 'netpornsex', 
@@ -175,12 +170,10 @@ def play(item):
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
     
-    # control = scrapertools.find_single_match(item.contentTitle, "%s\](.*?)\[/COLOR\]" % AlfaChannel.color_setting.get('rating_3', ''))
     # if soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+/")):
         # pornstars = soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+"))
         # for x, value in enumerate(pornstars):
-                # pornstars[x] = value.get_text(strip=True)
-                # pornstars[x] = value.get_text(strip=True) if not value.get_text(strip=True) in control else None
+            # pornstars[x] = value.get_text(strip=True)
         
         # pornstar = ' & '.join(pornstars)
         # pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
@@ -193,7 +186,6 @@ def play(item):
             # lista.insert (1, pornstar)
         # item.contentTitle = '[/COLOR]'.join(lista)
     
-    # url= ""
     if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)")):
         url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))
         if url.get('id', ''):
@@ -202,14 +194,8 @@ def play(item):
             url = url['src']
         if "player.netpornsex.net" in url:
             url = url.replace("player.netpornsex.net", "hqq.to")
-    # matches = soup.find('div', class_='responsive-player')
-    # if matches.find('video'):
-        # url = matches.source['src']
-    # else:
-        # url = matches.iframe['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     
-    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     
     return itemlist

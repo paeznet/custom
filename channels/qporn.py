@@ -21,9 +21,17 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
-# https://24porn.com/   https://bigfuck.tv/  https://bestpornstars.xxx/
-# https://redporn.porn/  https://zzztube.tv/
-# 
+
+#     https://5porn.net  https://pornj.net/
+# ORG :  https://pornf.org/  https://pornh.org/  https://pornv.org/ https://pornq.org/ 
+       # https://porn2.org/ , 3, 5, 6, L,     
+       # https://qporn.org/   https://bporn.org/  https://cporn.org/  https://fporn.org/ 
+       # https://hporn.org/  https://kporn.org/  https://lporn.org/  https://pporn.org/ 
+       # https://rporn.org/  https://7porn.org/ https://0porn.org/ , y, 
+ #  https://yporn.info/ , 0, 5, 6, 9, q, s, z
+ #  https://pornq.info/  https://pornf.info/ , 3, 4, 5, 6, 7, 8 , b, c, d, e, f, g, i, j, l, m, t, z
+ # 
+
 
 canonical = {
              'channel': 'qporn', 
@@ -43,16 +51,6 @@ tv_path = ''
 language = []
 url_replace = []
 
-
-#     https://5porn.net  https://pornj.net/
-# ORG :  https://pornf.org/  https://pornh.org/  https://pornv.org/ https://pornq.org/ 
-       # https://porn2.org/ , 3, 5, 6, L,     
-       # https://qporn.org/   https://bporn.org/  https://cporn.org/  https://fporn.org/ 
-       # https://hporn.org/  https://kporn.org/  https://lporn.org/  https://pporn.org/ 
-       # https://rporn.org/  https://7porn.org/ https://0porn.org/ , y, 
- #  https://yporn.info/ , 0, 5, 6, 9, q, s, z
- #  https://pornq.info/  https://pornf.info/ , 3, 4, 5, 6, 7, 8 , b, c, d, e, f, g, i, j, l, m, t, z
- #  
 
 finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['videos']}]),
                        ('find_all', [{'tag': ['article']}])]),
@@ -106,7 +104,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="porne" , action="submenu", url= "https://porne.info/", chanel="porne", thumbnail = ""))
     itemlist.append(Item(channel=item.channel, title="pornf" , action="submenu", url= "https://pornf.info/", chanel="pornf", thumbnail = ""))
     itemlist.append(Item(channel=item.channel, title="porng" , action="submenu", url= "https://porng.info/", chanel="porng", thumbnail = ""))
-    itemlist.append(Item(channel=item.channel, title="porni" , action="submenu", url= "https://porni.info/", chanel="porni", thumbnail = ""))
+    # itemlist.append(Item(channel=item.channel, title="porni" , action="submenu", url= "https://porni.info/", chanel="porni", thumbnail = ""))
     itemlist.append(Item(channel=item.channel, title="pornj" , action="submenu", url= "https://pornj.info/", chanel="pornj", thumbnail = ""))
     itemlist.append(Item(channel=item.channel, title="pornl" , action="submenu", url= "https://pornl.info/", chanel="pornl", thumbnail = ""))
     itemlist.append(Item(channel=item.channel, title="pornm" , action="submenu", url= "https://pornm.info/", chanel="pornm", thumbnail = ""))
