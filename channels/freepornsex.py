@@ -113,8 +113,11 @@ def play(item):
         item.contentTitle = "%s %s" %(pornstar,item.contentTitle)
     
     data = soup.find('div', class_='clear').script.string
-    url = scrapertools.find_single_match(data, 'file:\s+"([^"]+)"')
-    url += "|Referer=%s" %host
+    Hash = scrapertools.find_single_match(data, 'videoHash\s*=\s*"([^"]+)"')
+    post_url = scrapertools.find_single_match(data, 'fetch\(\s*"([^"]+)"')
+    post = {'videoHash': Hash}
+    soup = AlfaChannel.create_soup(post_url , post=post, **kwargs)
+    url = soup.get_text(strip=True)
     itemlist.append(['.m3u', url])
     return itemlist
 

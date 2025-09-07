@@ -109,9 +109,9 @@ def play(item):
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
     
-    data = soup.find('iframe', class_='embed-responsive-item')['src']
-    url = scrapertools.find_single_match(data, '/([a-z0-9]+).html')
-    url = " https://mydaddy.cc/video/%s" %url
+    url = soup.find('iframe', class_='embed-responsive-item')['src']
+    # url = scrapertools.find_single_match(url, '/([a-z0-9]+).html')
+    # url = " https://mydaddy.cc/video/%s" %url
     
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())

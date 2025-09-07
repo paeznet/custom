@@ -24,7 +24,7 @@ forced_proxy_opt = 'ProxySSL'
 
 ######      KTP   ---->     https://bbaze.top/eu46/default.mp4
 ######      Fallan fotos https://watcherotic.com/contents/videos_screenshots/3000/3444/336x189/4.jpg hasta con |verifypeer=false
-
+#                        https://watcherotic.com/contents/videos_screenshots/3000/3444/320x180/4.jpg
 canonical = {
              'channel': 'watcherotic', 
              'host': config.get_setting("current_host", 'watcherotic', default=''), 
@@ -60,8 +60,6 @@ finds = {'find': {'find_all': [{'tag': ['div'], 'class': ['item', 'preview']}]},
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            'list_all_stime': {'find': [{'tag': ['div'], 'class': ['time'], '@TEXT': '(\d+:\d+)' }]},
-                            'list_all_quality': {'find': [{'tag': ['div'], 'class': ['qualtiy', 'quality'], '@TEXT': '(HD)' }]},
                             'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['thumb-item']}]),
                                                       ('get_text', [{'strip': True}])])
                            },
@@ -116,7 +114,48 @@ def list_all(item):
     if item.extra == 'PornStar':
         findS['controls']['cnt_tot']=12
     
-    return AlfaChannel.list_all(item, **kwargs)
+    # return AlfaChannel.list_all(item, **kwargs)
+    return AlfaChannel.list_all(item, finds=findS, matches_post=list_all_matches, **kwargs)
+
+
+def list_all_matches(item, matches_int, **AHkwargs):
+    logger.info()
+    matches = []
+    
+    findS = AHkwargs.get('finds', finds)
+    
+    for elem in matches_int:
+        elem_json = {}
+        
+        try:
+            elem_json['url'] = elem.a.get('href', '')
+            elem_json['title'] = elem.a.get('title', '')
+            elem_json['thumbnail'] = elem.img.get('data-thumb_url', '') or elem.img.get('data-original', '') \
+                                     or elem.img.get('data-src', '') \
+                                     or elem.img.get('src', '')
+            
+            elem_json['thumbnail'] = elem_json['thumbnail'].replace("336x189", "320x180")
+            
+            elem_json['stime'] = elem.find(class_='time').get_text(strip=True) if elem.find(class_='time') else ''
+            if elem.find('div', class_=['qualtiy']):
+                elem_json['quality'] = 'HD'
+            elem_json['premium'] = elem.find('i', class_='premiumIcon') \
+                                     or elem.find('span', class_=['ico-private', 'premium-video-icon']) or ''
+            if elem.find('span', class_='views'):
+                elem_json['views'] = elem.find('span', class_='views').get_text(strip=True)
+            
+            
+            
+            
+        except:
+            logger.error(elem)
+            logger.error(traceback.format_exc())
+            continue
+        
+        if not elem_json['url']: continue
+        matches.append(elem_json.copy())
+    
+    return matches
 
 
 def findvideos(item):
