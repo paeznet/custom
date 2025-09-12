@@ -3,8 +3,8 @@
 ## https://github.com/Icastresana
 ##  acestream:// >>>>> plugin://script.module.horus?action=play&id=
 
-
-
+## https://raw.githubusercontent.com/davidmuma/EPG_dobleM/refs/heads/master/guiatv.xml
+## https://raw.githubusercontent.com/paeznet/miEPG/refs/heads/main/guiatv.xml
 
 #EXTINF:-1 tvg-name="Movistar Plus+ 1080" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Movistar%20Plus%2B.png" group-title="TDT" tvg-id="Movistar Plus+ HD",Movistar Plus+ 1080 ELCANO
 acestream://1ab443f5b4beb6d586f19e8b25b9f9646cf2ab78
@@ -45,7 +45,7 @@ acestream://621f7215bb1f5593aa118e8540a1bb3aac11ffe4
 acestream://670519ffe8db1e20d0c753d4f756c009e71173d8
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="TDT" tvg-id="Canal Cocina",Canal Cocina --> NEW ERA
 acestream://96f092e1fa99062f6da14cae230b877ad3ed849b
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/GOL%20PLAY.png" group-title="TDT" tvg-id="GOL PLAY", GOL PLAY FHD --> NEW ERA
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/GOL%20PLAY.png" group-title="TDT" tvg-id="GOL", GOL PLAY FHD --> NEW ERA
 acestream://b2d560741c006fc5e4a42412bb52dbd25a6a4a3a
 #EXTINF:-1 tvg-logo="" group-title="TDT" tvg-id="GOL PLAY", GOL PLAY FHD --> NEW ERA
 acestream://9fb99c40a2c45d5c5342b30626eb56140f980612

@@ -1,0 +1,15 @@
+{
+  "id": "pornslash",
+  "name": "0000pornslash",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.pornslash.com/assets/favicon-192x192.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

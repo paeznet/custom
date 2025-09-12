@@ -69,18 +69,12 @@ plugin://script.module.horus?action=play&id=38d8789a448dd0eaf99e0274b555974e4e8f
 
 
 
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c4/Logo_bein_sports_3.png" group-title="M+ DAZN1" tvg-id="DAZN", M+ DAZN1
-plugin://script.module.horus?action=play&id=44c12ecb7b00a961f3c3f80f1edea7f8feedec59
 
 
 
 
 
 
-
-
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 1 HD",Eurosport 1 HD
-plugin://script.module.horus?action=play&id=f5a5a5bf9903bde0c865e421f126c42e514ff787
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/bYQGz5Xh/Euro-360.png" group-title="EUROSPORT 360" tvg-name="Eurosport 1 HD",Eurosport 1 HD [RU]
 plugin://script.module.horus?action=play&id=cfa75ade53810dac64411b22d56c3d4582a221d3
 
@@ -122,10 +116,7 @@ plugin://script.module.horus?action=play&id=fefd91766cef2af2bf4ded328633fb01051d
 
 
 
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS \u00d1",beIN SPORTS ñ
-plugin://script.module.horus?action=play&id=41af6926a6010b68ba2540975761436bb077748f
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS Xtra\u00d1",beIN SPORTS Xtra\u00d1
-plugin://script.module.horus?action=play&id=92a7dcc55392efc6dd5d012c4ff3878891eb6a6e
+
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS 1  [BE]",beIN SPORTS 1  [BE]
 plugin://script.module.horus?action=play&id=bba1905fcd1c4975aec544047bf8e4cd23ce3fe0
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.ibb.co/PhdtVMq/Bein.jpg" group-title="beIN SPORTS" tvg-name="beIN SPORTS 2  [BE]",beIN SPORTS 2  [BE]
@@ -148,10 +139,7 @@ plugin://script.module.horus?action=play&id=d63d8a57cf471394bfa9f619bbd68b01ae27
 plugin://script.module.horus?action=play&id=5f966c123759de46dff29c379266b7a403452033
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/YCY2pJFb/BT-Sport-4-new.png" group-title="BT Sport" tvg-name="BT Sport4 (UK) [1080]",BT Sport4 (UK)
 plugin://script.module.horus?action=play&id=fc5089d8e1519872fdf951779ccbca913acc9bce
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/VvJ12T19/BT-Sport-5-new.png" group-title="BT Sport" tvg-name="BT Sport5 (UK) [1080]",BT Sport5 (UK)
-plugin://script.module.horus?action=play&id=c300ecb07d854c1730b04ea022c3fb0a184d7801
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/BZpK313X/BT-Sport-1-new.png" group-title="BT Sport" tvg-name="BT Sport1 (UK) [1080]",BT Sport1 (UK)
-plugin://script.module.horus?action=play&id=ab2b69970c0629bf0fa30dd61b0072adb4ac4d9c
+
 
 
 #ELEVEN SPORT    https://i.postimg.cc/C18XcBQC/logo-Eleven-Sport.png
@@ -159,8 +147,7 @@ plugin://script.module.horus?action=play&id=ab2b69970c0629bf0fa30dd61b0072adb4ac
 plugin://script.module.horus?action=play&id=36cad67fed5a739757a9db844a551aa845a8d51b
 #EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/QtP9JZ2D/eleven-sport-2.png" group-title="ELEVEN SPORT" tvg-name="Eleven Sport 2 (PL)",Eleven Sport 2 (PL)
 plugin://script.module.horus?action=play&id=54a4a28882d3cae1ca19de5d4b022ebea40351f9
-#EXTINF:-1 tvg-id="" tvg-logo="https://i.postimg.cc/pXjcwDJQ/eleven-sport-3.png" group-title="ELEVEN SPORT" tvg-name=""Eleven Sport 3 (PL)","Eleven Sport 3 (PL)
-plugin://script.module.horus?action=play&id=b146ee4b6e16c9df58e27bd02ffd6cea840ff212
+
 
 
 
@@ -188,18 +175,6 @@ plugin://script.module.horus?action=play&id=8dbe2d515e9131fa311353537736f8c94be9
 plugin://script.module.horus?action=play&id=b04372b9543d763bd2dbd2a1842d9723fd080076
 #EXTINF:-1 tvg-logo="https://cdn-0.tvprofil.com/img/kanali-logo/Sky-sports-main-event-logo.png" group-title="UK" tvg-id ="Evento de mantenimiento de Sky Sports", SKY SPORTS MAIN EVENT
 plugin://script.module.horus?action=play&id=eab7aeef0218ce8b0752e596e4792b69eda4df5e
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/ea/BT_Sport_logo_2019.svg" group-title="UK" tvg-id="BT SPORT 1 FHD", BT SPORT 1 FHD **
-plugin://script.module.horus?action=play&id=6adb56e860967c5b1ba08e1bcb1eb2c4245e5842
-
-
-
-
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c9/Logo_bein_sports_1.png" group-title="Francia" tvg-id="Bein Sport 1", BeIN Sports 1 [BE]
-plugin://script.module.horus?action=play&id=bba1905fcd1c4975aec544047bf8e4cd23ce3fe0
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c9/Logo_bein_sports_2.png" group-title="Francia" tvg-id="Bein Sport 2", BeIN Sports 2 [BE] @
-plugin://script.module.horus?action=play&id=edb507e38394d614c9ff55805c9d354ae13210bc
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c4/Logo_bein_sports_3.png" group-title="Francia" tvg-id="Bein Sport 3", BeIN Sports 3 [BE]
-plugin://script.module.horus?action=play&id=731bd3336ec0986ff9100efe40dbaf1473a22cf8
 
 
 
