@@ -76,7 +76,29 @@ def mainlist(item):
     # itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "channel/top-rated", extra="Canal"))
     itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "pornstars/", extra="PornStar"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/", extra="Categorias"))
-    itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
+    itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=host))
+    
+    itemlist.append(Item(channel = item.channel, title = ""))
+    
+    itemlist.append(Item(channel=item.channel, title="Trans" , action="submenu", url=host + "shemale/", orientation="shemale"))
+    itemlist.append(Item(channel=item.channel, title="Gay" , action="submenu", url=host + "gay/", orientation="gay"))
+    return itemlist
+
+
+def submenu(item):
+    logger.info()
+    itemlist = []
+    
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=item.url + "videos/new?p=1"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=item.url + "videos/?p=1"))
+    itemlist.append(Item(channel=item.channel, title="Mas Vistos " , action="list_all", url=item.url + "search/all?p=1&sort=view"))
+    itemlist.append(Item(channel=item.channel, title="Trending" , action="list_all", url=item.url + "search/all?p=1"))
+    itemlist.append(Item(channel=item.channel, title="Novedades" , action="list_all", url=item.url + "search/all?p=1&sort=date"))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=item.url + "search/all?p=1&sort=duration"))
+    # itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "channel/top-rated", extra="Canal"))
+    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "pornstars/%s/" %item.orientation, extra="PornStar"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host  + "categories/%s/" %item.orientation, extra="Categorias"))
+    itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=item.url))
     
     return itemlist
 
@@ -138,7 +160,7 @@ def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    item.url = "%ssearch/%s?p=1&sort=date" % (host, texto.replace(" ", "+"))
+    item.url = "%ssearch/%s?p=1&sort=date" % (item.url, texto.replace(" ", "+"))
     
     try:
         if texto:
