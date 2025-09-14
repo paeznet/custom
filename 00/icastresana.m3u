@@ -47,7 +47,7 @@ acestream://670519ffe8db1e20d0c753d4f756c009e71173d8
 acestream://96f092e1fa99062f6da14cae230b877ad3ed849b
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/GOL%20PLAY.png" group-title="TDT" tvg-id="GOL", GOL PLAY FHD --> NEW ERA
 acestream://b2d560741c006fc5e4a42412bb52dbd25a6a4a3a
-#EXTINF:-1 tvg-logo="" group-title="TDT" tvg-id="GOL PLAY", GOL PLAY FHD --> NEW ERA
+#EXTINF:-1 tvg-logo="" group-title="TDT" tvg-id="GOL", GOL PLAY FHD --> NEW ERA
 acestream://9fb99c40a2c45d5c5342b30626eb56140f980612
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/24%20Horas.png" group-title="TDT" tvg-id="24 Horas", 24 HORAS HD --> NEW ERA
 acestream://cc5ed178702605513cd18b4899c4be954d306cca

@@ -509,6 +509,8 @@ def play(item):
     \'([^\']+)\'
     ([^,"]+)    #todo lo que hay hasta , o "  TUBEXPORN
     
+    if re.match(r"s\d+-e\d+", quality):  #### comprueba que el regex  r"s\d+-e\d+" (r es por regex)
+    
     
     match = re.compile(r'<source\s+src=[\'"]([^\'"]+)[\'"][^>]*type=[\'"]video/mp4[\'"][^>]*label=[\'"]([^\'"]+)[\'"]', re.DOTALL | re.IGNORECASE).findall(videohtml)
     {'Referer': host, 'Origin': host[:-1]}

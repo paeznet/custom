@@ -282,34 +282,42 @@ camcaps			multicanal 3dsexanime CamCaps FansTube  LeakedBay NSFWcrave RealLifeCa
 d1ck			multicanal 18yos Boombj  D1ck Faphard  F1ix  Pornrz Pornn  RolePlayers  TeenAnal  WankTank
 			paginacion next_page data_parameter       item.last_page = 9999
 		   	findS['url_replace'] = [[host, '%scategories/' % host], ['($)', '1/']]  para  "https://d1ck.co/big-tits/" ==> "https://d1ck.co/categories/big-tits/"
-eroticage		multicanal  eroticage	erogarga	
-SubmitYourFlicks	multicanal
--WankTV			multicanal  sextubefun wanktv iporntoo hdporn-movies wetsins
+
+eroticage		multicanal  eroticage	erogarga
+josporn			multicanal  josporn   pornohd   xhdporno(diferente y play particular)    Paginacion diferente /page-1/  /page/1/  /page_1.html resuelto con 
+
 porngo			multicanal porngo xxxfiles pornpapa porncake fapguru veryfreeporn porntry titshub bigwank
 			findS['url_replace'] = [['($)', '1/']]              findS['controls']['cnt_tot'] = para diferentes secciones
-			if item.extra == 'Canal': return AlfaChannel.section(item, finds=findS, matches_post=section_matches, **kwargs)
--trendyporn		multicanal  trendyporn  6xtube  blendporn  daftsextube  hentaiprno  yespornplease=sexyporn  youcrazyx  yrprno
+			if item.extra == 'Canal': return AlfaChannel.section(item, finds=findS, matches_post=section_matches, **kwargs)											next_page y last_page	
+
+SubmitYourFlicks	multicanal
+
 -24porn			multicanal  24porn  bestpornstars  bigfuck  redporn  zzztube
--ezporn			multicanal  Ezporn Fullporno Pornwex  Cremz  Crazyporn Momzr 4wank  xxam  faptor hornyfap  nudes7  sloppyfans viralpornhub  mypornhere  asianviralhub
--fullxcinema		multicanal fullxcinema  xmovies fulladultmovies
-			url = AlfaChannel.do_unquote(url_decode)
--xnxxxvideoshd		multicanal  xnxxxvideoshd  xnxxxvideosxxx  xnxx2  nangivideos aagmaal  hentayco
+-baddies247             multicanal   baddies247  baddiesonly
 -bingato		multicanal  bingato  sexmex  taboodude  arabporn    
 			'next_page': dict([('find', [{'tag': ['li'], 'class': ['next']}, {'tag': ['a'], '@ARG': 'href'}])])
-josporn		multicanal  josporn   pornohd   xhdporno(diferente y play particular)    Paginacion diferente /page-1/  /page/1/  /page_1.html resuelto con 													next_page y last_page
--freepornsex
+-drsexfilme		multicanal   hdpornos  pornoente  pornoklinge  pornotommy  pornoaffe  drsexfilme gutesexfilme pornofisch  pornoritze pornotanja pornotom
+				     pornodavid  hd-sexfilme pornohirsch sexvideos-gratis  lesbenhd  halloporno  pornofelix  xnxx-pornos  pornolisa pornoleon
+				     hd-pornos   pornosusi  sexente einfachtitten  pornozebra  sexvideos-hd  pornohammer pornohans ........
+-ezporn			multicanal  Ezporn Fullporno Pornwex  Cremz  Crazyporn Momzr 4wank  xxam  faptor hornyfap  nudes7  sloppyfans viralpornhub  mypornhere  asianviralhub vidzx
 -freexxx		multicanal  freexxx   pornertwo   pornsoda
 -fapnfuck		multicanal  fapnfuck	fuqster	sexpester  w1mp  w4nkr  3sumxl bigbigtits cuminstead  extremehoes extremewhores  hugewangs  jizzpov 
 				    m1lfs maturevices maturexy  gogoasians  hardwhores   povpow  povrz  jizzpov  b1gtits bigtitsxl bigbuttz bigbumfun thrupnies
 				    povpoof  hard3r  threesomerz
--baddies247             multicanal   baddies247  baddiesonly
--onlinetube		multicanal   onlinetube  huyamba   pornoreka
--leslez 		multicanal   leslez  teenxy
--studentki		multicanal   studentki rumult 
--drsexfilme		multicanal   hdpornos  pornoente  pornoklinge  pornotommy  pornoaffe  drsexfilme gutesexfilme pornofisch  pornoritze pornotanja pornotom
-				     pornodavid  hd-sexfilme pornohirsch sexvideos-gratis  lesbenhd  halloporno  pornofelix  xnxx-pornos  pornolisa pornoleon
-				     hd-pornos   pornosusi  sexente einfachtitten  pornozebra  sexvideos-hd  pornohammer pornohans ........
+-fullxcinema		multicanal fullxcinema  xmovies fulladultmovies
+			url = AlfaChannel.do_unquote(url_decode)
+
 -kookporn		multicanal   https://kookporn.com/    https://colliderporn.com/  https://pornobrot.com/
+-leslez 		multicanal   leslez  teenxy
+-onlinetube		multicanal   onlinetube  huyamba   pornoreka
+-qporn			multicanal  ....
+-studentki		multicanal  studentki rumult 
+-trendyporn		multicanal  trendyporn  6xtube  blendporn  daftsextube  hentaiprno  yespornplease=sexyporn  youcrazyx  yrprno
+-WankTV			multicanal  sextubefun wanktv iporntoo hdporn-movies wetsins
+-xnxxxvideoshd		multicanal  xnxxxvideoshd  xnxxxvideosxxx  xnxx2  nangivideos aagmaal  hentayco
+
+
+
 
 
 
@@ -382,6 +390,7 @@ eporner
 eroticmv
 erotik
 erotika		https://phixxx.cc/player/play.php?vid=06f69a66357cfdf3b91d94c46477cdd7
+-euroxxx	NETU
 -euroxxxvidz	paginacion de la web automatica solucionado con añadir /?s
 faapy
 -familyroleplayporn     findvideo de fuckingsession	
@@ -426,6 +435,7 @@ hotmovs		TXXX
 -hotporn
 -iceporncasting
 incestvidz	elem_json['action'] = 'findvideos'
+-italianvidxxx	NETU
 internetchicks  'findvideos' fuckingsession
 -inxxx
 javwhores
@@ -458,6 +468,7 @@ mydadspies
 -neporn		Cookie 		kwargs['headers'] = {"Cookie": "niche=%s" %item.orientation}
 		submenu   shemale		
 -netfapxtwo
+-netpornsex	NETU
 -nudede		https://iframe.mediadelivery.net/ por resolver
 nubilefilm
 -ogporn
@@ -499,7 +510,8 @@ pornox
 -pornoxo	categorias json  
 		'categories': dict([('find', [{'tag': ['body']}]), 	
                                     ('get_text', [{'tag': '', '@STRIP': False, '@JSON': 'DEFAULT'}])]),
-	
+
+-pornslash	
 pornstreams	findvideos find_all(a href y iframe src)  
 porntube      	json fux
 pornudes	
@@ -546,6 +558,7 @@ shooshtime
 
 -speedporn	findvideo pandamovie
 -subtitula2	findvideos
+-swingerpornfun NETU
 -sxyland	tapesxporn	
 -sxyprnXXX	
 tabooporn
@@ -586,12 +599,14 @@ voyeurhit	TXXX
                                    ('get_text', [{'strip': True}])]), 
 	
 -watch_my_gf
+-watcherotic
 watchporn
 -whereismyporn	findvideo de fuckingsession
 whoreshub
 -xfuntaxy	findvideos + pornstars 		find_all(a href y meta content)
 xfy		viralxvideos    'findvideos' find_all(a href y iframe src) 
 -xhand
+-xkeezmovies
 -xmegadrive
 xmoviesforyou	'findvideos' 
 -xorgasmo

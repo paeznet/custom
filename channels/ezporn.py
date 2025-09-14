@@ -27,6 +27,7 @@ forced_proxy_opt = 'ProxySSL'
 # https://asianviralhub.com/  https://hornyfap.com/  https://nudes7.com/  https://sloppyfans.com/
 # https://www.alotporn.com/  https://leak.xxx/  https://love4porn.com/
 
+# https://www.vidzx.org/
 # https://castingporn.tv/  https://justleaks.tv/  https://onlymoms.tv/  https://sisporn.tv/   enlaces de https://www.pornwex.tv/
 
 canonical = {
@@ -117,6 +118,8 @@ def mainlist(item):
     # itemlist.append(Item(channel=item.channel, title="sloppyfans" , action="submenu", url= "https://sloppyfans.com/", chanel="sloppyfans", thumbnail = "https://i.postimg.cc/Df1qcs9C/sloppyfans.png"))
     itemlist.append(Item(channel=item.channel, title="thothub" , action="submenu", url= "https://thothub.org/", chanel="thothub", thumbnail = "https://i.postimg.cc/Sx41nPyr/thothub.png"))
 
+    itemlist.append(Item(channel=item.channel, title="vidzx" , action="submenu", url= "https://www.vidzx.org/", chanel="vidzx", thumbnail = "https://www.vidzx.org/contents/kdoesnjlitbh/theme/logo.png"))
+
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
@@ -190,7 +193,8 @@ def play(item):
     AlfaChannel.canonical.update({'channel': item.chanel, 'host': AlfaChannel.host, 'host_alt': [AlfaChannel.host]})
     
     
-    if "4wank" in item.url or "cremz" in item.url or "momzr" in item.url or "faptor" in item.url:
+    if "4wank" in item.url or "cremz" in item.url or "momzr" in item.url \
+        or "faptor" in item.url or "vidzx" in item.url:
         soup = AlfaChannel.create_soup(item.url, **kwargs)
         
         if soup.find('div', class_='video-info'):
@@ -205,6 +209,7 @@ def play(item):
             
             pornstar = ' & '.join(pornstars)
             pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+            item.plot = pornstar
             lista = item.contentTitle.split('[/COLOR]')
             pornstar = pornstar.replace('[/COLOR]', '')
             pornstar = ' %s' %pornstar
@@ -215,7 +220,7 @@ def play(item):
             item.contentTitle = '[/COLOR]'.join(lista)
     
     
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url, plot=item.plot))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
