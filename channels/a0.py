@@ -500,6 +500,7 @@ def play(item):
 
     \\w{2,4} #PARA COGER una extension de 2 a 4 caracteres en servers 
     ([A-z0-9]+)
+    page/\d+/(\?.*$) # para coger desde ? hasta el final del texto $ en una url
     ([^<]+)     #para extraer el texto entre dos tags “uno o más caracteres que no sean <" ^ cualquier caracter que no sea <
     \d+         #para saltar números
     \s+         #para saltar espacios en blanco
