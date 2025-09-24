@@ -21,7 +21,6 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
-######   CF
 
 canonical = {
              'channel': 'pornobae', 
@@ -165,8 +164,9 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
             else: 
                 elem_json['server'] = "dutrag"  ### Quitar los watch/YnqAKRJybm2PJ  aparecen en movies
             if elem_json['server'] in ["Netu", "trailer", "k2s", "dutrag", "adtng"]: continue
-            if elem_json['server'] in srv_ids:
-                elem_json['server'] = srv_ids[elem_json['server']]
+            elem_json['server'] = ''
+            # if elem_json['server'] in srv_ids:
+                # elem_json['server'] = srv_ids[elem_json['server']]
             elem_json['language'] = ''
         
         except:

@@ -1,3 +1,9 @@
+
+Que extraiga las calidades del m3u
+es la funcion parse_hls la que lo hace, se llama en core/servertools.py linea 421, comentala
+
+#####################################################################################################
+
 , viewType = "videos"  en Hentaila
 
 

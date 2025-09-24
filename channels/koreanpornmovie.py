@@ -21,7 +21,6 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
-#############################   Web rotos los links de thumb
 
 canonical = {
              'channel': 'koreanpornmovie', 
@@ -113,11 +112,49 @@ def findvideos(item):
                                          verify_links=False, findvideos_proc=True, **kwargs)
 
 
+def play(item):
+    logger.info()
+    
+    itemlist = []
+    
+    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    
+    if soup.find_all('div', id="video-actors"):
+        pornstars = soup.find_all('a', href=re.compile("/actor/[A-z0-9-]+(?:/|)"))
+        
+        for x, value in enumerate(pornstars):
+            pornstars[x] = value['title']
+        
+        pornstar = ' & '.join(pornstars)
+        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+        lista = item.contentTitle.split('[/COLOR]')
+        pornstar = pornstar.replace('[/COLOR]', '')
+        pornstar = ' %s' %pornstar
+        if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
+            lista.insert (2, pornstar)
+        else:
+            lista.insert (1, pornstar)
+        item.contentTitle = '[/COLOR]'.join(lista)
+        
+    if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)")):
+        url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))['src']
+        if "php?q=" in url:
+            import base64
+            url = url.split('php?q=')
+            url_decode = base64.b64decode(url[-1]).decode("utf8")
+            url = AlfaChannel.do_unquote(url_decode)
+            url = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
+    
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    
+    return itemlist
+
+
 def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    # item.url = "%sbuscar/?q=%s&sort_by=video_viewed&from_videos=1" % (host, texto.replace(" ", "+"))
     item.url = "%s?s=%s&filter=latest" % (host, texto.replace(" ", "+"))
     
     try:

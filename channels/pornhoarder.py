@@ -17,6 +17,7 @@ list_quality = ['default']
 list_servers = []
 
 
+
 canonical = {
              'channel': 'pornhoarder', 
              'host': config.get_setting("current_host", 'pornhoarder', default=''), 
@@ -28,7 +29,7 @@ canonical = {
 host = canonical['host'] or canonical['host_alt'][0]
 url_api = host + "ajax_search.php"
 
-netu= "servers%5B%5D=21&servers%5B%5D=40&servers%5B%5D=12&servers%5B%5D=35&servers%5B%5D=39&servers%5B%5D=26&servers%5B%5D=25&servers%5B%5D=41&servers%5B%5D=17"
+netu= "servers%5B%5D=47&servers%5B%5D=45&servers%5B%5D=44&servers%5B%5D=42&servers%5B%5D=43&servers%5B%5D=29&servers%5B%5D=21&servers%5B%5D=40&servers%5B%5D=12&servers%5B%5D=35&servers%5B%5D=39&servers%5B%5D=26&servers%5B%5D=25&servers%5B%5D=41&servers%5B%5D=17"
 
 def mainlist(item):
     logger.info()
@@ -189,7 +190,7 @@ def findvideos(item):
             url = elem['href']
             url = urlparse.urljoin(host,url)
             server = elem.text.strip().capitalize()
-            itemlist.append(Item(channel=item.channel, action="play", title=server, contentTitle = item.contentTitle, server=server, url=url))
+            itemlist.append(Item(channel=item.channel, action="play", title=server, contentTitle = item.contentTitle, server=server, url=url, plot=plot))
     
     # Requerido para AutoPlay
     autoplay.start(itemlist, item)
@@ -201,6 +202,7 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
+    
     soup = create_soup(item.url)
     url = soup.iframe['src']
     
