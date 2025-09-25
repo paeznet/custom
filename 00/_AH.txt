@@ -1,8 +1,21 @@
 
+
+
+
 Que extraiga las calidades del m3u
 es la funcion parse_hls la que lo hace, se llama en core/servertools.py linea 421, comentala
 
 #####################################################################################################
+
+
+itemlist.append(Item(channel=item.channel, title='uqlink - embed69', action='findvideos', url="https://entrepeliculasyseries.nz/movies/la-torre-oscura-2017/"))
+itemlist.append(Item(channel=item.channel, title='embed69', action='findvideos', url="https://entrepeliculasyseries.nz/movies/la-promesa-de-irene-2023/"))
+itemlist.append(Item(channel=item.channel, title='xupalace', action='findvideos', url="https://entrepeliculasyseries.nz/movies/monica-y-sus-amigos-lecciones-2019/"))
+    
+
+
+
+######################################################################################################
 
 , viewType = "videos"  en Hentaila
 
