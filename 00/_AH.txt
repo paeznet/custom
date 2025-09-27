@@ -12,6 +12,8 @@ itemlist.append(Item(channel=item.channel, title='uqlink - embed69', action='fin
 itemlist.append(Item(channel=item.channel, title='embed69', action='findvideos', url="https://entrepeliculasyseries.nz/movies/la-promesa-de-irene-2023/"))
 itemlist.append(Item(channel=item.channel, title='xupalace', action='findvideos', url="https://entrepeliculasyseries.nz/movies/monica-y-sus-amigos-lecciones-2019/"))
     
+itemlist.append(Item(channel=item.channel, title='embed69', action='findvideos', url="https://serieskao.top/pelicula/la-promesa-de-irene-bxKhP7"))
+itemlist.append(Item(channel=item.channel, title='xupalace', action='findvideos', url="https://serieskao.top/pelicula/no-way-out-2023"))
 
 
 

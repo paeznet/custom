@@ -34,8 +34,8 @@ forced_proxy_opt = 'ProxySSL'
 canonical = {
              'channel': 'mypornerleak', 
              'host': config.get_setting("current_host", 'mypornerleak', default=''), 
-             'host_alt': ["https://ww5.mypornerleak.com/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://w6.mypornerleak.com/"], 
+             'host_black_list': ["https://ww5.mypornerleak.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -63,6 +63,8 @@ finds = {'find': {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-
          'findvideos': dict([('find', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]), 
                              ('find_all', [{'tagOR': ['a'], 'href': True, 'id': 'tracking-url'},
                                            {'tag': ['iframe'], 'src': True}])]),
+         'findvideos': dict([('find', [{'tag': ['div'], 'class': ['servideo']}]), 
+                             ('find_all', [{'tag': ['span'], '@ARG': 'data-embed'}])]), 
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
@@ -123,9 +125,33 @@ def list_all(item):
 def findvideos(item):
     logger.info()
     
-    return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
-                                         verify_links=False, findvideos_proc=True, **kwargs)
+    # return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
+                                         # verify_links=False, findvideos_proc=True, **kwargs)
+    return AlfaChannel.get_video_options(item, item.url, matches_post=findvideos_matches, 
+                                         verify_links=False, generictools=True, findvideos_proc=True, **kwargs)
 
+
+def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
+    logger.info()
+    matches = []
+    findS = AHkwargs.get('finds', finds)
+    
+    for elem in matches_int:
+        elem_json = {}
+        
+        try:
+            if "/short." in elem: continue
+            elem_json['url'] = elem
+            elem_json['language'] = ''
+        
+        except:
+            logger.error(elem)
+            logger.error(traceback.format_exc())
+
+        if not elem_json.get('url', ''): continue
+        matches.append(elem_json.copy())
+
+    return matches, langs
 
 
 
