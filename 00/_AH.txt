@@ -1,9 +1,11 @@
-
+VideoPlayer::OpenFile: plugin://plugin.video.blackghost/?url=https%3A%2F%2Fservice-stitcher.clusters.pluto.tv%2Fv1%2Fstitch%2Fembed%2Fhls%2Fchannel%2F5f1acce7f17797000718f9be%2Fmaster.m3u8%3FdeviceType%3Dweb%26serverSideAds%3Dfalse%26deviceMake%3Dsafari%26deviceVersion%3D1%26deviceId%3Dspencer%26appVersion%3D1%26deviceDNT%3D0%26deviceModel%3Dweb%26sid%3D50496b63-55eb-441f-9554-bc6ab5d74815%7CUser-Agent%3DMozilla%2F5.0+%28X11%3B+Linux+x86_64%3B+rv%3A128.0%29+Gecko%2F20100101+Firefox%2F128.0%26Referer%3Dhttps%3A%2F%2Fpluto.tv%2F&mode=12&iconimage=https%3A%2F%2Fimages.pluto.tv%2Fchannels%2F5f1acce7f17797000718f9be%2FcolorLogoPNG.png
 
 
 
 Que extraiga las calidades del m3u
 es la funcion parse_hls la que lo hace, se llama en core/servertools.py linea 421, comentala
+
+en channelselector.py, en la linea 480, borra la primera parte del condicional (category == "all" and ) y listo, ya tienes el modulo url en todas las secciones.
 
 #####################################################################################################
 
