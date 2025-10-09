@@ -34,14 +34,14 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "pornstars.php?p=1&s=tv&mg=f"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="catalogo", url=host + "sites.php?p=1&s=avp"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories.php"))
-    itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
+    itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=host + "videos.php"))
     return itemlist
 
 
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "-")
-    item.url = "%ssearch/%s/" % (host,texto)
+    item.url = "%s?q=%s&s=l&p=1" % (item.url,texto)
     try:
         return lista(item)
     except:

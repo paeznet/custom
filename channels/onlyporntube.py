@@ -31,15 +31,16 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "videos.php?s=bw&p=1"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "videos.php?s=d&p=1"))
     itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "pornstars.php?s=avp&mg=f&p=1"))
+    # itemlist.append(Item(channel=item.channel, title="Canal" , action="catalogo", url=host + "sites.php?p=1&s=avp"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories.php"))
-    itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
+    itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=host + "videos.php"))
     return itemlist
 
 
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%s?q=%s&s=l&p=1" % (host,texto)
+    item.url = "%s?q=%s&s=l&p=1" % (item.url,texto)
     try:
         return lista(item)
     except:
@@ -82,6 +83,30 @@ def categorias(item):
             next_page = pag + 1
             next_page = re.sub(r"&p=\d+", "&p={0}".format(next_page), item.url)
             itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
+    return itemlist
+
+
+def catalogo(item):
+    logger.info()
+    itemlist = []
+    soup = create_soup(item.url)
+    matches = soup.find_all('a', class_='more')
+    for elem in matches:
+        url = elem['href']
+        title = elem.parent.h2.text.strip()
+        thumbnail = ""
+        url = urlparse.urljoin(item.url,url)
+        plot = ""
+        itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
+    pagination = soup.find('span', class_='pagination2874')
+    page = pagination['data-page']
+    total = pagination['data-total']
+    next_page = int(page) + 1
+    last_page = int(total)/36
+    if next_page < last_page:
+        next_page = re.sub(r"\d+&s=", "{0}&s=".format(next_page), item.url)
+        itemlist.append(Item(channel=item.channel, action="catalogo", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 

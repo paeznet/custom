@@ -28,12 +28,15 @@ canonical = {
              'host': config.get_setting("current_host", 'onlyincest', default=''), 
              'host_alt': ["https://onlyincestporn.com/"], 
              'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-timeout = 5
+timeout = 20
 kwargs = {}
 debug = config.get_setting('debug_report', default=False)
 movie_path = ''
@@ -47,7 +50,7 @@ finds = {'find': {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-
          'get_quality': {}, 
          'get_quality_rgx': '', 
          'next_page': {},
-         'next_page_rgx': [['\/\d+', '/%s'], ['&page=\d+', '&page=%s']], 
+         'next_page_rgx': [['/page/\d+', '/page/%s']], 
          'last_page': dict([('find', [{'tag': ['div'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            '@ARG': 'href', '@TEXT': 'page(?:/|=)(\d+)'}])]), 
@@ -84,7 +87,17 @@ def mainlist(item):
 def section(item):
     logger.info()
     
-    return AlfaChannel.section(item, **kwargs)
+    findS = finds.copy()
+    
+    findS['url_replace'] = [['(\/(?:category|channels|models|pornstars)\/[^$]+$)', r'\1page/1/?filter=latest']]
+    
+    findS['controls']['cnt_tot'] = 42
+    
+    findS['last_page']= dict([('find', [{'tag': ['div'], 'class': ['pagination']}]), 
+                            ('find_all', [{'tag': ['li'], '@POS': [-1]}]),
+                            ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])]) 
+
+    return AlfaChannel.section(item, finds=findS, **kwargs)
 
 
 def list_all(item):
@@ -95,8 +108,12 @@ def list_all(item):
 
 def findvideos(item):
     logger.info()
+    findS = finds.copy()
     
-    return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
+    if item.extra:
+        findS['controls']['cnt_tot'] = 20
+    
+    return AlfaChannel.get_video_options(item, item.url, finds=findS, data='', matches_post=None, 
                                          verify_links=False, findvideos_proc=True, **kwargs)
 
 
@@ -130,8 +147,8 @@ def play(item):
             url_decode = base64.b64decode(url[-1]).decode("utf8")
             url = AlfaChannel.do_unquote(url_decode)
             url = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
-            
-    itemlist.append(Item(channel=item.channel, action="play", contentTitle = item.contentTitle, url=url))
+    
+    itemlist.append(["[onlyincest]", url])
     
     return itemlist
 
