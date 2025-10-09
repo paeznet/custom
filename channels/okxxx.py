@@ -30,9 +30,11 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "newest/?ad_sub=339"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "popular/?ad_sub=339"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "trending/?ad_sub=339"))
+    itemlist.append(Item(channel=item.channel, title="Popular" , action="lista", url=host ))
+    itemlist.append(Item(channel=item.channel, title="Compilacion" , action="categorias", url=host + "mix/"))
     itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "models/?ad_sub=339"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "channels/?ad_sub=339"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "mix/"))
+    # itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "mix/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -54,7 +56,10 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='thumb-bl')
+    if "mix/" in item.url:
+        matches = soup.find_all('div', class_='thumb-ctr')
+    else:
+        matches = soup.find_all('div', class_='thumb-bl')
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
@@ -123,6 +128,22 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
+    
+    soup = create_soup(item.url)
+    if soup.find('a', class_="js-thumb_model"):
+        pornstars = soup.find_all('a', class_="js-thumb_model")
+        
+        for x, value in enumerate(pornstars):
+            pornstars[x] = value.get_text(strip=True)
+        
+        pornstar = ' & '.join(pornstars)
+        pornstar = "[COLOR orange]%s " % pornstar
+        lista = item.contentTitle.split('[/COLOR]')
+        # pornstar = pornstar.replace('[/COLOR]', '')
+        pornstar = ' %s' %pornstar
+        lista.insert (0, pornstar)
+        item.contentTitle = '[/COLOR]'.join(lista)
+    
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

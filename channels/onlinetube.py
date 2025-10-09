@@ -46,7 +46,7 @@ url_replace = []
 
 finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['list-videos', 'thumbs__list_video', 'main-flex']}]),
                              ('find_all', [{'tag': ['div'], 'class': ['item']}])]),  # 'id': re.compile(r"^vid-\d+")
-         'categories': dict([('find', [{'tag': ['div'], 'class': ['list-categories', 'list-models', 'list-channels', 'thumbs__list']}]),
+         'categories': dict([('find', [{'tag': ['div'], 'class': ['list-categories', 'list-models', 'list-channels', 'second-flex', 'wrapped-flex']}]),
                              ('find_all', [{'tag': ['a', 'div'], 'class': ['item']}])]),
          'search/': {}, 
          'get_quality': {}, 
@@ -64,8 +64,8 @@ finds = {'find': dict([('find', [{'tag': ['div'], 'class': ['list-videos', 'thum
          'profile_labels': {
                             # 'list_all_url': {'find': [{'tag': ['span'], 'class': ['ico-fav-0'], '@ARG': 'data-fav-video-id'}]}
                                                       # ('get_text', [{'strip': True}])]),
-                            'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['videos']}]),
-                                                      ('get_text', [{'strip': True}])])
+                            # 'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['videos']}]),
+                                                      # ('get_text', [{'strip': True}])])
                            },
          'controls': {'url_base64': False, 'cnt_tot': 24, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
@@ -79,7 +79,7 @@ def mainlist(item):
     logger.info()
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="[COLOR red]onlinetube[/COLOR]" , action="submenu", url= "https://onlinetube.tv/", chanel="onlinetube", thumbnail = "https://i.postimg.cc/QdYMpYYG/onlinetube.png"))
-    itemlist.append(Item(channel=item.channel, title="huyamba" , action="submenu", url= "https://wvvw.huyamba.mobi/", chanel="huyamba", thumbnail = "https://i.postimg.cc/d1Ycd8Fc/logo-huyamba.png"))
+    itemlist.append(Item(channel=item.channel, title="huyamba" , action="submenu", url= "https://huyamba.info/", chanel="huyamba", thumbnail = "https://i.postimg.cc/d1Ycd8Fc/logo-huyamba.png"))
     itemlist.append(Item(channel=item.channel, title="pornoreka" , action="submenu", url= "https://pornoreka.tv/", chanel="pornoreka", thumbnail = "https://i.postimg.cc/28cYJbQn/pornoreka.png"))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     return itemlist
@@ -126,7 +126,45 @@ def section(item):
     if item.extra == 'Categorias':
         findS['controls']['cnt_tot'] = 9999
     
-    return AlfaChannel.section(item, finds=findS, **kwargs)
+    # return AlfaChannel.section(item, finds=findS, **kwargs)
+    return AlfaChannel.section(item, finds=findS, matches_post=section_matches, **kwargs)
+
+
+def section_matches(item, matches_int, **AHkwargs):
+    logger.info()
+    matches = []
+    
+    findS = AHkwargs.get('finds', finds)
+    soup = AHkwargs.get('soup', {})
+    
+    for elem in matches_int:
+        # logger.debug(elem)
+        elem_json = {}
+        
+        try:
+            
+            elem_json['url'] = elem.get("href", '') or elem.a.get("href", '')
+            if item.extra == 'Categorias':
+                text = scrapertools.find_single_match(elem_json['url'], '/categories/([A-z0-9-]+)')
+                elem_json['title'] = text.replace("-", " ")
+            # elem_json['title'] = elem.a.get("href", '').replace("/", "").replace("-", " ")
+            else:
+                elem_json['title'] = elem.get('title', '') or elem.a.get('title', '')
+            if elem.img: elem_json['thumbnail'] = elem.img.get('data-thumb_url', '') or elem.img.get('data-original', '') \
+                                                                                     or elem.img.get('data-src', '') \
+                                                                                     or elem.img.get('src', '')
+            if elem.find('div', class_=['videos']):
+                elem_json['cantidad'] = elem.find('div', class_=['videos']).get_text(strip=True)
+            elif elem.find('div', class_='box'): 
+                elem_json['cantidad'] = elem.find('div', class_='box').get_text(strip=True)
+        except:
+            logger.error(elem)
+            logger.error(traceback.format_exc())
+            continue
+        
+        if not elem_json['url']: continue
+        matches.append(elem_json.copy())
+    return matches
 
 
 def list_all(item):

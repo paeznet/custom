@@ -26,6 +26,9 @@ forced_proxy_opt = 'ProxySSL'
 # https://fikfap.mobi/  https://pornmz.cam/  https://pornbzz.com/  https://tikslove.com/  https://porntn.net/
 # https://fuqq.cam/   
 
+
+#### Los videos directos no funcionan en la web
+
 canonical = {
              'channel': 'okcam', 
              'host': config.get_setting("current_host", 'okcam', default=''), 
@@ -67,7 +70,7 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
                                                                 # {'tagOR': ['span'], 'style':['color']}]),
                                                       # ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])
                             },
-         'controls': {'url_base64': False, 'cnt_tot': 30, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 40, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -149,7 +152,10 @@ def play(item):
         url_decode = base64.b64decode(url[-1]).decode("utf8")
         url = urlparse.unquote(url_decode)
         url = scrapertools.find_single_match(url, 'src="([^"]+)"')
-        
+        headers = AlfaChannel.httptools.default_headers.copy() 
+        url += "|%s&Referer=%s/&Origin=%s" % (urlparse.urlencode(headers), host,host)
+
+    
     itemlist.append(Item(channel = item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     

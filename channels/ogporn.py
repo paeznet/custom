@@ -21,7 +21,6 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
-#####        OUT  sept 2025
 
 canonical = {
              'channel': 'ogporn', 
