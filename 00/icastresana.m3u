@@ -8,29 +8,20 @@
 
 #EXTINF:-1 tvg-name="Movistar Plus+ 1080" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Movistar%20Plus%2B.png" group-title="TDT" tvg-id="Movistar Plus+ HD",Movistar Plus+ 1080 ELCANO
 acestream://1ab443f5b4beb6d586f19e8b25b9f9646cf2ab78
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="TDT" tvg-id="Movistar Plus+ HD", Movistar Plus --> NEW ERA VI (shickat.me)
-acestream://5d9a26e0a5f3e5f2ae027bd05635ab9a4fd4b51a
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="TDT" tvg-id="Movistar Plus+ HD", Movistar Plus --> NEW ERA VI (shickat.me)
-acestream://5e24a1b9187fccb91553f7c7da4b36341386f74a
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="TDT" tvg-id="Movistar Plus+ HD", M+ PLUS --> NEW ERA
-acestream://b2a4d1eba9b46df5f52a87105df779f9d39abeb4
 #EXTINF:-1 tvg-name="" tvg-logo="" group-title="TDT" tvg-id="Movistar Plus+ HD", M+ PLUS --> NEW ERA
 acestream://8c67cdb5ba81976662c3a67984a9545d9cfb0f70
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="TDT" tvg-id="Movistar Plus+ HD", M+ PLUS --> NEW ERA
-acestream://b6ffbbc72a5b6b579faf79ebac229af7a25b933b
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Movistar%20Plus%2B%202.png" group-title="TDT" tvg-id="Movistar Plus+ 2 HD", M+ PLUS 2 FHD --> NEW ERA
 acestream://fbc39d8a9e5d7c9ac6a1438d440104620f54e09c
 
+
 #EXTINF:-1 tvg-logo="" group-title="TDT" tvg-id="La 1 HD", LA 1 FHD --> NEW ERA
 acestream://7597d4feb3195079ffa606cf23a183d626ee40ba
-#EXTINF:-1 tvg-logo="" group-title="TDT" tvg-id="La 2", LA 2 FHD --> NEW ERA
-acestream://9934906503661142f97a044ae1509a294057c2ed
+#EXTINF:-1 tvg-logo="" group-title="TDT" tvg-id="La 1 HD", LA 1 FHD --> NEW ERA
+acestream://dad5e0e0825cb3e410008f1c4252387b868e740c
 #EXTINF:-1 tvg-logo="" group-title="TDT" tvg-id="Antena 3 HD", ANTENA 3 FHD --> NEW ERA
 acestream://f9d2a6d5da8d1f2423a0b6ed0047636a728040e9
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Cuatro.png" group-title="TDT" tvg-id="Cuatro HD", CUATRO FHD --> NEW ERA
 acestream://8d66979e705a8b532b9243bbc0862c0f1c734ef0
-#EXTINF:-1 tvg-name="Telecinco New Era I" tvg-logo="" group-title="TDT" tvg-id="Telecinco HD",TELECINCO FHD --> NEW ERA
-acestream://5133d1e8f45095f0b7dabbd78db0ce19a496f7bf
 #EXTINF:-1 tvg-logo="" group-title="TDT" tvg-id="La Sexta HD", LA SEXTA FHD --> NEW ERA
 acestream://44828a7580cd99fcb36245c327889c47f34b457f
 
@@ -60,40 +51,12 @@ acestream://0827cf7d290967985892965c6e61244a479d6dcd
 acestream://7a955964c91c66311eef9137a96332352dbb891e
 
 
-
-
-#EXTINF:-1 tvg-name="" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Estrenos.png" group-title="Cine" tvg-id="M+ Estrenos HD", Movistar Estrenos --> NEW ERA VI (Shickat.me)
-acestream://6341392460596e63edf38b013bd137c015e44007
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Acción HD", Movistar Acción --> NEW ERA VI (Shickat.me)
-acestream://b125325f52e057b8e5ea17a8b60d512d13d44e53
-
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Acci%C3%B3n.png" group-title="Cine" tvg-id="M+ Acción HD", MOVISTAR ACCION FHD --> NEW ERA
 acestream://102bcb79ca391e37ac1fc9ee77dc53440d0a59ce
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Hits HD", Movistar Hits (FHD) Shickat
-acestream://28b9b7ba12c0f5c7e097f4b07a547f6eda9a0695
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Hits HD", Movistar Hits --> NEW ERA VI (Shickat.me)
-acestream://2b8e5c7438d56541df3467cc5986cf1e66014101
-
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Drama HD", Movistar Drama --> NEW ERA VI (Shickat.me)
-acestream://edee311dc307e1638eeac880b11bb6f4759b0d83
-#EXTINF:-1 tvg-logo="" group-title="Cine" tvg-id="M+ Comedia HD", MOVISTAR COMEDIA FHD --> NEW ERA VI
-acestream://90a3ad526f67f987f662eaf7d52e88004c796914
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Clásicos HD", Movistar Clásicos --> NEW ERA VI (Shickat.me)
-acestream://f9d431a6839e7f9964a0884dc1f18d298d990f39
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Cl%C3%A1sicos.png" group-title="Cine" tvg-id="M+ Clásicos HD", MOVISTAR CLASICOS FHD --> NEW ERA
 acestream://cf6ffdfa3c51268c0bd216da6b275fb866160c0c
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Originales HD", Movistar Originales --> NEW ERA VI (Shickat.me)
-acestream://1f092144252939810fd302cbd00d46de760b5dd7
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Indie HD", Movistar Indie --> NEW ERA VI (Shickat.me)
-acestream://508ffdbab097339adb4f3d922070b5df2c114d01
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Wéstern", Movistar Western --> NEW ERA VI (Shickat.me)
-acestream://e740a34497c3ba5943613a06999e805e6bbfa159
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Cine Español", Movistar Cine Español --> NEW ERA VI (Shickat.me)
-acestream://e47cdeba9d919d6a9b4fa3c72c8094178985f668
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Documentales HD", Movistar Documentales --> NEW ERA VI (Shickat.me)
-acestream://6cda7d2622bcafd6aef486016238936855927d7d
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="Cine" tvg-id="M+ Vacaciones", Movistar Vacaciones --> NEW ERA VI (Shickat.me)
-acestream://15123ab3458c59bf548fbf6e5503799e81da4de6
+
+
 
 
 
@@ -162,20 +125,17 @@ acestream://709075831bf5c41ed0a20dfbd640aab6c28971f8
 
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="Vamos" tvg-id="M+ Vamos HD", MOVISTAR VAMOS FHD --> NEW ERA VI
-acestream://d1db428fd7902aac1e508bfc9e6cf254521b25f4
+
+
 #EXTINF:-1 tvg-name="Xupimarc2" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="Vamos" tvg-id="M+ Vamos HD",VAMOS 1080 ELCANO
 acestream://c7c81acdd1a03ecc418c94c2f28e2adb0556c40b
 #EXTINF:-1 tvg-name="Xupimarc2" tvg-logo="" group-title="Vamos" tvg-id="M+ Vamos HD",VAMOS 720 ELCANO
 acestream://0e5d8c9724fa9163f49096b70484e315251eb785
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="Vamos" tvg-id="M+ Vamos HD", MOVISTAR VAMOS FHD --> NEW ERA
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="Vamos" tvg-id="M+ Vamos HD", #VAMOS FHD (SAT) --> NEW ERA
 acestream://3b2a8b41e7097c16b0468b42d7de0320886fa933
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="Vamos" tvg-id="M+ Vamos HD", MOVISTAR VAMOS FHD --> NEW ERA
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="Vamos" tvg-id="M+ Vamos HD", #VAMOS FHD --> NEW ERA
 acestream://2940120bf034db79a7f5849846ccea0255172eae
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="Vamos" tvg-id="M+ Vamos HD", VAMOS FHD (*) --> NEW ERA
-acestream://57313e1ef438538df4feb5a6028dc78ee4f66b6a
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="Vamos" tvg-id="M+ Vamos HD", MOVISTAR VAMOS FHD --> NEW ERA II
-acestream://1205151f6fa5d95c0eeb543cbce43ccfa6a1b216
+
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Ellas%20Vamos.png" group-title="Vamos" tvg-id="M+ Ellas Vamos HD", MOVISTAR ELLAS FHD --> NEW ERA
 acestream://9b84af74b2fa3690c519199326fc2f181b025cdd
@@ -184,19 +144,12 @@ acestream://9b84af74b2fa3690c519199326fc2f181b025cdd
 
 
 
+
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes.png" group-title="M Deportes" tvg-id="M+ Deportes HD", MOVISTAR DEPORTES FHD --> NEW ERA
 acestream://ef9dcc4eaac36a0f608b52a31f8ab237859e071a
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes.png" group-title="M Deportes" tvg-id="M+ Deportes HD", MOVISTAR DEPORTES FHD --> NEW ERA
-acestream://b5842718859345a596107ab8e6b24d7bfa2d617e
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes.png" group-title="M Deportes" tvg-id="M+ Deportes HD", MOVISTAR DEPORTES FHD --> NEW ERA
-acestream://be02b9918b8fe7224cfa9af1e37856760f95b1b8
 #EXTINF:-1 tvg-logo="https://i.ibb.co/CV4CLjz/deportes.png" group-title="M Deportes" tvg-id="M+ Deportes HD", M. Deportes HD
 acestream://acb510858f34c3c6fd5f79395b031abd6885c2b3
-#EXTINF:-1 tvg-logo="https://i.ibb.co/CV4CLjz/deportes.png" group-title="M Deportes" tvg-id="M+ Deportes HD", Movistar Deportes
-acestream://726911f8f1e51229b5e38846ac0d2c6db29a196e
 
-#EXTINF:-1 tvg-logo="https://i.ibb.co/CV4CLjz/deportes.png" group-title="M Deportes" tvg-id="M+ Deportes 2 HD", Movistar Deportes 2
-acestream://d22952b196d2979665a753141fbbfe029896dc21
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes%202.png" group-title="M Deportes" tvg-id="M+ Deportes 2 HD", MOVISTAR DEPORTES 2 FHD --> NEW ERA
 acestream://edd06f11e1cef292a1d795e15207ef2f580e298c
 #EXTINF:-1 tvg-name="M+ Deportes 2 1080" tvg-logo="" group-title="M Deportes" tvg-id="M+ Deportes 2 HD",Deporte2 1080 Elcano
@@ -210,15 +163,9 @@ acestream://753d4b1f7c4ef43238b5cf23b05572b550a44eee
 acestream://799c6b5ee1cf41af077d14e3f9c45a32697eb903
 #EXTINF:-1 tvg-name="M+ Deportes 3 720" tvg-logo="" group-title="M Deportes" tvg-id="M+ Deportes 3",Deporte3 720
 acestream://2fd410c5d89e7a627cd3785685b7915b8e4bd534
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes%203.png" group-title="M Deportes" tvg-id="M+ Deportes 3", DEPORTES 3 FHD --> NEW ERA
-acestream://03aa6a0c160d2ad74e9d6fb62c7f33e2e5e7233e
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes%204.png" group-title="M Deportes" tvg-id="M+ Deportes 4", MOVISTAR DEPORTES 4 FHD --> NEW ERA
 acestream://58a4c880ab18486d914751db32a12760e74b75a4
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes%205.png" group-title="M Deportes" tvg-id="M+ Deportes 5", MOVISTAR DEPORTES 5 HD --> NEW ERA
-acestream://f6961e0dbf9b6ede4f5be93b72dc15533b4063d4
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes.png" group-title="M Deportes" tvg-id="M+ Deportes HD", M. Deportes 1080 Elcano Antiguas
-acestream://55d4602cb22b0d8a33c10c2c2f42dae64a9e8895
 
 
 
@@ -931,46 +878,102 @@ acestream://cd485af78cf86934d77cf867f73fe7f5cd32981a
 
 
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="OUT" tvg-id="Movistar Plus+ HD", MOVISTAR PLUS 1080 ELCANO (-)
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="OUTTDT" tvg-id="Movistar Plus+ HD", MOVISTAR PLUS 1080 ELCANO (-)
 acestream://1ab443f5b4beb6d586f19e8b25b9f9646cf2ab78
-#EXTINF:-1 tvg-name="Movistar Plus+ New Era I" tvg-logo="" group-title="OUT" tvg-id="Movistar Plus+ HD",Movistar Plus [??]
+#EXTINF:-1 tvg-name="Movistar Plus+ New Era I" tvg-logo="" group-title="OUTTDT" tvg-id="Movistar Plus+ HD",Movistar Plus [??]
 acestream://38287ff99db3590da7a2e077da1777d150167577
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="Movistar Plus+ HD",Movistar Plus+ 1080
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="Movistar Plus+ HD",Movistar Plus+ 1080
 acestream://56ac8e227d526e722624675ccdd91b0cc850582f
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="", Movistar La Resistencia (FHD) Shickat
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="", Movistar La Resistencia (FHD) Shickat
 acestream://09b8bed9be1feadb4ef83e46d50dc51f763947a7
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/La%201.png" group-title="OUT" tvg-id="La 1 HD", LA 1 FHD --> NEW ERA
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/La%201.png" group-title="OUTTDT" tvg-id="La 1 HD", LA 1 FHD --> NEW ERA
 acestream://8bdd29882fa2c2f9fe49e67b102934c9e293f5a5
-#EXTINF:-1 tvg-logo="" group-title="OUT" tvg-id="La 1 HD", LA 1 FHD --> NEW ERA
-acestream://dad5e0e0825cb3e410008f1c4252387b868e740c
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/La%202.png" group-title="OUT" tvg-id="La 2", LA 2 FHD --> NEW ERA
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/La%202.png" group-title="OUTTDT" tvg-id="La 2", LA 2 FHD --> NEW ERA
 acestream://fc36c7249aef74e3ea579500efdfd7a98d8e9ac5
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Antena%203.png" group-title="OUT" tvg-id="Antena 3 HD", ANTENA 3 FHD --> NEW ERA
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Antena%203.png" group-title="OUTTDT" tvg-id="Antena 3 HD", ANTENA 3 FHD --> NEW ERA
 acestream://390b5b0fc49a811c5c5ebd6d195b08a48b1e8496
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Cuatro.png" group-title="OUT" tvg-id="Cuatro HD", CUATRO FHD --> NEW ERA
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Cuatro.png" group-title="OUTTDT" tvg-id="Cuatro HD", CUATRO FHD --> NEW ERA
 acestream://18f63b299de66029e17dc35e12f6c244e1979a91
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Telecinco.png" group-title="OUT" tvg-id="Telecinco HD", TELECINCO FHD --> NEW ERA
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Telecinco.png" group-title="OUTTDT" tvg-id="Telecinco HD", TELECINCO FHD --> NEW ERA
 acestream://6d2af61410d7fb6ed46fc7fe0c199951389bf75b
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Telecinco.png" group-title="OUT" tvg-id="Telecinco HD", Telecinco 1080 ELCANO
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Telecinco.png" group-title="OUTTDT" tvg-id="Telecinco HD", Telecinco 1080 ELCANO
 acestream://3d376333ee90d6db3d413fc5764ef635882076f5
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/La%20Sexta.png" group-title="OUT" tvg-id="La Sexta HD", LA SEXTA FHD --> NEW ERA
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/La%20Sexta.png" group-title="OUTTDT" tvg-id="La Sexta HD", LA SEXTA FHD --> NEW ERA
 acestream://1c6486082949172d1ffd318db8fb965dd5af7e31
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Discovery.png" group-title="OUT" tvg-id="Discovery", DISCOVERY CHANNEL FHD --> NEW ERA II
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Discovery.png" group-title="OUTTDT" tvg-id="Discovery", DISCOVERY CHANNEL FHD --> NEW ERA II
 acestream://c2858a94d2045e5dbb14e99323e90afe4e872266
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="National Geographic HD",National Geographic (FHD) Shickat
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="National Geographic HD",National Geographic (FHD) Shickat
 acestream://55230a7a3cc4e8dfd3cecbfb2d68266aa4e5dfff
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="Nat Geo Wild HD",National Geographic Wild (FHD) Shickat
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="Nat Geo Wild HD",National Geographic Wild (FHD) Shickat
 acestream://51d0b5249e229a07ecc52286f56a67c3d9df6d00
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="Caza y Pesca HD",Caza y Pesca (FHD) Shickat
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="Caza y Pesca HD",Caza y Pesca (FHD) Shickat
 acestream://6f28b1b9eb9f4047a6179b300e65b03c8316e10f
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="Decasa",Decasa (FHD) Shickat
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="Decasa",Decasa (FHD) Shickat
 acestream://4869e4c131cb3478cc375944c7cc68d1bb8e9dc4
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="Canal Cocina",Canal Cocina (FHD) Shickat
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="Canal Cocina",Canal Cocina (FHD) Shickat
 acestream://db81615f1b2eebaf584edc252ddd73883123fbb3
 
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="Movistar Plus+ HD", Movistar Plus --> NEW ERA VI (shickat.me)
+acestream://5d9a26e0a5f3e5f2ae027bd05635ab9a4fd4b51a
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="Movistar Plus+ HD", Movistar Plus --> NEW ERA VI (shickat.me)
+acestream://5e24a1b9187fccb91553f7c7da4b36341386f74a
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="Movistar Plus+ HD", M+ PLUS --> NEW ERA
+acestream://b2a4d1eba9b46df5f52a87105df779f9d39abeb4
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="Movistar Plus+ HD", M+ PLUS --> NEW ERA
+acestream://b6ffbbc72a5b6b579faf79ebac229af7a25b933b
+#EXTINF:-1 tvg-logo="" group-title="OUTTDT" tvg-id="La 2", LA 2 FHD --> NEW ERA
+acestream://9934906503661142f97a044ae1509a294057c2ed
+#EXTINF:-1 tvg-name="Telecinco New Era I" tvg-logo="" group-title="OUTTDT" tvg-id="Telecinco HD",TELECINCO FHD --> NEW ERA
+acestream://5133d1e8f45095f0b7dabbd78db0ce19a496f7bf
+#EXTINF:-1 tvg-name="Movistar Plus+ New Era I" tvg-logo="" group-title="OUTTDT" tvg-id="Movistar Plus+ HD",Movistar Plus+ New Era I [OUT]
+acestream://0248f0d8281287c96266f2ab4e44c32a4fae7d85
+#EXTINF:-1 tvg-name="Ciriaco" tvg-logo="" group-title="OUTTDT" tvg-id="Movistar Plus+ HD",Movistar Plus+ New Era I
+acestream://e2bc4aee95306b8897d15b01cc64b239dd1b8a1f
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="Movistar Plus+ HD",Movistar Plus Shickat
+acestream://a340c77b773a4a78a6c9aa25245a02698e05ac1a
+
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="La 1 HD", La 1 (FHD) Shickat
+acestream://14d3d8570a11cbc27ba2c94499df6014b462cb2d
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUTTDT" tvg-id="Cuatro HD", CUATRO FHD --> ELCANO
+acestream://8670df538a11c6ec97b3f634981ddc4409ca0333
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/La%201.png" group-title="OUTTDT" tvg-id="La 1 HD", La1 Elcano Antiguas
+acestream://b9a81ddb0cf98d9a5ae18ba2eef0ab094bd5d5b0
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/La%201.png" group-title="OUTTDT" tvg-id="La 1 HD", La1 UHD Elcano Antiguas
+acestream://4a714c436cb67d53cf197f9038239fddab2d8b20
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Telecinco.png" group-title="OUTTDT" tvg-id="Telecinco HD", Telecinco 1080 Elcano Antiguas
+acestream://66a7e4727bccce8ccc04e54861b06b62d89452fa
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Telecinco.png" group-title="OUTTDT" tvg-id="Telecinco HD", Telecinco 1080 Elcano Antiguas
+acestream://47e6dd48dd7c9705d07b13139b80e44683fd5eb1
 
 
 
+#EXTINF:-1 tvg-name="" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Estrenos.png" group-title="OUT" tvg-id="M+ Estrenos HD", Movistar Estrenos --> NEW ERA VI (Shickat.me)
+acestream://6341392460596e63edf38b013bd137c015e44007
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="M+ Acción HD", Movistar Acción --> NEW ERA VI (Shickat.me)
+acestream://b125325f52e057b8e5ea17a8b60d512d13d44e53
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="M+ Hits HD", Movistar Hits (FHD) Shickat
+acestream://28b9b7ba12c0f5c7e097f4b07a547f6eda9a0695
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="M+ Hits HD", Movistar Hits --> NEW ERA VI (Shickat.me)
+acestream://2b8e5c7438d56541df3467cc5986cf1e66014101
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="M+ Drama HD", Movistar Drama --> NEW ERA VI (Shickat.me)
+acestream://edee311dc307e1638eeac880b11bb6f4759b0d83
+#EXTINF:-1 tvg-logo="" group-title="OUT" tvg-id="M+ Comedia HD", MOVISTAR COMEDIA FHD --> NEW ERA VI
+acestream://90a3ad526f67f987f662eaf7d52e88004c796914
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="M+ Clásicos HD", Movistar Clásicos --> NEW ERA VI (Shickat.me)
+acestream://f9d431a6839e7f9964a0884dc1f18d298d990f39
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="M+ Originales HD", Movistar Originales --> NEW ERA VI (Shickat.me)
+acestream://1f092144252939810fd302cbd00d46de760b5dd7
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="M+ Indie HD", Movistar Indie --> NEW ERA VI (Shickat.me)
+acestream://508ffdbab097339adb4f3d922070b5df2c114d01
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="M+ Wéstern", Movistar Western --> NEW ERA VI (Shickat.me)
+acestream://e740a34497c3ba5943613a06999e805e6bbfa159
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="M+ Cine Español", Movistar Cine Español --> NEW ERA VI (Shickat.me)
+acestream://e47cdeba9d919d6a9b4fa3c72c8094178985f668
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="M+ Documentales HD", Movistar Documentales --> NEW ERA VI (Shickat.me)
+acestream://6cda7d2622bcafd6aef486016238936855927d7d
+#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="M+ Vacaciones", Movistar Vacaciones --> NEW ERA VI (Shickat.me)
+acestream://15123ab3458c59bf548fbf6e5503799e81da4de6
 
 
 #EXTINF:-1 tvg-name="" tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Estrenos.png" group-title="OUT" tvg-id="M+ Estrenos HD", Movistar Estrenos (FHD) Shickat
@@ -1000,17 +1003,7 @@ acestream://a0f71ac4897b2ccdf0114b5b3b7877902376a343
 
 
 
-#EXTINF:-1 tvg-name="Movistar Plus+ New Era I" tvg-logo="" group-title="OUT" tvg-id="Movistar Plus+ HD",Movistar Plus+ New Era I [OUT]
-acestream://0248f0d8281287c96266f2ab4e44c32a4fae7d85
-#EXTINF:-1 tvg-name="Ciriaco" tvg-logo="" group-title="OUT" tvg-id="Movistar Plus+ HD",Movistar Plus+ New Era I
-acestream://e2bc4aee95306b8897d15b01cc64b239dd1b8a1f
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="Movistar Plus+ HD",Movistar Plus Shickat
-acestream://a340c77b773a4a78a6c9aa25245a02698e05ac1a
 
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="La 1 HD", La 1 (FHD) Shickat
-acestream://14d3d8570a11cbc27ba2c94499df6014b462cb2d
-#EXTINF:-1 tvg-name="" tvg-logo="" group-title="OUT" tvg-id="Cuatro HD", CUATRO FHD --> ELCANO
-acestream://8670df538a11c6ec97b3f634981ddc4409ca0333
 
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Comedia.png" group-title="OUT" tvg-id="M+ Comedia HD", MOVISTAR COMEDIA FHD --> NEW ERA II [Out]
 acestream://4879825ab2491980e93ea2d8c4d02e095eacf670
@@ -1021,14 +1014,6 @@ acestream://7a9b22bee11d26b3f5bbd52e0230e19706f593eb
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Canal%20Hollywood.png" group-title="OUT" tvg-id="Canal Hollywood HD", HOLLYWOOD FHD --> NEW ERA II [Out]
 acestream://ebc2e767633cf272abf749a8884751f1f177c8b3
 
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/La%201.png" group-title="OUT" tvg-id="La 1 HD", La1 Elcano Antiguas
-acestream://b9a81ddb0cf98d9a5ae18ba2eef0ab094bd5d5b0
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/La%201.png" group-title="OUT" tvg-id="La 1 HD", La1 UHD Elcano Antiguas
-acestream://4a714c436cb67d53cf197f9038239fddab2d8b20
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Telecinco.png" group-title="OUT" tvg-id="Telecinco HD", Telecinco 1080 Elcano Antiguas
-acestream://66a7e4727bccce8ccc04e54861b06b62d89452fa
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Telecinco.png" group-title="OUT" tvg-id="Telecinco HD", Telecinco 1080 Elcano Antiguas
-acestream://47e6dd48dd7c9705d07b13139b80e44683fd5eb1
 
 
 
@@ -1071,6 +1056,23 @@ acestream://6a6bcf5aa7c9481a74222b89244697b4078d9fda
 #EXTINF:-1 tvg-name="Movistar Liga de Campeones" tvg-logo="" group-title="OUT" tvg-id="",Movistar Liga de Campeones
 acestream://e84ee527e76e12507449b6c92bbeb6b8f01664a2
 
+
+
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes.png" group-title="OUT" tvg-id="M+ Deportes HD", MOVISTAR DEPORTES FHD --> NEW ERA
+acestream://b5842718859345a596107ab8e6b24d7bfa2d617e
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes.png" group-title="OUT" tvg-id="M+ Deportes HD", MOVISTAR DEPORTES FHD --> NEW ERA
+acestream://be02b9918b8fe7224cfa9af1e37856760f95b1b8
+#EXTINF:-1 tvg-logo="https://i.ibb.co/CV4CLjz/deportes.png" group-title="OUT" tvg-id="M+ Deportes HD", Movistar Deportes
+acestream://726911f8f1e51229b5e38846ac0d2c6db29a196e
+#EXTINF:-1 tvg-logo="https://i.ibb.co/CV4CLjz/deportes.png" group-title="OUT" tvg-id="M+ Deportes 2 HD", Movistar Deportes 2
+acestream://d22952b196d2979665a753141fbbfe029896dc21
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes%203.png" group-title="OUT" tvg-id="M+ Deportes 3", DEPORTES 3 FHD --> NEW ERA
+acestream://03aa6a0c160d2ad74e9d6fb62c7f33e2e5e7233e
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes%205.png" group-title="OUT" tvg-id="M+ Deportes 5", MOVISTAR DEPORTES 5 HD --> NEW ERA
+acestream://f6961e0dbf9b6ede4f5be93b72dc15533b4063d4
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes.png" group-title="OUT" tvg-id="M+ Deportes HD", M. Deportes 1080 Elcano Antiguas
+acestream://55d4602cb22b0d8a33c10c2c2f42dae64a9e8895
+
 #EXTINF:-1 tvg-name="Movistar Deportes" tvg-logo="" group-title="OUT" tvg-id="",Movistar Deportes
 acestream://465cb8c0ce3f72be4ed114628dcd5c2ed6e3293c
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Deportes.png" group-title="OUT" tvg-id="M+ Deportes HD", MOVISTAR DEPORTES FHD --> NEW ERA II
@@ -1107,6 +1109,12 @@ acestream://7b361369a40046ad3011086f9d4ae2982fb4d5aa
 
 
 
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="OUT" tvg-id="M+ Vamos HD", MOVISTAR VAMOS FHD --> NEW ERA VI
+acestream://d1db428fd7902aac1e508bfc9e6cf254521b25f4
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="OUT" tvg-id="M+ Vamos HD", VAMOS FHD (*) --> NEW ERA
+acestream://57313e1ef438538df4feb5a6028dc78ee4f66b6a
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Vamos.png" group-title="OUT" tvg-id="M+ Vamos HD", MOVISTAR VAMOS FHD --> NEW ERA II
+acestream://1205151f6fa5d95c0eeb543cbce43ccfa6a1b216
 
 #EXTINF:-1 tvg-name="Movistar Vamos" tvg-logo="" group-title="OUT" tvg-id="",Movistar Vamos
 acestream://cd783ac5f4d902ec6a4f261a4849633df69c951f

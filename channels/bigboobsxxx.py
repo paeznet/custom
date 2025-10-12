@@ -178,7 +178,8 @@ def play(item):
         lista.insert (2, pornstar)
         item.contentTitle = '[/COLOR]'.join(lista)
     
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
+    url = soup.find('source', type="application/x-mpegURL")['src']  #### No resolvia sourtype
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     
     return itemlist

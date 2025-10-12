@@ -189,7 +189,7 @@ def play(item):
     patron = r'RESOLUTION=\d+x(\d+).*?\s(http.*?&q=\d+)'
     matches = scrapertools.find_multiple_matches(data, patron)
     for quality, url in matches:
-        # url += '|ignore_response_code="True"'
+        url += '|ignore_response_code="True"'
         # url += '|Referer=%s' %url
         itemlist.append(['[perverzija] %sp' %quality, url])
     return itemlist

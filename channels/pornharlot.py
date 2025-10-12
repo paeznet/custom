@@ -21,6 +21,8 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
+##### OUT Oct 2025
+
 canonical = {
              'channel': 'pornharlot', 
              'host': config.get_setting("current_host", 'pornharlot', default=''), 

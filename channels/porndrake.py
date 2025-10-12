@@ -98,6 +98,7 @@ def lista(item):
     soup = create_soup(item.url)
     matches = soup.find('div', class_='videos').find_all('div', class_='grid_box')
     for elem in matches:
+        if elem.find('div', class_='special_preview'):continue
         url = elem.a['href']
         title = elem.img['alt']
         thumbnail = elem.img['src']

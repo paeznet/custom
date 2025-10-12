@@ -17,16 +17,18 @@ forced_proxy_opt = ''
 
 # https://www.playvids.com/
 
+###############  La web no muestra fotos
+
 canonical = {
              'channel': 'peekvids', 
              'host': config.get_setting("current_host", 'peekvids', default=''), 
              'host_alt': ["https://www.peekvids.com/"], 
              'host_black_list': [], 
-             # 'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
-             # 'cf_assistant': False, 'CF_stat': True, 
-             # 'CF': True, 'CF_test': False, 'alfa_s': True
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': True, 
-             'CF': False, 'CF_test': False, 'alfa_s': True
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
+             'CF': True, 'CF_test': False, 'alfa_s': True
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': True, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 # forced_proxy_opt = 'ProxyCF|FORCE'
@@ -157,23 +159,14 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    data = httptools.downloadpage(item.url, canonical=canonical).data
-    patron = 'data-hls-src(\d+)="([^"]+)"'
-    matches = re.compile(patron,re.DOTALL).findall(data)
-    for quality, url in matches:
-        url = url.replace("amp;", "")
-        itemlist.append(Item(channel=item.channel, action="play", title= "%s" %quality, url=url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
 
 def play(item):
     logger.info()
     itemlist = []
-    # soup = create_soup(item.url)
-    data = httptools.downloadpage(item.url, canonical=canonical).data
-    patron = 'data-hls-src(\d+)="([^"]+)"'
-    matches = re.compile(patron,re.DOTALL).findall(data)
-    for quality, url in matches:
-        url = url.replace("amp;", "")
-        itemlist.append(['[peekvids] %sp' %quality, url])
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

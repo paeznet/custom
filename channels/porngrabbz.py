@@ -21,7 +21,7 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
-#######    OUT sept 2025  critical error
+#######   CF2
 
 canonical = {
              'channel': 'porngrabbz', 
