@@ -21,6 +21,11 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+# https://cdn.loadvid.com/videos/play/xYORwMjBnKQxkeyojzsS
+# https://av.ezplayer.me/#jbcf          KINOGER
+# https://safe.soul.lol/q4IL1QdC.mp4    DIRECTO
+# https://anonvideo.net/embed/G08auB
+
 canonical = {
              'channel': 'pornbusy', 
              'host': config.get_setting("current_host", 'pornbusy', default=''), 
@@ -103,11 +108,6 @@ def findvideos(item):
     return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
                                          verify_links=False, findvideos_proc=True, **kwargs)
 
-
-# https://cdn.loadvid.com/videos/play/xYORwMjBnKQxkeyojzsS
-# https://av.ezplayer.me/#jbcf          KINOGER
-# https://safe.soul.lol/q4IL1QdC.mp4    DIRECTO
-# https://anonvideo.net/embed/G08auB
 
 def play(item):
     logger.info()
