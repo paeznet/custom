@@ -294,6 +294,10 @@ findS['controls']['cnt_tot'] = 9999
 
 
 
+                    data = AlfaChannel.httptools.downloadpage(item.url, **kwargs).data
+                    soup = AlfaChannel.do_soup(data, encoding='utf-8')
+
+
 url = AlfaChannel.do_unquote(url)  quita los %20 por su simbolo  EQUIVALE a urlparse.unquote(url)
 data = AlfaChannel.convert_url_base64(url, host)  porneec
 elem_json['url'] =AlfaChannel.urljoin(AlfaChannel.host,url)  qporn   EQUIVALE a urlparse.urljoin(item.url,url)
@@ -349,6 +353,12 @@ SubmitYourFlicks	multicanal
 -24xxx
 3prn
 4tube	        submenu gay trans
+
+-8kporner	    if item.c_type == "search":
+        		findS['next_page'] = {}
+        		item.last_page = 9999
+
+
 absoluporn      pone videos aleatorios
 			    	soup = AHkwargs.get('soup', {})
   			   	if AlfaChannel.last_page in [9999, 99999] and soup and soup.find('div', class_='pagination-nbpage'): 
@@ -387,6 +397,7 @@ bigtitslust
 -blackporn	TXX		
 bravoporn	last_page y next_page titulos y cantidad de section
 -brazz
+-brazzpw
 cambox
 cambro
 -camvideostv
@@ -548,6 +559,7 @@ pornxp		findvideos
 -pubjav		findvideos  debe pasar post a play.
 -qiqitv
 redtube
+-saintporn
 
 -serakon	findvideos especial con PLAY  AUTOMATICO         return launcher.run(item)	ya que hay escenas en vsexin y peliculas para play 
 		- Si hay matches, se pasa el control a AH para que siga su proceso normal, cuidando de pasarle data=soup para que no tenga que descargar la
@@ -639,5 +651,6 @@ xtit		'list_all_quality': {'find': [{'tag': ['span'], 'class': ['hd'],  '@ARG': 
 xxxiporn
 xxxshake
 youporn		find seguido find 'last_page':    dict([('find', [{'tag': ['div'], 'id': ['pagination']}, {'tag': ['ul'], '@ARG': 'data-max'}])]),
+-youperv
 -zigtube
 	

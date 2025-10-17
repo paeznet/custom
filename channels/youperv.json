@@ -1,0 +1,15 @@
+{
+  "id": "youperv",
+  "name": "youperv",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://youperv.com/templates/YouPerv/images/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

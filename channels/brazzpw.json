@@ -1,0 +1,15 @@
+{
+  "id": "brazzpw",
+  "name": "brazzpw",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://brazzpw.com/assets/logo.jpg",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

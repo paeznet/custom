@@ -1,0 +1,15 @@
+{
+  "id": "saintporn",
+  "name": "saintporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/7YkzYxyy/saintporn.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

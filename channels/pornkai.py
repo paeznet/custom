@@ -11,6 +11,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+#  FALLA  &sort=new
+
 canonical = {
              'channel': 'pornkai', 
              'host': config.get_setting("current_host", 'pornkai', default=''), 
