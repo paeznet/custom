@@ -11,7 +11,9 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-# https://pornovideow.com/    https://2023.pornvideobb.com/
+# https://pornovideow.com/    https://2023.pornvideobb.com/   https://myaporn.com/   https://moviespornsex.com/   https://pornosun.com/
+# https://pornoxxxhd.com/   https://topvideosporno.com/
+
 
 canonical = {
              'channel': 'pornovideow', 
