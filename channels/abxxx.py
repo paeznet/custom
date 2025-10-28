@@ -20,6 +20,10 @@ color = unify.colors_file[UNIFY_PRESET]
 
 cnt_tot = 30
 
+
+# https://abxxx.com/  https://abtranny.com/   https://abgay.tube/
+# https://abjav.com/  https://abmilf.com/  https://abbdsm.com/  https://abebony.com/
+
 canonical = {
              'channel': 'abxxx', 
              'host': config.get_setting("current_host", 'abxxx', default=''), 
@@ -40,10 +44,10 @@ def mainlist(item):
     itemlist = []
     # soup = AlfaChannel.create_soup(host, alfa_s=True) #Para coger canonical
     
-    itemlist.append(Item(channel=item.channel, title="Ultimas" , action="list_all", url=url_api % ("3600", "str", "latest-updates", cnt_tot, "", "", "")))
-    itemlist.append(Item(channel=item.channel, title="Mejor valoradas" , action="list_all", url=url_api % ("3600", "str", "top-rated", cnt_tot, "", "", "month")))
-    itemlist.append(Item(channel=item.channel, title="Mas popular" , action="list_all", url=url_api % ("3600", "str", "most-popular", cnt_tot, "", "", "month")))
-    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="list_all",  url=url_api % ("3600", "str", "most-commented", cnt_tot, "", "", "month") ))
+    itemlist.append(Item(channel=item.channel, title="Ultimas" , action="list_all", url=url_api % ("3600", "str", "latest-updates", cnt_tot, "", "", ""), domi= host))
+    itemlist.append(Item(channel=item.channel, title="Mejor valoradas" , action="list_all", url=url_api % ("3600", "str", "top-rated", cnt_tot, "", "", "month"), domi= host))
+    itemlist.append(Item(channel=item.channel, title="Mas popular" , action="list_all", url=url_api % ("3600", "str", "most-popular", cnt_tot, "", "", "month"), domi= host))
+    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="list_all",  url=url_api % ("3600", "str", "most-commented", cnt_tot, "", "", "month"), domi= host ))
     itemlist.append(Item(channel=item.channel, title="Mas Largo" , action="list_all", url=url_api %  ("3600", "str", "longest", cnt_tot, "", "", "")))
     itemlist.append(Item(channel=item.channel, title="Pornstar" , action="categorias", url=host + "api/json/models/86400/%s/filt........../most-popular/%s/1.json" %("str", cnt_tot), orientation="str", domi= host, extra="models"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=host + "api/json/channels/86400/%s/most-viewed/%s/..1.json" %("str", cnt_tot), orientation="str", domi= host, extra="channels"))
@@ -52,8 +56,15 @@ def mainlist(item):
     
     itemlist.append(Item(channel = item.channel, title = ""))
     
-    itemlist.append(Item(channel=item.channel, title="Trans",url="https://abtranny.com/", action="submenu", orientation="she"))
-    itemlist.append(Item(channel=item.channel, title="Gay",url="https://abgay.tube/", action="submenu", orientation="gay"))
+    itemlist.append(Item(channel=item.channel, title="BDSM", action="submenu", url="https://abbdsm.com/", orientation="str"))
+    itemlist.append(Item(channel=item.channel, title="EBONY", action="submenu", url="https://abebony.com/", orientation="str"))
+    itemlist.append(Item(channel=item.channel, title="JAV", action="submenu", url="https://abjav.com/", orientation="str"))
+    itemlist.append(Item(channel=item.channel, title="MILF", action="submenu", url="https://abmilf.com/", orientation="str"))
+    
+    itemlist.append(Item(channel = item.channel, title = ""))
+    
+    itemlist.append(Item(channel=item.channel, title="Trans", action="submenu",url="https://abtranny.com/", domi="https://abtranny.com/", orientation="she"))
+    itemlist.append(Item(channel=item.channel, title="Gay", action="submenu",url="https://abgay.tube/", domi="https://abgay.tube/", orientation="gay"))
     
     return itemlist
 
@@ -69,20 +80,22 @@ def submenu(item):
     itemlist.append(Item(channel=item.channel, title="Mas popular" , action="list_all", url=url_api % ("3600", item.orientation, "most-popular", cnt_tot, "", "", "month"), orientation=item.orientation))
     itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="list_all",  url=url_api % ("3600", item.orientation, "most-commented", cnt_tot, "", "", "month"), orientation=item.orientation))
     itemlist.append(Item(channel=item.channel, title="Mas Largo" , action="list_all", url=url_api %  ("3600", item.orientation, "longest", cnt_tot, "", "", ""), orientation=item.orientation))
-    if "gay" in item.orientation:
-        itemlist.append(Item(channel=item.channel, title="Pornstar" , action="categorias", url=item.url + "api/json/models/86400/%s/filt........../most-popular/%s/1.json" %("str", cnt_tot), orientation=item.orientation, domi= item.url, extra="models"))
+    if "she" in item.orientation:
+        itemlist.append(Item(channel=item.channel, title="Pornstar" , action="categorias", url=item.url + "api/json/models/86400/she/filt........../count-videos-toptn/30/1.json", orientation=item.orientation, domi= item.url, extra="models"))
     else:
-        itemlist.append(Item(channel=item.channel, title="Pornstar" , action="categorias", url=item.url + "api/json/models/86400/%s/filt........../most-popular/%s/1.json" %(item.orientation, cnt_tot), orientation=item.orientation, domi= item.url, extra="models"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=item.url + "api/json/channels/86400/%s/most-viewed/%s/..1.json" %(item.orientation, cnt_tot), orientation=item.orientation, domi= item.url, extra="channels"))
+        itemlist.append(Item(channel=item.channel, title="Pornstar" , action="categorias", url=item.url + "api/json/models/86400/str/filt........../count-videos-toptn/30/1.json", orientation=item.orientation, domi= item.url, extra="models"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=item.url + "api/json/channels/86400/str/count-videos-toptn/30/..1.json", orientation=item.orientation, domi= item.url, extra="channels"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=item.url + "api/json/categories/14400/%s.all.json" %item.orientation, orientation=item.orientation,domi= item.url, extra="categories"))
-    itemlist.append(Item(channel=item.channel, title="Buscar", action="search",url = item.url, orientation=item.orientation))
+    itemlist.append(Item(channel=item.channel, title="Buscar", action="search",url = item.url, domi= item.url, orientation=item.orientation))
     return itemlist
 
 
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%sapi/videos2.php?params=3600/%s/latest-updates/%s/search..1.all..&s=%s" % (item.url,item.orientation,cnt_tot,texto)
+    item.domi = item.url
+    item.url = "%sapi/videos2.php?params=3600/%s/latest-updates/%s/search..1.all..&s=%s" % (item.domi,item.orientation,cnt_tot,texto)
+    
     try:
         return list_all(item)
     except:
@@ -108,11 +121,14 @@ def categorias(item):
         title = elem['title'] 
         dir = elem['dir'] 
         thumbnail = ""
+        
+        if elem.get('toptn', ''):
+            thumbnail = elem['toptn'][0]['scr']
         url = "%sapi/json/videos2/3600/%s/latest-updates/%s/%s.%s.1.all...json" %(item.domi,item.orientation,cnt_tot,item.extra.replace("models", "model").replace("channels", "channel"),dir)
         if cantidad:
             title = "%s (%s)" %(title,cantidad)
         plot = ""
-        itemlist.append(Item(channel=item.channel, action="list_all", title=title, url=url,
+        itemlist.append(Item(channel=item.channel, action="list_all", title=title, url=url, domi = item.domi,
                              thumbnail=thumbnail , plot=plot) )
                              
     if not "categories" in item.extra:
@@ -157,7 +173,7 @@ def list_all(item):
         quality = "[COLOR %s] %s[/COLOR]" % (color.get('quality',''),quality)
         title = "%s %s %s %s" %(time,quality,pornstar,title)
         plot = ""
-        url =  "%svideos/%s/%s/" % (host, id, dir)
+        url =  "%svideos/%s/%s/" % (item.domi, id, dir)
         
         itemlist.append(Item(channel=item.channel, action="play", title=title, url=url, thumbnail=thumbnail,
                                plot=plot, fanart=thumbnail, contentTitle=title ))
