@@ -15,8 +15,8 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'xfreehd', 
              'host': config.get_setting("current_host", 'xfreehd', default=''), 
-             'host_alt': ["https://www.xfreehd.com/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://beta.xfreehd.com/"], 
+             'host_black_list': ["https://www.xfreehd.com/"], 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
