@@ -137,7 +137,11 @@ def play(item):
     if "6xtube" in item.url or "blendporn" in item.url:
         soup = AlfaChannel.create_soup(item.url, **kwargs)
         matches = soup.find('div', id='player-container')
-        item.url = matches.iframe['src']
+        if matches.find('iframe'):
+            item.url = matches.iframe['src']
+        else:
+            item.url = matches.source['src']
+
     
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
