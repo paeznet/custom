@@ -22,7 +22,7 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
 ######      Fallan fotos    https://uppornx.b-cdn.net/contents/videos_screenshots/12000/12860/preview.mp4.jpg   hasta con verifypeer
-
+#### OUT oct_2025
 
 canonical = {
              'channel': 'uppornx', 
