@@ -29,6 +29,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "latest-updates/"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "most-popular/"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "top-rated/"))
+    itemlist.append(Item(channel=item.channel, title="Pornstar" , action="categorias", url=host + "pornstars/?sort_by=total_videos"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
@@ -50,8 +51,12 @@ def search(item, texto):
 def categorias(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url).find('div', class_='block-cats')
-    matches = soup.find_all('div', class_='thumb')
+    soup = create_soup(item.url)
+    if "categories" in item.url:
+        matches = soup.find('div', class_='block-cats').find_all('div', class_='thumb')
+    else:
+        matches = soup.find('div', class_='models-thumbs').find_all('div', class_='thumb')
+    
     for elem in matches:
         url = elem.a['href']
         title = elem.img['alt']
@@ -62,6 +67,12 @@ def categorias(item):
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
+    
+    next_page = soup.find('li', class_='next')
+    if next_page:
+        next_page = next_page.a['href']
+        next_page = urlparse.urljoin(item.url,next_page)
+        itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
@@ -74,6 +85,7 @@ def create_soup(url, referer=None, unescape=False):
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
+    
     return soup
 
 
