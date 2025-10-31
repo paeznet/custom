@@ -355,6 +355,13 @@ url = httptools.downloadpage(url, headers=headers , follow_redirects=False, only
 
 
 
+
+
+
+
+
+
+
 ################ ENCONTRAR LINEA QUE TIENE SRC en SOUP     ViralxVideos
 
 def find_src(tag):
@@ -1045,6 +1052,28 @@ def decode_url(txt):
         if not "/get_media?" in url and not "urlset" in url:
             quality = scrapertools.find_single_match(url, '(\d+)P_')
             video_urls.append(["%sp [pornhub]" % quality, url])
+
+
+
+#############################      responsive-player   ######################################################
+
+    match = soup.find('div', class_="responsive-player")
+    if match.find('source'):
+        url = match.source['src']
+    elif match.iframe.get('data-lazy-src', ''):
+        url = match.iframe['data-lazy-src']
+    else:
+        url = match.iframe['src']
+    if "php?q=" in url:
+        import base64
+        url = url.split('php?q=')
+        url_decode = base64.b64decode(url[-1]).decode("utf8")
+        decode = urlparse.unquote(url_decode)
+        # url += "|Referer=%s" % host
+        url = scrapertools.find_single_match(decode, '<(?:iframe|source) src="([^"]+)"')
+        if not url:
+            url = scrapertools.find_single_match(decode, "<(?:iframe|source) src='([^']+)'")
+####################################################################################################################
 
 
 def play(item):

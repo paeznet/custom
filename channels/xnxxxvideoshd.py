@@ -170,11 +170,13 @@ def play(item):
         lista.insert (2, pornstar)
         item.contentTitle = '[/COLOR]'.join(lista)
     
-    video = soup.find('div', class_="responsive-player")
-    if video.iframe.get('data-lazy-src', ''):
-        url = video.iframe['data-lazy-src']
+    match = soup.find('div', class_="responsive-player")
+    if match.find('source'):
+        url = match.source['src']
+    elif match.iframe.get('data-lazy-src', ''):
+        url = match.iframe['data-lazy-src']
     else:
-        url = video.iframe['src']
+        url = match.iframe['src']
     if "php?q=" in url:
         import base64
         url = url.split('php?q=')
