@@ -113,6 +113,8 @@ def lista(item):
         url = elem.a['href']
         title = elem.a['title']
         thumbnail = elem.img['src']
+        if ";base64" in thumbnail:
+             thumbnail = elem.img['data-src']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
         time = elem.find('span', class_='duration')
@@ -147,14 +149,17 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    url = soup.find('div', class_='responsive-player').iframe['src']
+    url = soup.find('div', class_='responsive-player').iframe['data-wpc-src']
+
     if "player-x.php?" in url:
         soup = create_soup(url)
         url = soup.source['src']
-        # url = urlparse.unquote(url)
+        url = urlparse.unquote(url)
         # url += "|verifypeer=false"
         # url += "|ignore_response_code=True"     #No hacer test_video_exists en server directo
         # url += "|Referer=%s" % host
         url += "|ignore_response_code=True"
-    itemlist.append(Item(channel=item.channel, action="play", ignore_response_code=True, timeout=30, url=url, contentTitle=item.contentTitle))
+    # itemlist.append(Item(channel=item.channel, action="play", ignore_response_code=True, timeout=30, url=url, contentTitle=item.contentTitle))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
