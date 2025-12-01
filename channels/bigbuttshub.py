@@ -52,7 +52,11 @@ finds = {'find': dict([('find', [{'tag': ['div', 'main'], 'id': ['primary', 'mai
                             ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            '@ARG': 'href', '@TEXT': 'page/(\d+)'}])]), 
          'plot': {}, 
-         'findvideos': {},
+         # 'findvideos': dict([('find', [{'tag': ['div'], 'class': ['tab-content']}]),
+                             # ('find_all', [{'tag': ['iframe'], '@ARG': 'src'}])]),
+         'findvideos': dict([('find', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]), 
+                             ('find_all', [{'tagOR': ['a'], 'href': True, 'rel': 'noopener'},
+                                           {'tag': ['iframe'], 'src': True}])]),
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
@@ -94,21 +98,28 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    return AlfaChannel.list_all(item, **kwargs)
+    findS = finds.copy()
+    findS['controls']['action'] = 'findvideos'
+    
+    return AlfaChannel.list_all(item, finds=findS, **kwargs)
+    # return AlfaChannel.list_all(item, **kwargs)
 
 
 def findvideos(item):
     logger.info()
     
-    return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
-                                         verify_links=False, findvideos_proc=True, **kwargs)
+    # return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
+                                         # verify_links=False, findvideos_proc=True, **kwargs)
+    return AlfaChannel.get_video_options(item, item.url, matches_post=findvideos_matches, 
+                                         verify_links=False, generictools=True, findvideos_proc=True, **kwargs)
 
 
-def play(item):
+def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     logger.info()
-    itemlist = []
+    matches = []
+    findS = AHkwargs.get('finds', finds)
     
-    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    soup = AHkwargs.get('soup', {})
     if soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+")):
         pornstars = soup.find_all('a', href=re.compile(r"/actor/[a-z0-9-]+"))
         for x, value in enumerate(pornstars):
@@ -124,12 +135,24 @@ def play(item):
             lista.insert (1, pornstar)
         item.contentTitle = '[/COLOR]'.join(lista)
     
-    
-    if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)")):
-        url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url, plot=item.plot))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
-    return itemlist
+    for elem in matches_int:
+        elem_json = {}
+        
+        try:
+            url = elem.get('href', '') or elem.get('src', '')
+            if not "t.me" in url:
+                elem_json['url'] = url
+            elem_json['server'] = ''
+            elem_json['language'] = ''
+        
+        except:
+            logger.error(elem)
+            logger.error(traceback.format_exc())
+
+        if not elem_json.get('url', ''): continue
+        matches.append(elem_json.copy())
+
+    return matches, langs
 
 
 def search(item, texto, **AHkwargs):

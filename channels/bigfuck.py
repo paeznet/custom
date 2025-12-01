@@ -11,6 +11,7 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+
 canonical = {
              'channel': 'bigfuck', 
              'host': config.get_setting("current_host", 'bigfuck', default=''), 

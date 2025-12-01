@@ -17,7 +17,6 @@ forced_proxy_opt = ''
 
 # https://www.playvids.com/
 
-###############  La web no muestra fotos
 
 canonical = {
              'channel': 'peekvids', 

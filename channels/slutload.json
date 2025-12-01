@@ -1,0 +1,15 @@
+{
+  "id": "slutload",
+  "name": "slutload",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://media.livemediahost.com/media/whitelabel/0/972/logo/202107261352386893.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

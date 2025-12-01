@@ -11,12 +11,12 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-####    NO MUESTRA thumbnail
-####    No existen los videos KTP
+####    RES fotos  https://bobtictic.com/contents/videos_screenshots/3370000/3370412/374x211/1.jpg   KTP /720x405/1.jpg  o preview.jpg
+                        # thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
 
 
 # https://rt.bobs-tuber.live/  sin CF, esta OUT
-# https://bobs-tuber.com/  con CF
+# https://bobs-tuber.com/  con CF    https://m.6obstub.com/
 
 canonical = {
              'channel': 'bobstuber', 
@@ -37,7 +37,7 @@ def mainlist(item):
     itemlist.append(Item(channel = item.channel, title="Mas vistos" , action="lista", url=host + "search/?sort_by=video_viewed_month&from_videos=01"))
     itemlist.append(Item(channel = item.channel, title="Mejor valorado" , action="lista", url=host + "search/?sort_by=rating_month&from_videos=01"))
     itemlist.append(Item(channel = item.channel, title="Mas comentado" , action="lista", url=host + "search/?sort_by=most_commented_month&from_videos=01"))
-    itemlist.append(Item(channel = item.channel, title="PornStar" , action="categorias", url=host + "models-xxx/?sort_by=total_videos&from=01"))
+    # itemlist.append(Item(channel = item.channel, title="PornStar" , action="categorias", url=host + "models-xxx/?sort_by=total_videos&from=01"))
     itemlist.append(Item(channel = item.channel, title="Canal" , action="categorias", url=host + "channels/?sort_by=total_videos&from=01"))
     
     itemlist.append(Item(channel = item.channel, title="Categorias" , action="categorias", url=host + "categories/?sort_by=title&from=01"))
@@ -115,15 +115,13 @@ def lista(item):
         thumbnail = elem.img['src']
         if "gif" in thumbnail:
             thumbnail = elem.img['data-original']
-        thumbnail = thumbnail.replace("374x210", "721x406")
+        thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
         time = elem.find('div', class_='duration').text.strip()
         quality = elem.find('span', class_='label hd')
         if quality:
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
         else:
             title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
-        # thumbnail += "|verifypeer=false"
-        # thumbnail += "|Referer=%s" % host
         plot = ""
         action = "play"
         if logger.info() == False:

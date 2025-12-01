@@ -11,7 +11,7 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-##   Fallan fotos   https://i2.anysex.com/videos_screenshots/422000/422957/608x342/1.jpg
+##   Fallan fotos   https://i2.anysex.com/videos_screenshots/422000/422957/608x342/1.jpg   .replace("608x342", "640x360")
 
 canonical = {
              'channel': 'anysex', 
@@ -75,6 +75,8 @@ def categorias(item):
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
+    if "/categories/" in url:
+        itemlist.sort(key=lambda x: x.title)
     next_page = soup.find('div', class_='pagination')
     if next_page:
         next_page = next_page.find_all('a')[-1]['href']
@@ -108,6 +110,9 @@ def lista(item):
             thumbnail = elem.img['data-jpg']
         if not thumbnail.startswith("https"):
             thumbnail = "https:%s" % thumbnail
+        if "608x342" in thumbnail:
+            thumbnail = thumbnail.replace("608x342", "640x360")
+        logger.debug(thumbnail)
         time = elem.find('div', class_='duration').text.strip()
         quality = elem.find('span', class_='is-hd')
         title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)

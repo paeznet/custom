@@ -124,12 +124,13 @@ def findvideos(item):
         # lista.insert (0, pornstar)
         # item.contentTitle = ' '.join(lista)
     plot = pornstar
-    matches = soup.find('div', class_='player-content').find_all('iframe')
+    matches = soup.find_all('div', class_='player-content')
+    logger.debug(matches)
     for elem in matches:
-        if elem.get("data-lazy-src", ""):
-            url = elem['data-lazy-src']
+        if elem.iframe.get("data-lazy-src", ""):
+            url = elem.iframe['data-lazy-src']
         else:
-            url = elem['src']
+            url = elem.iframe['src']
         if not "yandexcdn" in url and not "upvideo" in url and not url in videos:
             videos.insert(0, url)
             itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, plot=plot, url=url))

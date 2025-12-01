@@ -40,7 +40,7 @@ language = []
 url_replace = []
 
 
-finds = {'find': {'find_all': [{'tag': ['li'],  'class': ['media-item']}]},
+finds = {'find': {'find_all': [{'tag': ['li'],  'class': ['js-pop']}]},
          'categories':dict([('find', [{'tag': ['ul'], 'class': ['left-menu-box']}]),
                             ('find_all', [{'tag': ['a'], 'href': re.compile("/tags/[A-z0-9-]+/")}])]),
          'search': {}, 
@@ -53,7 +53,7 @@ finds = {'find': {'find_all': [{'tag': ['li'],  'class': ['media-item']}]},
                                            '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
          'plot': {}, 
          'findvideos': {},
-         'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', ''], ['Porn Tube ', '']],
+         'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', ''], ['Porn Tube ', ''], [' Tube', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
@@ -62,7 +62,7 @@ finds = {'find': {'find_all': [{'tag': ['li'],  'class': ['media-item']}]},
                             'list_all_quality': dict([('find', [{'tag': ['div', 'span'], 'class': ['media-item__info']}]),
                                                       ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+p)'}])]),
                             },
-         'controls': {'url_base64': False, 'cnt_tot': 36, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 26, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -78,8 +78,8 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mas Popular" , action="list_all", url=host + "search/?page=1&sort=mw"))
     itemlist.append(Item(channel=item.channel, title="Lo Mejor" , action="list_all", url=host + "search/?page=1&sort=br"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "search/?page=1&sort=lg"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "tags/tags/?response_format=json", extra="Categorias")) #404
-    # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "tags/", extra="Categorias")) #
+    # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "tags/tags/?response_format=json", extra="Categorias")) #404
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host, extra="Categorias")) #
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -87,37 +87,7 @@ def mainlist(item):
 def section(item):
     logger.info()
     
-    # kwargs['soup'] = False
-    # kwargs['json'] = True
-    
-    return AlfaChannel.section(item, matches_post=section_matches, **kwargs)
-
-
-def section_matches(item, matches_int, **AHkwargs):
-    logger.info()
-    matches = []
-    
-    findS = AHkwargs.get('finds', finds)
-    
-    for elem in matches_int:
-        elem_json = {}
-        
-        try:
-            
-            elem_json['url'] = elem.get("link", '').replace("best-recent", "newest")
-            elem_json['title'] = elem.get('name', '') 
-            elem_json['thumbnail'] = elem.get('image', '')
-            elem_json['cantidad'] = elem.get('videos', '')
-        
-        except:
-            logger.error(elem)
-            logger.error(traceback.format_exc())
-            continue
-        
-        if not elem_json['url']: continue
-        matches.append(elem_json.copy())
-    
-    return matches
+    return AlfaChannel.section(item, **kwargs)
 
 
 def list_all(item):

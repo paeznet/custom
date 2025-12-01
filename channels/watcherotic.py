@@ -23,8 +23,9 @@ forced_proxy_opt = 'ProxySSL'
 
 
 ######      KTP   ---->     https://bbaze.top/eu46/default.mp4
-######      Fallan fotos https://watcherotic.com/contents/videos_screenshots/3000/3444/336x189/4.jpg hasta con |verifypeer=false
-#                        https://watcherotic.com/contents/videos_screenshots/3000/3444/320x180/4.jpg
+######      RES fotos https://watcherotic.com/contents/videos_screenshots/3000/3444/336x189/4.jpg hasta con |verifypeer=false
+                    # thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
+
 canonical = {
              'channel': 'watcherotic', 
              'host': config.get_setting("current_host", 'watcherotic', default=''), 
@@ -130,11 +131,11 @@ def list_all_matches(item, matches_int, **AHkwargs):
         try:
             elem_json['url'] = elem.a.get('href', '')
             elem_json['title'] = elem.a.get('title', '')
-            elem_json['thumbnail'] = elem.img.get('data-thumb_url', '') or elem.img.get('data-original', '') \
+            thumbnail = elem.img.get('data-thumb_url', '') or elem.img.get('data-original', '') \
                                      or elem.img.get('data-src', '') \
                                      or elem.img.get('src', '')
             
-            elem_json['thumbnail'] = elem_json['thumbnail'].replace("336x189", "320x180")
+            elem_json['thumbnail'] = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
             
             elem_json['stime'] = elem.find(class_='time').get_text(strip=True) if elem.find(class_='time') else ''
             if elem.find('div', class_=['qualtiy']):

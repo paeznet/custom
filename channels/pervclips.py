@@ -11,7 +11,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-###    Fallan fotos    https://cdn.pervclips.com/tube/contents/videos_screenshots/1064102000/1064102366/367x275/3.jpg
+###    RES fotos    https://cdn.pervclips.com/tube/contents/videos_screenshots/1064102000/1064102366/367x275/3.jpg
+                    # thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
 
 canonical = {
              'channel': 'pervclips', 
@@ -93,12 +94,7 @@ def lista(item):
         # title = elem.find('p', class_='title').text.strip()
         title = elem.img['alt']
         thumbnail = elem.img['data-original']
-        thumbnail = thumbnail.replace("?ver=3", "")
-        # logger.debug(thumbnail)
-        # thumbnail += "|ignore_response_code=True"
-        # thumbnail += "|Referer=%s" % host
-        # thumbnail += "|verifypeer=false"
-       
+        thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
         time = elem.find('div', class_='time-holder').text.strip()
         quality = elem.find('i', class_='icon-hd')
         if quality:

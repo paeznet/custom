@@ -1,0 +1,15 @@
+{
+  "id": "fullxmovie",
+  "name": "fullxmovie",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://fullxmovie.com/wp-content/uploads/2025/09/fullxmovie-high-resolution-logo-transparent.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

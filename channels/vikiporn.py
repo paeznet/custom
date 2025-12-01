@@ -21,7 +21,8 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-################   Fallan fotos  https://cdni.vikiporn.com/contents/videos_screenshots/3509000/3509017/342x192/3.jpg?ver=3
+################   RES fotos  https://cdni.vikiporn.com/contents/videos_screenshots/3509000/3509017/342x192/3.jpg?ver=3
+                    # thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
 
 def mainlist(item):
     logger.info()
@@ -99,14 +100,13 @@ def lista(item):
         if "rpwmct." in url: continue
         title = elem.img['alt']
         thumbnail = elem.span['data-poster'].replace("?ver=3", "")
+        thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
         time = elem.find('span', itemprop='duration').text.strip()
         quality = elem.find('span', class_='hd')
         if quality:
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
         else:
             title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
-        # thumbnail += "|Referer=%s" % host
-        # logger.debug(thumbnail)
         plot = ""
         action = "play"
         if logger.info() == False:

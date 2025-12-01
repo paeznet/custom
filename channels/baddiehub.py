@@ -48,10 +48,10 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
          'get_quality': {}, 
          'get_quality_rgx': '', 
          'next_page': {},
-         'next_page_rgx': [['&paged=\d+', '&paged=%s']], 
+         'next_page_rgx': [['\/page\/\d+', '/page/%s']], 
          'last_page': dict([('find', [{'tag': ['div'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-1], 
-                                           '@ARG': 'href', '@TEXT': 'paged(?:/|=)(\d+)'}])]), 
+                                           '@ARG': 'href', '@TEXT': 'page(?:/|=)(\d+)'}])]), 
          'plot': {}, 
          'findvideos': {},
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
@@ -71,10 +71,10 @@ def mainlist(item):
     logger.info()
     itemlist = []
     
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "?filter=latest&paged=1"))
-    itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="list_all", url=host + "?filter=most-viewed&paged=1"))
-    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "?filter=longest&paged=1"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "?page_id=1763&paged=1", extra="Categorias"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1/?filter=latest"))
+    itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="list_all", url=host + "page/1/?filter=most-viewed"))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "page/1/?filter=longest"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/page/1/", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     
     return itemlist
@@ -85,7 +85,7 @@ def section(item):
     
     findS = finds.copy()
     
-    findS['url_replace'] = [['([^$]+$)', r'\1&filter=latest&paged=1']]
+    findS['url_replace'] = [['([^$]+$)', r'\1page/1/?filter=latest']]
     findS['controls']['cnt_tot'] = 9999
     
     return AlfaChannel.section(item, finds=findS, **kwargs)
@@ -129,7 +129,7 @@ def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    item.url = "%s?s=%s&filter=latest&paged=1" % (host, texto.replace(" ", "+"))
+    item.url = "%spage/1/?s=%s&filter=latest" % (host, texto.replace(" ", "+"))
     
     try:
         if texto:

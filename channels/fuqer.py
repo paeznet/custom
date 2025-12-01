@@ -14,13 +14,20 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+forced_proxy_opt = ''
+
+# https://www.dump.xxx/   https://www.fuqer.com/
+
 canonical = {
              'channel': 'fuqer', 
              'host': config.get_setting("current_host", 'fuqer', default=''), 
              'host_alt': ["https://www.fuqer.com/"], 
              'host_black_list': [], 
-             'set_tls': None, 'set_tls_min': None, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
@@ -28,7 +35,7 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "page1.html"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "most-recent/"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "most-viewed/"))
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "top-rated/"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "longest/"))
@@ -123,15 +130,25 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    
+    data = httptools.downloadpage(item.url, canonical=canonical).data
+    url = scrapertools.find_single_match(data, r'var defaultRaw = "([^"]+)"')
+    url = url.replace("\/", "/")
+    url += "|Referer=%s" %host
+    
+    itemlist.append(Item(channel=item.channel, action="play", contentTitle = item.title, url=url))
     return itemlist
 
 
 def play(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    
+    data = httptools.downloadpage(item.url, canonical=canonical).data
+    url = scrapertools.find_single_match(data, r'defaultRaw = "([^"]+)"')
+    url = url.replace("\/", "/")
+    url += "|Referer=%s" %host
+    
+    itemlist.append(['[fuqer] mp4', url])
     return itemlist
     

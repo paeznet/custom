@@ -23,7 +23,7 @@ forced_proxy_opt = 'ProxySSL'
 
 # https://24porn.com/   https://bigfuck.tv/  https://bestpornstars.xxx/
 # https://redporn.porn/  https://zzztube.tv/
-# 
+#   bigfuck.tv   el source es redireccionado https://u3.bigfuck.tv/ah/sign
 
 canonical = {
              'channel': '24porn', 
@@ -78,7 +78,7 @@ def mainlist(item):
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="24porn" , action="submenu", url= "https://24porn.com/", chanel="24porn", thumbnail = "https://i.postimg.cc/fT78YLcR/24porn.png")) # thumbnail += "|verifypeer=false"   #SSL peer certificate or SSH remote key was not OK(60)
     itemlist.append(Item(channel=item.channel, title="bestpornstars" , action="submenu", url= "https://bestpornstars.xxx/", chanel="bestpornstars", thumbnail = "https://i.postimg.cc/wjxq51mq/bestpornstars.png"))
-    itemlist.append(Item(channel=item.channel, title="bigfuck" , action="submenu", url= "https://bigfuck.tv/", chanel="bigfuck", thumbnail = "https://i.postimg.cc/MpLD0jFV/bigfuck.png"))
+    # itemlist.append(Item(channel=item.channel, title="bigfuck" , action="submenu", url= "https://bigfuck.tv/", chanel="bigfuck", thumbnail = "https://i.postimg.cc/MpLD0jFV/bigfuck.png"))
     itemlist.append(Item(channel=item.channel, title="redporn" , action="submenu", url= "https://redporn.porn/", chanel="redporn", thumbnail = "https://i.postimg.cc/mkGzTT6P/redporn.png"))
     itemlist.append(Item(channel=item.channel, title="zzztube" , action="submenu", url= "https://zzztube.tv/", chanel="zzztube", thumbnail = "https://i.postimg.cc/dtLwHb0d/zzztube.png"))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))

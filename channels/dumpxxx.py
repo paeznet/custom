@@ -21,6 +21,7 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+# https://www.dump.xxx/   https://www.fuqer.com/
 
 canonical = {
              'channel': 'dumpxxx', 
@@ -103,13 +104,14 @@ def play(item):
     logger.info()
     itemlist = []
     
-    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    data = AlfaChannel.httptools.downloadpage(item.url, **kwargs).data
     
-    if soup.find('div', class_='stage').find('iframe'):  #### LINKS DE fuquer.com
-        item.url = soup.find('div', class_='stage').iframe['src']
+    url = scrapertools.find_single_match(data, r'defaultRaw = "([^"]+)"')
+    url = url.replace("\/", "/")
+    url += "|Referer=%s" %host
     
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    itemlist.append(['[dumpxxx] mp4', url])
+    # itemlist.append(Item(channel=item.channel, action="play", contentTitle = item.title, url=url))
     
     return itemlist
 

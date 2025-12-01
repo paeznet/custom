@@ -1,0 +1,15 @@
+{
+  "id": "tittytube",
+  "name": "tittytube",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://tittytube.com/wp-content/uploads/2024/05/TittytubeLOGO.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

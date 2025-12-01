@@ -11,7 +11,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
-######      Fallan fotos  https://c8b8a8134e.mjedge.net/contents/videos_screenshots/3620000/3620985/340x255/4.jpg
+######      RES fotos  https://c8b8a8134e.mjedge.net/contents/videos_screenshots/3620000/3620985/340x255/4.jpg  thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
+                    # thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
 
 canonical = {
              'channel': 'katestube', 
@@ -99,12 +100,10 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.img['alt']
-        thumbnail = elem.img['src']#.replace("/340x255/", "/301x226/").replace("?ver=3", "")
+        thumbnail = elem.img['src']
         if ".gif" in thumbnail:
-            thumbnail = elem.img['data-original']  ###.replace("/340x255/", "/301x226/")#.replace("?ver=3", "")
-        # thumbnail += "|verifypeer=false"
-        # thumbnail += "|Referer=%s" %host
-        # logger.debug(thumbnail)
+            thumbnail = elem.img['data-original']
+        thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
         time = elem.find('span', itemprop='duration').text.strip()
         quality = elem.find('span', class_='hd')
         if quality:
