@@ -148,7 +148,8 @@ def play(item):
             from core import httptools
             data = httptools.downloadpage(url, headers=headers, post=post).data
             url = scrapertools.find_single_match(data, '"file":"([^"]+)"').replace("\/", "/").replace(" ", "%20")
-    
+    if ".m3u" in url:
+        url += "|Referer=%s" %host
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url, plot=item.plot))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     
