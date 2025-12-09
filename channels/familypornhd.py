@@ -137,15 +137,21 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    
-    pornstar = soup.find('p', class_='has-text-align-center').text.strip()
-    pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar.replace("Pornstar: ", "")
-    lista = item.contentTitle.split("]")
-    lista[0]= "%s]" %lista[0]
-    lista.insert (1, pornstar)
-    item.contentTitle = ' '.join(lista)
+    if soup.find('p', class_='has-text-align-center'):
+        pornstar = soup.find('p', class_='has-text-align-center').text.strip()
+        pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar.replace("Pornstar: ", "")
+        lista = item.contentTitle.split("]")
+        lista[0]= "%s]" %lista[0]
+        lista.insert (1, pornstar)
+        item.contentTitle = ' '.join(lista)
     
     url = soup.iframe['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    lista = url.split("/video/")
+    # https://videostreamingworld.com/video/816b112c6105b3ebd537828a39af4818   Fireplayer
+    post_url = "%s/player/index.php?data=%s&do=getVideo" %(lista[0], lista[1])
+    post = {'hash': lista[1], 'r': host, 'Referer': url}
+    data = httptools.downloadpage(post_url, post=post).data
+    logger.debug(data)
+    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
