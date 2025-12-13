@@ -196,8 +196,9 @@ def play(item):
             url = url['id']
         else:
             url = url['src']
-        if "player.euroxxx.net" in url:
-            url = url.replace("player.euroxxx.net", "hqq.to")
+        logger.debug(url)
+        # if "player.euroxxx.net" in url:
+            # url = url.replace("player.euroxxx.net", "hqq.to")
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     

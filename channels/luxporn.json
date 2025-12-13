@@ -1,0 +1,15 @@
+{
+  "id": "luxporn",
+  "name": "luxporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://luxporn.cc/wp-content/uploads/2025/09/logo_258.jpg",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
