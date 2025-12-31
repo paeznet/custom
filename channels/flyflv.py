@@ -21,6 +21,7 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+##########   La web no tiene fotos
 
 canonical = {
              'channel': 'flyflv', 

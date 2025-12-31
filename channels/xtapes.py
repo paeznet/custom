@@ -17,8 +17,8 @@ timeout = 45
 canonical = {
              'channel': 'xtapes', 
              'host': config.get_setting("current_host", 'xtapes', default=''), 
-             'host_alt': ["https://xtapes.in/"], 
-             'host_black_list': ["https://ww2.xtapes.to/", "http://hd.xtapes.to/"], 
+             'host_alt': ["https://xtapes.tw/"], 
+             'host_black_list': ["https://xtapes.in/", "https://ww2.xtapes.to/", "http://hd.xtapes.to/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
              'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True

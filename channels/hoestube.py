@@ -22,6 +22,7 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
 # forced_proxy_opt = 'ProxySSL'
 
+##########################    No existen video KTP
 forced_proxy_opt = ''
 
 canonical = {

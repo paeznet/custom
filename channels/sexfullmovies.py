@@ -21,6 +21,7 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+################  OUT Dic 2025
 
 canonical = {
              'channel': 'sexfullmovies', 

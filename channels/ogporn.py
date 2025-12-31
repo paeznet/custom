@@ -27,8 +27,11 @@ canonical = {
              'host': config.get_setting("current_host", 'ogporn', default=''), 
              'host_alt': ["https://ogporn.com/"], 
              'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
@@ -63,7 +66,7 @@ finds = {'find': {'find_all': [{'tag': ['a'], 'class': ['video']}]},     #'id': 
          'url_replace': [], 
          'profile_labels': {
                            },
-         'controls': {'url_base64': False, 'cnt_tot': 50, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 30, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -137,6 +140,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
         elem_json = {}
         
         try:
+            if elem.find('span', class_=re.compile(r"^home-\w+")): continue
             
             elem_json['url'] = elem.get('href', '')
             elem_json['title'] = elem.get('title', '')

@@ -144,9 +144,10 @@ def play(item):
             url_decode = base64.b64decode(url[-1]).decode("utf8")
             url = AlfaChannel.do_unquote(url_decode)
             url = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
-    
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+            url += "|Referer=%s" %host
+    itemlist.append(["[koreanpornmovie]", url])
+    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     
     return itemlist
 

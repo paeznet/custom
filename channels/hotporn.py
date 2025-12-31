@@ -22,6 +22,9 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
 forced_proxy_opt = 'ProxySSL'
 
+
+###   OUT Dic 20025
+
 canonical = {
              'channel': 'hotporn', 
              'host': config.get_setting("current_host", 'hotporn', default=''), 

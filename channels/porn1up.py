@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# -*- Channel fullxmovie -*-
+# -*- Channel porn1up -*-
 # -*- Created for Alfa-addon -*-
 # -*- By the Alfa Develop Group -*-
 
@@ -22,19 +22,11 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
 forced_proxy_opt = 'ProxySSL'
 
-# https://xfuntaxy.com/     https://mydadspies.com/    https://sexyretromovie.com/
-
-#      amigosporn             https://amg.upns.live/#x6diue       https://upns.live/#x6diue
-###    FALTA RESOLVER SERVER  https://xfuntaxy.upns.xyz/#onaa9w   https://upns.xyz/#onaa9w 
-
-# https://xfuntaxy.com/passionate-french-amateur-anal-enthousiasts-mya-lorenn/
-                        # <div class="responsive-player"><iframe src="https://xfuntaxy.upns.xyz/#x6dej3"
-                        # <a class="button" id="tracking-url" href="https://doodbd.com/e/tmVaDvSw"  https://doodbd.com/e/tmVaDvSw https://www.vidcloudmv.net/e/tmVaDvSw
 
 canonical = {
-             'channel': 'fullxmovie', 
-             'host': config.get_setting("current_host", 'fullxmovie', default=''), 
-             'host_alt': ["https://fullxmovie.com/"], 
+             'channel': 'porn1up', 
+             'host': config.get_setting("current_host", 'porn1up', default=''), 
+             'host_alt': ["https://porn1up.com/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -86,27 +78,15 @@ def mainlist(item):
     
     autoplay.init(item.channel, list_servers, list_quality)
     
-    itemlist.append(Item(channel = item.channel, title="Peliculas" , action="submenu", url=host + "category/fullxmovie/"))
-    itemlist.append(Item(channel = item.channel, title="Hentai" , action="submenu", url=host + "category/hentai/"))
-    itemlist.append(Item(channel = item.channel, title="OnlyFans" , action="submenu", url=host + "category/onlyfans/"))
-    itemlist.append(Item(channel = item.channel, title="FamilyRoleplay" , action="submenu", url=host + "category/family-roleplay/"))
-    itemlist.append(Item(channel = item.channel, title="Buscar", action="search"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1/?filter=latest"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=host + "page/1/?filter=most-viewed"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "page/1/?filter=popular"))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "page/1/?filter=longest"))
+    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "actors/page/1/", extra="PornStar"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/page/1/", extra="Categorias"))
+    itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     
     autoplay.show_option(item.channel, itemlist)
-    
-    return itemlist
-
-
-def submenu(item):
-    logger.info()
-    itemlist = []
-    
-    itemlist.append(Item(channel = item.channel, title="Nuevos" , action="list_all", url=item.url + "page/1/?filter=latest"))
-    itemlist.append(Item(channel = item.channel, title="Mas vistos" , action="list_all", url=item.url + "page/1/?filter=most-viewed"))
-    itemlist.append(Item(channel = item.channel, title="Mejor valorado" , action="list_all", url=item.url + "page/1/?filter=popular"))
-    itemlist.append(Item(channel = item.channel, title="Mas metraje" , action="list_all", url=item.url + "page/1/?filter=longest"))
-    # itemlist.append(Item(channel = item.channel, title="Canal" , action="section", url=host + "categories/page/1", extra="Canal"))
-    
     
     return itemlist
 
@@ -115,8 +95,10 @@ def section(item):
     logger.info()
     
     findS = finds.copy()
-    if item.extra:
-        findS['controls']['cnt_tot'] = 50
+    findS['url_replace'] = [['(\/(?:category|actor|pornstars)\/[^$]+$)', r'\1page/1/?filter=latest']]
+    
+    if item.extra == 'Categorias':
+        findS['controls']['cnt_tot'] = 9999
     
     return AlfaChannel.section(item, finds=findS, **kwargs)
 
@@ -157,10 +139,10 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
             lista = item.contentTitle.split('[/COLOR]')
             pornstar = pornstar.replace('[/COLOR]', '')
             pornstar = ' %s' %pornstar
-            if AlfaChannel.color_setting.get('year', '') in item.contentTitle:
-                lista.insert (1, pornstar)
+            if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
+                lista.insert (2, pornstar)
             else:
-                lista.insert (0, pornstar)
+                lista.insert (1, pornstar)
             item.contentTitle = '[/COLOR]'.join(lista)
     
     for elem in matches_int:
@@ -168,28 +150,14 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
         #logger.error(elem)
         
         try:
-            elem_json['url'] = elem.get('data-litespeed-src', '') or elem.get('src', '')\
-                               or elem.get("href", "")
-            if elem_json['url'].endswith('.jpg'): continue
+            # if isinstance(elem, str):
+            url = elem.get('href', '') or elem.get('src', '')
             
-            if "nhplayer" in elem_json['url']:
-                nhplayer = AlfaChannel.create_soup(elem_json['url'], **kwargs)
-                url = nhplayer.find('div', class_='servers').li['data-id']
-                elem_json['url'] = url
+            if 'frdl' in url: continue
+            elem_json['url'] = url
             
-            if "php?q=" in elem_json['url'] or "php?u=" in elem_json['url']:
-                import base64
-                if "php?q=" in elem_json['url']:
-                    url = elem_json['url'].split('php?q=')
-                else:
-                    url = elem_json['url'].split('php?u=')
-                url_decode = base64.b64decode(url[-1]).decode("utf8")
-                url = AlfaChannel.do_unquote(url_decode)
-                if "src=" in url:
-                    url = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
-                elem_json['url'] = url
-                
             elem_json['language'] = ''
+           
         
         except:
             logger.error(elem)

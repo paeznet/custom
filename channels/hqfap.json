@@ -1,0 +1,15 @@
+{
+  "id": "hqfap",
+  "name": "hqfap",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/j5vpJLCq/hqfap.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

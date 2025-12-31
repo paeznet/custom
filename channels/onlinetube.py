@@ -21,12 +21,13 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+# FALLAN FOTOS https://onlinetube.tv/contents/videos_screenshots/0/531/426x240/5.jpg  640x360
 
 canonical = {
              'channel': 'onlinetube', 
              'host': config.get_setting("current_host", 'onlinetube', default=''), 
-             'host_alt': ["https://x.onlinetube.tv/"], 
-             'host_black_list': ["https://onlinetube.tv/"], 
+             'host_alt': ["https://onlinetube.tv/"], 
+             'host_black_list': [], 
              'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
              'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True

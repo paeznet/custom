@@ -244,7 +244,9 @@ studentki
                             ('find_next', [{'tag': ['li']},
                                            {'tag': ['a'], '@ARG': 'href'}]) ]),
 
-
+-8kporner	    if item.c_type == "search":
+        		findS['next_page'] = {}
+        		item.last_page = 9999
 
 ############################################
 		En AlfaChannelHelper
@@ -301,6 +303,16 @@ findS['controls']['cnt_tot'] = 9999
 url = AlfaChannel.do_unquote(url)  quita los %20 por su simbolo  EQUIVALE a urlparse.unquote(url)
 data = AlfaChannel.convert_url_base64(url, host)  porneec
 elem_json['url'] =AlfaChannel.urljoin(AlfaChannel.host,url)  qporn   EQUIVALE a urlparse.urljoin(item.url,url)
+
+
+-viralxporn      if "player-x.php?" in url:
+          	  data = AlfaChannel.convert_url_base64(url, host)  	####  DECODE
+             	  data =AlfaChannel.do_unquote(data)			####  quita %20  urlparse.unquote(url)
+              	  data = AlfaChannel.do_soup(data)			####  BeautifulSoup(url, "html5lib", from_encoding="utf-8")
+                  url = data.source['src']
+            	  url += "|Referer=%s" % host
+
+
 
 
 ###############################################################################################################################################
@@ -467,8 +479,10 @@ hdzog		TXXX
 heroero 
 -hoestube
 -hornybutt
+-hornysimp	findvideos
 hotmovs		TXXX 
 -hotporn
+-hqfap
 -iceporncasting
 incestvidz	elem_json['action'] = 'findvideos'
 -italianvidxxx	NETU
@@ -478,6 +492,7 @@ javwhores
 jizzberry
 joysporn	joysporn   'next_page_rgx': [['/page/\d+', '/page/%s/']],    last_page para search
 -justporn
+-justfullporn	findvideos
 kojka		    item.extra = "Search"
 
 
@@ -515,6 +530,7 @@ okporn		next_page con last_page          findS['next_page'] = {}     item.last_p
 -phub		'list_all_premium': {'find': [{'tag': ['img'], 'src': re.compile(r"xtapes")}]}     #NETU
 -poldertubenl	
 porn00	
+-porn1up         findvideos+pornstars	 
 -pornbusy
 porncaper
 pornditt
@@ -630,7 +646,8 @@ veporns
 -vidzxxxhd
 viralxvideos	xfy		'findvideos' find_all(a href y iframe src)  
 				 findS['profile_labels']['section_title'] = {'find': [{'tag': ['*'], '@ARG': 'aria-label'}]}
--vidzxxxhd    	
+-vidzxxxhd  
+-viralxporn     findvideos 	
 vjav  		TXXX
 -vlxxx
 voyeurhit	TXXX

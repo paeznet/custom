@@ -27,6 +27,10 @@ forced_proxy_opt = 'ProxySSL'
 #      amigosporn             https://amg.upns.live/#x6diue       https://upns.live/#x6diue
 ###    FALTA RESOLVER SERVER  https://xfuntaxy.upns.xyz/#onaa9w   https://upns.xyz/#onaa9w 
 
+### https://xfuntaxy.com/passionate-french-amateur-anal-enthousiasts-mya-lorenn/
+                        # <div class="responsive-player"><iframe src="https://xfuntaxy.upns.xyz/#x6dej3"
+                        # <a class="button" id="tracking-url" href="https://doodbd.com/e/tmVaDvSw"  https://doodbd.com/e/tmVaDvSw https://www.vidcloudmv.net/e/tmVaDvSw
+
 canonical = {
              'channel': 'xfuntaxy', 
              'host': config.get_setting("current_host", 'xfuntaxy', default=''), 
@@ -60,7 +64,7 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
          'plot': {}, 
          'findvideos': dict([('find', [{'tag': ['header'], 'class': ['entry-header']}]), 
                              ('find_all', [{'tagOR': ['a'], 'href': True, 'id': 'tracking-url'},
-                                           {'tag': ['meta'], 'content': True, 'itemprop': 'embedURL'}])]),
+                                           {'tag': ['iframe']}])]),
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
@@ -129,44 +133,44 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     
     soup = AHkwargs.get('soup', {})
     
+    pornstars = soup.find_all('a', href=re.compile(r"/(?:cast|pornstar|actor)/[A-z0-9-]+"))
+    if pornstars:
+        for x, value in enumerate(pornstars):
+            pornstars[x] = value.get_text(strip=True)
+        pornstar = ' & '.join(pornstars)
+        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+        item.plot = pornstar
+        
+        if len(pornstars) <= 3:
+            lista = item.contentTitle.split('[/COLOR]')
+            pornstar = pornstar.replace('[/COLOR]', '')
+            pornstar = ' %s' %pornstar
+            if AlfaChannel.color_setting.get('year', '') in item.contentTitle:
+                lista.insert (1, pornstar)
+            else:
+                lista.insert (0, pornstar)
+            item.contentTitle = '[/COLOR]'.join(lista)
+    
+    logger.debug(matches_int)
     for elem in matches_int:
         elem_json = {}
         #logger.error(elem)
         
         try:
-            if isinstance(elem, str):
-                elem_json['url'] = elem
-                if elem_json['url'].endswith('.jpg'): continue
-            else:
-                elem_json['url'] = elem.get("href", "") or elem.get("content", "")
+            elem_json['url'] = elem.get('data-litespeed-src', '') or elem.get('src', '')\
+                               or elem.get("href", "")
+            if elem_json['url'].endswith('.jpg'): continue
+            
+            # if "php?q=" in elem_json['url']:
+                # import base64
+                # url = elem_json['url'].split('php?q=')
+                # url_decode = base64.b64decode(url[-1]).decode("utf8")
+                # url = AlfaChannel.do_unquote(url_decode)
+                # elem_json['url'] = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
+                
             elem_json['language'] = ''
             
-            if "php?q=" in elem_json['url']:
-                import base64
-                url = elem_json['url'].split('php?q=')
-                url_decode = base64.b64decode(url[-1]).decode("utf8")
-                url = AlfaChannel.do_unquote(url_decode)
-                elem_json['url'] = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
-                
-            
-            pornstars = soup.find_all('a', href=re.compile(r"/(?:cast|pornstar|actor)/[A-z0-9-]+"))
-            if pornstars:
-                for x, value in enumerate(pornstars):
-                    pornstars[x] = value.get_text(strip=True)
-                pornstar = ' & '.join(pornstars)
-                pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-                lista = item.contentTitle.split('[/COLOR]')
-                pornstar = pornstar.replace('[/COLOR]', '')
-                pornstar = ' %s' %pornstar
-                if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
-                    lista.insert (2, pornstar)
-                else:
-                    lista.insert (1, pornstar)
-                item.contentTitle = '[/COLOR]'.join(lista)
-                pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
-                elem_json['plot'] = pornstar
-            
-            
+        
         except:
             logger.error(elem)
             logger.error(traceback.format_exc())

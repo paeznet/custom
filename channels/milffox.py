@@ -11,6 +11,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+#####   No existen los videos KTP. En recent sobre todo 
+
 canonical = {
              'channel': 'milffox', 
              'host': config.get_setting("current_host", 'milffox', default=''), 
@@ -25,7 +27,7 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "?o=1"))
+    # itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "?o=1"))
     itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "?o=2"))
     itemlist.append(Item(channel=item.channel, title="PornStar" , action="categorias", url=host + "milf-pornstars/"))
@@ -67,7 +69,7 @@ def categorias(item):
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
         url = urlparse.urljoin(item.url,url)
-        url += "?o=1"
+        # url += "?o=1"  #QUITA recent
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )

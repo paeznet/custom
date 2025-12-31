@@ -1,10 +1,10 @@
 {
-  "active": false,
+  "active": true,
   "find_videos": {
     "ignore_urls": [],
     "patterns": [
       {
-        "pattern": "((?:hqq|waaw|netu|waaw1|porntoday|richhioon)(?:\\.watch\\/|\\.\\w{2,4}\\/)(?:e/|f/|player/|)(?:embed_player\\.php\\?(?:v=|vid=)|)[A-z0-9]+)",
+        "pattern": "((?:hqq|waaw|netu|waaw1|porntoday|richhioon|woffxxx)(?:\\.watch\\/|\\.\\w{2,4}\\/)(?:e/|f/|player/|)(?:embed_player\\.php\\?(?:v=|vid=)|)[A-z0-9]+)",
         "url": "https://\\1"
       },
       {

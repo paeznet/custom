@@ -59,7 +59,8 @@ def submenu(item):
     itemlist.append(Item(channel=item.channel, title="Mas valorados" , action="lista", url=item.url + "?r_sortby=highest_rated"))
     itemlist.append(Item(channel=item.channel, title="Destacados" , action="lista", url=item.url + "category/featured-scenes/"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="categorias", url=item.url))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host, vid = item.vid))
+    if "adult/" in item.url:
+        itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host, vid = item.vid))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search", url=item.url))
     return itemlist
 
@@ -115,6 +116,9 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.find(class_='Title').text.strip()
+        time = elem.find(class_='mli-info1')
+        if time:
+            title = "[COLOR yellow]%s[/COLOR] %s" %(time.text.strip(), title)
         thumbnail = elem.img['src']
         if "svg" in thumbnail:
             thumbnail = elem.img['data-lazy-src']
@@ -128,7 +132,6 @@ def lista(item):
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
-# https://vidguard.to/e/3Q0lxB2DeZxj1Jk  >>>>   https://vembed.net/e/3Q0lxB2DeZxj1Jk
 
 def findvideos(item):
     logger.info()
@@ -141,14 +144,17 @@ def findvideos(item):
         for x , value in enumerate(pornstars):
             pornstars[x] = value.text.strip()
         pornstar = ' & '.join(pornstars)
-        pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
+        pornstar = "[COLOR cyan]%s[/COLOR] " % pornstar
         if len(pornstars) <= 2:
             lista = item.contentTitle.split()
             lista.insert (0, pornstar)
+            if "[COLOR yellow]" in item.contentTitle:
+                lista.insert (3, pornstar)
             item.contentTitle = ' '.join(lista)
             item.plot=pornstar
         else:
             item.plot=pornstar
+    
     matches = soup.find('div', id='pettabs').find_all('a')
     for elem in matches:
         url = elem['href']

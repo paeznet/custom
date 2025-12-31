@@ -183,13 +183,14 @@ def play(item):
         item.plot = '\n'.join(lista)
     
     
-    url = soup.iframe['src']
-    url = url.replace("index.php?", "load_m3u8_xtremestream.php?")
-    data = httptools.downloadpage(url).data
+    vid = soup.iframe['src']
+    # vid = vid.replace("index.php?", "load_m3u8_xtremestream.php?")
+    vid = vid.replace("index.php?", "xs1.php?")
+    data = httptools.downloadpage(vid, referer=vid).data
     patron = r'RESOLUTION=\d+x(\d+).*?\s(http.*?&q=\d+)'
     matches = scrapertools.find_multiple_matches(data, patron)
     for quality, url in matches:
-        url += '|ignore_response_code="True"'
-        # url += '|Referer=%s' %url
+        # url += '|ignore_response_code="True"'
+        url += '|Referer=%s' %vid
         itemlist.append(['[perverzija] %sp' %quality, url])
     return itemlist
