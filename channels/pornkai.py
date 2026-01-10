@@ -28,8 +28,8 @@ host = canonical['host'] or canonical['host_alt'][0]
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "api?query=full+movie&sort=new&method=search&page=0"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "api?query=full+movie&sort=best&method=search&page=0"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "api?query=all&sort=&method=search&page=0"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "api?query=all&sort=best&method=search&page=0"))
     itemlist.append(Item(channel=item.channel, title="Featured" , action="lista", url=host + "api?query=_best&sort=best&method=search&page=0"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "all-categories"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
@@ -39,7 +39,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "-")
-    item.url = "%sapi?query=%s&sort=new&method=search&page=0" % (host,texto)
+    item.url = "%sapi?query=%s&sort=&method=search&page=0" % (host,texto)
     try:
         return lista(item)
     except:
@@ -61,7 +61,7 @@ def categorias(item):
         if "gif" in thumbnail:
             thumbnail = elem.img['data-src']
         url = url.replace("/videos?q=", "")
-        url = "%sapi?query=%s&sort=new&method=search&page=0" %(host,url)
+        url = "%sapi?query=%s&sort=&method=search&page=0" %(host,url)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )

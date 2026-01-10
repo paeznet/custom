@@ -94,7 +94,45 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    return AlfaChannel.list_all(item, **kwargs)
+    # return AlfaChannel.list_all(item, **kwargs)
+    return AlfaChannel.list_all(item, matches_post=list_all_matches, **kwargs)
+
+
+def list_all_matches(item, matches_int, **AHkwargs):
+    logger.info()
+    matches = []
+    
+    findS = AHkwargs.get('finds', finds)
+    
+    for elem in matches_int:
+        
+        elem_json = {}
+        
+        try:
+            id = elem['id'].replace('vid-', '')
+            
+            # elem_json['url'] = "%sembed/%s.html" %(host,id)
+            elem_json['url'] = "https://www.trendyporn.com/embed/%s" %id
+            elem_json['title'] = elem.a.get('title', '') \
+                                 or elem.find(class_='title').get_text(strip=True) if elem.find(class_='title') else ''
+            if not elem_json['title']:
+                elem_json['title'] = elem.img.get('alt', '')
+            elem_json['thumbnail'] = elem.img.get('data-thumb_url', '') or elem.img.get('data-original', '') \
+                                     or elem.img.get('data-src', '') or elem.img.get('data-lazy-src', '') \
+                                     or elem.img.get('src', '')
+            elem_json['stime'] = elem.find(class_='timer').get_text(strip=True) if elem.find(class_='timer') else ''
+            if elem.find('div', class_='res-badge'):
+                elem_json['quality'] = 'HD'
+        
+        except:
+            logger.error(elem)
+            logger.error(traceback.format_exc())
+            continue
+        
+        if not elem_json['url']: continue
+        matches.append(elem_json.copy())
+    
+    return matches
 
 
 def findvideos(item):
@@ -108,13 +146,14 @@ def play(item):
     logger.info()
     itemlist = []
     
-    soup = AlfaChannel.create_soup(item.url, **kwargs)
-    
-    data = soup.find('iframe')['src']
-    url = scrapertools.find_single_match(data, '/([0-9]+).html')
-    url = "https://www.trendyporn.com/embed/%s.html" %url
-    
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    # data = AlfaChannel.httptools.downloadpage(item.url, **kwargs).data  ## "%sembed/%s.html" %(host,id)
+    # data = re.sub(r'\\"', '"', data)
+    # logger.debug(data)
+    # matches = scrapertools.find_multiple_matches(data, '<source src="([^"]+)" title="(\d+p)" type="video/mp4"')
+    # for url, quality in matches:
+        # url += "|REferer=%s" %host
+        # itemlist.append(['[pornegy] %s' %quality, url])
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 

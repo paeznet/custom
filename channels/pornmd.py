@@ -24,34 +24,35 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-# +20
-# https://www.pornmd.com/api/v1/video-search?start=20&query=big%20natural%20tits&orientation=straight
-# https://www.pornmd.com/api/v1/video-search?sources=redtube&start=80&query=big%20natural%20tits&orientation=straight
-# https://www.pornmd.com/api/v1/video-search?most_recent=1&start=60&query=big%20natural%20tits&orientation=straight
-# https://www.pornmd.com/straight/big+natural+tits?most_recent=1&start=0
+
+# https://www.pornmd.com/c/big-tits?filter%5Border_by%5D=date&page=2
 
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Buscar Nuevos" , action="search", orientation="straight", ver = 1))
-    itemlist.append(Item(channel=item.channel, title="Buscar Mejor valorados" , action="search", orientation="straight"))
+    itemlist.append(Item(channel=item.channel, title="Buscar Nuevos" , action="search", orientation="straight", ver = "date"))
+    itemlist.append(Item(channel=item.channel, title="Buscar Mas vistos" , action="search", orientation="straight", ver = "popular"))
+    itemlist.append(Item(channel=item.channel, title="Buscar Mejor valorados" , action="search", orientation="straight", ver = "rating"))
+    itemlist.append(Item(channel=item.channel, title="Buscar Mas largo" , action="search", orientation="straight", ver = "duration"))
     itemlist.append(Item(channel=item.channel))
-    itemlist.append(Item(channel=item.channel, title="Buscar Nuevos Trans" , action="search", orientation="tranny", ver = 1))
-    itemlist.append(Item(channel=item.channel, title="Buscar Mejor valorados Trans" , action="search", orientation="tranny"))
+    itemlist.append(Item(channel=item.channel, title="Buscar Nuevos Trans" , action="search", orientation="shemale", ver = "date"))
+    itemlist.append(Item(channel=item.channel, title="Buscar Mas vistos Trans" , action="search", orientation="shemale", ver = "popular"))
+    itemlist.append(Item(channel=item.channel, title="Buscar Mejor valorados Trans" , action="search", orientation="shemale", ver = "rating"))
+    itemlist.append(Item(channel=item.channel, title="Buscar Mas largo Trans" , action="search", orientation="shemale", ver = "duration"))
     itemlist.append(Item(channel=item.channel))
-    itemlist.append(Item(channel=item.channel, title="Buscar Nuevos Gay" , action="search", orientation="gay", ver = 1))
-    itemlist.append(Item(channel=item.channel, title="Buscar Mejor valorados Gay" , action="search", orientation="gay"))
+    itemlist.append(Item(channel=item.channel, title="Buscar Nuevos Gay" , action="search", orientation="gay", ver = "date"))
+    itemlist.append(Item(channel=item.channel, title="Buscar Mas vistos Gay" , action="search", orientation="gay", ver = "popular"))
+    itemlist.append(Item(channel=item.channel, title="Buscar Mejor valorados Gay" , action="search", orientation="gay", ver = "rating"))
+    itemlist.append(Item(channel=item.channel, title="Buscar Mas largo Gay" , action="search", orientation="gay", ver = "duration"))
     return itemlist
 
 
 def search(item, texto):
     logger.info()
-    texto = texto.replace(" ", "+")
+    texto = texto.replace(" ", "-")
     latest = ""
-    if item.ver:
-        latest = "most_recent=1&"
     # item.url = "%sapi/v1/video-search?%squery=%s&orientation=%s&start=0" % (host, latest, texto, item.orientation)
-    item.url = "%s%s/%s?%sstart=0" % (host, item.orientation, texto, latest)
+    item.url = "%sc/%s?filter[order_by]=%s&orientation=%s&page=1" % (host, texto, item.ver, item.orientation)
     try:
         return lista(item)
     except:
@@ -77,15 +78,27 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='thumb-holder')
+    matches = soup.find_all('div', class_='card')
     for elem in matches:
-        elem = elem.parent
         url = elem.a['href']
-        title = elem.img['alt']
-        thumbnail = elem.img['data-src']
-        time = elem.find('p', class_='vid-length').text.strip()
-        source = elem.find('p', class_='vid-source').text.strip()
-        title = "[COLOR yellow]%s[/COLOR] [%s] %s"  %(time,source,title)
+        title = elem.a['title']
+        # title = elem.img['alt']
+        texto = elem.find('span', class_='badge').text.strip()
+        quality = ""
+        if "HD" in texto:
+            quality = "HD"
+            time = texto.replace("HD", "").strip()
+        elif "4K"in texto:
+            quality = "4K"
+            time = texto.replace("4K", "").strip()
+        elif "VR"in texto:
+            quality = "VR"
+            time = texto.replace("VR", "").strip()
+        else:
+            time = texto
+        source = elem.find('div', class_='item-source-rating-container').a.text.strip()
+        thumbnail = elem.img['src']
+        title = "[COLOR yellow]%s[/COLOR] [COLOR cyan]%s[/COLOR] [%s] %s"  %(time,quality,source,title)
         url = urlparse.urljoin(item.url,url)
         plot = ""
         action = "play"
@@ -93,9 +106,9 @@ def lista(item):
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('li', class_='active')
-    if next_page and next_page.find_next_sibling("li"):
-        next_page = next_page.find_next_sibling("li").a['href']
+    next_page = soup.find('nav', class_='pagination').find_all('a')
+    if next_page:
+        next_page = next_page[-1]['href']
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist

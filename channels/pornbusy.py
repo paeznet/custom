@@ -25,6 +25,10 @@ forced_proxy_opt = 'ProxySSL'
 # https://av.ezplayer.me/#jbcf          KINOGER
 # https://safe.soul.lol/q4IL1QdC.mp4    DIRECTO
 # https://anonvideo.net/embed/G08auB
+# https://upload18.com/play/index/6cd687258695   file: "/play/token_hash?hash=1d04181f125e1e173c07014314071f0d14075a5d2b4d1b02055f1a0605015e1732501a555a425c5d5754001769000b5b4d475e5a5952080d7013030c0c1c051c154a5c0b2a5b"
+            # https://upload18.com/play/token_hash?hash=1d04181f125e1e173c07014314071f0d14075a5d2b4d1b02055f1a0605015e1732501a555a425c5d5754001769000b5b4d475e5a5952080d7013030c0c1c051c154a5c0b2a5b     |Referer=https://upload18.com/
+# https://krakenfiles.com/embed-video/l332Ck5Mp6  https://phs1.krakencloud.net/play/video/OGU5ODViZTYxYjhjZTc4ZfrYH7Km-GUyDw4nGb-goThf0pdBZTEnGuGntum-fMb8uWMDKSLGx-e4jpkaNge58rSr3UfiN6HhEKcMXDhjxLw2ZmAnnWIQyC7iJFcRHes5
+#https://cdn.loadvid.com/videos/play/vGBFmERHHSccDDYcUXiD    videoUrl = 'https://cdn.loadvid.com/protected-file/user/367/hls/1/9a2b98b2-d2d2-4cff-8426-137e00d2f84b-1767314695/66071070-8f4b-4e91-a5e4-f623e5df5296.m3u8?expires=1767448593&signature=d90e43305a85768b80eb2e208ca7318b99b6e1bf975a7d75666a6b25f95832f1';
 
 canonical = {
              'channel': 'pornbusy', 

@@ -1114,7 +1114,8 @@ def play(item):
     patron += '(?:video_url_text|video_alt_url[0-9]*_text):\s*\'([^\']+)\''
     matches = re.compile(patron,re.DOTALL).findall(data)
     for url,quality in matches:
-        itemlist.append(['.mp4 %s' %quality, url])
+        +
+        
     return itemlist
 
 

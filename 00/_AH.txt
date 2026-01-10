@@ -479,6 +479,7 @@ hdzog		TXXX
 heroero 
 -hoestube
 -hornybutt
+-hornyfans 	findvideos  last y next_page  findS['next_page'] = {'find_all': [{'tag': ['a'], 'role': ['button'], '@POS': [-1], '@ARG': 'href'}]}
 -hornysimp	findvideos
 hotmovs		TXXX 
 -hotporn

@@ -27,7 +27,7 @@ forced_proxy_opt = 'ProxySSL'
 # https://asianviralhub.com/  https://hornyfap.com/  https://nudes7.com/  https://sloppyfans.com/
 # https://www.alotporn.com/  https://leak.xxx/  https://love4porn.com/
 
-# https://www.vidzx.org/
+# https://www.vidzx.org/   
 # https://castingporn.tv/  https://justleaks.tv/  https://onlymoms.tv/  https://sisporn.tv/   enlaces de https://www.pornwex.tv/
 
 canonical = {
@@ -120,7 +120,7 @@ def mainlist(item):
 
     itemlist.append(Item(channel=item.channel, title="vidzx" , action="submenu", url= "https://www.vidzx.org/", chanel="vidzx", thumbnail = "https://www.vidzx.org/contents/kdoesnjlitbh/theme/logo.png"))
 
-    # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
+    itemlist.append(Item(channel=item.channel, title="modporn" , action="submenu", url= "https://modporn.com/", chanel="modporn", thumbnail = "https://modporn.com/contents/iwgqgjcffygg/theme/logo.png"))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
@@ -148,7 +148,7 @@ def submenu(item):
         if "porndr" in item.url:
             itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=item.url + "channels/?sort_by=total_videos&from=1", extra="Canal", chanel=item.chanel))
         elif not "alotporn" in item.url and not "hornyfap" in item.url and not "leak.xxx" in item.url and not "nudes7" in item.url and not "shareanynudes" in item.url\
-            and not "pornkinky" in item.url and not "pornbimbo" in item.url and not "sloppyfans" in item.url and not "thothub" in item.url:
+            and not "pornkinky" in item.url and not "pornbimbo" in item.url and not "sloppyfans" in item.url and not "thothub" in item.url and not "modporn" in item.url:
             itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=item.url + "sites/?sort_by=total_videos&from=1", extra="Canal", chanel=item.chanel))
         if "love4porn" in item.url:
             itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=item.url + "performers/?sort_by=avg_videos_popularity&from=1", extra="PornStar", chanel=item.chanel))
