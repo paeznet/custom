@@ -21,7 +21,7 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
-### SI se logra reproducir un video lo REPRODUCE LENTO Y MAL
+###  KTP  generate_mp4  ENCRYPT 
 
 canonical = {
              'channel': 'porngrey', 

@@ -123,14 +123,6 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     logger.info()
     matches = []
     findS = AHkwargs.get('finds', finds)
-    srv_ids = {"dood": "Doodstream",
-               "Streamtape": "Streamtape ",
-               "sbthe": "Streamsb",
-               "tubexplayer": "Tiwikiwi",
-               "VOE": "voe",
-               "mixdrop.co": "Mixdrop",
-               "Upstream": "Upstream"}
-    
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
     
@@ -148,7 +140,6 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
             # lista.insert (2, pornstar)
         # item.contentTitle = ' '.join(lista)
     
-    
     for elem in matches_int:
         elem_json = {}
         # logger.error(elem)
@@ -159,14 +150,9 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
                 if elem_json['url'].endswith('.jpg'): continue
             else:
                 elem_json['url'] = elem.get("href", "") or elem.get("src", "")
-            if AlfaChannel.obtain_domain(elem_json['url']):
-                elem_json['server'] = AlfaChannel.obtain_domain(elem_json['url']).split('.')[-2]
-            else: 
-                elem_json['server'] = "dutrag"  ### Quitar los watch/YnqAKRJybm2PJ  aparecen en movies
-            if elem_json['server'] in ["Netu", "trailer", "k2s", "dutrag", "adtng"]: continue
+            if "filemirage" in elem_json['url'] or "adtng.com" in elem_json['url']: continue
+            
             elem_json['server'] = ''
-            # if elem_json['server'] in srv_ids:
-                # elem_json['server'] = srv_ids[elem_json['server']]
             elem_json['language'] = ''
         
         except:
@@ -177,8 +163,6 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
         
         matches.append(elem_json.copy())
     
-
-
     return matches, langs
 
 

@@ -20,7 +20,11 @@ list_language = list(IDIOMAS.values())
 list_quality = []
 list_servers = ['vidlox']
 
+#####    https://xxxmoviestream.com/
+
+###########    NO TIENE videos en cwat
 ####          Just a moment...     FUNCIONA CON WARP
+
 # cf_assistant = "force" if is_alfa_installed() else False
 cf_assistant = True if is_alfa_installed() else False
 forced_proxy_opt = None if cf_assistant else 'ProxySSL'
@@ -145,15 +149,17 @@ def findvideos(item):
     logger.info()
     itemlist = []
     frames = []
-    soup = create_soup(item.url).find('div', class_='responsive-player')
-    matches = soup.find_all('iframe')
+    soup = create_soup(item.url)
+    plot = soup.find('div', class_='video-description').text.strip()
+    matches = soup.find('div', class_='responsive-player').find_all('iframe')
     for elem in matches:
         url = elem['src']
         if "about:" in url:
             url =  elem['data-lazy-src']
+        if "vidxhot" in url: continue
         if not url in frames:
             frames.append(url)
-            itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+            itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url, plot=plot))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     autoplay.start(itemlist, item)
     return itemlist

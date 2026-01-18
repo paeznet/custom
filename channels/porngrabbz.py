@@ -12,6 +12,7 @@ if not PY3: _dict = dict; from AlfaChannelHelper import dict
 from AlfaChannelHelper import DictionaryAdultChannel
 from AlfaChannelHelper import re, traceback, time, base64, xbmcgui
 from AlfaChannelHelper import Item, servertools, scrapertools, jsontools, get_thumb, config, logger, filtertools, autoplay
+from lib.alfa_assistant import is_alfa_installed
 
 IDIOMAS = AlfaChannelHelper.IDIOMAS_A
 list_language = list(set(IDIOMAS.values()))
@@ -19,9 +20,14 @@ list_quality_movies = AlfaChannelHelper.LIST_QUALITY_MOVIES_A
 list_quality_tvshow = []
 list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
+
 forced_proxy_opt = 'ProxySSL'
 
 #######   CF2
+# cf_assistant = True if is_alfa_installed() else False
+# cf_assistant = 'force' if is_alfa_installed() else False
+# forced_proxy_opt = None if cf_assistant else 'ProxyCF'
+# cf_debug = True
 
 canonical = {
              'channel': 'porngrabbz', 
@@ -30,6 +36,15 @@ canonical = {
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
+             
+             # 'set_tls': True, 'set_tls_min': True, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': cf_assistant, 
+             # 'cf_assistant_ua': True, 'cf_assistant_get_source': True if cf_assistant == 'force' else False, 
+             # 'cf_no_blacklist': True, 'cf_removeAllCookies': False if cf_assistant == 'force' else True,
+             # 'cf_challenge': True, 'cf_returnkey': 'url', 'cf_partial': True, 'cf_debug': cf_debug, 
+             # 'cf_cookies_names': {'cf_clearance': False},
+             # 'CF_if_assistant': True if cf_assistant is True else False, 'retries_cloudflare': -1, 
+             # 'CF_stat': True if cf_assistant is True else False, 'session_verify': True, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True, 'renumbertools': False
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
@@ -49,7 +64,7 @@ finds = {'find': dict([('find', [{'tag': ['div', 'main'], 'id': ['primary', 'mai
          'get_quality': {}, 
          'get_quality_rgx': '', 
          'next_page': {},
-         'next_page_rgx': [['\/page\/\d+', '/page/%s']], 
+         'next_page_rgx': [['\/page\/\d+\/', '/page/%s/']], 
          'last_page': dict([('find', [{'tag': ['div', 'nav'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            '@ARG': 'href', '@TEXT': 'page/(\d+)'}])]), 
@@ -85,7 +100,7 @@ def section(item):
     logger.info()
     
     findS = finds.copy()
-    findS['url_replace'] = [['(\/(?:categories|channels|models|pornstars|actor)\/[^$]+$)', r'\1?filter=latest']]
+    findS['url_replace'] = [['(\/(?:category|actor)\/[^$]+$)', r'\1page/1/?filter=latest']]
     
     return AlfaChannel.section(item, finds=findS, **kwargs)
 

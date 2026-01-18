@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 import base64
 
 # https://ixiporn.com  https://uncutmaza.com/  https://xvideosdesi.net/   https://www.pornhqxxx.com/  
-# casi todos los links caidos
+# ya parece que van casi todos los links caidos
 canonical = {
              'channel': 'pornhqxxx', 
              'host': config.get_setting("current_host", 'pornhqxxx', default=''), 

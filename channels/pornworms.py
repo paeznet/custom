@@ -51,7 +51,7 @@ finds = {'find': {'find_all': [{'tag': ['li'],  'id': re.compile(r"^(?:video|mov
          'get_quality_rgx': '', 
          'next_page': {},
          'next_page_rgx': [['\/\d+', '/%s'], ['&page=\d+', '&page=%s']], 
-         'last_page': dict([('find', [{'tag': ['div', 'nav', 'ul'], 'class': ['n-pagination', 'pagination']}]), 
+         'last_page': dict([('find', [{'tag': ['ul'], 'class': ['pagination']}]), 
                             ('find_all', [{'tag': ['a'], '@POS': [-2], 
                                            '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
          'plot': {}, 
@@ -99,7 +99,8 @@ def section(item):
     logger.info()
     
     findS = finds.copy()
-    # findS['url_replace'] = [['(\/(:?model|movies)\/[^$]+$)', r'\1?o=recent&page=1']]
+    # findS['url_replace'] = [['([^$]+$)', r'\1recent/']]
+    # findS['url_replace'] = [['(\/(:?model|movies)\/[^$]+$)', r'\1?o=recent/1/']]
     if item.extra == 'Canal':
         findS['profile_labels']['section_title'] = {'find': [{'tag': ['img'], '@ARG': 'alt'}]}
     
@@ -109,7 +110,13 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    return AlfaChannel.list_all(item, **kwargs)
+    findS = finds.copy()
+    if item.extra == 'Categorias' or item.extra == 'Canal':
+        findS['last_page'] = {}
+        findS['next_page'] =  dict([('find', [{'tag': ['ul'], 'class': ['pagination']}]), 
+                                    ('find_all', [{'tag': ['a'], '@POS': [-1], '@ARG': 'href'}])])
+    
+    return AlfaChannel.list_all(item, finds=findS, **kwargs)
 
 
 def findvideos(item):
