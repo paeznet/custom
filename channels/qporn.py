@@ -84,7 +84,7 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="qporn" , action="submenu", url= "https://qporn.org/", chanel="24porn", thumbnail = "https://i.postimg.cc/VLBthgzb/qporn.png"))
+    itemlist.append(Item(channel=item.channel, title="qporn" , action="submenu", url= "https://qporn.org/", chanel="qporn", thumbnail = "https://i.postimg.cc/VLBthgzb/qporn.png"))
     itemlist.append(Item(channel=item.channel, title="bporn" , action="submenu", url= "https://bporn.org/", chanel="bporn", thumbnail = ""))
     itemlist.append(Item(channel=item.channel, title="cporn" , action="submenu", url= "https://cporn.org/", chanel="cporn", thumbnail = ""))
     itemlist.append(Item(channel=item.channel, title="fporn" , action="submenu", url= "https://fporn.org/", chanel="fporn", thumbnail = ""))
@@ -171,12 +171,12 @@ def list_all_matches(item, matches_int, **AHkwargs):
         
         try:
             
-            elem_json['url'] = elem.a.get('href', '')
+            href = elem.a.get('href', '')
             elem_json['title'] = elem.a.get('title', '')
             elem_json['thumbnail'] = elem.img.get('src', '')
             id = elem.figure['id']
-            url = "cdn/%s.m3u8|Referer=%s" %(id, item.url)
-            elem_json['url'] =AlfaChannel.urljoin(AlfaChannel.host,url)
+            # elem_json['url'] = "%scdn/%s.m3u8|Referer=%s" %(AlfaChannel.host,id, href)
+            elem_json['url'] = "%scdn/%s.m3u8" %(AlfaChannel.host,id)
             
             elem_json['stime'] = elem.i.get('data-text', '')
             if elem.find('figure', class_=['hd']):
@@ -214,6 +214,16 @@ def findvideos(item):
     
     return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
                                          verify_links=False, findvideos_proc=True, **kwargs)
+
+
+def play(item):
+    logger.info()
+    itemlist = []
+    
+    url = AlfaChannel.httptools.downloadpage(item.url, **kwargs).url
+    itemlist.append(['[%s]' %item.chanel, url])
+    
+    return itemlist[::-1]
 
 
 def search(item, texto, **AHkwargs):

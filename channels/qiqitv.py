@@ -44,11 +44,10 @@ finds = {'find': {'find_all': [{'tag': ['div'], 'id': re.compile(r"^post-\d+")}]
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
-         'next_page': {},
-         'next_page_rgx': [['\/\d+', '/%s'], ['&page=\d+', '&page=%s']], 
-         'last_page': dict([('find', [{'tag': ['div'], 'class': ['pag-nav']}]), 
-                            ('find_all', [{'tag': ['a'], '@POS': [-1], 
-                                           '@ARG': 'href', '@TEXT': '(?:/|=)(\d+)'}])]), 
+         'next_page': dict([('find', [{'tag': ['div'], 'class': ['pag-nav']}]), 
+                            ('find_all', [{'tag': ['a'], '@POS': [-1], '@ARG': 'href'}]) ]), 
+         'next_page_rgx': [['\/page\/\d+', '/page/%s']], 
+         'last_page': {},
          'plot': {}, 
          'findvideos': {},
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
@@ -56,7 +55,7 @@ finds = {'find': {'find_all': [{'tag': ['div'], 'id': re.compile(r"^post-\d+")}]
          'url_replace': [], 
          'profile_labels': {
                            },
-         'controls': {'url_base64': False, 'cnt_tot': 30, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
+         'controls': {'url_base64': False, 'cnt_tot': 20, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -68,15 +67,19 @@ def mainlist(item):
     logger.info()
     itemlist = []
     # autoplay.init(item.channel, list_servers, list_quality)
-
+    
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1"))
     itemlist.append(Item(channel=item.channel, title="Big Tits" , action="list_all", url=host + "kategori/buyuk-memeli-porno/page/1"))
     itemlist.append(Item(channel=item.channel, title="Brazzers" , action="list_all", url=host + "kategori/brazzers/page/1"))
+    itemlist.append(Item(channel=item.channel, title="Bangbros" , action="list_all", url=host + "kategori/bangbros-porno/page/1"))
+    itemlist.append(Item(channel=item.channel, title="Mofos" , action="list_all", url=host + "kategori/mofos-porno/page/1"))
+    itemlist.append(Item(channel=item.channel, title="Reality Kings" , action="list_all", url=host + "kategori/reality-kings/page/1"))
+    itemlist.append(Item(channel=item.channel, title="Sexmex" , action="list_all", url=host + "kategori/sexmex/page/1"))
     # itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "channel/top-rated", extra="Canal"))
     # itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "pornstar", extra="PornStar"))
     # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/", extra="Categorias"))
     # itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
-
+    
     # autoplay.show_option(item.channel, itemlist)
     
     return itemlist
@@ -107,14 +110,21 @@ def play(item):
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
     url = soup.iframe['data-src']
-    url1 = url.replace("p.php", "s.php")
-    soup = AlfaChannel.create_soup(url1,referer=url, **kwargs)
-    url = soup.source['src']
-    itemlist.append(Item(channel=item.channel, action="play", contentTitle = item.contentTitle, url=url))
-    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
-    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    if ".php" in url:
+        url = AlfaChannel.httptools.downloadpage(url, **kwargs).url
     
-    return itemlist
+    response = AlfaChannel.httptools.downloadpage(url, **kwargs)
+    data = response.data
+    
+    # if response.code == 404:
+        # return False, "[upload18] El fichero no existe o ha sido borrado"
+    
+    patron = '"res":(\d+),"src":"([^"]+)"'
+    matches = re.compile(patron,re.DOTALL).findall(data)
+    for quality, url in matches:
+        url = url.replace("\/", "/")
+        itemlist.append(['[qiqitv] %sp' %quality, url])
+    return itemlist[::-1]
 
 
 def search(item, texto, **AHkwargs):

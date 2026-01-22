@@ -22,12 +22,13 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
 ####   Tags    dan NETU
+####  https://www.povaddict.net/   https://www1.povcum.net/
 
 canonical = {
              'channel': 'povcum', 
              'host': config.get_setting("current_host", 'povcum', default=''), 
-             'host_alt': ["https://www1.povcum.net/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://www.povaddict.net/"], 
+             'host_black_list': ["https://www1.povcum.net/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -76,7 +77,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "page/1/?filter=longest"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "channel/page/1/", extra="Canal"))
     itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "actors/page/1/", extra="PornStar"))
-    # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "tags", extra="Categorias"))  ## NETU
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "tags", extra="Categorias"))  ## NETU
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     
     return itemlist
