@@ -295,10 +295,10 @@ findS['controls']['cnt_tot'] = 9999
 'next_page_rgx': [['page\d+.html', 'next_page_url']] PAGINACION SIEMPRE https://www.sexvr.com/page2.html  HOST + page2.html   y asi item.url + page2.html
 
 
-
+###########################################################################################################################################################
                     data = AlfaChannel.httptools.downloadpage(item.url, **kwargs).data
                     soup = AlfaChannel.do_soup(data, encoding='utf-8')
-
+###########################################################################################################################################################
 
 url = AlfaChannel.do_unquote(url)  quita los %20 por su simbolo  EQUIVALE a urlparse.unquote(url)
 data = AlfaChannel.convert_url_base64(url, host)  porneec
