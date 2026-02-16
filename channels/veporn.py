@@ -21,6 +21,9 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+#### OUT feb_2026
+
+
 canonical = {
              'channel': 'veporn', 
              'host': config.get_setting("current_host", 'veporn', default=''), 
