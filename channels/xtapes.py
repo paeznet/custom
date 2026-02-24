@@ -9,6 +9,10 @@ from core import servertools
 from core import httptools
 from core import urlparse
 from bs4 import BeautifulSoup
+from modules import autoplay
+
+list_quality = []
+list_servers = []
 
 
 forced_proxy_opt = ''
@@ -26,16 +30,17 @@ canonical = {
 host = canonical['host'] or canonical['host_alt'][0]
 
 
-# Links NetuTV <iframe src=   https://74k.io/e/a9e4rdlxn29v    https://88z.io/#tapgfp
-
-# https://ww2.xtapes.to/bigtits-hd-porn-371770/page/2/?display=tube&filtre=date
-
-
 def mainlist(item):
     logger.info()
     itemlist = []
+    
+    autoplay.init(item.channel, list_servers, list_quality)
+    
     itemlist.append( Item(channel=item.channel, title="Peliculas" , action="submenu", url=host + "porn-movies-hd/", extra=1))
     itemlist.append( Item(channel=item.channel, title="Videos" , action="submenu", url=host))
+    
+    autoplay.show_option(item.channel, itemlist)
+    
     return itemlist
 
 
@@ -130,4 +135,7 @@ def findvideos(item):
     for url in matches:
         itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    
+    # Requerido para AutoPlay
+    autoplay.start(itemlist, item)
     return itemlist

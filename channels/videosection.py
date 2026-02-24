@@ -87,7 +87,7 @@ def categorias(item):
             url += "?sort=-created&p=1"
         thumbnail = elem.img['data-src']
         url = urlparse.urljoin(item.url,url)
-        url += "?sort=-created&p=1"
+        # url += "?sort=-created&p=1"
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
         thumbnail = urlparse.urljoin(item.url,thumbnail)

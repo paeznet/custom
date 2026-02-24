@@ -20,7 +20,7 @@ list_language = list(IDIOMAS.values())
 list_quality = []
 list_servers = ['vidlox']
 
-#####    https://xxxmoviestream.com/
+#####  FALTA SERVER  https://vidsonic.net/e/vs8indiqxijq
 
 ###########    NO TIENE videos en cwat
 ####          Just a moment...     FUNCIONA CON WARP
@@ -36,7 +36,7 @@ canonical = {
              'channel': 'xtheatre', 
              'host': config.get_setting("current_host", 'xtheatre', default=''), 
              'host_alt': ["https://pornxtheatre.com/"], 
-             'host_black_list': [], 
+             'host_black_list': ["https://xxxmoviestream.com/"], 
              # 'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 7, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
              # 'cf_assistant': False, 'CF_stat': True, 
              # 'CF': False, 'CF_test': False, 'alfa_s': True

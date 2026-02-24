@@ -22,7 +22,7 @@ list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
 
-######      KTP   ---->     https://bbaze.top/eu46/default.mp4
+######      KTP FALLAN POR NI EXISTIR  ---->     https://bbaze.top/eu46/default.mp4
 ######      RES fotos https://watcherotic.com/contents/videos_screenshots/3000/3444/336x189/4.jpg hasta con |verifypeer=false
                     # thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
 
@@ -170,7 +170,7 @@ def search(item, texto, **AHkwargs):
     logger.info()
     kwargs.update(AHkwargs)
     
-    item.url = "%ssearch/video/?s=%s&o=recent&page=1" % (host, texto.replace(" ", "+"))
+    item.url = "%ssearch/?q=%s&sort_by=post_date&from_videos=1" % (host, texto.replace(" ", "+"))
     
     try:
         if texto:

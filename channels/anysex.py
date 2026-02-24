@@ -112,7 +112,6 @@ def lista(item):
             thumbnail = "https:%s" % thumbnail
         if "608x342" in thumbnail:
             thumbnail = thumbnail.replace("608x342", "640x360")
-        logger.debug(thumbnail)
         time = elem.find('div', class_='duration').text.strip()
         quality = elem.find('span', class_='is-hd')
         title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
