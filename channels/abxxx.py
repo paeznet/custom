@@ -128,8 +128,8 @@ def categorias(item):
         if cantidad:
             title = "%s (%s)" %(title,cantidad)
         plot = ""
-        itemlist.append(Item(channel=item.channel, action="list_all", title=title, url=url, domi = item.domi,
-                             thumbnail=thumbnail , plot=plot) )
+        itemlist.append(Item(channel=item.channel, action="list_all", title=title, url=url, 
+                             domi = item.domi, thumbnail=thumbnail , plot=plot) )
                              
     if not "categories" in item.extra:
         postsNumber = data_json['total_count']
@@ -172,11 +172,11 @@ def list_all(item):
         time = "[COLOR %s] %s[/COLOR]" % (color.get('year',''),time)
         quality = "[COLOR %s] %s[/COLOR]" % (color.get('quality',''),quality)
         title = "%s %s %s %s" %(time,quality,pornstar,title)
-        plot = ""
         url =  "%svideos/%s/%s/" % (item.domi, id, dir)
+        plot = ""
         
         itemlist.append(Item(channel=item.channel, action="play", title=title, url=url, thumbnail=thumbnail,
-                               plot=plot, fanart=thumbnail, contentTitle=title ))
+                              domi=item.domi, plot=plot, fanart=thumbnail, contentTitle=title ))
     
     postsNumber = data_json['total_count']
     lastpage = int(postsNumber)/cnt_tot
@@ -187,7 +187,7 @@ def list_all(item):
         title="[COLOR blue]Página %s de %s[/COLOR]" %(page,lastpage)
         page += 1
         next_page = re.sub(r".\d+.all.", ".{0}.all.".format(page), item.url)
-        itemlist.append(Item(channel=item.channel, action="list_all", title=title, url=next_page) )
+        itemlist.append(Item(channel=item.channel, action="list_all", domi=item.domi, title=title, url=next_page) )
     return itemlist
 
 
