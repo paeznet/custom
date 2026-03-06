@@ -350,8 +350,9 @@ SubmitYourFlicks	multicanal
 
 -kookporn		multicanal   https://kookporn.com/    https://colliderporn.com/  https://pornobrot.com/
 -leslez 		multicanal   leslez  teenxy
+-ogporn			multicanal 
 -onlinetube		multicanal   onlinetube  huyamba   pornoreka
--qporn			multicanal  ....
+-qporn			multicanal  ogporn  thothub2
 -studentki		multicanal  studentki rumult 
 -trendyporn		multicanal  trendyporn  6xtube  blendporn  daftsextube  hentaiprno  yespornplease=sexyporn  youcrazyx  yrprno
 -WankTV			multicanal  sextubefun wanktv iporntoo hdporn-movies wetsins
@@ -524,7 +525,7 @@ mydadspies
 -nudede		https://iframe.mediadelivery.net/ por resolver
 nubilefilm
 -nudesleaker    findvideos https://sauceplayer.co/e/fUWf5Fb3qkA64A8VZrR3tn  cambia donde situar  matches.append(elem_json.copy())
--ogporn
+
 okporn		next_page con last_page          findS['next_page'] = {}     item.last_page = 9999
 -onlyincest
 -petitespinners

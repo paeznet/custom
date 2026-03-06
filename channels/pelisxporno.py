@@ -21,18 +21,22 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
+######   ZOMBIE OUT los videos 
 
 canonical = {
              'channel': 'pelisxporno', 
              'host': config.get_setting("current_host", 'pelisxporno', default=''), 
              'host_alt': ["https://pelisxporno.net/"], 
              'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-timeout = 5
+timeout = 40
 kwargs = {}
 debug = config.get_setting('debug_report', default=False)
 movie_path = ''
@@ -117,8 +121,7 @@ def play(item):
     
     itemlist = []
     
-    soup = AlfaChannel.create_soup(item.url, **kwargs)
-    
+    soup = AlfaChannel.create_soup(item.url, timeout=timeout, **kwargs)
     if soup.find_all('div', id="video-actors"):
         pornstars = soup.find_all('a', href=re.compile("/actor/[A-z0-9-]+(?:/|)"))
         
@@ -145,6 +148,7 @@ def play(item):
             url = AlfaChannel.do_unquote(url_decode)
             url = scrapertools.find_single_match(url, '<(?:iframe|source) src="([^"]+)"')
     
+    logger.debug(url)
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     
