@@ -78,8 +78,8 @@ def mainlist(item):
     # itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "videos/longest/"))
     # itemlist.append(Item(channel=item.channel, title="Mas Descargas" , action="list_all", url=host + "videos/downloaded/"))
     # itemlist.append(Item(channel=item.channel, title="Trending" , action="list_all", url=host + "videos/watched/"))
-    itemlist.append(Item(channel=item.channel, title="Pornstar" , action="section", url=host + "actors-3/page/1", extra="PornStars"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories-f/", extra="Categorias"))
+    itemlist.append(Item(channel=item.channel, title="Pornstar" , action="section", url=host + "actors-4/page/1", extra="PornStars"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories-g/", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     
     return itemlist

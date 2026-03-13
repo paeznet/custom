@@ -96,7 +96,7 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find_all('div', class_='b-thumb-item')
+    matches = soup.find('div', id='galleries').find_all('div', class_='b-thumb-item')
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']

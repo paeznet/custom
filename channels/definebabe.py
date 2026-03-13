@@ -103,10 +103,7 @@ def create_soup(url, referer=None, unescape=False):
 def lista(item):
     logger.info()
     itemlist = []
-    
-    data = httptools.downloadpage(item.url, canonical=canonical).data
-    soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
-    
+    soup = create_soup(item.url)
     matches = soup.find_all('div', class_='models-videos__col')
     for elem in matches:
         url = elem.a['href']
@@ -126,10 +123,12 @@ def lista(item):
             action = "findvideos"
         itemlist.append(Item(channel=item.channel, action=action, title=title, contentTitle=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
+    # next_page = soup.find("link", attrs={"rel": "next"})
+    next_page = soup.find("link", rel="next")
     # next_page = soup.find("a", string=re.compile(r"^Next"))
-    next_page = scrapertools.find_single_match(data, 'href="([^"]+)">Next')
+    logger.debug(next_page)
     if next_page:
-        # next_page = next_page['href']
+        next_page = next_page['href']
         next_page = urlparse.urljoin(item.url,next_page)
         itemlist.append(Item(channel=item.channel, action="lista", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
