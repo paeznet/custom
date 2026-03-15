@@ -216,7 +216,8 @@ def play(item):
         logger.error()
     
     if  soup.find('div', class_='player-holder').iframe:
-        item.url = soup.find('div', class_='player-holder').iframe['src']
+        if not "spot" in soup.find('div', class_='player-holder').iframe['src']:
+            item.url = soup.find('div', class_='player-holder').iframe['src']
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
