@@ -75,7 +75,7 @@ def mainlist(item):
     logger.info()
     itemlist = []
     itemlist.append(Item(channel=item.channel, title="fullxcinema" , action="submenu", url= "https://fullxcinema.com/", chanel="fullxcinema", thumbnail = "https://i.postimg.cc/6pzHP8WP/fullxcinema.png"))
-    itemlist.append(Item(channel=item.channel, title="xmovies" , action="submenu", url= "https://www.bestxmovies.com/", chanel="xmovies", thumbnail = "https://i.postimg.cc/htxhSvZY/xmovies.png"))
+    # itemlist.append(Item(channel=item.channel, title="xmovies" , action="submenu", url= "https://www.bestxmovies.com/", chanel="xmovies", thumbnail = "https://i.postimg.cc/htxhSvZY/xmovies.png"))
     itemlist.append(Item(channel=item.channel, title="fulladultmovies" , action="submenu", url= "https://fulladultmovies.com/", chanel="fulladultmovies", thumbnail = "https://i.postimg.cc/W1PTwnS9/fulladultmovies.png"))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))

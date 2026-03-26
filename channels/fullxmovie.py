@@ -62,8 +62,8 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
                             ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            '@ARG': 'href', '@TEXT': 'page/(\d+)'}])]), 
          'plot': {}, 
-         'findvideos': dict([('find', [{'tag': ['header'], 'class': ['entry-header']}]), 
-                             ('find_all', [{'tagOR': ['a'], 'href': True, 'id': 'tracking-url'},
+         'findvideos': dict([('find', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]), 
+                             ('find_all', [{'tagOR': ['a'], 'href': True, 'rel': 'noreferrer'},
                                            {'tag': ['iframe']}])]),
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
@@ -72,7 +72,7 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
                             # 'list_all_quality': dict([('find', [{'tag': ['span'], 'class': ['hd-video']}]),
                                                       # ('get_text', [{'tag': '', 'strip': True}])]),
                             },
-         'controls': {'url_base64': False, 'cnt_tot': 20, 'reverse': False, 'profile': 'default'}, 
+         'controls': {'url_base64': False, 'cnt_tot': 10, 'reverse': False, 'profile': 'default'}, 
          'timeout': timeout}
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
@@ -86,9 +86,7 @@ def mainlist(item):
     
     autoplay.init(item.channel, list_servers, list_quality)
     
-    itemlist.append(Item(channel = item.channel, title="Peliculas" , action="submenu", url=host + "category/fullxmovie/"))
-    itemlist.append(Item(channel = item.channel, title="Hentai" , action="submenu", url=host + "category/hentai/"))
-    itemlist.append(Item(channel = item.channel, title="OnlyFans" , action="submenu", url=host + "category/onlyfans/"))
+    itemlist.append(Item(channel = item.channel, title="Peliculas" , action="submenu", url=host ))
     itemlist.append(Item(channel = item.channel, title="FamilyRoleplay" , action="submenu", url=host + "category/family-roleplay/"))
     itemlist.append(Item(channel = item.channel, title="Buscar", action="search"))
     
@@ -115,8 +113,8 @@ def section(item):
     logger.info()
     
     findS = finds.copy()
-    if item.extra:
-        findS['controls']['cnt_tot'] = 50
+    # if item.extra:
+        # findS['controls']['cnt_tot'] = 50
     
     return AlfaChannel.section(item, finds=findS, **kwargs)
 

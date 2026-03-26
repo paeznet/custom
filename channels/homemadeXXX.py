@@ -11,6 +11,9 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+###   DE PAGO
+
+
 canonical = {
              'channel': 'homemadeXXX', 
              'host': config.get_setting("current_host", 'homemadeXXX', default=''), 
