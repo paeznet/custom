@@ -210,9 +210,30 @@ camsoda.json    mat6tube.json  mat6tube.json  stripchat.json  vsexin.json   xvid
 #########################################
 
 
+findS['controls']['action'] = 'findvideos'    en list_all
+ 
+findS['url_replace'] = [['($)', '1/']]			url + "1/"
+
+findS['url_replace'] = [['([^$]+$)', r'\1&filter=latest&paged=1']] >>>>> https://baddiehub.com/?cat=90 + &filter=latest
 
 
+load more con parametros     if item.extra == 'PornStar':
+				findS['next_page'] = {}   ### SI LA PAGINACION ES por NEXT_PAGE
+        			item.last_page = 9999
 
+
+item.last_page = 9999   uppornx tiene load moore  >>>>>>>  models/?sort_by=total_videos&from=1 +1 
+
+#################################
+
+'next_page_rgx': [['page\d+.html', 'next_page_url']], PAGINACION SIEMPRE https://www.sexvr.com/page2.html  HOST + page2.html   y asi item.url + page2.html
+
+'next_page_rgx': [[r'\/\d+$', '/%s']],  r de regex  
+					$ el ultimo numero   https://sexocean.net/category/12/Busty__Big_tits/1   Cambia el ultimo 1 y no el 12
+
+findS['url_replace'] = [['($)', '/1']]   https://sexocean.net/category/12/Busty__Big_tits + /1
+
+################################
 
 entrepeliculasyseries  [canonical] 'search_active': None    evitar cargar proxyes en buscar que pide CF2
 			search  condicion search_active
@@ -226,6 +247,11 @@ retrotv		'last_page': dict([('find', [{'tag': ['a'], 'string': re.compile('(?i)s
                             ('find_previous', [{'tag': ['a'], 'class': ['page-numbers']}]), 
                             ('get_text', [{'@TEXT': '(\d+)'}])]), 
 		
+pelisxd         'last_page': dict([('find', [{'tag': ['a'], 'string': re.compile('(?i)siguiente')}]), 
+                                   ('find_previous', [{'tag': ['a'], 'class': ['page-link']}]), 
+                                   ('get_text', [{'tag': '', '@STRIP': True}])]), 
+
+
 pornixi
          'next_page': {'find_all': [{'tag': ['a'], 'class': ['btn-page'], '@POS': [-1], '@ARG': 'href'}]},
 
@@ -272,19 +298,10 @@ En EZPORN que es multicanal
 
 	
 ############################################
-findS['controls']['action'] = 'findvideos'    en list_all
- 
-findS['url_replace'] = [['($)', '1/']]			url + "1/"
-
-findS['url_replace'] = [['([^$]+$)', r'\1&filter=latest&paged=1']] >>>>> https://baddiehub.com/?cat=90 + &filter=latest
 
 
-load more con parametros     if item.extra == 'PornStar':
-				findS['next_page'] = {}   ### SI LA PAGINACION ES por NEXT_PAGE
-        			item.last_page = 9999
 
 
-item.last_page = 9999   uppornx tiene load moore  >>>>>>>  models/?sort_by=total_videos&from=1 +1 
 
 
 findS['controls']['cnt_tot'] = 9999
@@ -292,7 +309,7 @@ findS['controls']['cnt_tot'] = 9999
     dict_cookie = {"kt_tcookie": 1,"tag_id": item.orientation}
     AlfaChannel.httptools.set_cookies(dict_cookie)
 
-'next_page_rgx': [['page\d+.html', 'next_page_url']] PAGINACION SIEMPRE https://www.sexvr.com/page2.html  HOST + page2.html   y asi item.url + page2.html
+
 
 
 ###########################################################################################################################################################
@@ -604,6 +621,7 @@ redtube
 severeporn
 -sexfullmovies  AlfaChannel.doo_url + kwargs['post']  en play
 -sexmex
+-sexocean	'next_page_rgx': [[r'\/\d+$', '/%s']],  findS['url_replace'] = [['($)', '/1']]
 
 -sexVR		'section_cantidad': dict([('find', [{'tagOR':   LA WEB muestra el video en 360º           
 		'next_page_rgx': [['page\d+.html', 'next_page_url']] PAGINACION SIEMPRE https://www.sexvr.com/page2.html  HOST + page2.html   

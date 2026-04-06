@@ -87,8 +87,8 @@ def mainlist(item):
     
     itemlist.append(Item(channel=item.channel, title="fxpornhd" , action="submenu", url= "https://fxpornhd.com/", chanel="fxpornhd", thumbnail = "https://fxpornhd.com/wp-content/uploads/2024/06/logo-fxpornhd.com_.png"))
     itemlist.append(Item(channel=item.channel, title="pornkx" , action="submenu", url= "https://pornkx.com/", chanel="pornkx", thumbnail = "https://pornkx.com/wp-content/uploads/2025/03/logo_kx.png"))
-    itemlist.append(Item(channel=item.channel, title="taboovideosx" , action="submenu", url= "https://taboovideosx.com/", chanel="taboovideosx", thumbnail = "https://taboovideosx.com/wp-content/uploads/2023/12/logo-taboo.png"))
-    # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
+    # itemlist.append(Item(channel=item.channel, title="taboovideosx" , action="submenu", url= "https://taboovideosx.com/", chanel="taboovideosx", thumbnail = "https://taboovideosx.com/wp-content/uploads/2023/12/logo-taboo.png"))
+    itemlist.append(Item(channel=item.channel, title="yespornhd" , action="submenu", url= "https://yespornhd.com/", chanel="yespornhd", thumbnail = "https://yespornhd.com/wp-content/uploads/2024/05/logoyespornhd.png"))
     
     autoplay.show_option(item.channel, itemlist)
     
