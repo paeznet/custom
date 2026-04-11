@@ -128,5 +128,8 @@ def findvideos(item):
             url = elem['href']
             itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    
+    # Requerido para AutoPlay
+    autoplay.start(itemlist, item)
     return itemlist
 

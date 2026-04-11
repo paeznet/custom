@@ -59,7 +59,6 @@ def categorias(item):
     soup = create_soup(item.url)
     matches = soup.find_all('div', class_='thumb')
     for elem in matches:
-        logger.debug(elem)
         url = elem.a['href']
         title = elem.img['alt']
         thumbnail = elem.img['src']
@@ -104,7 +103,7 @@ def lista(item):
         if ".gif" in thumbnail:
             thumbnail = elem.img['data-original']
         thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
-        time = elem.find('span', itemprop='duration').text.strip()
+        time = elem.find('span', class_='length').text.strip()
         quality = elem.find('span', class_='hd')
         if quality:
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
@@ -134,6 +133,18 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
+    
+    soup = create_soup(item.url)
+    if soup.find('div', class_='models'):
+        pornstars = soup.find('div', class_='models').find_all('a', href=re.compile("/pornstars/[A-z0-9-]+/"))
+        for x , value in enumerate(pornstars):
+            pornstars[x] = value.text.strip()
+        pornstar = ' & '.join(pornstars)
+        pornstar = " [COLOR cyan]%s" % pornstar
+        lista = item.contentTitle.split('[/COLOR]')
+        lista.insert (2, pornstar)
+        item.contentTitle = '[/COLOR]'.join(lista)
+    
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

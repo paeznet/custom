@@ -23,7 +23,7 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 # forced_proxy_opt = 'ProxySSL'
 forced_proxy_opt = ''
 
-#########################    OUT julio 2025
+#########################    CF2
 
 canonical = {
              'channel': '143porn', 

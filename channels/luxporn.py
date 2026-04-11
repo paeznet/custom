@@ -23,6 +23,7 @@ list_servers = []
 
 forced_proxy_opt = ''  #'ProxySSL'
 
+####    https://hdvidz.cc/tvshows/ 
 
 canonical = {
              'channel': 'luxporn', 
@@ -46,7 +47,7 @@ language = []
 url_replace = []
 
 
-finds = {'find':  dict([('find', [{'tag': ['div'], 'id': ['archive-content', 'contenedor']}]),
+finds = {'find':  dict([('find', [{'tag': ['div'], 'class': ['animation-2', 'content']}]), ##'id': ['contenedor', 'archive-content']
                              ('find_all', [{'tag': ['article'], 'id': re.compile(r"^post-\d+")}])]),
                              # {'find_all': [{'tag': ['article'], 'id': re.compile(r"^post-\d+")}]},
          'categories': dict([('find', [{'tag': ['ul'], 'class': ['genres']}]),
@@ -81,14 +82,14 @@ def mainlist(item):
     
     autoplay.init(item.channel, list_servers, list_quality)
     
-    itemlist.append(Item(channel=item.channel, title="Peliculas" , action="list_all", url=host + "movies/page/1/"))
+    itemlist.append(Item(channel=item.channel, title="Peliculas" , action="list_all", url=host + "page/1/?get=movies&s=", extra="Search"))
     itemlist.append(Item(channel=item.channel, title="Mejor Valoradas" , action="list_all", url=host + "ratings/page/1/?get=movies"))
     itemlist.append(Item(channel=item.channel, title="Tendencia" , action="list_all", url=host + "trending/page/1/?get=movies"))
     
     itemlist.append(Item(channel=item.channel, title="Videos" , action="list_all", url=host + "tvshows/page/1/"))
     
-    itemlist.append(Item(channel=item.channel, title="Año" , action="section", url=host, extra="Abc"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host, extra="Categorias"))
+    # itemlist.append(Item(channel=item.channel, title="Año" , action="section", url=host, extra="Abc"))
+    # itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host, extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     
     autoplay.show_option(item.channel, itemlist)

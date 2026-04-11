@@ -12,6 +12,8 @@ from core import httptools
 from bs4 import BeautifulSoup
 
 # https://en.pornohd.porn  https://en.joporn.net   https://josporn.com/ https://www.lenporno.net/  https://www.pornohd.sex/
+#####  ESTA EN MULTICANAL josporn
+
 canonical = {
              'channel': 'pornohd', 
              'host': config.get_setting("current_host", 'pornohd', default=''), 

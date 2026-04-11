@@ -125,7 +125,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
         
         try:
             elem_json['url'] = elem.a.get('href', '')
-            elem_json['title'] = elem.img.get('data-video-id','')
+            elem_json['title'] = scrapertools.find_single_match(elem_json['url'], '/(\d+)/')
             elem_json['thumbnail'] = elem.img.get('data-thumb_url', '') or elem.img.get('data-original', '') \
                                      or elem.img.get('data-src', '') \
                                      or elem.img.get('src', '')

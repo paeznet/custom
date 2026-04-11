@@ -12,10 +12,12 @@ from core import httptools
 from core import jsontools
 from bs4 import BeautifulSoup
 
+# "https://www.morritastube.xxx/"
+
 canonical = {
              'channel': 'morritastube', 
              'host': config.get_setting("current_host", 'morritastube', default=''), 
-             'host_alt': ["https://www.morritastube.xxx/"], 
+             'host_alt': ["https://www.morritastube.com/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -140,7 +142,7 @@ def findvideos(item):
         url = url.iframe['src']
     else:
         id = scrapertools.find_single_match(url.text, "data_video = '([^']+)'")
-        url = "https://www.morritastube.xxx/wp-admin/admin-ajax.php?action=get_video&data=%s" % id
+        url = "%swp-admin/admin-ajax.php?action=get_video&data=%s" % (host,id)
         data = httptools.downloadpage(url).json
         url = data['url']
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
@@ -156,9 +158,8 @@ def play(item):
         url = url.iframe['src']
     else:
         id = scrapertools.find_single_match(url.text, "data_video = '([^']+)'")
-        url = "https://www.morritastube.xxx/wp-admin/admin-ajax.php?action=get_video&data=%s" % id
+        url = "%swp-admin/admin-ajax.php?action=get_video&data=%s" % (host,id)
         data = httptools.downloadpage(url).json
         url = data['url']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    itemlist.append(["[morritastube]", url])
     return itemlist
