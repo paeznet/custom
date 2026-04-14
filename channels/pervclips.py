@@ -53,8 +53,8 @@ def search(item, texto):
 def categorias(item):
     logger.info()
     itemlist = []
-    soup = create_soup(item.url).find('div', class_='new_cat')
-    matches = soup.find_all('div', class_='item')
+    soup = create_soup(item.url)
+    matches = soup.find('div', class_='new_cat').find_all('div', class_='item')
     for elem in matches:
         url = elem.a['href']
         if elem.find('p', class_='title'):
@@ -62,6 +62,10 @@ def categorias(item):
         else:
             title = elem.img['alt']
         thumbnail = elem.img['src']
+        if "367x275" in thumbnail:
+            thumbnail = thumbnail.split("367x275")
+            thumbnail = thumbnail[0]
+            thumbnail += "preview.jpg"
         cantidad = elem.find('span', class_='quantity')
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
@@ -69,6 +73,11 @@ def categorias(item):
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                               thumbnail=thumbnail , plot=plot) )
+    next_page = soup.find('a', class_='next')
+    if next_page:
+        next_page = next_page['href']
+        next_page = urlparse.urljoin(item.url,next_page)
+        itemlist.append(Item(channel=item.channel, action="categorias", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
@@ -93,7 +102,7 @@ def lista(item):
         url = elem.a['href']
         # title = elem.find('p', class_='title').text.strip()
         title = elem.img['alt']
-        thumbnail = elem.img['data-original']
+        thumbnail = elem.img['src']
         thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
         time = elem.find('div', class_='time-holder').text.strip()
         quality = elem.find('i', class_='icon-hd')

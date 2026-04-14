@@ -22,12 +22,13 @@ list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
 forced_proxy_opt = 'ProxySSL'
 
+# https://xvideozx.com/
 
 canonical = {
              'channel': 'porn1up', 
              'host': config.get_setting("current_host", 'porn1up', default=''), 
-             'host_alt': ["https://porn1up.com/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://xvideozx.com/"], 
+             'host_black_list': ["https://porn1up.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -54,7 +55,7 @@ finds = {'find': dict([('find', [{'tag': ['main'], 'id': ['main']}]),
                             ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            '@ARG': 'href', '@TEXT': 'page/(\d+)'}])]), 
          'plot': {}, 
-         'findvideos': dict([('find', [{'tag': ['header'], 'class': ['entry-header']}]), 
+         'findvideos': dict([('find', [{'tag': ['div'], 'class': ['responsive-player']}]), 
                              ('find_all', [{'tagOR': ['a'], 'href': True, 'id': 'tracking-url'},
                                            {'tag': ['iframe']}])]),
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
@@ -83,7 +84,7 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "page/1/?filter=popular"))
     itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "page/1/?filter=longest"))
     itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "actors/page/1/", extra="PornStar"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/page/1/", extra="Categorias"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     
     autoplay.show_option(item.channel, itemlist)

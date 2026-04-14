@@ -32,12 +32,16 @@ canonical = {
              'host': config.get_setting("current_host", 'netpornsex', default=''), 
              'host_alt': ["https://netpornsex.net/"], 
              'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
+             
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-timeout = 5
+timeout = 45
 kwargs = {}
 debug = config.get_setting('debug_report', default=False)
 movie_path = ''
@@ -186,6 +190,7 @@ def play(item):
             # lista.insert (1, pornstar)
         # item.contentTitle = '[/COLOR]'.join(lista)
     
+    url = ""
     if soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)")):
         url = soup.find('div', class_='responsive-player').find(re.compile("(?:iframe|source)"))
         if url.get('id', ''):
@@ -194,8 +199,8 @@ def play(item):
             url = url['src']
         if "player.netpornsex.net" in url:
             url = url.replace("player.netpornsex.net", "hqq.to")
-    
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    if url:
+        itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     
     return itemlist
