@@ -41,11 +41,11 @@ kwargs = {}
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host + "most-recent/"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "most-viewed/"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "top-rated/"))
-    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "longest/"))
-    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "most-discussed/"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="lista", url=host))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="lista", url=host + "most-viewed/month/"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host + "top-rated/month/"))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host + "longest/month/"))
+    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host + "most-discussed/month/"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "channels/"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
@@ -137,25 +137,15 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    
-    data = httptools.downloadpage(item.url, canonical=canonical).data
-    url = scrapertools.find_single_match(data, r'var defaultRaw = "([^"]+)"')
-    url = url.replace("\/", "/")
-    url += "|Referer=%s" %host
-    
-    itemlist.append(Item(channel=item.channel, action="play", contentTitle = item.title, url=url))
+    itemlist.append(Item(channel=item.channel, action="play", title="%s", url=item.url, contentTitle=item.contentTitle))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server)
     return itemlist
 
 
 def play(item):
     logger.info()
     itemlist = []
-    
-    data = httptools.downloadpage(item.url, canonical=canonical).data
-    url = scrapertools.find_single_match(data, r'defaultRaw = "([^"]+)"')
-    url = url.replace("\/", "/")
-    url += "|Referer=%s" %host
-    
-    itemlist.append(['[fuqer] mp4', url])
+    itemlist.append(Item(channel=item.channel, action="play", title="%s", url=item.url, contentTitle=item.contentTitle))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server)
     return itemlist
     

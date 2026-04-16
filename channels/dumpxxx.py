@@ -41,14 +41,14 @@ tv_path = ''
 language = []
 url_replace = []
 
-finds = {'find': {'find_all': [{'tag': ['div'], 'class': ['-video']}]},     #'id': re.compile(r"^browse_\d+")}]},
-         'categories': dict([('find', [{'tag': ['div'], 'class': ['tags-col']}]),
+finds = {'find': {'find_all': [{'tag': ['article'], 'class': ['-video']}]},     #'id': re.compile(r"^browse_\d+")}]},
+         'categories': dict([('find', [{'tag': ['div'], 'class': ['mb-tags-grid']}]),
                              ('find_all', [{'tag': ['a']}])]),
          'search': {}, 
          'get_quality': {}, 
-         'get_quality_rgx': '', 
-         'next_page': dict([('find', [{'tag': ['a'], 'class': 'next', '@ARG': 'href'}])]), 
-         'next_page_rgx': [['page\d+.html', 'next_page_url']], 
+         'get_quality_rgx': '',
+         'next_page': dict([('find', [{'tag': ['a'], 'class': ['next'], '@ARG': 'href'}])]), 
+         'next_page_rgx': [['page/\d+/', 'next_page_url']], 
          'last_page': {},
          'plot': {}, 
          'findvideos': {},
@@ -68,12 +68,12 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page1.html"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=host + "most-viewed/page1.html"))
-    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "top-rated/page1.html"))
-    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="list_all", url=host + "most-discussed/page1.html"))
-    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "longest/page1.html"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "tags/", extra="Categorias"))
+    itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "videos/page/1/"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistos" , action="list_all", url=host + "most-viewed/page/1/"))
+    itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="list_all", url=host + "top-rated/page/1/"))
+    itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="list_all", url=host + "most-discussed/page/1/"))
+    itemlist.append(Item(channel=item.channel, title="Mas largo" , action="list_all", url=host + "longest/page/1/"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "tags/page/1/", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -83,6 +83,7 @@ def section(item):
     
     findS = finds.copy()
     findS['url_replace'] = [['(\/(?:search|channels|models|pornstars)\/[^$]+$)', r'\1newest/page1.html']]
+    findS['next_page']= dict([('find', [{'tag': ['a'], 'class': ['is-next'], '@ARG': 'href'}])]), 
     
     return AlfaChannel.section(item, finds=findS, **kwargs)
 
@@ -105,13 +106,13 @@ def play(item):
     itemlist = []
     
     data = AlfaChannel.httptools.downloadpage(item.url, **kwargs).data
+    soup = AlfaChannel.do_soup(data, encoding='utf-8')
     
-    url = scrapertools.find_single_match(data, r'defaultRaw = "([^"]+)"')
-    url = url.replace("\/", "/")
-    url += "|Referer=%s" %host
+    if soup.iframe: #embed fuqer
+        item.url = soup.iframe.get('src', '')
     
-    itemlist.append(['[dumpxxx] mp4', url])
-    # itemlist.append(Item(channel=item.channel, action="play", contentTitle = item.title, url=url))
+    itemlist.append(Item(channel=item.channel, action="play", title="%s", url=item.url, contentTitle=item.contentTitle))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server)
     
     return itemlist
 

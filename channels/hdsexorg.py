@@ -3,6 +3,7 @@
 
 import re
 
+import time
 from core import urlparse
 from platformcode import config, logger
 from core import scrapertools
@@ -14,7 +15,7 @@ from bs4 import BeautifulSoup
 canonical = {
              'channel': 'hdsexorg', 
              'host': config.get_setting("current_host", 'hdsexorg', default=''), 
-             'host_alt': ["https://hdsex.org"], 
+             'host_alt': ["https://es.hdsex.org"], 
              'host_black_list': [], 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
@@ -142,10 +143,13 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
+    
+    headers = httptools.default_headers.copy()
     soup = create_soup(item.url)
+    
     url = soup.find('source')['src']
-    url = httptools.downloadpage(url, follow_redirects=False).headers["location"]
-    # url += "|verifypeer=false"
+    url += "|%s&Referer=%s/&Origin=%s" % (urlparse.urlencode(headers), host, host)
+    
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
@@ -154,10 +158,12 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
+    
+    headers = httptools.default_headers.copy()
     soup = create_soup(item.url)
+    
     url = soup.find('source')['src']
-    # url = httptools.downloadpage(url, follow_redirects=False).headers["location"]
-    # url += "|verifypeer=false"
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    url += "|%s&Referer=%s/&Origin=%s" % (urlparse.urlencode(headers), host, host)
+    
+    itemlist.append(['[hdsexorg]', url])
     return itemlist
