@@ -144,13 +144,7 @@ def findvideos(item):
     logger.info()
     itemlist = []
     
-    headers = httptools.default_headers.copy()
-    soup = create_soup(item.url)
-    
-    url = soup.find('source')['src']
-    url += "|%s&Referer=%s/&Origin=%s" % (urlparse.urlencode(headers), host, host)
-    
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
 
@@ -159,11 +153,6 @@ def play(item):
     logger.info()
     itemlist = []
     
-    headers = httptools.default_headers.copy()
-    soup = create_soup(item.url)
-    
-    url = soup.find('source')['src']
-    url += "|%s&Referer=%s/&Origin=%s" % (urlparse.urlencode(headers), host, host)
-    
-    itemlist.append(['[hdsexorg]', url])
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=item.url))
+    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
