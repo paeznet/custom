@@ -60,7 +60,9 @@ finds = {'find': {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-
          'profile_labels': {
                             },
          'controls': {'url_base64': False, 'cnt_tot': 20, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
-         'timeout': timeout}
+         'timeout': timeout
+         }
+
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
                                      list_quality_movies=list_quality_movies, list_quality_tvshow=list_quality_tvshow, 

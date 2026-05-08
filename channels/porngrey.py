@@ -21,7 +21,7 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
-###  KTP  generate_mp4  ENCRYPT 
+#####  KTP generate_mp4 encrypt  https://www.porndupe.com/video/christmas-party-passion_v1/
 
 canonical = {
              'channel': 'porngrey', 
@@ -66,6 +66,7 @@ finds = {'find': {'find_all': [{'tag': ['a'], 'class': ['cards__item']}]},     #
                            },
          'controls': {'url_base64': False, 'cnt_tot': 24, 'reverse': False, 'profile': 'default'}, 
          'timeout': timeout}
+
 AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_path, movie_action='play', canonical=canonical, finds=finds, 
                                      idiomas=IDIOMAS, language=language, list_language=list_language, list_servers=list_servers, 
                                      list_quality_movies=list_quality_movies, list_quality_tvshow=list_quality_tvshow, 
