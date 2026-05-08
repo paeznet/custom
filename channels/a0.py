@@ -517,6 +517,9 @@ def play(item):
     \'([^\']+)\'
     ([^,"]+)    #todo lo que hay hasta , o "  TUBEXPORN
     
+    
+    time = elem.find('i', attrs={"data-text": re.compile(r"\d+[hms]")})   #### \d+[hms]: Busca números seguidos de h, m o s (ej. 1h, 7m).
+    
     if re.match(r"s\d+-e\d+", quality):  #### comprueba que el regex  r"s\d+-e\d+" (r es por regex)
     
     

@@ -19,19 +19,23 @@ list_quality_movies = AlfaChannelHelper.LIST_QUALITY_MOVIES_A
 list_quality_tvshow = []
 list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
-forced_proxy_opt = 'ProxySSL'
+
+forced_proxy_opt = '' #ProxySSL
 
 canonical = {
              'channel': 'pornoxo', 
              'host': config.get_setting("current_host", 'pornoxo', default=''), 
              'host_alt': ["https://www.pornoxo.com/"], 
              'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-timeout = 10
+timeout = 30
 kwargs = {}
 debug = config.get_setting('debug_report', default=False)
 movie_path = ''
@@ -87,7 +91,11 @@ def mainlist(item):
 def section(item):
     logger.info()
     
-    return AlfaChannel.section(item, **kwargs)
+    findS = finds.copy()
+    findS['url_replace'] = [['(\/(?:tags|models|pornstars)\/[^$]+$)', r'\1?page=1&sort=newest']]
+    
+    return AlfaChannel.section(item, finds=findS, **kwargs)
+    # return AlfaChannel.section(item, **kwargs)
 
 
 def list_all(item):
@@ -101,6 +109,39 @@ def findvideos(item):
     
     return AlfaChannel.get_video_options(item, item.url, data='', matches_post=None, 
                                          verify_links=False, findvideos_proc=True, **kwargs)
+
+
+def play(item):
+    logger.info()
+    itemlist = []
+    
+    data = AlfaChannel.httptools.downloadpage(item.url, **kwargs).data
+    # soup = AlfaChannel.do_soup(data, encoding='utf-8')
+    
+    # soup = AlfaChannel.create_soup(item.url, **kwargs)
+    # if soup.find('a', itemprop='actor'):
+        # pornstars = soup.find_all('a', itemprop='actor')
+        # for x , value in enumerate(pornstars):
+            # pornstars[x] = value.text.strip()
+        # pornstar = ' & '.join(pornstars)
+        # pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+        # lista = item.contentTitle.split('[/COLOR]')
+        # pornstar = pornstar.replace('[/COLOR]', '')
+        # pornstar = ' %s' %pornstar
+        # if AlfaChannel.color_setting.get('quality', '') in item.contentTitle:
+            # lista.insert (2, pornstar)
+        # else:
+            # lista.insert (1, pornstar)
+        # item.contentTitle = '[/COLOR]'.join(lista)
+    
+    url = scrapertools.find_single_match(data, '"hlsAuto":"([^"]+)"')
+    url = url.replace("\/", "/")
+    itemlist.append(['pornoxo', url])
+    
+    # itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
+    # itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    
+    return itemlist
 
 
 def search(item, texto, **AHkwargs):

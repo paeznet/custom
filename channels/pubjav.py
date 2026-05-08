@@ -31,7 +31,10 @@ canonical = {
              'host': config.get_setting("current_host", 'pubjav', default=''), 
              'host_alt': ["https://pubjav.com/"], 
              'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
@@ -132,7 +135,7 @@ def list_all_matches(item, matches_int, **AHkwargs):
             tit1 = trailer['data-title']
             tit2 = elem.h2.text.strip()
             elem_json['thumbnail'] = trailer.get('data-poster', '') or elem.img.get('data-original', '')
-            elem_json['thumbnail'] += "|Referer=%s" % host
+            # elem_json['thumbnail'] += "|Referer=%s" % host
             elem_json['title'] = "%s %s" %(tit1,tit2)
             
         except:
