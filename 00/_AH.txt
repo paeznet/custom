@@ -287,6 +287,9 @@ studentki
 		Asi si es el segundo hace |Referer = item.url
 'verifypeer': True
 'verifypeer': host  item.url
+	
+	elem_json['thumbnail'] = re.sub(r'\d+x\d+/\d+', 'preview', elem_json['thumbnail'])
+
 
 controls': {'url_base64': False, 'cnt_tot': 20, 'reverse': False, 'profile': 'default', 'verifypeer': True},
 
@@ -618,7 +621,8 @@ redtube
 			# return launcher.run(item)
 
 
-severeporn
+severeporn	elem_json['thumbnail'] = re.sub(r'\d+x\d+/\d+', 'preview', elem_json['thumbnail'])
+
 -sexfullmovies  AlfaChannel.doo_url + kwargs['post']  en play
 -sexmex
 -sexocean	'next_page_rgx': [[r'\/\d+$', '/%s']],  findS['url_replace'] = [['($)', '/1']]
