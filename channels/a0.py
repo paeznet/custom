@@ -797,7 +797,7 @@ def anno(item):
         current_page = current_page + 1
         next_page = "%s/%s" %(page,current_page)
 
-
+###############      next_page = soup.find(attrs={"aria-label": re.compile(r"^(?:Next|Siguiente)")})
 ###############              next_page = soup.find(attrs={"aria-label": "Next"})
 #################             next_page = soup.find("a", string=re.compile(r"^Next"))
 #############           next_page = soup.find('a', class_='pagination__link', string='Next')

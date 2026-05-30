@@ -56,9 +56,9 @@ def catalogo(item):
     itemlist = []
     soup = create_soup(item.url)
     if "channels" in item.url:
-        matches = soup.find_all('div', class_='channel_box')
+        matches = soup.find_all('li', class_='card-wrapper')
     else:
-        matches = soup.find('div', class_='popularPornstars-wrapper').find_all('div', class_='porn-star-list')
+        matches = soup.find('ul', class_='popularPornstars-wrapper').find_all('a')
     for elem in matches:
         url = elem.a['href']
         title = elem.img['alt']
@@ -66,9 +66,9 @@ def catalogo(item):
             thumbnail = elem.img['data-src']
         else:
             thumbnail = elem.img['src']
-        cantidad = elem.find(class_=re.compile("video(:?-|_)count"))
+        cantidad = elem.find('div',class_='channel-videos')
         if cantidad:
-            title = "%s (%s)" % (title,cantidad.text.strip())
+            title = "%s (%s)" % (title,cantidad.text.replace('Videos ', '').strip())
         url = urlparse.urljoin(item.url,url)
         thumbnail = urlparse.urljoin(item.url,thumbnail)
         plot = ""
@@ -121,7 +121,7 @@ def lista(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)#.find('div', id='category_video_list')
-    matches = soup.find_all('div', class_='video-box')
+    matches = soup.find_all('article', class_='video-box')
     for elem in matches:
         if elem.ins: continue
         url = elem.a['href']

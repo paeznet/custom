@@ -85,7 +85,7 @@ def categorias(item):
             title = elem.find('div', class_='category-item__desc').text.strip()
             cantidad = elem.find('div', class_='category-item__info-list')
             url += "?sort=-created&p=1"
-        thumbnail = elem.img['data-src']
+        thumbnail = elem.img['src']
         url = urlparse.urljoin(item.url,url)
         # url += "?sort=-created&p=1"
         if cantidad:
@@ -122,7 +122,7 @@ def lista(item):
     for elem in matches:
         url = elem['video-href']
         title = elem.img['alt']
-        thumbnail = elem.img['data-src']
+        thumbnail = elem.img['src']
         if elem.a.get("data-duration", ""):
             time = elem.a['data-duration']
         quality = elem.find('div', class_='video-item__quality')

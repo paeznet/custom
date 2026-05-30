@@ -251,6 +251,8 @@ pelisxd         'last_page': dict([('find', [{'tag': ['a'], 'string': re.compile
                                    ('find_previous', [{'tag': ['a'], 'class': ['page-link']}]), 
                                    ('get_text', [{'tag': '', '@STRIP': True}])]), 
 
+freeuseporn     'last_page': {'find_all': [{'tag': ['a'], 'href': re.compile(r"page=\d+"), '@POS': [-2],
+                                            '@ARG': 'href', '@TEXT': 'page=(\d+)'}]},
 
 pornixi
          'next_page': {'find_all': [{'tag': ['a'], 'class': ['btn-page'], '@POS': [-1], '@ARG': 'href'}]},

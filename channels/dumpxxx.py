@@ -21,6 +21,7 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+
 # https://www.dump.xxx/   https://www.fuqer.com/
 
 canonical = {

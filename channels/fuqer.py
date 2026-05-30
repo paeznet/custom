@@ -37,7 +37,6 @@ host = canonical['host'] or canonical['host_alt'][0]
 timeout = 25
 kwargs = {}
 
-
 def mainlist(item):
     logger.info()
     itemlist = []

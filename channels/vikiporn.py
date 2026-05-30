@@ -101,7 +101,7 @@ def lista(item):
         title = elem.img['alt']
         thumbnail = elem.span['data-poster'].replace("?ver=3", "")
         thumbnail = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
-        time = elem.find('span', itemprop='duration').text.strip()
+        time = elem.find('span', class_='length').text.strip()
         quality = elem.find('span', class_='hd')
         if quality:
             title = "[COLOR yellow]%s[/COLOR] [COLOR red]HD[/COLOR] %s" % (time,title)
