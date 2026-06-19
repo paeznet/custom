@@ -60,7 +60,6 @@ def search(item, texto):
 def categorias(item):
     logger.info()
     itemlist = []
-    
     data = httptools.downloadpage(item.url).json
     if "Canal" in item.title:
         data_json = data['providers']
@@ -112,7 +111,7 @@ def lista(item):
     logger.info()
     itemlist = []
     data = httptools.downloadpage(item.url, canonical=canonical).data
-    data_json = scrapertools.find_single_match(data, "window.__INITIAL_DATA__ = (.*?);")
+    data_json = scrapertools.find_single_match(data, "window.__INITIAL_DATA__ = (.*?);</script>")
     data_json = json.loads(data_json)
     if "search?" in item.url:
         data_json = data_json['data']

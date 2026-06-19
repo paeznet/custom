@@ -21,6 +21,7 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+
 canonical = {
              'channel': '24xxx', 
              'host': config.get_setting("current_host", '24xxx', default=''), 
@@ -57,7 +58,7 @@ finds = {'find': dict([('find', [{'tag': ['ul'], 'class': ['production-block__li
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            'list_all_stime': {'find': [{'tag': ['span'], 'class': ['vtime'], '@TEXT': '(\d+:\d+)' }]},
+                            # 'list_all_stime': {'find': [{'tag': ['span'], 'class': ['vtime'], '@TEXT': '(\d+:\d+)' }]},
                             'list_all_quality': dict([('find', [{'tag': ['div'], 'class': ['hd']}]),
                                                       ('get_text', [{'tag': '', 'strip': True}])])
                            },
@@ -129,7 +130,7 @@ def play(item):
     itemlist = []
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
-    data = soup.find('script', type='text/javascript').string
+    data = soup.find('script').string
     matches = scrapertools.find_single_match(data, 'var file = "([^"]+)"')
     matches = matches.split(",")
     for elem in matches:

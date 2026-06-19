@@ -21,10 +21,12 @@ list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 forced_proxy_opt = 'ProxySSL'
 
-# https://latestpornvideo.com/   https://hdporn92.com/   https://familyroleplayporn.com/
-# https://mynewpornvideo.com/   https://newpornvideo.xyz/
-# https://trashxxx.com/     https://whereismyporn.com/
-# https://vidzxxxhd.com/
+# https://familyroleplayporn.com/  https://hdporn92.com/  https://latestpornvideo.com/  https://vidzxxxhd.com/
+# https://www.pornxday.com/  https://www.vpornhd.com/  https://asiaxbit.com/
+# https://mynewpornvideo.com/   
+# https://trashxxx.com/  https://whereismyporn.com/
+
+# OUT https://newpornvideo.xyz/ 
 
 
 canonical = {
@@ -53,18 +55,20 @@ finds = {'find': {'find_all': [{'tag': ['article'], 'class': re.compile(r"^post-
          'next_page': {},
          'next_page_rgx': [['\/page\/\d+', '/page/%s']], 
          'last_page': dict([('find', [{'tag': ['div', 'nav'], 'class': ['pagination']}]), 
-                            ('find_all', [{'tag': ['a'], '@POS': [-2], 
+                            ('find_all', [{'tag': ['a'], '@POS': [-1], 
                                            '@ARG': 'href', '@TEXT': 'page/(\d+)'}])]), 
          'plot': {}, 
-         'findvideos': dict([('find', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]), 
-                             ('find_all', [{'tagOR': ['a'], 'href': True, 'rel': 'noopener'},
-                                           {'tag': ['iframe'], 'src': True}])]),
+         # 'findvideos': dict([('find', [{'tag': ['article'], 'class': re.compile(r"^post-\d+")}]), 
+                             # ('find_all', [{'tagOR': ['a'], 'href': True, 'rel': 'noopener'},
+                                           # {'tag': ['iframe'], 'src': True}])]),
+         'findvideos': dict([('find', [{'tag': ['div'], 'class': ['responsive-player']}]), 
+                             ('find_all', [{'tag': ['iframe'], 'src': True}])]),
          'title_clean': [['[\(|\[]\s*[\)|\]]', ''],['(?i)\s*videos*\s*', '']],
          'quality_clean': [['(?i)proper|unrated|directors|cut|repack|internal|real|extended|masted|docu|super|duper|amzn|uncensored|hulu', '']],
          'url_replace': [], 
          'profile_labels': {
-                            'list_all_title': dict([('find', [{'tag': ['h2']}]),
-                                                    ('get_text', [{'tag': '', 'strip': True}])]),
+                            # 'list_all_title': dict([('find', [{'tag': ['h2']}]),
+                                                    # ('get_text', [{'tag': '', 'strip': True}])]),
                             },
          'controls': {'url_base64': False, 'cnt_tot': 20, 'reverse': False, 'profile': 'default'},  ##'jump_page': True, ##Con last_page  aparecerá una línea por encima de la de control de página, permitiéndote saltar a la página que quieras
          'timeout': timeout}

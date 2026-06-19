@@ -121,41 +121,29 @@ def findvideos(item):
     logger.info()
     itemlist = []
     
-    
     # https://xtusubs.com/s?onliwatch=2181&load=2695a5a90958690
     # https://xtusubs.com/iframe.php?onliview=873a71b7b291c + &gest&nulled
                                                           # + &netu&nulled
-    ##### NETIU NO TIENE
-    # soup = create_soup(item.url)
-    # url = soup.iframe['src']
-    # url = urlparse.urljoin(item.url, url)
-    # matches = create_soup(url).find_all('a', class_='bold')
-    # for elem in matches:
-        # url = elem['href']
-    # url += "&gest&nulled"
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    
+    soup = create_soup(item.url)
+    url = soup.iframe['src']
+    url = urlparse.urljoin(item.url, url)
+    url += "&netu&nulled"
+    url = create_soup(url).source['src']
+    url = urlparse.urljoin(item.url, url)
+    
+    itemlist.append(["[xtusubs]", url])
     return itemlist
-
 
 
 def play(item):
     logger.info()
     itemlist = []
-    
-    # soup = create_soup(item.url)
-    # pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/"))
-    # for x , value in enumerate(pornstars):
-        # pornstars[x] = value.text.strip()
-    # pornstar = ' & '.join(pornstars)
-    # pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
-    # lista = item.contentTitle.split()
-    # if "HD" in item.title:
-        # lista.insert (4, pornstar)
-    # else:
-        # lista.insert (2, pornstar)
-    # item.contentTitle = ' '.join(lista)
-    
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+    soup = create_soup(item.url)
+    url = soup.iframe['src']
+    url = urlparse.urljoin(item.url, url)
+    url += "&netu&nulled"
+    url = create_soup(url).source['src']
+    url = urlparse.urljoin(item.url, url)
+    itemlist.append(["[xtusubs]", url])
     return itemlist

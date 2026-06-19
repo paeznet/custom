@@ -11,6 +11,8 @@ from core import servertools
 from core import httptools
 from bs4 import BeautifulSoup
 
+##############    WEB NO TIENE VIDEOS 
+
 canonical = {
              'channel': 'xxxbule', 
              'host': config.get_setting("current_host", 'xxxbule', default=''), 
@@ -98,9 +100,10 @@ def lista(item):
     soup = create_soup(item.url)
     matches = soup.find_all('div', class_='style24')
     for elem in matches:
+        if not elem.find('a'):continue
         time = elem.find('div', class_='style48').text.strip()
-        if "Live" in time:
-            continue
+        # if "Live" in time:
+            # continue
         url = elem.a['href']
         url2 = urlparse.urljoin(item.url,url)
         id = elem.a['data-id']

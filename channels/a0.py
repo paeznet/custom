@@ -747,6 +747,24 @@ def anno(item):
     else:
         plot = pornstar
 
+    ######## adtube
+    if soup.find_all('a', class_="gold"):
+        pornstars = soup.find_all('a', href=re.compile("/actrices-porno/[A-z0-9-]+/"))
+        
+        pornstar = [
+                     link.get_text(strip=True)
+                     for link in pornstars
+                     if "Actriz Porno" not in link.get_text(strip=True)
+                    ]
+        
+        if pornstar:
+            pornstar = ' & '.join(pornstar)
+            pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+            lista = item.contentTitle.split('[/COLOR]')
+            pornstar = pornstar.replace('[/COLOR]', '')
+            pornstar = ' %s' %pornstar
+            lista.insert (1, pornstar)
+            item.contentTitle = '[/COLOR]'.join(lista)
 
 
     (?:Videos|videos)<    #utiliza los dos textos en la busqueda
