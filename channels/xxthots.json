@@ -1,0 +1,15 @@
+{
+  "id": "xxthots",
+  "name": "xxthots",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://i.postimg.cc/5yNmxGgz/xxthots.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

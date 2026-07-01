@@ -276,6 +276,16 @@ studentki
         		findS['next_page'] = {}
         		item.last_page = 9999
 
+amigosporn	list_all_matches
+		    try:
+       			 patron_pages = '\],\s*"total"\s*:\s*(\d+)\s*,\s*"page"\s*:(\d+)'
+      			 items, pages = scrapertools.find_single_match(str(AHkwargs['soup']), patron_pages) ###coge total y page del str(soup)
+        		 AlfaChannel.last_page = int((int(items)+finds['controls']['cnt_tot']-1)/finds['controls']['cnt_tot'])
+   		   except Exception:
+        		 logger.error(traceback.format_exc())
+
+		
+
 ############################################
 		En AlfaChannelHelper
 
@@ -411,10 +421,19 @@ adptube
 -alluretube	pornudes		  	
 amateurtv	json AlfaChannel.httptools.downloadpage(host, canonical=canonical).data
 americass
-amigosporn	findvideos	submenu abc pornstar
-				list_all_matches  elem_json['thumbnail'] =  scrapertools.find_single_match(img, "'([^']+)'")
-						  elem_json['canal'] = canal  	title = title.replace(canal, "")
-						  elem_json['star']		title = title.replace(elem, "")
+amigosporn	findvideos 
+		list_all_matches
+		    try:
+       			 patron_pages = '\],\s*"total"\s*:\s*(\d+)\s*,\s*"page"\s*:(\d+)'
+      			 items, pages = scrapertools.find_single_match(str(AHkwargs['soup']), patron_pages) ###coge total y page del str(soup)
+        		 AlfaChannel.last_page = int((int(items)+finds['controls']['cnt_tot']-1)/finds['controls']['cnt_tot'])
+   		   except Exception:
+        		 logger.error(traceback.format_exc())
+
+		'find': dict([('find', [{'tag': ['script'], 'id': ['__NEXT_DATA__']}]), 
+                              ('get_text', [{'tag': '', '@STRIP': False, '@JSON': 'props,pageProps,videos|DEFAULT'}])]),
+		'findvideos': dict([('find', [{'tag': ['script'], 'id': ['__NEXT_DATA__']}]), 
+                                    ('get_text', [{'tag': '', '@STRIP': False, '@JSON': 'props,pageProps,video|DEFAULT'}])]), 
 
 analdin
 anyporn		'list_all_stime': {'find': [{'tag': ['em'],   '@TEXT': '(\d+m:\d+s)' }]},
@@ -695,10 +714,12 @@ xfy		viralxvideos    'findvideos' find_all(a href y iframe src)
 xmoviesforyou	'findvideos' 
 -xorgasmo
 xozilla
+-xsharings
 xtit		'list_all_quality': {'find': [{'tag': ['span'], 'class': ['hd'],  '@ARG': 'class',  '@TEXT': '(hd)' }]}
 -xxk	        'next_page': dict([('find', [{'tag': ['li'], 'class': ['next']}, {'tag': ['a'], '@ARG': 'href'}])]),
+-xxthots
 xxxiporn
-xxxshake
+xxxshake	'findvideos' 
 youporn		find seguido find 'last_page':    dict([('find', [{'tag': ['div'], 'id': ['pagination']}, {'tag': ['ul'], '@ARG': 'data-max'}])]),
 -youperv
 -zigtube

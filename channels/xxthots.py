@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# -*- Channel CoralXXX -*-
+# -*- Channel xxthots -*-
 # -*- Created for Alfa-addon -*-
 # -*- By the Alfa Develop Group -*-
 
@@ -20,12 +20,14 @@ list_quality_tvshow = []
 list_quality = list_quality_movies + list_quality_tvshow
 list_servers = AlfaChannelHelper.LIST_SERVERS_A
 
-forced_proxy_opt = 'ProxySSL'
+# forced_proxy_opt = 'ProxySSL'
+forced_proxy_opt = ''
+
 
 canonical = {
-             'channel': 'coralxxx', 
-             'host': config.get_setting("current_host", 'coralxxx', default=''), 
-             'host_alt': ["https://coralxxx.com/"], 
+             'channel': 'xxthots', 
+             'host': config.get_setting("current_host", 'xxthots', default=''), 
+             'host_alt': ["https://xxthots.com/"], 
              'host_black_list': [], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -41,9 +43,9 @@ language = []
 url_replace = []
 
 finds = {'find':  dict([('find', [{'tag': ['div'], 'class': ['thumbs']}]),
-                       ('find_all', [{'tag': ['div'], 'class': ['thumb']}])]),
-         'categories': dict([('find', [{'tag': ['div'], 'class': ['thumbs']}]),
-                             ('find_all', [{'tag': ['div'], 'class': ['thumb']}])]),
+                        ('find_all', [{'tag': ['div'], 'class': ['thumb']}])]),
+         'categories':  dict([('find', [{'tag': ['div'], 'class': ['thumbs']}]),
+                              ('find_all', [{'tag': ['div'], 'class': ['thumb']}])]),
          'search': {}, 
          'get_quality': {}, 
          'get_quality_rgx': '', 
@@ -59,8 +61,7 @@ finds = {'find':  dict([('find', [{'tag': ['div'], 'class': ['thumbs']}]),
          'url_replace': [], 
          'profile_labels': {
                             # 'list_all_stime': {'find': [{'tag': ['em'],   '@TEXT': '(\d+m:\d+s)' }]},
-                            'list_all_quality': dict([('find', [{'tag': ['div'], 'class': ['qualtiy']}]),
-                                                      ('get_text', [{'tag': '', 'strip': True}])]),
+                            # 'list_all_quality': {'find': [{'tag': ['div'], 'class': ['hdpng'],  '@ARG': 'class',  '@TEXT': '(hd)' }]}
                             'section_cantidad': dict([('find', [{'tag': ['div'], 'class': ['thumb-item']}]),
                                                       ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+)'}])])
                             },
@@ -81,9 +82,9 @@ def mainlist(item):
     itemlist.append(Item(channel=item.channel, title="Mas Favoritas" , action="list_all", url=host + "search/?sort_by=most_favourited&from_videos=1"))
     itemlist.append(Item(channel=item.channel, title="Mas Comentadas" , action="list_all", url=host + "search/?sort_by=most_commented&from_videos=1"))
     itemlist.append(Item(channel=item.channel, title="Mas Largas" , action="list_all", url=host + "search/?sort_by=duration&from_videos=1"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "channels/?sort_by=total_videos&from=1", extra="Canal"))
+    # itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "channels/?sort_by=total_videos&from=1", extra="Canal"))
     itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "models/?sort_by=total_videos&from=1", extra="PornStar"))
-    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/", extra="Categorias"))
+    itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/?sort_by=title&from=1", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     return itemlist
 
@@ -92,13 +93,11 @@ def section(item):
     logger.info()
     
     findS = finds.copy()
-    findS['url_replace'] = [['(\/(?:categories|channels|models)\/[^$]+$)', r'\1?sort_by=post_date&from=1']]
-    
-    if item.extra == 'Canal':
-        findS['controls']['cnt_tot'] = 16
-    
+    findS['url_replace'] = [['(\/(?:categories|category-name|channels|sites|models|pornstars)\/[^$]+$)', r'\1?sort_by=post_date&from=1']]
     if item.extra == 'PornStar':
         item.last_page = 9999
+    if item.extra == 'Categorias':
+        findS['controls']['cnt_tot'] = 9999
     
     return AlfaChannel.section(item, finds=findS, **kwargs)
 
@@ -106,11 +105,7 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    findS = finds.copy()
-    if item.extra == "Canal" or item.extra == "PornStar":
-        findS['controls']['cnt_tot'] = 12
-    
-    return AlfaChannel.list_all(item, finds=findS, **kwargs)
+    return AlfaChannel.list_all(item, **kwargs)
 
 
 def findvideos(item):
@@ -125,8 +120,8 @@ def play(item):
     itemlist = []
     
     soup = AlfaChannel.create_soup(item.url, **kwargs)
-    if soup.find_all('a', class_='btn', href=re.compile("/(?:pornstars|models)/[A-z0-9-]+/")):
-        pornstars = soup.find_all('a', class_='btn', href=re.compile("/(?:pornstars|models)/[A-z0-9-]+/"))
+    if soup.find_all('a', href=re.compile("/(?:pornstars|models)/[A-z0-9-]+/")):
+        pornstars = soup.find_all('a', href=re.compile("/(?:pornstars|models)/[A-z0-9-]+/"))
         
         for x, value in enumerate(pornstars):
             pornstars[x] = value.get_text(strip=True)
