@@ -1,12 +1,57 @@
 [
     {
-        "name": "Vavoo_SP",
-        "url": "https://raw.githubusercontent.com/paeznet/custom/main/00/vavoo_SP.m3u",
+        "name": "ListaCASTr",
+        "url": "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/Probando",
         "image": "",
         "logos": "",
-        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml",
+        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/refs/heads/master/guiatv.xml",
         "cache": 0,
-        "uuid": "348ee666-a64c-430d-86aa-bf4523ec00f7"
+        "uuid": "a4717201-d3ee-4474-92f5-9aa167bd56ef"
+    },
+    {
+        "name": "Eventos_Castr",
+        "url": "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/eventos.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "769089f9-b220-4fc2-85bf-58806be08acb"
+    },
+    {
+        "name": "IPFS_",
+        "url": "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_iptv.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/refs/heads/master/guiatv.xml",
+        "cache": 0,
+        "uuid": "c357ddc1-de93-40c8-a600-1461daba501e"
+    },
+    {
+        "name": "IPFS",
+        "url": "https://ipfs.io/ipns/k2k4r8oqlcjxsritt5mczkcn4mmvcmymbqw7113fz2flkrerfwfps004/data/listas/lista_fuera_iptv.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/refs/heads/master/guiatv.xml",
+        "cache": 0,
+        "uuid": "49de7469-9b70-40f3-9175-438fe660173a"
+    },
+    {
+        "name": "IPFS2",
+        "url": "https://ipfs.io/ipns/k51qzi5uqu5di462t7j4vu4akwfhvtjhy88qbupktvoacqfqe9uforjvhyi4wr/hashes_acestream.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/refs/heads/master/guiatv.xml",
+        "cache": 0,
+        "uuid": "e444f2a9-9949-4151-9b6c-80827d835d0b"
+    },
+    {
+        "name": "IPFS3",
+        "url": "https://vacaionesenelmar.xo.je/hashes_acestream.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/refs/heads/master/guiatv.xml",
+        "cache": 0,
+        "uuid": "233b1f79-06e1-4489-b660-fff417a2ae6e"
     },
     {
         "name": "TDT",
@@ -27,49 +72,58 @@
         "uuid": "8500aee2-a3c8-4a98-a3a6-aa6a025bd8e2"
     },
     {
-        "name": "ELCANO_NEW_ERA",
-        "url": "https://proxy.zeronet.dev/1H3KoazXt2gCJgeD8673eFvQYXG7cbRddU/lista-kodi.txt",
-        "image": "",
+        "name": "FreeLive SportsTV",
+        "url": "https://raw.githubusercontent.com/HelmerLuzo/FreeLiveSportsTV_HL/refs/heads/main/tv/m3u/FreeLiveSportsTV_tv.m3u",
+        "image": "https://i.postimg.cc/YCvmgvjq/freelivesports.png",
         "logos": "",
-        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml",
-        "cache": 0,
-        "uuid": "50b3951f-504a-4e5a-b269-ee467b6d4d1d"
+        "epg": "",
+        "cache": 30,
+        "uuid": "9880c4b8-9125-40d8-aa8d-3e48902ce24b"
     },
     {
-        "name": "PLUTO TV VOD",
-        "url": "https://github.com/HelmerLuzo/PlutoTV_HL/raw/main/vod/m3u/PlutoTV_vod_ES.m3u",
-        "image": "",
+        "name": "Rakuten ELmerluzo",
+        "url": "https://github.com/HelmerLuzo/RakutenTV_HL/raw/refs/heads/main/tv/m3u/RakutenTV_tv.m3u",
+        "image": "https://i.postimg.cc/Qt1tm5ZR/rakuten.png",
         "logos": "",
         "epg": "",
         "cache": 0,
-        "uuid": "b29e8716-e630-41b2-a8ce-73c6785cc332"
+        "uuid": "f140ba1b-2156-45a7-bf3c-fd200fff8dc4"
     },
     {
-        "name": "PLUTO TV HelmerLuzo",
-        "url": "https://raw.githubusercontent.com/HelmerLuzo/PlutoTV_HL/refs/heads/main/tv/m3u/PlutoTV_tv_ES.m3u",
+        "name": "Runtime",
+        "url": "https://raw.githubusercontent.com/HelmerLuzo/RuntimeTV_HL/refs/heads/main/tv/m3u/RuntimeTV_tv.m3u",
+        "image": "https://i.postimg.cc/8cqg0XdF/runtime.png",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "372ddc83-0746-4560-9440-f644455927aa"
+    },
+    {
+        "name": "SamsungTV",
+        "url": "https://raw.githubusercontent.com/HelmerLuzo/SamsungTVPlus_HL/refs/heads/main/tv/m3u/SamsungTVPlus_tv_ES.m3u",
+        "image": "https://i.postimg.cc/kg2f4Xm2/samsung.png",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/matthuisman/i.mjh.nz/refs/heads/master/SamsungTVPlus/es.xml",
+        "cache": 0,
+        "uuid": "60fde356-2928-4363-9c81-c256aa91014b"
+    },
+    {
+        "name": "RadTV",
+        "url": "https://raw.githubusercontent.com/HelmerLuzo/RadTV_HL/refs/heads/main/tv/m3u/RadTV_tv.m3u",
+        "image": "https://i.postimg.cc/bvjkhzY9/rad.png",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "5af1435d-2e92-4e27-822e-3c5dc1bde39f"
+    },
+    {
+        "name": "pluto",
+        "url": "https://gist.githubusercontent.com/verga123/4ce004bd8d70840d9ba388278684c21c/raw/78db28f0e31b2761a3057b8f803358fc08a3f9db/pluto.m3u",
         "image": "",
         "logos": "",
         "epg": "",
-        "cache": 0,
-        "uuid": "c602b0d4-c436-41c6-83ba-826d82cdc7f0"
-    },
-    {
-        "name": "PLUTO TV [DE] HelmerLuzo",
-        "url": "https://raw.githubusercontent.com/HelmerLuzo/PlutoTV_HL/refs/heads/main/tv/m3u/PlutoTV_tv_DE.m3u",
-        "image": "",
-        "logos": "",
-        "epg": "",
-        "cache": 0,
-        "uuid": "34b12400-8f24-43e7-af90-79c37f5ba816"
-    },
-    {
-        "name": "CANELA TV HelmerLuzo",
-        "url": "https://raw.githubusercontent.com/HelmerLuzo/CanelaTV_HL/refs/heads/main/tv/m3u/CanelaTV_tv.m3u",
-        "image": "https://i.postimg.cc/cHd0nMBB/canela.png",
-        "logos": "",
-        "epg": "",
-        "cache": 0,
-        "uuid": "34b12400-8f24-43e7-af90-79c37f5ba816"
+        "cache": 10,
+        "uuid": "fefa9e73-7f43-4615-9483-d04f5550b7f3"
     },
     {
         "name": "Free-TV",
@@ -90,44 +144,8 @@
         "uuid": "fbb51ad8-adec-46d6-be3d-1a925010bbb0"
     },
     {
-        "name": "iptv-org_EU",
-        "url": "https://iptv-org.github.io/iptv/regions/eur.m3u",
-        "image": "",
-        "logos": "",
-        "epg": "",
-        "cache": 0,
-        "uuid": "7778b128-02cd-4ff0-9a98-78a6d413b003"
-    },
-    {
-        "name": "iptv-org",
-        "url": "https://iptv-org.github.io/iptv/index.m3u",
-        "image": "",
-        "logos": "",
-        "epg": "",
-        "cache": 0,
-        "uuid": "d3917d9c-6356-487a-9271-de42ad49429b"
-    },
-    {
-        "name": "Fluxus",
-        "url": "https://bit.ly/FTV-ESP",
-        "image": "",
-        "logos": "",
-        "epg": "",
-        "cache": 0,
-        "uuid": "ba666d48-60fd-49fe-9cb0-9aba34dac72b"
-    },
-    {
-        "name": "XXX",
-        "url": "https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/iPTV-FREE-LIST/master/iPTV-Free-List_XXX.m3u",
-        "image": "",
-        "logos": "",
-        "epg": "",
-        "cache": 0,
-        "uuid": "747dc284-045f-410a-aa53-a72d9ea03e7a"
-    },
-    {
         "name": "iptv-org_PLUTO",
-        "url": "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/es_pluto.m3u",
+        "url": "https://github.com/iptv-org/iptv/raw/refs/heads/master/streams/es_pluto.m3u",
         "image": "",
         "logos": "",
         "epg": "",
@@ -161,31 +179,166 @@
         "cache": 0,
         "uuid": "8eaf5920-1886-4b13-ae56-fabd6050cc2f"
     },
-     {
-        "name": "RAKUTEN",
-        "url": "https://raw.githubusercontent.com/joaquinito2070/rakuten-m3u/refs/heads/main/rakuten_playlist.m3u",
-        "image": "",
-        "logos": "",
-        "epg": "https://raw.githubusercontent.com/joaquinito2070/rakuten-m3u/refs/heads/main/rakuten_epg.xml",
-        "cache": 0,
-        "uuid": "770068f6-554c-416d-888e-86b84264c8c8"
-    },
     {
-        "name": "pluto",
-        "url": "https://gist.githubusercontent.com/verga123/4ce004bd8d70840d9ba388278684c21c/raw/78db28f0e31b2761a3057b8f803358fc08a3f9db/pluto.m3u",
+        "name": "iptv-org_EU",
+        "url": "https://iptv-org.github.io/iptv/regions/eur.m3u",
         "image": "",
         "logos": "",
         "epg": "",
         "cache": 0,
-        "uuid": "fefa9e73-7f43-4615-9483-d04f5550b7f3"
+        "uuid": "7778b128-02cd-4ff0-9a98-78a6d413b003"
     },
-   {
-        "name": "ALL",
-        "url": "https://koprulu1.global.ssl.fastly.net/app2/mehmetey?kategori=All.m3u",
+    {
+        "name": "iptv-org",
+        "url": "https://iptv-org.github.io/iptv/index.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "d3917d9c-6356-487a-9271-de42ad49429b"
+    },
+    {
+        "name": "Fluxus",
+        "url": "https://bit.ly/FTV-ESP",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "ba666d48-60fd-49fe-9cb0-9aba34dac72b"
+    },
+    {
+        "name": "iPTV-Free",
+        "url": "https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/IPTV/master/iPTV-Free-List_TV.m3u",
         "image": "",
         "logos": "",
         "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml",
         "cache": 0,
-        "uuid": "430e2547-21bc-43d2-9467-ed7f0a2c2516"
+        "uuid": "b8a4566f-ceb6-49a0-a64b-c13fcea0d28f"
+    },
+    {
+        "name": "XXX",
+        "url": "https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/iPTV-FREE-LIST/master/iPTV-Free-List_XXX.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "747dc284-045f-410a-aa53-a72d9ea03e7a"
+    },
+    {
+        "name": "VAVOO_pc",
+        "url": "D:/Kraken/custom/00/vavoo_to-welt-2.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml",
+        "cache": 0,
+        "uuid": "2f3c2a76-6e39-416f-b4c4-960757d9a8e0"
+    },
+    {
+        "name": "Futbol_pc",
+        "url": "D:/Kraken/custom/00/futbol.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml",
+        "cache": 0,
+        "uuid": "8f222c97-1d41-4770-943e-8bcdbc57f4bf"
+    },
+    {
+        "name": "lista-ace",
+        "url": "D:\\Kraken\\custom\\00\\lista-ace.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv.xml",
+        "cache": 0,
+        "uuid": "b1e8186a-4fe0-4323-89a0-e7f5b98796ed"
+    },
+    {
+        "name": "Pluto PC",
+        "url": "D:\\Kraken\\custom\\00\\PlutoTV_tv_ES.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "f4ab1a87-6df7-4923-bb08-1d4523cbf8f7"
+    },
+    {
+        "name": "SrRegioFlix",
+        "url": "http://srregio.net/25oc/tv2.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "5ae6feb2-0c7c-4019-baf4-60548483d1aa"
+    },
+    {
+        "name": "VAVOO_SP_pc",
+        "url": "special://profile/addon_data/plugin.video.playlistloader/vavoo_SP.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml",
+        "cache": 0,
+        "uuid": "8730ac2f-91b4-4d0e-a11f-65cb2fa2b07b"
+    },
+    {
+        "name": "Magellan",
+        "url": "D:\\Kraken\\custom\\00\\magis_SP.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "2813fab3-c4ff-4faa-ab11-7abc94a7d631"
+    },
+    {
+        "name": "Iptv",
+        "url": "http://vipboacnn.top:8080/get.php?username=VIP012301736709878300&password=f4a207584890&type=m3u_plus",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml",
+        "cache": 0,
+        "uuid": "26d0b29f-2504-4994-9973-a72a79597752"
+    },
+    {
+        "name": "Pelis_Acestream",
+        "url": "https://pelisculas.onrender.com/PelisAcestream.txt",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "df9d1270-35b2-49bf-ad89-37896980fcc1"
+    },
+    {
+        "name": "listaKODI+",
+        "url": "D:\\Kraken\\custom\\00\\lista_kodi.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "https://raw.githubusercontent.com/davidmuma/EPG_dobleM/refs/heads/master/guiatv.xml",
+        "cache": 0,
+        "uuid": "6c7a3e5b-2306-41af-833d-e8bf1ecac5d1"
+    },
+    {
+        "name": "Adolfo761",
+        "url": "https://raw.githubusercontent.com/Adolfo761/lista-iptv-permanente/refs/heads/main/tv.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "f5f05ea2-335a-418f-9f8b-4dfd2308a0c4"
+    },
+    {
+        "name": "IPTVamigo",
+        "url": "http://tv.m3uts.xyz:8080/get.php?username=m&password=m&type=m3u_plus",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "f7739479-93e2-4d1d-9412-23a97becf76b"
+    },
+    {
+        "name": "AceUNIFICADA",
+        "url": "D:\\Kraken\\custom\\00\\lista_acestream_unificada.m3u",
+        "image": "",
+        "logos": "",
+        "epg": "",
+        "cache": 0,
+        "uuid": "edc60ec7-46dd-4e84-b67a-2369bb5627b2"
     }
 ]
