@@ -57,7 +57,7 @@ def catalogo(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.find('div', class_='Title').text.strip()
-        thumbnail = elem.img['data-src']
+        thumbnail = elem.img['src']
         cantidad = elem.find('span', class_='fa-film')
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
@@ -82,7 +82,7 @@ def categorias(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.img['alt']
-        thumbnail = elem.img['data-src']
+        thumbnail = elem.img['src']
         cantidad = elem.find('span', class_='fa-film')
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
@@ -112,7 +112,7 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.img['alt']
-        thumbnail = elem.img['data-src']
+        thumbnail = elem.img['src']
         time = elem.find('span', class_='fa-clock-o').text.strip()
         quality = elem.find('strong', class_='HDPst')
         if quality:

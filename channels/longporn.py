@@ -32,7 +32,7 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-timeout = 5
+timeout = 25
 kwargs = {}
 debug = config.get_setting('debug_report', default=False)
 movie_path = ''
@@ -77,8 +77,8 @@ def mainlist(item):
     
     itemlist.append(Item(channel=item.channel, title="Nuevos" , action="list_all", url=host + "page/1/"))
     itemlist.append(Item(channel=item.channel, title="Mas Vistos" , action="list_all", url=host + "page/1/views/month/"))
-    itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "channels/page/1/count/", extra="Canal"))
-    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "pornstars/page/1/count/", extra="PornStar"))
+    itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "channels/", extra="Canal"))
+    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "pornstars/", extra="PornStar"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="section", url=host + "categories/", extra="Categorias"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search"))
     

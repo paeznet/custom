@@ -117,11 +117,14 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
+    
     soup = create_soup(item.url).article
     url = soup.find('iframe')['src']
+    
     if "video=" in url:
         url = scrapertools.find_single_match(url, "video=([^&]+)")
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.title, url=url))
+    
     if soup.find('a', class_='myButton'):
         matches = soup.find_all('a', class_='myButton')
         for elem in matches:
