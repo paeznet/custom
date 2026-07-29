@@ -21,13 +21,13 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
-# FALLAN FOTOS https://onlinetube.tv/contents/videos_screenshots/0/531/426x240/5.jpg  640x360
+# YA no FALLAN FOTOS https://onlinetube.tv/contents/videos_screenshots/0/531/426x240/5.jpg  640x360
 
 canonical = {
              'channel': 'onlinetube', 
              'host': config.get_setting("current_host", 'onlinetube', default=''), 
-             'host_alt': ["https://onlinetube.tv/"], 
-             'host_black_list': [], 
+             'host_alt': ["https://cloud.onlinetube.tv/"], 
+             'host_black_list': ["https://onlinetube.tv/", "https://huyamba.info/", "https://pornoreka.tv/"], 
              'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
              'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
@@ -79,9 +79,9 @@ AlfaChannel = DictionaryAdultChannel(host, movie_path=movie_path, tv_path=tv_pat
 def mainlist(item):
     logger.info()
     itemlist = []
-    itemlist.append(Item(channel=item.channel, title="[COLOR red]onlinetube[/COLOR]" , action="submenu", url= "https://onlinetube.tv/", chanel="onlinetube", thumbnail = "https://i.postimg.cc/QdYMpYYG/onlinetube.png"))
-    itemlist.append(Item(channel=item.channel, title="huyamba" , action="submenu", url= "https://huyamba.info/", chanel="huyamba", thumbnail = "https://i.postimg.cc/d1Ycd8Fc/logo-huyamba.png"))
-    itemlist.append(Item(channel=item.channel, title="pornoreka" , action="submenu", url= "https://pornoreka.tv/", chanel="pornoreka", thumbnail = "https://i.postimg.cc/28cYJbQn/pornoreka.png"))
+    itemlist.append(Item(channel=item.channel, title="onlinetube" , action="submenu", url= "https://cloud.onlinetube.tv/", chanel="onlinetube", thumbnail = "https://i.postimg.cc/QdYMpYYG/onlinetube.png"))
+    itemlist.append(Item(channel=item.channel, title="huyamba" , action="submenu", url= "https://claude.huyamba.mobi/", chanel="huyamba", thumbnail = "https://i.postimg.cc/d1Ycd8Fc/logo-huyamba.png"))
+    itemlist.append(Item(channel=item.channel, title="pornoreka" , action="submenu", url= "https://rt.pornoreka.cc/", chanel="pornoreka", thumbnail = "https://i.postimg.cc/28cYJbQn/pornoreka.png"))
     # itemlist.append(Item(channel=item.channel, title="" , action="submenu", url= "", chanel="", thumbnail = ""))
     return itemlist
 

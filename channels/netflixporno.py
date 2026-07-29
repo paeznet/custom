@@ -145,11 +145,13 @@ def findvideos(item):
             pornstars[x] = value.text.strip()
         pornstar = ' & '.join(pornstars)
         pornstar = "[COLOR cyan]%s[/COLOR] " % pornstar
-        if len(pornstars) <= 2:
+        
+        if len(pornstars) <= 3:
             lista = item.contentTitle.split()
-            lista.insert (0, pornstar)
             if "[COLOR yellow]" in item.contentTitle:
                 lista.insert (3, pornstar)
+            else:
+                lista.insert (0, pornstar)
             item.contentTitle = ' '.join(lista)
             item.plot=pornstar
         else:
