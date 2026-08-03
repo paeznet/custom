@@ -25,6 +25,18 @@ itemlist.append(Item(channel=item.channel, title='xupalace', action='findvideos'
 
 
 
+#########################################################################################################
+Kool.to
+
+PARA LA m3u
+post={"language":"de","region":"DE","catalogId":"iptv","id":"","adult":false,"search":"","sort":"trending-region","filter":{"group":"Spain"},"cursor":null}
+
+PARA PLAY
+https://www.kool.to/mediahubmx-resolve.json
+post = {"language":"de","region":"DE","url":"https://kool.to/kool-iptv/play/450666896020c76abd3b4"}
+
+#########################################################################################################
+
 %appdata%\kodi\addons
 special://profile/addon_data/plugin.video.alfa
 
@@ -284,6 +296,12 @@ amigosporn	list_all_matches
    		   except Exception:
         		 logger.error(traceback.format_exc())
 
+-fakxxx		list_all_matches
+			next_page =  soup.find('div', class_='load-more').a['data-max-queries']
+    			AlfaChannel.last_page = int(next_page)
+
+	
+
 		
 
 ############################################
@@ -492,7 +510,14 @@ OUT				fapmeifyoucan    ('get_text', [{'tag': '', 'strip': True, '@TEXT': '(\d+ 
 						 ('get_text', [{'tag': '', 'strip': True, '@TEXT': '([A-z ]+)\d+'}])])  categorias sin cantidad
 
 
+-fakxxx		section 
+			findS['url_replace'] = [['($)', r'\1?sort_by=post_date_and_popularity&from=1']]  ### https://fak.xxx/big-boobs/?sort_by=post_date_and_popularity&from=1
+		list_all_matches
+			next_page =  soup.find('div', class_='load-more').a['data-max-queries']
+    			AlfaChannel.last_page = int(next_page)
+
 fetishshrine
+
 -flyflv		Cookie		kwargs['headers'] = {'Referer': host, "Cookie": "contentNiche=%s" % item.orientation}
 		'next_page_rgx': [['\/\d+$', '/%s'], ['\/\d+\?', '/%s?']]  
 		last_page     @ARG': 'href', '@TEXT': '(?:\/|=)(\d+)(?:\?|$)'}])]),    href="/movies/models/1915/Ava_Addams/2">

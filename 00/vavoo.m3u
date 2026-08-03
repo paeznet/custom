@@ -1,0 +1,637 @@
+#EXTM3U url-tvg="https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.xml.gz" x-tvg-url="https://epgshare01.online/epgshare01/epg_ripper_ES1.xml.gz"
+#EXTINF:-1 tvg-id="101 TV" tvg-name="101 TV" tvg-logo="" group-title="Spain",101 TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F30427342977714a336476e&channel_id=30427342977714a336476e
+#EXTINF:-1 tvg-id="13 REALITIES" tvg-name="13 REALITIES" tvg-logo="" group-title="Spain",13 REALITIES |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4213738396ff1e7ea05605&channel_id=4213738396ff1e7ea05605
+#EXTINF:-1 tvg-id="24 HORAS" tvg-name="24 HORAS" tvg-logo="" group-title="Spain",24 HORAS |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1537807715bb14b1119d7f&channel_id=1537807715bb14b1119d7f
+#EXTINF:-1 tvg-id="324.es" tvg-name="324" tvg-logo="" group-title="Spain",324 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F26401918476c4f2f145afd&channel_id=26401918476c4f2f145afd
+#EXTINF:-1 tvg-id="7 STORIA" tvg-name="7 STORIA" tvg-logo="" group-title="Spain",7 STORIA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F28506621077b97f7beb414&channel_id=28506621077b97f7beb414
+#EXTINF:-1 tvg-id="7 TELEVALENCIA" tvg-name="7 TELEVALENCIA" tvg-logo="" group-title="Spain",7 TELEVALENCIA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2801370243ff248be3848a&channel_id=2801370243ff248be3848a
+#EXTINF:-1 tvg-id="7 TV MURCIA" tvg-name="7 TV MURCIA" tvg-logo="" group-title="Spain",7 TV MURCIA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3521839803b53617ccdfb1&channel_id=3521839803b53617ccdfb1
+#EXTINF:-1 tvg-id="8 LA MARINA TV" tvg-name="8 LA MARINA TV" tvg-logo="" group-title="Spain",8 LA MARINA TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2533082131688fba229338&channel_id=2533082131688fba229338
+#EXTINF:-1 tvg-id="À.Punt.es" tvg-name="A PUNT" tvg-logo="" group-title="Spain",A PUNT |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F25046287401ccfe8693a98&channel_id=25046287401ccfe8693a98
+#EXTINF:-1 tvg-id="A&E" tvg-name="A&E" tvg-logo="" group-title="Spain",A&E |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F31266185190b590c59ad07&channel_id=31266185190b590c59ad07
+#EXTINF:-1 tvg-id="A3 SERIES" tvg-name="A3 SERIES" tvg-logo="" group-title="Spain",A3 SERIES HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3340892937b91982e8e0e6&channel_id=3340892937b91982e8e0e6
+#EXTINF:-1 tvg-id="ACTIVA TV" tvg-name="ACTIVA TV" tvg-logo="" group-title="Spain",ACTIVA TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F389286783383ae5401d2bc&channel_id=389286783383ae5401d2bc
+#EXTINF:-1 tvg-id="ADORAM TV" tvg-name="ADORAM TV" tvg-logo="" group-title="Spain",ADORAM TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1359452177abc2f33bee9d&channel_id=1359452177abc2f33bee9d
+#EXTINF:-1 tvg-id="AGUACATE TV" tvg-name="AGUACATE TV" tvg-logo="" group-title="Spain",AGUACATE TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3700606099486c8ed376f8&channel_id=3700606099486c8ed376f8
+#EXTINF:-1 tvg-id="AHORA TV" tvg-name="AHORA TV" tvg-logo="" group-title="Spain",AHORA TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3321128121e477b4b6febd&channel_id=3321128121e477b4b6febd
+#EXTINF:-1 tvg-id="ALACANTI TV" tvg-name="ALACANTI TV" tvg-logo="" group-title="Spain",ALACANTI TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4125579950be83dd7d7af1&channel_id=4125579950be83dd7d7af1
+#EXTINF:-1 tvg-id="ALCARRIA TV" tvg-name="ALCARRIA TV" tvg-logo="" group-title="Spain",ALCARRIA TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F42517166775039fabcd059&channel_id=42517166775039fabcd059
+#EXTINF:-1 tvg-id="AMC.es" tvg-name="AMC" tvg-logo="" group-title="Spain",AMC |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1462723502eb7d44fa7c33&channel_id=1462723502eb7d44fa7c33
+#EXTINF:-1 tvg-id="AMC.Break.es" tvg-name="AMC BREAK" tvg-logo="" group-title="Spain",AMC BREAK |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F31370675136ee6b411b4fd&channel_id=31370675136ee6b411b4fd
+#EXTINF:-1 tvg-id="AMC.es" tvg-name="AMC" tvg-logo="" group-title="Spain",AMC HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F19406423954119ca79175e&channel_id=19406423954119ca79175e
+#EXTINF:-1 tvg-id="AMC LIVING" tvg-name="AMC LIVING" tvg-logo="" group-title="Spain",AMC LIVING |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F322789397360c40b23a41e&channel_id=322789397360c40b23a41e
+#EXTINF:-1 tvg-id="Antena.3.es" tvg-name="ANTENA 3" tvg-logo="" group-title="Spain",ANTENA 3 HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F22554808335c5e6f02fc4d&channel_id=22554808335c5e6f02fc4d
+#EXTINF:-1 tvg-id="Antena.3.Internacional.es" tvg-name="ANTENA 3 INTERNACIONAL" tvg-logo="" group-title="Spain",ANTENA 3 INTERNACIONAL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F882093831817749b80d0c&channel_id=882093831817749b80d0c
+#EXTINF:-1 tvg-id="ARAGON" tvg-name="ARAGON" tvg-logo="" group-title="Spain",ARAGON |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1532168948353c071c4bff&channel_id=1532168948353c071c4bff
+#EXTINF:-1 tvg-id="ARAGON TV INTERNACIONAL" tvg-name="ARAGON TV INTERNACIONAL" tvg-logo="" group-title="Spain",ARAGON TV INTERNACIONAL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F5213934554c04643cc283&channel_id=5213934554c04643cc283
+#EXTINF:-1 tvg-id="ARTEQUATRE" tvg-name="ARTEQUATRE" tvg-logo="" group-title="Spain",ARTEQUATRE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F39608900345b4ca766f8fa&channel_id=39608900345b4ca766f8fa
+#EXTINF:-1 tvg-id="Atreseries.es" tvg-name="ATRESERIES" tvg-logo="" group-title="Spain",ATRESERIES (A3 SERIES) |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F13588490395982d59d1ecf&channel_id=13588490395982d59d1ecf
+#EXTINF:-1 tvg-id="AXN HD" tvg-name="AXN" tvg-logo="" group-title="Spain",AXN |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F423861970379029b603758&channel_id=423861970379029b603758
+#EXTINF:-1 tvg-id="AXN HD" tvg-name="AXN" tvg-logo="" group-title="Spain",AXN HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F251250868580646fef76e&channel_id=251250868580646fef76e
+#EXTINF:-1 tvg-id="AXN Movies HD" tvg-name="AXN MOVIES" tvg-logo="" group-title="Spain",AXN MOVIES |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F249331911195b74dec666d&channel_id=249331911195b74dec666d
+#EXTINF:-1 tvg-id="AXN WHITE" tvg-name="AXN WHITE" tvg-logo="" group-title="Spain",AXN WHITE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F331267377859f1e4f84ee1&channel_id=331267377859f1e4f84ee1
+#EXTINF:-1 tvg-id="AXN WHITE" tvg-name="AXN WHITE" tvg-logo="" group-title="Spain",AXN WHITE HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F30622564532ad20c4ace46&channel_id=30622564532ad20c4ace46
+#EXTINF:-1 tvg-id="BARCA TV" tvg-name="BARCA TV" tvg-logo="" group-title="Spain",BARCA TV (BACKUP) |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F109705859483b0059720f8&channel_id=109705859483b0059720f8
+#EXTINF:-1 tvg-id="BARCA TV" tvg-name="BARCA TV" tvg-logo="" group-title="Spain",BARCA TV |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F197928095057a6c8532bd9&channel_id=197928095057a6c8532bd9
+#EXTINF:-1 tvg-id="BARCA TV" tvg-name="BARCA TV" tvg-logo="" group-title="Spain",BARCA TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2697778342342d24f96dae&channel_id=2697778342342d24f96dae
+#EXTINF:-1 tvg-id="BBC.Top.Gear.es" tvg-name="BBC TOP GEAR" tvg-logo="" group-title="Spain",BBC TOP GEAR |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F63505688768da316d284&channel_id=63505688768da316d284
+#EXTINF:-1 tvg-id="Be.Mad.es" tvg-name="BE MAD" tvg-logo="" group-title="Spain",BE MAD HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2840476606b41aec262c69&channel_id=2840476606b41aec262c69
+#EXTINF:-1 tvg-id="BEIN SPORTS LA LIGA" tvg-name="BEIN SPORTS LA LIGA" tvg-logo="" group-title="Spain",BEIN SPORTS LA LIGA |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F39393904736a483649fd05&channel_id=39393904736a483649fd05
+#EXTINF:-1 tvg-id="BEIN SPORTS N" tvg-name="BEIN SPORTS N" tvg-logo="" group-title="Spain",BEIN SPORTS N |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F581292525d108260172d4&channel_id=581292525d108260172d4
+#EXTINF:-1 tvg-id="BEIN SPORTS N" tvg-name="BEIN SPORTS N" tvg-logo="" group-title="Spain",BEIN SPORTS N |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3580225131eb04c1dd136c&channel_id=3580225131eb04c1dd136c
+#EXTINF:-1 tvg-id="BEIN SPORTS XTRA Ñ" tvg-name="BEIN SPORTS XTRA Ñ" tvg-logo="" group-title="Spain",BEIN SPORTS XTRA Ñ |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F97982465745799b417383&channel_id=97982465745799b417383
+#EXTINF:-1 tvg-id="BLAZE" tvg-name="BLAZE" tvg-logo="" group-title="Spain",BLAZE |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F20476352785eeb76b4481e&channel_id=20476352785eeb76b4481e
+#EXTINF:-1 tvg-id="BLAZE" tvg-name="BLAZE" tvg-logo="" group-title="Spain",BLAZE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3009101585a77b976473f4&channel_id=3009101585a77b976473f4
+#EXTINF:-1 tvg-id="BLOOMBERG TV EMEA LIVE EVENT" tvg-name="BLOOMBERG TV EMEA LIVE EVENT" tvg-logo="" group-title="Spain",BLOOMBERG TV EMEA LIVE EVENT |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3037841209d7b9427231d2&channel_id=3037841209d7b9427231d2
+#EXTINF:-1 tvg-id="BLOOMBERG TV EUROPE" tvg-name="BLOOMBERG TV EUROPE" tvg-logo="" group-title="Spain",BLOOMBERG TV EUROPE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F605083986466a6304c25c&channel_id=605083986466a6304c25c
+#EXTINF:-1 tvg-id="Boing.es" tvg-name="BOING" tvg-logo="" group-title="Spain",BOING |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F636171559f3474221ace6&channel_id=636171559f3474221ace6
+#EXTINF:-1 tvg-id="Boing.es" tvg-name="BOING" tvg-logo="" group-title="Spain",BOING |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F39717697203227af2cbb0c&channel_id=39717697203227af2cbb0c
+#EXTINF:-1 tvg-id="BOM.Cine.es" tvg-name="BOM CINE" tvg-logo="" group-title="Spain",BOM CINE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2566347328882c1d1ee705&channel_id=2566347328882c1d1ee705
+#EXTINF:-1 tvg-id="Bon.Dia.TV.es" tvg-name="BON DIA TV" tvg-logo="" group-title="Spain",BON DIA TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F33343241169bc557f58471&channel_id=33343241169bc557f58471
+#EXTINF:-1 tvg-id="CACAVISION" tvg-name="CACAVISION" tvg-logo="" group-title="Spain",CACAVISION |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2496355050845ac9fccaab&channel_id=2496355050845ac9fccaab
+#EXTINF:-1 tvg-id="CADENA ELITE" tvg-name="CADENA ELITE" tvg-logo="" group-title="Spain",CADENA ELITE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2235104269f4dee3748568&channel_id=2235104269f4dee3748568
+#EXTINF:-1 tvg-id="Calle.13.es" tvg-name="CALLE 13" tvg-logo="" group-title="Spain",CALLE 13 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F134365553351944f5ba03b&channel_id=134365553351944f5ba03b
+#EXTINF:-1 tvg-id="Calle.13.es" tvg-name="CALLE 13" tvg-logo="" group-title="Spain",CALLE 13 HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F290974015286944e9137d8&channel_id=290974015286944e9137d8
+#EXTINF:-1 tvg-id="CANAL 10 EMPORDA" tvg-name="CANAL 10 EMPORDA" tvg-logo="" group-title="Spain",CANAL 10 EMPORDA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1294208925424b9cb12adf&channel_id=1294208925424b9cb12adf
+#EXTINF:-1 tvg-id="Canal.24.horas.es" tvg-name="CANAL 24 HORAS" tvg-logo="" group-title="Spain",CANAL 24 HORAS |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F21230817528d9109b3cbb7&channel_id=21230817528d9109b3cbb7
+#EXTINF:-1 tvg-id="CANAL 3 BIAR" tvg-name="CANAL 3 BIAR" tvg-logo="" group-title="Spain",CANAL 3 BIAR |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F27669094236e42ccc405bb&channel_id=27669094236e42ccc405bb
+#EXTINF:-1 tvg-id="CANAL 33 MADRID" tvg-name="CANAL 33 MADRID" tvg-logo="" group-title="Spain",CANAL 33 MADRID |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F940352071baa3c418584d&channel_id=940352071baa3c418584d
+#EXTINF:-1 tvg-id="CANAL 4" tvg-name="CANAL 4" tvg-logo="" group-title="Spain",CANAL 4 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3790097768c49119fda902&channel_id=3790097768c49119fda902
+#EXTINF:-1 tvg-id="CANAL 45 TV" tvg-name="CANAL 45 TV" tvg-logo="" group-title="Spain",CANAL 45 TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F21972040814d89f559ecd0&channel_id=21972040814d89f559ecd0
+#EXTINF:-1 tvg-id="CANAL 56" tvg-name="CANAL 56" tvg-logo="" group-title="Spain",CANAL 56 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F39186880742295b9edf7ff&channel_id=39186880742295b9edf7ff
+#EXTINF:-1 tvg-id="Canal.Cocina.es" tvg-name="CANAL COCINA" tvg-logo="" group-title="Spain",CANAL COCINA |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F30955202358ef237f16d86&channel_id=30955202358ef237f16d86
+#EXTINF:-1 tvg-id="Canal.Cocina.es" tvg-name="CANAL COCINA" tvg-logo="" group-title="Spain",CANAL COCINA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F34186350359406cddebc48&channel_id=34186350359406cddebc48
+#EXTINF:-1 tvg-id="CANAL DECASA" tvg-name="CANAL DECASA" tvg-logo="" group-title="Spain",CANAL DECASA |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1137978670fa1ddcc2b9a6&channel_id=1137978670fa1ddcc2b9a6
+#EXTINF:-1 tvg-id="CANAL DIOCESANO" tvg-name="CANAL DIOCESANO" tvg-logo="" group-title="Spain",CANAL DIOCESANO |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F42175072073d7e4b48215e&channel_id=42175072073d7e4b48215e
+#EXTINF:-1 tvg-id="CANAL DONANA" tvg-name="CANAL DONANA" tvg-logo="" group-title="Spain",CANAL DONANA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F218015227690e9c770ab7e&channel_id=218015227690e9c770ab7e
+#EXTINF:-1 tvg-id="Canal.Extremadura.TV.es" tvg-name="CANAL EXTREMADURA" tvg-logo="" group-title="Spain",CANAL EXTREMADURA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3410008380150fa5e2caca&channel_id=3410008380150fa5e2caca
+#EXTINF:-1 tvg-id="CANAL HOLLYWOOD" tvg-name="CANAL HOLLYWOOD" tvg-logo="" group-title="Spain",CANAL HOLLYWOOD |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3288402534898bf32816ac&channel_id=3288402534898bf32816ac
+#EXTINF:-1 tvg-id="CANAL MALAGA" tvg-name="CANAL MALAGA" tvg-logo="" group-title="Spain",CANAL MALAGA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F349070060142ff054135f5&channel_id=349070060142ff054135f5
+#EXTINF:-1 tvg-id="CANAL ODISEA" tvg-name="CANAL ODISEA" tvg-logo="" group-title="Spain",CANAL ODISEA |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4069586432995dd0fa4ee&channel_id=4069586432995dd0fa4ee
+#EXTINF:-1 tvg-id="CANAL ODISEA" tvg-name="CANAL ODISEA" tvg-logo="" group-title="Spain",CANAL ODISEA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F17954515871eb6bcfe9570&channel_id=17954515871eb6bcfe9570
+#EXTINF:-1 tvg-id="CANAL PANDA" tvg-name="CANAL PANDA" tvg-logo="" group-title="Spain",CANAL PANDA |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3910659553af6d8d9475d4&channel_id=3910659553af6d8d9475d4
+#EXTINF:-1 tvg-id="CANAL PANDA" tvg-name="CANAL PANDA" tvg-logo="" group-title="Spain",CANAL PANDA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2717687042d726a430a0e8&channel_id=2717687042d726a430a0e8
+#EXTINF:-1 tvg-id="CANAL PARLAMENTO" tvg-name="CANAL PARLAMENTO" tvg-logo="" group-title="Spain",CANAL PARLAMENTO |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F111175015759ba7160fa08&channel_id=111175015759ba7160fa08
+#EXTINF:-1 tvg-id="CANAL SAN ROQUE" tvg-name="CANAL SAN ROQUE" tvg-logo="" group-title="Spain",CANAL SAN ROQUE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F175418742762400b0d120d&channel_id=175418742762400b0d120d
+#EXTINF:-1 tvg-id="CANAL SIERRA DE CADIZ" tvg-name="CANAL SIERRA DE CADIZ" tvg-logo="" group-title="Spain",CANAL SIERRA DE CADIZ |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F14753746109ac417fad400&channel_id=14753746109ac417fad400
+#EXTINF:-1 tvg-id="CANAL SUR A" tvg-name="CANAL SUR A" tvg-logo="" group-title="Spain",CANAL SUR A |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F460346627dcccf1f95f1f&channel_id=460346627dcccf1f95f1f
+#EXTINF:-1 tvg-id="Canal.Sur.Andalucía.es" tvg-name="CANAL SUR ANDALUCIA" tvg-logo="" group-title="Spain",CANAL SUR ANDALUCIA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F245853982394a8effc9241&channel_id=245853982394a8effc9241
+#EXTINF:-1 tvg-id="CANAL SUR ANDALUCIA 2" tvg-name="CANAL SUR ANDALUCIA 2" tvg-logo="" group-title="Spain",CANAL SUR ANDALUCIA 2 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F864327681eca4b025a787&channel_id=864327681eca4b025a787
+#EXTINF:-1 tvg-id="CANAL TARONJA ANOIA" tvg-name="CANAL TARONJA ANOIA" tvg-logo="" group-title="Spain",CANAL TARONJA ANOIA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F645787578c3a5ae8274d5&channel_id=645787578c3a5ae8274d5
+#EXTINF:-1 tvg-id="CLAN" tvg-name="CLAN" tvg-logo="" group-title="Spain",CLAN |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F312179113561a21c1563c4&channel_id=312179113561a21c1563c4
+#EXTINF:-1 tvg-id="Clan.TVE.es" tvg-name="CLAN TVE" tvg-logo="" group-title="Spain",CLAN TVE |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1995483814f20f485f1ef7&channel_id=1995483814f20f485f1ef7
+#EXTINF:-1 tvg-id="Clan.TVE.es" tvg-name="CLAN TVE" tvg-logo="" group-title="Spain",CLAN TVE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F27476009505f663b240093&channel_id=27476009505f663b240093
+#EXTINF:-1 tvg-id="CLASSICA" tvg-name="CLASSICA" tvg-logo="" group-title="Spain",CLASSICA |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2838647061e3cb54e5d7b5&channel_id=2838647061e3cb54e5d7b5
+#EXTINF:-1 tvg-id="CNN EN ESPANOL" tvg-name="CNN EN ESPANOL" tvg-logo="" group-title="Spain",CNN EN ESPANOL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2703788385506617706491&channel_id=2703788385506617706491
+#EXTINF:-1 tvg-id="COMEDIA ESPANOLA" tvg-name="COMEDIA ESPANOLA" tvg-logo="" group-title="Spain",COMEDIA ESPANOLA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3762884093f7f11149a14a&channel_id=3762884093f7f11149a14a
+#EXTINF:-1 tvg-id="Comedy.Central.HD.es" tvg-name="COMEDY CENTRAL" tvg-logo="" group-title="Spain",COMEDY CENTRAL HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1263523264f7b44699be7d&channel_id=1263523264f7b44699be7d
+#EXTINF:-1 tvg-id="COSMO.es" tvg-name="COSMO" tvg-logo="" group-title="Spain",COSMO HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F376784019590d10c525559&channel_id=376784019590d10c525559
+#EXTINF:-1 tvg-id="COSTA NOROESTE TV" tvg-name="COSTA NOROESTE TV" tvg-logo="" group-title="Spain",COSTA NOROESTE TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F17571527429a5cc20dda33&channel_id=17571527429a5cc20dda33
+#EXTINF:-1 tvg-id="CRIME & INVESTIGATION" tvg-name="CRIME & INVESTIGATION" tvg-logo="" group-title="Spain",CRIME & INVESTIGATION |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4077015271323d54cc271e&channel_id=4077015271323d54cc271e
+#EXTINF:-1 tvg-id="CRIME DISTRICT" tvg-name="CRIME DISTRICT" tvg-logo="" group-title="Spain",CRIME DISTRICT |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4175356411a8d04f4c2fa5&channel_id=4175356411a8d04f4c2fa5
+#EXTINF:-1 tvg-id="Cuatro.es" tvg-name="CUATRO" tvg-logo="" group-title="Spain",CUATRO HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4194733823b57c59ee9061&channel_id=4194733823b57c59ee9061
+#EXTINF:-1 tvg-id="CULTURA 24 TV" tvg-name="CULTURA 24 TV" tvg-logo="" group-title="Spain",CULTURA 24 TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3509056761aa0682052279&channel_id=3509056761aa0682052279
+#EXTINF:-1 tvg-id="DKISS.es" tvg-name="D KISS" tvg-logo="" group-title="Spain",D KISS |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4289152978bca47ab53b66&channel_id=4289152978bca47ab53b66
+#EXTINF:-1 tvg-id="Dark.es" tvg-name="DARK" tvg-logo="" group-title="Spain",DARK |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F385322260b9bb0afbea0e&channel_id=385322260b9bb0afbea0e
+#EXTINF:-1 tvg-id="DAZN.2.es" tvg-name="DAZN 2" tvg-logo="" group-title="Spain",DAZN 2 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3907910812fd5ef53e7713&channel_id=3907910812fd5ef53e7713
+#EXTINF:-1 tvg-id="DAZN.3.es" tvg-name="DAZN 3" tvg-logo="" group-title="Spain",DAZN 3 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3582842156764f307a86ad&channel_id=3582842156764f307a86ad
+#EXTINF:-1 tvg-id="DAZN.4.es" tvg-name="DAZN 4" tvg-logo="" group-title="Spain",DAZN 4 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F17393933406dffc880dca9&channel_id=17393933406dffc880dca9
+#EXTINF:-1 tvg-id="DAZN.F1.es" tvg-name="DAZN F1" tvg-logo="" group-title="Spain",DAZN F1 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3129220252a94732f0e206&channel_id=3129220252a94732f0e206
+#EXTINF:-1 tvg-id="DAZN LALIGA 1" tvg-name="DAZN LALIGA 1" tvg-logo="" group-title="Spain",DAZN LALIGA 1 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F159161825046e63786fe2c&channel_id=159161825046e63786fe2c
+#EXTINF:-1 tvg-id="DAZN LALIGA 1" tvg-name="DAZN LALIGA 1" tvg-logo="" group-title="Spain",DAZN LALIGA 1 FHD [] |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3325387265adae8428a856&channel_id=3325387265adae8428a856
+#EXTINF:-1 tvg-id="DAZN.LALIGA.2.es" tvg-name="DAZN LALIGA 2" tvg-logo="" group-title="Spain",DAZN LALIGA 2 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4277084428373538652e1&channel_id=4277084428373538652e1
+#EXTINF:-1 tvg-id="DBike.es" tvg-name="DBIKE" tvg-logo="" group-title="Spain",DBIKE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F78320740860acdaec29b6&channel_id=78320740860acdaec29b6
+#EXTINF:-1 tvg-id="Decasa.es" tvg-name="DECASA" tvg-logo="" group-title="Spain",DECASA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F326701577031a68a67122&channel_id=326701577031a68a67122
+#EXTINF:-1 tvg-id="DIEZ TV" tvg-name="DIEZ TV" tvg-logo="" group-title="Spain",DIEZ TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1205331668f7601013f034&channel_id=1205331668f7601013f034
+#EXTINF:-1 tvg-id="Discovery.Channel.es" tvg-name="DISCOVERY CHANNEL" tvg-logo="" group-title="Spain",DISCOVERY CHANNEL |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3547398786884418a0b1d3&channel_id=3547398786884418a0b1d3
+#EXTINF:-1 tvg-id="Disney.Channel.es" tvg-name="DISNEY CHANNEL" tvg-logo="" group-title="Spain",DISNEY CHANNEL HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F11131967580bd4da46fea9&channel_id=11131967580bd4da46fea9
+#EXTINF:-1 tvg-id="Distrito.TV.es" tvg-name="DISTRITO TV" tvg-logo="" group-title="Spain",DISTRITO TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F42571647029fc1ac3ab981&channel_id=42571647029fc1ac3ab981
+#EXTINF:-1 tvg-id="Divinity.es" tvg-name="DIVINITY" tvg-logo="" group-title="Spain",DIVINITY |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F41877863003bcbdaaf21c1&channel_id=41877863003bcbdaaf21c1
+#EXTINF:-1 tvg-id="Divinity.es" tvg-name="DIVINITY" tvg-logo="" group-title="Spain",DIVINITY |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F7492870849c39d0f916df&channel_id=7492870849c39d0f916df
+#EXTINF:-1 tvg-id="DKISS.es" tvg-name="DKISS" tvg-logo="" group-title="Spain",DKISS |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4170408528ba960c39b690&channel_id=4170408528ba960c39b690
+#EXTINF:-1 tvg-id="DMAX.es" tvg-name="DMAX" tvg-logo="" group-title="Spain",DMAX |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F19349816396a656b696fe1&channel_id=19349816396a656b696fe1
+#EXTINF:-1 tvg-id="DW ESPAÑOL" tvg-name="DW ESPAÑOL" tvg-logo="" group-title="Spain",DW ESPAÑOL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4255133325ec7fea13448e&channel_id=4255133325ec7fea13448e
+#EXTINF:-1 tvg-id="EL PINGUINO TV" tvg-name="EL PINGUINO TV" tvg-logo="" group-title="Spain",EL PINGUINO TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1710359793273e8926664d&channel_id=1710359793273e8926664d
+#EXTINF:-1 tvg-id="El.Toro.TV.es" tvg-name="EL TORO TV" tvg-logo="" group-title="Spain",EL TORO TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1390269076b41c556ee078&channel_id=1390269076b41c556ee078
+#EXTINF:-1 tvg-id="EMPORDA TV" tvg-name="EMPORDA TV" tvg-logo="" group-title="Spain",EMPORDA TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1054272251671061decfb5&channel_id=1054272251671061decfb5
+#EXTINF:-1 tvg-id="Energy.es" tvg-name="ENERGY" tvg-logo="" group-title="Spain",ENERGY |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2540924807c1918cc20846&channel_id=2540924807c1918cc20846
+#EXTINF:-1 tvg-id="Energy.es" tvg-name="ENERGY" tvg-logo="" group-title="Spain",ENERGY |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F6438883680cb6e1c20685&channel_id=6438883680cb6e1c20685
+#EXTINF:-1 tvg-id="ENFAMILIA" tvg-name="ENFAMILIA" tvg-logo="" group-title="Spain",ENFAMILIA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2411568928e77cf510d0ac&channel_id=2411568928e77cf510d0ac
+#EXTINF:-1 tvg-id="Escapa.TV.es" tvg-name="ESCAPA TV" tvg-logo="" group-title="Spain",ESCAPA TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F328264029328f544acd3ed&channel_id=328264029328f544acd3ed
+#EXTINF:-1 tvg-id="ESPERANZA TV" tvg-name="ESPERANZA TV" tvg-logo="" group-title="Spain",ESPERANZA TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1383981291c00ce29704e1&channel_id=1383981291c00ce29704e1
+#EXTINF:-1 tvg-id="ESPN 2" tvg-name="ESPN 2" tvg-logo="" group-title="Spain",ESPN 2 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F349823389ebf08d00562c&channel_id=349823389ebf08d00562c
+#EXTINF:-1 tvg-id="ESPN 3" tvg-name="ESPN 3" tvg-logo="" group-title="Spain",ESPN 3 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F7000412615d3384bedf2d&channel_id=7000412615d3384bedf2d
+#EXTINF:-1 tvg-id="ESPN DEPORTES" tvg-name="ESPN DEPORTES" tvg-logo="" group-title="Spain",ESPN DEPORTES |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F264841934484c5d582361c&channel_id=264841934484c5d582361c
+#EXTINF:-1 tvg-id="Esport.3.es" tvg-name="ESPORT 3" tvg-logo="" group-title="Spain",ESPORT 3 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3950843408135dc01c0028&channel_id=3950843408135dc01c0028
+#EXTINF:-1 tvg-id="ETB.1.es" tvg-name="ETB 1" tvg-logo="" group-title="Spain",ETB 1 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4016507507a5fd4fdc6b1c&channel_id=4016507507a5fd4fdc6b1c
+#EXTINF:-1 tvg-id="ETB.2.es" tvg-name="ETB 2" tvg-logo="" group-title="Spain",ETB 2 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2831642787d5f58e8a69f2&channel_id=2831642787d5f58e8a69f2
+#EXTINF:-1 tvg-id="ETB BASQUE" tvg-name="ETB BASQUE" tvg-logo="" group-title="Spain",ETB BASQUE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3689889997992cfb43cd9c&channel_id=3689889997992cfb43cd9c
+#EXTINF:-1 tvg-id="Eurosport.1.es" tvg-name="EUROSPORT 1" tvg-logo="" group-title="Spain",EUROSPORT 1 |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2423006885c153ac583692&channel_id=2423006885c153ac583692
+#EXTINF:-1 tvg-id="Eurosport.1.es" tvg-name="EUROSPORT 1" tvg-logo="" group-title="Spain",EUROSPORT 1 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F36327481020ceebd5aebe1&channel_id=36327481020ceebd5aebe1
+#EXTINF:-1 tvg-id="Eurosport.1.es" tvg-name="EUROSPORT 1" tvg-logo="" group-title="Spain",EUROSPORT 1 HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F136467653594de5f8eede4&channel_id=136467653594de5f8eede4
+#EXTINF:-1 tvg-id="Eurosport.2.es" tvg-name="EUROSPORT 2" tvg-logo="" group-title="Spain",EUROSPORT 2 |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3620494453f5524739ede5&channel_id=3620494453f5524739ede5
+#EXTINF:-1 tvg-id="Eurosport.2.es" tvg-name="EUROSPORT 2" tvg-logo="" group-title="Spain",EUROSPORT 2 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F267014466218cec28f8b56&channel_id=267014466218cec28f8b56
+#EXTINF:-1 tvg-id="FACTORIA DE FICCION/FDF" tvg-name="FACTORIA DE FICCION/FDF" tvg-logo="" group-title="Spain",FACTORIA DE FICCION/FDF |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4125810523d322126cbe4b&channel_id=4125810523d322126cbe4b
+#EXTINF:-1 tvg-id="FDF" tvg-name="FDF" tvg-logo="" group-title="Spain",FDF |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F26225858319c0e2029981e&channel_id=26225858319c0e2029981e
+#EXTINF:-1 tvg-id="FOX.es" tvg-name="FOX" tvg-logo="" group-title="Spain",FOX |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3362806456269011346754&channel_id=3362806456269011346754
+#EXTINF:-1 tvg-id="FOX.es" tvg-name="FOX" tvg-logo="" group-title="Spain",FOX HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2656093401b73ef9c079b9&channel_id=2656093401b73ef9c079b9
+#EXTINF:-1 tvg-id="FOX LIFE" tvg-name="FOX LIFE" tvg-logo="" group-title="Spain",FOX LIFE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1862646610e6383fbf2b63&channel_id=1862646610e6383fbf2b63
+#EXTINF:-1 tvg-id="FOX LIFE" tvg-name="FOX LIFE" tvg-logo="" group-title="Spain",FOX LIFE HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2765569410b341b9e5824d&channel_id=2765569410b341b9e5824d
+#EXTINF:-1 tvg-id="FOX SPORTS 3" tvg-name="FOX SPORTS 3" tvg-logo="" group-title="Spain",FOX SPORTS 3 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F35375538169625e33a4c65&channel_id=35375538169625e33a4c65
+#EXTINF:-1 tvg-id="France.24.es" tvg-name="FRANCE 24" tvg-logo="" group-title="Spain",FRANCE 24 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1626957676f2cc059a4754&channel_id=1626957676f2cc059a4754
+#EXTINF:-1 tvg-id="GALICIA TV" tvg-name="GALICIA TV" tvg-logo="" group-title="Spain",GALICIA TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F264286619433e5f32ac90b&channel_id=264286619433e5f32ac90b
+#EXTINF:-1 tvg-id="GOIENA EUS" tvg-name="GOIENA EUS" tvg-logo="" group-title="Spain",GOIENA EUS |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2106371951e647a64b630f&channel_id=2106371951e647a64b630f
+#EXTINF:-1 tvg-id="Gold.al" tvg-name="GOL" tvg-logo="" group-title="Spain",GOL |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F441554993b91e4ecee2b3&channel_id=441554993b91e4ecee2b3
+#EXTINF:-1 tvg-id="Gold.al" tvg-name="GOL TV" tvg-logo="" group-title="Spain",GOL TV HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F41655241236d0a23ec00f2&channel_id=41655241236d0a23ec00f2
+#EXTINF:-1 tvg-id="HAMAIKA TELEBISTA" tvg-name="HAMAIKA TELEBISTA" tvg-logo="" group-title="Spain",HAMAIKA TELEBISTA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F412087592726785444bfcb&channel_id=412087592726785444bfcb
+#EXTINF:-1 tvg-id="HBO SIGNATURE" tvg-name="HBO SIGNATURE" tvg-logo="" group-title="Spain",HBO SIGNATURE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F833992424c08fd9ebb5e9&channel_id=833992424c08fd9ebb5e9
+#EXTINF:-1 tvg-id="HISTORIA" tvg-name="HISTORIA" tvg-logo="" group-title="Spain",HISTORIA |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2697893185d2b6c491e6&channel_id=2697893185d2b6c491e6
+#EXTINF:-1 tvg-id="HISTORIA" tvg-name="HISTORIA" tvg-logo="" group-title="Spain",HISTORIA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3568177379d93f19827c96&channel_id=3568177379d93f19827c96
+#EXTINF:-1 tvg-id="¡HOLA!.TV.es" tvg-name="HOLA TV" tvg-logo="" group-title="Spain",HOLA TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3449921394507b7900a1c1&channel_id=3449921394507b7900a1c1
+#EXTINF:-1 tvg-id="Hollywood.es" tvg-name="HOLLYWOOD" tvg-logo="" group-title="Spain",HOLLYWOOD |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4079560337e61f913f34f9&channel_id=4079560337e61f913f34f9
+#EXTINF:-1 tvg-id="Hollywood.es" tvg-name="HOLLYWOOD" tvg-logo="" group-title="Spain",HOLLYWOOD HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F42052581441d820d9c8639&channel_id=42052581441d820d9c8639
+#EXTINF:-1 tvg-id="Iberalia.es" tvg-name="IBERALIA TV" tvg-logo="" group-title="Spain",IBERALIA TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F7454325782e254aaee59e&channel_id=7454325782e254aaee59e
+#EXTINF:-1 tvg-id="IBERLIA TV" tvg-name="IBERLIA TV" tvg-logo="" group-title="Spain",IBERLIA TV |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2193702924eb13749cb1cd&channel_id=2193702924eb13749cb1cd
+#EXTINF:-1 tvg-id="IBUEN VIAJE" tvg-name="IBUEN VIAJE" tvg-logo="" group-title="Spain",IBUEN VIAJE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F722176878313edb337ceb&channel_id=722176878313edb337ceb
+#EXTINF:-1 tvg-id="INTERCOMARCAL" tvg-name="INTERCOMARCAL" tvg-logo="" group-title="Spain",INTERCOMARCAL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F29485749790d4fc38b5727&channel_id=29485749790d4fc38b5727
+#EXTINF:-1 tvg-id="INTERECONOMIA" tvg-name="INTERECONOMIA" tvg-logo="" group-title="Spain",INTERECONOMIA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F848731827d6b7f1db5bc6&channel_id=848731827d6b7f1db5bc6
+#EXTINF:-1 tvg-id="INVESTIGATION DISCOVERY" tvg-name="INVESTIGATION DISCOVERY" tvg-logo="" group-title="Spain",INVESTIGATION DISCOVERY |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1502859990066b0a851ed9&channel_id=1502859990066b0a851ed9
+#EXTINF:-1 tvg-id="La.1.es" tvg-name="LA 1" tvg-logo="" group-title="Spain",LA 1 HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F267362666325f73514add4&channel_id=267362666325f73514add4
+#EXTINF:-1 tvg-id="LA LIGA TV BAR" tvg-name="LA LIGA TV BAR" tvg-logo="" group-title="Spain",LA LIGA TV BAR HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F10939478845836c9097f8&channel_id=10939478845836c9097f8
+#EXTINF:-1 tvg-id="LaLiga+.es" tvg-name="LA LIGA TV" tvg-logo="" group-title="Spain",LA LIGA TV HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3923153097478a3c11b8cf&channel_id=3923153097478a3c11b8cf
+#EXTINF:-1 tvg-id="La.Otra.es" tvg-name="LA OTRA" tvg-logo="" group-title="Spain",LA OTRA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3503480950fd566e63d05a&channel_id=3503480950fd566e63d05a
+#EXTINF:-1 tvg-id="laSexta.es" tvg-name="LA SEXTA" tvg-logo="" group-title="Spain",LA SEXTA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2660027208551822b67e87&channel_id=2660027208551822b67e87
+#EXTINF:-1 tvg-id="laSexta.es" tvg-name="LA SEXTA" tvg-logo="" group-title="Spain",LA SEXTA HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F238901671f921370fd57d&channel_id=238901671f921370fd57d
+#EXTINF:-1 tvg-id="LALIGA TV BAR" tvg-name="LALIGA TV BAR" tvg-logo="" group-title="Spain",LALIGA TV BAR |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F217802582218094d28eb0b&channel_id=217802582218094d28eb0b
+#EXTINF:-1 tvg-id="LALIGA TV BAR" tvg-name="LALIGA TV BAR" tvg-logo="" group-title="Spain",LALIGA TV BAR |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F19809072241b9bbd2ff33c&channel_id=19809072241b9bbd2ff33c
+#EXTINF:-1 tvg-id="LALIGA.TV.HYPERMOTION.es" tvg-name="LALIGA TV HYPERMOTION" tvg-logo="" group-title="Spain",LALIGA TV HYPERMOTION |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F395827747308d36736c739&channel_id=395827747308d36736c739
+#EXTINF:-1 tvg-id="LALIGA.TV.HYPERMOTION.2.es" tvg-name="LALIGA TV HYPERMOTION 2" tvg-logo="" group-title="Spain",LALIGA TV HYPERMOTION 2 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F899887126f43210d33cc2&channel_id=899887126f43210d33cc2
+#EXTINF:-1 tvg-id="LALIGA.TV.HYPERMOTION.3.es" tvg-name="LALIGA TV HYPERMOTION 3" tvg-logo="" group-title="Spain",LALIGA TV HYPERMOTION 3 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F147003814e0f21d311c35&channel_id=147003814e0f21d311c35
+#EXTINF:-1 tvg-id="LANCELOT TV" tvg-name="LANCELOT TV" tvg-logo="" group-title="Spain",LANCELOT TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F383181366951090011c1a0&channel_id=383181366951090011c1a0
+#EXTINF:-1 tvg-id="Levante.TV.es" tvg-name="LEVANTE TV" tvg-logo="" group-title="Spain",LEVANTE TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1657824733710119268d33&channel_id=1657824733710119268d33
+#EXTINF:-1 tvg-id="LIGA CAMPEONES" tvg-name="LIGA CAMPEONES" tvg-logo="" group-title="Spain",LIGA CAMPEONES HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F11982492367b57f31fd230&channel_id=11982492367b57f31fd230
+#EXTINF:-1 tvg-id="LIGA TV" tvg-name="LIGA TV" tvg-logo="" group-title="Spain",LIGA TV |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1995273516f1165fb64adb&channel_id=1995273516f1165fb64adb
+#EXTINF:-1 tvg-id="LIGA TV BAR 3" tvg-name="LIGA TV BAR 3" tvg-logo="" group-title="Spain",LIGA TV BAR 3 HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4050371970399351a72b63&channel_id=4050371970399351a72b63
+#EXTINF:-1 tvg-id="LIGA TV BAR 4" tvg-name="LIGA TV BAR 4" tvg-logo="" group-title="Spain",LIGA TV BAR 4 HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4222536859ddc0a6f8da02&channel_id=4222536859ddc0a6f8da02
+#EXTINF:-1 tvg-id="LOGOS TV" tvg-name="LOGOS TV" tvg-logo="" group-title="Spain",LOGOS TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F444752161978826045ba&channel_id=444752161978826045ba
+#EXTINF:-1 tvg-id="LOGOS TV KIDS" tvg-name="LOGOS TV KIDS" tvg-logo="" group-title="Spain",LOGOS TV KIDS |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2624836119040c40c0e16e&channel_id=2624836119040c40c0e16e
+#EXTINF:-1 tvg-id="LOGOS TV SALUD" tvg-name="LOGOS TV SALUD" tvg-logo="" group-title="Spain",LOGOS TV SALUD |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F10790294609af61cb7b027&channel_id=10790294609af61cb7b027
+#EXTINF:-1 tvg-id="M+.Acción.es" tvg-name="M.ACCION" tvg-logo="" group-title="Spain",M.ACCION HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1704900898b44a0b37d0a2&channel_id=1704900898b44a0b37d0a2
+#EXTINF:-1 tvg-id="M+.Deportes.es" tvg-name="M.DEPORTES" tvg-logo="" group-title="Spain",M.DEPORTES HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F29819154611bd3d6b4528d&channel_id=29819154611bd3d6b4528d
+#EXTINF:-1 tvg-id="M+.Estrenos.es" tvg-name="M.ESTRENOS" tvg-logo="" group-title="Spain",M.ESTRENOS HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3864398596ba50be39349b&channel_id=3864398596ba50be39349b
+#EXTINF:-1 tvg-id="M.FORMULA 1" tvg-name="M.FORMULA 1" tvg-logo="" group-title="Spain",M.FORMULA 1 HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F270716645679af3e3f53c&channel_id=270716645679af3e3f53c
+#EXTINF:-1 tvg-id="M+.Golf.es" tvg-name="M.GOLF" tvg-logo="" group-title="Spain",M.GOLF HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F428774689c6ac59a938ba&channel_id=428774689c6ac59a938ba
+#EXTINF:-1 tvg-id="M+.Liga.de.Campeones.es" tvg-name="M.LIGA DE CAMPEONES" tvg-logo="" group-title="Spain",M.LIGA DE CAMPEONES HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2726712057bebad21d4e82&channel_id=2726712057bebad21d4e82
+#EXTINF:-1 tvg-id="M+ ELLAS VAMOS" tvg-name="M+ ELLAS VAMOS" tvg-logo="" group-title="Spain",M+ ELLAS VAMOS |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3518404885b9408b8f6efd&channel_id=3518404885b9408b8f6efd
+#EXTINF:-1 tvg-id="M+.LALIGA.TV.UHD.es" tvg-name="M+ LALIGA" tvg-logo="" group-title="Spain",M+ LALIGA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F399652946561cea177e19c&channel_id=399652946561cea177e19c
+#EXTINF:-1 tvg-id="M95 MARBELLA" tvg-name="M95 MARBELLA" tvg-logo="" group-title="Spain",M95 MARBELLA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3202539477a85b962bee0e&channel_id=3202539477a85b962bee0e
+#EXTINF:-1 tvg-id="MARBELLA TV" tvg-name="MARBELLA TV" tvg-logo="" group-title="Spain",MARBELLA TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F38473146971e726d344f95&channel_id=38473146971e726d344f95
+#EXTINF:-1 tvg-id="MARÍA+VISIÓN SEVILLA" tvg-name="MARÍA+VISIÓN SEVILLA" tvg-logo="" group-title="Spain",MARÍA+VISIÓN SEVILLA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1551279190343034bff949&channel_id=1551279190343034bff949
+#EXTINF:-1 tvg-id="Mega.es" tvg-name="MEGA" tvg-logo="" group-title="Spain",MEGA |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1846141874ee1b4aaae28a&channel_id=1846141874ee1b4aaae28a
+#EXTINF:-1 tvg-id="Mega.es" tvg-name="MEGA" tvg-logo="" group-title="Spain",MEGA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3831249317ad4a28170759&channel_id=3831249317ad4a28170759
+#EXTINF:-1 tvg-id="MEZZO" tvg-name="MEZZO" tvg-logo="" group-title="Spain",MEZZO |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F155636415863339d6859f6&channel_id=155636415863339d6859f6
+#EXTINF:-1 tvg-id="Mezzo.Live.es" tvg-name="MEZZO LIVE" tvg-logo="" group-title="Spain",MEZZO LIVE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1583754502d2a59c49f1bd&channel_id=1583754502d2a59c49f1bd
+#EXTINF:-1 tvg-id="MIJAS 3.40 TV" tvg-name="MIJAS 3.40 TV" tvg-logo="" group-title="Spain",MIJAS 3.40 TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F9173758854922131ab173&channel_id=9173758854922131ab173
+#EXTINF:-1 tvg-id="MOLAHITS TV" tvg-name="MOLAHITS TV" tvg-logo="" group-title="Spain",MOLAHITS TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F328081519b524461828e7&channel_id=328081519b524461828e7
+#EXTINF:-1 tvg-id="MOVISTAR ACCI©N" tvg-name="MOVISTAR ACCI©N" tvg-logo="" group-title="Spain",MOVISTAR ACCI©N HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3697992438b7b400997d40&channel_id=3697992438b7b400997d40
+#EXTINF:-1 tvg-id="MOVISTAR COMEDIA" tvg-name="MOVISTAR COMEDIA" tvg-logo="" group-title="Spain",MOVISTAR COMEDIA HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F128504332017487cd7fd8c&channel_id=128504332017487cd7fd8c
+#EXTINF:-1 tvg-id="MOVISTAR DEPORTES" tvg-name="MOVISTAR DEPORTES" tvg-logo="" group-title="Spain",MOVISTAR DEPORTES |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F11881663437a4601565397&channel_id=11881663437a4601565397
+#EXTINF:-1 tvg-id="MOVISTAR DRAMA" tvg-name="MOVISTAR DRAMA" tvg-logo="" group-title="Spain",MOVISTAR DRAMA HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2748019555605db1858a22&channel_id=2748019555605db1858a22
+#EXTINF:-1 tvg-id="MOVISTAR ESTRENOS" tvg-name="MOVISTAR ESTRENOS" tvg-logo="" group-title="Spain",MOVISTAR ESTRENOS HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3585307980143fa5df85de&channel_id=3585307980143fa5df85de
+#EXTINF:-1 tvg-id="MOVISTAR F1" tvg-name="MOVISTAR F1" tvg-logo="" group-title="Spain",MOVISTAR F1 HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1826839470ae39e2675af9&channel_id=1826839470ae39e2675af9
+#EXTINF:-1 tvg-id="Movistar.Golf.es" tvg-name="MOVISTAR GOLF" tvg-logo="" group-title="Spain",MOVISTAR GOLF HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2703480816e3bcb8013475&channel_id=2703480816e3bcb8013475
+#EXTINF:-1 tvg-id="MOVISTAR LA LIGA" tvg-name="MOVISTAR LA LIGA" tvg-logo="" group-title="Spain",MOVISTAR LA LIGA (BACKUP) |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2652614938bca41167ad5d&channel_id=2652614938bca41167ad5d
+#EXTINF:-1 tvg-id="MOVISTAR LA LIGA" tvg-name="MOVISTAR LA LIGA" tvg-logo="" group-title="Spain",MOVISTAR LA LIGA |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2428779244f1f77edafe50&channel_id=2428779244f1f77edafe50
+#EXTINF:-1 tvg-id="MOVISTAR LA LIGA 1" tvg-name="MOVISTAR LA LIGA 1" tvg-logo="" group-title="Spain",MOVISTAR LA LIGA 1 |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F196967412176eff83fd41a&channel_id=196967412176eff83fd41a
+#EXTINF:-1 tvg-id="MOVISTAR LA LIGA 2" tvg-name="MOVISTAR LA LIGA 2" tvg-logo="" group-title="Spain",MOVISTAR LA LIGA 2 |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F8518813054ea6defb48a2&channel_id=8518813054ea6defb48a2
+#EXTINF:-1 tvg-id="Movistar.Liga.de.Campeones.es" tvg-name="MOVISTAR LIGA DE CAMPEONES" tvg-logo="" group-title="Spain",MOVISTAR LIGA DE CAMPEONES |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F12757844340eca0621c476&channel_id=12757844340eca0621c476
+#EXTINF:-1 tvg-id="MOVISTAR LIGA DE CAMPEONES 1" tvg-name="MOVISTAR LIGA DE CAMPEONES 1" tvg-logo="" group-title="Spain",MOVISTAR LIGA DE CAMPEONES 1 HD (ONLY EVENT) |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1079960250f0078e186ec0&channel_id=1079960250f0078e186ec0
+#EXTINF:-1 tvg-id="Movistar.Liga.de.Campeones.2.es" tvg-name="MOVISTAR LIGA DE CAMPEONES 2" tvg-logo="" group-title="Spain",MOVISTAR LIGA DE CAMPEONES 2 HD (ONLY EVENT) |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F9940747131227be36b810&channel_id=9940747131227be36b810
+#EXTINF:-1 tvg-id="Movistar.Liga.de.Campeones.3.es" tvg-name="MOVISTAR LIGA DE CAMPEONES 3" tvg-logo="" group-title="Spain",MOVISTAR LIGA DE CAMPEONES 3 HD (ONLY EVENT) |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F276161427957de583f0c7c&channel_id=276161427957de583f0c7c
+#EXTINF:-1 tvg-id="MOVISTAR SERIES" tvg-name="MOVISTAR SERIES" tvg-logo="" group-title="Spain",MOVISTAR SERIES HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F11388739713d9a4d2e19de&channel_id=11388739713d9a4d2e19de
+#EXTINF:-1 tvg-id="MOVISTAR SERIESMANIA" tvg-name="MOVISTAR SERIESMANIA" tvg-logo="" group-title="Spain",MOVISTAR SERIESMANIA HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F134407383110f069f40ae0&channel_id=134407383110f069f40ae0
+#EXTINF:-1 tvg-id="MTV.España.es" tvg-name="MTV ESPANA" tvg-logo="" group-title="Spain",MTV ESPANA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4068619843dd2efa5958d1&channel_id=4068619843dd2efa5958d1
+#EXTINF:-1 tvg-id="NAT GEO WILD" tvg-name="NAT GEO WILD" tvg-logo="" group-title="Spain",NAT GEO WILD HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F28325324856c0908ef3abc&channel_id=28325324856c0908ef3abc
+#EXTINF:-1 tvg-id="NatureTime.es" tvg-name="NATURE TIME" tvg-logo="" group-title="Spain",NATURE TIME |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3291147412a6639bd6f4d4&channel_id=3291147412a6639bd6f4d4
+#EXTINF:-1 tvg-id="Negocios.TV.es" tvg-name="NEGOCIOS" tvg-logo="" group-title="Spain",NEGOCIOS |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3478528126a39f03e537b4&channel_id=3478528126a39f03e537b4
+#EXTINF:-1 tvg-id="Neox.es" tvg-name="NEOX" tvg-logo="" group-title="Spain",NEOX |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1629852623b65274ef1bfe&channel_id=1629852623b65274ef1bfe
+#EXTINF:-1 tvg-id="Neox.es" tvg-name="NEOX" tvg-logo="" group-title="Spain",NEOX |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F395000469664360b48ff39&channel_id=395000469664360b48ff39
+#EXTINF:-1 tvg-id="NICK JR" tvg-name="NICK JR" tvg-logo="" group-title="Spain",NICK JR |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F7875635221875baa0c365&channel_id=7875635221875baa0c365
+#EXTINF:-1 tvg-id="Nick.Junior.es" tvg-name="NICK JUNIOR" tvg-logo="" group-title="Spain",NICK JUNIOR |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1143774621719e75fac1aa&channel_id=1143774621719e75fac1aa
+#EXTINF:-1 tvg-id="Nickelodeon.es" tvg-name="NICKELODEON" tvg-logo="" group-title="Spain",NICKELODEON |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2720994160bae35b0ec9a5&channel_id=2720994160bae35b0ec9a5
+#EXTINF:-1 tvg-id="Nickelodeon.es" tvg-name="NICKELODEON" tvg-logo="" group-title="Spain",NICKELODEON HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F615663221ff21b6649652&channel_id=615663221ff21b6649652
+#EXTINF:-1 tvg-id="NORTEVISION" tvg-name="NORTEVISION" tvg-logo="" group-title="Spain",NORTEVISION |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3216535545330d454858a3&channel_id=3216535545330d454858a3
+#EXTINF:-1 tvg-id="Nova.es" tvg-name="NOVA" tvg-logo="" group-title="Spain",NOVA |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F23569638730bde65f66e9b&channel_id=23569638730bde65f66e9b
+#EXTINF:-1 tvg-id="Nova.es" tvg-name="NOVA" tvg-logo="" group-title="Spain",NOVA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F10339538288bac72fc56e&channel_id=10339538288bac72fc56e
+#EXTINF:-1 tvg-id="ODISSEIA" tvg-name="ODISSEIA" tvg-logo="" group-title="Spain",ODISSEIA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F30557016717add0a8c50fb&channel_id=30557016717add0a8c50fb
+#EXTINF:-1 tvg-id="OIZMENDI TELEBISTA" tvg-name="OIZMENDI TELEBISTA" tvg-logo="" group-title="Spain",OIZMENDI TELEBISTA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F6197356606e6758d3dba6&channel_id=6197356606e6758d3dba6
+#EXTINF:-1 tvg-id="ONDA 15 TV" tvg-name="ONDA 15 TV" tvg-logo="" group-title="Spain",ONDA 15 TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F18256971502358be92a43d&channel_id=18256971502358be92a43d
+#EXTINF:-1 tvg-id="Onda.Algeciras.TV.es" tvg-name="ONDA ALGECIRAS TV" tvg-logo="" group-title="Spain",ONDA ALGECIRAS TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F610646599881ee4ab1ce1&channel_id=610646599881ee4ab1ce1
+#EXTINF:-1 tvg-id="OndaCádiz.es" tvg-name="ONDA CADIZ" tvg-logo="" group-title="Spain",ONDA CADIZ |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F268219544537cd2499b885&channel_id=268219544537cd2499b885
+#EXTINF:-1 tvg-id="OneToro.TV.es" tvg-name="ONETORO" tvg-logo="" group-title="Spain",ONETORO |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F14422677056645560ff12d&channel_id=14422677056645560ff12d
+#EXTINF:-1 tvg-id="PARAMOUNT CHANNEL" tvg-name="PARAMOUNT CHANNEL" tvg-logo="" group-title="Spain",PARAMOUNT CHANNEL |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F170975930798ece6be95d5&channel_id=170975930798ece6be95d5
+#EXTINF:-1 tvg-id="Paramount.Network.es" tvg-name="PARAMOUNT NETWORK" tvg-logo="" group-title="Spain",PARAMOUNT NETWORK |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F227887340178206d5facb0&channel_id=227887340178206d5facb0
+#EXTINF:-1 tvg-id="PEQUERADIO" tvg-name="PEQUERADIO" tvg-logo="" group-title="Spain",PEQUERADIO |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3872495261e5c8a5cf1cd7&channel_id=3872495261e5c8a5cf1cd7
+#EXTINF:-1 tvg-id="POP WORLD TV" tvg-name="POP WORLD TV" tvg-logo="" group-title="Spain",POP WORLD TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3157611626bd78937e2072&channel_id=3157611626bd78937e2072
+#EXTINF:-1 tvg-id="Popular.TV.Cantabria.es" tvg-name="POPULAR TV CANTABRIA" tvg-logo="" group-title="Spain",POPULAR TV CANTABRIA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F426249559a03ae14ddf65&channel_id=426249559a03ae14ddf65
+#EXTINF:-1 tvg-id="PORTAL FOXMIX" tvg-name="PORTAL FOXMIX" tvg-logo="" group-title="Spain",PORTAL FOXMIX |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F26663264304d2341ef818a&channel_id=26663264304d2341ef818a
+#EXTINF:-1 tvg-id="PUNT 3 VALL UIXO" tvg-name="PUNT 3 VALL UIXO" tvg-logo="" group-title="Spain",PUNT 3 VALL UIXO |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2865865807c56edb4978e&channel_id=2865865807c56edb4978e
+#EXTINF:-1 tvg-id="RAKUTEN TV ACTION MOVIES SPAIN" tvg-name="RAKUTEN TV ACTION MOVIES SPAIN" tvg-logo="" group-title="Spain",RAKUTEN TV ACTION MOVIES SPAIN |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2732096284a5093f37127b&channel_id=2732096284a5093f37127b
+#EXTINF:-1 tvg-id="RAKUTEN TV CINE ESPAÑOL" tvg-name="RAKUTEN TV CINE ESPAÑOL" tvg-logo="" group-title="Spain",RAKUTEN TV CINE ESPAÑOL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F23207048884dd7c5476c97&channel_id=23207048884dd7c5476c97
+#EXTINF:-1 tvg-id="RAKUTEN TV COMEDY MOVIES SPAIN" tvg-name="RAKUTEN TV COMEDY MOVIES SPAIN" tvg-logo="" group-title="Spain",RAKUTEN TV COMEDY MOVIES SPAIN |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F39791138020bbd579d9b64&channel_id=39791138020bbd579d9b64
+#EXTINF:-1 tvg-id="RAKUTEN TV CRIME SERIES SPAIN" tvg-name="RAKUTEN TV CRIME SERIES SPAIN" tvg-logo="" group-title="Spain",RAKUTEN TV CRIME SERIES SPAIN |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F275584405180fe6e47619c&channel_id=275584405180fe6e47619c
+#EXTINF:-1 tvg-id="RAKUTEN TV DRAMA MOVIES SPAIN" tvg-name="RAKUTEN TV DRAMA MOVIES SPAIN" tvg-logo="" group-title="Spain",RAKUTEN TV DRAMA MOVIES SPAIN |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4025405983db7ba23b1cad&channel_id=4025405983db7ba23b1cad
+#EXTINF:-1 tvg-id="RAKUTEN TV FAMILY MOVIES SPAIN" tvg-name="RAKUTEN TV FAMILY MOVIES SPAIN" tvg-logo="" group-title="Spain",RAKUTEN TV FAMILY MOVIES SPAIN |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F17305689314516edf19569&channel_id=17305689314516edf19569
+#EXTINF:-1 tvg-id="RAKUTEN TV ROMANCE MOVIES SPAIN" tvg-name="RAKUTEN TV ROMANCE MOVIES SPAIN" tvg-logo="" group-title="Spain",RAKUTEN TV ROMANCE MOVIES SPAIN |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2824797327f97a52ee67c6&channel_id=2824797327f97a52ee67c6
+#EXTINF:-1 tvg-id="RAKUTEN TV THRILLERS SPAIN" tvg-name="RAKUTEN TV THRILLERS SPAIN" tvg-logo="" group-title="Spain",RAKUTEN TV THRILLERS SPAIN |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3516889709ac8cfed04254&channel_id=3516889709ac8cfed04254
+#EXTINF:-1 tvg-id="RAKUTEN TV TOP MOVIES SPAIN" tvg-name="RAKUTEN TV TOP MOVIES SPAIN" tvg-logo="" group-title="Spain",RAKUTEN TV TOP MOVIES SPAIN |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F241855934d18bbd878196&channel_id=241855934d18bbd878196
+#EXTINF:-1 tvg-id="RALLY TV" tvg-name="RALLY TV" tvg-logo="" group-title="Spain",RALLY TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3847515470776ec5b2e592&channel_id=3847515470776ec5b2e592
+#EXTINF:-1 tvg-id="Real.Madrid.TV.es" tvg-name="REAL MADRID TV" tvg-logo="" group-title="Spain",REAL MADRID TV |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F392719238562214fe1e373&channel_id=392719238562214fe1e373
+#EXTINF:-1 tvg-id="Real.Madrid.TV.es" tvg-name="REAL MADRID TV" tvg-logo="" group-title="Spain",REAL MADRID TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F27550241616a5c1ae5d63c&channel_id=27550241616a5c1ae5d63c
+#EXTINF:-1 tvg-id="REAL MADRID TV 480" tvg-name="REAL MADRID TV 480" tvg-logo="" group-title="Spain",REAL MADRID TV 480 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2707218142416f17a5c9ee&channel_id=2707218142416f17a5c9ee
+#EXTINF:-1 tvg-id="Real.Madrid.TV.es" tvg-name="REAL MADRID TV" tvg-logo="" group-title="Spain",REAL MADRID TV HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F25306830510dfdfc29d2e1&channel_id=25306830510dfdfc29d2e1
+#EXTINF:-1 tvg-id="RT ESPAÑOL" tvg-name="RT ESPAÑOL" tvg-logo="" group-title="Spain",RT ESPAÑOL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F38813862191673eabbad21&channel_id=38813862191673eabbad21
+#EXTINF:-1 tvg-id="RTV VIDA" tvg-name="RTV VIDA" tvg-logo="" group-title="Spain",RTV VIDA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F278857030917bc3fa8387d&channel_id=278857030917bc3fa8387d
+#EXTINF:-1 tvg-id="RTVE" tvg-name="RTVE" tvg-logo="" group-title="Spain",RTVE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3177511590c4da64334081&channel_id=3177511590c4da64334081
+#EXTINF:-1 tvg-id="RUNTIME ACCION" tvg-name="RUNTIME ACCION" tvg-logo="" group-title="Spain",RUNTIME ACCION |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F542495391254e60ed945&channel_id=542495391254e60ed945
+#EXTINF:-1 tvg-id="RUNTIME COMEDIA" tvg-name="RUNTIME COMEDIA" tvg-logo="" group-title="Spain",RUNTIME COMEDIA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F123558181f35f9b640058&channel_id=123558181f35f9b640058
+#EXTINF:-1 tvg-id="RUNTIME CRIMEN" tvg-name="RUNTIME CRIMEN" tvg-logo="" group-title="Spain",RUNTIME CRIMEN |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F20196449136fa44e8ad130&channel_id=20196449136fa44e8ad130
+#EXTINF:-1 tvg-id="RUNTIME ESPANOL" tvg-name="RUNTIME ESPANOL" tvg-logo="" group-title="Spain",RUNTIME ESPANOL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F21646625901130231b1ca7&channel_id=21646625901130231b1ca7
+#EXTINF:-1 tvg-id="RUNTIME ROMANCE" tvg-name="RUNTIME ROMANCE" tvg-logo="" group-title="Spain",RUNTIME ROMANCE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F470062652f08adaedee8a&channel_id=470062652f08adaedee8a
+#EXTINF:-1 tvg-id="RUNTIME SERIES" tvg-name="RUNTIME SERIES" tvg-logo="" group-title="Spain",RUNTIME SERIES |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F366586316458bd88fa5010&channel_id=366586316458bd88fa5010
+#EXTINF:-1 tvg-id="RUNTIME THRILLER & TERROR" tvg-name="RUNTIME THRILLER & TERROR" tvg-logo="" group-title="Spain",RUNTIME THRILLER & TERROR |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F117689973837b37dbc948d&channel_id=117689973837b37dbc948d
+#EXTINF:-1 tvg-id="Solidaria.TV.España.es" tvg-name="SOLIDARIA TV ESPAÑA" tvg-logo="" group-title="Spain",SOLIDARIA TV ESPAÑA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F39738110709c810df1ae6d&channel_id=39738110709c810df1ae6d
+#EXTINF:-1 tvg-id="Somos.es" tvg-name="SOMOS" tvg-logo="" group-title="Spain",SOMOS |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4252300734f115c8f1a4cb&channel_id=4252300734f115c8f1a4cb
+#EXTINF:-1 tvg-id="SOPHIA TV ESPAÑOL" tvg-name="SOPHIA TV ESPAÑOL" tvg-logo="" group-title="Spain",SOPHIA TV ESPAÑOL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F371171793551c308dfb95d&channel_id=371171793551c308dfb95d
+#EXTINF:-1 tvg-id="STAR CHANNEL" tvg-name="STAR CHANNEL" tvg-logo="" group-title="Spain",STAR CHANNEL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F501658715ff4dcc0aa054&channel_id=501658715ff4dcc0aa054
+#EXTINF:-1 tvg-id="STAR LIFE" tvg-name="STAR LIFE" tvg-logo="" group-title="Spain",STAR LIFE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F737189879a778a233ff42&channel_id=737189879a778a233ff42
+#EXTINF:-1 tvg-id="STAR TVE" tvg-name="STAR TVE" tvg-logo="" group-title="Spain",STAR TVE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F404517097782529e739b73&channel_id=404517097782529e739b73
+#EXTINF:-1 tvg-id="Sundance.TV.es" tvg-name="SUNDANCE TV" tvg-logo="" group-title="Spain",SUNDANCE TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F48665012928fe455ccf39&channel_id=48665012928fe455ccf39
+#EXTINF:-1 tvg-id="SURF CHANNEL" tvg-name="SURF CHANNEL" tvg-logo="" group-title="Spain",SURF CHANNEL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F33963853526acee71c91c1&channel_id=33963853526acee71c91c1
+#EXTINF:-1 tvg-id="Syfy.es" tvg-name="SYFY" tvg-logo="" group-title="Spain",SYFY HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F31266560220783ca1725e0&channel_id=31266560220783ca1725e0
+#EXTINF:-1 tvg-id="TBN ESPANA" tvg-name="TBN ESPANA" tvg-logo="" group-title="Spain",TBN ESPANA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F613422954f1d874e339a7&channel_id=613422954f1d874e339a7
+#EXTINF:-1 tvg-id="TCM.es" tvg-name="TCM" tvg-logo="" group-title="Spain",TCM |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3891466198f25f831fdc68&channel_id=3891466198f25f831fdc68
+#EXTINF:-1 tvg-id="TCM.es" tvg-name="TCM" tvg-logo="" group-title="Spain",TCM HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1868847447d7f8c21a0b82&channel_id=1868847447d7f8c21a0b82
+#EXTINF:-1 tvg-id="Tele.Elx.es" tvg-name="TELE ELX" tvg-logo="" group-title="Spain",TELE ELX |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F7418578177b909a261988&channel_id=7418578177b909a261988
+#EXTINF:-1 tvg-id="Telemadrid.es" tvg-name="TELE MADRID" tvg-logo="" group-title="Spain",TELE MADRID |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3532897024194163c7d86&channel_id=3532897024194163c7d86
+#EXTINF:-1 tvg-id="TELE SAFOR" tvg-name="TELE SAFOR" tvg-logo="" group-title="Spain",TELE SAFOR |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F9772265436e2726099add&channel_id=9772265436e2726099add
+#EXTINF:-1 tvg-id="Telecinco.es" tvg-name="TELECINCO" tvg-logo="" group-title="Spain",TELECINCO |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1024256819daea2fc13af6&channel_id=1024256819daea2fc13af6
+#EXTINF:-1 tvg-id="Telecinco.es" tvg-name="TELECINCO" tvg-logo="" group-title="Spain",TELECINCO HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F353095972151c5a8caef3&channel_id=353095972151c5a8caef3
+#EXTINF:-1 tvg-id="Teledeporte.es" tvg-name="TELEDEPORTE" tvg-logo="" group-title="Spain",TELEDEPORTE |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F21839918657f44e072abe5&channel_id=21839918657f44e072abe5
+#EXTINF:-1 tvg-id="Teledeporte.es" tvg-name="TELEDEPORTE" tvg-logo="" group-title="Spain",TELEDEPORTE |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F340199906635bb416e2de6&channel_id=340199906635bb416e2de6
+#EXTINF:-1 tvg-id="Teledeporte.es" tvg-name="TELEDEPORTE" tvg-logo="" group-title="Spain",TELEDEPORTE HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F531598528b21a38c0a659&channel_id=531598528b21a38c0a659
+#EXTINF:-1 tvg-id="Telemadrid.es" tvg-name="TELEMADRID" tvg-logo="" group-title="Spain",TELEMADRID |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F21239300147a90df3f3e58&channel_id=21239300147a90df3f3e58
+#EXTINF:-1 tvg-id="TELEMOTRIL" tvg-name="TELEMOTRIL" tvg-logo="" group-title="Spain",TELEMOTRIL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F4203821286bd4ff8726b29&channel_id=4203821286bd4ff8726b29
+#EXTINF:-1 tvg-id="TELETICINO" tvg-name="TELETICINO" tvg-logo="" group-title="Spain",TELETICINO |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F456282400e417d270cf3c&channel_id=456282400e417d270cf3c
+#EXTINF:-1 tvg-id="TELEVIGO" tvg-name="TELEVIGO" tvg-logo="" group-title="Spain",TELEVIGO |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F967807787091c635f72d1&channel_id=967807787091c635f72d1
+#EXTINF:-1 tvg-id="TELEVISIÓN MELILLA" tvg-name="TELEVISIÓN MELILLA" tvg-logo="" group-title="Spain",TELEVISIÓN MELILLA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3719112207b132e3324c19&channel_id=3719112207b132e3324c19
+#EXTINF:-1 tvg-id="TEN.es" tvg-name="TEN" tvg-logo="" group-title="Spain",TEN |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F25373200368f3c32643d07&channel_id=25373200368f3c32643d07
+#EXTINF:-1 tvg-id="TEN.es" tvg-name="TEN" tvg-logo="" group-title="Spain",TEN |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F19804052754bf6e4646e46&channel_id=19804052754bf6e4646e46
+#EXTINF:-1 tvg-id="TNT" tvg-name="TNT" tvg-logo="" group-title="Spain",TNT HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F425928806491c7c87f9968&channel_id=425928806491c7c87f9968
+#EXTINF:-1 tvg-id="Torolé.es" tvg-name="TOROLE TV" tvg-logo="" group-title="Spain",TOROLE TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F472209056c02dc0e70caa&channel_id=472209056c02dc0e70caa
+#EXTINF:-1 tvg-id="TOROS" tvg-name="TOROS" tvg-logo="" group-title="Spain",TOROS |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1428327205816ccc89c49&channel_id=1428327205816ccc89c49
+#EXTINF:-1 tvg-id="TOROS TV" tvg-name="TOROS TV" tvg-logo="" group-title="Spain",TOROS TV |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F469813358070a15f2fc51&channel_id=469813358070a15f2fc51
+#EXTINF:-1 tvg-id="TOROS TV" tvg-name="TOROS TV" tvg-logo="" group-title="Spain",TOROS TV HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1213515147c9d9db139f0f&channel_id=1213515147c9d9db139f0f
+#EXTINF:-1 tvg-id="TRECE.es" tvg-name="TRECE TV" tvg-logo="" group-title="Spain",TRECE TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F9021465874d37cf76ec00&channel_id=9021465874d37cf76ec00
+#EXTINF:-1 tvg-id="TV GALICIA" tvg-name="TV GALICIA" tvg-logo="" group-title="Spain",TV GALICIA |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F40808883235362eed607d8&channel_id=40808883235362eed607d8
+#EXTINF:-1 tvg-id="TV3 CATALUNIA" tvg-name="TV3 CATALUNIA" tvg-logo="" group-title="Spain",TV3 CATALUNIA |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F22351797971e962c0323f1&channel_id=22351797971e962c0323f1
+#EXTINF:-1 tvg-id="TV3 CATALUNYA" tvg-name="TV3 CATALUNYA" tvg-logo="" group-title="Spain",TV3 CATALUNYA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F1898714632ce5659fa7391&channel_id=1898714632ce5659fa7391
+#EXTINF:-1 tvg-id="TVE INTERNACIONAL AMÉRICA 1" tvg-name="TVE INTERNACIONAL AMÉRICA 1" tvg-logo="" group-title="Spain",TVE INTERNACIONAL AMÉRICA 1 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F152998343336718e2ad971&channel_id=152998343336718e2ad971
+#EXTINF:-1 tvg-id="TVE INTERNACIONAL EUROPA" tvg-name="TVE INTERNACIONAL EUROPA" tvg-logo="" group-title="Spain",TVE INTERNACIONAL EUROPA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3969343348f2593aae01bf&channel_id=3969343348f2593aae01bf
+#EXTINF:-1 tvg-id="TVE LA 1 MADRID" tvg-name="TVE LA 1 MADRID" tvg-logo="" group-title="Spain",TVE LA 1 MADRID |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F202129168241c675cb45ac&channel_id=202129168241c675cb45ac
+#EXTINF:-1 tvg-id="TVE LA 2" tvg-name="TVE LA 2" tvg-logo="" group-title="Spain",TVE LA 2 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F77998664887a0528feb98&channel_id=77998664887a0528feb98
+#EXTINF:-1 tvg-id="tvG2.es" tvg-name="TVG 2" tvg-logo="" group-title="Spain",TVG 2 |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F566922996431ba3712c7&channel_id=566922996431ba3712c7
+#EXTINF:-1 tvg-id="TVG CULTURAL" tvg-name="TVG CULTURAL" tvg-logo="" group-title="Spain",TVG CULTURAL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F22648548190ae6984864ca&channel_id=22648548190ae6984864ca
+#EXTINF:-1 tvg-id="TVG INFANTIL" tvg-name="TVG INFANTIL" tvg-logo="" group-title="Spain",TVG INFANTIL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F3191428880f4275714dd90&channel_id=3191428880f4275714dd90
+#EXTINF:-1 tvg-id="TVG MUSIGAL" tvg-name="TVG MUSIGAL" tvg-logo="" group-title="Spain",TVG MUSIGAL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F133805460138b11c5a9ca3&channel_id=133805460138b11c5a9ca3
+#EXTINF:-1 tvg-id="UNIVERS TV" tvg-name="UNIVERS TV" tvg-logo="" group-title="Spain",UNIVERS TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F22409380546b891c98a8ae&channel_id=22409380546b891c98a8ae
+#EXTINF:-1 tvg-id="UROLA TELEBISTA" tvg-name="UROLA TELEBISTA" tvg-logo="" group-title="Spain",UROLA TELEBISTA |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2196564158bf0f235cb705&channel_id=2196564158bf0f235cb705
+#EXTINF:-1 tvg-id="VAMOS BAR" tvg-name="VAMOS BAR" tvg-logo="" group-title="Spain",VAMOS BAR |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F41863279712e4db219078d&channel_id=41863279712e4db219078d
+#EXTINF:-1 tvg-id="VAMOS BAR 1" tvg-name="VAMOS BAR 1" tvg-logo="" group-title="Spain",VAMOS BAR 1 HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F22769516126c4d4e1774a8&channel_id=22769516126c4d4e1774a8
+#EXTINF:-1 tvg-id="VAMOS BAR 2" tvg-name="VAMOS BAR 2" tvg-logo="" group-title="Spain",VAMOS BAR 2 HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F154698207346e8a473359&channel_id=154698207346e8a473359
+#EXTINF:-1 tvg-id="#Vamos.es" tvg-name="VAMOS" tvg-logo="" group-title="Spain",VAMOS HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F45066689669f1d56480f0&channel_id=45066689669f1d56480f0
+#EXTINF:-1 tvg-id="VIAJAR" tvg-name="VIAJAR" tvg-logo="" group-title="Spain",VIAJAR |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F42851813256a450e61eaf3&channel_id=42851813256a450e61eaf3
+#EXTINF:-1 tvg-id="VIAJAR" tvg-name="VIAJAR" tvg-logo="" group-title="Spain",VIAJAR HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F29627606263610a1add46&channel_id=29627606263610a1add46
+#EXTINF:-1 tvg-id="VIN TV" tvg-name="VIN TV" tvg-logo="" group-title="Spain",VIN TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2937559394489e12b81555&channel_id=2937559394489e12b81555
+#EXTINF:-1 tvg-id="Warner.TV.es" tvg-name="WARNER TV" tvg-logo="" group-title="Spain",WARNER TV |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F2109803559cd4de6789319&channel_id=2109803559cd4de6789319
+#EXTINF:-1 tvg-id="XTRM.es" tvg-name="XTRM" tvg-logo="" group-title="Spain",XTRM |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F22695075136ea9ea17bdb7&channel_id=22695075136ea9ea17bdb7
+#EXTINF:-1 tvg-id="XTRM FULL" tvg-name="XTRM FULL" tvg-logo="" group-title="Spain",XTRM FULL HD |D
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F42083299451e2f0c7bada2&channel_id=42083299451e2f0c7bada2
+#EXTINF:-1 tvg-id="YU-GI-OH! EN ESPANOL" tvg-name="YU-GI-OH! EN ESPANOL" tvg-logo="" group-title="Spain",YU-GI-OH! EN ESPANOL |E
+plugin://plugin.video.vav/?mode=play&channel_url=https%3A%2F%2Fhuhu.to%2Fhuhu-iptv%2Fplay%2F428877197637aef99bd46e&channel_id=428877197637aef99bd46e
