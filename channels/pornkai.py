@@ -74,7 +74,7 @@ def create_soup(url, referer=None, unescape=False):
         data = httptools.downloadpage(url, headers={'Referer': referer}).data
         data = re.sub(r"\\n|\\r|\\t|\\\"|\s{2}|-\s", "", data)
     else:
-        data = httptools.downloadpage(url).data
+        data = httptools.downloadpage(url, timeout=15).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
