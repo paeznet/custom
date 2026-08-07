@@ -12,15 +12,18 @@ from core import httptools
 from core import jsontools
 from bs4 import BeautifulSoup
 
-
+forced_proxy_opt = 'ProxySSL'
 
 canonical = {
              'channel': 'pornmd', 
              'host': config.get_setting("current_host", 'pornmd', default=''), 
              'host_alt': ["https://www.pornmd.com/"], 
              'host_black_list': [], 
-             'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             'cf_assistant': False, 'CF_stat': True, 
              'CF': False, 'CF_test': False, 'alfa_s': True
+             # 'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 

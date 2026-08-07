@@ -120,12 +120,15 @@ def lista(item):
 def findvideos(item):
     logger.info()
     itemlist = []
-    if soup.iframe.get('src', ''):
-        item.url = soup.iframe['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
+    
+    soup,data = create_soup(item.url)
+    if soup.find('div', class_='tube-video'):
+        url = soup.find('div', class_='tube-video').a['href']
+    elif soup.iframe:
+        url = soup.iframe.get('src', '')
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
-
 
 
 def play(item):
@@ -133,19 +136,23 @@ def play(item):
     itemlist = []
     
     soup,data = create_soup(item.url)
-    # pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/"))
-    # for x , value in enumerate(pornstars):
-        # pornstars[x] = value.text.strip()
-    # pornstar = ' & '.join(pornstars)
-    # pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
-    # lista = item.contentTitle.split()
-    # if "HD" in item.title:
-        # lista.insert (4, pornstar)
-    # else:
-        # lista.insert (2, pornstar)
-    # item.contentTitle = ' '.join(lista)
-    if soup.iframe.get('src', ''):
-        item.url = soup.iframe['src']
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
+    
+    pornstars = soup.find_all('span', class_='actriz-pill')
+    for x , value in enumerate(pornstars):
+        pornstars[x] = value.text.strip()
+    pornstar = ' & '.join(pornstars)
+    pornstar = "[COLOR cyan]%s" % pornstar
+    lista = item.contentTitle.split('[/COLOR]')
+    if "HD" in item.title:
+        lista.insert (1, pornstar)
+    else:
+        lista.insert (0, pornstar)
+    item.contentTitle = '[/COLOR]'.join(lista)
+    
+    if soup.find('div', class_='tube-video'):
+        url = soup.find('div', class_='tube-video').a['href']
+    elif soup.iframe:
+        url = soup.iframe.get('src', '')
+    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
