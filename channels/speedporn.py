@@ -19,7 +19,8 @@ list_quality = []
 list_quality_movies = []
 list_quality_tvshow = []
 list_servers = []
-forced_proxy_opt = 'ProxySSL'
+
+forced_proxy_opt = "" # 'ProxySSL'
 
 #  https://mangoporn.net   
 #  https://pandamovies.pw/ & https://xxxparodyhd.net & https://streamporn.pw/ & https://streamporn.li 
@@ -31,12 +32,15 @@ canonical = {
              'host': config.get_setting("current_host", 'speedporn', default=''), 
              'host_alt': ["https://speedporn.net/"], 
              'host_black_list': [], 
+             # 'set_tls': None, 'set_tls_min': False, 'retries_cloudflare': 5, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 
+             # 'cf_assistant': False, 'CF_stat': True, 
+             # 'CF': False, 'CF_test': False, 'alfa_s': True
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
-timeout = 5
+timeout = 35
 kwargs = {}
 debug = config.get_setting('debug_report', default=False)
 movie_path = ''
@@ -75,10 +79,10 @@ def mainlist(item):
     
     autoplay.init(item.channel, list_servers, list_quality)
     
-    itemlist.append(Item(channel=item.channel, title="Nuevas" , action="list_all", url=host + "category/porn-movies/page/1/?filter=latest"))
-    itemlist.append(Item(channel=item.channel, title="Mas vistas" , action="list_all", url=host + "category/porn-movies/page/1/?filter=most-viewed"))
-    itemlist.append(Item(channel=item.channel, title="Mas populares" , action="list_all", url=host + "category/porn-movies/page/1/?filter=popular"))
-    itemlist.append(Item(channel=item.channel, title="Mas larga" , action="list_all", url=host + "category/porn-movies/page/1/?filter=longest"))
+    itemlist.append(Item(channel=item.channel, title="Nuevas" , action="list_all", url=host + "category/1-porn-movies/page/1/?filter=latest"))
+    itemlist.append(Item(channel=item.channel, title="Mas vistas" , action="list_all", url=host + "category/1-porn-movies/page/1/?filter=most-viewed"))
+    itemlist.append(Item(channel=item.channel, title="Mas populares" , action="list_all", url=host + "category/1-porn-movies/page/1/?filter=popular"))
+    itemlist.append(Item(channel=item.channel, title="Mas larga" , action="list_all", url=host + "category/1-porn-movies/page/1/?filter=longest"))
     itemlist.append(Item(channel=item.channel, title="Año" , action="section", url=host + "releasing-years/" , extra="Año"))
     itemlist.append(Item(channel=item.channel, title="Canal" , action="section", url=host + "all-porn-movie-studios/" , extra="Canal"))
     itemlist.append(Item(channel=item.channel, title="Pornstars" , action="section", url=host + "pornstars/", extra="PornStar"))
@@ -139,6 +143,26 @@ def findvideos_matches(item, matches_int, langs, response, **AHkwargs):
     matches = []
     
     findS = AHkwargs.get('finds', finds)
+    
+    soup = AHkwargs.get('soup', {})
+    if soup.find_all('a', href=re.compile("/pornstar(?:s|)/[A-z0-9-]+(?:/|)")):
+        pornstars = soup.find_all('a', href=re.compile("/pornstar(?:s|)/[A-z0-9-]+(?:/|)"))
+        
+        for x, value in enumerate(pornstars):
+            pornstars[x] = value.get_text(strip=True)
+        
+        pornstar = ' & '.join(pornstars)
+        pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
+        if len(pornstars) > 3:
+            item.plot = "%s \n\n"  %pornstar
+        else:
+            lista = item.contentTitle.split('[/COLOR]')
+            pornstar = pornstar.replace('[/COLOR]', '')
+            pornstar = ' %s' %pornstar
+            lista.insert (1, pornstar)
+            item.contentTitle = '[/COLOR]'.join(lista)
+    
+    item.plot += soup.find('p', class_='markdown-h2').text if soup.find('p', class_='markdown-h2') else soup.find('p').text
     
     for elem in matches_int:
         elem_json = {}

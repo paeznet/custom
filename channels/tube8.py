@@ -60,7 +60,10 @@ def catalogo(item):
     else:
         matches = soup.find('ul', class_='popularPornstars-wrapper').find_all('a')
     for elem in matches:
-        url = elem.a['href']
+        if "channels" in item.url:
+            url = elem.a['href']
+        else:
+            url = elem['href']
         title = elem.img['alt']
         if elem.img.get('data-src', ''):
             thumbnail = elem.img['data-src']
@@ -68,7 +71,8 @@ def catalogo(item):
             thumbnail = elem.img['src']
         cantidad = elem.find('div',class_='channel-videos')
         if cantidad:
-            title = "%s (%s)" % (title,cantidad.text.replace('Videos ', '').strip())
+            cantidad = cantidad.text.replace('videos', '').strip()
+            title = "%s (%s)" % (title,cantidad)
         url = urlparse.urljoin(item.url,url)
         thumbnail = urlparse.urljoin(item.url,thumbnail)
         plot = ""
@@ -94,7 +98,8 @@ def categorias(item):
         cantidad = elem.find('span')
         thumbnail = elem.img['data-src']
         if cantidad:
-            title = "%s (%s)" % (title,cantidad.text.strip())
+            cantidad = cantidad.text.replace('videos', '').strip()
+            title = "%s (%s)" % (title,cantidad)
         url = urlparse.urljoin(item.url, url)
         url += "?orderby=nt"
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,

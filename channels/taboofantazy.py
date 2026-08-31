@@ -96,7 +96,7 @@ def create_soup(url, referer=None, unescape=False):
     if referer:
         data = httptools.downloadpage(url, headers={'Referer': referer}, canonical=canonical).data
     else:
-        data = httptools.downloadpage(url, canonical=canonical).data
+        data = httptools.downloadpage(url).data
     if unescape:
         data = scrapertools.unescape(data)
     soup = BeautifulSoup(data, "html5lib", from_encoding="utf-8")
@@ -111,7 +111,7 @@ def lista(item):
     for elem in matches:
         url = elem.a['href']
         title = elem.a['title']
-        thumbnail = elem.img['data-src']
+        thumbnail = elem.img.get('data-src', '') or elem.img.get('src', '')
         time = elem.find('span', class_='duration')
         if time:
             time = time.text.strip()
@@ -140,13 +140,17 @@ def findvideos(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find('div', class_='responsive-player')
-    if matches.find('video'):
-        url = matches.video['src']
+    if soup.find('meta', itemprop='embedURL'):
+        url = soup.find('meta', itemprop='embedURL')['content']
     else:
-        url = matches.iframe['data-wpfc-original-src']
-        if "base64" in url:
-            url = matches.iframe['data-src']
+        matches = soup.find('div', class_='responsive-player')
+        if matches.find('video'):
+            url = matches.video['src']
+        else:
+            # url = matches.iframe['data-wpfc-original-src']
+            url = matches.iframe.get('data-litespeed-src', '')or matches.iframe.get('src', '')
+            if "base64" in url:
+                url = matches.iframe['data-src']
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist
@@ -156,14 +160,17 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find('div', class_='responsive-player')
-    if matches.find('video'):
-        url = matches.video['src']
+    if soup.find('meta', itemprop='embedURL'):
+        url = soup.find('meta', itemprop='embedURL')['content']
     else:
-        # url = matches.iframe['data-wpfc-original-src']
-        url = matches.iframe['src']
-        if "base64" in url:
-            url = matches.iframe['data-src']
+        matches = soup.find('div', class_='responsive-player')
+        if matches.find('video'):
+            url = matches.video['src']
+        else:
+            # url = matches.iframe['data-wpfc-original-src']
+            url = matches.iframe.get('data-litespeed-src', '')or matches.iframe.get('src', '')
+            if "base64" in url:
+                url = matches.iframe['data-src']
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

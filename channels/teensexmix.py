@@ -27,14 +27,12 @@ forced_proxy_opt = 'ProxySSL'
 #  
 # https://vidzxxxhd.com/
 
-################     OUT 12-2023          https://familyroleplayporn.com/
-
 
 canonical = {
              'channel': 'teensexmix', 
              'host': config.get_setting("current_host", 'teensexmix', default=''), 
-             'host_alt': ["https://teensexmix.net/"], 
-             'host_black_list': ["https://teensexmix.com/"], 
+             'host_alt': ["https://teensexmix.site/"], 
+             'host_black_list': ["https://teensexmix.net/", "https://teensexmix.com/"], 
              'set_tls': True, 'set_tls_min': True, 'retries_cloudflare': 1, 'forced_proxy_ifnot_assistant': forced_proxy_opt, 'cf_assistant': False, 
              'CF': False, 'CF_test': False, 'alfa_s': True
             }

@@ -107,6 +107,15 @@ utils.kodilog(url)   @@@@Cumination:
 
 ##################################################################################
 
+
+POST API  servers: mega y playmate
+
+                            import.json
+                            post=json.dumps(post)
+
+##################################################################################
+
+
 entrepeliculasyseries CIFRADO AES
    GibberishAES(string=elem['link'], pass_=clave).result
 
