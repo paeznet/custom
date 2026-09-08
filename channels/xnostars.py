@@ -35,7 +35,7 @@ def mainlist(item):
 def search(item, texto):
     logger.info()
     texto = texto.replace(" ", "+")
-    item.url = "%sbuscar/?q=%s&Tipo=videos&sa=Buscar" % (host,texto)
+    item.url = "%sbuscar/%s" % (host,texto)
     try:
         return lista(item)
     except:
@@ -49,15 +49,20 @@ def categorias(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find('div', class_='menu-actrices').find_all('li')
+    matches = soup.find('section', class_='videos').find_all('article')
     for elem in matches:
         url = elem.a['href']
-        title = elem.a.text.strip()
-        thumbnail = ""
+        title = elem.a['title']
+        thumbnail = elem.img['data-src']
+        cantidad = elem.find('span', class_='label')
+        if cantidad:
+            title = "%s (%s)" % (title,cantidad.text.strip())
         url = urlparse.urljoin(item.url,url)
+        thumbnail = urlparse.urljoin(item.url,thumbnail)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
+        itemlist.sort(key=lambda x: x.title)
     return itemlist
 
 
@@ -66,19 +71,20 @@ def catalogo(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    matches = soup.find('section', class_='list-actrices').find_all('article')
+    matches = soup.find('section', class_='fotos').find_all('article')
     for elem in matches:
         url = elem.a['href']
-        title = elem.h1.text.strip()
+        title = elem.a['title']
         thumbnail = elem.img['data-src']
         cantidad = elem.find('span', class_='label')
         if cantidad:
             title = "%s (%s)" % (title,cantidad.text.strip())
         url = urlparse.urljoin(item.url,url)
+        thumbnail = urlparse.urljoin(item.url,thumbnail)
         plot = ""
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
-    next_page = soup.find('a', title='página siguiente')
+    next_page = soup.find('a', class_='siguiente')
     if next_page:
         next_page = next_page['href']
         next_page = urlparse.urljoin(item.url,next_page)
@@ -103,15 +109,17 @@ def lista(item):
     itemlist = []
     soup = create_soup(item.url)
     matches = soup.find('section', class_='videos').find_all('article')
+    if "/buscar/" in item.url:
+        matches = soup.find('section', class_='fotos').find_all('article')
     for elem in matches:
         url = elem.a['href']
-        title = elem.h1.text.strip()
-        thumbnail = elem.img['data-src']
+        title = elem.h3.text.strip()
+        thumbnail = elem.img['src'] if elem.img.get('src', '') else ''
+        thumbnail = elem.img['data-src'] if elem.img.get('data-src', '') else ''
         time = elem.find('span', class_='duration').text.strip()
-        pornstar = elem.img['alt']
-        pornstar = "[COLOR cyan]%s[/COLOR]" % pornstar
-        title = "[COLOR yellow]%s[/COLOR] %s %s" % (time,pornstar,title)
+        title = "[COLOR yellow]%s[/COLOR] %s" % (time,title)
         url = urlparse.urljoin(item.url,url)
+        thumbnail = urlparse.urljoin(item.url,thumbnail)
         plot = ""
         action = "play"
         if logger.info() == False:

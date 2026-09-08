@@ -149,7 +149,8 @@ def play(item):
     logger.info()
     itemlist = []
     soup = create_soup(item.url)
-    url = soup.find('div', class_='responsive-player').iframe['data-wpc-src']
+    url = soup.find('div', class_='responsive-player')
+    url = url.iframe['data-wpc-src'] if url.iframe.get('data-wpc-src') else  url.iframe['src']
 
     if "player-x.php?" in url:
         soup = create_soup(url)

@@ -1,7 +1,7 @@
 {
   "id": "xxxbule",
   "name": "xxxbule",
-  "active": true,
+  "active": false,
   "adult": true,
   "language": ["*"],
   "thumbnail": "https://www.xxxbule.com/css/logo.png",

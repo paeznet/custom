@@ -1,0 +1,15 @@
+{
+  "id": "xoxostream",
+  "name": "xoxostream",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://xoxostream.com/doc/img/util/favicon192.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

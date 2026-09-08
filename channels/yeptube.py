@@ -31,6 +31,7 @@ def mainlist(item):
     # itemlist.append(Item(channel=item.channel, title="Mejor valorado" , action="lista", url=host, ctype="rating_month", cattype = "straight"))
     # itemlist.append(Item(channel=item.channel, title="Mas comentado" , action="lista", url=host, ctype="comments_month", cattype = "straight"))
     # itemlist.append(Item(channel=item.channel, title="Mas largo" , action="lista", url=host, ctype="longest", cattype = "straight"))
+    itemlist.append(Item(channel=item.channel, title="Pornstars" , action="catalogo", url=host + "pornstars"))
     itemlist.append(Item(channel=item.channel, title="Categorias" , action="categorias", url=host + "categories"))
     itemlist.append(Item(channel=item.channel, title="Buscar", action="search", ctype="addtime", cattype = "straight"))
 
@@ -88,6 +89,35 @@ def categorias(item):
         url = urlparse.urljoin(item.url,url)
         itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
                              fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
+    return itemlist
+
+
+def catalogo(item):
+    logger.info()
+    itemlist = []
+    soup = create_soup(item.url)
+    matches = soup.find('div', class_='thumbs').find_all('div', class_='thumb-main')
+    # if "gay" in item.cattype:
+        # matches = soup.find('div', class_='cat_box_gay').find_all('a')
+    # elif "trans" in item.cattype:
+        # matches = soup.find('div', class_='cat_box_trans').find_all('a')
+    # else:
+        # matches = soup.find('div', class_='cat_box_straight').find_all('a')
+    for elem in matches:
+        url = elem.a['href']
+        title = elem.a['title']
+        thumbnail = elem.img['src']
+        cantidad = elem.find('span', class_='duration-badge').text.strip()
+        title = "%s (%s)" %(title, cantidad)
+        plot = ""
+        url = urlparse.urljoin(item.url,url)
+        itemlist.append(Item(channel=item.channel, action="lista", title=title, url=url,
+                             fanart=thumbnail, thumbnail=thumbnail , plot=plot) )
+    next_page = soup.find('span', class_='pagination-link-current')
+    if next_page and next_page.parent.find_next_sibling("li"):
+        next_page = next_page.parent.find_next_sibling("li").a['href']
+        next_page = urlparse.urljoin(item.url,next_page)
+        itemlist.append(Item(channel=item.channel, action="catalogo", title="[COLOR blue]Página Siguiente >>[/COLOR]", url=next_page) )
     return itemlist
 
 
@@ -154,6 +184,25 @@ def findvideos(item):
 def play(item):
     logger.info()
     itemlist = []
+    
+    soup = create_soup(item.url)
+    if soup.find_all('a', href=re.compile("/pornstar/[A-z0-9-]+(?:/|)")):
+        pornstars = soup.find_all('a', href=re.compile("/pornstar/[A-z0-9-]+(?:/|)"))
+        
+        for x, value in enumerate(pornstars):
+            pornstars[x] = value.get_text(strip=True)
+        
+        pornstar = ' & '.join(pornstars)
+        pornstar = "[COLOR cyan]%s " %pornstar
+        lista = item.contentTitle.split('[/COLOR]')
+        pornstar = pornstar.replace('[/COLOR]', '')
+        pornstar = ' %s' %pornstar
+        if "[COLOR red]" in item.contentTitle:
+            lista.insert (2, pornstar)
+        else:
+            lista.insert (1, pornstar)
+        item.contentTitle = '[/COLOR]'.join(lista)
+    
     itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
     itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
     return itemlist

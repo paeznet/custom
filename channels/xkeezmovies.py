@@ -21,6 +21,8 @@ list_quality_tvshow = []
 list_servers = []
 forced_proxy_opt = 'ProxySSL'
 
+#################           CF 2
+
 canonical = {
              'channel': 'xkeezmovies', 
              'host': config.get_setting("current_host", 'xkeezmovies', default=''), 

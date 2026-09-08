@@ -60,3 +60,68 @@ A pesar del esfuerzo, hay webs que no aceptan ningún tipo de proxy.  Este es el
  
 El caso de Entrepeliculasyseries es distinto.  Algunas veces pide proxy, que puede admitir unas veces ProxySSL y otras solo ProxyCF, pero ahora me parece que no lo pide. El problema que he visto es que han cambiado el formato de la web y hay que revisar los BS4 de finds por completo.
 
+
+
+
+
+                                                   
+2026-09-03 22:31:13.093 T:30796    info <general>: alfa.None [get_proxy_list_method] ProxyDirect addr: 152.53.183.107:8081
+2026-09-03 22:31:13.093 T:30796    info <general>: alfa.None [logger_disp] Alternative_web_access: False / Proxy Activo: True / PROXY Lists: ProxyDirect: 152.53.183.107:8081 / ProxyDirect Pool: ['4.149.153.123:3128', '152.26.10.157:3156', '198.144.183.139:18080', '152.53.183.107:8081', '178.236.16.4:8888', '202.28.194.139:31280', '85.193.65.88:8888', '103.162.30.156:3452', '181.39.25.196:8118', '117.236.124.166:3128', '64.112.184.210:3128', '116.202.172.187:11000', '112.216.54.226:12121', '103.237.102.191:11111', '14.251.13.20:8080', '154.12.242.0:1080', '199.7.149.96:3128'] / ProxyCF: 152.53.183.107:8081 / ProxyCF Pool: ['4.149.153.123:3128', '152.26.10.157:3156', '198.144.183.139:18080', '152.53.183.107:8081', '178.236.16.4:8888', '202.28.194.139:31280', '85.193.65.88:8888', '103.162.30.156:3452', '181.39.25.196:8118', '117.236.124.166:3128', '64.112.184.210:3128', '116.202.172.187:11000', '112.216.54.226:12121', '103.237.102.191:11111', '14.251.13.20:8080', '154.12.242.0:1080', '199.7.149.96:3128'] / ProxyWeb: hide.me / 
+
+
+Proxy Whitelist: 
+{'gnulahd.nu': 'ProxyWeb:croxyproxy.com', 
+'sololatino.net': 'ProxyWeb:croxyproxy.com', 
+'allcalidad.re': 'ProxyWeb:croxyproxy.com', 
+'veronline.tax': 'ProxyWeb:croxyproxy.com', 'wolfmax4k.com': 'ProxyWeb:croxyproxy.com', 
+'cinecalidad.vg': 'ProxyWeb:croxyproxy.com', 'homecine.to': 'ProxyWeb:croxyproxy.com', 
+
+'detodopeliculas.nu': 'ProxyWeb:croxyproxy.com', 
+
+'divxtotal.foo': 'ProxyWeb:croxyproxy.com', 'elitetorrent.com': 'ProxyWeb:croxyproxy.com', 'hdfull.love': 'ProxyWeb:croxyproxy.com', 'hdfull.sbs': 'ProxyWeb:croxyproxy.com', 'hdfull.today': 'ProxyWeb:croxyproxy.com', 
+
+'cinehdplus.biz': 'ProxyWeb:croxyproxy.com', 'dontorrent.review': 'ProxyWeb:croxyproxy.com', 'dontorrent.soccer': 'ProxyWeb:croxyproxy.com', 
+
+'camstreams.tv': 'ProxyWeb:croxyproxy.com', 
+'camwhoresbay.com': 'ProxyWeb:croxyproxy.com', 
+'familyporn.tv': 'ProxyWeb:croxyproxy.com', 
+'girlswallowed.com': 'ProxyWeb:croxyproxy.com', 
+'motherless.com': 'ProxyWeb:croxyproxy.com', 
+'vipporns.com': 'ProxyWeb:croxyproxy.com', 
+'xxxfree.watch': 'ProxyWeb:croxyproxy.com'
+
+'mejortorrent.eu': 'ProxyWeb:croxyproxy.com', 
+'peliculasflix.co': 'ProxyWeb:croxyproxy.com', } / 
+
+
+
+Bloqued Counties: {'gnulahd.nu': 'ES', 'sololatino.net': 'ES', 'allcalidad.re': 'ES', 'veronline.tax': 'ALL', 'wolfmax4k.com': 'ES', 'cinecalidad.vg': 'ES', 'homecine.to': 'ES', 'detodopeliculas.nu': 'NONE', 'divxtotal.foo': 'ES', 'animeonline.ninja': 'NONE', 'cinehdplus.biz': 'ES', 'dontorrent.soccer': 'ALL', 'elitetorrent.com': 'ES', 'extra.alfa-addon.com': 'NONE', 'eztvx.to': 'NONE', 'hdfull.love': 'ES', 'hdfull.sbs': 'NONE', 'mejortorrent.eu': 'NONE', 'peliculasflix.co': 'ES', 
+ 
+'camstreams.tv': 'ALL', 
+'camwhoresbay.com': 'ALL', 
+'familyporn.tv': 'ALL', 
+'girlswallowed.com': 'ES', 
+'motherless.com': 'ALL', 
+'thepornarea.com': 'ALL', 
+'vipporns.com': 'ALL', 
+'xxxfree.watch': 'ALL'}
+
+{'jazztel.ES': [''], 'telefonica.ES': ['', ''], '3352.ES': [''], 'vodafone.ES': ['', ''], '12430.ES': [''], '6739.ES': [''], 'orange.ES': ['', ''], '12479.ES': [''], '12715.ES': [''], '202503.ES': ['elitetorrent.com', 'grantorrent.mov', 'files.grantorrent.mov', 'mitorrent.mx']} / 
+
+Bloqued Channels: {'gnulahd.nu': 'ProxyWeb:croxyproxy.com', 'sololatino.net': 'ProxyWeb:croxyproxy.com', 'allcalidad.re': 'ProxyWeb:croxyproxy.com', 'veronline.tax': 'ProxyWeb:croxyproxy.com', 'wolfmax4k.com': 'ProxyWeb:croxyproxy.com', 'cinecalidad.vg': 'ProxyWeb:croxyproxy.com', 'homecine.to': 'ProxyWeb:croxyproxy.com', 'divxtotal.foo': 'ProxyWeb:croxyproxy.com',  'cinehdplus.biz': 'ProxyWeb:croxyproxy.com', 'dontorrent.soccer': 'ProxyWeb:croxyproxy.com', 'elitetorrent.com': 'ProxyWeb:croxyproxy.com', ' 'hdfull.love': 'ProxyWeb:croxyproxy.com',  'peliculasflix.co': 'ProxyWeb:croxyproxy.com', 
+
+'camwhoresbay.com': 'ProxyWeb:croxyproxy.com',
+'camstreams.tv': 'ProxyWeb:croxyproxy.com',
+'familyporn.tv': 'ProxyWeb:croxyproxy.com', 
+'girlswallowed.com': 'ProxyWeb:croxyproxy.com',
+'motherless.com': 'ProxyWeb:croxyproxy.com',
+'thepornarea.com': 'ON', 
+'vipporns.com': 'ProxyWeb:croxyproxy.com', 
+'xxxfree.watch': 'ProxyWeb:croxyproxy.com', 
+
+
+'grantorrent.mov': 'ON', 'files.grantorrent.mov': 'ON', 'mitorrent.mx': 'ON'} / Country: ES / Operator: AS202503 DESIS INFORMATICA, SL / ASN: 202503 / R.Code: 200 / Data:  / Web_ip: https://ipinfo.io/json
+
+
+
+
