@@ -102,7 +102,9 @@ def play(item):
     logger.info()
     itemlist = []
     
-    soup = AlfaChannel.create_soup(item.url, **kwargs)
+    # soup = AlfaChannel.create_soup(item.url, **kwargs)
+    data = AlfaChannel.httptools.downloadpage(item.url, **kwargs).data
+    soup = AlfaChannel.do_soup(data, encoding='utf-8')
     
     if soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/")):
         pornstars = soup.find_all('a', href=re.compile("/models/[A-z0-9-]+/"))
@@ -112,13 +114,13 @@ def play(item):
         pornstar = AlfaChannel.unify_custom('', item, {'play': pornstar})
         item.contentTitle = "%s %s" %(pornstar,item.contentTitle)
     
-    data = soup.find('div', class_='clear').script.string
     Hash = scrapertools.find_single_match(data, 'videoHash\s*=\s*"([^"]+)"')
     post_url = scrapertools.find_single_match(data, 'fetch\(\s*"([^"]+)"')
     post = {'videoHash': Hash}
     soup = AlfaChannel.create_soup(post_url , post=post, **kwargs)
     url = soup.get_text(strip=True)
     itemlist.append(['.m3u', url])
+    
     return itemlist
 
 

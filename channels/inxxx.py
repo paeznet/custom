@@ -35,6 +35,12 @@ canonical = {
             }
 host = canonical['host'] or canonical['host_alt'][0]
 
+# La web bloquea por User-Agent: con el de Kodi (o el de requests) las caratulas y
+# el mp4 dan 403; con uno de navegador responden 200. Medido el 2026-10-28.
+UA_NAVEGADOR = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+CABECERAS = "|User-Agent=%s&Referer=%s" % (UA_NAVEGADOR.replace(' ', '%20'), host)
+
 timeout = 40
 kwargs = {}
 debug = config.get_setting('debug_report', default=False)
@@ -98,7 +104,39 @@ def section(item):
 def list_all(item):
     logger.info()
     
-    return AlfaChannel.list_all(item, **kwargs)
+    # return AlfaChannel.list_all(item, **kwargs)
+    return AlfaChannel.list_all(item, matches_post=list_all_matches, **kwargs)
+
+
+def list_all_matches(item, matches_int, **AHkwargs):
+    logger.info()
+    matches = []
+    
+    findS = AHkwargs.get('finds', finds)
+    
+    for elem in matches_int:
+        elem_json = {}
+        
+        try:
+            elem_json['url'] = elem.get('href', '')
+            elem_json['title'] =  elem.find('div', class_='video-title').text.strip()
+            thumbnail = elem.img.get('data-thumb_url', '') or elem.img.get('data-original', '') \
+                                     or elem.img.get('data-src', '') \
+                                     or elem.img.get('src', '')
+            
+            elem_json['thumbnail'] = re.sub(r"\d+x\d+/\d+.jpg", "preview.jpg",thumbnail)
+            elem_json['thumbnail'] += CABECERAS
+            elem_json['stime'] = elem.find('div', class_='duration').text.strip()
+        
+        except:
+            logger.error(elem)
+            logger.error(traceback.format_exc())
+            continue
+        
+        if not elem_json['url']: continue
+        matches.append(elem_json.copy())
+    
+    return matches
 
 
 def findvideos(item):
@@ -129,9 +167,23 @@ def play(item):
             lista.insert (1, pornstar)
         item.contentTitle = '[/COLOR]'.join(lista)
     
-    itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
-    itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
-    
+    # El reproductor de la web es un mp4 directo (video_url) y solo lo sirve con UA
+    # de navegador; con el de Kodi responde 403. Antes se dejaba a servertools, que
+    # no reconoce ese dominio y no devolvia nada.
+    video = ''
+    for patron in (r"video_url\s*:\s*['\"]([^'\"]+)",
+                   r'<source[^>]+src="([^"]+\.mp4[^"]*)"'):
+        video = scrapertools.find_single_match(str(soup), patron)
+        if video:
+            break
+
+    if video:
+        itemlist.append(Item(channel=item.channel, action="play", title=item.contentTitle,
+                             contentTitle=item.contentTitle, url=video + CABECERAS, server="directo"))
+    else:
+        itemlist.append(Item(channel=item.channel, action="play", title= "%s", contentTitle = item.contentTitle, url=item.url))
+        itemlist = servertools.get_servers_itemlist(itemlist, lambda i: i.title % i.server.capitalize())
+
     return itemlist
 
 
