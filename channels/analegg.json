@@ -1,0 +1,15 @@
+{
+  "id": "analegg",
+  "name": "analegg",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "https://www.analegg.com/contents/peoiktfmernh/theme/logo.png",
+  "banner": "",
+  "fanart": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}
